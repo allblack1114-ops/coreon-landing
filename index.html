@@ -1,115 +1,324 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>COREON — 전기·계장·소방 EPCM 통합 솔루션</title>
-  <meta name="description" content="전기·계장·소방 통합 EPCM 솔루션 · 법정 점검 및 유지관리 · 공장/플랜트 시공 · 방재 통합 관리">
-  <link rel="icon" href="/logo.png">
-  <meta property="og:title" content="COREON — 전기·계장·소방 EPCM">
-  <meta property="og:description" content="전기·계장·소방 통합 EPCM 솔루션 · 법정 점검 및 유지관리 · 공장/플랜트 시공 · 방재 통합 관리">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://coreon-global.com/">
-  <meta property="og:image" content="https://coreon-global.com/hero.png">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>COREON │ 전기·계장·소방 EPCM</title>
+  <meta name="description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+
   <style>
-    :root{--brand:#ff7a00;--brand2:#ffe7d1;--ink:#0f172a;--ink2:#475569;--w:#fff}
+    :root{
+      --navy:#0D2E67;
+      --navy-deep:#06234f;
+      --orange:#FF6B00;
+      --ink:#102a43;
+      --muted:#6b7c93;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --radius:16px;
+      --shadow:0 8px 30px rgba(13,46,103,.08);
+    }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:#fff;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .max{max-width:1160px;margin:0 auto;padding:0 20px}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.65;
+      letter-spacing:.1px;
+    }
+    img{max-width:100%;display:block}
 
-    /* header */
-    header.nav{position:sticky;top:0;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eef2f7;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
-    .brand img{width:36px;height:36px}
-    nav.menu{display:flex;gap:18px;align-items:center}
-    .nav-cta{padding:8px 14px;border-radius:10px;border:1px solid var(--brand);background:var(--brand2);color:#b45309;font-weight:700}
+    /* Container */
+    .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
+    .section-title{
+      font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);
+      word-break:keep-all;
+    }
 
-    /* hero */
-    .hero{position:relative;color:var(--w);background:#0b111b}
-    .hero::before{content:"";position:absolute;inset:0;background:url('/hero.png') center/cover no-repeat;opacity:.35}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.15))}
-    .hero .inner{position:relative;padding:92px 0 76px}
-    h1.title{margin:0 0 12px;font-size:46px;line-height:1.16}
-    p.lead{margin:0 0 28px;color:#cbd5e1}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:var(--w);font-weight:700}
-    .btn.primary{background:var(--brand);border-color:var(--brand);color:#1f2937}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
+    /* Hero */
+    .hero{
+      position:relative;color:#fff;text-align:left;padding:28px 0 56px;overflow:hidden;
+      background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%),
+                  url("hero.png") center/cover no-repeat;
+    }
+    .hero .inner{max-width:1100px;margin:0 auto;padding:20px 18px}
+    .brand{
+      display:flex;align-items:center;gap:12px;margin-bottom:16px
+    }
+    .brand .logo-box{
+      width:52px;height:52px;border-radius:12px;background:#ffffff22;border:1px solid #ffffff40;
+      display:grid;place-items:center;backdrop-filter:blur(2px)
+    }
+    .brand .logo-box img{width:36px;height:auto}
+    .brand .name{font-weight:800;letter-spacing:.5px;font-size:20px}
 
-    /* services */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:42px 0 64px}
-    .card{border:1px solid #e2e8f0;border-radius:14px;padding:18px;background:#fff}
-    .card h3{margin:0 0 10px}
-    .card p{margin:0;color:var(--ink2)}
+    .hero h1{
+      margin:12px 0 10px;font-weight:900;letter-spacing:-.5px;
+      font-size:clamp(28px,4.8vw,48px);
+      word-break:keep-all;
+    }
+    .hero .sub{
+      color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:clamp(14px,2.5vw,18px);
+      word-break:keep-all;
+    }
 
-    footer{border-top:1px solid #e2e8f0;padding:28px 0;color:var(--ink2)}
-    @media (max-width:900px){h1.title{font-size:34px}.grid{grid-template-columns:1fr}}
+    /* Buttons */
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:14px 18px;border-radius:12px;border:1px solid #ffffff40;
+      color:#fff;background:#ffffff12;text-decoration:none;font-weight:700;
+      transition:.18s transform ease, .18s box-shadow ease, .18s background ease;
+      box-shadow:0 6px 22px rgba(0,0,0,.10);
+      min-height:48px;
+    }
+    .btn:hover{transform:translateY(-2px);background:#ffffff22}
+    .btn i{font-style:normal;opacity:.9}
+    .btn-primary{background:var(--orange);border-color:transparent;color:#111}
+    .btn-primary:hover{background:#ff7d22}
+    .btn-dark{background:#0f2147;border:1px solid #203869}
+    .btn-outline{background:transparent;border:1px solid #ffffff55}
+
+    /* Services grid */
+    .services-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px
+    }
+    @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+    /* Card */
+    .card{
+      background:var(--card);border:1px solid #e6ecf5;border-radius:var(--radius);
+      padding:20px 18px 18px;box-shadow:var(--shadow);
+      transition:.18s transform ease,.18s box-shadow ease
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
+    .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
+    .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
+    .card p{margin:0;color:#385073;word-break:keep-all}
+
+    /* Footer / Contact */
+    footer{margin-top:34px;padding:28px 18px;text-align:center;color:var(--muted)}
+    footer a{color:var(--navy);text-decoration:none}
+    .contact-grid{
+      display:grid;grid-template-columns:2fr 1fr;gap:18px
+    }
+    @media (max-width:820px){.contact-grid{grid-template-columns:1fr}}
+    .contact-box,.fast-box{
+      background:#fff;border:1px solid #e6ecf5;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px
+    }
+    .contact-item{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:18px}
+    .contact-btn{display:inline-flex;justify-content:center;width:220px}
+
+    /* Modal (PDF preview) */
+    .modal{
+      position:fixed;inset:0;display:none;background:rgba(5,10,25,.6);
+      z-index:9999;align-items:center;justify-content:center;padding:20px
+    }
+    .modal.active{display:flex}
+    .modal-box{
+      width:min(1100px,96vw);height:min(84vh,900px);background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column
+    }
+    .modal-header{
+      display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#0f2147;color:#fff
+    }
+    .modal-header .title{font-weight:700}
+    .modal-close{
+      appearance:none;border:0;background:#fff1;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer
+    }
+    .modal-body{flex:1}
+    .modal-body iframe{width:100%;height:100%;border:0}
+    .modal-footer{
+      display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid #e6ecf5
+    }
+    .link-muted{color:#405a86;text-decoration:none}
   </style>
 </head>
 <body>
 
-  <!-- 헤더 -->
-  <header class="nav">
-    <div class="max nav-inner">
-      <a class="brand" href="/"><img src="/logo.png" alt="COREON"><span>COREON</span></a>
-      <nav class="menu">
-        <a href="/faq">FAQ</a>
-        <a href="/company-profile.pdf" target="_blank" rel="noopener">회사 소개서</a>
-        <a href="/brochure.pdf" target="_blank" rel="noopener">브로슈어</a>
-        <a class="nav-cta" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98">견적 문의</a>
-      </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo-box"><img src="logo.png" alt="COREON 로고"></div>
+        <div class="name">COREON</div>
+      </div>
+
+      <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
+      <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
+
+      <div class="cta">
+        <!-- 견적 문의 (Google Forms) -->
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform" target="_blank" rel="noopener">
+          <i>📩</i> 견적 문의
+        </a>
+
+        <!-- 회사 소개서 (PDF 모달) -->
+        <button class="btn btn-outline" data-doc="profile"><i>📑</i> 회사 소개서 보기</button>
+
+        <!-- 브로슈어 (PDF 모달) -->
+        <button class="btn btn-dark" data-doc="brochure"><i>🗂️</i> 브로슈어 보기</button>
+
+        <!-- 바로 전화 -->
+        <a class="btn btn-outline" href="tel:+821090391482"><i>📞</i> 바로 전화</a>
+      </div>
     </div>
   </header>
 
-  <!-- 히어로 -->
-  <section class="hero">
-    <div class="max inner">
-      <h1 class="title">전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
-      <p class="lead">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
+  <!-- 서비스 -->
+  <main class="wrap">
+    <h2 class="section-title">서비스</h2>
 
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98">📩 견적 문의</a>
-        <a class="btn" href="/company-profile.pdf" target="_blank" rel="noopener">📄 회사 소개서 보기</a>
-        <a class="btn" href="/brochure.pdf" target="_blank" rel="noopener">📁 브로슈어 보기</a>
-        <a class="btn" href="/faq">❓ FAQ</a>
-        <!-- 번호 확정 시 주석 해제
-        <a class="btn" href="tel:+82XXXXXXXXXX">📞 바로 전화</a>
-        -->
-      </div>
+    <div class="services-grid">
+      <article class="card">
+        <span class="badge">전기안전관리</span>
+        <h3>정기점검 · 법규 준수 · 사고 예방</h3>
+        <p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">전기공사 PM</span>
+        <h3>플랜트 · 빌딩 · 공장 시공 총괄</h3>
+        <p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">소방공사 PM</span>
+        <h3>전기+소방 통합 관리</h3>
+        <p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">특화 서비스</span>
+        <h3>변압기 절연유 교체 · 기술 인력 지원</h3>
+        <p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p>
+      </article>
+    </div>
+  </main>
+
+  <!-- 회사 소개 -->
+  <section class="wrap">
+    <h2 class="section-title">회사 소개</h2>
+    <div class="services-grid">
+      <article class="card">
+        <span class="badge">EPCM 전문성</span>
+        <h3>설계·조달·시공·PM/CM 전 주기 관리</h3>
+      </article>
+      <article class="card">
+        <span class="badge">안전과 신뢰</span>
+        <h3>사고 예방·법규 준수·투명한 보고</h3>
+      </article>
+      <article class="card">
+        <span class="badge">글로벌 경험</span>
+        <h3>국내외 다양한 산업·현장 수행 경험</h3>
+      </article>
+      <article class="card">
+        <span class="badge">자료 보기</span>
+        <h3 style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-dark" data-doc="profile">회사 소개서</button>
+          <button class="btn" data-doc="brochure">브로슈어</button>
+        </h3>
+      </article>
     </div>
   </section>
 
-  <!-- 서비스 3카드 -->
-  <section class="max">
-    <div class="grid">
-      <article class="card">
-        <h3>정기점검 · 법규 준수 · 사고 예방</h3>
-        <p>전기안전관리 대행, 법정 점검, 유지관리 및 리포트까지 원스톱.</p>
-      </article>
-      <article class="card">
-        <h3>플랜트·빌딩·공장 시공 총괄</h3>
-        <p>E&amp;I(전기/계장) 프로젝트 EPCM · 공정 관리 · 품질 및 안전.</p>
-      </article>
-      <article class="card">
-        <h3>전기+소방 통합 관리</h3>
-        <p>스프링클러/감지/경보/소화전 등 방재 시스템 설계·시공·유지보수.</p>
-      </article>
+  <!-- 문의 -->
+  <section class="wrap">
+    <h2 class="section-title">문의</h2>
+    <p style="text-align:center;color:#405a86;word-break:keep-all">견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.</p>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <div class="contact-item">📧 <a href="mailto:contact@coreon-global.com" class="link-muted">contact@coreon-global.com</a></div>
+        <div class="contact-item">🌐 <a href="https://www.coreon-global.com" class="link-muted" target="_blank" rel="noopener">www.coreon-global.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+821090391482" class="link-muted">+82-10-9039-1482</a></div>
+      </div>
+
+      <div class="fast-box" style="display:grid;place-items:center">
+        <a class="btn btn-primary contact-btn"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform"
+           target="_blank" rel="noopener">문의 폼 열기</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div class="max" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-      <div>© <span id="y"></span> COREON</div>
-      <div>
-        <a href="/faq">FAQ</a> ·
-        <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
-      </div>
-    </div>
-    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821090391482">+82-10-9039-1482</a>
   </footer>
 
+  <!-- ======= PDF PREVIEW MODAL ======= -->
+  <div id="viewerModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="title" id="viewerTitle">문서 보기</div>
+        <button class="modal-close" id="viewerClose">닫기 ✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="viewerFrame" title="PDF 미리보기" allow="autoplay; fullscreen"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a id="viewerOpenNew" class="btn link-muted" target="_blank" rel="noopener">새 탭에서 열기 ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== 링크 상수 ======
+    const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform";
+    const PROFILE_PREVIEW = "https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/preview";
+    const BROCHURE_PREVIEW = "https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
+
+    // 모달 핸들링
+    const modal = document.getElementById('viewerModal');
+    const frame = document.getElementById('viewerFrame');
+    const titleEl = document.getElementById('viewerTitle');
+    const openNew = document.getElementById('viewerOpenNew');
+    const closeBtn = document.getElementById('viewerClose');
+
+    function openModal(kind){
+      let src = "", title = "", raw = "";
+      if(kind === "profile"){
+        src = PROFILE_PREVIEW;
+        title = "회사 소개서";
+        raw = "https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";
+      }else{
+        src = BROCHURE_PREVIEW;
+        title = "브로슈어";
+        raw = "https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";
+      }
+      titleEl.textContent = title + " (읽기)";
+      frame.src = src;
+      openNew.href = raw;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      frame.src = "about:blank";
+    }
+
+    // 트리거 바인딩
+    document.querySelectorAll('[data-doc]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const kind = e.currentTarget.getAttribute('data-doc');
+        openModal(kind);
+      });
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e=>{ if(e.target === modal){ closeModal(); } });
+
+    // (참고) 폼 버튼은 모두 FORM_URL로 연결되어 있음
+    document.querySelectorAll('a[href="#form"]').forEach(a=>{
+      a.href = FORM_URL;
+    });
+  </script>
 </body>
 </html>
