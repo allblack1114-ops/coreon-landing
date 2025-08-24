@@ -1,12 +1,12 @@
-<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>COREON | 전기·계장·소방 통합 EPCM</title>
-  <meta name="description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 | COREON" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>COREON │ 전기·계장·소방 EPCM</title>
+  <meta name="description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     :root{
       --navy:#0D2E67;       /* COREON Navy */
@@ -28,18 +28,17 @@
     }
     /* Hero */
     .hero{
-      position:relative;
-      background:var(--navy);
       color:#fff;
       text-align:center;
       padding:72px 20px 56px;
+      background:var(--navy);
+      position:relative;
       overflow:hidden;
     }
     .hero::after{
-      /* (선택) hero.jpg 있으면 배경 오버레이 */
       content:"";
       position:absolute;inset:0;
-      background:url("assets/img/hero.jpg") center/cover no-repeat;
+      background:url("assets_img_hero.jpg.png") center/cover no-repeat;
       opacity:.18;mix-blend:screen;
       pointer-events:none;
     }
@@ -51,16 +50,16 @@
     }
     .logo img{width:40px;height:auto;display:block}
     h1{
-      font-size:clamp(28px,4.8vw,48px);
       margin:10px 0 14px;font-weight:800;letter-spacing:-.5px;
+      font-size:clamp(28px,4.8vw,48px);
     }
     .sub{
       font-size:clamp(14px,2.5vw,18px);
-      color:#dfe8ff; margin:0 auto 26px; max-width:860px;
+      color:#dfe8ff;
+      margin:0 auto 26px;
+      max-width:860px;
     }
-    .cta{
-      display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;
-    }
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       padding:14px 18px;border-radius:12px;border:1px solid #ffffff40;
@@ -75,14 +74,12 @@
     /* Services */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
     .section-title{
-      font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);
+      font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;
+      text-align:center;color:var(--navy);
     }
-    .grid{
-      display:grid;gap:18px;margin-top:18px;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-    }
+    .grid{display:grid;gap:18px;margin-top:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
     @media (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:560px){.grid{grid-template-columns:1fr}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr} .hero{padding:64px 16px 48px} h1{font-size:1.75rem}}
     .card{
       background:var(--card);border-radius:var(--radius);padding:20px 18px 18px;
       box-shadow:var(--shadow);border:1px solid #e6ecf5;
@@ -92,7 +89,8 @@
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy)}
     .card p{margin:0;color:#385073}
     .badge{
-      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px
+      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
+      background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px
     }
     /* Footer */
     footer{
@@ -105,26 +103,21 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-inner">
+    <div class="container">
       <div class="logo">
-        <!-- 로고 파일 경로 -->
         <img src="assets/img/coreon_logo.png" alt="COREON" />
       </div>
       <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
 
       <div class="cta">
-        <!-- ▼▼▼ 여기에 실제 URL을 넣으세요 ▼▼▼ -->
         <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">
           <i>📩</i> 견적 문의
         </a>
-        <!-- 리포에 pdf 올렸다면 /assets/pdf/coreon_profile.pdf 로 변경 -->
         <a class="btn" href="assets/pdf/coreon_profile.pdf" target="_blank" rel="noopener">
           <i>📑</i> 회사 소개서 보기
         </a>
-        <a class="btn" href="tel:+821090391482">
-          <i>📞</i> 바로 전화
-        </a>
+        <a class="btn outline" href="tel:+821090391482">📞 바로 전화</a>
       </div>
     </div>
   </header>
@@ -162,7 +155,8 @@
   </main>
 
   <footer>
-    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821090391482">+82-10-9039-1482</a>
+    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · 
+    <a href="tel:+821090391482">+82-10-9039-1482</a>
   </footer>
 
 </body>
