@@ -68,21 +68,13 @@
       word-break:keep-all;
     }
 
-    /* Hero */
+    /* Hero (로고/브랜드 박스 제거: 중복 최소화) */
     .hero{
       position:relative;color:#fff;text-align:left;padding:28px 0 56px;overflow:hidden;
       background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%),
                   url("hero.png") center/cover no-repeat;
     }
     .hero .inner{max-width:1100px;margin:0 auto;padding:20px 18px}
-    .brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-    .brand .logo-box{
-      width:52px;height:52px;border-radius:12px;background:#ffffff22;border:1px solid #ffffff40;
-      display:grid;place-items:center;backdrop-filter:blur(2px)
-    }
-    .brand .logo-box img{width:36px;height:auto}
-    .brand .name{font-weight:800;letter-spacing:.5px;font-size:20px}
-
     .hero h1{margin:12px 0 10px;font-weight:900;letter-spacing:-.5px;font-size:clamp(28px,4.8vw,48px);word-break:keep-all}
     .hero .sub{color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:clamp(14px,2.5vw,18px);word-break:keep-all}
 
@@ -137,7 +129,7 @@
     .modal-close{appearance:none;border:0;background:#fff1;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer}
     .modal-body{flex:1}
     .modal-body iframe{width:100%;height:100%;border:0}
-    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
+    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid #e6ecf5}
     .link-muted{color:#405a86;text-decoration:none}
 
     /* -------- FAQ styles -------- */
@@ -147,20 +139,20 @@
     }
     #faq .faq-wrap{display:grid;gap:12px}
     #faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
-    #faq summary{cursor:pointer;font-weight:800;outline:none}
+    #faq summary{cursor:pointer;font-weight:800;outline:none;display:flex;align-items:center;gap:8px}
     #faq summary::-webkit-details-marker{display:none}
-    #faq summary::after{content:"＋";float:right;color:#9aa7bd;font-weight:900}
-    #faq details[open] summary::after{content:"–";color:var(--navy)}
+    /* ▶ caret + 회전 */
+    #faq summary::before{content:"▶"; display:inline-block; transform:rotate(0deg); transition:transform .18s ease; color:#1f2d4d}
+    #faq details[open] > summary::before{transform:rotate(90deg); color:var(--navy)}
     #faq .faq-a{color:#385073;padding-top:8px}
     #faq .muted{color:#6b7c93;font-size:.9rem}
-    #faq .cat-group{padding:6px;background:#f9fbff;border:1px solid #e8f0ff}
+    #faq .cat-box{padding:6px;background:#f9fbff;border:1px solid #e8f0ff;border-radius:10px}
 
     /* ---------- Mobile polish ---------- */
     @media (max-width:560px){
-      /* 배경 이미지 제거 + 로고만 노출 */
+      /* 배경 이미지가 로고/아이콘과 중복되는 느낌을 줄이기 위해 배경 이미지를 제거하고 그라디언트만 유지 */
       .hero{background:linear-gradient(180deg,rgba(13,46,103,.92) 0%, rgba(6,35,79,.92) 100%)}
-      .brand .name{display:none}
-      /* CTA: 필수 2개만 노출(견적/전화) */
+      /* CTA: 핵심 2개 우선(견적/전화). 나머지는 secondary 클래스로 숨김 */
       .btn.secondary{display:none}
     }
   </style>
@@ -183,14 +175,9 @@
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO (로고/브랜드 박스 제거, 슬로건만 강조) -->
   <header class="hero">
     <div class="inner">
-      <div class="brand">
-        <div class="logo-box"><img src="logo.png" alt="COREON 로고"></div>
-        <div class="name">COREON</div>
-      </div>
-
       <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
 
@@ -242,7 +229,7 @@
     </div>
   </section>
 
-  <!-- ===== FAQ (동적 로딩 + 트리) ===== -->
+  <!-- ===== FAQ (동적 로딩 + 트리, 기본 닫힘) ===== -->
   <section id="faq" class="wrap">
     <h2 class="section-title">FAQ</h2>
     <div class="toolbar">
@@ -319,7 +306,7 @@
     modal.addEventListener('click', e=>{ if(e.target === modal){ closeModal(); } });
     document.querySelectorAll('a[href="#form"]').forEach(a=>{ a.href = FORM_URL; });
 
-    // ====== FAQ 동적 로딩 (+트리) ======
+    // ====== FAQ 동적 로딩 (+트리, 기본 닫힘) ======
     const faqListEl = document.getElementById('faqList');
     const faqStatus = document.getElementById('faqStatus');
     const faqCatSel = document.getElementById('faqCat');
@@ -342,12 +329,7 @@
         const j = await r.json();
         const items = (j.items || []).filter(x => x.question && x.answer);
 
-        // 그룹/평면 렌더
-        if(groupToggle.checked){
-          renderGrouped(items);
-        }else{
-          renderFlat(items);
-        }
+        if(groupToggle.checked){ renderGrouped(items); } else { renderFlat(items); }
         faqStatus.textContent = `불러오기 완료 (${items.length})`;
       }catch(e){
         faqStatus.textContent = 'FAQ 로드 실패 (URL/권한/CORS 확인)';
@@ -369,16 +351,11 @@
 
     function renderGrouped(items){
       if(!items.length){ faqListEl.innerHTML = '<p class="muted">항목이 없습니다.</p>'; return; }
-      // 카테고리 → 질문 배열
       const byCat = {};
-      items.forEach(x=>{
-        const k = x.category || '기타';
-        (byCat[k] ||= []).push(x);
-      });
-
+      items.forEach(x => { const k = x.category || '기타'; (byCat[k] ||= []).push(x); });
       const html = Object.keys(byCat).sort().map(cat => {
         const qs = byCat[cat].map(x => `
-          <details class="cat-group">
+          <details class="cat-box">
             <summary>${escapeHtml(x.question||'')}</summary>
             <div class="faq-a">
               ${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
@@ -387,22 +364,20 @@
           </details>
         `).join('');
         return `
-          <details open>
+          <details>
             <summary>📂 ${escapeHtml(cat)}</summary>
             <div style="display:grid;gap:10px;margin-top:8px">${qs}</div>
           </details>
         `;
       }).join('');
-
       faqListEl.innerHTML = html;
     }
 
     faqCatSel.addEventListener('change', loadFAQ);
-    faqSearch.addEventListener('input', ()=>{/* 필요 시 디바운스 */});
+    faqSearch.addEventListener('input', ()=>{/* 필요시 디바운스 */});
     groupToggle.addEventListener('change', loadFAQ);
     faqReload.addEventListener('click', loadFAQ);
     document.addEventListener('DOMContentLoaded', loadFAQ);
   </script>
 </body>
 </html>
-0
