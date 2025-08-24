@@ -1,22 +1,25 @@
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>COREON │ 전기·계장·소방 EPCM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COREON │ 전기·계장·소방 통합 EPCM</title>
   <meta name="description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet"/>
+
   <style>
     :root{
-      --navy:#0D2E67;       /* COREON Navy */
-      --orange:#FF6B00;     /* CTA 포인트 */
+      --navy:#0D2E67;         /* COREON Navy */
+      --navy-deep:#09224e;
+      --orange:#FF6B00;       /* CTA 포인트 */
       --ink:#102a43;
       --muted:#6b7c93;
       --bg:#f7f9fc;
       --card:#ffffff;
       --radius:16px;
-      --shadow:0 8px 30px rgba(13,46,103,.08);
+      --shadow:0 10px 30px rgba(13,46,103,.10);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
@@ -26,87 +29,97 @@
       background:var(--bg);
       line-height:1.55;
     }
-    /* Hero */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+    /* ---------- HERO ---------- */
     .hero{
-      color:#fff;
-      text-align:center;
-      padding:72px 20px 56px;
-      background:var(--navy);
       position:relative;
+      color:#fff;
+      background:var(--navy);
       overflow:hidden;
     }
     .hero::after{
       content:"";
-      position:absolute;inset:0;
-      background:url("assets_img_hero.jpg.png") center/cover no-repeat;
-      opacity:.18;mix-blend:screen;
-      pointer-events:none;
+      position:absolute; inset:0;
+      background:url("hero.png") center/cover no-repeat;
+      opacity:.18; mix-blend:screen; pointer-events:none;
     }
-    .hero-inner{position:relative;max-width:1100px;margin:0 auto}
-    .logo{
-      width:64px;height:64px;margin:0 auto 18px;border-radius:12px;
-      background:#fff3;border:1px solid #ffffff33;display:grid;place-items:center;
-      backdrop-filter:blur(2px)
+    .hero-inner{position:relative; padding:64px 0 56px}
+    .brand{
+      display:flex;align-items:center;gap:12px;margin-bottom:18px;
     }
-    .logo img{width:40px;height:auto;display:block}
+    .brand img{width:44px;height:44px;border-radius:10px;display:block}
+    .brand b{font-size:20px;letter-spacing:.3px}
     h1{
-      margin:10px 0 14px;font-weight:800;letter-spacing:-.5px;
-      font-size:clamp(28px,4.8vw,48px);
+      margin:8px 0 14px;
+      font-weight:800;letter-spacing:-.5px;
+      font-size:clamp(28px,4.5vw,46px);
     }
     .sub{
       font-size:clamp(14px,2.5vw,18px);
-      color:#dfe8ff;
-      margin:0 auto 26px;
-      max-width:860px;
+      color:#e3edff; max-width:860px; margin:0 0 24px;
     }
-    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       padding:14px 18px;border-radius:12px;border:1px solid #ffffff40;
-      color:#fff;background:#ffffff12;text-decoration:none;font-weight:700;
-      transition:.18s transform ease, .18s box-shadow ease, .18s background ease;
+      color:#fff;background:#ffffff15;text-decoration:none;font-weight:700;
+      transition:.18s transform ease,.18s background ease,.18s box-shadow ease;
       box-shadow:0 6px 22px rgba(0,0,0,.08);
     }
     .btn:hover{transform:translateY(-2px);background:#ffffff22}
+    .btn i{font-style:normal;opacity:.9}
     .btn-primary{background:var(--orange);border-color:transparent;color:#111}
     .btn-primary:hover{background:#ff7d22}
-    .btn i{font-style:normal; opacity:.9}
-    /* Services */
-    .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
+    /* ---------- Sections ---------- */
+    section{padding:46px 0}
     .section-title{
-      font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;
-      text-align:center;color:var(--navy);
+      font-size:28px;font-weight:800;letter-spacing:-.3px;margin:6px 0 10px;text-align:left;color:var(--navy);
     }
-    .grid{display:grid;gap:18px;margin-top:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid{
+      display:grid;gap:18px;margin-top:18px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+    }
     @media (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:560px){.grid{grid-template-columns:1fr} .hero{padding:64px 16px 48px} h1{font-size:1.75rem}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}}
     .card{
       background:var(--card);border-radius:var(--radius);padding:20px 18px 18px;
       box-shadow:var(--shadow);border:1px solid #e6ecf5;
-      transition:.18s transform ease, .18s box-shadow ease;
+      transition:.18s transform ease,.18s box-shadow ease;
     }
-    .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.14)}
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy)}
     .card p{margin:0;color:#385073}
     .badge{
-      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
-      background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px
+      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px
     }
-    /* Footer */
-    footer{
-      margin-top:34px;padding:28px 18px;text-align:center;color:var(--muted)
+    /* ---------- Projects ---------- */
+    .projects .pitem{
+      background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid #e6ecf5;
+      box-shadow:var(--shadow);
     }
+    /* ---------- Footer ---------- */
+    footer{padding:28px 18px;text-align:center;color:var(--muted)}
     footer a{color:var(--navy);text-decoration:none}
+    /* ---------- Modal (Brochure) ---------- */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+    .modal.open{display:flex}
+    .modal-card{max-width:1000px;width:95%;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eef2f7}
+    .modal-body{padding:0;background:#111}
+    .modal-body img{width:100%;height:auto;display:block}
+    .xbtn{cursor:pointer;border:none;background:#eef2f7;border-radius:8px;padding:8px 12px}
   </style>
 </head>
 <body>
 
   <!-- HERO -->
   <header class="hero">
-    <div class="container">
-      <div class="logo">
-        <img src="assets/img/coreon_logo.png" alt="COREON" />
+    <div class="wrap hero-inner">
+      <div class="brand">
+        <img src="logo.png" alt="COREON 로고">
+        <b>COREON</b>
       </div>
+
       <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
 
@@ -114,50 +127,135 @@
         <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">
           <i>📩</i> 견적 문의
         </a>
-        <a class="btn" href="assets/pdf/coreon_profile.pdf" target="_blank" rel="noopener">
-          <i>📑</i> 회사 소개서 보기
-        </a>
-        <a class="btn outline" href="tel:+821090391482">📞 바로 전화</a>
+        <a class="btn" href="#" id="openBrochure"><i>📑</i> 회사 소개서 보기</a>
+        <a class="btn" href="tel:+821090391482"><i>📞</i> 바로 전화</a>
       </div>
     </div>
   </header>
 
-  <!-- SERVICES -->
-  <main class="wrap">
-    <h2 class="section-title">서비스</h2>
-    <div class="grid">
+  <!-- 서비스 -->
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">서비스</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">전기안전관리</span>
+          <h3>정기점검 · 법규 준수 · 사고 예방</h3>
+          <p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p>
+        </article>
 
-      <article class="card">
-        <span class="badge">전기안전관리</span>
-        <h3>정기점검 · 법규 준수 · 사고 예방</h3>
-        <p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p>
-      </article>
+        <article class="card">
+          <span class="badge">전기공사 PM</span>
+          <h3>플랜트 · 빌딩 · 공장 시공 총괄</h3>
+          <p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p>
+        </article>
 
-      <article class="card">
-        <span class="badge">전기공사 PM</span>
-        <h3>플랜트 · 빌딩 · 공장 시공 총괄</h3>
-        <p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p>
-      </article>
+        <article class="card">
+          <span class="badge">소방공사 PM</span>
+          <h3>전기+소방 통합 관리</h3>
+          <p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p>
+        </article>
 
-      <article class="card">
-        <span class="badge">소방공사 PM</span>
-        <h3>전기+소방 통합 관리</h3>
-        <p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p>
-      </article>
-
-      <article class="card">
-        <span class="badge">특화 서비스</span>
-        <h3>변압기 절연유 교체 · 기술인력 지원</h3>
-        <p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p>
-      </article>
-
+        <article class="card">
+          <span class="badge">특화 서비스</span>
+          <h3>변압기 절연유 교체 · 기술인력 지원</h3>
+          <p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p>
+        </article>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- 주요 프로젝트 & 고객 -->
+  <section class="projects">
+    <div class="wrap">
+      <h2 class="section-title">주요 프로젝트 &amp; 고객</h2>
+      <div class="grid">
+        <div class="pitem"><b>프로젝트 A</b><br><small>기간 · 핵심 성과 간락 설명</small></div>
+        <div class="pitem"><b>프로젝트 B</b><br><small>기간 · 핵심 성과 간락 설명</small></div>
+        <div class="pitem"><b>프로젝트 C</b><br><small>기간 · 핵심 성과 간락 설명</small></div>
+        <div class="pitem"><b>프로젝트 D</b><br><small>기간 · 핵심 성과 간락 설명</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 회사 소개 -->
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">회사 소개</h2>
+      <p>“20년 이상의 전기·계장·소방 분야 경험을 바탕으로, COREON은 현장 안전과 신뢰를 최우선으로 합니다.”</p>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">EPCM 전문성</span>
+          <h3>설계–조달–시공–PM/CM 전 주기 관리</h3>
+          <p></p>
+        </article>
+        <article class="card">
+          <span class="badge">안전과 신뢰</span>
+          <h3>사고 예방·법규 준수·투명한 보고</h3>
+          <p></p>
+        </article>
+        <article class="card">
+          <span class="badge">글로벌 경험</span>
+          <h3>국내외 다양한 산업·현장 수행 경험</h3>
+          <p></p>
+        </article>
+        <article class="card">
+          <span class="badge">기술 기반 혁신</span>
+          <h3>보호 시스템/웨어러블 등 신기술 적용</h3>
+          <p></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 문의 -->
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">문의</h2>
+      <p>견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.</p>
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="card">
+          <p>📧 <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a></p>
+          <p>🌐 <a href="https://www.coreon-global.com" target="_blank" rel="noopener">www.coreon-global.com</a></p>
+          <p>📞 <a href="tel:+821090391482">+82-10-9039-1482</a></p>
+        </div>
+        <div class="card">
+          <p><b>빠른 문의</b></p>
+          <a class="btn btn-primary" style="display:inline-flex" target="_blank" rel="noopener"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">
+            문의 폼 열기
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · 
+    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> ·
     <a href="tel:+821090391482">+82-10-9039-1482</a>
   </footer>
 
+  <!-- Brochure Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <b>회사 소개서</b>
+        <button class="xbtn" id="closeBrochure">닫기</button>
+      </div>
+      <div class="modal-body">
+        <!-- 파일명은 루트의 brochure.png 로 가정 -->
+        <img src="brochure.png" alt="COREON 회사 소개서 이미지(브로슈어)">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openBtn  = document.getElementById('openBrochure');
+    const closeBtn = document.getElementById('closeBrochure');
+    const modal    = document.getElementById('modal');
+    openBtn.addEventListener('click', (e)=>{ e.preventDefault(); modal.classList.add('open'); });
+    closeBtn.addEventListener('click', ()=> modal.classList.remove('open'));
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
+  </script>
 </body>
 </html>
