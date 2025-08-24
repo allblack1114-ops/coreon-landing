@@ -35,6 +35,31 @@
     }
     img{max-width:100%;display:block}
 
+    /* ---------- Top Nav ---------- */
+    .topnav{
+      position:sticky;top:0;z-index:50;
+      background:#fff;border-bottom:1px solid #e9eef6;
+      box-shadow:0 6px 24px rgba(13,46,103,.06);
+    }
+    .topnav .inner{
+      max-width:1100px;margin:0 auto;padding:10px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .topnav .brand-mini{display:flex;align-items:center;gap:10px}
+    .topnav .brand-mini img{width:28px;height:auto}
+    .topnav .brand-mini b{color:var(--navy);letter-spacing:.5px}
+    .topnav .links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .topnav a.toplink{
+      color:#1f2d4d;text-decoration:none;font-weight:600;
+      padding:8px 10px;border-radius:8px;transition:.15s background ease;
+    }
+    .topnav a.toplink:hover{background:#f4f7fc}
+    .topnav a.topbtn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:#ffefe2;border:1px solid #ffd6a1;color:#9a3d00;
+      text-decoration:none;font-weight:700;padding:8px 12px;border-radius:10px;
+    }
+
     /* Container */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
     .section-title{
@@ -143,6 +168,22 @@
 </head>
 <body>
 
+  <!-- TOP NAV (FAQ 연결 포함) -->
+  <div class="topnav">
+    <div class="inner">
+      <div class="brand-mini">
+        <img src="logo.png" alt="COREON">
+        <b>COREON</b>
+      </div>
+      <div class="links">
+        <a class="toplink" href="/faq">FAQ</a>
+        <a class="toplink js-doc" href="#" data-doc="profile">회사 소개서</a>
+        <a class="toplink js-doc" href="#" data-doc="brochure">브로슈어</a>
+        <a class="topbtn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98">견적 문의</a>
+      </div>
+    </div>
+  </div>
+
   <!-- HERO -->
   <header class="hero">
     <div class="inner">
@@ -168,6 +209,9 @@
 
         <!-- 바로 전화 -->
         <a class="btn btn-outline" href="tel:+821090391482"><i>📞</i> 바로 전화</a>
+
+        <!-- FAQ 바로가기 -->
+        <a class="btn btn-outline" href="/faq"><i>❓</i> FAQ</a>
       </div>
     </div>
   </header>
@@ -305,9 +349,10 @@
       frame.src = "about:blank";
     }
 
-    // 트리거 바인딩
+    // 트리거 바인딩 (a/button 모두 지원 + 이동 막기)
     document.querySelectorAll('[data-doc]').forEach(btn=>{
       btn.addEventListener('click', e=>{
+        e.preventDefault();
         const kind = e.currentTarget.getAttribute('data-doc');
         openModal(kind);
       });
