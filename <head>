@@ -1,1 +1,26 @@
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+  <title>COREON │ 전기·계장·소방 EPCM 전문 기업</title>
+  <meta name="description" content="COREON은 전기, 계장, 소방 EPCM 통합 솔루션을 제공하는 글로벌 전문 기업입니다. 안전과 신뢰를 기반으로 글로벌 현장의 가치를 높입니다.">
+  <meta name="keywords" content="COREON, EPCM, 전기, 계장, 소방, 전기안전관리, 전기공사, 소방공사, 변압기 절연유 교체">
+  <meta name="author" content="COREON Global"/>
+
+  <!-- Open Graph / SNS -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="COREON │ 전기·계장·소방 EPCM">
+  <meta property="og:description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON">
+  <meta property="og:url" content="https://www.coreon-global.com/">
+  <meta property="og:image" content="https://www.coreon-global.com/hero.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="COREON │ 전기·계장·소방 EPCM">
+  <meta name="twitter:description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON">
+  <meta name="twitter:image" content="https://www.coreon-global.com/hero.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+</head>
 <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
