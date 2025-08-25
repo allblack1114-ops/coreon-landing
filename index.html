@@ -81,6 +81,10 @@
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
     .card p{margin:0;color:#385073;word-break:keep-all;line-height:1.7;text-align:justify;text-align-last:auto;text-justify:inter-word}
 
+    /* Why COREON: 한국어 가독성 위해 좌측정렬 */
+    .why .card p{ text-align:left; text-align-last:auto; letter-spacing:0.1px; }
+    .why .card h3{ letter-spacing:-0.2px; }
+
     /* 문의/푸터 */
     footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
     footer a{color:var(--navy);text-decoration:none}
@@ -99,7 +103,7 @@
     .modal-close{appearance:none;border:0;background:#fff1;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer}
     .modal-body{flex:1}
     .modal-body iframe{width:100%;height:100%;border:0}
-    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
+    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid --line}
     .link-muted{color:#405a86;text-decoration:none}
 
     /* FAQ */
@@ -187,14 +191,19 @@
       <article class="card"><span class="badge">EPCM 전문성</span><h3>설계·조달·시공·PM/CM 전 주기 관리</h3></article>
       <article class="card"><span class="badge">안전과 신뢰</span><h3>사고 예방·법규 준수·투명한 보고</h3></article>
       <article class="card"><span class="badge">글로벌 경험</span><h3>국내외 다양한 산업·현장 수행 경험</h3></article>
-      <article class="card"><span class="badge">자료 보기</span><h3 style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-dark" data-doc="profile">회사 소개서</button><button class="btn" data-doc="brochure">브로슈어</button></h3></article>
+      <article class="card"><span class="badge">자료 보기</span>
+        <h3 style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-dark" data-doc="profile">회사 소개서</button>
+          <button class="btn" data-doc="brochure">브로슈어</button>
+        </h3>
+      </article>
     </div>
   </section>
 
   <!-- ============= 새 섹션 4개: #about 바로 아래 ============= -->
 
   <!-- Why COREON -->
-  <section class="wrap" id="why">
+  <section class="wrap why" id="why">
     <h2 class="section-title">Why COREON</h2>
     <div class="services-grid">
       <article class="card"><span class="badge">EPCM</span><h3>Owner’s Engineer / EPCM</h3><p>“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”</p></article>
@@ -327,16 +336,31 @@
     const titleEl=document.getElementById('viewerTitle');
     const openNew=document.getElementById('viewerOpenNew');
     const closeBtn=document.getElementById('viewerClose');
+
     function openModal(kind){
       let src="",title="",raw="";
       if(kind==="profile"){src=PROFILE_PREVIEW;title="회사 소개서";raw="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";}
       else{src=BROCHURE_PREVIEW;title="브로슈어";raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";}
-      titleEl.textContent=title+" (읽기)"; frame.src=src; openNew.href=raw; modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
+      titleEl.textContent=title+" (읽기)"; frame.src=src; openNew.href=raw;
+      modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
     }
-    function closeModal(){modal.classList.remove('active');modal.setAttribute('aria-hidden','true');frame.src="about:blank";}
-    document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openModal(e.currentTarget.getAttribute('data-doc'));}));
+    function closeModal(){
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      frame.src="about:blank";
+    }
+
+    // a[data-doc], button[data-doc], .js-doc 모두 지원
+    document.querySelectorAll('.js-doc, [data-doc]').forEach(el=>{
+      el.addEventListener('click',e=>{
+        e.preventDefault();
+        const kind = el.getAttribute('data-doc') || (el.textContent.includes('브로슈어') ? 'brochure' : 'profile');
+        openModal(kind);
+      });
+    });
+
     closeBtn.addEventListener('click',closeModal);
-    modal.addEventListener('click',e=>{if(e.target===modal){closeModal();}});
+    modal.addEventListener('click',e=>{ if(e.target===modal){ closeModal(); }});
     document.addEventListener('keydown',e=>{ if(e.key==='Escape' && modal.classList.contains('active')) closeModal(); });
     document.querySelectorAll('a[href="#form"]').forEach(a=>a.href=FORM_URL);
 
@@ -347,7 +371,10 @@
     const faqSearch=document.getElementById('faqSearch');
     const groupToggle=document.getElementById('groupToggle');
     const faqReload=document.getElementById('faqReload');
-    const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]}));
+
+    // 🔧 문법 오류 수정
+    const escapeHtml = s => String(s||'').replace(/[&<>]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+
     async function loadFAQ(){
       faqListEl.innerHTML=''; faqStatus.textContent='불러오는 중...';
       try{
