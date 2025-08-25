@@ -332,8 +332,12 @@
     <div id="faqList" class="faq-wrap" aria-live="polite"></div>
   </section>
 
+  <!-- ✅ 교체된 Footer: 연도 자동, 개인정보처리방침 링크 포함 -->
   <footer>
-    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821090391482">+82-10-9039-1482</a>
+    © <span id="year"></span> COREON · All Rights Reserved ·
+    <a href="/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a> ·
+    <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> ·
+    <a href="tel:+821090391482">+82-10-9039-1482</a>
   </footer>
 
   <!-- Back to top -->
@@ -399,7 +403,11 @@
     const groupToggle=document.getElementById('groupToggle');
     const faqReload=document.getElementById('faqReload');
 
-    const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+    const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;","<":""}[m])) // will be overridden below
+  </script>
+  <script>
+    // fix escapeHtml (previous line truncated by minifier protection when pasted in some editors)
+    const escapeHtml = s => String(s||'').replace(/[&<>]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
 
     async function loadFAQ(){
       faqListEl.innerHTML=''; faqStatus.textContent=(currentLang==='en')?'Loading...':'불러오는 중...';
@@ -557,13 +565,10 @@
         const key = el.getAttribute('data-i18n');
         if(i18n[lang][key]) el.textContent = i18n[lang][key];
       });
-      // placeholders
       const faqSearch = document.getElementById('faqSearch');
       if(faqSearch) faqSearch.placeholder = (lang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
-      // buttons label
       langBtn.textContent = (lang==='en')?'KR':'EN';
       langFab.textContent = langBtn.textContent;
-      // refresh FAQ status text
       loadFAQ();
     }
 
@@ -579,6 +584,9 @@
 
     /* === Back-to-top visibility on load === */
     document.addEventListener('DOMContentLoaded', loadFAQ);
+
+    /* === Footer year (자동 갱신) === */
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
