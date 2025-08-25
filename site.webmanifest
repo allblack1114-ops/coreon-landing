@@ -1,0 +1,15 @@
+{
+  "name": "COREON",
+  "short_name": "COREON",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D2E67",
+  "theme_color": "#0D2E67",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
