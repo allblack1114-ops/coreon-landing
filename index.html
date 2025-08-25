@@ -27,10 +27,9 @@
     .brand-mini{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand-mini img{width:28px;height:auto}
     .brand-mini b{color:var(--navy);letter-spacing:.5px}
-    .topnav .links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .toplink{color:#1f2d4d;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:.15s background ease}
+    .topnav .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease}
     .toplink:hover{background:#f4f7fc}
-    .topbtn{display:inline-flex;align-items:center;gap:8px;background:#ffefe2;border:1px solid #ffd6a1;color:#9a3d00;text-decoration:none;font-weight:700;padding:8px 12px;border-radius:10px}
 
     /* Container */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
@@ -74,7 +73,9 @@
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
     .card p{
       margin:0;color:#385073;word-break:keep-all;line-height:1.7;
-      text-align:justify;          /* ✅ 좌우 줄맞춤 */
+      text-align:justify;       /* 줄맞춤 */
+      text-align-last:auto;     /* 마지막 줄은 자연스럽게 */
+      text-justify:inter-word;  /* 단어 간격 기반 */
     }
 
     /* Footer / Contact */
@@ -116,7 +117,6 @@
 
     /* ---------- MOBILE RULES ---------- */
     @media (max-width:560px){
-      /* 데스크톱 상단바 숨김 → 히어로 안에서 브랜드+버튼 구성 */
       .topnav{display:none}
       .hero{background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%), url("hero.png") center/cover no-repeat}
       .hero .inner{padding:20px 18px}
@@ -126,27 +126,26 @@
 </head>
 <body>
 
-  <!-- TOP NAV (데스크톱에서만 보임) -->
+  <!-- TOP NAV -->
   <div class="topnav">
     <div class="inner">
-      <!-- 로고 클릭 → 홈 이동 -->
+      <!-- 로고(홈 이동) -->
       <a class="brand-mini" href="/" aria-label="홈으로">
         <img src="logo.png" alt="COREON"><b>COREON</b>
       </a>
+      <!-- 좌→우: 회사 소개, 브로슈어, FAQ (견적문의는 아예 숨김) -->
       <div class="links">
         <a class="toplink" href="#about">회사 소개</a>
-        <a class="toplink" href="#services">서비스</a>
-        <a class="toplink" href="#faq">FAQ</a>
         <a class="toplink js-doc" href="#" data-doc="brochure">브로슈어</a>
-        <a class="topbtn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98">견적 문의</a>
+        <a class="toplink" href="#faq">FAQ</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO (모바일: 브랜드 바 노출) -->
+  <!-- HERO -->
   <header class="hero">
     <div class="inner">
-      <!-- 로고 클릭 → 홈 이동 -->
+      <!-- 모바일 로고(홈 이동) -->
       <a class="brand-mobile" href="/" aria-label="홈으로">
         <div class="logo-box"><img src="logo.png" alt="COREON"></div>
         <div class="name">COREON</div>
@@ -156,6 +155,7 @@
       <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
 
       <div class="cta">
+        <!-- 히어로 영역의 ‘견적 문의’ 버튼은 유지 (원하면 이것도 숨길 수 있어) -->
         <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform" target="_blank" rel="noopener"><i>📩</i> 견적 문의</a>
         <button class="btn btn-outline" data-doc="profile"><i>📑</i> 회사 소개서 보기</button>
         <button class="btn btn-dark" data-doc="brochure"><i>🗂️</i> 브로슈어 보기</button>
@@ -164,7 +164,7 @@
     </div>
   </header>
 
-  <!-- ===================== 회사 소개 (서비스보다 위) ===================== -->
+  <!-- 회사 소개 -->
   <section id="about" class="wrap">
     <h2 class="section-title">회사 소개</h2>
     <div class="services-grid">
@@ -175,7 +175,7 @@
     </div>
   </section>
 
-  <!-- ===================== 서비스 ===================== -->
+  <!-- 서비스 -->
   <main id="services" class="wrap">
     <h2 class="section-title">서비스</h2>
     <div class="services-grid">
@@ -221,7 +221,7 @@
     </div>
   </section>
 
-  <!-- ===== FAQ (동적 로딩 + 트리, 기본 닫힘) ===== -->
+  <!-- FAQ -->
   <section id="faq" class="wrap">
     <h2 class="section-title">FAQ</h2>
     <div class="toolbar">
@@ -267,7 +267,7 @@
     const BROCHURE_PREVIEW="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
     const FAQ_API="https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
 
-    // ===== PDF 모달 =====
+    // 모달
     const modal=document.getElementById('viewerModal');
     const frame=document.getElementById('viewerFrame');
     const titleEl=document.getElementById('viewerTitle');
@@ -285,7 +285,7 @@
     modal.addEventListener('click',e=>{if(e.target===modal){closeModal();}});
     document.querySelectorAll('a[href="#form"]').forEach(a=>a.href=FORM_URL);
 
-    // ===== FAQ =====
+    // FAQ
     const faqListEl=document.getElementById('faqList');
     const faqStatus=document.getElementById('faqStatus');
     const faqCatSel=document.getElementById('faqCat');
