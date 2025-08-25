@@ -73,9 +73,8 @@
     .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
     .card p{
-      margin:0;color:#385073;word-break:keep-all;
-      white-space:pre-line;   /* \n을 실제 줄바꿈으로 렌더링 */
-      line-height:1.7;
+      margin:0;color:#385073;word-break:keep-all;line-height:1.7;
+      text-align:justify;          /* ✅ 좌우 줄맞춤 */
     }
 
     /* Footer / Contact */
@@ -99,7 +98,7 @@
     .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
     .link-muted{color:#405a86;text-decoration:none}
 
-    /* -------- FAQ styles (트리 기본 닫힘 + 화살표 회전) -------- */
+    /* -------- FAQ styles -------- */
     #faq .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
     #faq .toolbar select,#faq .toolbar input[type="search"]{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:42px}
     #faq .faq-wrap{display:grid;gap:12px}
@@ -165,7 +164,7 @@
     </div>
   </header>
 
-  <!-- ===================== 회사 소개 (서비스보다 위로 이동) ===================== -->
+  <!-- ===================== 회사 소개 (서비스보다 위) ===================== -->
   <section id="about" class="wrap">
     <h2 class="section-title">회사 소개</h2>
     <div class="services-grid">
@@ -176,7 +175,7 @@
     </div>
   </section>
 
-  <!-- ===================== 서비스 (회사 소개 아래) ===================== -->
+  <!-- ===================== 서비스 ===================== -->
   <main id="services" class="wrap">
     <h2 class="section-title">서비스</h2>
     <div class="services-grid">
@@ -342,15 +341,6 @@
     groupToggle.addEventListener('change',loadFAQ);
     faqReload.addEventListener('click',loadFAQ);
     document.addEventListener('DOMContentLoaded',loadFAQ);
-
-    // ===== 서비스 카드 부제 자동 줄바꿈(쉼표/· 기준) =====
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card p').forEach(p => {
-        const txt = p.textContent.trim();
-        const withBreaks = txt.replace(/\s*[，,·]\s*/g, '\n');
-        p.innerHTML = withBreaks.replace(/\n+/g, '<br>');
-      });
-    });
   </script>
 </body>
 </html>
