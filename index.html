@@ -32,36 +32,23 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{
-      font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;
-      color:var(--ink);background:var(--bg);line-height:1.65
-    }
+    body{font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
 
-    /* ---------- Top Nav ---------- */
+    /* Top Nav */
     .topnav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e9eef6;box-shadow:0 6px 24px rgba(13,46,103,.06)}
     .topnav .inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
     .brand-mini{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand-mini img{width:28px;height:auto}
     .brand-mini b{color:var(--navy);letter-spacing:.5px}
-    .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .topnav .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
     .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease}
     .toplink:hover{background:#f4f7fc}
 
-    /* 데스크톱 언어 토글 */
-    .lang-btn{
-      appearance:none;border:0;cursor:pointer;
-      font-weight:800;letter-spacing:.3px;
-      padding:8px 12px;border-radius:999px;
-      background:#eaf1ff;color:#0d2e67;
-      box-shadow:0 2px 8px rgba(13,46,103,.12);
-    }
-    .lang-btn:hover{ background:#dbe8ff }
-
-    /* 공통 */
+    /* Common */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
     .section-title{font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);word-break:keep-all}
 
-    /* ---------- Hero ---------- */
+    /* Hero */
     .hero{
       position:relative;color:#fff;text-align:left;padding:28px 0 56px;overflow:hidden;
       background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%),
@@ -83,7 +70,13 @@
     .btn-dark{background:#0f2147;border:1px solid #203869}
     .btn-outline{background:transparent;border:1px solid #ffffff55}
 
-    /* --------- Cards/Grid --------- */
+    /* Mobile floating lang button (visible on mobile when topnav hidden) */
+    .lang-fab{
+      position:absolute;right:16px;top:16px;background:#ffffffcc;color:#0d2e67;border:1px solid #ffffff88;
+      border-radius:999px;padding:6px 10px;font-weight:800;backdrop-filter:saturate(1.2) blur(2px);cursor:pointer
+    }
+
+    /* Cards/Grid */
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
     @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:560px){.services-grid{grid-template-columns:1fr}}
@@ -91,12 +84,9 @@
     .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
     .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
-    /* 기본은 문단 정렬 */
     .card p{margin:0;color:#385073;word-break:keep-all;line-height:1.7;text-align:justify;text-align-last:auto;text-justify:inter-word}
-    /* Why COREON 인용문은 왼쪽정렬로 가독성 개선 */
-    #why .card p{ text-align:left; text-align-last:auto; }
 
-    /* 문의/푸터 */
+    /* Contact/Footer */
     footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
     footer a{color:var(--navy);text-decoration:none}
     .contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
@@ -137,13 +127,21 @@
     #toTop{position:fixed;right:16px;bottom:18px;display:none;z-index:999;background:#0f2147;color:#fff;border:0;border-radius:999px;padding:10px 14px;box-shadow:0 8px 18px rgba(0,0,0,.15);cursor:pointer}
     #toTop.show{display:block}
 
-    /* 모바일: 네비 숨김(기존과 동일), FAB 없음 */
+    /* Mobile rules */
     @media (max-width:560px){
       .topnav{display:none}
       .hero .inner{padding:20px 18px}
       .brand-mobile{display:flex}
     }
   </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"COREON","url":"https://www.coreon-global.com/","logo":"https://www.coreon-global.com/logo.png","contactPoint":[{"@type":"ContactPoint","telephone":"+82-10-9039-1482","contactType":"customer service","areaServed":"KR"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","url":"https://www.coreon-global.com/","potentialAction":{"@type":"SearchAction","target":"https://www.coreon-global.com/#faq?q={query}","query-input":"required name=query"}}
+  </script>
 </head>
 
 <body>
@@ -158,7 +156,7 @@
         <a class="toplink" href="#about" data-i18n="nav_about">회사 소개</a>
         <a class="toplink js-doc" href="#" data-doc="brochure" data-i18n="nav_brochure">브로슈어</a>
         <a class="toplink" href="#faq" data-i18n="nav_faq">FAQ</a>
-        <button class="lang-btn" id="langDesktop" aria-label="Toggle language">EN</button>
+        <button id="langToggle" class="toplink" type="button" aria-label="Change language">EN</button>
       </div>
     </div>
   </div>
@@ -170,6 +168,9 @@
         <div class="logo-box"><img src="logo.png" alt="COREON" loading="lazy"></div>
         <div class="name">COREON</div>
       </a>
+
+      <!-- Mobile floating language toggle -->
+      <button id="langFab" class="lang-fab" type="button" aria-label="Change language">EN</button>
 
       <h1 data-i18n="hero_title">전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub" data-i18n="hero_sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
@@ -185,12 +186,13 @@
 
   <!-- 회사 소개 -->
   <section id="about" class="wrap">
-    <h2 class="section-title" data-i18n="sec_about">회사 소개</h2>
+    <h2 class="section-title" data-i18n="about_title">회사 소개</h2>
     <div class="services-grid">
-      <article class="card"><span class="badge" data-i18n="about_badge1">EPCM 전문성</span><h3 data-i18n="about_1">설계·조달·시공·PM/CM 전 주기 관리</h3></article>
-      <article class="card"><span class="badge" data-i18n="about_badge2">안전과 신뢰</span><h3 data-i18n="about_2">사고 예방·법규 준수·투명한 보고</h3></article>
-      <article class="card"><span class="badge" data-i18n="about_badge3">글로벌 경험</span><h3 data-i18n="about_3">국내외 다양한 산업·현장 수행 경험</h3></article>
-      <article class="card"><span class="badge" data-i18n="about_badge4">자료 보기</span>
+      <article class="card"><span class="badge" data-i18n="about_badge1">EPCM 전문성</span><h3 data-i18n="about_card1">설계·조달·시공·PM/CM 전 주기 관리</h3></article>
+      <article class="card"><span class="badge" data-i18n="about_badge2">안전과 신뢰</span><h3 data-i18n="about_card2">사고 예방·법규 준수·투명한 보고</h3></article>
+      <article class="card"><span class="badge" data-i18n="about_badge3">글로벌 경험</span><h3 data-i18n="about_card3">국내외 다양한 산업·현장 수행 경험</h3></article>
+      <article class="card">
+        <span class="badge" data-i18n="about_badge4">자료 보기</span>
         <h3 style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-dark" data-doc="profile" data-i18n="about_btn_profile">회사 소개서</button>
           <button class="btn" data-doc="brochure" data-i18n="about_btn_brochure">브로슈어</button>
@@ -201,45 +203,45 @@
 
   <!-- Why COREON -->
   <section class="wrap" id="why">
-    <h2 class="section-title" data-i18n="sec_why">Why COREON</h2>
+    <h2 class="section-title" data-i18n="why_title">Why COREON</h2>
     <div class="services-grid">
-      <article class="card"><span class="badge">EPCM</span><h3 data-i18n="why_1_t">Owner’s Engineer / EPCM</h3><p data-i18n="why_1_d">“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”</p></article>
-      <article class="card"><span class="badge">PM/CM</span><h3 data-i18n="why_2_t">총괄 PM &amp; 단일 창구</h3><p data-i18n="why_2_d">“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”</p></article>
-      <article class="card"><span class="badge">Global</span><h3 data-i18n="why_3_t">글로벌 레퍼런스</h3><p data-i18n="why_3_d">“Hyundai E&amp;C, Samsung C&amp;T, GS E&amp;C, BP 등 국내외 대형 프로젝트 경험.”</p></article>
-      <article class="card"><span class="badge">Patent</span><h3 data-i18n="why_4_t">특허 기반 안전 혁신</h3><p data-i18n="why_4_d">“건설 안전 보조 시스템·웨어러블 보호 장치 등 특허 기반 솔루션.”</p></article>
-      <article class="card"><span class="badge">One-Stop</span><h3 data-i18n="why_5_t">통합 서비스</h3><p data-i18n="why_5_d">“전기·소방·안전·자재까지 원스톱으로 관리합니다.”</p></article>
-      <article class="card"><span class="badge">Trust</span><h3 data-i18n="why_6_t">투명성 &amp; 신뢰</h3><p data-i18n="why_6_d">“법규 준수·명확한 보고·실적 중심 협력사 관리.”</p></article>
+      <article class="card"><span class="badge">EPCM</span><h3 data-i18n="why_h1">Owner’s Engineer / EPCM</h3><p data-i18n="why_p1">“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”</p></article>
+      <article class="card"><span class="badge">PM/CM</span><h3 data-i18n="why_h2">총괄 PM &amp; 단일 창구</h3><p data-i18n="why_p2">“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”</p></article>
+      <article class="card"><span class="badge">Global</span><h3 data-i18n="why_h3">글로벌 레퍼런스</h3><p data-i18n="why_p3">“Hyundai E&amp;C, Samsung C&amp;T, GS E&amp;C, BP 등 국내외 대형 프로젝트 경험.”</p></article>
+      <article class="card"><span class="badge">Patent</span><h3 data-i18n="why_h4">특허 기반 안전 혁신</h3><p data-i18n="why_p4">“건설 안전 보조 시스템·웨어러블 보호 장치 등 특허 기반 솔루션.”</p></article>
+      <article class="card"><span class="badge">One-Stop</span><h3 data-i18n="why_h5">통합 서비스</h3><p data-i18n="why_p5">“전기·소방·안전·자재까지 원스톱으로 관리합니다.”</p></article>
+      <article class="card"><span class="badge">Trust</span><h3 data-i18n="why_h6">투명성 &amp; 신뢰</h3><p data-i18n="why_p6">“법규 준수·명확한 보고·실적 중심 협력사 관리.”</p></article>
     </div>
   </section>
 
   <!-- Process -->
   <section class="wrap" id="process">
-    <h2 class="section-title" data-i18n="sec_process">How COREON Works</h2>
+    <h2 class="section-title" data-i18n="process_title">How COREON Works</h2>
     <div style="display:grid;gap:12px">
-      <article class="card"><span class="badge" data-i18n="proc_b1">① 요청</span><h3 data-i18n="proc_1_t">요청 접수 → 요구사항 분석</h3><p data-i18n="proc_1_d">전기·소방·안전 관련 수요를 접수하고 요구사항을 체계적으로 분석합니다.</p></article>
-      <article class="card"><span class="badge" data-i18n="proc_b2">② 진단</span><h3 data-i18n="proc_2_t">현장 진단 → 리스크·범위·일정 진단</h3><p data-i18n="proc_2_d">현장 조건을 바탕으로 리스크, 공사 범위, 일정, 비용 요소를 정밀 진단합니다.</p></article>
-      <article class="card"><span class="badge" data-i18n="proc_b3">③ 배정</span><h3 data-i18n="proc_3_t">협력사 배정 → 면허/실적 검증</h3><p data-i18n="proc_3_d">면허/실적/품질 기준으로 협력사를 선정·배정하고 역할·일정을 조율합니다.</p></article>
-      <article class="card"><span class="badge" data-i18n="proc_b4">④ 총괄</span><h3 data-i18n="proc_4_t">총괄 PM → 일정·품질·안전·비용 관리(단일 창구)</h3><p data-i18n="proc_4_d">발주처는 COREON과만 소통하며, 우리는 전체 일정·품질·안전·비용을 통합 관리합니다.</p></article>
-      <article class="card"><span class="badge" data-i18n="proc_b5">⑤ 완료</span><h3 data-i18n="proc_5_t">완료/보고 → 결과 리포트·사후관리·장기계약 연계</h3><p data-i18n="proc_5_d">결과 보고서를 제공하고 사후관리까지 수행하여 장기 파트너십으로 연계합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="proc_b1">① 요청</span><h3 data-i18n="proc_h1">요청 접수 → 요구사항 분석</h3><p data-i18n="proc_p1">전기·소방·안전 관련 수요를 접수하고 요구사항을 체계적으로 분석합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="proc_b2">② 진단</span><h3 data-i18n="proc_h2">현장 진단 → 리스크·범위·일정 진단</h3><p data-i18n="proc_p2">현장 조건을 바탕으로 리스크, 공사 범위, 일정, 비용 요소를 정밀 진단합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="proc_b3">③ 배정</span><h3 data-i18n="proc_h3">협력사 배정 → 면허/실적 검증</h3><p data-i18n="proc_p3">면허/실적/품질 기준으로 협력사를 선정·배정하고 역할·일정을 조율합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="proc_b4">④ 총괄</span><h3 data-i18n="proc_h4">총괄 PM → 일정·품질·안전·비용 관리(단일 창구)</h3><p data-i18n="proc_p4">발주처는 COREON과만 소통하며, 우리는 전체 일정·품질·안전·비용을 통합 관리합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="proc_b5">⑤ 완료</span><h3 data-i18n="proc_h5">완료/보고 → 결과 리포트·사후관리·장기계약 연계</h3><p data-i18n="proc_p5">결과 보고서를 제공하고 사후관리까지 수행하여 장기 파트너십으로 연계합니다.</p></article>
     </div>
   </section>
 
   <!-- Industries -->
   <section class="wrap" id="industries">
-    <h2 class="section-title" data-i18n="sec_industries">Industries / 고객</h2>
+    <h2 class="section-title" data-i18n="industries_title">Industries / 고객</h2>
     <div class="services-grid">
-      <article class="card"><span class="badge" data-i18n="ind_b1">공공</span><h3 data-i18n="ind_1_t">관공서·공공기관</h3><p data-i18n="ind_1_d">안전관리 및 법규 준수 중심의 운영</p></article>
-      <article class="card"><span class="badge" data-i18n="ind_b2">제조</span><h3 data-i18n="ind_2_t">민간기업·공장</h3><p data-i18n="ind_2_d">노후 설비 개선과 사전 예방 중심 관리</p></article>
-      <article class="card"><span class="badge" data-i18n="ind_b3">대기업</span><h3 data-i18n="ind_3_t">대기업·제조업</h3><p data-i18n="ind_3_d">생산성 향상, 안전 강화, 리스크 최소화</p></article>
-      <article class="card"><span class="badge" data-i18n="ind_b4">건설</span><h3 data-i18n="ind_4_t">건설현장</h3><p data-i18n="ind_4_d">시공 품질·자재·안전 통합 관리</p></article>
-      <article class="card"><span class="badge" data-i18n="ind_b5">해외</span><h3 data-i18n="ind_5_t">해외프로젝트</h3><p data-i18n="ind_5_d">사우디·쿠웨이트·동남아·중국 등 글로벌 수행</p></article>
-      <article class="card"><span class="badge" data-i18n="ind_b6">전력수용가</span><h3 data-i18n="ind_6_t">국내 모든 전력 수용가</h3><p data-i18n="ind_6_d">국내 전력설비 수용가 전반 대상</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b1">공공</span><h3 data-i18n="ind_h1">관공서·공공기관</h3><p data-i18n="ind_p1">안전관리 및 법규 준수 중심의 운영</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b2">제조</span><h3 data-i18n="ind_h2">민간기업·공장</h3><p data-i18n="ind_p2">노후 설비 개선과 사전 예방 중심 관리</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b3">대기업</span><h3 data-i18n="ind_h3">대기업·제조업</h3><p data-i18n="ind_p3">생산성 향상, 안전 강화, 리스크 최소화</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b4">건설</span><h3 data-i18n="ind_h4">건설현장</h3><p data-i18n="ind_p4">시공 품질·자재·안전 통합 관리</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b5">해외</span><h3 data-i18n="ind_h5">해외프로젝트</h3><p data-i18n="ind_p5">사우디·쿠웨이트·동남아·중국 등 글로벌 수행</p></article>
+      <article class="card"><span class="badge" data-i18n="ind_b6">전력수용가</span><h3 data-i18n="ind_h6">국내 모든 전력 수용가</h3><p data-i18n="ind_p6">국내 전력설비 수용가 전반 대상</p></article>
     </div>
   </section>
 
   <!-- Representative -->
   <section class="wrap" id="rep">
-    <h2 class="section-title" data-i18n="sec_rep">Representative</h2>
+    <h2 class="section-title" data-i18n="rep_title">Representative</h2>
     <article class="card" style="display:flex;gap:16px;align-items:flex-start">
       <img src="assets/img/rep.png" alt="이호원 대표" style="width:88px;height:88px;object-fit:cover;border-radius:14px;border:1px solid #e6ecf5" onerror="this.style.display='none'">
       <div>
@@ -251,19 +253,19 @@
 
   <!-- 서비스 -->
   <main id="services" class="wrap">
-    <h2 class="section-title" data-i18n="sec_services">서비스</h2>
+    <h2 class="section-title" data-i18n="services_title">서비스</h2>
     <div class="services-grid">
-      <article class="card"><span class="badge" data-i18n="svc_b1">전기안전관리</span><h3 data-i18n="svc_1_t">정기점검 · 법규 준수 · 사고 예방</h3><p data-i18n="svc_1_d">정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p></article>
-      <article class="card"><span class="badge" data-i18n="svc_b2">전기공사 PM</span><h3 data-i18n="svc_2_t">플랜트 · 빌딩 · 공장 시공 총괄</h3><p data-i18n="svc_2_d">전기공사 시공 총괄 관리(일정·품질·비용 보장)</p></article>
-      <article class="card"><span class="badge" data-i18n="svc_b3">소방공사 PM</span><h3 data-i18n="svc_3_t">전기+소방 통합 관리</h3><p data-i18n="svc_3_d">방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p></article>
-      <article class="card"><span class="badge" data-i18n="svc_b4">특화 서비스</span><h3 data-i18n="svc_4_t">변압기 절연유 교체 · 기술 인력 지원</h3><p data-i18n="svc_4_d">변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p></article>
+      <article class="card"><span class="badge" data-i18n="svc_b1">전기안전관리</span><h3 data-i18n="svc_h1">정기점검 · 법규 준수 · 사고 예방</h3><p data-i18n="svc_p1">정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p></article>
+      <article class="card"><span class="badge" data-i18n="svc_b2">전기공사 PM</span><h3 data-i18n="svc_h2">플랜트 · 빌딩 · 공장 시공 총괄</h3><p data-i18n="svc_p2">전기공사 시공 총괄 관리(일정·품질·비용 보장)</p></article>
+      <article class="card"><span class="badge" data-i18n="svc_b3">소방공사 PM</span><h3 data-i18n="svc_h3">전기+소방 통합 관리</h3><p data-i18n="svc_p3">방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p></article>
+      <article class="card"><span class="badge" data-i18n="svc_b4">특화 서비스</span><h3 data-i18n="svc_h4">변압기 절연유 교체 · 기술 인력 지원</h3><p data-i18n="svc_p4">변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p></article>
     </div>
   </main>
 
   <!-- 문의 -->
   <section class="wrap">
-    <h2 class="section-title" data-i18n="sec_contact">문의</h2>
-    <p style="text-align:center;color:#405a86;word-break:keep-all" data-i18n="contact_desc">견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.</p>
+    <h2 class="section-title" data-i18n="contact_title">문의</h2>
+    <p style="text-align:center;color:#405a86;word-break:keep-all" data-i18n="contact_note">견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.</p>
     <div class="contact-grid">
       <div class="contact-box">
         <div class="contact-item">📧 <a href="mailto:contact@coreon-global.com" class="link-muted">contact@coreon-global.com</a></div>
@@ -278,7 +280,7 @@
 
   <!-- FAQ -->
   <section id="faq" class="wrap">
-    <h2 class="section-title">FAQ</h2>
+    <h2 class="section-title" data-i18n="faq_title">FAQ</h2>
     <div class="toolbar">
       <select id="faqCat" aria-label="카테고리 선택">
         <option value="">전체</option>
@@ -288,16 +290,16 @@
       </select>
       <input id="faqSearch" type="search" placeholder="검색어(예: 점검, 계약, 비용)" aria-label="FAQ 검색어"/>
       <label style="display:flex;align-items:center;gap:6px;font-size:14px;color:#405a86">
-        <input id="groupToggle" type="checkbox" checked/> 카테고리별 묶기
+        <input id="groupToggle" type="checkbox" checked/> <span data-i18n="faq_group">카테고리별 묶기</span>
       </label>
-      <button id="faqReload" class="btn btn-dark" type="button">Reload</button>
+      <button id="faqReload" class="btn btn-dark" type="button" data-i18n="faq_reload">Reload</button>
       <span id="faqStatus" class="muted" role="status" aria-live="polite"></span>
     </div>
     <div id="faqList" class="faq-wrap" aria-live="polite"></div>
   </section>
 
   <footer>
-    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821090391482">+82-10-9039-1482</a>
+    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821-10-9039-1482">+82-10-9039-1482</a>
   </footer>
 
   <!-- Back to top -->
@@ -320,23 +322,31 @@
   </div>
 
   <script>
+    /* === Constants === */
     const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform";
     const PROFILE_PREVIEW="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/preview";
     const BROCHURE_PREVIEW="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
     const FAQ_API="https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
 
-    /* ===== PDF 모달 ===== */
+    /* === PDF Modal === */
     const modal=document.getElementById('viewerModal');
     const frame=document.getElementById('viewerFrame');
     const titleEl=document.getElementById('viewerTitle');
     const openNew=document.getElementById('viewerOpenNew');
     const closeBtn=document.getElementById('viewerClose');
 
+    let currentLang = 'ko'; // used for modal titles too
+
     function openModal(kind){
       let src="",title="",raw="";
-      if(kind==="profile"){src=PROFILE_PREVIEW;title="회사 소개서";raw="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";}
-      else{src=BROCHURE_PREVIEW;title="브로슈어";raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";}
-      titleEl.textContent=title+" (읽기)";
+      if(kind==="profile"){
+        src=PROFILE_PREVIEW; raw="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";
+        title=(currentLang==='en')?"Company Profile":"회사 소개서";
+      }else{
+        src=BROCHURE_PREVIEW; raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";
+        title=(currentLang==='en')?"Brochure":"브로슈어";
+      }
+      titleEl.textContent=title+" ("+ (currentLang==='en'?"View":"읽기") +")";
       frame.src=src; openNew.href=raw;
       modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
     }
@@ -347,17 +357,18 @@
     document.addEventListener('keydown',e=>{ if(e.key==='Escape' && modal.classList.contains('active')) closeModal(); });
     document.querySelectorAll('a[href="#form"]').forEach(a=>a.href=FORM_URL);
 
-    /* ===== FAQ 로딩 ===== */
+    /* === FAQ Loader === */
     const faqListEl=document.getElementById('faqList');
     const faqStatus=document.getElementById('faqStatus');
     const faqCatSel=document.getElementById('faqCat');
     const faqSearch=document.getElementById('faqSearch');
     const groupToggle=document.getElementById('groupToggle');
     const faqReload=document.getElementById('faqReload');
+
     const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
 
     async function loadFAQ(){
-      faqListEl.innerHTML=''; faqStatus.textContent='불러오는 중...';
+      faqListEl.innerHTML=''; faqStatus.textContent=(currentLang==='en')?'Loading...':'불러오는 중...';
       try{
         const p=new URLSearchParams();
         if(faqCatSel.value) p.set('category',faqCatSel.value);
@@ -368,8 +379,10 @@
         const j=await r.json();
         const items=(j.items||[]).filter(x=>x.question&&x.answer);
         if(groupToggle.checked) renderGrouped(items); else renderFlat(items);
-        faqStatus.textContent=`불러오기 완료 (${items.length})`;
-      }catch(e){faqStatus.textContent='FAQ 로드 실패 (URL/권한/CORS 확인)';}
+        faqStatus.textContent=(currentLang==='en')?`Loaded (${items.length})`:`불러오기 완료 (${items.length})`;
+      }catch(e){
+        faqStatus.textContent=(currentLang==='en')?'Failed to load FAQ (check URL/permission/CORS)':'FAQ 로드 실패 (URL/권한/CORS 확인)';
+      }
     }
     function renderFlat(items){
       if(!items.length){faqListEl.innerHTML='<p class="muted">항목이 없습니다.</p>';return;}
@@ -377,7 +390,7 @@
         <details>
           <summary>${escapeHtml(x.question||'')}</summary>
           <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
-            <div class="muted" style="margin-top:6px">최종수정: ${x.updated_at||'-'}</div>
+            <div class="muted" style="margin-top:6px">${currentLang==='en'?'Updated':'최종수정'}: ${x.updated_at||'-'}</div>
           </div>
         </details>`).join('');
     }
@@ -389,7 +402,7 @@
           <details class="cat-box">
             <summary>${escapeHtml(x.question||'')}</summary>
             <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
-              <div class="muted" style="margin-top:6px">최종수정: ${x.updated_at||'-'}</div>
+              <div class="muted" style="margin-top:6px">${currentLang==='en'?'Updated':'최종수정'}: ${x.updated_at||'-'}</div>
             </div>
           </details>`).join('');
         return `<details><summary>📂 ${escapeHtml(cat)}</summary>
@@ -403,7 +416,7 @@
     faqReload.addEventListener('click',loadFAQ);
     document.addEventListener('DOMContentLoaded',loadFAQ);
 
-    /* ===== 헤더 보정 앵커 스크롤 ===== */
+    /* === Smooth anchor (header offset) === */
     document.querySelectorAll('.toplink[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href'); const el=document.querySelector(id);
@@ -414,118 +427,121 @@
       });
     });
 
-    /* ===== Back-to-top ===== */
+    /* === Back-to-top === */
     const toTop=document.getElementById('toTop');
     window.addEventListener('scroll',()=>{ if(window.scrollY>600){toTop.classList.add('show')} else {toTop.classList.remove('show')} });
     toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-    /* =============== 데스크톱 한/영 토글 (안정버전) =============== */
-    const DICT={
-      kr:{
+    /* === i18n dictionary === */
+    const i18n = {
+      ko:{
         nav_about:"회사 소개", nav_brochure:"브로슈어", nav_faq:"FAQ",
         hero_title:"전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준",
         hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
         cta_quote:"📩 견적 문의", cta_profile:"📑 회사 소개서 보기", cta_brochure:"🗂️ 브로슈어 보기", cta_call:"📞 바로 전화",
-        sec_about:"회사 소개",
-        about_badge1:"EPCM 전문성", about_badge2:"안전과 신뢰", about_badge3:"글로벌 경험", about_badge4:"자료 보기",
-        about_1:"설계·조달·시공·PM/CM 전 주기 관리", about_2:"사고 예방·법규 준수·투명한 보고", about_3:"국내외 다양한 산업·현장 수행 경험",
-        about_btn_profile:"회사 소개서", about_btn_brochure:"브로슈어",
-        sec_why:"Why COREON",
-        why_1_t:"Owner’s Engineer / EPCM", why_1_d:"“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”",
-        why_2_t:"총괄 PM & 단일 창구", why_2_d:"“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”",
-        why_3_t:"글로벌 레퍼런스", why_3_d:"“Hyundai E&C, Samsung C&T, GS E&C, BP 등 국내외 대형 프로젝트 경험.”",
-        why_4_t:"특허 기반 안전 혁신", why_4_d:"“건설 안전 보조 시스템·웨어러블 보호 장치 등 특허 기반 솔루션.”",
-        why_5_t:"통합 서비스", why_5_d:"“전기·소방·안전·자재까지 원스톱으로 관리합니다.”",
-        why_6_t:"투명성 & 신뢰", why_6_d:"“법규 준수·명확한 보고·실적 중심 협력사 관리.”",
-        sec_process:"How COREON Works",
-        proc_b1:"① 요청", proc_1_t:"요청 접수 → 요구사항 분석", proc_1_d:"전기·소방·안전 관련 수요를 접수하고 요구사항을 체계적으로 분석합니다.",
-        proc_b2:"② 진단", proc_2_t:"현장 진단 → 리스크·범위·일정 진단", proc_2_d:"현장 조건을 바탕으로 리스크, 공사 범위, 일정, 비용 요소를 정밀 진단합니다.",
-        proc_b3:"③ 배정", proc_3_t:"협력사 배정 → 면허/실적 검증", proc_3_d:"면허/실적/품질 기준으로 협력사를 선정·배정하고 역할·일정을 조율합니다.",
-        proc_b4:"④ 총괄", proc_4_t:"총괄 PM → 일정·품질·안전·비용 관리(단일 창구)", proc_4_d:"발주처는 COREON과만 소통하며, 우리는 전체 일정·품질·안전·비용을 통합 관리합니다.",
-        proc_b5:"⑤ 완료", proc_5_t:"완료/보고 → 결과 리포트·사후관리·장기계약 연계", proc_5_d:"결과 보고서를 제공하고 사후관리까지 수행하여 장기 파트너십으로 연계합니다.",
-        sec_industries:"Industries / 고객",
-        ind_b1:"공공", ind_1_t:"관공서·공공기관", ind_1_d:"안전관리 및 법규 준수 중심의 운영",
-        ind_b2:"제조", ind_2_t:"민간기업·공장", ind_2_d:"노후 설비 개선과 사전 예방 중심 관리",
-        ind_b3:"대기업", ind_3_t:"대기업·제조업", ind_3_d:"생산성 향상, 안전 강화, 리스크 최소화",
-        ind_b4:"건설", ind_4_t:"건설현장", ind_4_d:"시공 품질·자재·안전 통합 관리",
-        ind_b5:"해외", ind_5_t:"해외프로젝트", ind_5_d:"사우디·쿠웨이트·동남아·중국 등 글로벌 수행",
-        ind_b6:"전력수용가", ind_6_t:"국내 모든 전력 수용가", ind_6_d:"국내 전력설비 수용가 전반 대상",
-        sec_rep:"Representative", rep_name:"이호원 대표",
-        rep_desc:"“20년+ E&I 실무, 한국전기공사협회 고급 전기기술자. 현대건설·삼성물산·GS건설·BP 등 수행. 사우디/쿠웨이트/인도네시아/말레이시아/중국 및 국내 대형플랜트 현장 경험.”",
-        sec_services:"서비스",
-        svc_b1:"전기안전관리", svc_1_t:"정기점검 · 법규 준수 · 사고 예방", svc_1_d:"정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안",
-        svc_b2:"전기공사 PM",  svc_2_t:"플랜트 · 빌딩 · 공장 시공 총괄", svc_2_d:"전기공사 시공 총괄 관리(일정·품질·비용 보장)",
-        svc_b3:"소방공사 PM",  svc_3_t:"전기+소방 통합 관리",           svc_3_d:"방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리",
-        svc_b4:"특화 서비스",    svc_4_t:"변압기 절연유 교체 · 기술 인력 지원", svc_4_d:"변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견",
-        sec_contact:"문의", contact_desc:"견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.",
-        contact_btn:"문의 폼 열기"
+        about_title:"회사 소개", about_badge1:"EPCM 전문성", about_card1:"설계·조달·시공·PM/CM 전 주기 관리",
+        about_badge2:"안전과 신뢰", about_card2:"사고 예방·법규 준수·투명한 보고",
+        about_badge3:"글로벌 경험", about_card3:"국내외 다양한 산업·현장 수행 경험",
+        about_badge4:"자료 보기", about_btn_profile:"회사 소개서", about_btn_brochure:"브로슈어",
+        why_title:"Why COREON",
+        why_h1:"Owner’s Engineer / EPCM", why_p1:"“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”",
+        why_h2:"총괄 PM & 단일 창구",      why_p2:"“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”",
+        why_h3:"글로벌 레퍼런스",          why_p3:"“Hyundai E&C, Samsung C&T, GS E&C, BP 등 국내외 대형 프로젝트 경험.”",
+        why_h4:"특허 기반 안전 혁신",      why_p4:"“건설 안전 보조 시스템·웨어러블 보호 장치 등 특허 기반 솔루션.”",
+        why_h5:"통합 서비스",              why_p5:"“전기·소방·안전·자재까지 원스톱으로 관리합니다.”",
+        why_h6:"투명성 & 신뢰",           why_p6:"“법규 준수·명확한 보고·실적 중심 협력사 관리.”",
+        process_title:"How COREON Works",
+        proc_b1:"① 요청", proc_h1:"요청 접수 → 요구사항 분석", proc_p1:"전기·소방·안전 관련 수요를 접수하고 요구사항을 체계적으로 분석합니다.",
+        proc_b2:"② 진단", proc_h2:"현장 진단 → 리스크·범위·일정 진단", proc_p2:"현장 조건을 바탕으로 리스크, 공사 범위, 일정, 비용 요소를 정밀 진단합니다.",
+        proc_b3:"③ 배정", proc_h3:"협력사 배정 → 면허/실적 검증", proc_p3:"면허/실적/품질 기준으로 협력사를 선정·배정하고 역할·일정을 조율합니다.",
+        proc_b4:"④ 총괄", proc_h4:"총괄 PM → 일정·품질·안전·비용 관리(단일 창구)", proc_p4:"발주처는 COREON과만 소통하며, 우리는 전체 일정·품질·안전·비용을 통합 관리합니다.",
+        proc_b5:"⑤ 완료", proc_h5:"완료/보고 → 결과 리포트·사후관리·장기계약 연계", proc_p5:"결과 보고서를 제공하고 사후관리까지 수행하여 장기 파트너십으로 연계합니다.",
+        industries_title:"Industries / 고객",
+        ind_b1:"공공", ind_h1:"관공서·공공기관", ind_p1:"안전관리 및 법규 준수 중심의 운영",
+        ind_b2:"제조", ind_h2:"민간기업·공장", ind_p2:"노후 설비 개선과 사전 예방 중심 관리",
+        ind_b3:"대기업", ind_h3:"대기업·제조업", ind_p3:"생산성 향상, 안전 강화, 리스크 최소화",
+        ind_b4:"건설", ind_h4:"건설현장", ind_p4:"시공 품질·자재·안전 통합 관리",
+        ind_b5:"해외", ind_h5:"해외프로젝트", ind_p5:"사우디·쿠웨이트·동남아·중국 등 글로벌 수행",
+        ind_b6:"전력수용가", ind_h6:"국내 모든 전력 수용가", ind_p6:"국내 전력설비 수용가 전반 대상",
+        rep_title:"Representative", rep_name:"이호원 대표", rep_desc:"“20년+ E&I 실무, 한국전기공사협회 고급 전기기술자. 현대건설·삼성물산·GS건설·BP 등 수행. 사우디/쿠웨이트/인도네시아/말레이시아/중국 및 국내 대형플랜트 현장 경험.”",
+        services_title:"서비스",
+        svc_b1:"전기안전관리", svc_h1:"정기점검 · 법규 준수 · 사고 예방", svc_p1:"정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안",
+        svc_b2:"전기공사 PM", svc_h2:"플랜트 · 빌딩 · 공장 시공 총괄", svc_p2:"전기공사 시공 총괄 관리(일정·품질·비용 보장)",
+        svc_b3:"소방공사 PM", svc_h3:"전기+소방 통합 관리", svc_p3:"방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리",
+        svc_b4:"특화 서비스", svc_h4:"변압기 절연유 교체 · 기술 인력 지원", svc_p4:"변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견",
+        contact_title:"문의", contact_note:"견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.", contact_btn:"문의 폼 열기",
+        faq_title:"FAQ", faq_group:"카테고리별 묶기", faq_reload:"Reload"
       },
       en:{
         nav_about:"About", nav_brochure:"Brochure", nav_faq:"FAQ",
-        hero_title:"Integrated EPCM Standard for E&I and Fire Protection",
+        hero_title:"The New Standard of Integrated EPCM Solutions for E&I and Fire Protection",
         hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
         cta_quote:"📩 Request a Quote", cta_profile:"📑 View Company Profile", cta_brochure:"🗂️ View Brochure", cta_call:"📞 Call Now",
-        sec_about:"About",
-        about_badge1:"EPCM Expertise", about_badge2:"Safety & Trust", about_badge3:"Global Experience", about_badge4:"Resources",
-        about_1:"End-to-end management: Design • Procurement • Construction • PM/CM",
-        about_2:"Accident prevention, legal compliance and transparent reporting",
-        about_3:"Extensive projects across industries, domestic & overseas",
-        about_btn_profile:"Company Profile", about_btn_brochure:"Brochure",
-        sec_why:"Why COREON",
-        why_1_t:"Owner’s Engineer / EPCM", why_1_d:"“We act for the Owner, managing schedule, quality, safety and cost.”",
-        why_2_t:"Total PM & Single Window", why_2_d:"“We simplify multi-vendor coordination into one window at COREON.”",
-        why_3_t:"Global References", why_3_d:"“Hyundai E&C, Samsung C&T, GS E&C, BP and more large-scale projects.”",
-        why_4_t:"Patent-backed Safety Innovation", why_4_d:"“Safety assist systems and wearable protection – patent-based solutions.”",
-        why_5_t:"One-Stop Integration", why_5_d:"“Electrical, Fire, Safety and Materials – managed end-to-end.”",
-        why_6_t:"Transparency & Trust", why_6_d:"“Legal compliance, clear reporting and performance-based partner control.”",
-        sec_process:"How COREON Works",
-        proc_b1:"① Request", proc_1_t:"Intake → Requirement Analysis", proc_1_d:"Collect demand and analyze requirements systematically.",
-        proc_b2:"② Diagnose", proc_2_t:"Site Diagnosis → Risk/Scope/Schedule", proc_2_d:"Assess risks, scope, schedule and cost based on site conditions.",
-        proc_b3:"③ Assign", proc_3_t:"Partner Assignment → License/Track Record Check", proc_3_d:"Select and align partners by license, performance and quality.",
-        proc_b4:"④ Manage", proc_4_t:"Total PM → Schedule/Quality/Safety/Cost", proc_4_d:"Owner communicates only with COREON; we manage everything.",
-        proc_b5:"⑤ Close", proc_5_t:"Completion/Report → After-service/Long-term", proc_5_d:"Provide final report and after-care toward long-term partnership.",
-        sec_industries:"Industries / Clients",
-        ind_b1:"Public", ind_1_t:"Gov. & Public Sector", ind_1_d:"Operations focused on compliance and safety",
-        ind_b2:"Manufacturing", ind_2_t:"Private Plants & Factories", ind_2_d:"Aging facility upgrades and preventive programs",
-        ind_b3:"Enterprise", ind_3_t:"Large Enterprises", ind_3_d:"Productivity, safety enhancement and risk reduction",
-        ind_b4:"Construction", ind_4_t:"Construction Sites", ind_4_d:"Integrated control of quality, materials and safety",
-        ind_b5:"Overseas", ind_5_t:"Overseas Projects", ind_5_d:"Saudi, Kuwait, SE Asia, China and more",
-        ind_b6:"Power Users", ind_6_t:"All Power Consumers", ind_6_d:"Covers all domestic power facilities",
-        sec_rep:"Representative", rep_name:"Ho-Won Lee (CEO)",
-        rep_desc:"“20+ years in E&I. Senior Electrical Engineer. Large projects with Hyundai E&C, Samsung C&T, GS E&C, BP. Overseas site experience in KSA/Kuwait/SEA/China and major domestic plants.”",
-        sec_services:"Services",
-        svc_b1:"Electrical Safety Mgmt", svc_1_t:"Periodic Inspection • Compliance • Prevention", svc_1_d:"Consulting for prevention & compliance, reporting and improvement proposals",
-        svc_b2:"Electrical Works PM",  svc_2_t:"Plant • Building • Factory PM", svc_2_d:"Total PM for schedule, quality and cost",
-        svc_b3:"Fire Protection PM",  svc_3_t:"Integrated E&I + Fire",      svc_3_d:"FP installation & maintenance with integrated control",
-        svc_b4:"Specialized Services", svc_4_t:"Transformer Oil Change • Experts", svc_4_d:"Oil replacement (diagnosis/cleaning/testing), expert dispatch",
-        sec_contact:"Contact", contact_desc:"Leave your request below or via the form. We respond within 1 business day.",
-        contact_btn:"Open Inquiry Form"
+        about_title:"About", about_badge1:"EPCM Expertise", about_card1:"End-to-end management across Engineering, Procurement, Construction and PM/CM",
+        about_badge2:"Safety & Trust", about_card2:"Accident prevention, compliance, and transparent reporting",
+        about_badge3:"Global Experience", about_card3:"Extensive references across industries and regions",
+        about_badge4:"Resources", about_btn_profile:"Company Profile", about_btn_brochure:"Brochure",
+        why_title:"Why COREON",
+        why_h1:"Owner’s Engineer / EPCM", why_p1:"We manage schedule, quality, safety and cost as your representative—not as a contractor.",
+        why_h2:"Single Window PM",      why_p2:"Simplify multi-vendor coordination through a single point of contact: COREON.",
+        why_h3:"Global References",     why_p3:"Proven experience with Hyundai E&C, Samsung C&T, GS E&C, BP and more.",
+        why_h4:"Patent-driven Safety",  why_p4:"Innovations such as safety-assist systems and wearable protection.",
+        why_h5:"One-stop Service",      why_p5:"Integrated management across Electrical, Fire Protection, Safety and Materials.",
+        why_h6:"Transparency & Trust",  why_p6:"Compliance, clear reporting and performance-based partner management.",
+        process_title:"How COREON Works",
+        proc_b1:"① Request", proc_h1:"Request → Requirement Analysis", proc_p1:"We capture your needs and define requirements systematically.",
+        proc_b2:"② Survey",  proc_h2:"Site Survey → Risk/Scope/Schedule", proc_p2:"We assess risks, scope, schedule and cost drivers on site.",
+        proc_b3:"③ Assign",  proc_h3:"Partner Assignment → License/Track Record", proc_p3:"We select licensed partners based on quality and records.",
+        proc_b4:"④ PM",      proc_h4:"Owner’s PM → Schedule/Quality/Safety/Cost", proc_p4:"You talk to COREON only; we manage the entire project.",
+        proc_b5:"⑤ Close",   proc_h5:"Completion/Reporting → Aftercare & Long-term", proc_p5:"We deliver reports and aftercare, extending into long-term partnership.",
+        industries_title:"Industries / Clients",
+        ind_b1:"Public", ind_h1:"Government & Public", ind_p1:"Compliance-centered operations",
+        ind_b2:"Manufacturing", ind_h2:"Factories & Private", ind_p2:"Preventive management and modernization",
+        ind_b3:"Enterprise", ind_h3:"Large Enterprises", ind_p3:"Productivity, safety, and risk mitigation",
+        ind_b4:"Construction", ind_h4:"Construction Sites", ind_p4:"Integrated quality, material and safety control",
+        ind_b5:"Overseas", ind_h5:"Overseas Projects", ind_p5:"Saudi, Kuwait, SEA, China and more",
+        ind_b6:"Power Users", ind_h6:"All Power Consumers", ind_p6:"Serving the full spectrum of power facilities",
+        rep_title:"Representative", rep_name:"CEO Howon Lee", rep_desc:"20+ years in E&I. Senior electrical engineer. Projects with Hyundai E&C, Samsung C&T, GS E&C, BP; extensive domestic and overseas site experience.",
+        services_title:"Services",
+        svc_b1:"Electrical Safety Mgmt", svc_h1:"Periodic Inspection · Compliance · Prevention", svc_p1:"Consulting for prevention & compliance, reporting and improvement proposals",
+        svc_b2:"Electrical Works PM",   svc_h2:"Plant · Building · Factory PM", svc_p2:"Total PM for schedule, quality and cost",
+        svc_b3:"Fire Protection PM",    svc_h3:"Integrated E&I + Fire", svc_p3:"FP installation & maintenance with integrated control",
+        svc_b4:"Specialized Services",  svc_h4:"Transformer Oil Change · Experts", svc_p4:"Oil replacement (diagnosis/cleaning/testing), expert dispatch",
+        contact_title:"Contact", contact_note:"Leave your inquiry below. We’ll respond within 1 business day.", contact_btn:"Open Inquiry Form",
+        faq_title:"FAQ", faq_group:"Group by Category", faq_reload:"Reload"
       }
     };
 
-    function setLang(code){
-      const pack = DICT[code] || DICT.kr;
+    /* === i18n apply === */
+    const langBtn = document.getElementById('langToggle');
+    const langFab = document.getElementById('langFab');
+
+    function applyI18n(lang){
+      currentLang = lang;
+      document.documentElement.lang = (lang==='en'?'en':'ko');
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const key = el.getAttribute('data-i18n');
-        if(pack[key]) el.innerHTML = pack[key];
+        if(i18n[lang][key]) el.textContent = i18n[lang][key];
       });
-      document.documentElement.lang = (code==='en'?'en':'ko');
-      localStorage.setItem('lang', code);
-      // 버튼 라벨은 전환될 언어 표시
-      const btn=document.getElementById('langDesktop');
-      if(btn) btn.textContent = (code==='en'?'KR':'EN');
+      // placeholders
+      const faqSearch = document.getElementById('faqSearch');
+      if(faqSearch) faqSearch.placeholder = (lang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
+      // buttons label
+      langBtn.textContent = (lang==='en')?'KR':'EN';
+      langFab.textContent = langBtn.textContent;
     }
 
-    // 초기 언어
-    (function(){
-      const saved = localStorage.getItem('lang');
-      setLang(saved==='en'?'en':'kr');
-      const btn=document.getElementById('langDesktop');
-      if(btn) btn.addEventListener('click', ()=> {
-        const next = (localStorage.getItem('lang')==='en') ? 'kr' : 'en';
-        setLang(next);
-      });
-    })();
+    function toggleLang(){
+      applyI18n(currentLang==='ko'?'en':'ko');
+    }
+
+    langBtn.addEventListener('click', toggleLang);
+    langFab.addEventListener('click', toggleLang);
+
+    // initial
+    applyI18n('ko');
+    // also reload FAQ status language on load
+    document.addEventListener('DOMContentLoaded', loadFAQ);
   </script>
 </body>
 </html>
