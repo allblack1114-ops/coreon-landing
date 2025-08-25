@@ -25,74 +25,44 @@
   <style>html{scroll-behavior:smooth}</style>
 
   <style>
-    /* ========= Typography system (모바일/PC 자동 최적화) ========= */
     :root{
       --navy:#0D2E67; --navy-deep:#06234f; --orange:#FF6B00; --ink:#102a43;
       --muted:#6b7c93; --bg:#f7f9fc; --card:#ffffff; --radius:16px;
       --shadow:0 8px 30px rgba(13,46,103,.08); --line:#e6ecf5;
-
-      /* fluid type sizes */
-      --fs-base: clamp(15px, 1.25vw, 16.5px);
-      --fs-small: clamp(13px, 1.05vw, 15px);
-      --fs-badge: clamp(11px, .95vw, 12.5px);
-      --fs-h3: clamp(18px, 1.65vw, 22px);
-      --fs-h2: clamp(22px, 2.6vw, 32px);
-      --fs-hero: clamp(26px, 6vw, 48px);
-      --fs-hero-sub: clamp(13.5px, 2.4vw, 18px);
-      --fs-nav: clamp(14px, 1.2vw, 16px);
-      --lh-base: 1.7;
-      --lh-tight: 1.35;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{
-      font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;
-      font-size:var(--fs-base);
-      line-height:var(--lh-base);
-      color:var(--ink); background:var(--bg);
-      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
+    body{font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
 
-    /* 텍스트 가독성 보강 */
-    h1,h2,h3{letter-spacing:-.2px; line-height:var(--lh-tight); margin:0}
-    p{margin:0}
-    /* 균형 잡힌 줄바꿈(지원 브라우저에서) */
-    @supports (text-wrap:balance){
-      h1,h2,h3{ text-wrap:balance; }
-    }
-    @supports (text-wrap:pretty){
-      p{ text-wrap:pretty; }
-    }
-
-    /* ---------- Top Nav ---------- */
+    /* Top Nav */
     .topnav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e9eef6;box-shadow:0 6px 24px rgba(13,46,103,.06)}
     .topnav .inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
     .brand-mini{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand-mini img{width:28px;height:auto}
     .brand-mini b{color:var(--navy);letter-spacing:.5px}
-    .topnav .links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease; font-size:var(--fs-nav)}
+    .topnav .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease}
     .toplink:hover{background:#f4f7fc}
 
-    /* ---------- Common layout ---------- */
+    /* Common */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
-    .section-title{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);word-break:keep-all}
+    .section-title{font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);word-break:keep-all}
 
-    /* ---------- Hero ---------- */
+    /* Hero */
     .hero{
       position:relative;color:#fff;text-align:left;padding:28px 0 56px;overflow:hidden;
-      background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%), url("hero.png") center/cover no-repeat;
+      background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%),
+                  url("hero.png") center/cover no-repeat;
     }
     .hero .inner{max-width:1100px;margin:0 auto;padding:24px 18px}
     .brand-mobile{display:none;align-items:center;gap:12px;margin:6px 0 10px;text-decoration:none}
     .brand-mobile .logo-box{width:40px;height:40px;border-radius:10px;background:#ffffff22;border:1px solid #ffffff40;display:grid;place-items:center}
     .brand-mobile .logo-box img{width:26px;height:auto}
     .brand-mobile .name{font-weight:800;letter-spacing:.5px;font-size:18px;color:#fff}
-    .hero h1{margin:10px 0 8px;font-weight:900;letter-spacing:-.4px;font-size:var(--fs-hero);word-break:keep-all}
-    .hero .sub{color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:var(--fs-hero-sub);word-break:keep-all}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid #ffffff40;color:#fff;background:#ffffff12;text-decoration:none;font-weight:700;transition:.18s transform ease,.18s box-shadow ease,.18s background ease;box-shadow:0 6px 22px rgba(0,0,0,.10);min-height:44px; font-size:var(--fs-base)}
+    .hero h1{margin:12px 0 10px;font-weight:900;letter-spacing:-.5px;font-size:clamp(28px,4.8vw,48px);word-break:keep-all}
+    .hero .sub{color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:clamp(14px,2.5vw,18px);word-break:keep-all}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;border:1px solid #ffffff40;color:#fff;background:#ffffff12;text-decoration:none;font-weight:700;transition:.18s transform ease,.18s box-shadow ease,.18s background ease;box-shadow:0 6px 22px rgba(0,0,0,.10);min-height:48px}
     .btn:hover{transform:translateY(-2px);background:#ffffff22}
     .btn i{font-style:normal;opacity:.9}
     .btn-primary{background:var(--orange);border-color:transparent;color:#111}
@@ -100,36 +70,32 @@
     .btn-dark{background:#0f2147;border:1px solid #203869}
     .btn-outline{background:transparent;border:1px solid #ffffff55}
 
-    /* ---------- Mobile floating lang button ---------- */
+    /* Mobile floating lang button (visible on mobile when topnav hidden) */
     .lang-fab{
       position:absolute;right:16px;top:16px;background:#ffffffcc;color:#0d2e67;border:1px solid #ffffff88;
       border-radius:999px;padding:6px 10px;font-weight:800;backdrop-filter:saturate(1.2) blur(2px);cursor:pointer
     }
 
-    /* ---------- Cards/Grid ---------- */
+    /* Cards/Grid */
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
     @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:560px){.services-grid{grid-template-columns:1fr}}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px 18px;box-shadow:var(--shadow);transition:.18s transform ease,.18s box-shadow ease}
     .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
-    .card .badge{display:inline-block;font-size:var(--fs-badge);padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
-    .card h3{margin:4px 0 8px;font-size:var(--fs-h3);color:var(--navy);word-break:keep-all}
-    .card p{
-      margin:0;color:#385073;word-break:keep-all;line-height:var(--lh-base);
-      text-align:justify; text-align-last:auto; text-justify:inter-word;
-      font-size:var(--fs-base); hyphens:auto;
-    }
+    .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
+    .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
+    .card p{margin:0;color:#385073;word-break:keep-all;line-height:1.7;text-align:justify;text-align-last:auto;text-justify:inter-word}
 
-    /* ---------- Contact/Footer ---------- */
-    footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93; font-size:var(--fs-small)}
+    /* Contact/Footer */
+    footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
     footer a{color:var(--navy);text-decoration:none}
     .contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
     @media (max-width:820px){.contact-grid{grid-template-columns:1fr}}
     .contact-box,.fast-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-    .contact-item{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:var(--fs-base)}
+    .contact-item{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:18px}
     .contact-btn{display:inline-flex;justify-content:center;width:220px}
 
-    /* ---------- Modal ---------- */
+    /* Modal */
     .modal{position:fixed;inset:0;display:none;background:rgba(5,10,25,.6);z-index:9999;align-items:center;justify-content:center;padding:20px}
     .modal.active{display:flex}
     .modal-box{width:min(1100px,96vw);height:min(84vh,900px);background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
@@ -141,9 +107,9 @@
     .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
     .link-muted{color:#405a86;text-decoration:none}
 
-    /* ---------- FAQ ---------- */
+    /* FAQ */
     #faq .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
-    #faq .toolbar select,#faq .toolbar input[type="search"]{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:42px;font-size:var(--fs-base)}
+    #faq .toolbar select,#faq .toolbar input[type="search"]{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:42px}
     #faq .faq-wrap{display:grid;gap:12px}
     #faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
     #faq summary{cursor:pointer;font-weight:700;display:flex;align-items:center;gap:8px;outline:none;padding:8px 6px}
@@ -153,21 +119,19 @@
     #faq .cat-box{background:#fff;border:1px solid #e6ecf5;border-radius:8px;margin:4px 0;padding:6px 10px;box-shadow:0 2px 6px rgba(13,46,103,.05)}
     #faq .cat-box > summary::before{content:"▷";color:#666}
     #faq .cat-box[open] > summary::before{content:"▾";color:var(--navy)}
-    #faq details > summary{background:#f3f6fb;border-radius:10px;padding:10px 12px;margin-bottom:6px;font-size:var(--fs-base);color:#0d2e67;border:1px solid #e0e7f5}
-    #faq .faq-a{color:#385073;padding:6px 2px 0;font-size:var(--fs-base)}
+    #faq details > summary{background:#f3f6fb;border-radius:10px;padding:10px 12px;margin-bottom:6px;font-size:1rem;color:#0d2e67;border:1px solid #e0e7f5}
+    #faq .faq-a{color:#385073;padding:6px 2px 0}
+    #faq .muted{color:#6b7c93;font-size:.85rem}
 
-    /* ---------- Back-to-top ---------- */
+    /* Back-to-top */
     #toTop{position:fixed;right:16px;bottom:18px;display:none;z-index:999;background:#0f2147;color:#fff;border:0;border-radius:999px;padding:10px 14px;box-shadow:0 8px 18px rgba(0,0,0,.15);cursor:pointer}
     #toTop.show{display:block}
 
-    /* ---------- Mobile tweaks ---------- */
+    /* Mobile rules */
     @media (max-width:560px){
       .topnav{display:none}
       .hero .inner{padding:20px 18px}
       .brand-mobile{display:flex}
-      .cta .btn{min-height:42px; padding:11px 14px}
-      .card{padding:16px 14px}
-      .section-title{margin-top:10px}
     }
   </style>
 
@@ -325,7 +289,7 @@
         <option>인력/납기</option><option>공통</option>
       </select>
       <input id="faqSearch" type="search" placeholder="검색어(예: 점검, 계약, 비용)" aria-label="FAQ 검색어"/>
-      <label style="display:flex;align-items:center;gap:6px;font-size:var(--fs-small);color:#405a86">
+      <label style="display:flex;align-items:center;gap:6px;font-size:14px;color:#405a86">
         <input id="groupToggle" type="checkbox" checked/> <span data-i18n="faq_group">카테고리별 묶기</span>
       </label>
       <button id="faqReload" class="btn btn-dark" type="button" data-i18n="faq_reload">Reload</button>
@@ -562,19 +526,22 @@
       // placeholders
       const faqSearch = document.getElementById('faqSearch');
       if(faqSearch) faqSearch.placeholder = (lang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
-      // toggle labels
+      // buttons label
       langBtn.textContent = (lang==='en')?'KR':'EN';
       langFab.textContent = langBtn.textContent;
     }
 
-    function toggleLang(){ applyI18n(currentLang==='ko'?'en':'ko'); }
+    function toggleLang(){
+      applyI18n(currentLang==='ko'?'en':'ko');
+    }
 
     langBtn.addEventListener('click', toggleLang);
     langFab.addEventListener('click', toggleLang);
 
-    // 초기값: 한국어
+    // initial
     applyI18n('ko');
+    // also reload FAQ status language on load
     document.addEventListener('DOMContentLoaded', loadFAQ);
   </script>
 </body>
-</html>
+</html>  
