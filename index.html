@@ -5,39 +5,200 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>COREON │ 전기·계장·소방 EPCM</title>
   <meta name="description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준 - COREON"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="canonical" href="https://www.coreon-global.com/"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="COREON │ 전기·계장·소방 EPCM">
+  <meta property="og:description" content="전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준">
+  <meta property="og:url" content="https://www.coreon-global.com/">
+  <meta property="og:image" content="https://www.coreon-global.com/hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Preload (LCP 향상) -->
+  <link rel="preload" as="image" href="hero.png">
+  <link rel="preload" as="image" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Smooth Scroll -->
+  <style>html{scroll-behavior:smooth}</style>
+
   <style>
     :root{
-      --navy:#0D2E67; --orange:#FF6B00; --ink:#102a43;
-      --bg:#f7f9fc; --card:#ffffff; --radius:16px;
-      --shadow:0 8px 30px rgba(13,46,103,.08);
+      --navy:#0D2E67; --navy-deep:#06234f; --orange:#FF6B00; --ink:#102a43;
+      --muted:#6b7c93; --bg:#f7f9fc; --card:#ffffff; --radius:16px;
+      --shadow:0 8px 30px rgba(13,46,103,.08); --line:#e6ecf5;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:"Noto Sans KR","Inter",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-    img{max-width:100%;display:block}
+    html,body{margin:0;padding:0}
+    body{font-family:"Noto Sans KR","Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,Apple SD Gothic Neo,"맑은 고딕",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+
+    /* ---------- Top Nav ---------- */
+    .topnav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e9eef6;box-shadow:0 6px 24px rgba(13,46,103,.06)}
+    .topnav .inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand-mini{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-mini img{width:28px;height:auto}
+    .brand-mini b{color:var(--navy);letter-spacing:.5px}
+    .topnav .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease}
+    .toplink:hover{background:#f4f7fc}
+
+    /* 공통 */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
-    .section-title{font-size:28px;font-weight:800;text-align:center;color:var(--navy);margin:18px 0}
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
-    .card{background:var(--card);border:1px solid #e6ecf5;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy)}
-    .card p{margin:0;color:#385073;line-height:1.7;text-align:justify}
-    .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
+    .section-title{font-size:28px;font-weight:800;letter-spacing:-.3px;margin:18px 0 10px;text-align:center;color:var(--navy);word-break:keep-all}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      position:relative;color:#fff;text-align:left;padding:28px 0 56px;overflow:hidden;
+      background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%),
+                  url("hero.png") center/cover no-repeat;
+    }
+    .hero .inner{max-width:1100px;margin:0 auto;padding:24px 18px}
+    .brand-mobile{display:none;align-items:center;gap:12px;margin:6px 0 10px;text-decoration:none}
+    .brand-mobile .logo-box{width:40px;height:40px;border-radius:10px;background:#ffffff22;border:1px solid #ffffff40;display:grid;place-items:center}
+    .brand-mobile .logo-box img{width:26px;height:auto}
+    .brand-mobile .name{font-weight:800;letter-spacing:.5px;font-size:18px;color:#fff}
+    .hero h1{margin:12px 0 10px;font-weight:900;letter-spacing:-.5px;font-size:clamp(28px,4.8vw,48px);word-break:keep-all}
+    .hero .sub{color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:clamp(14px,2.5vw,18px);word-break:keep-all}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;border:1px solid #ffffff40;color:#fff;background:#ffffff12;text-decoration:none;font-weight:700;transition:.18s transform ease,.18s box-shadow ease,.18s background ease;box-shadow:0 6px 22px rgba(0,0,0,.10);min-height:48px}
+    .btn:hover{transform:translateY(-2px);background:#ffffff22}
+    .btn i{font-style:normal;opacity:.9}
+    .btn-primary{background:var(--orange);border-color:transparent;color:#111}
+    .btn-primary:hover{background:#ff7d22}
+    .btn-dark{background:#0f2147;border:1px solid #203869}
+    .btn-outline{background:transparent;border:1px solid #ffffff55}
+
+    /* --------- Cards/Grid --------- */
+    .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
+    @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.services-grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px 18px;box-shadow:var(--shadow);transition:.18s transform ease,.18s box-shadow ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
+    .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
+    .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
+    .card p{margin:0;color:#385073;word-break:keep-all;line-height:1.7;text-align:justify;text-align-last:auto;text-justify:inter-word}
+
+    /* 문의/푸터 */
+    footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
+    footer a{color:var(--navy);text-decoration:none}
+    .contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+    @media (max-width:820px){.contact-grid{grid-template-columns:1fr}}
+    .contact-box,.fast-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .contact-item{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:18px}
+    .contact-btn{display:inline-flex;justify-content:center;width:220px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;background:rgba(5,10,25,.6);z-index:9999;align-items:center;justify-content:center;padding:20px}
+    .modal.active{display:flex}
+    .modal-box{width:min(1100px,96vw);height:min(84vh,900px);background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#0f2147;color:#fff}
+    .modal-header .title{font-weight:700}
+    .modal-close{appearance:none;border:0;background:#fff1;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer}
+    .modal-body{flex:1}
+    .modal-body iframe{width:100%;height:100%;border:0}
+    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
+    .link-muted{color:#405a86;text-decoration:none}
+
+    /* FAQ */
+    #faq .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
+    #faq .toolbar select,#faq .toolbar input[type="search"]{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:42px}
+    #faq .faq-wrap{display:grid;gap:12px}
+    #faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
+    #faq summary{cursor:pointer;font-weight:700;display:flex;align-items:center;gap:8px;outline:none;padding:8px 6px}
+    #faq summary::-webkit-details-marker{display:none}
+    #faq details > summary::before{content:"▶";flex-shrink:0;transition:transform .18s ease;color:#1f2d4d}
+    #faq details[open] > summary::before{transform:rotate(90deg);color:var(--navy)}
+    #faq .cat-box{background:#fff;border:1px solid #e6ecf5;border-radius:8px;margin:4px 0;padding:6px 10px;box-shadow:0 2px 6px rgba(13,46,103,.05)}
+    #faq .cat-box > summary::before{content:"▷";color:#666}
+    #faq .cat-box[open] > summary::before{content:"▾";color:var(--navy)}
+    #faq details > summary{background:#f3f6fb;border-radius:10px;padding:10px 12px;margin-bottom:6px;font-size:1rem;color:#0d2e67;border:1px solid #e0e7f5}
+    #faq .faq-a{color:#385073;padding:6px 2px 0}
+    #faq .muted{color:#6b7c93;font-size:.85rem}
+
+    /* Back-to-top */
+    #toTop{position:fixed;right:16px;bottom:18px;display:none;z-index:999;background:#0f2147;color:#fff;border:0;border-radius:999px;padding:10px 14px;box-shadow:0 8px 18px rgba(0,0,0,.15);cursor:pointer}
+    #toTop.show{display:block}
+
+    /* 모바일 */
+    @media (max-width:560px){
+      .topnav{display:none}
+      .hero .inner{padding:20px 18px}
+      .brand-mobile{display:flex}
+    }
   </style>
+
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"Organization",
+    "name":"COREON","url":"https://www.coreon-global.com/","logo":"https://www.coreon-global.com/logo.png",
+    "contactPoint":[{"@type":"ContactPoint","telephone":"+82-10-9039-1482","contactType":"customer service","areaServed":"KR"}]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","url":"https://www.coreon-global.com/",
+   "potentialAction":{"@type":"SearchAction","target":"https://www.coreon-global.com/#faq?q={query}","query-input":"required name=query"}}
+  </script>
 </head>
+
 <body>
 
-  <!-- 기존 Hero / Services / 회사소개 ... -->
+  <!-- TOP NAV -->
+  <div class="topnav" id="top">
+    <div class="inner">
+      <a class="brand-mini" href="/" aria-label="홈으로">
+        <img src="logo.png" alt="COREON" loading="eager"><b>COREON</b>
+      </a>
+      <div class="links">
+        <a class="toplink" href="#about">회사 소개</a>
+        <a class="toplink js-doc" href="#" data-doc="brochure">브로슈어</a>
+        <a class="toplink" href="#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
 
-  <!-- ================== 새로 추가된 블록 ================== -->
+  <!-- HERO -->
+  <header class="hero">
+    <div class="inner">
+      <a class="brand-mobile" href="/" aria-label="홈으로">
+        <div class="logo-box"><img src="logo.png" alt="COREON" loading="lazy"></div>
+        <div class="name">COREON</div>
+      </a>
 
-  <!-- 3.1 Why COREON -->
+      <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
+      <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform" target="_blank" rel="noopener" aria-label="견적 문의 폼 열기"><i>📩</i> 견적 문의</a>
+        <button class="btn btn-outline" data-doc="profile" aria-label="회사 소개서 보기"><i>📑</i> 회사 소개서 보기</button>
+        <button class="btn btn-dark" data-doc="brochure" aria-label="브로슈어 보기"><i>🗂️</i> 브로슈어 보기</button>
+        <a class="btn btn-outline" href="tel:+821090391482" aria-label="전화 걸기"><i>📞</i> 바로 전화</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 회사 소개 -->
+  <section id="about" class="wrap">
+    <h2 class="section-title">회사 소개</h2>
+    <div class="services-grid">
+      <article class="card"><span class="badge">EPCM 전문성</span><h3>설계·조달·시공·PM/CM 전 주기 관리</h3></article>
+      <article class="card"><span class="badge">안전과 신뢰</span><h3>사고 예방·법규 준수·투명한 보고</h3></article>
+      <article class="card"><span class="badge">글로벌 경험</span><h3>국내외 다양한 산업·현장 수행 경험</h3></article>
+      <article class="card"><span class="badge">자료 보기</span><h3 style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-dark" data-doc="profile">회사 소개서</button><button class="btn" data-doc="brochure">브로슈어</button></h3></article>
+    </div>
+  </section>
+
+  <!-- ============= 새 섹션 4개: #about 바로 아래 ============= -->
+
+  <!-- Why COREON -->
   <section class="wrap" id="why">
     <h2 class="section-title">Why COREON</h2>
     <div class="services-grid">
       <article class="card"><span class="badge">EPCM</span><h3>Owner’s Engineer / EPCM</h3><p>“시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.”</p></article>
-      <article class="card"><span class="badge">PM/CM</span><h3>총괄 PM & 단일 창구</h3><p>“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”</p></article>
+      <article class="card"><span class="badge">PM/CM</span><h3>총괄 PM &amp; 단일 창구</h3><p>“복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.”</p></article>
       <article class="card"><span class="badge">Global</span><h3>글로벌 레퍼런스</h3><p>“Hyundai E&amp;C, Samsung C&amp;T, GS E&amp;C, BP 등 국내외 대형 프로젝트 경험.”</p></article>
       <article class="card"><span class="badge">Patent</span><h3>특허 기반 안전 혁신</h3><p>“건설 안전 보조 시스템·웨어러블 보호 장치 등 특허 기반 솔루션.”</p></article>
       <article class="card"><span class="badge">One-Stop</span><h3>통합 서비스</h3><p>“전기·소방·안전·자재까지 원스톱으로 관리합니다.”</p></article>
@@ -45,7 +206,7 @@
     </div>
   </section>
 
-  <!-- 3.2 How COREON Works -->
+  <!-- Process -->
   <section class="wrap" id="process">
     <h2 class="section-title">How COREON Works</h2>
     <div style="display:grid;gap:12px">
@@ -57,7 +218,7 @@
     </div>
   </section>
 
-  <!-- 3.3 Industries / 고객 -->
+  <!-- Industries -->
   <section class="wrap" id="industries">
     <h2 class="section-title">Industries / 고객</h2>
     <div class="services-grid">
@@ -70,7 +231,7 @@
     </div>
   </section>
 
-  <!-- 3.4 Representative -->
+  <!-- Representative -->
   <section class="wrap" id="rep">
     <h2 class="section-title">Representative</h2>
     <article class="card" style="display:flex;gap:16px;align-items:flex-start">
@@ -82,8 +243,173 @@
     </article>
   </section>
 
-  <!-- ================== 새 블록 끝 ================== -->
+  <!-- ================= 새 섹션 끝 ================= -->
 
-  <!-- 기존 문의 / FAQ / Footer 유지 -->
+  <!-- 서비스 -->
+  <main id="services" class="wrap">
+    <h2 class="section-title">서비스</h2>
+    <div class="services-grid">
+      <article class="card"><span class="badge">전기안전관리</span><h3>정기점검 · 법규 준수 · 사고 예방</h3><p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p></article>
+      <article class="card"><span class="badge">전기공사 PM</span><h3>플랜트 · 빌딩 · 공장 시공 총괄</h3><p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p></article>
+      <article class="card"><span class="badge">소방공사 PM</span><h3>전기+소방 통합 관리</h3><p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p></article>
+      <article class="card"><span class="badge">특화 서비스</span><h3>변압기 절연유 교체 · 기술 인력 지원</h3><p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p></article>
+    </div>
+  </main>
+
+  <!-- 문의 -->
+  <section class="wrap">
+    <h2 class="section-title">문의</h2>
+    <p style="text-align:center;color:#405a86;word-break:keep-all">견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.</p>
+    <div class="contact-grid">
+      <div class="contact-box">
+        <div class="contact-item">📧 <a href="mailto:contact@coreon-global.com" class="link-muted">contact@coreon-global.com</a></div>
+        <div class="contact-item">🌐 <a href="https://www.coreon-global.com" class="link-muted" target="_blank" rel="noopener">www.coreon-global.com</a></div>
+        <div class="contact-item">📞 <a href="tel:+821090391482" class="link-muted">+82-10-9039-1482</a></div>
+      </div>
+      <div class="fast-box" style="display:grid;place-items:center">
+        <a class="btn btn-primary contact-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform" target="_blank" rel="noopener">문의 폼 열기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="wrap">
+    <h2 class="section-title">FAQ</h2>
+    <div class="toolbar">
+      <select id="faqCat" aria-label="카테고리 선택">
+        <option value="">전체</option>
+        <option>견적/계약</option><option>프로젝트관리</option><option>품질/안전</option>
+        <option>전기안전관리</option><option>전기공사</option><option>소방공사</option>
+        <option>인력/납기</option><option>공통</option>
+      </select>
+      <input id="faqSearch" type="search" placeholder="검색어(예: 점검, 계약, 비용)" aria-label="FAQ 검색어"/>
+      <label style="display:flex;align-items:center;gap:6px;font-size:14px;color:#405a86">
+        <input id="groupToggle" type="checkbox" checked/> 카테고리별 묶기
+      </label>
+      <button id="faqReload" class="btn btn-dark" type="button">Reload</button>
+      <span id="faqStatus" class="muted" role="status" aria-live="polite"></span>
+    </div>
+    <div id="faqList" class="faq-wrap" aria-live="polite"></div>
+  </section>
+
+  <footer>
+    © COREON · <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a> · <a href="tel:+821090391482">+82-10-9039-1482</a>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="toTop" aria-label="맨 위로 이동">▲ TOP</button>
+
+  <!-- PDF PREVIEW MODAL -->
+  <div id="viewerModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="title" id="viewerTitle">문서 보기</div>
+        <button class="modal-close" id="viewerClose" aria-label="닫기">닫기 ✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="viewerFrame" title="PDF 미리보기" allow="autoplay; fullscreen"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a id="viewerOpenNew" class="btn link-muted" target="_blank" rel="noopener">새 탭에서 열기 ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform";
+    const PROFILE_PREVIEW="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/preview";
+    const BROCHURE_PREVIEW="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
+    const FAQ_API="https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
+
+    // PDF 모달
+    const modal=document.getElementById('viewerModal');
+    const frame=document.getElementById('viewerFrame');
+    const titleEl=document.getElementById('viewerTitle');
+    const openNew=document.getElementById('viewerOpenNew');
+    const closeBtn=document.getElementById('viewerClose');
+    function openModal(kind){
+      let src="",title="",raw="";
+      if(kind==="profile"){src=PROFILE_PREVIEW;title="회사 소개서";raw="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";}
+      else{src=BROCHURE_PREVIEW;title="브로슈어";raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";}
+      titleEl.textContent=title+" (읽기)"; frame.src=src; openNew.href=raw; modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){modal.classList.remove('active');modal.setAttribute('aria-hidden','true');frame.src="about:blank";}
+    document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openModal(e.currentTarget.getAttribute('data-doc'));}));
+    closeBtn.addEventListener('click',closeModal);
+    modal.addEventListener('click',e=>{if(e.target===modal){closeModal();}});
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape' && modal.classList.contains('active')) closeModal(); });
+    document.querySelectorAll('a[href="#form"]').forEach(a=>a.href=FORM_URL);
+
+    // FAQ 로딩
+    const faqListEl=document.getElementById('faqList');
+    const faqStatus=document.getElementById('faqStatus');
+    const faqCatSel=document.getElementById('faqCat');
+    const faqSearch=document.getElementById('faqSearch');
+    const groupToggle=document.getElementById('groupToggle');
+    const faqReload=document.getElementById('faqReload');
+    const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]}));
+    async function loadFAQ(){
+      faqListEl.innerHTML=''; faqStatus.textContent='불러오는 중...';
+      try{
+        const p=new URLSearchParams();
+        if(faqCatSel.value) p.set('category',faqCatSel.value);
+        if(faqSearch.value?.trim()) p.set('q',faqSearch.value.trim());
+        p.set('noCache','1');
+        const r=await fetch(`${FAQ_API}?${p.toString()}`,{cache:'no-store'});
+        if(!r.ok) throw new Error('Network');
+        const j=await r.json();
+        const items=(j.items||[]).filter(x=>x.question&&x.answer);
+        if(groupToggle.checked) renderGrouped(items); else renderFlat(items);
+        faqStatus.textContent=`불러오기 완료 (${items.length})`;
+      }catch(e){faqStatus.textContent='FAQ 로드 실패 (URL/권한/CORS 확인)';}
+    }
+    function renderFlat(items){
+      if(!items.length){faqListEl.innerHTML='<p class="muted">항목이 없습니다.</p>';return;}
+      faqListEl.innerHTML=items.map(x=>`
+        <details>
+          <summary>${escapeHtml(x.question||'')}</summary>
+          <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
+            <div class="muted" style="margin-top:6px">최종수정: ${x.updated_at||'-'}</div>
+          </div>
+        </details>`).join('');
+    }
+    function renderGrouped(items){
+      if(!items.length){faqListEl.innerHTML='<p class="muted">항목이 없습니다.</p>';return;}
+      const byCat={}; items.forEach(x=>{const k=x.category||'기타'; (byCat[k] ||= []).push(x);});
+      const html=Object.keys(byCat).sort().map(cat=>{
+        const qs=byCat[cat].map(x=>`
+          <details class="cat-box">
+            <summary>${escapeHtml(x.question||'')}</summary>
+            <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
+              <div class="muted" style="margin-top:6px">최종수정: ${x.updated_at||'-'}</div>
+            </div>
+          </details>`).join('');
+        return `<details><summary>📂 ${escapeHtml(cat)}</summary>
+                  <div style="display:grid;gap:10px;margin-top:8px">${qs}</div>
+                </details>`;
+      }).join('');
+      faqListEl.innerHTML=html;
+    }
+    faqCatSel.addEventListener('change',loadFAQ);
+    groupToggle.addEventListener('change',loadFAQ);
+    faqReload.addEventListener('click',loadFAQ);
+    document.addEventListener('DOMContentLoaded',loadFAQ);
+
+    // 헤더 보정 스크롤
+    document.querySelectorAll('.toplink[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href'); const el=document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        const y=el.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({top:y,behavior:'smooth'});
+      });
+    });
+
+    // Back-to-top
+    const toTop=document.getElementById('toTop');
+    window.addEventListener('scroll',()=>{ if(window.scrollY>600){toTop.classList.add('show')} else {toTop.classList.remove('show')} });
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
 </body>
 </html>
