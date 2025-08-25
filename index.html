@@ -332,7 +332,7 @@
     <div id="faqList" class="faq-wrap" aria-live="polite"></div>
   </section>
 
-  <!-- ✅ 교체된 Footer: 연도 자동, 개인정보처리방침 링크 포함 -->
+  <!-- ✅ Footer -->
   <footer>
     © <span id="year"></span> COREON · All Rights Reserved ·
     <a href="/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a> ·
@@ -359,12 +359,18 @@
     </div>
   </div>
 
+  <!-- ================= JS ================= -->
   <script>
     /* === Constants === */
     const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform";
     const PROFILE_PREVIEW="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/preview";
     const BROCHURE_PREVIEW="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
     const FAQ_API="https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
+
+    /* === Utils === */
+    // escapeHtml: 단일 정의 (재선언 금지)
+    const escapeHtml = (s) => String(s ?? '')
+      .replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 
     /* === PDF Modal === */
     const modal=document.getElementById('viewerModal');
@@ -402,12 +408,6 @@
     const faqSearch=document.getElementById('faqSearch');
     const groupToggle=document.getElementById('groupToggle');
     const faqReload=document.getElementById('faqReload');
-
-    const escapeHtml=s=>String(s||'').replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;","<":""}[m])) // will be overridden below
-  </script>
-  <script>
-    // fix escapeHtml (previous line truncated by minifier protection when pasted in some editors)
-    const escapeHtml = s => String(s||'').replace(/[&<>]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
 
     async function loadFAQ(){
       faqListEl.innerHTML=''; faqStatus.textContent=(currentLang==='en')?'Loading...':'불러오는 중...';
@@ -456,7 +456,6 @@
     faqCatSel.addEventListener('change',loadFAQ);
     groupToggle.addEventListener('change',loadFAQ);
     faqReload.addEventListener('click',loadFAQ);
-    document.addEventListener('DOMContentLoaded',loadFAQ);
 
     /* === Smooth anchor (header offset) === */
     document.querySelectorAll('.toplink[href^="#"]').forEach(a=>{
@@ -474,7 +473,7 @@
     window.addEventListener('scroll',()=>{ if(window.scrollY>600){toTop.classList.add('show')} else {toTop.classList.remove('show')} });
     toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-    /* === i18n dictionary (quotes removed) === */
+    /* === i18n dictionary === */
     const i18n = {
       ko:{
         nav_about:"회사 소개", nav_brochure:"브로슈어", nav_faq:"FAQ",
@@ -554,7 +553,7 @@
       }
     };
 
-    /* === i18n apply === */
+    /* === i18n apply & toggle === */
     const langBtn = document.getElementById('langToggle');
     const langFab = document.getElementById('langFab');
 
@@ -565,28 +564,24 @@
         const key = el.getAttribute('data-i18n');
         if(i18n[lang][key]) el.textContent = i18n[lang][key];
       });
-      const faqSearch = document.getElementById('faqSearch');
-      if(faqSearch) faqSearch.placeholder = (lang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
-      langBtn.textContent = (lang==='en')?'KR':'EN';
-      langFab.textContent = langBtn.textContent;
+      const faqSearchInput = document.getElementById('faqSearch');
+      if(faqSearchInput) faqSearchInput.placeholder = (lang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
+      if(langBtn) langBtn.textContent = (lang==='en')?'KR':'EN';
+      if(langFab) langFab.textContent = (lang==='en')?'KR':'EN';
       loadFAQ();
     }
 
-    function toggleLang(){
-      applyI18n(currentLang==='ko'?'en':'ko');
-    }
+    function toggleLang(){ applyI18n(currentLang==='ko'?'en':'ko'); }
+    if(langBtn) langBtn.addEventListener('click', toggleLang);
+    if(langFab) langFab.addEventListener('click', toggleLang);
 
-    langBtn.addEventListener('click', toggleLang);
-    langFab.addEventListener('click', toggleLang);
-
-    // initial (always KR on first load, including mobile)
-    applyI18n('ko');
-
-    /* === Back-to-top visibility on load === */
-    document.addEventListener('DOMContentLoaded', loadFAQ);
-
-    /* === Footer year (자동 갱신) === */
-    document.getElementById('year').textContent = new Date().getFullYear();
+    /* === Init after DOM ready === */
+    document.addEventListener('DOMContentLoaded',()=>{
+      // 초기 언어: 한국어
+      applyI18n('ko');
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
