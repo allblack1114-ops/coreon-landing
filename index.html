@@ -24,7 +24,7 @@
     /* ---------- Top Nav (데스크톱 전용) ---------- */
     .topnav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e9eef6;box-shadow:0 6px 24px rgba(13,46,103,.06)}
     .topnav .inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand-mini{display:flex;align-items:center;gap:10px}
+    .brand-mini{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand-mini img{width:28px;height:auto}
     .brand-mini b{color:var(--navy);letter-spacing:.5px}
     .topnav .links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -44,10 +44,10 @@
     }
     .hero .inner{max-width:1100px;margin:0 auto;padding:24px 18px}
     /* 모바일용 브랜드 바 */
-    .brand-mobile{display:none;align-items:center;gap:12px;margin:6px 0 10px}
+    .brand-mobile{display:none;align-items:center;gap:12px;margin:6px 0 10px;text-decoration:none}
     .brand-mobile .logo-box{width:40px;height:40px;border-radius:10px;background:#ffffff22;border:1px solid #ffffff40;display:grid;place-items:center}
     .brand-mobile .logo-box img{width:26px;height:auto}
-    .brand-mobile .name{font-weight:800;letter-spacing:.5px;font-size:18px}
+    .brand-mobile .name{font-weight:800;letter-spacing:.5px;font-size:18px;color:#fff}
 
     .hero h1{margin:12px 0 10px;font-weight:900;letter-spacing:-.5px;font-size:clamp(28px,4.8vw,48px);word-break:keep-all}
     .hero .sub{color:#dfe8ff;margin:0 0 18px;max-width:900px;font-size:clamp(14px,2.5vw,18px);word-break:keep-all}
@@ -72,7 +72,11 @@
     .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
     .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
     .card h3{margin:4px 0 8px;font-size:20px;color:var(--navy);word-break:keep-all}
-    .card p{margin:0;color:#385073;word-break:keep-all}
+    .card p{
+      margin:0;color:#385073;word-break:keep-all;
+      white-space:pre-line;   /* \n을 실제 줄바꿈으로 렌더링 */
+      line-height:1.7;
+    }
 
     /* Footer / Contact */
     footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
@@ -111,14 +115,13 @@
     #faq .faq-a{color:#385073;padding:6px 2px 0}
     #faq .muted{color:#6b7c93;font-size:.85rem}
 
-    /* ---------- MOBILE RULES (핵심) ---------- */
+    /* ---------- MOBILE RULES ---------- */
     @media (max-width:560px){
-      /* TopNav 숨김 → 히어로 안에서 브랜드+버튼 구성 */
+      /* 데스크톱 상단바 숨김 → 히어로 안에서 브랜드+버튼 구성 */
       .topnav{display:none}
       .hero{background:linear-gradient(180deg,rgba(13,46,103,.86) 0%, rgba(6,35,79,.86) 100%), url("hero.png") center/cover no-repeat}
       .hero .inner{padding:20px 18px}
       .brand-mobile{display:flex}
-      /* 버튼 4개 모두 노출 (숨김 없음) */
     }
   </style>
 </head>
@@ -127,12 +130,14 @@
   <!-- TOP NAV (데스크톱에서만 보임) -->
   <div class="topnav">
     <div class="inner">
-      <div class="brand-mini">
+      <!-- 로고 클릭 → 홈 이동 -->
+      <a class="brand-mini" href="/" aria-label="홈으로">
         <img src="logo.png" alt="COREON"><b>COREON</b>
-      </div>
+      </a>
       <div class="links">
+        <a class="toplink" href="#about">회사 소개</a>
+        <a class="toplink" href="#services">서비스</a>
         <a class="toplink" href="#faq">FAQ</a>
-        <a class="toplink js-doc" href="#" data-doc="profile">회사 소개서</a>
         <a class="toplink js-doc" href="#" data-doc="brochure">브로슈어</a>
         <a class="topbtn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98">견적 문의</a>
       </div>
@@ -142,10 +147,11 @@
   <!-- HERO (모바일: 브랜드 바 노출) -->
   <header class="hero">
     <div class="inner">
-      <div class="brand-mobile">
+      <!-- 로고 클릭 → 홈 이동 -->
+      <a class="brand-mobile" href="/" aria-label="홈으로">
         <div class="logo-box"><img src="logo.png" alt="COREON"></div>
         <div class="name">COREON</div>
-      </div>
+      </a>
 
       <h1>전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
@@ -159,19 +165,8 @@
     </div>
   </header>
 
-  <!-- 서비스 -->
-  <main class="wrap">
-    <h2 class="section-title">서비스</h2>
-    <div class="services-grid">
-      <article class="card"><span class="badge">전기안전관리</span><h3>정기점검 · 법규 준수 · 사고 예방</h3><p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p></article>
-      <article class="card"><span class="badge">전기공사 PM</span><h3>플랜트 · 빌딩 · 공장 시공 총괄</h3><p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p></article>
-      <article class="card"><span class="badge">소방공사 PM</span><h3>전기+소방 통합 관리</h3><p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p></article>
-      <article class="card"><span class="badge">특화 서비스</span><h3>변압기 절연유 교체 · 기술 인력 지원</h3><p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p></article>
-    </div>
-  </main>
-
-  <!-- 회사 소개 -->
-  <section class="wrap">
+  <!-- ===================== 회사 소개 (서비스보다 위로 이동) ===================== -->
+  <section id="about" class="wrap">
     <h2 class="section-title">회사 소개</h2>
     <div class="services-grid">
       <article class="card"><span class="badge">EPCM 전문성</span><h3>설계·조달·시공·PM/CM 전 주기 관리</h3></article>
@@ -180,6 +175,36 @@
       <article class="card"><span class="badge">자료 보기</span><h3 style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-dark" data-doc="profile">회사 소개서</button><button class="btn" data-doc="brochure">브로슈어</button></h3></article>
     </div>
   </section>
+
+  <!-- ===================== 서비스 (회사 소개 아래) ===================== -->
+  <main id="services" class="wrap">
+    <h2 class="section-title">서비스</h2>
+    <div class="services-grid">
+      <article class="card">
+        <span class="badge">전기안전관리</span>
+        <h3>정기점검 · 법규 준수 · 사고 예방</h3>
+        <p>정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">전기공사 PM</span>
+        <h3>플랜트 · 빌딩 · 공장 시공 총괄</h3>
+        <p>전기공사 시공 총괄 관리(일정·품질·비용 보장)</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">소방공사 PM</span>
+        <h3>전기+소방 통합 관리</h3>
+        <p>방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">특화 서비스</span>
+        <h3>변압기 절연유 교체 · 기술 인력 지원</h3>
+        <p>변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견</p>
+      </article>
+    </div>
+  </main>
 
   <!-- 문의 -->
   <section class="wrap">
@@ -243,7 +268,7 @@
     const BROCHURE_PREVIEW="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
     const FAQ_API="https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
 
-    // Modal
+    // ===== PDF 모달 =====
     const modal=document.getElementById('viewerModal');
     const frame=document.getElementById('viewerFrame');
     const titleEl=document.getElementById('viewerTitle');
@@ -261,7 +286,7 @@
     modal.addEventListener('click',e=>{if(e.target===modal){closeModal();}});
     document.querySelectorAll('a[href="#form"]').forEach(a=>a.href=FORM_URL);
 
-    // FAQ
+    // ===== FAQ =====
     const faqListEl=document.getElementById('faqList');
     const faqStatus=document.getElementById('faqStatus');
     const faqCatSel=document.getElementById('faqCat');
@@ -317,6 +342,15 @@
     groupToggle.addEventListener('change',loadFAQ);
     faqReload.addEventListener('click',loadFAQ);
     document.addEventListener('DOMContentLoaded',loadFAQ);
+
+    // ===== 서비스 카드 부제 자동 줄바꿈(쉼표/· 기준) =====
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.card p').forEach(p => {
+        const txt = p.textContent.trim();
+        const withBreaks = txt.replace(/\s*[，,·]\s*/g, '\n');
+        p.innerHTML = withBreaks.replace(/\n+/g, '<br>');
+      });
+    });
   </script>
 </body>
 </html>
