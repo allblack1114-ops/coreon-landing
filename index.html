@@ -357,19 +357,10 @@
 
   <!-- ================= JS ================= -->
   <script>
-    /* ============ 개발용 에러 배지: JS 오류 즉시 표시 (배포 시 원하면 제거 가능) ============ */
-    (function(){
-      const errBoxId = 'coreon-dev-error';
-      window.addEventListener('error', e=>{
-        if(document.getElementById(errBoxId)) return;
-        const b=document.createElement('div');
-        b.id=errBoxId;
-        b.style.cssText='position:fixed;left:10px;bottom:10px;z-index:99999;background:#111;color:#fff;padding:10px 12px;border-radius:10px;font:12px/1.4 ui-monospace,Menlo,monospace;box-shadow:0 6px 20px rgba(0,0,0,.35)';
-        b.textContent='JS Error: '+(e.message||'unknown');
-        document.body.appendChild(b);
-        setTimeout(()=>b.remove(),6000);
-      }, {capture:true});
-    })();
+    /* ===== Production-safe error logging (no on-screen badge) ===== */
+    window.addEventListener('error', function(e){
+      try { console.error('[COREON] JS Error:', e.message, e.error || ''); } catch(_) {}
+    }, {capture:true});
 
     /* === Constants === */
     const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform";
@@ -432,6 +423,7 @@
         if(groupToggle && groupToggle.checked) renderGrouped(items); else renderFlat(items);
         faqStatus.textContent=(currentLang==='en')?`Loaded (${items.length})`:`불러오기 완료 (${items.length})`;
       }catch(e){
+        console.error('[COREON] FAQ load failed:', e);
         faqStatus.textContent=(currentLang==='en')?'Failed to load FAQ (check URL/permission/CORS)':'FAQ 로드 실패 (URL/권한/CORS 확인)';
       }
     }
