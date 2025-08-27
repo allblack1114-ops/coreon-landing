@@ -115,6 +115,7 @@
       margin:0;color:#385073;font-size:var(--fs-base);line-height:var(--lh-base);
       text-align:left;word-break:keep-all;overflow-wrap:break-word
     }
+    .disclaimer{margin-top:6px;font-size:13px;color:#6b7c93}
 
     /* Contact/Footer */
     footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
@@ -134,7 +135,7 @@
     .modal-close{appearance:none;border:0;background:#fff1;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer}
     .modal-body{flex:1}
     .modal-body iframe{width:100%;height:100%;border:0}
-    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid --line}
+    .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px;background:#f3f5fa;border-top:1px solid var(--line)}
     .link-muted{color:#405a86;text-decoration:none}
 
     /* FAQ */
@@ -244,6 +245,60 @@
     </div>
   </section>
 
+  <!-- ✅ COREON Difference (Why Choose COREON) — moved directly under Why COREON -->
+  <section class="wrap" id="difference">
+    <h2 class="section-title">Why Choose COREON / COREON Difference</h2>
+    <div class="services-grid" style="grid-template-columns:repeat(3,1fr)">
+      <article class="card">
+        <span class="badge">EPCM</span>
+        <h3>단일 창구 EPCM 운영체계</h3>
+        <p>Owner’s Engineer 관점에서 단일 창구로 관리하며 Stage-Gate, RACI, 변경관리 체계를 적용합니다.<br>
+        <i>COREON manages as Owner’s Engineer with stage-gate, RACI, and change management frameworks.</i></p>
+        <div class="disclaimer">※ 적용 범위와 책임은 계약 조건에 따라 달라질 수 있습니다.</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Safety</span>
+        <h3>Safety-IP & 표준화 플랫폼</h3>
+        <p>특허 기반 안전 솔루션과 LOTO/Permit 패키지를 활용하여 리스크를 사전 예방합니다.<br>
+        <i>Patent-driven safety and LOTO/Permit packages for proactive risk prevention.</i></p>
+        <div class="disclaimer">※ 현장 조건 및 법규에 따라 구체적 적용이 조정됩니다.</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Compliance</span>
+        <h3>Compliance & 문서화 엔진</h3>
+        <p>ITP/QCP, 검사 기록, 시운전 프로토콜 등 문서화 엔진으로 인허가 및 감사 대응을 지원합니다.<br>
+        <i>Documentation engine (ITP, QCP, records) ensures compliance and audit readiness.</i></p>
+        <div class="disclaimer">※ 최종 승인 권한은 관계기관에 있습니다.</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Quality</span>
+        <h3>파트너 검증 & 품질보증</h3>
+        <p>협력사 라이선스/실적/안전이력을 사전 검증하고 성과기반 파트너 풀을 운영합니다.<br>
+        <i>Pre-verified partners with license, track record and HSE history.</i></p>
+        <div class="disclaimer">※ 선정은 발주처 요구사항과 COREON 기준을 함께 고려합니다.</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Transparency</span>
+        <h3>데이터 리포팅 & 투명 정산</h3>
+        <p>KPI 대시보드로 일정·품질·안전·비용을 시각화하며 증빙 기반 정산을 지향합니다.<br>
+        <i>KPI dashboards for transparent reporting and evidence-based cost management.</i></p>
+        <div class="disclaimer">※ KPI/정산 항목은 프로젝트별 계약 범위에 따라 확정됩니다.</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Mobilization</span>
+        <h3>신속 동원 Mobilization Playbook</h3>
+        <p>Mobilization SOP를 보유해 긴급 상황에 대응하며 필요 시 24h 내 초기 투입을 지향합니다.<br>
+        <i>Mobilization SOP enables emergency response with target of 24h initial deployment.</i></p>
+        <div class="disclaimer">※ 투입 속도와 범위는 현장 조건 및 계약 조건에 따라 달라질 수 있습니다.</div>
+      </article>
+    </div>
+  </section>
+
   <!-- Process -->
   <section class="wrap" id="process">
     <h2 class="section-title" data-i18n="process_title">How COREON Works</h2>
@@ -262,15 +317,15 @@
     <div class="services-grid">
       <!-- 1 공공 -->
       <article class="card"><span class="badge" data-i18n="ind_b1">공공</span><h3 data-i18n="ind_h1">관공서·공공기관</h3><p data-i18n="ind_p1">안전관리 및 법규 준수 중심의 운영</p></article>
-      <!-- 2 건설현장 (제안 순서에 따라 앞으로 이동) -->
+      <!-- 2 건설현장 -->
       <article class="card"><span class="badge" data-i18n="ind_b4">건설</span><h3 data-i18n="ind_h4">건설현장</h3><p data-i18n="ind_p4">시공 품질·자재·안전 통합 관리</p></article>
       <!-- 3 민간기업·공장 -->
       <article class="card"><span class="badge" data-i18n="ind_b2">제조</span><h3 data-i18n="ind_h2">민간기업·공장</h3><p data-i18n="ind_p2">노후 설비 개선과 사전 예방 중심 관리</p></article>
       <!-- 4 대기업·제조업 -->
       <article class="card"><span class="badge" data-i18n="ind_b3">대기업</span><h3 data-i18n="ind_h3">대기업·제조업</h3><p data-i18n="ind_p3">생산성 향상, 안전 강화, 리스크 최소화</p></article>
-      <!-- 5 신규: 하이테크 산업 -->
+      <!-- 5 하이테크 -->
       <article class="card"><span class="badge" data-i18n="ind_b7">하이테크</span><h3 data-i18n="ind_h7">하이테크 산업</h3><p data-i18n="ind_p7">반도체·전지·디스플레이 공정 – 정밀 안전 및 프로세스 관리</p></article>
-      <!-- 6 신규: 해양플랜트·에너지 -->
+      <!-- 6 오프쇼어 -->
       <article class="card"><span class="badge" data-i18n="ind_b8">오프쇼어</span><h3 data-i18n="ind_h8">해양플랜트·에너지</h3><p data-i18n="ind_p8">복잡한 해양·에너지 설비, 전기·계장 품질 및 시운전 전문성</p></article>
       <!-- 7 해외프로젝트 -->
       <article class="card"><span class="badge" data-i18n="ind_b5">해외</span><h3 data-i18n="ind_h5">해외프로젝트</h3><p data-i18n="ind_p5">사우디·쿠웨이트·동남아·중국 등 글로벌 수행</p></article>
@@ -399,7 +454,7 @@
         src=BROCHURE_PREVIEW; raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";
         title=(currentLang==='en')?"Brochure":"브로슈어";
       }
-      titleEl.textContent=title+" ("+ (currentLang==='en')?"View":"읽기" +")";
+      titleEl.textContent=title+" ("+ (currentLang==='en'?"View":"읽기") +")";
       frame.src=src; openNew.href=raw;
       modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
     }
