@@ -159,7 +159,8 @@
     .ir-list li{margin:6px 0}
     .ir-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
     .ir-kpi{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:12px;padding:14px;text-align:center}
-    .ir-kpi .n{display:block;font-weight:800;font-size:22px}
+    .ir-kpi .n{display:inline-block;font-weight:800;font-size:22px;white-space:nowrap} /* <<< 모바일 줄바꿈 방지 */
+    @media (max-width:560px){ .ir-kpi .n{font-size:18px} } /* <<< 작은 화면 최적화 */
     .ir-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .ir-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
     .ir-btn-primary{background:#0ea5e9;color:#fff}
@@ -352,7 +353,7 @@
             <h3>비전</h3>
             <ul class="ir-list">
               <li>글로벌 EPC에서 신뢰받는 <strong>EPCM 파트너</strong></li>
-              <li>E&amp;I·소방 통합 솔루션로 프로젝트 리스크 최소화</li>
+              <li>E&amp;I·소방 통합 <strong>솔루션으로</strong> 프로젝트 리스크 최소화</li>
               <li>일본/중동/동남아 중심의 국제 협력 확대</li>
             </ul>
           </article>
@@ -379,8 +380,11 @@
             <h3>투자자 및 파트너 안내</h3>
             <p>COREON의 비전과 성과에 관심 있는 투자자·파트너와의 대화를 환영합니다. 아래 버튼을 통해 <strong>개별 문의</strong>를 남겨주시면, 비공개로 자료를 제공드리고 상세 협의를 진행합니다.</p>
             <div class="ir-cta">
-              <a class="ir-btn ir-btn-primary" href="/contact" aria-label="투자/파트너 문의">문의하기</a>
-              <a class="ir-btn ir-btn-ghost" href="/downloads/coreon-brief.pdf" target="_blank" rel="noopener">회사 브리프(요약) 다운로드</a>
+              <!-- 문의하기: 메일to로 변경 -->
+              <a class="ir-btn ir-btn-primary"
+                 href="mailto:contact@coreon-global.com?subject=IR%20Inquiry%20from%20Website&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%20COREON%20IR%20%ED%8C%80%EA%BB%98,%0D%0A%0D%0A%EC%95%8C%EB%A6%AC%EA%B3%A0%20%EC%8B%B6%EC%9D%80%20%EA%B1%B0%EB%9E%98%20%EC%98%81%EC%97%AD/%ED%95%84%EC%9A%94%20%EC%82%AC%ED%95%AD%EC%9D%80%20%EB%8B%A4%EC%9D%8C%EA%B3%BC%20%EA%B0%99%EC%8A%B5%EB%8B%88%EB%8B%A4%3A%0D%0A-%20%0D%0A-%20%0D%0A%0D%0A%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%84%9C%20%ED%8F%AC%ED%95%A8%20%EB%B0%8F%20%EC%97%B0%EB%9D%BD%EC%B2%98%EB%A5%BC%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94."
+                 aria-label="투자/파트너 문의">문의하기</a>
+              <!-- 회사 브리프(요약) 다운로드 버튼 제거됨 -->
             </div>
             <p class="ir-note">※ 본 페이지는 불특정 다수를 대상으로 한 투자 권유가 아니며, 정보 제공 및 1:1 문의 접수를 위한 IR 섹션입니다.</p>
           </article>
@@ -445,8 +449,11 @@
             <h3>For Investors &amp; Partners</h3>
             <p>We welcome conversations with investors and partners who share our vision of global growth. Please leave an <strong>individual inquiry</strong> via the button below. We will provide materials privately and proceed with a tailored discussion.</p>
             <div class="ir-cta">
-              <a class="ir-btn ir-btn-primary" href="/contact" aria-label="Contact for investors">Contact Us</a>
-              <a class="ir-btn ir-btn-ghost" href="/downloads/coreon-brief.pdf" target="_blank" rel="noopener">Download Company Brief</a>
+              <!-- Contact Us: mailto -->
+              <a class="ir-btn ir-btn-primary"
+                 href="mailto:contact@coreon-global.com?subject=IR%20Inquiry%20from%20Website&body=Hello%20COREON%20IR%20Team,%0D%0A%0D%0AWe%20would%20like%20to%20discuss%20the%20following%20topic(s):%0D%0A-%20%0D%0A-%20%0D%0A%0D%0ABest%20regards,"
+                 aria-label="Contact for investors">Contact Us</a>
+              <!-- Download Company Brief button removed -->
             </div>
             <p class="ir-note">※ This page is <em>not</em> a public solicitation of investment. It provides information and a channel for one-to-one inquiries only.</p>
           </article>
