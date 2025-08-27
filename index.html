@@ -31,9 +31,9 @@
       --muted:#6b7c93; --bg:#f7f9fc; --card:#ffffff; --radius:16px;
       --shadow:0 8px 30px rgba(13,46,103,.08); --line:#e6ecf5;
       /* typography (desktop defaults) */
-      --fs-base:16.5px;     /* 본문 */
-      --fs-h3:20.5px;       /* 카드 제목 */
-      --fs-h2:28px;         /* 섹션 타이틀 */
+      --fs-base:16.5px;     /* body */
+      --fs-h3:20.5px;       /* card title */
+      --fs-h2:28px;         /* section title */
       --lh-base:1.6;
       --lh-h3:1.35;
     }
@@ -251,7 +251,7 @@
     </div>
   </section>
 
-  <!-- Why Choose COREON / Difference (TOGGLE-ONLY, single language) -->
+  <!-- Why Choose COREON / Difference -->
   <section class="wrap why-diff" id="why-diff">
     <h2 class="section-title" data-i18n="diff_title">Why Choose COREON / COREON Difference</h2>
     <div class="services-grid">
@@ -280,21 +280,13 @@
   <section class="wrap" id="industries">
     <h2 class="section-title" data-i18n="industries_title">Industries / 고객</h2>
     <div class="services-grid">
-      <!-- 1 공공 -->
       <article class="card"><span class="badge" data-i18n="ind_b1">공공</span><h3 data-i18n="ind_h1">관공서·공공기관</h3><p data-i18n="ind_p1">안전관리 및 법규 준수 중심의 운영</p></article>
-      <!-- 2 건설현장 -->
       <article class="card"><span class="badge" data-i18n="ind_b4">건설</span><h3 data-i18n="ind_h4">건설현장</h3><p data-i18n="ind_p4">시공 품질·자재·안전 통합 관리</p></article>
-      <!-- 3 민간기업·공장 -->
       <article class="card"><span class="badge" data-i18n="ind_b2">제조</span><h3 data-i18n="ind_h2">민간기업·공장</h3><p data-i18n="ind_p2">노후 설비 개선과 사전 예방 중심 관리</p></article>
-      <!-- 4 대기업·제조업 -->
       <article class="card"><span class="badge" data-i18n="ind_b3">대기업</span><h3 data-i18n="ind_h3">대기업·제조업</h3><p data-i18n="ind_p3">생산성 향상, 안전 강화, 리스크 최소화</p></article>
-      <!-- 5 하이테크 -->
       <article class="card"><span class="badge" data-i18n="ind_b7">하이테크</span><h3 data-i18n="ind_h7">하이테크 산업</h3><p data-i18n="ind_p7">반도체·전지·디스플레이 공정 – 정밀 안전 및 프로세스 관리</p></article>
-      <!-- 6 오프쇼어 -->
       <article class="card"><span class="badge" data-i18n="ind_b8">오프쇼어</span><h3 data-i18n="ind_h8">해양플랜트·에너지</h3><p data-i18n="ind_p8">복잡한 해양·에너지 설비, 전기·계장 품질 및 시운전 전문성</p></article>
-      <!-- 7 해외 -->
       <article class="card"><span class="badge" data-i18n="ind_b5">해외</span><h3 data-i18n="ind_h5">해외프로젝트</h3><p data-i18n="ind_p5">사우디·쿠웨이트·동남아·중국 등 글로벌 수행</p></article>
-      <!-- 8 전력 수용가 -->
       <article class="card"><span class="badge" data-i18n="ind_b6">전력수용가</span><h3 data-i18n="ind_h6">국내 모든 전력 수용가</h3><p data-i18n="ind_p6">국내 전력설비 수용가 전반 대상</p></article>
     </div>
   </section>
@@ -358,7 +350,7 @@
     <div id="faqList" class="faq-wrap" aria-live="polite"></div>
   </section>
 
-  <!-- ✅ Footer -->
+  <!-- Footer -->
   <footer>
     © <span id="year"></span> COREON · All Rights Reserved ·
     <a href="/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a> ·
@@ -408,18 +400,33 @@
     const openNew=document.getElementById('viewerOpenNew');
     const closeBtn=document.getElementById('viewerClose');
 
-    let currentLang = (localStorage.getItem('coreon_lang')==='en'?'en':'ko'); // 전역 상태
+    // Language state: cycle KO->EN->JP->ZH
+    const LANGS = ['ko','en','ja','zh'];
+    function nextLangCode(cur){
+      const idx = LANGS.indexOf(cur);
+      return LANGS[(idx+1) % LANGS.length] || 'en';
+    }
+    function labelFor(lang){ // show next language label on button
+      const map = {ko:'EN', en:'JP', ja:'ZH', zh:'KR'};
+      return map[lang] || 'EN';
+    }
+
+    let currentLang = (()=>{
+      const saved = localStorage.getItem('coreon_lang');
+      return LANGS.includes(saved) ? saved : 'ko';
+    })();
 
     function openModal(kind){
       let src="",title="",raw="";
       if(kind==="profile"){
         src=PROFILE_PREVIEW; raw="https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/view";
-        title=(currentLang==='en')?"Company Profile":"회사 소개서";
+        title=(currentLang==='en')?"Company Profile":(currentLang==='ja'?"会社紹介":(currentLang==='zh'?"公司简介":"회사 소개서"));
       }else{
         src=BROCHURE_PREVIEW; raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";
-        title=(currentLang==='en')?"Brochure":"브로슈어";
+        title=(currentLang==='en')?"Brochure":(currentLang==='ja'?"パンフレット":(currentLang==='zh'?"宣传册":"브로슈어"));
       }
-      titleEl.textContent = title + " (" + (currentLang==='en' ? "View" : "읽기") + ")";
+      const viewWord = (currentLang==='en')?"View":(currentLang==='ja'?"表示":(currentLang==='zh'?"查看":"읽기"));
+      titleEl.textContent = title + " (" + viewWord + ")";
       frame.src=src; openNew.href=raw;
       modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
     }
@@ -439,7 +446,8 @@
 
     async function loadFAQ(){
       if(!faqListEl || !faqStatus) return;
-      faqListEl.innerHTML=''; faqStatus.textContent=(currentLang==='en')?'Loading...':'불러오는 중...';
+      const loadingTxt = {ko:'불러오는 중...', en:'Loading...', ja:'読み込み中…', zh:'加载中…'}[currentLang] || 'Loading...';
+      faqListEl.innerHTML=''; faqStatus.textContent=loadingTxt;
       try{
         const p=new URLSearchParams();
         if(faqCatSel && faqCatSel.value) p.set('category',faqCatSel.value);
@@ -451,33 +459,37 @@
         const j=await r.json();
         const items=(j.items||[]).filter(x=>x.question&&x.answer);
         if(groupToggle && groupToggle.checked) renderGrouped(items); else renderFlat(items);
-        faqStatus.textContent=(currentLang==='en')?`Loaded (${items.length})`:`불러오기 완료 (${items.length})`;
+        const loadedTxt = {ko:'불러오기 완료', en:'Loaded', ja:'読み込み完了', zh:'已加载'}[currentLang]||'Loaded';
+        faqStatus.textContent=`${loadedTxt} (${items.length})`;
       }catch(e){
         console.error('[COREON] FAQ load failed:', e);
-        faqStatus.textContent=(currentLang==='en')?'Failed to load FAQ (check URL/permission/CORS)':'FAQ 로드 실패 (URL/권한/CORS 확인)';
+        const failTxt = {ko:'FAQ 로드 실패 (URL/권한/CORS 확인)', en:'Failed to load FAQ (check URL/permission/CORS)', ja:'FAQの読み込みに失敗（URL/権限/CORSを確認）', zh:'FAQ 加载失败（请检查 URL/权限/CORS）'}[currentLang];
+        faqStatus.textContent=failTxt;
       }
     }
     function renderFlat(items){
       if(!faqListEl) return;
-      if(!items.length){faqListEl.innerHTML='<p class="muted">항목이 없습니다.</p>';return;}
+      if(!items.length){faqListEl.innerHTML='<p class="muted">No items.</p>';return;}
+      const updKey = {ko:'최종수정', en:'Updated', ja:'更新日', zh:'更新'}[currentLang]||'Updated';
       faqListEl.innerHTML=items.map(x=>`
         <details>
           <summary>${escapeHtml(x.question||'')}</summary>
           <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
-            <div class="muted" style="margin-top:6px">${currentLang==='en'?'Updated':'최종수정'}: ${x.updated_at||'-'}</div>
+            <div class="muted" style="margin-top:6px">${updKey}: ${x.updated_at||'-'}</div>
           </div>
         </details>`).join('');
     }
     function renderGrouped(items){
       if(!faqListEl) return;
-      if(!items.length){faqListEl.innerHTML='<p class="muted">항목이 없습니다.</p>';return;}
+      if(!items.length){faqListEl.innerHTML='<p class="muted">No items.</p>';return;}
+      const updKey = {ko:'최종수정', en:'Updated', ja:'更新日', zh:'更新'}[currentLang]||'Updated';
       const byCat={}; items.forEach(x=>{const k=x.category||'기타'; (byCat[k] ||= []).push(x);});
       const html=Object.keys(byCat).sort().map(cat=>{
         const qs=byCat[cat].map(x=>`
           <details class="cat-box">
             <summary>${escapeHtml(x.question||'')}</summary>
             <div class="faq-a">${escapeHtml(x.answer||'').replace(/\n/g,'<br>')}
-              <div class="muted" style="margin-top:6px">${currentLang==='en'?'Updated':'최종수정'}: ${x.updated_at||'-'}</div>
+              <div class="muted" style="margin-top:6px">${updKey}: ${x.updated_at||'-'}</div>
             </div>
           </details>`).join('');
         return `<details><summary>📂 ${escapeHtml(cat)}</summary>
@@ -506,12 +518,12 @@
     window.addEventListener('scroll',()=>{ if(window.scrollY>600){toTop.classList.add('show')} else {toTop.classList.remove('show')} });
     if(toTop) toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-    /* === i18n dictionary === */
+    /* === i18n dictionary (KO/EN/JA/ZH) === */
     const I18N = {
       ko:{
         nav_about:"회사 소개", nav_brochure:"브로슈어", nav_faq:"FAQ",
         hero_title:"전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준",
-        hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
+        hero_sub:"E&I와 소방 분야의 통합 EPCM 솔루션을 새롭게 정의합니다",
         cta_quote:"📩 견적 문의", cta_profile:"📑 회사 소개서 보기", cta_brochure:"🗂️ 브로슈어 보기", cta_call:"📞 바로 전화",
 
         about_title:"회사 소개", about_badge1:"EPCM 전문성", about_card1:"설계·조달·시공·PM/CM 전 주기 관리",
@@ -527,7 +539,6 @@
         why_h5:"통합 서비스",                 why_p5:"전기·소방·안전·자재까지 원스톱으로 관리합니다.",
         why_h6:"투명성 & 신뢰",              why_p6:"법규 준수, 명확한 보고, 실적 중심 협력사 관리.",
 
-        /* Difference (single-language via toggle) */
         diff_title:"Why Choose COREON / COREON Difference",
         diff_b1:"EPCM",     diff_h1:"단일 창구 EPCM 운영체계", diff_p1:"Owner’s Engineer 관점에서 단일 창구로 일정·품질·안전·비용을 총괄합니다. Stage-Gate, RACI, 변경관리 체계를 적용합니다.",
         diff_b2:"Safety",   diff_h2:"Safety-IP & 표준화 플랫폼", diff_p2:"특허 기반 솔루션과 LOTO/Permit 패키지를 활용해 리스크를 사전 예방합니다. 표준 절차로 현장 편차를 줄입니다.",
@@ -587,9 +598,9 @@
         diff_b1:"EPCM",      diff_h1:"Single-Window EPCM Operations", diff_p1:"As Owner’s Engineer, we control schedule, quality, safety and cost via a single window with Stage-Gate, RACI and change control.",
         diff_b2:"Safety",    diff_h2:"Safety-IP & Standardization",   diff_p2:"Patent-driven solutions with LOTO/Permit packages to prevent risks in advance and reduce field variability.",
         diff_b3:"Compliance",diff_h3:"Documented & Verified Quality", diff_p3:"ITP/QCP, records, procedures/MTC control and close-out/hand-over for an auditable quality system.",
-        diff_b4:"Partners",  diff_h4:"Vetted Partner Network",        diff_p4:"License, track record and safety KPIs based partner selection; COREON coordinates all vendors through a single window.",
+        diff_b4:"Partners",  diff_h4:"Vetted Partner Network",        diff_p4:"Selection by license, track record and safety KPIs; COREON coordinates all vendors via a single window.",
         diff_b5:"Transparency", diff_h5:"Transparent Reports & KPIs", diff_p5:"Weekly/monthly dashboards visualize progress, safety and quality; issues are managed with early warnings.",
-        diff_b6:"Results",   diff_h6:"Reduced Cost & Schedule Risks", diff_p6:"We pre-diagnose design/material/process bottlenecks to minimize rework and standby costs; contracts and delivery clauses are practically reinforced.",
+        diff_b6:"Results",   diff_h6:"Reduced Cost & Schedule Risks", diff_p6:"Pre-diagnose design/material/process bottlenecks to minimize rework and standby; reinforce contracts and delivery clauses.",
 
         process_title:"How COREON Works",
         proc_b1:"① Request", proc_h1:"Request → Requirement Analysis",   proc_p1:"We capture your needs and define requirements systematically.",
@@ -618,29 +629,152 @@
 
         contact_title:"Contact", contact_note:"Leave your inquiry below. We’ll respond within 1 business day.", contact_btn:"Open Inquiry Form",
         faq_title:"FAQ", faq_group:"Group by Category", faq_reload:"Reload"
+      },
+      ja:{
+        nav_about:"会社概要", nav_brochure:"パンフレット", nav_faq:"FAQ",
+        hero_title:"E&I と防災のための統合EPCMソリューションの新基準",
+        hero_sub:"E&I・防災分野の統合EPCMソリューションを再定義します",
+        cta_quote:"📩 見積依頼", cta_profile:"📑 会社紹介を見る", cta_brochure:"🗂️ パンフレットを見る", cta_call:"📞 今すぐ電話",
+
+        about_title:"会社概要", about_badge1:"EPCMの専門性", about_card1:"設計・調達・施工・PM/CMのエンドツーエンド管理",
+        about_badge2:"安全と信頼", about_card2:"事故予防・法令順守・透明なレポート",
+        about_badge3:"グローバル実績", about_card3:"国内外の多様な業界・現場での実績",
+        about_badge4:"資料", about_btn_profile:"会社紹介", about_btn_brochure:"パンフレット",
+
+        why_title:"Why COREON",
+        why_h1:"オーナーズエンジニア / EPCM",  why_p1:"施工会社ではなく発注者の代理として工程・品質・安全・コストを統括します。",
+        why_h2:"ワンストップPM",                why_p2:"複雑な複数ベンダー調整をCOREONの単一窓口で簡素化します。",
+        why_h3:"グローバルリファレンス",        why_p3:"Hyundai E&C、Samsung C&T、GS E&C、BPなどでの豊富な経験。",
+        why_h4:"特許駆動の安全革新",            why_p4:"安全補助システムやウェアラブル保護などの革新。",
+        why_h5:"統合サービス",                   why_p5:"電気・防災・安全・資材まで一括管理。",
+        why_h6:"透明性と信頼",                  why_p6:"法令順守、明確な報告、実績重視のパートナー管理。",
+
+        diff_title:"Why Choose COREON / COREON Difference",
+        diff_b1:"EPCM",      diff_h1:"単一窓口のEPCM運用体制", diff_p1:"オーナーズエンジニア視点で工程・品質・安全・コストを単一窓口で統括。Stage-GateやRACI、変更管理を適用。",
+        diff_b2:"Safety",    diff_h2:"Safety-IP & 標準化",      diff_p2:"特許ベースのソリューションとLOTO/許可手順でリスクを事前予防。標準手順で現場のばらつきを低減。",
+        diff_b3:"Compliance",diff_h3:"文書化・検証中心の品質", diff_p3:"ITP/QCP、記録、手順書/MTC、クロージング・引継ぎまで“監査可能な”品質体制。",
+        diff_b4:"Partners",  diff_h4:"検証済みパートナーネットワーク", diff_p4:"免許・実績・安全KPIで選定。複数ベンダーをCOREONが一元調整。",
+        diff_b5:"Transparency", diff_h5:"透明なレポート & KPI", diff_p5:"週次/月次ダッシュボードで進捗・安全・品質を可視化。課題は早期警告で管理。",
+        diff_b6:"Results",   diff_h6:"コスト・工程リスクの低減", diff_p6:"設計・資材・工程のボトルネックを事前診断し、手戻りと待機費を最小化。契約・納入条項も実務的に補強。",
+
+        process_title:"How COREON Works",
+        proc_b1:"① 依頼",   proc_h1:"依頼受付 → 要件分析",             proc_p1:"電気・防災・安全に関する要件を体系的に整理します。",
+        proc_b2:"② 診断",   proc_h2:"現地診断 → リスク/範囲/工程",        proc_p2:"現場条件に基づきリスク・範囲・工程・コスト要因を精査。",
+        proc_b3:"③ 配置",   proc_h3:"パートナー配置 → 免許/実績の検証",    proc_p3:"免許・実績・品質基準でパートナーを選定・配置。",
+        proc_b4:"④ 総括",   proc_h4:"総括PM → 工程・品質・安全・コスト",  proc_p4:"発注者はCOREONとだけやり取りし、全体を統合管理。",
+        proc_b5:"⑤ 完了",   proc_h5:"完了/報告 → アフターケア・長期連携", proc_p5:"報告書提出とアフターケアを実施し、長期パートナーへ。",
+
+        industries_title:"Industries / クライアント",
+        ind_b1:"公共", ind_h1:"官公庁・公共機関", ind_p1:"安全管理と法令順守を重視した運用",
+        ind_b4:"建設", ind_h4:"建設現場",        ind_p4:"施工品質・資材・安全を統合管理",
+        ind_b2:"製造", ind_h2:"民間企業・工場",   ind_p2:"老朽設備の改善と予防中心の管理",
+        ind_b3:"大企業", ind_h3:"大企業・製造業", ind_p3:"生産性向上、安全強化、リスク最小化",
+        ind_b7:"ハイテク", ind_h7:"ハイテク産業", ind_p7:"半導体・電池・ディスプレイ工程—精密な安全/プロセス管理",
+        ind_b8:"オフショア", ind_h8:"海洋プラント・エネルギー", ind_p8:"複雑な海洋/エネルギー設備におけるE&IのQA/QCと試運転",
+        ind_b5:"海外", ind_h5:"海外プロジェクト", ind_p5:"サウジ・クウェート・東南ア・中国などで実施",
+        ind_b6:"電力需要家", ind_h6:"国内すべての電力需要家", ind_p6:"国内の電力設備全般を対象",
+
+        rep_title:"Representative", rep_name:"代表 イ・ホウォン", rep_desc:"E&I実務20年以上。韓国電気工事協会 上級電気技術者。Hyundai E&C、Samsung C&T、GS E&C、BPなど。サウジ、クウェート、インドネシア、マレーシア、中国および韓国内での大規模プラント経験。",
+
+        services_title:"サービス",
+        svc_b1:"電気安全管理",  svc_h1:"定期点検・法令順守・事故予防",           svc_p1:"予防/法令順守コンサル、報告書、改善工事提案",
+        svc_b2:"電気工事PM",    svc_h2:"プラント・ビル・工場の施工総括",         svc_p2:"工程・品質・コストのトータルPM",
+        svc_b3:"防災工事PM",    svc_h3:"電気+防災の統合管理",                   svc_p3:"防災システム施工・保守を統括",
+        svc_b4:"特化サービス",  svc_h4:"変圧器絶縁油交換・専門人材支援",         svc_p4:"油交換（診断/洗浄/試験）、専門家派遣",
+
+        contact_title:"お問い合わせ", contact_note:"お問い合わせ/お見積りは下記の連絡先またはフォームより。1営業日以内に返信いたします。", contact_btn:"問い合わせフォームを開く",
+        faq_title:"FAQ", faq_group:"カテゴリ別に表示", faq_reload:"Reload"
+      },
+      zh:{
+        nav_about:"公司介绍", nav_brochure:"宣传册", nav_faq:"常见问题",
+        hero_title:"面向E&I与消防的集成EPCM解决方案新标准",
+        hero_sub:"重新定义E&I与消防领域的集成EPCM解决方案",
+        cta_quote:"📩 获取报价", cta_profile:"📑 查看公司简介", cta_brochure:"🗂️ 查看宣传册", cta_call:"📞 立即来电",
+
+        about_title:"公司介绍", about_badge1:"EPCM 专业能力", about_card1:"覆盖设计、采购、施工与PM/CM的全周期管理",
+        about_badge2:"安全与信任", about_card2:"事故预防、合规、透明汇报",
+        about_badge3:"全球经验", about_card3:"跨行业/区域的大量项目经验",
+        about_badge4:"资料", about_btn_profile:"公司简介", about_btn_brochure:"宣传册",
+
+        why_title:"为什么选择 COREON",
+        why_h1:"业主工程师 / EPCM",  why_p1:"作为业主代表而非承包商，统筹进度、质量、安全与成本。",
+        why_h2:"单一窗口PM",          why_p2:"以单一联络窗口简化多供应商协同，由COREON统一管理。",
+        why_h3:"全球参考",            why_p3:"服务于现代建设、三星物产、GS建设、BP等大型项目。",
+        why_h4:"专利驱动的安全创新",   why_p4:"如安全辅助系统、可穿戴防护等创新方案。",
+        why_h5:"一站式服务",          why_p5:"覆盖电气、消防、安全与物资的集成管理。",
+        why_h6:"透明与信任",          why_p6:"合规、清晰汇报、以绩效为导向的合作方管理。",
+
+        diff_title:"COREON 的差异化",
+        diff_b1:"EPCM",      diff_h1:"单一窗口EPCM运营体系", diff_p1:"以业主工程师视角，通过单一窗口统筹进度/质量/安全/成本，采用Stage-Gate、RACI与变更管理。",
+        diff_b2:"Safety",    diff_h2:"Safety-IP 与标准化",   diff_p2:"以专利方案配合LOTO/许可流程，提前预防风险，降低现场差异。",
+        diff_b3:"Compliance",diff_h3:"以文档与验证为核心的质量", diff_p3:"ITP/QCP、记录、程序/MTC、收尾与交接，形成可审计的质量体系。",
+        diff_b4:"Partners",  diff_h4:"严选合作伙伴网络",       diff_p4:"基于资质、业绩与安全指标选商；COREON统一协调各供应商。",
+        diff_b5:"Transparency", diff_h5:"透明报告与KPI",      diff_p5:"周/月度看板可视化进度/安全/质量；问题以预警机制管理。",
+        diff_b6:"Results",   diff_h6:"降低成本与进度风险",     diff_p6:"预诊断设计/物资/流程瓶颈，减少返工与待工；并强化合同与交付条款。",
+
+        process_title:"工作流程",
+        proc_b1:"① 需求", proc_h1:"需求接收 → 要求分析",           proc_p1:"系统化梳理电气/消防/安全相关需求。",
+        proc_b2:"② 诊断", proc_h2:"现场诊断 → 风险/范围/进度",      proc_p2:"结合现场条件评估风险、范围、进度与成本因素。",
+        proc_b3:"③ 分配", proc_h3:"合作方分配 → 资质/业绩验证",      proc_p3:"按资质/业绩/质量标准选定并分配合作方。",
+        proc_b4:"④ 总控", proc_h4:"总控PM → 进度/质量/安全/成本",    proc_p4:"业主只需对接COREON，我们统筹项目全局。",
+        proc_b5:"⑤ 完成", proc_h5:"完成/汇报 → 售后与长期合作",     proc_p5:"提交结果报告并执行售后，延展为长期伙伴关系。",
+
+        industries_title:"行业 / 客户",
+        ind_b1:"公共", ind_h1:"政府与公共机构", ind_p1:"以合规为核心的运行",
+        ind_b4:"建筑", ind_h4:"施工现场",       ind_p4:"施工质量/物资/安全一体化管理",
+        ind_b2:"制造", ind_h2:"民营企业与工厂",  ind_p2:"老旧设备改造与预防性管理",
+        ind_b3:"大型企业", ind_h3:"大型企业与制造业", ind_p3:"提升生产力、强化安全、降低风险",
+        ind_b7:"高科技", ind_h7:"高科技产业",     ind_p7:"半导体/电池/显示制造—精密安全与流程控制",
+        ind_b8:"海工", ind_h8:"海洋工程与能源",   ind_p8:"复杂海工/能源设施的E&I质量与试运专业",
+        ind_b5:"海外", ind_h5:"海外项目",        ind_p5:"沙特、科威特、东南亚、中国等地实施",
+        ind_b6:"用电客户", ind_h6:"国内各类用电客户", ind_p6:"覆盖全谱系的电力设施",
+
+        rep_title:"代表人", rep_name:"代表 李浩元", rep_desc:"E&I实务20年以上。韩国电气工程协会高级电气工程师。曾服务现代建设、三星物产、GS建设、BP等；在沙特、科威特、印尼、马来西亚、中国及韩国国内的重大项目经验丰富。",
+
+        services_title:"服务",
+        svc_b1:"电气安全管理",  svc_h1:"定期检查 · 合规 · 事故预防",   svc_p1:"预防/合规咨询、报告与改进工程建议",
+        svc_b2:"电气工程PM",    svc_h2:"工厂/建筑/园区施工总控",       svc_p2:"对进度/质量/成本的全面PM",
+        svc_b3:"消防工程PM",    svc_h3:"电气+消防一体化管理",          svc_p3:"消防系统施工与维护的统筹管理",
+        svc_b4:"特色服务",      svc_h4:"变压器绝缘油更换 · 专家派遣",    svc_p4:"油品更换（诊断/清洗/测试）、专家到场",
+
+        contact_title:"联系", contact_note:"请通过下方联系方式或表单留言，我们将在1个工作日内回复。", contact_btn:"打开咨询表单",
+        faq_title:"常见问题", faq_group:"按类别分组", faq_reload:"Reload"
       }
     };
 
     /* === i18n 적용 === */
     function applyI18n(lang){
-      currentLang = (lang==='en'?'en':'ko');
-      document.documentElement.lang = (currentLang==='en'?'en':'ko');
+      currentLang = LANGS.includes(lang) ? lang : 'ko';
+      document.documentElement.lang = currentLang;
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const key = el.getAttribute('data-i18n');
-        const msg = I18N[currentLang][key];
+        const dict = I18N[currentLang] || {};
+        const msg = dict[key];
         if(typeof msg === 'string') el.textContent = msg;
       });
       const faqSearchInput = document.getElementById('faqSearch');
-      if(faqSearchInput) faqSearchInput.placeholder = (currentLang==='en')?'Search (e.g., inspection, contract, cost)':'검색어(예: 점검, 계약, 비용)';
+      if(faqSearchInput){
+        const ph = {
+          ko:'검색어(예: 점검, 계약, 비용)',
+          en:'Search (e.g., inspection, contract, cost)',
+          ja:'検索（例：点検、契約、費用）',
+          zh:'搜索（例如：检查、合同、成本）'
+        }[currentLang] || 'Search';
+        faqSearchInput.placeholder = ph;
+      }
       const langBtn = document.getElementById('langToggle');
       const langFab = document.getElementById('langFab');
-      const label = (currentLang==='en')?'KR':'EN';
+      const label = labelFor(currentLang);
       if(langBtn) langBtn.textContent = label;
       if(langFab) langFab.textContent = label;
+
       loadFAQ(); // 언어 표시 반영
       localStorage.setItem('coreon_lang', currentLang);
     }
-    function toggleLang(){ applyI18n(currentLang==='ko'?'en':'ko'); }
+    function toggleLang(){
+      const nxt = nextLangCode(currentLang);
+      applyI18n(nxt);
+    }
 
     /* === Init === */
     document.addEventListener('DOMContentLoaded',()=>{
@@ -652,6 +786,8 @@
       applyI18n(currentLang);
       const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
     });
+
+    /* === Modal bindings (already above) === */
   </script>
 </body>
 </html>
