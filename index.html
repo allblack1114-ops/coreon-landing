@@ -90,7 +90,7 @@
     .btn-dark{background:#0f2147;border:1px solid #203869}
     .btn-outline{background:transparent;border:1px solid #ffffff55}
 
-    /* Mobile floating lang button (visible on mobile when topnav hidden) */
+    /* Mobile floating lang button */
     .lang-fab{
       position:absolute;right:16px;top:16px;background:#ffffffcc;color:#0d2e67;border:1px solid #ffffff88;
       border-radius:999px;padding:6px 10px;font-weight:800;backdrop-filter:saturate(1.2) blur(2px);cursor:pointer
@@ -108,14 +108,20 @@
     .card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,46,103,.12)}
     .card .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#e8f0ff;color:#1e3a8a;font-weight:700;margin-bottom:8px}
     .card h3{
-      margin:6px 0 10px;font-size:var(--fs-h3);color:var(--navy);font-weight:700;line-height:var(--lh-h3);
+      margin:6px 0 8px;font-size:var(--fs-h3);color:var(--navy);font-weight:700;line-height:var(--lh-h3);
       text-align:left;word-break:keep-all
     }
     .card p{
       margin:0;color:#385073;font-size:var(--fs-base);line-height:var(--lh-base);
       text-align:left;word-break:keep-all;overflow-wrap:break-word
     }
-    .disclaimer{margin-top:6px;font-size:13px;color:#6b7c93}
+
+    /* Difference section (mobile readability) */
+    .why-diff .card p{margin-top:2px}
+    @media (max-width:560px){
+      .why-diff .card h3{line-height:1.28}
+      .why-diff .card p{line-height:1.55}
+    }
 
     /* Contact/Footer */
     footer{margin-top:34px;padding:28px 18px;text-align:center;color:#6b7c93}
@@ -245,57 +251,16 @@
     </div>
   </section>
 
-  <!-- ✅ COREON Difference (Why Choose COREON) — moved directly under Why COREON -->
-  <section class="wrap" id="difference">
-    <h2 class="section-title">Why Choose COREON / COREON Difference</h2>
-    <div class="services-grid" style="grid-template-columns:repeat(3,1fr)">
-      <article class="card">
-        <span class="badge">EPCM</span>
-        <h3>단일 창구 EPCM 운영체계</h3>
-        <p>Owner’s Engineer 관점에서 단일 창구로 관리하며 Stage-Gate, RACI, 변경관리 체계를 적용합니다.<br>
-        <i>COREON manages as Owner’s Engineer with stage-gate, RACI, and change management frameworks.</i></p>
-        <div class="disclaimer">※ 적용 범위와 책임은 계약 조건에 따라 달라질 수 있습니다.</div>
-      </article>
-
-      <article class="card">
-        <span class="badge">Safety</span>
-        <h3>Safety-IP & 표준화 플랫폼</h3>
-        <p>특허 기반 안전 솔루션과 LOTO/Permit 패키지를 활용하여 리스크를 사전 예방합니다.<br>
-        <i>Patent-driven safety and LOTO/Permit packages for proactive risk prevention.</i></p>
-        <div class="disclaimer">※ 현장 조건 및 법규에 따라 구체적 적용이 조정됩니다.</div>
-      </article>
-
-      <article class="card">
-        <span class="badge">Compliance</span>
-        <h3>Compliance & 문서화 엔진</h3>
-        <p>ITP/QCP, 검사 기록, 시운전 프로토콜 등 문서화 엔진으로 인허가 및 감사 대응을 지원합니다.<br>
-        <i>Documentation engine (ITP, QCP, records) ensures compliance and audit readiness.</i></p>
-        <div class="disclaimer">※ 최종 승인 권한은 관계기관에 있습니다.</div>
-      </article>
-
-      <article class="card">
-        <span class="badge">Quality</span>
-        <h3>파트너 검증 & 품질보증</h3>
-        <p>협력사 라이선스/실적/안전이력을 사전 검증하고 성과기반 파트너 풀을 운영합니다.<br>
-        <i>Pre-verified partners with license, track record and HSE history.</i></p>
-        <div class="disclaimer">※ 선정은 발주처 요구사항과 COREON 기준을 함께 고려합니다.</div>
-      </article>
-
-      <article class="card">
-        <span class="badge">Transparency</span>
-        <h3>데이터 리포팅 & 투명 정산</h3>
-        <p>KPI 대시보드로 일정·품질·안전·비용을 시각화하며 증빙 기반 정산을 지향합니다.<br>
-        <i>KPI dashboards for transparent reporting and evidence-based cost management.</i></p>
-        <div class="disclaimer">※ KPI/정산 항목은 프로젝트별 계약 범위에 따라 확정됩니다.</div>
-      </article>
-
-      <article class="card">
-        <span class="badge">Mobilization</span>
-        <h3>신속 동원 Mobilization Playbook</h3>
-        <p>Mobilization SOP를 보유해 긴급 상황에 대응하며 필요 시 24h 내 초기 투입을 지향합니다.<br>
-        <i>Mobilization SOP enables emergency response with target of 24h initial deployment.</i></p>
-        <div class="disclaimer">※ 투입 속도와 범위는 현장 조건 및 계약 조건에 따라 달라질 수 있습니다.</div>
-      </article>
+  <!-- Why Choose COREON / Difference (TOGGLE-ONLY, single language) -->
+  <section class="wrap why-diff" id="why-diff">
+    <h2 class="section-title" data-i18n="diff_title">Why Choose COREON / COREON Difference</h2>
+    <div class="services-grid">
+      <article class="card"><span class="badge" data-i18n="diff_b1">EPCM</span><h3 data-i18n="diff_h1">단일 창구 EPCM 운영체계</h3><p data-i18n="diff_p1">Owner’s Engineer 관점에서 단일 창구로 일정·품질·안전·비용을 총괄합니다. Stage-Gate, RACI, 변경관리 체계를 적용합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="diff_b2">Safety</span><h3 data-i18n="diff_h2">Safety-IP &amp; 표준화 플랫폼</h3><p data-i18n="diff_p2">특허 기반 솔루션과 LOTO/Permit 패키지를 활용해 리스크를 사전 예방합니다. 표준 절차로 현장 편차를 줄입니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="diff_b3">Compliance</span><h3 data-i18n="diff_h3">문서화·검증 중심 품질관리</h3><p data-i18n="diff_p3">ITP/QCP, 점검기록, 절차서·MTC 관리, 클로징·인수인계까지 “증빙이 남는” 품질체계를 운용합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="diff_b4">Partners</span><h3 data-i18n="diff_h4">검증된 파트너 네트워크</h3><p data-i18n="diff_p4">면허·실적·안전지표로 협력사를 선별·배정합니다. 다수 벤더를 COREON이 단일 창구에서 조정합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="diff_b5">Transparency</span><h3 data-i18n="diff_h5">투명한 리포트 &amp; KPI</h3><p data-i18n="diff_p5">주간/월간 대시보드로 공정·안전·품질을 가시화하고, 이슈·리스크는 조기경보로 관리합니다.</p></article>
+      <article class="card"><span class="badge" data-i18n="diff_b6">Results</span><h3 data-i18n="diff_h6">비용·일정 리스크 절감</h3><p data-i18n="diff_p6">설계변경·자재·공정 병목을 사전 진단해 재작업과 대기비를 최소화합니다. 계약·납품 조항도 실무적으로 보완합니다.</p></article>
     </div>
   </section>
 
@@ -327,7 +292,7 @@
       <article class="card"><span class="badge" data-i18n="ind_b7">하이테크</span><h3 data-i18n="ind_h7">하이테크 산업</h3><p data-i18n="ind_p7">반도체·전지·디스플레이 공정 – 정밀 안전 및 프로세스 관리</p></article>
       <!-- 6 오프쇼어 -->
       <article class="card"><span class="badge" data-i18n="ind_b8">오프쇼어</span><h3 data-i18n="ind_h8">해양플랜트·에너지</h3><p data-i18n="ind_p8">복잡한 해양·에너지 설비, 전기·계장 품질 및 시운전 전문성</p></article>
-      <!-- 7 해외프로젝트 -->
+      <!-- 7 해외 -->
       <article class="card"><span class="badge" data-i18n="ind_b5">해외</span><h3 data-i18n="ind_h5">해외프로젝트</h3><p data-i18n="ind_p5">사우디·쿠웨이트·동남아·중국 등 글로벌 수행</p></article>
       <!-- 8 전력 수용가 -->
       <article class="card"><span class="badge" data-i18n="ind_b6">전력수용가</span><h3 data-i18n="ind_h6">국내 모든 전력 수용가</h3><p data-i18n="ind_p6">국내 전력설비 수용가 전반 대상</p></article>
@@ -422,7 +387,7 @@
 
   <!-- ================= JS ================= -->
   <script>
-    /* ===== Production-safe error logging (no on-screen badge) ===== */
+    /* ===== Production-safe error logging ===== */
     window.addEventListener('error', function(e){
       try { console.error('[COREON] JS Error:', e.message, e.error || ''); } catch(_) {}
     }, {capture:true});
@@ -454,7 +419,7 @@
         src=BROCHURE_PREVIEW; raw="https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/view";
         title=(currentLang==='en')?"Brochure":"브로슈어";
       }
-      titleEl.textContent=title+" ("+ (currentLang==='en'?"View":"읽기") +")";
+      titleEl.textContent = title + " (" + (currentLang==='en' ? "View" : "읽기") + ")";
       frame.src=src; openNew.href=raw;
       modal.classList.add('active'); modal.setAttribute('aria-hidden','false');
     }
@@ -548,39 +513,54 @@
         hero_title:"전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준",
         hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
         cta_quote:"📩 견적 문의", cta_profile:"📑 회사 소개서 보기", cta_brochure:"🗂️ 브로슈어 보기", cta_call:"📞 바로 전화",
+
         about_title:"회사 소개", about_badge1:"EPCM 전문성", about_card1:"설계·조달·시공·PM/CM 전 주기 관리",
         about_badge2:"안전과 신뢰", about_card2:"사고 예방·법규 준수·투명한 보고",
         about_badge3:"글로벌 경험", about_card3:"국내외 다양한 산업·현장 수행 경험",
         about_badge4:"자료 보기", about_btn_profile:"회사 소개서", about_btn_brochure:"브로슈어",
+
         why_title:"Why COREON",
-        why_h1:"Owner’s Engineer / EPCM", why_p1:"시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.",
-        why_h2:"총괄 PM & 단일 창구",      why_p2:"복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.",
-        why_h3:"글로벌 레퍼런스",          why_p3:"Hyundai E&C, Samsung C&T, GS E&C, BP 등 국내외 대형 프로젝트 경험.",
-        why_h4:"특허 기반 안전 혁신",      why_p4:"건설 안전 보조 시스템, 웨어러블 보호 장치 등 특허 기반 솔루션.",
-        why_h5:"통합 서비스",              why_p5:"전기·소방·안전·자재까지 원스톱으로 관리합니다.",
-        why_h6:"투명성 & 신뢰",           why_p6:"법규 준수, 명확한 보고, 실적 중심 협력사 관리.",
+        why_h1:"Owner’s Engineer / EPCM",     why_p1:"시공사가 아닌 발주처의 대리인으로 일정·품질·안전·비용을 총괄합니다.",
+        why_h2:"총괄 PM & 단일 창구",         why_p2:"복잡한 다수 협력사 관리를 COREON 한 곳으로 단순화합니다.",
+        why_h3:"글로벌 레퍼런스",             why_p3:"Hyundai E&C, Samsung C&T, GS E&C, BP 등 국내외 대형 프로젝트 경험.",
+        why_h4:"특허 기반 안전 혁신",         why_p4:"건설 안전 보조 시스템, 웨어러블 보호 장치 등 특허 기반 솔루션.",
+        why_h5:"통합 서비스",                 why_p5:"전기·소방·안전·자재까지 원스톱으로 관리합니다.",
+        why_h6:"투명성 & 신뢰",              why_p6:"법규 준수, 명확한 보고, 실적 중심 협력사 관리.",
+
+        /* Difference (single-language via toggle) */
+        diff_title:"Why Choose COREON / COREON Difference",
+        diff_b1:"EPCM",     diff_h1:"단일 창구 EPCM 운영체계", diff_p1:"Owner’s Engineer 관점에서 단일 창구로 일정·품질·안전·비용을 총괄합니다. Stage-Gate, RACI, 변경관리 체계를 적용합니다.",
+        diff_b2:"Safety",   diff_h2:"Safety-IP & 표준화 플랫폼", diff_p2:"특허 기반 솔루션과 LOTO/Permit 패키지를 활용해 리스크를 사전 예방합니다. 표준 절차로 현장 편차를 줄입니다.",
+        diff_b3:"Compliance", diff_h3:"문서화·검증 중심 품질관리", diff_p3:"ITP/QCP, 점검기록, 절차서·MTC 관리, 클로징·인수인계까지 “증빙이 남는” 품질체계를 운용합니다.",
+        diff_b4:"Partners", diff_h4:"검증된 파트너 네트워크", diff_p4:"면허·실적·안전지표로 협력사를 선별·배정합니다. 다수 벤더를 COREON이 단일 창구에서 조정합니다.",
+        diff_b5:"Transparency", diff_h5:"투명한 리포트 & KPI", diff_p5:"주간/월간 대시보드로 공정·안전·품질을 가시화하고, 이슈·리스크는 조기경보로 관리합니다.",
+        diff_b6:"Results", diff_h6:"비용·일정 리스크 절감", diff_p6:"설계변경·자재·공정 병목을 사전 진단해 재작업과 대기비를 최소화합니다. 계약·납품 조항도 실무적으로 보완합니다.",
+
         process_title:"How COREON Works",
         proc_b1:"① 요청", proc_h1:"요청 접수 → 요구사항 분석", proc_p1:"전기·소방·안전 관련 수요를 접수하고 요구사항을 체계적으로 분석합니다.",
         proc_b2:"② 진단", proc_h2:"현장 진단 → 리스크·범위·일정 진단", proc_p2:"현장 조건을 바탕으로 리스크, 공사 범위, 일정, 비용 요소를 정밀 진단합니다.",
         proc_b3:"③ 배정", proc_h3:"협력사 배정 → 면허/실적 검증", proc_p3:"면허/실적/품질 기준으로 협력사를 선정·배정하고 역할·일정을 조율합니다.",
         proc_b4:"④ 총괄", proc_h4:"총괄 PM → 일정·품질·안전·비용 관리(단일 창구)", proc_p4:"발주처는 COREON과만 소통하며 전체 일정·품질·안전·비용을 통합 관리합니다.",
         proc_b5:"⑤ 완료", proc_h5:"완료/보고 → 결과 리포트·사후관리·장기계약 연계", proc_p5:"결과 보고서를 제공하고 사후관리까지 수행하여 장기 파트너십으로 연계합니다.",
+
         industries_title:"Industries / 고객",
-        /* 재배치된 + 신규 항목 */
-        ind_b1:"공공",        ind_h1:"관공서·공공기관",     ind_p1:"안전관리 및 법규 준수 중심의 운영",
-        ind_b4:"건설",        ind_h4:"건설현장",           ind_p4:"시공 품질·자재·안전 통합 관리",
-        ind_b2:"제조",        ind_h2:"민간기업·공장",       ind_p2:"노후 설비 개선과 사전 예방 중심 관리",
-        ind_b3:"대기업",      ind_h3:"대기업·제조업",       ind_p3:"생산성 향상, 안전 강화, 리스크 최소화",
-        ind_b7:"하이테크",    ind_h7:"하이테크 산업",       ind_p7:"반도체·전지·디스플레이 공정 – 정밀 안전 및 프로세스 관리",
-        ind_b8:"오프쇼어",    ind_h8:"해양플랜트·에너지",   ind_p8:"복잡한 해양·에너지 설비, 전기·계장 품질 및 시운전 전문성",
-        ind_b5:"해외",        ind_h5:"해외프로젝트",         ind_p5:"사우디·쿠웨이트·동남아·중국 등 글로벌 수행",
-        ind_b6:"전력수용가",  ind_h6:"국내 모든 전력 수용가",ind_p6:"국내 전력설비 수용가 전반 대상",
+        ind_b1:"공공", ind_h1:"관공서·공공기관", ind_p1:"안전관리 및 법규 준수 중심의 운영",
+        ind_b4:"건설", ind_h4:"건설현장", ind_p4:"시공 품질·자재·안전 통합 관리",
+        ind_b2:"제조", ind_h2:"민간기업·공장", ind_p2:"노후 설비 개선과 사전 예방 중심 관리",
+        ind_b3:"대기업", ind_h3:"대기업·제조업", ind_p3:"생산성 향상, 안전 강화, 리스크 최소화",
+        ind_b7:"하이테크", ind_h7:"하이테크 산업", ind_p7:"반도체·전지·디스플레이 공정 – 정밀 안전 및 프로세스 관리",
+        ind_b8:"오프쇼어", ind_h8:"해양플랜트·에너지", ind_p8:"복잡한 해양·에너지 설비, 전기·계장 품질 및 시운전 전문성",
+        ind_b5:"해외", ind_h5:"해외프로젝트", ind_p5:"사우디·쿠웨이트·동남아·중국 등 글로벌 수행",
+        ind_b6:"전력수용가", ind_h6:"국내 모든 전력 수용가", ind_p6:"국내 전력설비 수용가 전반 대상",
+
         rep_title:"Representative", rep_name:"이호원 대표", rep_desc:"20년 이상 E&I 실무, 한국전기공사협회 고급 전기기술자. 현대건설, 삼성물산, GS건설, BP 등 수행. 사우디, 쿠웨이트, 인도네시아, 말레이시아, 중국 및 국내 대형 플랜트 현장 경험.",
+
         services_title:"서비스",
         svc_b1:"전기안전관리", svc_h1:"정기점검 · 법규 준수 · 사고 예방", svc_p1:"정기점검, 법규 준수, 사고 예방 컨설팅, 결과 보고서 및 개선공사 제안",
         svc_b2:"전기공사 PM",  svc_h2:"플랜트 · 빌딩 · 공장 시공 총괄",   svc_p2:"전기공사 시공 총괄 관리(일정·품질·비용 보장)",
         svc_b3:"소방공사 PM",  svc_h3:"전기+소방 통합 관리",              svc_p3:"방재 시스템 시공 및 유지보수 총괄, 전기+소방 통합 관리",
         svc_b4:"특화 서비스",  svc_h4:"변압기 절연유 교체 · 기술 인력 지원", svc_p4:"변압기 절연유 교체(진단·세척·시험), 전기·계장·안전 전문가 파견",
+
         contact_title:"문의", contact_note:"견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.", contact_btn:"문의 폼 열기",
         faq_title:"FAQ", faq_group:"카테고리별 묶기", faq_reload:"Reload"
       },
@@ -589,39 +569,53 @@
         hero_title:"The New Standard of Integrated EPCM Solutions for E&I and Fire Protection",
         hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
         cta_quote:"📩 Request a Quote", cta_profile:"📑 View Company Profile", cta_brochure:"🗂️ View Brochure", cta_call:"📞 Call Now",
+
         about_title:"About", about_badge1:"EPCM Expertise", about_card1:"End-to-end management across Engineering, Procurement, Construction and PM/CM",
         about_badge2:"Safety & Trust", about_card2:"Accident prevention, compliance and transparent reporting",
         about_badge3:"Global Experience", about_card3:"Extensive references across industries and regions",
         about_badge4:"Resources", about_btn_profile:"Company Profile", about_btn_brochure:"Brochure",
+
         why_title:"Why COREON",
-        why_h1:"Owner’s Engineer / EPCM", why_p1:"We manage schedule, quality, safety and cost as your representative — not as a contractor.",
-        why_h2:"Single Window PM",      why_p2:"Simplify multi-vendor coordination through a single point of contact: COREON.",
-        why_h3:"Global References",     why_p3:"Proven experience with Hyundai E&C, Samsung C&T, GS E&C, BP and more.",
-        why_h4:"Patent-driven Safety",  why_p4:"Innovations such as safety-assist systems and wearable protection.",
-        why_h5:"One-stop Service",      why_p5:"Integrated management across Electrical, Fire Protection, Safety and Materials.",
-        why_h6:"Transparency & Trust",  why_p6:"Compliance, clear reporting and performance-based partner management.",
+        why_h1:"Owner’s Engineer / EPCM",  why_p1:"We manage schedule, quality, safety and cost as your representative — not as a contractor.",
+        why_h2:"Single Window PM",         why_p2:"Simplify multi-vendor coordination through a single point of contact: COREON.",
+        why_h3:"Global References",        why_p3:"Proven experience with Hyundai E&C, Samsung C&T, GS E&C, BP and more.",
+        why_h4:"Patent-driven Safety",     why_p4:"Innovations such as safety-assist systems and wearable protection.",
+        why_h5:"One-stop Service",         why_p5:"Integrated management across Electrical, Fire Protection, Safety and Materials.",
+        why_h6:"Transparency & Trust",     why_p6:"Compliance, clear reporting and performance-based partner management.",
+
+        diff_title:"Why Choose COREON / COREON Difference",
+        diff_b1:"EPCM",      diff_h1:"Single-Window EPCM Operations", diff_p1:"As Owner’s Engineer, we control schedule, quality, safety and cost via a single window with Stage-Gate, RACI and change control.",
+        diff_b2:"Safety",    diff_h2:"Safety-IP & Standardization",   diff_p2:"Patent-driven solutions with LOTO/Permit packages to prevent risks in advance and reduce field variability.",
+        diff_b3:"Compliance",diff_h3:"Documented & Verified Quality", diff_p3:"ITP/QCP, records, procedures/MTC control and close-out/hand-over for an auditable quality system.",
+        diff_b4:"Partners",  diff_h4:"Vetted Partner Network",        diff_p4:"License, track record and safety KPIs based partner selection; COREON coordinates all vendors through a single window.",
+        diff_b5:"Transparency", diff_h5:"Transparent Reports & KPIs", diff_p5:"Weekly/monthly dashboards visualize progress, safety and quality; issues are managed with early warnings.",
+        diff_b6:"Results",   diff_h6:"Reduced Cost & Schedule Risks", diff_p6:"We pre-diagnose design/material/process bottlenecks to minimize rework and standby costs; contracts and delivery clauses are practically reinforced.",
+
         process_title:"How COREON Works",
-        proc_b1:"① Request", proc_h1:"Request → Requirement Analysis", proc_p1:"We capture your needs and define requirements systematically.",
+        proc_b1:"① Request", proc_h1:"Request → Requirement Analysis",   proc_p1:"We capture your needs and define requirements systematically.",
         proc_b2:"② Survey",  proc_h2:"Site Survey → Risk/Scope/Schedule", proc_p2:"We assess risks, scope, schedule and cost drivers on site.",
         proc_b3:"③ Assign",  proc_h3:"Partner Assignment → License/Track Record", proc_p3:"We select licensed partners based on quality and records.",
-        proc_b4:"④ PM",      proc_h4:"Owner’s PM → Schedule/Quality/Safety/Cost", proc_p4:"You talk to COREON only; we manage the entire project.",
+        proc_b4:"④ PM",      proc_h4:"Owner’s PM → Schedule/Quality/Safety/Cost",   proc_p4:"You talk to COREON only; we manage the entire project.",
         proc_b5:"⑤ Close",   proc_h5:"Completion/Reporting → Aftercare & Long-term", proc_p5:"We deliver reports and aftercare, extending into long-term partnership.",
+
         industries_title:"Industries / Clients",
-        /* Reordered + New */
-        ind_b1:"Public",           ind_h1:"Government & Public",     ind_p1:"Compliance-centered operations",
-        ind_b4:"Construction",     ind_h4:"Construction Sites",       ind_p4:"Integrated quality, material and safety control",
-        ind_b2:"Manufacturing",    ind_h2:"Factories & Private",      ind_p2:"Preventive management and modernization",
-        ind_b3:"Enterprise",       ind_h3:"Large Enterprises",        ind_p3:"Productivity, safety and risk mitigation",
-        ind_b7:"High-Tech",        ind_h7:"High-Tech Industries",     ind_p7:"Semiconductor, battery and display plants – precision safety and process control",
-        ind_b8:"Offshore",         ind_h8:"Offshore & Energy",        ind_p8:"Complex offshore and energy facilities with E&I QA/QC and commissioning expertise",
-        ind_b5:"Overseas",         ind_h5:"Overseas Projects",        ind_p5:"Saudi, Kuwait, SEA, China and more",
-        ind_b6:"Power Users",      ind_h6:"All Power Consumers",      ind_p6:"Serving the full spectrum of power facilities",
+        ind_b1:"Public",      ind_h1:"Government & Public",   ind_p1:"Compliance-centered operations",
+        ind_b4:"Construction",ind_h4:"Construction Sites",     ind_p4:"Integrated quality, material and safety control",
+        ind_b2:"Manufacturing",ind_h2:"Factories & Private",    ind_p2:"Preventive management and modernization",
+        ind_b3:"Enterprise",  ind_h3:"Large Enterprises",      ind_p3:"Productivity, safety and risk mitigation",
+        ind_b7:"High-Tech",   ind_h7:"High-Tech Industries",   ind_p7:"Semiconductor, battery and display plants – precision safety and process control",
+        ind_b8:"Offshore",    ind_h8:"Offshore & Energy",      ind_p8:"Complex offshore and energy facilities with E&I QA/QC and commissioning expertise",
+        ind_b5:"Overseas",    ind_h5:"Overseas Projects",      ind_p5:"Saudi, Kuwait, SEA, China and more",
+        ind_b6:"Power Users", ind_h6:"All Power Consumers",    ind_p6:"Serving the full spectrum of power facilities",
+
         rep_title:"Representative", rep_name:"CEO Howon Lee", rep_desc:"20+ years in E&I. Senior electrical engineer. Projects with Hyundai E&C, Samsung C&T, GS E&C, BP; extensive domestic and overseas site experience.",
+
         services_title:"Services",
         svc_b1:"Electrical Safety Mgmt", svc_h1:"Periodic Inspection · Compliance · Prevention", svc_p1:"Consulting for prevention & compliance, reporting and improvement proposals",
         svc_b2:"Electrical Works PM",   svc_h2:"Plant · Building · Factory PM",                 svc_p2:"Total PM for schedule, quality and cost",
         svc_b3:"Fire Protection PM",    svc_h3:"Integrated E&I + Fire",                         svc_p3:"FP installation & maintenance with integrated control",
         svc_b4:"Specialized Services",  svc_h4:"Transformer Oil Change · Experts",              svc_p4:"Oil replacement (diagnosis/cleaning/testing), expert dispatch",
+
         contact_title:"Contact", contact_note:"Leave your inquiry below. We’ll respond within 1 business day.", contact_btn:"Open Inquiry Form",
         faq_title:"FAQ", faq_group:"Group by Category", faq_reload:"Reload"
       }
@@ -643,23 +637,19 @@
       const label = (currentLang==='en')?'KR':'EN';
       if(langBtn) langBtn.textContent = label;
       if(langFab) langFab.textContent = label;
-      loadFAQ(); // 언어 표시용 텍스트 반영
+      loadFAQ(); // 언어 표시 반영
       localStorage.setItem('coreon_lang', currentLang);
     }
     function toggleLang(){ applyI18n(currentLang==='ko'?'en':'ko'); }
 
-    /* === Init after DOM ready === */
+    /* === Init === */
     document.addEventListener('DOMContentLoaded',()=>{
-      // 언어 토글 바인딩(중복 방지)
       const langBtn = document.getElementById('langToggle');
       const langFab = document.getElementById('langFab');
       if(langBtn){ langBtn.onclick=null; langBtn.addEventListener('click',toggleLang); }
       if(langFab){ langFab.onclick=null; langFab.addEventListener('click',toggleLang); }
 
-      // 초기 언어(저장값 우선) 적용
       applyI18n(currentLang);
-
-      // Footer year
       const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
     });
   </script>
