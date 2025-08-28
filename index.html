@@ -27,10 +27,8 @@
   <style>html{scroll-behavior:smooth}</style>
   <style>
     :root{
-      /* colors */
       --navy:#0D2E67; --navy-deep:#06234f; --orange:#FF6B00; --ink:#102a43; --muted:#6b7c93;
       --bg:#f7f9fc; --card:#ffffff; --radius:16px; --shadow:0 8px 30px rgba(13,46,103,.08); --line:#e6ecf5;
-      /* typography (desktop defaults) */
       --fs-base:16.5px; --fs-h3:20.5px; --fs-h2:28px; --lh-base:1.6; --lh-h3:1.35;
     }
     @media (max-width:1024px){ :root{ --fs-base:16px; --fs-h3:20px; --fs-h2:26px } }
@@ -51,6 +49,11 @@
     .topnav .links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
     .toplink{color:#1f2d4d;text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px;transition:.15s background ease}
     .toplink:hover{background:#f4f7fc}
+
+    /* Language switch (desktop) */
+    .lang-switch{display:flex;gap:6px;align-items:center}
+    .lang-btn{all:unset;cursor:pointer;padding:8px 10px;border:1px solid #e2e8f0;border-radius:10px;font-weight:800;color:#0d2e67}
+    .lang-btn[aria-pressed="true"]{background:#0ea5e9;color:#fff;border-color:#0ea5e9}
 
     /* Common */
     .wrap{max-width:1100px;margin:0 auto;padding:42px 18px}
@@ -75,8 +78,10 @@
     .btn-dark{background:#0f2147;border:1px solid #203869}
     .btn-outline{background:transparent;border:1px solid #ffffff55}
 
-    /* Mobile floating lang button */
-    .lang-fab{position:absolute;right:16px;top:16px;background:#ffffffcc;color:#0d2e67;border:1px solid #ffffff88;border-radius:999px;padding:6px 10px;font-weight:800;backdrop-filter:saturate(1.2) blur(2px);cursor:pointer}
+    /* Mobile floating language buttons */
+    .lang-fab{position:absolute;right:16px;top:16px;display:flex;gap:6px;background:#ffffffcc;color:#0d2e67;border:1px solid #ffffff88;border-radius:999px;padding:6px;backdrop-filter:saturate(1.2) blur(2px)}
+    .lang-fab .lang-btn{padding:6px 8px;border-color:#ffffff88}
+    .lang-fab .lang-btn[aria-pressed="true"]{background:#0ea5e9;color:#fff;border-color:#0ea5e9}
 
     /* Cards/Grid */
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
@@ -150,8 +155,7 @@
     .ir-title{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.01em;color:#0b1324}
     .ir-badge{font-size:12px;background:#e2e8f0;color:#0b1324;padding:6px 10px;border-radius:999px}
     .ir-lang{display:flex;gap:8px}
-    .ir-lang button{all:unset;cursor:pointer;padding:8px 12px;border-radius:10px;background:#e2e8f0;color:#0b1324;font-weight:700}
-    .ir-lang button[aria-pressed="true"]{background:#0ea5e9;color:#fff}
+    .ir-lang .lang-btn{padding:8px 12px}
     .ir-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:16px}
     .ir-card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px}
     .ir-card h3{margin:0 0 8px;font-size:18px}
@@ -193,7 +197,13 @@
         <a class="toplink js-doc" href="#" data-doc="brochure" data-i18n="nav_brochure">브로슈어</a>
         <a class="toplink" href="#ir" data-i18n="nav_ir">IR</a>
         <a class="toplink" href="#faq" data-i18n="nav_faq">FAQ</a>
-        <button id="langToggle" class="toplink" type="button" aria-label="Change language">EN</button>
+        <!-- 4-language buttons -->
+        <div class="lang-switch" aria-label="Language">
+          <button class="lang-btn" data-lang="ko" aria-pressed="true">KR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+          <button class="lang-btn" data-lang="zh" aria-pressed="false">ZH</button>
+        </div>
       </div>
     </div>
   </div>
@@ -205,8 +215,13 @@
         <div class="logo-box"><img src="logo.png" alt="COREON" loading="lazy"></div>
         <div class="name">COREON</div>
       </a>
-      <!-- Mobile floating language toggle -->
-      <button id="langFab" class="lang-fab" type="button" aria-label="Change language">EN</button>
+      <!-- Mobile 4-language buttons -->
+      <div class="lang-fab" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="ko" aria-pressed="true">KR</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+        <button class="lang-btn" data-lang="zh" aria-pressed="false">ZH</button>
+      </div>
 
       <h1 data-i18n="hero_title">전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준</h1>
       <p class="sub" data-i18n="hero_sub">Redefining Integrated EPCM Solutions for E&amp;I and Fire Protection</p>
@@ -320,9 +335,12 @@
           <div class="ir-badge">COREON • EPCM (E&amp;I / Fire Protection)</div>
           <h2 class="ir-title">Investor Relations</h2>
         </div>
+        <!-- 4-language buttons for IR (sync with global) -->
         <div class="ir-lang" role="tablist" aria-label="Language">
-          <button id="btn-ko" role="tab" aria-selected="true" aria-pressed="true">KR</button>
-          <button id="btn-en" role="tab" aria-selected="false" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="ko" aria-pressed="true">KR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+          <button class="lang-btn" data-lang="zh" aria-pressed="false">ZH</button>
         </div>
       </div>
 
@@ -379,8 +397,8 @@
             <h3>투자자 및 파트너 안내</h3>
             <p>COREON의 비전과 성과에 관심 있는 투자자·파트너와의 대화를 환영합니다. 아래 버튼을 통해 <strong>개별 문의</strong>를 남겨주시면, 비공개로 자료를 제공드리고 상세 협의를 진행합니다.</p>
             <div class="ir-cta">
-              <a class="ir-btn ir-btn-primary" href="/contact" aria-label="투자/파트너 문의">문의하기</a>
-              <a class="ir-btn ir-btn-ghost" href="/downloads/coreon-brief.pdf" target="_blank" rel="noopener">회사 브리프(요약) 다운로드</a>
+              <!-- 변경: IR 문의하기 버튼을 새 구글폼으로 연결 -->
+              <a class="ir-btn ir-btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdiB4UkM1Pxq2DKCHvT6owbo0iPvqcmNuSx6GhvpB-E6sk85Q/viewform?usp=dialog" target="_blank" rel="noopener" aria-label="투자/파트너 문의">문의하기</a>
             </div>
             <p class="ir-note">※ 본 페이지는 불특정 다수를 대상으로 한 투자 권유가 아니며, 정보 제공 및 1:1 문의 접수를 위한 IR 섹션입니다.</p>
           </article>
@@ -445,8 +463,8 @@
             <h3>For Investors &amp; Partners</h3>
             <p>We welcome conversations with investors and partners who share our vision of global growth. Please leave an <strong>individual inquiry</strong> via the button below. We will provide materials privately and proceed with a tailored discussion.</p>
             <div class="ir-cta">
-              <a class="ir-btn ir-btn-primary" href="/contact" aria-label="Contact for investors">Contact Us</a>
-              <a class="ir-btn ir-btn-ghost" href="/downloads/coreon-brief.pdf" target="_blank" rel="noopener">Download Company Brief</a>
+              <!-- Changed to new Google Form; brief download removed -->
+              <a class="ir-btn ir-btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdiB4UkM1Pxq2DKCHvT6owbo0iPvqcmNuSx6GhvpB-E6sk85Q/viewform?usp=dialog" target="_blank" rel="noopener" aria-label="Contact for investors">Contact Us</a>
             </div>
             <p class="ir-note">※ This page is <em>not</em> a public solicitation of investment. It provides information and a channel for one-to-one inquiries only.</p>
           </article>
@@ -551,6 +569,7 @@
   const PROFILE_PREVIEW = "https://drive.google.com/file/d/1bwSGJPfKD4YPYvWnQjFfnPd6eBUPsSVL/preview";
   const BROCHURE_PREVIEW = "https://drive.google.com/file/d/1e5DJpqpillkuPd_ZnBjEnqWIvCXkpKPH/preview";
   const FAQ_API = "https://script.google.com/macros/s/AKfycbzti-jiy6rPRJ-w-6d6M1EnS9qK2LTfJeVpcZ95wFiaAHB1wasu5Qj-c3atjjhyKb9z/exec";
+  const IR_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdiB4UkM1Pxq2DKCHvT6owbo0iPvqcmNuSx6GhvpB-E6sk85Q/viewform?usp=dialog";
 
   /* === Utils === */
   const escapeHtml = (s) => String(s ?? '').replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
@@ -562,10 +581,8 @@
   const openNew = document.getElementById('viewerOpenNew');
   const closeBtn = document.getElementById('viewerClose');
 
-  // Language state: cycle KO->EN->JP->ZH
+  // current language state
   const LANGS = ['ko','en','ja','zh'];
-  function nextLangCode(cur){ const idx = LANGS.indexOf(cur); return LANGS[(idx+1) % LANGS.length] || 'en'; }
-  function labelFor(lang){ const map = {ko:'EN', en:'JP', ja:'ZH', zh:'KR'}; return map[lang] || 'EN'; }
   let currentLang = (()=>{ const saved = localStorage.getItem('coreon_lang'); return LANGS.includes(saved) ? saved : 'ko'; })();
 
   function openModal(kind){
@@ -684,8 +701,7 @@
 
   /* === i18n dictionary (KO/EN/JA/ZH) === */
   const I18N = {
-    ko:{
-      nav_about:"회사 소개", nav_brochure:"브로슈어", nav_faq:"FAQ", nav_ir:"IR",
+    ko:{ nav_about:"회사 소개", nav_brochure:"브로슈어", nav_faq:"FAQ", nav_ir:"IR",
       hero_title:"전기·계장·소방, 통합 EPCM 솔루션의 새로운 기준",
       hero_sub:"E&I와 소방 분야의 통합 EPCM 솔루션을 새롭게 정의합니다",
       cta_quote:"📩 견적 문의", cta_profile:"📑 회사 소개서 보기", cta_brochure:"🗂️ 브로슈어 보기", cta_call:"📞 바로 전화",
@@ -733,8 +749,7 @@
       contact_title:"문의", contact_note:"견적/프로젝트 상담은 아래 연락처 또는 문의 폼으로 남겨주세요. 영업일 기준 1일 내 회신 드립니다.", contact_btn:"문의 폼 열기",
       faq_title:"FAQ", faq_group:"카테고리별 묶기", faq_reload:"Reload"
     },
-    en:{
-      nav_about:"About", nav_brochure:"Brochure", nav_faq:"FAQ", nav_ir:"IR",
+    en:{ nav_about:"About", nav_brochure:"Brochure", nav_faq:"FAQ", nav_ir:"IR",
       hero_title:"The New Standard of Integrated EPCM Solutions for E&I and Fire Protection",
       hero_sub:"Redefining Integrated EPCM Solutions for E&I and Fire Protection",
       cta_quote:"📩 Request a Quote", cta_profile:"📑 View Company Profile", cta_brochure:"🗂️ View Brochure", cta_call:"📞 Call Now",
@@ -782,8 +797,7 @@
       contact_title:"Contact", contact_note:"Leave your inquiry below. We’ll respond within 1 business day.", contact_btn:"Open Inquiry Form",
       faq_title:"FAQ", faq_group:"Group by Category", faq_reload:"Reload"
     },
-    ja:{
-      nav_about:"会社概要", nav_brochure:"パンフレット", nav_faq:"FAQ", nav_ir:"IR",
+    ja:{ nav_about:"会社概要", nav_brochure:"パンフレット", nav_faq:"FAQ", nav_ir:"IR",
       hero_title:"E&I と防災のための統合EPCMソリューションの新基準",
       hero_sub:"E&I・防災分野の統合EPCMソリューションを再定義します",
       cta_quote:"📩 見積依頼", cta_profile:"📑 会社紹介を見る", cta_brochure:"🗂️ パンフレットを見る", cta_call:"📞 今すぐ電話",
@@ -831,8 +845,7 @@
       contact_title:"お問い合わせ", contact_note:"お問い合わせ/お見積りは下記の連絡先またはフォームより。1営業日以内に返信いたします。", contact_btn:"問い合わせフォームを開く",
       faq_title:"FAQ", faq_group:"カテゴリ別に表示", faq_reload:"Reload"
     },
-    zh:{
-      nav_about:"公司介绍", nav_brochure:"宣传册", nav_faq:"常见问题", nav_ir:"IR",
+    zh:{ nav_about:"公司介绍", nav_brochure:"宣传册", nav_faq:"常见问题", nav_ir:"IR",
       hero_title:"面向E&I与消防的集成EPCM解决方案新标准",
       hero_sub:"重新定义E&I与消防领域的集成EPCM解决方案",
       cta_quote:"📩 获取报价", cta_profile:"📑 查看公司简介", cta_brochure:"🗂️ 查看宣传册", cta_call:"📞 立即来电",
@@ -883,6 +896,12 @@
   };
 
   /* === i18n 적용 === */
+  function setLangButtonsActive(lang){
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      const on = btn.getAttribute('data-lang')===lang;
+      btn.setAttribute('aria-pressed', String(on));
+    });
+  }
   function applyI18n(lang){
     currentLang = LANGS.includes(lang) ? lang : 'ko';
     document.documentElement.lang = currentLang;
@@ -902,49 +921,44 @@
       }[currentLang] || 'Search';
       faqSearchInput.placeholder = ph;
     }
-    const langBtn = document.getElementById('langToggle');
-    const langFab = document.getElementById('langFab');
-    const label = labelFor(currentLang);
-    if(langBtn) langBtn.textContent = label;
-    if(langFab) langFab.textContent = label;
+    // Activate buttons
+    setLangButtonsActive(currentLang);
+
+    // IR 탭: ko만 한국어, 그 외는 영어 탭 노출
+    setIRLang(currentLang === 'ko' ? 'ko' : 'en');
 
     loadFAQ(); // 언어 표시 반영
     localStorage.setItem('coreon_lang', currentLang);
   }
-  function toggleLang(){ const nxt = nextLangCode(currentLang); applyI18n(nxt); }
 
   /* === IR 탭 전환 === */
   const koPane = document.getElementById('ir-ko');
   const enPane = document.getElementById('ir-en');
-  const btnKo = document.getElementById('btn-ko');
-  const btnEn = document.getElementById('btn-en');
   function setIRLang(lang){
     const isKo = lang === 'ko';
     if(koPane && enPane){
       koPane.hidden = !isKo; enPane.hidden = isKo;
     }
-    if(btnKo && btnEn){
-      btnKo.setAttribute('aria-pressed', String(isKo));
-      btnEn.setAttribute('aria-pressed', String(!isKo));
-      btnKo.setAttribute('aria-selected', String(isKo));
-      btnEn.setAttribute('aria-selected', String(!isKo));
-    }
   }
-  if(btnKo) btnKo.addEventListener('click', ()=> setIRLang('ko'));
-  if(btnEn) btnEn.addEventListener('click', ()=> setIRLang('en'));
 
-  /* === Init === */
+  /* === Init (guard against duplicate init) === */
   document.addEventListener('DOMContentLoaded',()=>{
-    const langBtn = document.getElementById('langToggle');
-    const langFab = document.getElementById('langFab');
-    if(langBtn){ langBtn.onclick=null; langBtn.addEventListener('click',toggleLang); }
-    if(langFab){ langFab.onclick=null; langFab.addEventListener('click',toggleLang); }
+    if(window.__coreon_inited) return;
+    window.__coreon_inited = true;
 
-    applyI18n(currentLang);
+    // Language button handlers (desktop + hero + IR)
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const lang = btn.getAttribute('data-lang');
+        applyI18n(lang);
+      });
+    });
+
+    // Year
     const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
-    // 초기 IR 탭은 한국어
-    setIRLang('ko');
+    // 초기 언어 적용
+    applyI18n(currentLang);
   });
   </script>
 </body>
