@@ -9,8 +9,7 @@
   <style>
     :root{
       --navy:#0A1B2B; --blue:#0F6FFF; --orange:#FF6A00; --gray:#6B7A90; --bg:#F3F5F7; --card:#ffffff;
-      --radius:16px; --shadow:0 12px 24px rgba(10,27,43,.08);
-      --max:1120px;
+      --radius:16px; --shadow:0 12px 24px rgba(10,27,43,.08); --max:1120px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--navy);background:var(--bg)}
@@ -28,12 +27,13 @@
     .btn-outline{border-color:#dbe3ec;background:#fff;color:var(--navy)}
     .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
     .lang{display:flex;gap:8px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#E8F0FF;color:#1a3c88;font-size:12px;font-weight:700}
+    .chip{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;background:#E8F0FF;color:#1a3c88;font-size:12px;font-weight:700;border:0;cursor:pointer}
+    .chip[aria-current="page"]{background:#1a3c88;color:#fff}
 
     /* HERO */
     .hero{position:relative;background:
       linear-gradient(rgba(10,27,43,.65),rgba(10,27,43,.65)),
-      url('hero.png') center/cover no-repeat; /* hero.png 교체 예정 */
+      url('hero.png') center/cover no-repeat;
       color:#fff}
     .hero-inner{min-height:440px;display:flex;align-items:center}
     .hero h1{font-size:44px;line-height:1.2;margin:0 0 16px}
@@ -96,16 +96,14 @@
         <span>COREON</span>
       </div>
       <div class="nav-links">
-        <a href="#about">회사 소개</a>
-        <a href="#services">서비스</a>
-        <!-- 자료실: (임시) MOTIE 직무고시 고시문 PDF -->
-        <a href="https://drive.google.com/file/d/1PvUClNWt_YsKs9uoMm7xZfPFW2sK5GQS/view?usp=sharing" target="_blank" rel="noopener">자료실</a>
-        <!-- 견적 문의: 구글 폼 -->
-        <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">견적 문의</a>
+        <a href="#about" data-i18n="nav_about">회사 소개</a>
+        <a href="#services" data-i18n="nav_services">서비스</a>
+        <a href="https://drive.google.com/file/d/1PvUClNWt_YsKs9uoMm7xZfPFW2sK5GQS/view?usp=sharing" target="_blank" rel="noopener" data-i18n="nav_resources">자료실</a>
+        <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="nav_quote">견적 문의</a>
       </div>
       <div class="lang" aria-label="언어 선택">
-        <span class="chip" aria-current="page">한국어</span>
-        <a class="chip" href="/en">ENG</a>
+        <button class="chip lang-btn" data-lang="ko" aria-current="page">한국어</button>
+        <button class="chip lang-btn" data-lang="en">ENG</button>
       </div>
     </div>
   </nav>
@@ -115,29 +113,29 @@
     <div class="container hero-inner">
       <div>
         <div class="track-toggle" role="tablist" aria-label="트랙 전환">
-          <button id="tab-epc" class="active" role="tab" aria-controls="panel-epc" aria-selected="true">EPC 파트너</button>
-          <button id="tab-exe" role="tab" aria-controls="panel-exe" aria-selected="false">전기안전 원스톱</button>
+          <button id="tab-epc" class="active" role="tab" aria-controls="panel-epc" aria-selected="true" data-i18n="tab_epc">EPC 파트너</button>
+          <button id="tab-exe" role="tab" aria-controls="panel-exe" aria-selected="false" data-i18n="tab_exec">전기안전 원스톱</button>
         </div>
 
         <!-- EPC -->
         <div id="panel-epc" class="track-panel active" role="tabpanel" aria-labelledby="tab-epc" style="margin-top:16px;">
-          <h1>현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너</h1>
-          <p>EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
+          <h1 data-i18n="hero_epc_h1">현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너</h1>
+          <p data-i18n="hero_epc_p">EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">견적 문의</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener">회사 소개서(PDF)</a>
-            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="btn_quote">견적 문의</a>
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="btn_company_pdf">회사 소개서(PDF)</a>
+            <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="btn_call">바로 전화</a>
           </div>
         </div>
 
         <!-- Business Execution -->
         <div id="panel-exe" class="track-panel" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:16px;">
-          <h1>전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지</h1>
-          <p>안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.</p>
+          <h1 data-i18n="hero_exec_h1">전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지</h1>
+          <p data-i18n="hero_exec_p">안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">견적 문의</a>
-            <a class="btn btn-ghost" href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener">패키지 소개서(PDF)</a>
-            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="btn_quote">견적 문의</a>
+            <a class="btn btn-ghost" href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener" data-i18n="btn_package_pdf">패키지 소개서(PDF)</a>
+            <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="btn_call">바로 전화</a>
           </div>
         </div>
       </div>
@@ -147,53 +145,53 @@
   <!-- WHY COREON -->
   <section id="about">
     <div class="container">
-      <h2>Why COREON</h2>
-      <p class="sub">EPC와 제조현장을 위한 투-트랙 실행 파트너</p>
+      <h2 data-i18n="why_h2">Why COREON</h2>
+      <p class="sub" data-i18n="why_sub">EPC와 제조현장을 위한 투-트랙 실행 파트너</p>
       <div class="grid grid-4">
         <div class="card">
-          <span class="pill">즉시성</span>
-          <h3>전문 인력 즉시 투입</h3>
-          <p class="muted">요청 즉시 가동되는 전기·계장·소방 인력 네트워크.</p>
+          <span class="pill" data-i18n="why_pill_1">즉시성</span>
+          <h3 data-i18n="why_t1">전문 인력 즉시 투입</h3>
+          <p class="muted" data-i18n="why_c1">요청 즉시 가동되는 전기·계장·소방 인력 네트워크.</p>
         </div>
         <div class="card">
-          <span class="pill">차별성</span>
-          <h3>사람 + 소프트웨어</h3>
-          <p class="muted">문서·프로세스 자동화로 가시성·추적성·속도를 강화합니다.</p>
+          <span class="pill" data-i18n="why_pill_2">차별성</span>
+          <h3 data-i18n="why_t2">사람 + 소프트웨어</h3>
+          <p class="muted" data-i18n="why_c2">문서·프로세스 자동화로 가시성·추적성·속도를 강화합니다.</p>
         </div>
         <div class="card">
-          <span class="pill">경험</span>
-          <h3>20+년 E&amp;I 현장</h3>
-          <p class="muted">글로벌 플랜트 및 대형 프로젝트 수행 경험.</p>
+          <span class="pill" data-i18n="why_pill_3">경험</span>
+          <h3 data-i18n="why_t3">20+년 E&amp;I 현장</h3>
+          <p class="muted" data-i18n="why_c3">글로벌 플랜트 및 대형 프로젝트 수행 경험.</p>
         </div>
         <div class="card">
-          <span class="pill">시스템</span>
-          <h3>표준화 운영 체계</h3>
-          <p class="muted">안전·품질·변경관리까지 표준 기반으로 운영.</p>
+          <span class="pill" data-i18n="why_pill_4">시스템</span>
+          <h3 data-i18n="why_t4">표준화 운영 체계</h3>
+          <p class="muted" data-i18n="why_c4">안전·품질·변경관리까지 표준 기반으로 운영.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 서비스 트랙 (버튼 1개로 간소화) -->
+  <!-- 서비스 트랙 (버튼 1개) -->
   <section id="services" style="padding-top:24px;">
     <div class="container">
-      <h2>서비스 트랙</h2>
-      <p class="sub">필요에 맞는 트랙을 선택하세요</p>
+      <h2 data-i18n="svc_h2">서비스 트랙</h2>
+      <p class="sub" data-i18n="svc_sub">필요에 맞는 트랙을 선택하세요</p>
       <div class="grid grid-2">
         <div class="card">
-          <span class="pill">EPC 파트너</span>
-          <h3>현장 실행 보완</h3>
-          <p class="muted">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
+          <span class="pill" data-i18n="svc_epc_pill">EPC 파트너</span>
+          <h3 data-i18n="svc_epc_h3">현장 실행 보완</h3>
+          <p class="muted" data-i18n="svc_epc_p">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
           <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener">소개서(PDF)</a>
+            <a class="btn btn-outline" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="btn_company_pdf">회사 소개서(PDF)</a>
           </div>
         </div>
         <div class="card">
-          <span class="pill">Business Execution</span>
-          <h3>전기안전 원스톱</h3>
-          <p class="muted">직무고시/안전관리 → 전기안전진단 → 전기·계장공사 → 사후관리.</p>
+          <span class="pill" data-i18n="svc_exec_pill">Business Execution</span>
+          <h3 data-i18n="svc_exec_h3">전기안전 원스톱</h3>
+          <p class="muted" data-i18n="svc_exec_p">직무고시/안전관리 → 전기안전진단 → 전기·계장공사 → 사후관리.</p>
           <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener">패키지(PDF)</a>
+            <a class="btn btn-outline" href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener" data-i18n="btn_package_pdf">패키지 소개서(PDF)</a>
           </div>
         </div>
       </div>
@@ -203,16 +201,16 @@
   <!-- Industries -->
   <section>
     <div class="container">
-      <h2>Industries / 고객</h2>
+      <h2 data-i18n="ind_h2">Industries / 고객</h2>
       <div class="chips">
-        <span class="chip">관공서·공공기관</span>
-        <span class="chip">건설현장</span>
-        <span class="chip">민간기업·공장</span>
-        <span class="chip">대기업·제조업</span>
-        <span class="chip">하이테크</span>
-        <span class="chip">해양플랜트·에너지</span>
-        <span class="chip">해외프로젝트</span>
-        <span class="chip">국내 전력 수용가 전반</span>
+        <span class="chip" data-i18n="ind_1">관공서·공공기관</span>
+        <span class="chip" data-i18n="ind_2">건설현장</span>
+        <span class="chip" data-i18n="ind_3">민간기업·공장</span>
+        <span class="chip" data-i18n="ind_4">대기업·제조업</span>
+        <span class="chip" data-i18n="ind_5">하이테크</span>
+        <span class="chip" data-i18n="ind_6">해양플랜트·에너지</span>
+        <span class="chip" data-i18n="ind_7">해외프로젝트</span>
+        <span class="chip" data-i18n="ind_8">국내 전력 수용가 전반</span>
       </div>
     </div>
   </section>
@@ -220,19 +218,19 @@
   <!-- References -->
   <section>
     <div class="container">
-      <h2>검증된 실행 경험</h2>
+      <h2 data-i18n="ref_h2">검증된 실행 경험</h2>
       <div class="grid grid-3">
         <div class="card">
-          <h3>제조공장</h3>
-          <p class="muted">생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.</p>
+          <h3 data-i18n="ref_1_t">제조공장</h3>
+          <p class="muted" data-i18n="ref_1_p">생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.</p>
         </div>
         <div class="card">
-          <h3>대형 프로젝트</h3>
-          <p class="muted">복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.</p>
+          <h3 data-i18n="ref_2_t">대형 프로젝트</h3>
+          <p class="muted" data-i18n="ref_2_p">복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.</p>
         </div>
         <div class="card">
-          <h3>공공·산업단지</h3>
-          <p class="muted">직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.</p>
+          <h3 data-i18n="ref_3_t">공공·산업단지</h3>
+          <p class="muted" data-i18n="ref_3_p">직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.</p>
         </div>
       </div>
     </div>
@@ -243,43 +241,43 @@
     <div class="container">
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
         <div>
-          <h3 style="margin:0 0 6px">견적/프로젝트 문의</h3>
-          <p class="muted" style="margin:0">요청을 남겨주시면 1영업일 내 회신드립니다.</p>
+          <h3 style="margin:0 0 6px" data-i18n="cta_title">견적/프로젝트 문의</h3>
+          <p class="muted" style="margin:0" data-i18n="cta_desc">요청을 남겨주시면 1영업일 내 회신드립니다.</p>
         </div>
         <div class="cta-group">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">문의하기</a>
-          <a class="btn btn-outline" href="tel:+821090391482">전화: 010-9039-1482</a>
-          <a class="btn btn-outline" href="mailto:contact@coreon-global.com">이메일</a>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="btn_contact">문의하기</a>
+          <a class="btn btn-outline" href="tel:+821090391482" data-i18n="btn_tel">전화: 010-9039-1482</a>
+          <a class="btn btn-outline" href="mailto:contact@coreon-global.com" data-i18n="btn_email">이메일</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (소개문 2줄 고정) -->
+  <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
       <div>
         <h3 style="margin-top:0;color:#fff">COREON</h3>
         <div class="footer-intro">
-          <p>COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를</p>
-          <p>동시에 제공하는 투-트랙 실행 파트너입니다.</p>
+          <p data-i18n="foot_l1">COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를</p>
+          <p data-i18n="foot_l2">동시에 제공하는 투-트랙 실행 파트너입니다.</p>
         </div>
         <p style="margin:12px 0 0">
-          상호: COREON<br/>
-          사업자등록번호: 586-24-02279<br/>
-          주소: 인천광역시 중구 중산동 두미포로 112<br/>
-          대표전화: +82-10-9039-1482<br/>
-          이메일: <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
+          <span data-i18n="bizname_label">상호</span>: COREON<br/>
+          <span data-i18n="bizreg_label">사업자등록번호</span>: 586-24-02279<br/>
+          <span data-i18n="addr_label">주소</span>: 인천광역시 중구 중산동 두미포로 112<br/>
+          <span data-i18n="tel_label">대표전화</span>: +82-10-9039-1482<br/>
+          <span data-i18n="email_label">이메일</span>: <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
         </p>
       </div>
       <div>
-        <h4 style="margin:0 0 8px;color:#fff">바로가기</h4>
+        <h4 style="margin:0 0 8px;color:#fff" data-i18n="quick_h4">바로가기</h4>
         <p>
-          <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener">EPC 트랙(소개서 PDF)</a><br/>
-          <a href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener">전기안전 원스톱(패키지 PDF)</a><br/>
-          <a href="https://drive.google.com/file/d/1PvUClNWt_YsKs9uoMm7xZfPFW2sK5GQS/view?usp=sharing" target="_blank" rel="noopener">자료실(직무고시 고시문)</a><br/>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">문의</a><br/>
-          <a href="./assets/pdf/coreon_privacy_policy.pdf" target="_blank" rel="noopener">개인정보처리방침</a>
+          <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="quick_epc">EPC 트랙(소개서 PDF)</a><br/>
+          <a href="./assets/pdf/coreon_business_execution_package.pdf" target="_blank" rel="noopener" data-i18n="quick_exec">전기안전 원스톱(패키지 PDF)</a><br/>
+          <a href="https://drive.google.com/file/d/1PvUClNWt_YsKs9uoMm7xZfPFW2sK5GQS/view?usp=sharing" target="_blank" rel="noopener" data-i18n="quick_resources">자료실(직무고시 고시문)</a><br/>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="quick_contact">문의</a><br/>
+          <a href="./assets/pdf/coreon_privacy_policy.pdf" target="_blank" rel="noopener" data-i18n="quick_privacy">개인정보처리방침</a>
         </p>
       </div>
     </div>
@@ -289,12 +287,11 @@
   </footer>
 
   <script>
-    // 트랙 토글
+    // ========= Track toggle =========
     const tabEpc = document.getElementById('tab-epc');
     const tabExe = document.getElementById('tab-exe');
     const panelEpc = document.getElementById('panel-epc');
     const panelExe = document.getElementById('panel-exe');
-
     function activate(tab){
       const isEpc = tab === 'epc';
       tabEpc.classList.toggle('active', isEpc);
@@ -306,20 +303,103 @@
     }
     tabEpc.addEventListener('click', ()=>activate('epc'));
     tabExe.addEventListener('click', ()=>activate('exe'));
-
-    // 키보드 접근성
     [tabEpc, tabExe].forEach(el=>{
       el.addEventListener('keydown', (e)=>{
-        if(e.key==='ArrowRight' || e.key==='ArrowLeft'){
-          e.preventDefault();
-          (el===tabEpc?tabExe:tabEpc).focus();
-        }
-        if(e.key==='Enter' || e.key===' '){
-          e.preventDefault();
-          el.click();
-        }
+        if(e.key==='ArrowRight' || e.key==='ArrowLeft'){ e.preventDefault(); (el===tabEpc?tabExe:tabEpc).focus(); }
+        if(e.key==='Enter' || e.key===' '){ e.preventDefault(); el.click(); }
       });
     });
+
+    // ========= Simple i18n (KR/EN) =========
+    const i18n = {
+      ko: {
+        nav_about:"회사 소개", nav_services:"서비스", nav_resources:"자료실", nav_quote:"견적 문의",
+        tab_epc:"EPC 파트너", tab_exec:"전기안전 원스톱",
+        hero_epc_h1:"현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너",
+        hero_epc_p:"EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.",
+        hero_exec_h1:"전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지",
+        hero_exec_p:"안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.",
+        btn_quote:"견적 문의", btn_company_pdf:"회사 소개서(PDF)", btn_package_pdf:"패키지 소개서(PDF)", btn_call:"바로 전화",
+        why_h2:"Why COREON", why_sub:"EPC와 제조현장을 위한 투-트랙 실행 파트너",
+        why_pill_1:"즉시성", why_t1:"전문 인력 즉시 투입", why_c1:"요청 즉시 가동되는 전기·계장·소방 인력 네트워크.",
+        why_pill_2:"차별성", why_t2:"사람 + 소프트웨어", why_c2:"문서·프로세스 자동화로 가시성·추적성·속도를 강화합니다.",
+        why_pill_3:"경험", why_t3:"20+년 E&I 현장", why_c3:"글로벌 플랜트 및 대형 프로젝트 수행 경험.",
+        why_pill_4:"시스템", why_t4:"표준화 운영 체계", why_c4:"안전·품질·변경관리까지 표준 기반으로 운영.",
+        svc_h2:"서비스 트랙", svc_sub:"필요에 맞는 트랙을 선택하세요",
+        svc_epc_pill:"EPC 파트너", svc_epc_h3:"현장 실행 보완", svc_epc_p:"즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.",
+        svc_exec_pill:"Business Execution", svc_exec_h3:"전기안전 원스톱", svc_exec_p:"직무고시/안전관리 → 전기안전진단 → 전기·계장공사 → 사후관리.",
+        ind_h2:"Industries / 고객", ind_1:"관공서·공공기관", ind_2:"건설현장", ind_3:"민간기업·공장", ind_4:"대기업·제조업",
+        ind_5:"하이테크", ind_6:"해양플랜트·에너지", ind_7:"해외프로젝트", ind_8:"국내 전력 수용가 전반",
+        ref_h2:"검증된 실행 경험", ref_1_t:"제조공장", ref_1_p:"생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.",
+        ref_2_t:"대형 프로젝트", ref_2_p:"복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.",
+        ref_3_t:"공공·산업단지", ref_3_p:"직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.",
+        cta_title:"견적/프로젝트 문의", cta_desc:"요청을 남겨주시면 1영업일 내 회신드립니다.",
+        btn_contact:"문의하기", btn_tel:"전화: 010-9039-1482", btn_email:"이메일",
+        foot_l1:"COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를",
+        foot_l2:"동시에 제공하는 투-트랙 실행 파트너입니다.",
+        bizname_label:"상호", bizreg_label:"사업자등록번호", addr_label:"주소", tel_label:"대표전화", email_label:"이메일",
+        quick_h4:"바로가기", quick_epc:"EPC 트랙(소개서 PDF)", quick_exec:"전기안전 원스톱(패키지 PDF)",
+        quick_resources:"자료실(직무고시 고시문)", quick_contact:"문의", quick_privacy:"개인정보처리방침"
+      },
+      en: {
+        nav_about:"About", nav_services:"Services", nav_resources:"Resources", nav_quote:"Request Quote",
+        tab_epc:"EPC Partner", tab_exec:"One-stop Electrical Safety",
+        hero_epc_h1:"Rapid-deploy<br/>E&I / Fire Execution Partner",
+        hero_epc_p:"COREON closes on-site execution gaps so EPCs can focus on contract, construction, quality and schedule.",
+        hero_exec_h1:"Electrical Safety Mgmt · Jikmu-gosi · E&I Works<br/>One-stop Package",
+        hero_exec_p:"From safety management to construction, COREON takes end-to-end responsibility.",
+        btn_quote:"Request Quote", btn_company_pdf:"Company Profile (PDF)", btn_package_pdf:"Package Brochure (PDF)", btn_call:"Call Now",
+        why_h2:"Why COREON", why_sub:"Two-track execution partner for EPCs and manufacturing sites",
+        why_pill_1:"Speed", why_t1:"Experts, mobilized fast", why_c1:"Nationwide E&I/fire workforce on demand.",
+        why_pill_2:"Differentiation", why_t2:"People + Software", why_c2:"Automation for visibility, traceability and speed.",
+        why_pill_3:"Experience", why_t3:"20+ yrs E&I field", why_c3:"Global plants and mega-project experience.",
+        why_pill_4:"System", why_t4:"Standardized operations", why_c4:"Safety/quality/change control on standards.",
+        svc_h2:"Service Tracks", svc_sub:"Choose the track you need",
+        svc_epc_pill:"EPC Partner", svc_epc_h3:"Execution Backfill", svc_epc_p:"Rapid staff/PM, document & process automation, on-site validation.",
+        svc_exec_pill:"Business Execution", svc_exec_h3:"One-stop Safety", svc_exec_p:"Jikmu-gosi & safety → safety diagnosis → E&I works → after-service.",
+        ind_h2:"Industries / Clients", ind_1:"Public Sector", ind_2:"Construction Sites", ind_3:"Private Plants", ind_4:"Large Manufacturers",
+        ind_5:"High-tech", ind_6:"Offshore & Energy", ind_7:"Overseas Projects", ind_8:"All domestic power consumers",
+        ref_h2:"Proven Field Experience", ref_1_t:"Manufacturing Plants", ref_1_p:"Safety diagnosis and improvement works with minimal downtime.",
+        ref_2_t:"Large-scale Projects", ref_2_p:"Diagnosis & documentation systems for stable operations.",
+        ref_3_t:"Public & Industrial Complexes", ref_3_p:"Link findings to improvement works to prevent recurrence.",
+        cta_title:"Contact / Project Inquiry", cta_desc:"Leave your request; we reply within 1 business day.",
+        btn_contact:"Contact", btn_tel:"Tel: +82-10-9039-1482", btn_email:"Email",
+        foot_l1:"COREON supplements EPC execution gaps and provides one-stop electrical-safety packages",
+        foot_l2:"as a dual-track execution partner for public and manufacturing sites.",
+        bizname_label:"Company", bizreg_label:"Biz Reg. No.", addr_label:"Address", tel_label:"Phone", email_label:"Email",
+        quick_h4:"Quick Links", quick_epc:"EPC Track (Profile PDF)", quick_exec:"Safety One-stop (Package PDF)",
+        quick_resources:"Resources (MOTIE notice PDF)", quick_contact:"Contact", quick_privacy:"Privacy Policy"
+      }
+    };
+
+    function applyTranslations(lang){
+      const dict = i18n[lang] || i18n.ko;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if(dict[key]) el.innerHTML = dict[key];
+      });
+      // nav lang attr for <html>
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ko');
+      // toggle chip state
+      document.querySelectorAll('.lang-btn').forEach(b=>{
+        const active = b.dataset.lang === lang;
+        b.setAttribute('aria-current', active ? 'page' : 'false');
+      });
+    }
+
+    function setLang(lang){
+      localStorage.setItem('coreon_lang', lang);
+      applyTranslations(lang);
+    }
+
+    // bind lang buttons
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>setLang(btn.dataset.lang));
+    });
+
+    // init
+    const saved = localStorage.getItem('coreon_lang') || 'ko';
+    applyTranslations(saved);
   </script>
 </body>
 </html>
