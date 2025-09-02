@@ -24,7 +24,6 @@
     .btn-primary{background:var(--blue);color:#fff}
     .btn-outline{border-color:#dbe3ec;background:#fff;color:var(--navy)}
     .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
-
     .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#E8F0FF;color:#1a3c88;font-size:12px;font-weight:700;border:1px solid transparent}
     .chip.active{background:#0F6FFF;color:#fff;border-color:#0F6FFF}
 
@@ -62,7 +61,7 @@
     .partners-wrap{background:#0b1324;color:#e9f1ff;border-radius:20px;padding:28px;box-shadow:var(--shadow)}
     .partners-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
     .partner-logo{background:#ffffff;border-radius:14px;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    .partner-logo img{height:36px;width:auto}
+    .partner-logo img{height:48px;width:auto;object-fit:contain}
     .partner-desc{color:#c7d3ea;line-height:1.7}
     .partner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#16325b;color:#fff;font-size:12px;font-weight:800}
@@ -73,6 +72,7 @@
     .foot-grid{display:grid;gap:24px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding-top:16px;font-size:14px}
 
+    /* responsive */
     @media (max-width:980px){
       .grid-4{grid-template-columns:repeat(2,1fr)}
       .grid-3,.grid-2{grid-template-columns:1fr}
@@ -81,7 +81,7 @@
       .hero p{font-size:16px}
       .nav-links{display:none}
       .hero-inner{min-height:420px}
-      .partner-logo img{height:30px}
+      .partner-logo img{height:40px}
     }
     @media (max-width:520px){
       .hero h1{font-size:28px}
@@ -104,7 +104,9 @@
         <a href="#about" data-i18n="nav.about">회사 소개</a>
         <a href="#services" data-i18n="nav.services">서비스</a>
         <a href="#partners" data-i18n="nav.partners">파트너</a>
+        <!-- 자료실: 직무고시 안내 -->
         <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener" data-i18n="nav.resources">자료실</a>
+        <!-- 견적 문의 -->
         <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="nav.quote">견적 문의</a>
       </div>
 
@@ -115,29 +117,17 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (기본: 전기안전 원스톱 활성) -->
   <header class="hero">
     <div class="container hero-inner">
       <div>
         <div class="track-toggle" role="tablist" aria-label="트랙 전환">
-          <button id="tab-epc" class="active" role="tab" aria-controls="panel-epc" aria-selected="true" data-i18n="toggle.epc">EPC 파트너</button>
-          <button id="tab-exe" role="tab" aria-controls="panel-exe" aria-selected="false" data-i18n="toggle.exec">전기안전 원스톱</button>
+          <button id="tab-epc" role="tab" aria-controls="panel-epc" aria-selected="false" data-i18n="toggle.epc">EPC 파트너</button>
+          <button id="tab-exe" class="active" role="tab" aria-controls="panel-exe" aria-selected="true" data-i18n="toggle.exec">전기안전 원스톱</button>
         </div>
 
-        <!-- EPC -->
-        <div id="panel-epc" class="track-panel active" role="tabpanel" aria-labelledby="tab-epc" style="margin-top:16px;">
-          <h1 data-i18n="heroEpc.title">현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너</h1>
-          <p data-i18n="heroEpc.text">EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
-            <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
-          </div>
-        </div>
-
-        <!-- Execution -->
-        <div id="panel-exe" class="track-panel" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:16px;">
+        <!-- Execution headline (기본 노출) -->
+        <div id="panel-exe" class="track-panel active" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:16px;">
           <h1 data-i18n="heroExec.title">전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지</h1>
           <p data-i18n="heroExec.text">안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.</p>
           <div class="cta-group">
@@ -147,11 +137,24 @@
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
         </div>
+
+        <!-- EPC headline -->
+        <div id="panel-epc" class="track-panel" role="tabpanel" aria-labelledby="tab-epc" style="margin-top:16px;">
+          <h1 data-i18n="heroEpc.title">현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너</h1>
+          <p data-i18n="heroEpc.text">EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
+            <!-- 회사 전체 소개 PDF (링크 중요) -->
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
+            <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- WHY -->
+  <!-- WHY COREON -->
   <section id="about">
     <div class="container">
       <h2 data-i18n="why.title">Why COREON</h2>
@@ -165,21 +168,13 @@
     </div>
   </section>
 
-  <!-- SERVICE TRACKS -->
+  <!-- 서비스 트랙 (전기안전 원스톱을 첫 카드로) -->
   <section id="services" style="padding-top:24px;">
     <div class="container">
       <h2 data-i18n="track.title">서비스 트랙</h2>
       <p class="sub" data-i18n="track.sub">필요에 맞는 트랙을 선택하세요</p>
       <div class="grid grid-2">
-        <div class="card">
-          <span class="pill" data-i18n="toggle.epc">EPC 파트너</span>
-          <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
-          <p class="muted" data-i18n="track.epc.d">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
-          <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
-          </div>
-        </div>
+        <!-- 원스톱(우선) -->
         <div class="card">
           <span class="pill" data-i18n="toggle.exec">Business Execution</span>
           <h3 data-i18n="track.exec.h">전기안전 원스톱</h3>
@@ -189,11 +184,21 @@
             <a class="btn btn-outline" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPdf">패키지 소개서(PDF)</a>
           </div>
         </div>
+        <!-- EPC(보조) -->
+        <div class="card">
+          <span class="pill" data-i18n="toggle.epc">EPC 파트너</span>
+          <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
+          <p class="muted" data-i18n="track.epc.d">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
+          <div class="cta-group" style="margin-top:8px">
+            <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
+            <a class="btn btn-outline" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS -->
+  <!-- 파트너 -->
   <section id="partners">
     <div class="container">
       <h2 data-i18n="partners.title">공식 파트너사</h2>
@@ -202,9 +207,9 @@
       <div class="partners-wrap">
         <div class="partners-head">
           <span class="badge" data-i18n="partners.badge">Official Partner</span>
-          <!-- KES 한 칸만 표시 + 파일명 폴백 -->
+          <!-- KES 한 칸만 표시 -->
           <div class="partner-logo" title="한국전기시스템(KES)">
-            <img src="./kes-logo.png" alt="한국전기시스템(KES) 로고" onerror="this.onerror=null;this.src='./KES(한국전기시스템logo).png'">
+            <img src="./KES(한국전기시스템logo).png" alt="한국전기시스템(KES) 로고">
           </div>
         </div>
 
@@ -217,7 +222,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- 문의 CTA -->
   <section style="padding-top:24px;padding-bottom:72px;">
     <div class="container">
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
@@ -239,10 +244,7 @@
     <div class="container foot-grid">
       <div>
         <h3 style="margin-top:0;color:#fff">COREON</h3>
-        <p>
-          COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를 동시에 제공하는<br/>
-          투-트랙 실행 파트너입니다.
-        </p>
+        <p>COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를 동시에 제공하는<br/>투-트랙 실행 파트너입니다.</p>
         <p style="margin:6px 0 0">
           상호: COREON<br/>
           사업자등록번호: 586-24-02279<br/>
@@ -255,8 +257,8 @@
         <h4 style="margin:0 0 8px;color:#fff" data-i18n="footer.quick">바로가기</h4>
         <p>
           <a href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a><br/>
-          <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.epc">EPC 트랙</a><br/>
           <a href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.exec">전기안전 원스톱</a><br/>
+          <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.epc">EPC 트랙</a><br/>
           <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.resources">자료실</a><br/>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="footer.contact">문의</a>
         </p>
@@ -266,7 +268,7 @@
   </footer>
 
   <script>
-    /* 로고 클릭 새로고침 */
+    /* 로고 클릭: 새로고침 & 상단 복귀 */
     (function(){
       const logo = document.getElementById('logo-link');
       if(logo){
@@ -278,11 +280,12 @@
       }
     })();
 
-    /* 탭 토글 */
+    /* 트랙 토글 */
     const tabEpc = document.getElementById('tab-epc');
     const tabExe = document.getElementById('tab-exe');
     const panelEpc = document.getElementById('panel-epc');
     const panelExe = document.getElementById('panel-exe');
+
     function activate(tab){
       const isEpc = tab === 'epc';
       tabEpc.classList.toggle('active', isEpc);
@@ -294,6 +297,8 @@
     }
     tabEpc.addEventListener('click', ()=>activate('epc'));
     tabExe.addEventListener('click', ()=>activate('exe'));
+    /* 기본값: 전기안전 원스톱 */
+    activate('exe');
 
     /* i18n */
     const dict = {
