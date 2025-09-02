@@ -7,7 +7,11 @@
   <meta name="description" content="EPC 트랙(현장 즉시 투입/문서 자동화)과 Business Execution 트랙(전기안전관리·직무고시·전기/계장공사 원스톱)을 제공하는 COREON 공식 홈페이지." />
   <meta name="theme-color" content="#0A1B2B" />
   <style>
-    :root{--navy:#0A1B2B;--blue:#0F6FFF;--gray:#6B7A90;--bg:#F3F5F7;--card:#ffffff;--radius:16px;--shadow:0 12px 24px rgba(10,27,43,.08);--max:1120px;}
+    :root{
+      --navy:#0A1B2B; --blue:#0F6FFF; --orange:#FF6A00; --gray:#6B7A90; --bg:#F3F5F7; --card:#ffffff;
+      --radius:16px; --shadow:0 12px 24px rgba(10,27,43,.08);
+      --max:1120px;
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--navy);background:var(--bg)}
     a{color:inherit;text-decoration:none}
@@ -24,6 +28,8 @@
     .btn-primary{background:var(--blue);color:#fff}
     .btn-outline{border-color:#dbe3ec;background:#fff;color:var(--navy)}
     .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+
+    .lang{display:flex;gap:8px;align-items:center}
     .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#E8F0FF;color:#1a3c88;font-size:12px;font-weight:700;border:1px solid transparent}
     .chip.active{background:#0F6FFF;color:#fff;border-color:#0F6FFF}
 
@@ -56,6 +62,7 @@
     .track-toggle button.active{background:#fff;color:#0f1430;opacity:1}
     .track-panel{display:none}
     .track-panel.active{display:block}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
 
     /* Partners */
     .partners-wrap{background:#0b1324;color:#e9f1ff;border-radius:20px;padding:28px;box-shadow:var(--shadow)}
@@ -71,11 +78,13 @@
     footer a{color:#c9d6e8;text-decoration:underline}
     .foot-grid{display:grid;gap:24px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding-top:16px;font-size:14px}
+    .footer-lead{margin:0 0 12px;line-height:1.7}
 
     /* responsive */
     @media (max-width:980px){
       .grid-4{grid-template-columns:repeat(2,1fr)}
-      .grid-3,.grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(1,1fr)}
+      .grid-2{grid-template-columns:repeat(1,1fr)}
       .foot-grid{grid-template-columns:1fr}
       .hero h1{font-size:32px}
       .hero p{font-size:16px}
@@ -104,36 +113,33 @@
         <a href="#about" data-i18n="nav.about">회사 소개</a>
         <a href="#services" data-i18n="nav.services">서비스</a>
         <a href="#partners" data-i18n="nav.partners">파트너</a>
-        <!-- 자료실: 직무고시 안내 -->
         <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener" data-i18n="nav.resources">자료실</a>
-        <!-- 견적 문의 -->
         <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="nav.quote">견적 문의</a>
       </div>
 
-      <div aria-label="언어 선택">
+      <div class="lang" aria-label="언어 선택">
         <button class="chip" id="lang-kr" type="button">한국어</button>
         <button class="chip" id="lang-en" type="button">ENG</button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO (기본: 전기안전 원스톱 활성) -->
+  <!-- HERO : 전기안전 원스톱을 기본/왼쪽으로 -->
   <header class="hero">
     <div class="container hero-inner">
       <div>
         <div class="track-toggle" role="tablist" aria-label="트랙 전환">
-          <button id="tab-epc" role="tab" aria-controls="panel-epc" aria-selected="false" data-i18n="toggle.epc">EPC 파트너</button>
           <button id="tab-exe" class="active" role="tab" aria-controls="panel-exe" aria-selected="true" data-i18n="toggle.exec">전기안전 원스톱</button>
+          <button id="tab-epc" role="tab" aria-controls="panel-epc" aria-selected="false" data-i18n="toggle.epc">EPC 파트너</button>
         </div>
 
-        <!-- Execution headline (기본 노출) -->
+        <!-- Execution headline (기본 활성) -->
         <div id="panel-exe" class="track-panel active" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:16px;">
           <h1 data-i18n="heroExec.title">전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지</h1>
           <p data-i18n="heroExec.text">안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPack">원스톱 패키지 보기</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPdf">패키지 소개서(PDF)</a>
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
         </div>
@@ -145,7 +151,7 @@
           <div class="cta-group">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
-            <!-- 회사 전체 소개 PDF (링크 중요) -->
+            <!-- 회사 전체 소개 (coreon_company_profile) -->
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
@@ -168,15 +174,15 @@
     </div>
   </section>
 
-  <!-- 서비스 트랙 (전기안전 원스톱을 첫 카드로) -->
+  <!-- 서비스 트랙 : 전기안전 카드가 첫 번째 -->
   <section id="services" style="padding-top:24px;">
     <div class="container">
       <h2 data-i18n="track.title">서비스 트랙</h2>
       <p class="sub" data-i18n="track.sub">필요에 맞는 트랙을 선택하세요</p>
       <div class="grid grid-2">
-        <!-- 원스톱(우선) -->
+        <!-- 전기안전 원스톱 -->
         <div class="card">
-          <span class="pill" data-i18n="toggle.exec">Business Execution</span>
+          <span class="pill" data-i18n="toggle.exec">전기안전 원스톱</span>
           <h3 data-i18n="track.exec.h">전기안전 원스톱</h3>
           <p class="muted" data-i18n="track.exec.d">직무고시/안전관리 → 전기안전진단 → 전기·계장공사 → 사후관리.</p>
           <div class="cta-group" style="margin-top:8px">
@@ -184,7 +190,8 @@
             <a class="btn btn-outline" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPdf">패키지 소개서(PDF)</a>
           </div>
         </div>
-        <!-- EPC(보조) -->
+
+        <!-- EPC 파트너 -->
         <div class="card">
           <span class="pill" data-i18n="toggle.epc">EPC 파트너</span>
           <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
@@ -198,7 +205,7 @@
     </div>
   </section>
 
-  <!-- 파트너 -->
+  <!-- 공식 파트너사 -->
   <section id="partners">
     <div class="container">
       <h2 data-i18n="partners.title">공식 파트너사</h2>
@@ -207,9 +214,9 @@
       <div class="partners-wrap">
         <div class="partners-head">
           <span class="badge" data-i18n="partners.badge">Official Partner</span>
-          <!-- KES 한 칸만 표시 -->
           <div class="partner-logo" title="한국전기시스템(KES)">
-            <img src="./KES(한국전기시스템logo).png" alt="한국전기시스템(KES) 로고">
+            <!-- ✅ 파일명 고정: ./KES_logo.png -->
+            <img src="./KES_logo.png" alt="한국전기시스템(KES) 로고">
           </div>
         </div>
 
@@ -244,7 +251,10 @@
     <div class="container foot-grid">
       <div>
         <h3 style="margin-top:0;color:#fff">COREON</h3>
-        <p>COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를 동시에 제공하는<br/>투-트랙 실행 파트너입니다.</p>
+        <p class="footer-lead">
+          COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를 동시에 제공하는<br/>
+          투-트랙 실행 파트너입니다.
+        </p>
         <p style="margin:6px 0 0">
           상호: COREON<br/>
           사업자등록번호: 586-24-02279<br/>
@@ -260,11 +270,14 @@
           <a href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.exec">전기안전 원스톱</a><br/>
           <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.epc">EPC 트랙</a><br/>
           <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.resources">자료실</a><br/>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="footer.contact">문의</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="footer.contact">문의</a><br/>
+          <a href="https://drive.google.com/file/d/1eWCUNmfIXyOFPPOTMrR5LBh0KIpue0C5/view?usp=drive_link" target="_blank" rel="noopener" data-i18n="footer.privacy">개인정보처리방침</a>
         </p>
       </div>
     </div>
-    <div class="container copyright">© 2025 COREON. All rights reserved.</div>
+    <div class="container copyright">
+      © 2025 COREON. All rights reserved.
+    </div>
   </footer>
 
   <script>
@@ -288,19 +301,33 @@
 
     function activate(tab){
       const isEpc = tab === 'epc';
-      tabEpc.classList.toggle('active', isEpc);
-      tabExe.classList.toggle('active', !isEpc);
-      tabEpc.setAttribute('aria-selected', String(isEpc));
-      tabExe.setAttribute('aria-selected', String(!isEpc));
-      panelEpc.classList.toggle('active', isEpc);
-      panelExe.classList.toggle('active', !isEpc);
+      // exe가 true면 isEpc=false
+      tabEpc && tabEpc.classList.toggle('active', isEpc);
+      tabExe && tabExe.classList.toggle('active', !isEpc);
+      tabEpc && tabEpc.setAttribute('aria-selected', String(isEpc));
+      tabExe && tabExe.setAttribute('aria-selected', String(!isEpc));
+      panelEpc && panelEpc.classList.toggle('active', isEpc);
+      panelExe && panelExe.classList.toggle('active', !isEpc);
     }
-    tabEpc.addEventListener('click', ()=>activate('epc'));
-    tabExe.addEventListener('click', ()=>activate('exe'));
+    tabEpc && tabEpc.addEventListener('click', ()=>activate('epc'));
+    tabExe && tabExe.addEventListener('click', ()=>activate('exe'));
+    [tabEpc, tabExe].forEach(el=>{
+      if(!el) return;
+      el.addEventListener('keydown', (e)=>{
+        if(e.key==='ArrowRight' || e.key==='ArrowLeft'){
+          e.preventDefault();
+          (el===tabEpc?tabExe:tabEpc)?.focus();
+        }
+        if(e.key==='Enter' || e.key===' '){
+          e.preventDefault();
+          el.click();
+        }
+      });
+    });
     /* 기본값: 전기안전 원스톱 */
     activate('exe');
 
-    /* i18n */
+    /* 간단 i18n (KR/EN) */
     const dict = {
       ko:{ "nav.about":"회사 소개","nav.services":"서비스","nav.resources":"자료실","nav.quote":"견적 문의","nav.partners":"파트너",
         "toggle.epc":"EPC 파트너","toggle.exec":"전기안전 원스톱",
@@ -309,7 +336,7 @@
         "heroExec.title":"전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지",
         "heroExec.text":"안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.",
         "cta.quote":"견적 문의","cta.companyPdf":"회사 소개서(PDF)","cta.call":"바로 전화",
-        "cta.epcTrack":"EPC 트랙 보기","cta.execPack":"원스톱 패키지 보기","cta.execPdf":"패키지 소개서(PDF)",
+        "cta.execPack":"원스톱 패키지 보기","cta.execPdf":"패키지 소개서(PDF)","cta.epcTrack":"EPC 트랙 보기",
         "why.title":"Why COREON","why.sub":"EPC와 제조현장을 위한 투-트랙 실행 파트너",
         "why.k1":"즉시성","why.t1":"전문 인력 즉시 투입","why.d1":"요청 즉시 가동되는 전기·계장·소방 인력 네트워크.",
         "why.k2":"차별성","why.t2":"사람 + 소프트웨어","why.d2":"문서·프로세스 자동화로 가시성·추적성·속도를 강화합니다.",
@@ -322,9 +349,13 @@
         "partners.badge":"Official Partner",
         "partners.desc":"COREON은 (주)한국전기시스템(KES)과 2025년 9월 2일 공식 업무협약을 체결했습니다. 양사는 전기안전관리 직무고시 점검 및 정밀진단 결과에 대해 필요 시 개선·보수 공사로 연계하거나, 고객 상황에 맞는 실행 대안과 솔루션을 제공합니다. 또한 수변전 설비 개선, 변압기 교체, 전기안전진단, 계장(E&amp;I) 공사는 고객의 운영 조건과 안전 요구사항에 부합하는 최적의 방식으로 지원합니다.",
         "partners.kesSite":"KES 홈페이지",
+        "ref.title":"검증된 실행 경험",
+        "ref.a.h":"제조공장","ref.a.d":"생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.",
+        "ref.b.h":"대형 프로젝트","ref.b.d":"복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.",
+        "ref.c.h":"공공·산업단지","ref.c.d":"직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.",
         "ctaBox.title":"견적/프로젝트 문의","ctaBox.desc":"요청을 남겨주시면 1영업일 내 회신드립니다.",
         "cta.ask":"문의하기","cta.tel":"전화: 010-9039-1482","cta.mail":"이메일",
-        "footer.quick":"바로가기","footer.epc":"EPC 트랙","footer.exec":"전기안전 원스톱","footer.resources":"자료실","footer.contact":"문의"
+        "footer.quick":"바로가기","footer.epc":"EPC 트랙","footer.exec":"전기안전 원스톱","footer.resources":"자료실","footer.contact":"문의","footer.privacy":"개인정보처리방침"
       },
       en:{ "nav.about":"About","nav.services":"Services","nav.resources":"Resources","nav.quote":"Get a Quote","nav.partners":"Partners",
         "toggle.epc":"EPC Partner","toggle.exec":"Electrical Safety One-Stop",
@@ -333,7 +364,7 @@
         "heroExec.title":"Electrical Safety Mgmt · Legal Inspection · E/I Works<br/>One-Stop Package",
         "heroExec.text":"From safety management to construction, COREON delivers end-to-end.",
         "cta.quote":"Get a Quote","cta.companyPdf":"Company Profile (PDF)","cta.call":"Call Now",
-        "cta.epcTrack":"View EPC Track","cta.execPack":"View One-Stop Package","cta.execPdf":"Package Brochure (PDF)",
+        "cta.execPack":"View One-Stop Package","cta.execPdf":"Package Brochure (PDF)","cta.epcTrack":"View EPC Track",
         "why.title":"Why COREON","why.sub":"Dual-track execution partner for EPCs & manufacturing sites",
         "why.k1":"Responsiveness","why.t1":"Experts, deployed fast","why.d1":"Nationwide network for Electrical/Instrument/Firefighting crews.",
         "why.k2":"Differentiation","why.t2":"People + Software","why.d2":"Automation boosts visibility, traceability and speed.",
@@ -346,9 +377,13 @@
         "partners.badge":"Official Partner",
         "partners.desc":"COREON signed an official business agreement with KES on Sep 2, 2025. We provide statutory inspections and precision diagnostics, connecting findings to remediation when required or offering tailored alternatives. Substation upgrades, transformer replacement, safety diagnostics and E&amp;I works are delivered in the most appropriate manner given operational and safety requirements.",
         "partners.kesSite":"Visit KES Website",
+        "ref.title":"Proven Field Experience",
+        "ref.a.h":"Manufacturing Plants","ref.a.d":"Diagnosis and improvement works with minimal downtime.",
+        "ref.b.h":"Large-scale Projects","ref.b.d":"Robust diagnosis & documentation framework for stable operation.",
+        "ref.c.h":"Public/Industrial Complex","ref.c.d":"Convert findings to improvements to prevent recurrence.",
         "ctaBox.title":"Contact / RFP","ctaBox.desc":"Leave a request and we’ll respond within 1 business day.",
         "cta.ask":"Contact Us","cta.tel":"Tel: +82-10-9039-1482","cta.mail":"Email",
-        "footer.quick":"Quick Links","footer.epc":"EPC Track","footer.exec":"One-Stop Safety","footer.resources":"Resources","footer.contact":"Contact"
+        "footer.quick":"Quick Links","footer.epc":"EPC Track","footer.exec":"One-Stop Safety","footer.resources":"Resources","footer.contact":"Contact","footer.privacy":"Privacy Policy"
       }
     };
 
