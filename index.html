@@ -69,7 +69,7 @@
     .partners-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
     .partners-logos{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
     .partner-logo{background:#ffffff;border-radius:14px;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    .partner-logo img{height:36px;width:auto}
+    .partner-logo img{height:36px;width:auto;display:block}
     .partner-desc{color:#c7d3ea;line-height:1.7}
     .partner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#16325b;color:#fff;font-size:12px;font-weight:800}
@@ -145,7 +145,7 @@
           <div class="cta-group">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
         </div>
@@ -206,7 +206,7 @@
           <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
           <p class="muted" data-i18n="track.epc.d">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
           <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">소개서(PDF)</a>
+            <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">소개서(PDF)</a>
           </div>
         </div>
         <div class="card">
@@ -225,7 +225,7 @@
   <section>
     <div class="container">
       <h2>Industries / 고객</h2>
-      <div class="chips">
+    <div class="chips">
         <span class="chip">관공서·공공기관</span>
         <span class="chip">건설현장</span>
         <span class="chip">민간기업·공장</span>
@@ -270,10 +270,14 @@
           <span class="badge" data-i18n="partners.badge">Official Partner</span>
           <div class="partners-logos" aria-label="파트너 로고">
             <div class="partner-logo" title="COREON">
-              <img src="./images/coreon-logo.png" alt="COREON 로고">
+              <img src="./logo.png" alt="COREON 로고">
             </div>
             <div class="partner-logo" title="한국전기시스템(KES)">
-              <img src="./images/kes-logo.png" alt="한국전기시스템(KES) 로고">
+              <picture>
+                <source srcset="./kes-logo-h36.webp 1x, ./kes-logo-h72.webp 2x, ./kes-logo-h108.webp 3x" type="image/webp">
+                <source srcset="./kes-logo-h36.png 1x, ./kes-logo-h72.png 2x, ./kes-logo-h108.png 3x" type="image/png">
+                <img src="./kes-logo.png" alt="한국전기시스템(KES) 로고">
+              </picture>
             </div>
           </div>
         </div>
