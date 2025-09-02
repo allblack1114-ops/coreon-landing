@@ -151,7 +151,6 @@
           <div class="cta-group">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
-            <!-- 회사 전체 소개 (coreon_company_profile) -->
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
@@ -174,7 +173,7 @@
     </div>
   </section>
 
-  <!-- 서비스 트랙 : 전기안전 카드가 첫 번째 -->
+  <!-- 서비스 트랙 : 전기안전 카드(1개 버튼), EPC 카드(1개 버튼) -->
   <section id="services" style="padding-top:24px;">
     <div class="container">
       <h2 data-i18n="track.title">서비스 트랙</h2>
@@ -186,8 +185,8 @@
           <h3 data-i18n="track.exec.h">전기안전 원스톱</h3>
           <p class="muted" data-i18n="track.exec.d">직무고시/안전관리 → 전기안전진단 → 전기·계장공사 → 사후관리.</p>
           <div class="cta-group" style="margin-top:8px">
+            <!-- 중복 제거: 하나만 사용 -->
             <a class="btn btn-outline" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPack">원스톱 패키지 보기</a>
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.execPdf">패키지 소개서(PDF)</a>
           </div>
         </div>
 
@@ -197,7 +196,7 @@
           <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
           <p class="muted" data-i18n="track.epc.d">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
           <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
+            <!-- 중복 제거: EPC 트랙 보기만 남김 -->
             <a class="btn btn-outline" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
           </div>
         </div>
@@ -215,7 +214,6 @@
         <div class="partners-head">
           <span class="badge" data-i18n="partners.badge">Official Partner</span>
           <div class="partner-logo" title="한국전기시스템(KES)">
-            <!-- ✅ 파일명 고정: ./KES_logo.png -->
             <img src="./KES_logo.png" alt="한국전기시스템(KES) 로고">
           </div>
         </div>
@@ -266,7 +264,8 @@
       <div>
         <h4 style="margin:0 0 8px;color:#fff" data-i18n="footer.quick">바로가기</h4>
         <p>
-          <a href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a><br/>
+          <!-- ✅ 회사소개서: 회사 전체 프로필 링크로 고정 -->
+          <a href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a><br/>
           <a href="https://drive.google.com/file/d/184xndOjM8nT3zSB7_vjwhl9d7KvLqmbX/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.exec">전기안전 원스톱</a><br/>
           <a href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.epc">EPC 트랙</a><br/>
           <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener" data-i18n="footer.resources">자료실</a><br/>
@@ -301,7 +300,6 @@
 
     function activate(tab){
       const isEpc = tab === 'epc';
-      // exe가 true면 isEpc=false
       tabEpc && tabEpc.classList.toggle('active', isEpc);
       tabExe && tabExe.classList.toggle('active', !isEpc);
       tabEpc && tabEpc.setAttribute('aria-selected', String(isEpc));
