@@ -7,11 +7,7 @@
   <meta name="description" content="EPC 트랙(현장 즉시 투입/문서 자동화)과 Business Execution 트랙(전기안전관리·직무고시·전기/계장공사 원스톱)을 제공하는 COREON 공식 홈페이지." />
   <meta name="theme-color" content="#0A1B2B" />
   <style>
-    :root{
-      --navy:#0A1B2B; --blue:#0F6FFF; --orange:#FF6A00; --gray:#6B7A90; --bg:#F3F5F7; --card:#ffffff;
-      --radius:16px; --shadow:0 12px 24px rgba(10,27,43,.08);
-      --max:1120px;
-    }
+    :root{--navy:#0A1B2B;--blue:#0F6FFF;--orange:#FF6A00;--gray:#6B7A90;--bg:#F3F5F7;--card:#ffffff;--radius:16px;--shadow:0 12px 24px rgba(10,27,43,.08);--max:1120px;}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--navy);background:var(--bg)}
     a{color:inherit;text-decoration:none}
@@ -105,7 +101,6 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="주요 메뉴">
     <div class="container nav-inner">
-      <!-- 로고: 클릭 시 새로고침/상단 복귀 -->
       <a class="brand" id="logo-link" href="./" aria-label="COREON 홈으로">
         <img src="./logo.png" alt="COREON 로고" />
         <span>COREON</span>
@@ -121,7 +116,7 @@
         <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="nav.quote">견적 문의</a>
       </div>
 
-      <!-- 언어 토글: 한국어 / ENG -->
+      <!-- 언어 토글 -->
       <div class="lang" aria-label="언어 선택">
         <button class="chip" id="lang-kr" type="button">한국어</button>
         <button class="chip" id="lang-en" type="button">ENG</button>
@@ -144,7 +139,9 @@
           <p data-i18n="heroEpc.text">EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener" data-i18n="cta.quote">견적 문의</a>
+            <!-- EPC 트랙 보기 -->
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.epcTrack">EPC 트랙 보기</a>
+            <!-- 회사 소개서(PDF) — 새 링크 반영 -->
             <a class="btn btn-ghost" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">회사 소개서(PDF)</a>
             <a class="btn btn-ghost" href="tel:+821090391482" data-i18n="cta.call">바로 전화</a>
           </div>
@@ -206,6 +203,7 @@
           <h3 data-i18n="track.epc.h">현장 실행 보완</h3>
           <p class="muted" data-i18n="track.epc.d">즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션.</p>
           <div class="cta-group" style="margin-top:8px">
+            <!-- 회사소개서 링크 반영 -->
             <a class="btn btn-outline" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAQeIEu9FA1d_eDtfPC/view?usp=sharing" target="_blank" rel="noopener" data-i18n="cta.companyPdf">소개서(PDF)</a>
           </div>
         </div>
@@ -221,11 +219,11 @@
     </div>
   </section>
 
-  <!-- Industries / 고객 -->
+  <!-- Industries -->
   <section>
     <div class="container">
       <h2>Industries / 고객</h2>
-    <div class="chips">
+      <div class="chips">
         <span class="chip">관공서·공공기관</span>
         <span class="chip">건설현장</span>
         <span class="chip">민간기업·공장</span>
@@ -243,23 +241,14 @@
     <div class="container">
       <h2 data-i18n="ref.title">검증된 실행 경험</h2>
       <div class="grid grid-3">
-        <div class="card">
-          <h3 data-i18n="ref.a.h">제조공장</h3>
-          <p class="muted" data-i18n="ref.a.d">생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="ref.b.h">대형 프로젝트</h3>
-          <p class="muted" data-i18n="ref.b.d">복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="ref.c.h">공공·산업단지</h3>
-          <p class="muted" data-i18n="ref.c.d">직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.</p>
-        </div>
+        <div class="card"><h3 data-i18n="ref.a.h">제조공장</h3><p class="muted" data-i18n="ref.a.d">생산 차질을 최소화하는 전기안전진단과 개선공사 연계 수행.</p></div>
+        <div class="card"><h3 data-i18n="ref.b.h">대형 프로젝트</h3><p class="muted" data-i18n="ref.b.d">복합 설비 대상 진단·문서 대응 체계 구축으로 안정적 운영을 지원.</p></div>
+        <div class="card"><h3 data-i18n="ref.c.h">공공·산업단지</h3><p class="muted" data-i18n="ref.c.d">직무고시 지적사항을 개선공사로 연결하여 반복 지적을 예방.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS (KES 공식 파트너) -->
+  <!-- PARTNERS -->
   <section id="partners">
     <div class="container">
       <h2 data-i18n="partners.title">공식 파트너사</h2>
@@ -269,9 +258,7 @@
         <div class="partners-head">
           <span class="badge" data-i18n="partners.badge">Official Partner</span>
           <div class="partners-logos" aria-label="파트너 로고">
-            <div class="partner-logo" title="COREON">
-              <img src="./logo.png" alt="COREON 로고">
-            </div>
+            <div class="partner-logo" title="COREON"><img src="./logo.png" alt="COREON 로고"></div>
             <div class="partner-logo" title="한국전기시스템(KES)">
               <picture>
                 <source srcset="./kes-logo-h36.webp 1x, ./kes-logo-h72.webp 2x, ./kes-logo-h108.webp 3x" type="image/webp">
@@ -282,15 +269,10 @@
           </div>
         </div>
 
-        <div class="partner-desc" data-i18n="partners.desc">
-          <!-- i18n에서 채워짐 -->
-        </div>
+        <div class="partner-desc" data-i18n="partners.desc"></div>
 
         <div class="partner-actions" role="group" aria-label="파트너 자료">
           <a class="btn btn-outline" href="https://www.ikes.co.kr" target="_blank" rel="noopener" data-i18n="partners.kesSite">KES 홈페이지</a>
-          <!-- 공개 동의/링크 준비되면 아래 주석 해제해 사용 -->
-          <!-- <a class="btn btn-outline" href="YOUR_KES_BROCHURE_URL" target="_blank" rel="noopener" data-i18n="partners.kesBrochure">KES 회사소개서(PDF)</a> -->
-          <!-- <a class="btn btn-outline" href="YOUR_MOU_URL" target="_blank" rel="noopener" data-i18n="partners.mou">업무협약 개요(PDF)</a> -->
         </div>
       </div>
     </div>
@@ -389,7 +371,7 @@
       });
     });
 
-    /* 간단 i18n (KR/EN) */
+    /* i18n */
     const dict = {
       ko:{ "nav.about":"회사 소개","nav.services":"서비스","nav.resources":"자료실","nav.quote":"견적 문의","nav.partners":"파트너",
         "toggle.epc":"EPC 파트너","toggle.exec":"전기안전 원스톱",
