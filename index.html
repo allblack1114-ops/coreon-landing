@@ -52,7 +52,6 @@
       margin:0 0 .6rem;
       font-weight:900;
       line-height:1.18;
-      /* 유동 타이포 (모바일~PC): 28px ~ 64px */
       font-size:clamp(28px, 5.5vw, 64px);
       letter-spacing:-.02em;
       text-wrap:balance;
@@ -80,7 +79,7 @@
     .sub{color:var(--gray); margin:0 0 28px}
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1,fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .card h3{margin:0 0 .5rem; font-size:clamp(18px,2.6vw,22px)}
     .muted{color:var(--gray)}
@@ -143,6 +142,7 @@
       <div class="nav-links">
         <a href="#about">회사 소개</a>
         <a href="#services">서비스</a>
+        <a href="#ec">전기공사</a>
         <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener">자료실</a>
         <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">견적 문의</a>
       </div>
@@ -155,18 +155,31 @@
       <div>
         <div class="track-toggle" role="tablist" aria-label="트랙 전환">
           <button id="tab-exe" class="active" role="tab" aria-controls="panel-exe" aria-selected="true">전기안전 원스톱</button>
+          <button id="tab-elec" role="tab" aria-controls="panel-elec" aria-selected="false">전기공사</button>
           <button id="tab-epc" role="tab" aria-controls="panel-epc" aria-selected="false">EPC 파트너</button>
         </div>
 
         <!-- Exec first -->
         <div id="panel-exe" class="track-panel active" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:14px">
-          <h1>전기안전관리 · 직무고시 · 전기/계장공사<br/>원스톱 패키지</h1>
-          <p>안전관리에서 시공까지, COREON이 원스톱으로 책임집니다.</p>
+          <h1>전기안전관리 · 직무고시 · 전기공사<br/>원스톱 패키지</h1>
+          <p>안전관리에서 <b>수변전설비 개선공사</b>까지, COREON이 원스톱으로 책임집니다.</p>
           <div class="cta-group">
             <a class="btn btn-primary" target="_blank" rel="noopener"
                href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
             <a class="btn btn-ghost" target="_blank" rel="noopener"
                href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">원스톱 패키지 보기</a>
+            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
+          </div>
+        </div>
+
+        <!-- Electrical Works -->
+        <div id="panel-elec" class="track-panel" role="tabpanel" aria-labelledby="tab-elec" style="margin-top:14px">
+          <h1>수변전설비 개선 중심의<br/>전기공사 패키지</h1>
+          <p>변압기·배전반·차단기 교체부터 접지/피뢰 보강까지, 현장에 맞춘 전기공사 실행.</p>
+          <div class="cta-group">
+            <a id="elec-pdf-btn" class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
+            <a class="btn btn-ghost" href="#ec">전기공사 패키지 보기</a>
             <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
           </div>
         </div>
@@ -219,7 +232,8 @@
     <div class="container">
       <h2>서비스 트랙</h2>
       <p class="sub">필요에 맞는 트랙을 선택하세요</p>
-      <div class="grid grid-2">
+      <div class="grid grid-3">
+        <!-- (1) 전기안전 원스톱 -->
         <div class="card">
           <span class="pill">전기안전 원스톱</span>
           <h3>전기안전관리 · 직무고시 → 전기안전진단 → 전기/계장공사 → 사후관리</h3>
@@ -229,6 +243,20 @@
                href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">패키지(PDF)</a>
           </div>
         </div>
+
+        <!-- (2) 전기공사 -->
+        <div class="card">
+          <span class="pill">전기공사</span>
+          <h3>수변전설비 개선 중심의 전기공사 패키지</h3>
+          <p class="muted">변압기·배전반·차단기·접지/피뢰 등 현장 맞춤 시공. 상세 패키지는 아래 전기공사 섹션에서 확인하세요.</p>
+          <div class="cta-group" style="margin-top:8px">
+            <a class="btn btn-outline" id="elec-pdf-card" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
+            <a class="btn btn-outline" href="#ec">전기공사 섹션</a>
+          </div>
+        </div>
+
+        <!-- (3) EPC 파트너 -->
         <div class="card">
           <span class="pill">EPC 파트너</span>
           <h3>즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션</h3>
@@ -236,6 +264,95 @@
           <div class="cta-group" style="margin-top:8px">
             <a class="btn btn-outline" target="_blank" rel="noopener"
                href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Electrical Construction Packages -->
+  <section id="ec">
+    <div class="container">
+      <h2>전기공사 패키지</h2>
+      <p class="sub">수변전 개선부터 플랜트 E&I까지, 현장 맞춤 시공</p>
+
+      <div class="grid grid-2">
+        <!-- 1) 수변전설비 개선공사 -->
+        <div class="card">
+          <span class="pill">수변전설비 개선공사</span>
+          <h3>안전하고 효율적인 전력 인프라 업그레이드</h3>
+          <p class="muted">
+            변압기 절연유 교체·성능개선, 배전반/차단기/계전기 교체, 접지·피뢰 시스템 강화.
+          </p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip-ghost">변압기</span>
+            <span class="chip-ghost">배전반</span>
+            <span class="chip-ghost">접지/피뢰</span>
+          </div>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
+            <a class="btn btn-outline" href="tel:+821090391482">바로 전화</a>
+          </div>
+        </div>
+
+        <!-- 2) 내선·배전공사 -->
+        <div class="card">
+          <span class="pill">내선·배전공사</span>
+          <h3>건축물 내부 전기 설비의 안정성과 편의성</h3>
+          <p class="muted">
+            배선·분전반 시공/유지보수, 조명·콘센트·UPS 설치, IDC 전원 인프라 구축.
+          </p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip-ghost">분전반</span>
+            <span class="chip-ghost">조명/콘센트</span>
+            <span class="chip-ghost">UPS·발전기</span>
+          </div>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
+            <a class="btn btn-outline" href="mailto:contact@coreon-global.com">이메일</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:18px">
+        <!-- 3) 플랜트·E&I -->
+        <div class="card">
+          <span class="pill">플랜트·E&amp;I</span>
+          <h3>글로벌 플랜트 현장에서 검증된 전기·계장</h3>
+          <p class="muted">
+            전기·계장 시공/시험, 발전소·FAB 시공, 방폭·계측·제어 시스템 설치, QA/QC.
+          </p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip-ghost">방폭</span>
+            <span class="chip-ghost">계측·제어</span>
+            <span class="chip-ghost">시운전</span>
+          </div>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
+            <a class="btn btn-outline" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서</a>
+          </div>
+        </div>
+
+        <!-- 4) 신재생·에너지 -->
+        <div class="card">
+          <span class="pill">신재생·에너지</span>
+          <h3>지속 가능한 전력 인프라 구축</h3>
+          <p class="muted">
+            태양광 시공·연계, ESS·EV 충전 인프라, 스마트그리드/효율 개선 솔루션.
+          </p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip-ghost">태양광</span>
+            <span class="chip-ghost">ESS</span>
+            <span class="chip-ghost">EV 충전</span>
+          </div>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
+            <a class="btn btn-outline" href="tel:+821090391482">바로 전화</a>
           </div>
         </div>
       </div>
@@ -337,28 +454,36 @@
       });
     })();
 
-    /* 트랙 토글 (접근성 포함) */
-    const tabEpc  = document.getElementById('tab-epc');
+    /* 트랙 토글 (3탭, 접근성 포함) */
     const tabExe  = document.getElementById('tab-exe');
-    const panelEpc= document.getElementById('panel-epc');
+    const tabElec = document.getElementById('tab-elec');
+    const tabEpc  = document.getElementById('tab-epc');
     const panelExe= document.getElementById('panel-exe');
+    const panelElec= document.getElementById('panel-elec');
+    const panelEpc= document.getElementById('panel-epc');
 
     function activate(which){
-      const isExec = which === 'exe';
-      tabExe.classList.toggle('active', isExec);
-      tabEpc.classList.toggle('active', !isExec);
-      tabExe.setAttribute('aria-selected', String(isExec));
-      tabEpc.setAttribute('aria-selected', String(!isExec));
-      panelExe.classList.toggle('active', isExec);
-      panelEpc.classList.toggle('active', !isExec);
+      const map = {
+        exe:  {tab:tabExe,  panel:panelExe},
+        elec: {tab:tabElec, panel:panelElec},
+        epc:  {tab:tabEpc,  panel:panelEpc},
+      };
+      for(const k of Object.keys(map)){
+        const on = (k===which);
+        map[k].tab.classList.toggle('active', on);
+        map[k].tab.setAttribute('aria-selected', String(on));
+        map[k].panel.classList.toggle('active', on);
+      }
     }
     tabExe.addEventListener('click', ()=>activate('exe'));
+    tabElec.addEventListener('click', ()=>activate('elec'));
     tabEpc.addEventListener('click', ()=>activate('epc'));
-    [tabExe,tabEpc].forEach(el=>{
+    [tabExe,tabElec,tabEpc].forEach(el=>{
       el.addEventListener('keydown', (e)=>{
-        if(e.key==='ArrowRight' || e.key==='ArrowLeft'){
-          e.preventDefault(); (el===tabExe?tabEpc:tabExe).focus();
-        }
+        const order=[tabExe,tabElec,tabEpc];
+        const i=order.indexOf(el);
+        if(e.key==='ArrowRight'){ e.preventDefault(); order[(i+1)%order.length].focus(); }
+        if(e.key==='ArrowLeft'){ e.preventDefault(); order[(i-1+order.length)%order.length].focus(); }
         if(e.key==='Enter' || e.key===' '){ e.preventDefault(); el.click(); }
       });
     });
@@ -378,6 +503,18 @@
           partner:'KES',
           event_category:'outbound',
           event_label:link.href
+        });
+      });
+    })();
+
+    /* 전기공사 PDF 버튼 클릭 이벤트 태깅 (선택) */
+    (function(){
+      const ids=['elec-pdf-btn','elec-pdf-card'];
+      ids.forEach(id=>{
+        const el=document.getElementById(id);
+        if(!el) return;
+        el.addEventListener('click',()=>{
+          gtag('event','click_pdf', {category:'electrical_works', label: el.href});
         });
       });
     })();
