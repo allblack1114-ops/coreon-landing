@@ -3,148 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>COREON | 전기안전 원스톱 · EPC 실행 파트너</title>
-  <meta name="description" content="전기안전관리·직무고시·전기/계장공사 원스톱 패키지와 EPC 실행 보완(즉시 투입/문서 자동화)을 제공하는 COREON 공식 홈페이지." />
+  <title>COREON | EPC PM/CM 총괄 파트너 | EPC PM/CM Partner</title>
+  <meta name="description" content="COREON은 EPC 프로젝트의 PM/CM 총괄 파트너입니다. 전기·계장·토목·조경·안전/품질 등 공종별로 합법적인 PM/CM 조율과 실행 지원을 제공합니다." />
   <meta name="theme-color" content="#0A1B2B" />
   <style>
-    /* ---------- 디자인 토큰 ---------- */
-    :root{
-      --navy:#0A1B2B; --navy-900:#091322; --blue:#0F6FFF; --orange:#FF6A00;
-      --gray:#6B7A90; --bg:#F4F6F9; --card:#ffffff;
-      --radius:16px; --shadow:0 12px 28px rgba(10,27,43,.08);
-      --max:1120px;
-    }
-
-    /* ---------- 리셋 & 베이스 ---------- */
+    :root{--navy:#0A1B2B;--blue:#0F6FFF;--gray:#6B7A90;--bg:#F4F6F9;--card:#fff;--radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08);--max:1120px}
     *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
-    body{margin:0;color:var(--navy);background:var(--bg);
-      font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.55; word-break:keep-all; overflow-wrap:anywhere; }
+    body{margin:0;color:var(--navy);background:var(--bg);font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-    /* ---------- NAV ---------- */
+    /* NAV */
     .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9eef5;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
     .brand img{width:28px;height:28px}
-    .nav-links{display:flex;gap:20px;align-items:center}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.78rem 1.1rem;border-radius:12px;
-      font-weight:800;border:1px solid transparent;transition:.2s;white-space:nowrap}
-    .btn-primary{background:var(--blue);color:#fff}
-    .btn-outline{border-color:#dbe3ec;background:#fff}
-    .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
-    .btn:hover{transform:translateY(-1px)}
-
-    .chip{display:inline-flex;align-items:center;padding:.45rem .7rem;border-radius:999px;
-      font-weight:900;font-size:.84rem}
-    .chip.active{background:#0F6FFF;color:#fff}
-    .chip:not(.active){background:#EAF2FF;color:#113a88}
-
-    /* ---------- HERO ---------- */
-    .hero{position:relative;color:#fff;background:
-      linear-gradient(180deg,rgba(7,14,26,.62),rgba(7,14,26,.55)),
-      url('./hero.png') center/cover no-repeat;}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap}
+    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
+    /* HERO */
+    .hero{position:relative;color:#fff;background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),url('./hero_epcpm.png') center/cover no-repeat}
     .hero-inner{min-height:520px;display:flex;align-items:center}
-    .hero h1{
-      margin:0 0 .6rem;
-      font-weight:900;
-      line-height:1.18;
-      font-size:clamp(28px, 5.5vw, 64px);
-      letter-spacing:-.02em;
-      text-wrap:balance;
-    }
-    .hero p{
-      margin:0 0 1.1rem;
-      opacity:.98;
-      font-size:clamp(14px, 1.9vw, 18px);
-    }
-    .cta-group{display:flex;flex-wrap:wrap;gap:12px}
-
-    /* Track toggle */
-    .track-toggle{display:inline-flex;background:#0f1430;border:1px solid rgba(255,255,255,.18);
-      border-radius:14px;overflow:hidden}
-    .track-toggle button{padding:.6rem 1rem;background:transparent;color:#cfe1ff;border:none;cursor:pointer;
-      font-weight:900;opacity:.75}
-    .track-toggle button.active{background:#fff;color:#0f1430;opacity:1}
-
-    .track-panel{display:none}
-    .track-panel.active{display:block}
-
-    /* ---------- Sections ---------- */
-    section{padding:64px 0}
-    h2{margin:0 0 14px; font-size:clamp(20px,3.6vw,32px)}
-    .sub{color:var(--gray); margin:0 0 28px}
+    .hero h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(28px,5.5vw,60px)}
+    .sub{color:var(--gray);margin:0 0 28px}
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1,fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 .5rem; font-size:clamp(18px,2.6vw,22px)}
-    .muted{color:var(--gray)}
-
-    .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;
-      color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
-
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip-ghost{background:#f0f4fb;color:#3b4d63}
-
-    /* ---------- Partner ---------- */
-    .partner{background:#0b1425;color:#dbe7ff;border-radius:24px;padding:26px;
-      box-shadow:0 14px 36px rgba(7,16,30,.22)}
-    .partner-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between}
-    .partner-right{flex:0 0 auto}
-    .partner-logo{width:160px; height:auto; filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
-    .nowrap{white-space:nowrap}
-
-    /* ---------- Footer ---------- */
+    .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
+    .partner{background:#0b1425;color:#dbe7ff;border-radius:24px;padding:24px;box-shadow:0 14px 36px rgba(7,16,30,.22)}
+    .partner-logo{width:140px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
     footer{background:#0A1220;color:#c9d6e8}
     .foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding:16px 0;font-size:14px}
-
-    /* ---------- 반응형 ---------- */
-    @media (max-width:980px){
-      .grid-2{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .nav-links{display:none}
-      .hero-inner{min-height:480px}
-      .partner-logo{width:140px}
-    }
-    @media (max-width:560px){
-      .container{padding:0 18px}
-      .hero-inner{min-height:460px}
-      .track-toggle{width:100%}
-      .track-toggle button{flex:1}
-      .btn{padding:.72rem 1rem; font-size:.95rem}
-      .partner-row{flex-direction:column; gap:12px}
-      .partner-logo{width:120px}
-    }
+    @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}.nav-links{display:none}.hero-inner{min-height:460px}}
   </style>
-
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQ0KL3273"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WKQ0KL3273');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-WKQ0KL3273');</script>
 </head>
 <body>
-
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="주요 메뉴">
     <div class="container nav-inner">
-      <a class="brand" id="logo-link" href="./" aria-label="COREON 홈으로">
-        <img src="./logo.png" alt="COREON 로고"><span>COREON</span>
-      </a>
+      <a class="brand" id="logo-link" href="./" aria-label="COREON 홈으로"><img src="./logo.png" alt="COREON 로고"><span>COREON</span></a>
       <div class="nav-links">
-        <a href="#about">회사 소개</a>
-        <a href="#services">서비스</a>
-        <a href="#ec">전기공사</a>
-        <a href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing" target="_blank" rel="noopener">자료실</a>
-        <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog" target="_blank" rel="noopener">견적 문의</a>
+        <a href="#about">About</a>
+        <a href="#framework">Framework</a>
+        <a href="#industries">Industries</a>
+        <a href="#services">Disciplines</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#partners">Partners</a>
+        <a href="#legal">Compliance</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing">자료실</a>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a>
       </div>
     </div>
   </nav>
@@ -153,50 +66,13 @@
   <header class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="track-toggle" role="tablist" aria-label="트랙 전환">
-          <button id="tab-exe" class="active" role="tab" aria-controls="panel-exe" aria-selected="true">전기안전 원스톱</button>
-          <button id="tab-elec" role="tab" aria-controls="panel-elec" aria-selected="false">전기공사</button>
-          <button id="tab-epc" role="tab" aria-controls="panel-epc" aria-selected="false">EPC 파트너</button>
-        </div>
-
-        <!-- Exec first -->
-        <div id="panel-exe" class="track-panel active" role="tabpanel" aria-labelledby="tab-exe" style="margin-top:14px">
-          <h1>전기안전관리 · 직무고시 · 전기공사<br/>원스톱 패키지</h1>
-          <p>안전관리에서 <b>수변전설비 개선공사</b>까지, COREON이 원스톱으로 책임집니다.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">원스톱 패키지 보기</a>
-            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
-          </div>
-        </div>
-
-        <!-- Electrical Works -->
-        <div id="panel-elec" class="track-panel" role="tabpanel" aria-labelledby="tab-elec" style="margin-top:14px">
-          <h1>수변전설비 개선 중심의<br/>전기공사 패키지</h1>
-          <p>변압기·배전반·차단기 교체부터 접지/피뢰 보강까지, 현장에 맞춘 전기공사 실행.</p>
-          <div class="cta-group">
-            <a id="elec-pdf-btn" class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
-            <a class="btn btn-ghost" href="#ec">전기공사 패키지 보기</a>
-            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
-          </div>
-        </div>
-
-        <!-- EPC -->
-        <div id="panel-epc" class="track-panel" role="tabpanel" aria-labelledby="tab-epc" style="margin-top:14px">
-          <h1>현장에 즉시 투입되는<br/>전기·계장·소방 실행 파트너</h1>
-          <p>EPC사가 계약·공사·품질·납기에 집중하도록, COREON이 실행 공백을 메웁니다.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing">EPC 트랙 보기</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
-            <a class="btn btn-ghost" href="tel:+821090391482">바로 전화</a>
-          </div>
+        <h1>COREON = EPC <u>PM/CM 총괄</u> 파트너<br/><small>EPC PM/CM Partner</small></h1>
+        <p>COREON은 시공사가 아닌 PM/CM 총괄 허브로, 계약·일정·안전·품질을 조율합니다. 모든 시공은 면허 보유 시공사가 수행합니다.</p>
+        <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱(PDF)</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
         </div>
       </div>
     </div>
@@ -205,190 +81,129 @@
   <!-- WHY -->
   <section id="about">
     <div class="container">
-      <h2>Why COREON</h2>
-      <p class="sub">EPC와 제조현장을 위한 투-트랙 실행 파트너</p>
+      <h2>Why COREON (왜 COREON?)</h2>
+      <p class="sub">사람(현장) + 프로세스 관리로 가시성과 신뢰성을 강화합니다.<br/><span style="font-size:0.92em">People + Process Management</span></p>
       <div class="grid grid-3">
-        <div class="card">
-          <span class="pill">즉시성</span>
-          <h3>전문 인력 즉시 투입</h3>
-          <p class="muted">요청 즉시 가동되는 전기·계장·소방 인력 네트워크.</p>
-        </div>
-        <div class="card">
-          <span class="pill">차별성</span>
-          <h3>사람 + 소프트웨어</h3>
-          <p class="muted">문서·프로세스 자동화로 가시성·추적성·속도를 강화합니다.</p>
-        </div>
-        <div class="card">
-          <span class="pill">시스템</span>
-          <h3>표준화 운영 체계</h3>
-          <p class="muted">안전·품질·변경관리까지 표준 기반으로 운영.</p>
-        </div>
+        <div class="card"><span class="pill">즉시성 | Agility</span><h3>전문 인력 즉시 투입</h3><p class="muted">전기·계장·소방 중심의 현장 투입 네트워크.</p></div>
+        <div class="card"><span class="pill">체계성 | System</span><h3>표준화 운영</h3><p class="muted">안전, 품질, 변경관리 프로세스를 일관성 있게 운영.</p></div>
+        <div class="card"><span class="pill">확장성 | Scalability</span><h3>EPC 총괄 프레임</h3><p class="muted">토목/조경/전기/계장/안전/품질 등 공종 확장 가능.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 서비스 트랙 -->
-  <section id="services" style="padding-top:24px">
+  <!-- Industries -->
+  <section id="industries">
     <div class="container">
-      <h2>서비스 트랙</h2>
-      <p class="sub">필요에 맞는 트랙을 선택하세요</p>
+      <h2>대상 산업 (Industries We Serve)</h2>
+      <p class="sub">EPC 메이저사 · 공공/관급 · 자동차 · 디스플레이 · 반도체/FAB · 발전/에너지 · 플랜트 · 물류센터 등</p>
       <div class="grid grid-3">
-        <!-- (1) 전기안전 원스톱 -->
-        <div class="card">
-          <span class="pill">전기안전 원스톱</span>
-          <h3>전기안전관리 · 직무고시 → 전기안전진단 → 전기/계장공사 → 사후관리</h3>
-          <p class="muted">원스톱으로 빠르고 안전하게.</p>
-          <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">패키지(PDF)</a>
-          </div>
-        </div>
-
-        <!-- (2) 전기공사 -->
-        <div class="card">
-          <span class="pill">전기공사</span>
-          <h3>수변전설비 개선 중심의 전기공사 패키지</h3>
-          <p class="muted">변압기·배전반·차단기·접지/피뢰 등 현장 맞춤 시공. 상세 패키지는 아래 전기공사 섹션에서 확인하세요.</p>
-          <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" id="elec-pdf-card" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
-            <a class="btn btn-outline" href="#ec">전기공사 섹션</a>
-          </div>
-        </div>
-
-        <!-- (3) EPC 파트너 -->
-        <div class="card">
-          <span class="pill">EPC 파트너</span>
-          <h3>즉시 투입 인력·PM, 문서/프로세스 자동화, 현장 검증 솔루션</h3>
-          <p class="muted">실행 공백을 메우는 현장 실행 보완.</p>
-          <div class="cta-group" style="margin-top:8px">
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
-          </div>
-        </div>
+        <div class="card"><h3>공공/지자체</h3><p class="muted">조달요건 준수, 감리·감사 대응, 문서 체계화.</p></div>
+        <div class="card"><h3>제조(자동차/디스플레이)</h3><p class="muted">생산중단 최소화, 셧다운 공정 PM/CM, 안전·품질 게이트 운영.</p></div>
+        <div class="card"><h3>반도체/FAB</h3><p class="muted">클린룸/E&I, 인터페이스 관리, 승인·검측 스케줄링.</p></div>
+        <div class="card"><h3>발전/에너지</h3><p class="muted">수변전·방폭·계측/제어, 시운전·성능보증 지원.</p></div>
+        <div class="card"><h3>플랜트/인프라</h3><p class="muted">토목·조경·기계/배관 포함 멀티 공종 통합 PM/CM.</p></div>
+        <div class="card"><h3>민간 R&D/캠퍼스</h3><p class="muted">예산·일정 제약 내 단계별 발주·검수 관리.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Electrical Construction Packages -->
-  <section id="ec">
+  <!-- EPC Framework -->
+  <section id="framework">
     <div class="container">
-      <h2>전기공사 패키지</h2>
-      <p class="sub">수변전 개선부터 플랜트 E&I까지, 현장 맞춤 시공</p>
+      <h2>EPC 총괄 프레임 (EPC Management Framework)</h2>
+      <p class="sub">COREON은 PM/CM 총괄 허브입니다. 도급계약은 면허 시공사와 체결되며, COREON은 조율·관리와 산출물 체계를 담당합니다.</p>
+      <div class="grid grid-3">
+        <div class="card"><h3>계약·조달</h3><p class="muted">협력사 선정/협상, 발주·납기 트래킹, 계약 문구 표준화.</p></div>
+        <div class="card"><h3>일정·공정</h3><p class="muted">공종 인터페이스 관리, 크리티컬 패스, 이슈 에스컬레이션.</p></div>
+        <div class="card"><h3>안전·품질</h3><p class="muted">JSA/RA/ITP/QCP, 점검·하자관리, 감사 대응.</p></div>
+        <div class="card"><h3>문서·리포트</h3><p class="muted">템플릿·체크리스트·리포트 체계화, 준공 산출물 관리.</p></div>
+        <div class="card"><h3>거버넌스</h3><p class="muted">RACI 명확화, 합법 구조 점검, 윤리·컴플라이언스.</p></div>
+        <div class="card"><h3>리소스</h3><p class="muted">전문 인력 즉시 투입, 파트너 네트워크 운영.</p></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Why Different -->
+  <section id="why-different">
+    <div class="container">
+      <h2>COREON의 차별점 (Why We're Different)</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>PM/CM 전문성</h3><p class="muted">시공사가 아닌 총괄 조율사. 공정·품질·안전·계약을 한 화면에서 관리.</p></div>
+        <div class="card"><h3>즉시 동원력</h3><p class="muted">전기/계장·토목·조경 네트워크로 현장 투입 속도 확보.</p></div>
+        <div class="card"><h3>합법 구조</h3><p class="muted">도급은 면허 시공사, COREON은 PM/CM 용역으로 역할·책임 분리.</p></div>
+        <div class="card"><h3>투명한 비용</h3><p class="muted">관리비·자문료 등 용역 대가 구조를 선명하게 제시.</p></div>
+        <div class="card"><h3>문서·승인 거버넌스</h3><p class="muted">체크리스트/템플릿 체계화로 승인·검측·하자까지 추적.</p></div>
+        <div class="card"><h3>산업별 레퍼런스</h3><p class="muted">공공·제조·플랜트에 맞춘 표준 절차/양식 제공.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disciplines -->
+  <section id="services">
+    <div class="container">
+      <h2>공종별 서비스 (Disciplines)</h2>
+      <p class="sub">토목 · 조경 · 전기/계장 · 안전/품질 — PM/CM 중심 협력 시공(면허업체 연계)</p>
       <div class="grid grid-2">
-        <!-- 1) 수변전설비 개선공사 -->
-        <div class="card">
-          <span class="pill">수변전설비 개선공사</span>
-          <h3>안전하고 효율적인 전력 인프라 업그레이드</h3>
-          <p class="muted">
-            변압기 절연유 교체·성능개선, 배전반/차단기/계전기 교체, 접지·피뢰 시스템 강화.
-          </p>
-          <div class="chips" style="margin-top:10px">
-            <span class="chip-ghost">변압기</span>
-            <span class="chip-ghost">배전반</span>
-            <span class="chip-ghost">접지/피뢰</span>
-          </div>
-          <div class="cta-group" style="margin-top:12px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
-            <a class="btn btn-outline" href="tel:+821090391482">바로 전화</a>
-          </div>
-        </div>
-
-        <!-- 2) 내선·배전공사 -->
-        <div class="card">
-          <span class="pill">내선·배전공사</span>
-          <h3>건축물 내부 전기 설비의 안정성과 편의성</h3>
-          <p class="muted">
-            배선·분전반 시공/유지보수, 조명·콘센트·UPS 설치, IDC 전원 인프라 구축.
-          </p>
-          <div class="chips" style="margin-top:10px">
-            <span class="chip-ghost">분전반</span>
-            <span class="chip-ghost">조명/콘센트</span>
-            <span class="chip-ghost">UPS·발전기</span>
-          </div>
-          <div class="cta-group" style="margin-top:12px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">견적 문의</a>
-            <a class="btn btn-outline" href="mailto:contact@coreon-global.com">이메일</a>
-          </div>
-        </div>
+        <div class="card"><span class="pill">토목 | Civil</span><h3>부지·외부 인프라 PM/CM</h3><p class="muted">토공·구조·포장·우/오수·배수로 등. COREON PM/CM, 시공은 토목공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a></div></div>
+        <div class="card"><span class="pill">조경 | Landscape</span><h3>식재·시설물·포장 PM/CM</h3><p class="muted">식재 계획·시공관리, 시설물 품질, 유지관리 프로토콜. 시공은 조경공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a></div></div>
       </div>
-
       <div class="grid grid-2" style="margin-top:18px">
-        <!-- 3) 플랜트·E&I -->
-        <div class="card">
-          <span class="pill">플랜트·E&amp;I</span>
-          <h3>글로벌 플랜트 현장에서 검증된 전기·계장</h3>
-          <p class="muted">
-            전기·계장 시공/시험, 발전소·FAB 시공, 방폭·계측·제어 시스템 설치, QA/QC.
-          </p>
-          <div class="chips" style="margin-top:10px">
-            <span class="chip-ghost">방폭</span>
-            <span class="chip-ghost">계측·제어</span>
-            <span class="chip-ghost">시운전</span>
-          </div>
-          <div class="cta-group" style="margin-top:12px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서</a>
-          </div>
-        </div>
-
-        <!-- 4) 신재생·에너지 -->
-        <div class="card">
-          <span class="pill">신재생·에너지</span>
-          <h3>지속 가능한 전력 인프라 구축</h3>
-          <p class="muted">
-            태양광 시공·연계, ESS·EV 충전 인프라, 스마트그리드/효율 개선 솔루션.
-          </p>
-          <div class="chips" style="margin-top:10px">
-            <span class="chip-ghost">태양광</span>
-            <span class="chip-ghost">ESS</span>
-            <span class="chip-ghost">EV 충전</span>
-          </div>
-          <div class="cta-group" style="margin-top:12px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
-            <a class="btn btn-outline" href="tel:+821090391482">바로 전화</a>
-          </div>
-        </div>
+        <div class="card"><span class="pill">전기/계장 | E&I</span><h3>수변전·내선·플랜트 E&I</h3><p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a><a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a></div></div>
+        <div class="card"><span class="pill">안전/품질 | Safety & Quality</span><h3>JSA/RA/ITP/QCP · 감리 대응</h3><p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Partner -->
-  <section style="padding-top:8px">
+  <!-- Outcomes -->
+  <section id="outcomes">
     <div class="container">
-      <h2>공식 파트너사</h2>
-      <p class="sub">전기·계장 분야의 신뢰할 수 있는 협력 네트워크</p>
-      <div class="partner">
-        <div class="partner-row">
-          <div class="partner-left">
-            <span class="chip" style="background:#163255;color:#cfe1ff">Official Partner</span>
-            <p style="margin:10px 0 16px">
-              COREON은 (주)한국전기시스템(KES)과 2025년 9월 2일 공식 업무협약을 체결했습니다.
-              양사는 전기안전관리 직무고시 점검 및 정밀진단 결과에 대해 필요 시 개선·보수 공사로 연계하거나,
-              고객 상황에 맞는 실행 대안과 솔루션을 제공합니다. 또한 수변전 설비 개선,
-              <span class="nowrap">변압기 교체</span>, 전기안전진단, 계장(E&amp;I) 공사는
-              고객의 운영 조건과 안전 요구사항에 부합하는 최적의 방식으로 지원합니다.
-            </p>
-            <div class="cta-group">
-              <a class="btn btn-primary" target="_blank" rel="noopener"
-                 href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의(일괄 접수)</a>
-              <a id="kes-link" class="btn btn-outline" target="_blank" rel="noopener"
-                 href="http://ikes.co.kr/">KES 공식 사이트</a>
-            </div>
-            <p class="muted" style="margin-top:10px;font-size:.92rem">
-              ※ 파트너 서비스는 COREON이 계약·일정·안전·품질을 일괄 조율합니다. KES 링크는 정보 확인용입니다.
-            </p>
+      <h2>성과 지표 (Outcomes)</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>리드타임 단축</h3><p class="muted">긴급 투입·병렬 승인으로 착공까지의 시간을 단축합니다.</p></div>
+        <div class="card"><h3>변경관리 안정화</h3><p class="muted">RFI/VO/클레임을 표준절차로 관리해 비용 리스크를 억제.</p></div>
+        <div class="card"><h3>안전/품질 가시성</h3><p class="muted">JSA/ITP/QCP 게이트 운영으로 사고·재시공을 예방.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance FAQ -->
+  <section id="legal">
+    <div class="container">
+      <h2>합법 운영 안내 (Compliance FAQ)</h2>
+      <div class="grid grid-2">
+        <div class="card"><h3>COREON이 직접 시공하나요?</h3><p class="muted">아니요. 모든 시공은 법령에 따른 <b>면허 보유 시공사</b>가 담당합니다. COREON은 PM/CM, 영업·조달 지원, 문서화·모니터링을 수행합니다.</p></div>
+        <div class="card"><h3>수익 구조는?</h3><p class="muted">공사대금과 무관한 <b>PM/CM 서비스 대가</b>(관리비, 영업 수수료, 컨설팅비 등)로 구성됩니다.</p></div>
+        <div class="card"><h3>계약 구조는?</h3><p class="muted">발주처↔면허 시공사(도급), COREON↔발주처/시공사(PM/CM/에이전시 용역)로 분리하여 역할·책임을 문서화합니다.</p></div>
+        <div class="card"><h3>토목·조경도 적용?</h3><p class="muted">네. 토목/조경/기계/배관/전기/계장 등 모든 공종에 동일한 원칙을 적용합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" style="padding-top:8px">
+    <div class="container">
+      <h2>파트너 네트워크 (Partners)</h2>
+      <p class="sub">면허 보유 시공사와의 협력 체계</p>
+
+      <!-- Featured: KES -->
+      <div class="partner" style="margin-bottom:18px">
+        <div style="display:flex;gap:18px;align-items:flex-start;justify-content:space-between">
+          <div>
+            <span class="pill">Official Partner</span>
+            <p style="margin:10px 0">COREON은 (주)한국전기시스템(KES)과 2025년 9월 2일 공식 업무협약을 체결했습니다. KES는 전기안전관리 직무고시 및 진단을 전문으로 담당하며, COREON은 PM/CM으로 계약·일정·안전·품질을 총괄합니다.</p>
           </div>
-          <div class="partner-right">
-            <img class="partner-logo" src="./KES_logo.png" alt="KES 로고">
-          </div>
+          <img class="partner-logo" src="./KES_logo.png" alt="KES 로고" />
         </div>
+      </div>
+
+      <!-- Multi-partner grid (placeholders) -->
+      <div class="grid grid-3">
+        <div class="card"><h3>전기공사업체 A</h3><p class="muted">E&I 시공 파트너 (예시 슬롯)</p></div>
+        <div class="card"><h3>전기안전관리업체 B</h3><p class="muted">안전관리·직무고시 파트너 (예시 슬롯)</p></div>
+        <div class="card"><h3>토목공사업체 C</h3><p class="muted">토공·구조 시공 파트너 (예시 슬롯)</p></div>
+        <div class="card"><h3>조경공사업체 D</h3><p class="muted">식재·시설물 시공 파트너 (예시 슬롯)</p></div>
+        <div class="card"><h3>기계/배관업체 E</h3><p class="muted">배관·설비 시공 파트너 (예시 슬롯)</p></div>
+        <div class="card"><h3>기타 협력사</h3><p class="muted">향후 등록 예정</p></div>
       </div>
     </div>
   </section>
@@ -399,13 +214,12 @@
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
         <div>
           <h3 style="margin:0 0 6px">견적/프로젝트 문의</h3>
-          <p class="muted" style="margin:0">요청을 남겨주시면 1영업일 내 회신드립니다.</p>
+          <p class="sub" style="margin:0">요청을 남겨주시면 1영업일 내 회신드립니다.</p>
         </div>
-        <div class="cta-group">
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의하기</a>
-          <a class="btn btn-outline" href="tel:+821090391482">전화: 010-9039-1482</a>
-          <a class="btn btn-outline" href="mailto:contact@coreon-global.com">이메일</a>
+        <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의하기</a>
+          <a class="btn" href="tel:+821090391482">전화: 010-9039-1482</a>
+          <a class="btn" href="mailto:contact@coreon-global.com">이메일</a>
         </div>
       </div>
     </div>
@@ -416,16 +230,8 @@
     <div class="container foot-grid">
       <div>
         <h3 style="color:#fff;margin:0 0 10px">COREON</h3>
-        <p style="margin:0 0 10px;line-height:1.7">
-          COREON은 EPC사의 실행 공백 보완과 제조·공공 현장의 전기안전 원스톱 패키지를 동시에 제공하는 투-트랙 실행 파트너입니다.
-        </p>
-        <p style="margin:6px 0 0">
-          상호: COREON<br/>
-          사업자등록번호: 586-24-02279<br/>
-          주소: 인천광역시 중구 중산동 두미포로 112<br/>
-          대표전화: +82-10-9039-1482<br/>
-          이메일: <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
-        </p>
+        <p style="margin:0 0 10px;line-height:1.7">COREON은 EPC 프로젝트의 <b>PM/CM 총괄 파트너</b>로서, 제조·공공 현장의 요구에 맞춰 공종별 협력 시공을 조율합니다. 모든 시공은 면허 보유 시공사가 수행합니다.</p>
+        <p style="margin:6px 0 0">상호: COREON<br/>사업자등록번호: 586-24-02279<br/>주소: 인천광역시 중구 중산동 두미포로 112<br/>대표전화: +82-10-9039-1482<br/>이메일: <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a></p>
       </div>
       <div>
         <h4 style="color:#fff;margin:0 0 8px">바로가기</h4>
@@ -443,81 +249,11 @@
   </footer>
 
   <script>
-    /* 로고 클릭: 새로고침 & 상단 복귀 */
-    (function(){
-      const logo = document.getElementById('logo-link');
-      if(!logo) return;
-      logo.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const clean = location.origin + location.pathname.replace(/[#?].*$/, '');
-        location.assign(clean);
-      });
-    })();
-
-    /* 트랙 토글 (3탭, 접근성 포함) */
-    const tabExe  = document.getElementById('tab-exe');
-    const tabElec = document.getElementById('tab-elec');
-    const tabEpc  = document.getElementById('tab-epc');
-    const panelExe= document.getElementById('panel-exe');
-    const panelElec= document.getElementById('panel-elec');
-    const panelEpc= document.getElementById('panel-epc');
-
-    function activate(which){
-      const map = {
-        exe:  {tab:tabExe,  panel:panelExe},
-        elec: {tab:tabElec, panel:panelElec},
-        epc:  {tab:tabEpc,  panel:panelEpc},
-      };
-      for(const k of Object.keys(map)){
-        const on = (k===which);
-        map[k].tab.classList.toggle('active', on);
-        map[k].tab.setAttribute('aria-selected', String(on));
-        map[k].panel.classList.toggle('active', on);
-      }
-    }
-    tabExe.addEventListener('click', ()=>activate('exe'));
-    tabElec.addEventListener('click', ()=>activate('elec'));
-    tabEpc.addEventListener('click', ()=>activate('epc'));
-    [tabExe,tabElec,tabEpc].forEach(el=>{
-      el.addEventListener('keydown', (e)=>{
-        const order=[tabExe,tabElec,tabEpc];
-        const i=order.indexOf(el);
-        if(e.key==='ArrowRight'){ e.preventDefault(); order[(i+1)%order.length].focus(); }
-        if(e.key==='ArrowLeft'){ e.preventDefault(); order[(i-1+order.length)%order.length].focus(); }
-        if(e.key==='Enter' || e.key===' '){ e.preventDefault(); el.click(); }
-      });
-    });
-
-    /* 파트너사 아웃바운드 링크: UTM 자동 부착 + GA 이벤트 */
-    (function(){
-      const link = document.getElementById('kes-link');
-      if(!link) return;
-      const url = new URL(link.href);
-      url.searchParams.set('utm_source','coreon-global.com');
-      url.searchParams.set('utm_medium','partner_link');
-      url.searchParams.set('utm_campaign','kes_official');
-      link.href = url.toString();
-
-      link.addEventListener('click', ()=>{
-        gtag('event','partner_click', {
-          partner:'KES',
-          event_category:'outbound',
-          event_label:link.href
-        });
-      });
-    })();
-
-    /* 전기공사 PDF 버튼 클릭 이벤트 태깅 (선택) */
-    (function(){
-      const ids=['elec-pdf-btn','elec-pdf-card'];
-      ids.forEach(id=>{
-        const el=document.getElementById(id);
-        if(!el) return;
-        el.addEventListener('click',()=>{
-          gtag('event','click_pdf', {category:'electrical_works', label: el.href});
-        });
-      });
-    })();
+    // 로고 클릭: 상단 복귀
+    (function(){const logo=document.getElementById('logo-link');if(!logo)return;logo.addEventListener('click',e=>{e.preventDefault();const clean=location.origin+location.pathname.replace(/[#?].*$/,'');location.assign(clean);});})();
+    // KES 링크 UTM (현재 외부 링크 제거되어 미사용 예시)
+    // PDF 클릭 태깅
+    (function(){const ids=['elec-pdf-card'];ids.forEach(id=>{const el=document.getElementById(id);if(!el)return;el.addEventListener('click',()=>{gtag('event','click_pdf',{category:'electrical_works',label:el.href});});});})();
   </script>
 </body>
 </html>
