@@ -6,6 +6,9 @@
   <title>COREON | EPC PM/CM 총괄 파트너 | EPC PM/CM Partner</title>
   <meta name="description" content="COREON은 EPC 프로젝트의 PM/CM 총괄 파트너입니다. 전기·계장·토목·조경·안전/품질 등 공종별로 합법적인 PM/CM 조율과 실행 지원을 제공합니다." />
   <meta name="theme-color" content="#0A1B2B" />
+  <!-- LCP 향상: 포스터 미리 불러오기 -->
+  <link rel="preload" as="image" href="./assets/hero/hero_epcpm_poster.jpg" />
+
   <style>
     /* ---------- Design Tokens ---------- */
     :root{
@@ -141,8 +144,15 @@
 
   <!-- HERO (Video) -->
   <header class="hero hero--video">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/hero/hero_epcpm_poster.jpg">
+    <video class="hero-video"
+      autoplay muted loop playsinline webkit-playsinline
+      preload="metadata"
+      poster="./assets/hero/hero_epcpm_poster.jpg">
+      <!-- 모바일(<=768px) 720p 우선 소스 -->
+      <source src="./assets/hero/hero_epcpm_720.mp4" media="(max-width: 768px)" type="video/mp4" />
+      <!-- 기본 1080p 소스 -->
       <source src="./assets/hero/hero_epcpm.mp4" type="video/mp4" />
+      브라우저가 영상을 지원하지 않습니다.
     </video>
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
@@ -363,14 +373,24 @@
       }));
     })();
 
+    /* HERO 영상: 모바일 자동재생 실패 시 재시도 트리거 */
+    (function(){
+      const v = document.querySelector('.hero-video');
+      if(!v) return;
+      function tryPlay(){
+        const p = v.play && v.play();
+        if (p && p.catch) p.catch(()=>{});
+      }
+      window.addEventListener('load', tryPlay);
+      document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); });
+      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true}));
+    })();
+
     /* 전기공사 PDF 클릭 태깅 */
     (function(){
-      const ids=['elec-pdf-card'];
-      ids.forEach(id=>{
-        const el=document.getElementById(id);
-        if(!el) return;
-        el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); });
-      });
+      const el=document.getElementById('elec-pdf-card');
+      if(!el) return;
+      el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); });
     })();
   </script>
 </body>
