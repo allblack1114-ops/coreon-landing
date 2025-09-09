@@ -6,23 +6,32 @@
   <title>COREON | EPC PM/CM 총괄 파트너 | EPC PM/CM Partner</title>
   <meta name="description" content="COREON은 EPC 프로젝트의 PM/CM 총괄 파트너입니다. 전기·계장·토목·조경·안전/품질 등 공종별로 합법적인 PM/CM 조율과 실행 지원을 제공합니다." />
   <meta name="theme-color" content="#0A1B2B" />
-  <!-- 포스터 미리 불러오기: /assets 경로로 통일 -->
-  <link rel="preload" as="image" href="./assets/hero_epcpm_poster.jpg" />
+  <!-- 포스터 미리 불러오기 (루트 기준 경로) -->
+  <link rel="preload" as="image" href="/assets/hero_epcpm_poster.jpg" />
 
   <style>
-    :root{--navy:#0A1B2B;--navy-800:#0b1425;--blue:#0F6FFF;--gray:#6B7A90;--bg:#F4F6F9;--card:#fff;--shadow:0 12px 28px rgba(10,27,43,.08);--radius:16px;--max:1120px}
+    :root{--navy:#0A1B2B;--navy-800:#0b1425;--blue:#0F6FFF;--gray:#6B7A90;
+      --bg:#F4F6F9;--card:#fff;--shadow:0 12px 28px rgba(10,27,43,.08);
+      --radius:16px;--max:1120px}
     *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-    body{margin:0;color:var(--navy);background:var(--bg);font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55;word-break:keep-all}
+    body{margin:0;color:var(--navy);background:var(--bg);
+      font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55;word-break:keep-all}
     img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 24px}.sub{color:var(--gray);margin:0 0 28px}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .sub{color:var(--gray);margin:0 0 28px}
     h2{margin:0 0 12px;font-size:clamp(20px,3.6vw,32px)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap}
-    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap}
+    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
     .btn:hover{transform:translateY(-1px);transition:.2s}
 
     .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9eef5;z-index:50}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}.brand img{width:28px;height:28px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand img{width:28px;height:28px}
     .nav-links{display:flex;gap:18px;align-items:center}
     .hamburger{display:none;border:1px solid #e1e7ef;background:#fff;border-radius:10px;padding:.5rem .7rem}
     .hamburger svg{width:20px;height:20px}
@@ -37,15 +46,21 @@
     .hero-inner{position:relative;z-index:2;min-height:520px;display:flex;align-items:center}
     .hero h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(28px,5.5vw,60px)}
     .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
-    .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
+    .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;
+      background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
 
-    .grid{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid{display:grid;gap:18px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
+
     .partner{background:var(--navy-800);color:#dbe7ff;border-radius:24px;padding:24px;box-shadow:0 14px 36px rgba(7,16,30,.22)}
     .partner-logo{width:140px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
-    footer{background:#0A1220;color:#c9d6e8}.foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
+
+    footer{background:#0A1220;color:#c9d6e8}
+    .foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding:16px 0;font-size:14px}
 
     @media(max-width:980px){
@@ -55,22 +70,20 @@
       .hamburger{display:inline-flex}
       .drawer[aria-hidden="false"]{display:block}
     }
-
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
-      /* 포스터 경로도 /assets 로 통일 */
-      .hero{background:
-        linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),
-        url('./assets/hero_epcpm_poster.jpg') center/cover no-repeat}
+      /* 포스터 배경도 루트 기준 경로 사용 */
+      .hero{background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)), url('/assets/hero_epcpm_poster.jpg') center/cover no-repeat}
     }
   </style>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQ0KL3273"></script>
   <script>
-    window.dataLayer=window.dataLayer||[];
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date()); gtag('config','G-WKQ0KL3273');
+    gtag('js', new Date());
+    gtag('config', 'G-WKQ0KL3273');
   </script>
 </head>
 <body>
@@ -119,10 +132,12 @@
   <header class="hero hero--video">
     <video class="hero-video"
       autoplay muted loop playsinline webkit-playsinline
-      preload="metadata"
-      poster="./assets/hero_epcpm_poster.jpg">
-      <!-- 현재 업로드 상태에 맞춰 단일 소스(720p)만 사용 -->
-      <source src="./assets/hero_epcpm_720.mp4" type="video/mp4" />
+      preload="auto"
+      poster="/assets/hero_epcpm_poster.jpg">
+      <!-- 모바일(<=768px) 720p 우선 소스 -->
+      <source src="/assets/hero_epcpm_720.mp4" media="(max-width: 768px)" type="video/mp4" />
+      <!-- 기본 1080p 소스 -->
+      <source src="/assets/hero_epcpm.mp4" type="video/mp4" />
       브라우저가 영상을 지원하지 않습니다.
     </video>
     <div class="hero-overlay"></div>
@@ -145,7 +160,6 @@
     </div>
   </header>
 
-  <!-- 이하 섹션들은 기존과 동일 (생략 없이 원문 유지) -->
   <!-- WHY -->
   <section id="about">
     <div class="container">
@@ -217,7 +231,7 @@
       </div>
       <div class="grid grid-2" style="margin-top:18px">
         <div class="card"><span class="pill">전기/계장 | E&I</span><h3>수변전·내선·플랜트 E&I</h3><p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a><a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a></div></div>
-        <div class="card"><span class="pill">안전/품질 | Safety & Quality</span><h3>JSA/RA/ITP/QCP · 감리 대응</h3><p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a></div></div>
+        <div class="card"><span class="pill">안전/품질 | Safety & Quality</span><h3>JSA/RA/ITP/QCP · 감리 대응</h3><p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/view?usp=dialog">문의</a></div></div>
       </div>
     </div>
   </section>
@@ -317,43 +331,49 @@
   <script>
     /* 로고 클릭: 상단 복귀 */
     (function(){
-      const logo=document.getElementById('logo-link'); if(!logo) return;
+      const logo = document.getElementById('logo-link');
+      if(!logo) return;
       logo.addEventListener('click',(e)=>{
         e.preventDefault();
-        const clean=location.origin+location.pathname.replace(/[#?].*$/,'');
+        const clean = location.origin + location.pathname.replace(/[#?].*$/,'');
         location.assign(clean);
       });
     })();
 
     /* 모바일 메뉴 토글 */
     (function(){
-      const btn=document.getElementById('nav-toggle');
-      const drawer=document.getElementById('drawer');
-      if(!btn||!drawer) return;
-      btn.addEventListener('click',()=>{
-        const open = btn.getAttribute('aria-expanded')==='true';
-        btn.setAttribute('aria-expanded',String(!open));
-        drawer.setAttribute('aria-hidden',String(open));
+      const btn = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('drawer');
+      if(!btn || !drawer) return;
+      btn.addEventListener('click', ()=>{
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        drawer.setAttribute('aria-hidden', String(open));
       });
-      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
         btn.setAttribute('aria-expanded','false');
         drawer.setAttribute('aria-hidden','true');
       }));
     })();
 
-    /* HERO: 자동재생 재시도(모바일 대비) */
+    /* HERO 영상: 자동재생 재시도 */
     (function(){
-      const v=document.querySelector('.hero-video'); if(!v) return;
-      function tryPlay(){ const p=v.play&&v.play(); if(p&&p.catch) p.catch(()=>{}); }
-      window.addEventListener('load',tryPlay);
-      document.addEventListener('visibilitychange',()=>{ if(!document.hidden) tryPlay(); });
-      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev,tryPlay,{once:true}));
+      const v = document.querySelector('.hero-video');
+      if(!v) return;
+      function tryPlay(){
+        const p = v.play && v.play();
+        if (p && p.catch) p.catch(()=>{});
+      }
+      window.addEventListener('load', tryPlay);
+      document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); });
+      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true}));
     })();
 
     /* 전기공사 PDF 클릭 태깅 */
     (function(){
-      const el=document.getElementById('elec-pdf-card'); if(!el) return;
-      el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label:el.href}); });
+      const el=document.getElementById('elec-pdf-card');
+      if(!el) return;
+      el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); });
     })();
   </script>
 </body>
