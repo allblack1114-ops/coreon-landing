@@ -6,24 +6,39 @@
   <title>COREON | EPC PM/CM 총괄 파트너</title>
   <meta name="description" content="COREON은 EPC 프로젝트의 PM/CM 총괄 파트너입니다. 전기·계장·토목·조경·안전/품질 등 공종별로 합법적인 PM/CM 조율과 실행 지원을 제공합니다." />
   <meta name="theme-color" content="#0A1B2B" />
-  <!-- LCP 향상: 포스터 미리 가져오기 -->
+  <!-- 포스터 미리 불러오기 (루트 기준 경로) -->
   <link rel="preload" as="image" href="/assets/hero_epcpm_poster.jpg" />
 
   <style>
-    :root{--navy:#0A1B2B;--navy-800:#0b1425;--blue:#0F6FFF;--gray:#6B7A90;--bg:#F4F6F9;--card:#fff;--shadow:0 12px 28px rgba(10,27,43,.08);--radius:16px;--max:1120px}
-    *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-    body{margin:0;color:var(--navy);background:var(--bg);font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55;word-break:keep-all}
-    img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+    :root{
+      --navy:#0A1B2B; --navy-800:#0b1425; --blue:#0F6FFF; --gray:#6B7A90;
+      --bg:#F4F6F9; --card:#ffffff; --shadow:0 12px 28px rgba(10,27,43,.08);
+      --radius:16px; --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; color:var(--navy); background:var(--bg);
+      font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55; word-break:keep-all
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
     .sub{color:var(--gray);margin:0 0 28px}
-    h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(26px,6vw,60px)}
     h2{margin:0 0 12px;font-size:clamp(20px,3.6vw,32px)}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap}
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap
+    }
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
     .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
     .btn:hover{transform:translateY(-1px);transition:.2s}
 
+    /* NAV */
     .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9eef5;z-index:50}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
@@ -32,17 +47,18 @@
     .hamburger{display:none;border:1px solid #e1e7ef;background:#fff;border-radius:10px;padding:.5rem .7rem}
     .hamburger svg{width:20px;height:20px}
 
-    /* Mobile drawer */
+    /* Drawer */
     .drawer{display:none;position:fixed;inset:64px 0 0 0;background:#fff;z-index:49;border-top:1px solid #e9eef5}
     .drawer a{display:block;padding:14px 24px;border-bottom:1px solid #eef2f7}
     .drawer .cta{padding:16px 24px;display:flex;gap:10px;flex-wrap:wrap}
 
-    /* HERO */
+    /* HERO (Video) */
     .hero{position:relative;overflow:hidden;color:#fff;min-height:520px}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,26,.62),rgba(7,14,26,.55));z-index:1}
     .hero-inner{position:relative;z-index:2;min-height:520px;display:flex;align-items:center}
-    .hero-sub{margin:8px 0 0;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
+    .hero h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(28px,5.5vw,60px)}
+    .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
     .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
 
     /* Grids / Cards */
@@ -53,13 +69,16 @@
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
 
+    /* Partner */
     .partner{background:var(--navy-800);color:#dbe7ff;border-radius:24px;padding:24px;box-shadow:0 14px 36px rgba(7,16,30,.22)}
     .partner-logo{width:140px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
 
+    /* Footer */
     footer{background:#0A1220;color:#c9d6e8}
     .foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding:16px 0;font-size:14px}
 
+    /* Responsive */
     @media(max-width:980px){
       .grid-2,.grid-3{grid-template-columns:1fr}
       .hero,.hero-inner{min-height:460px}
@@ -67,10 +86,15 @@
       .hamburger{display:inline-flex}
       .drawer[aria-hidden="false"]{display:block}
     }
+
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
-      /* 포스터 배경도 루트 기준 */
-      .hero{background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)), url('/assets/hero_epcpm_poster.jpg') center/cover no-repeat}
+      /* 포스터 배경도 루트 기준 경로 사용 */
+      .hero{
+        background:
+          linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),
+          url('/assets/hero_epcpm_poster.jpg') center/cover no-repeat
+      }
     }
   </style>
 
@@ -79,7 +103,8 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-WKQ0KL3273');
+    gtag('js', new Date());
+    gtag('config', 'G-WKQ0KL3273');
   </script>
 </head>
 <body>
@@ -92,7 +117,9 @@
       </a>
 
       <button class="hamburger" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0A1B2B" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A1B2B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       </button>
 
       <div class="nav-links">
@@ -125,35 +152,27 @@
   </nav>
 
   <!-- HERO (Video) -->
-  <header class="hero hero--video">
-    <video
-      class="hero-video"
-      muted playsinline webkit-playsinline autoplay
-      preload="metadata"
-      poster="/assets/hero_epcpm_poster.jpg"
-      controlslist="nodownload noplaybackrate"
-      disablepictureinpicture
-    >
-      <!-- 모바일(<=768px) 720p 우선 -->
+  <header class="hero">
+    <video class="hero-video"
+      muted autoplay playsinline webkit-playsinline preload="metadata"
+      poster="/assets/hero_epcpm_poster.jpg">
+      <!-- 모바일(<=768px) 720p 우선 소스 -->
       <source src="/assets/hero_epcpm_720.mp4" media="(max-width: 768px)" type="video/mp4" />
-      <!-- 기본 1080p -->
+      <!-- 기본 1080p 소스 -->
       <source src="/assets/hero_epcpm.mp4" type="video/mp4" />
       브라우저가 영상을 지원하지 않습니다.
     </video>
-
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
       <div>
         <h1>COREON · EPC PM/CM 총괄 파트너</h1>
-        <p class="hero-sub">공공·제조·플랜트 현장의 계약·일정·안전·품질을 <b>한곳에서 통합 관리</b>합니다.</p>
-
+        <p class="hero-sub">공공·제조·플랜트 현장의 계약·일정·안전·품질을 <b>통합적으로 관리</b>합니다.</p>
         <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
           <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
           <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
           <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱(PDF)</a>
           <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
         </div>
-
         <div class="hero-chips" aria-label="Industries" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
           <span class="chip">Public</span><span class="chip">Automotive</span>
           <span class="chip">Display</span><span class="chip">Semiconductor</span>
@@ -167,7 +186,7 @@
   <section id="about">
     <div class="container">
       <h2>Why COREON</h2>
-      <p class="sub">사람(현장) + 프로세스 관리로 가시성과 신뢰성을 강화합니다.</p>
+      <p class="sub">사람(현장) + 프로세스 관리로 가시성과 신뢰성을 강화합니다.<br/><span style="font-size:0.92em">People + Process Management</span></p>
       <div class="grid grid-3">
         <div class="card"><span class="pill">즉시성 | Agility</span><h3>전문 인력 즉시 투입</h3><p class="muted">전기·계장·소방 중심의 현장 투입 네트워크.</p></div>
         <div class="card"><span class="pill">체계성 | System</span><h3>표준화 운영</h3><p class="muted">안전, 품질, 변경관리 프로세스를 일관성 있게 운영.</p></div>
@@ -213,7 +232,7 @@
     <div class="container">
       <h2>COREON의 차별점 (Why We're Different)</h2>
       <div class="grid grid-3">
-        <div class="card"><h3>PM/CM 전문성</h3><p class="muted">시공사가 아닌 총괄 조율사. 공정·품질·안전·계약을 한곳에서 관리.</p></div>
+        <div class="card"><h3>PM/CM 전문성</h3><p class="muted">시공사가 아닌 총괄 조율사. 공정·품질·안전·계약을 한 화면에서 관리.</p></div>
         <div class="card"><h3>즉시 동원력</h3><p class="muted">전기/계장·토목·조경 네트워크로 현장 투입 속도 확보.</p></div>
         <div class="card"><h3>합법 구조</h3><p class="muted">도급은 면허 시공사, COREON은 PM/CM 용역으로 역할·책임 분리.</p></div>
         <div class="card"><h3>투명한 비용</h3><p class="muted">관리비·자문료 등 용역 대가 구조를 선명하게 제시.</p></div>
@@ -229,12 +248,42 @@
       <h2>공종별 서비스 (Disciplines)</h2>
       <p class="sub">토목 · 조경 · 전기/계장 · 안전/품질 — PM/CM 중심 협력 시공(면허업체 연계)</p>
       <div class="grid grid-2">
-        <div class="card"><span class="pill">토목 | Civil</span><h3>부지·외부 인프라 PM/CM</h3><p class="muted">토공·구조·포장·우/오수·배수로 등. COREON PM/CM, 시공은 토목공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a></div></div>
-        <div class="card"><span class="pill">조경 | Landscape</span><h3>식재·시설물·포장 PM/CM</h3><p class="muted">식재 계획·시공관리, 시설물 품질, 유지관리 프로토콜. 시공은 조경공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a></div></div>
+        <div class="card">
+          <span class="pill">토목 | Civil</span>
+          <h3>부지·외부 인프라 PM/CM</h3>
+          <p class="muted">토공·구조·포장·우/오수·배수로 등. COREON PM/CM, 시공은 토목공사업체.</p>
+          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a>
+          </div>
+        </div>
+        <div class="card">
+          <span class="pill">조경 | Landscape</span>
+          <h3>식재·시설물·포장 PM/CM</h3>
+          <p class="muted">식재 계획·시공관리, 시설물 품질, 유지관리 프로토콜. 시공은 조경공사업체.</p>
+          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a>
+          </div>
+        </div>
       </div>
+
       <div class="grid grid-2" style="margin-top:18px">
-        <div class="card"><span class="pill">전기/계장 | E&I</span><h3>수변전·내선·플랜트 E&I</h3><p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a><a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a></div></div>
-        <div class="card"><span class="pill">안전/품질 | Safety & Quality</span><h3>JSA/RA/ITP/QCP · 감리 대응</h3><p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p><div class="cta-group" style="margin-top:12px;display:flex;gap:10px"><a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/view?usp=dialog">문의</a></div></div>
+        <div class="card">
+          <span class="pill">전기/계장 | E&I</span>
+          <h3>수변전·내선·플랜트 E&I</h3>
+          <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
+          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a>
+          </div>
+        </div>
+        <div class="card">
+          <span class="pill">안전/품질 | Safety & Quality</span>
+          <h3>JSA/RA/ITP/QCP · 감리 대응</h3>
+          <p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p>
+          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -270,6 +319,7 @@
       <h2>파트너 네트워크 (Partners)</h2>
       <p class="sub">면허 보유 시공사와의 협력 체계</p>
 
+      <!-- Featured: KES -->
       <div class="partner" style="margin-bottom:18px">
         <div style="display:flex;gap:18px;align-items:flex-start;justify-content:space-between">
           <div>
@@ -280,6 +330,7 @@
         </div>
       </div>
 
+      <!-- Multi-partner grid (placeholders) -->
       <div class="grid grid-3">
         <div class="card"><h3>전기공사업체 A</h3><p class="muted">E&I 시공 파트너 (예시 슬롯)</p></div>
         <div class="card"><h3>전기안전관리업체 B</h3><p class="muted">안전관리·직무고시 파트너 (예시 슬롯)</p></div>
@@ -359,30 +410,17 @@
       }));
     })();
 
-    /* HERO 영상: 가시영역/제스처 시 재생 재시도 (iOS 대응) */
+    /* HERO 영상: 모바일 자동재생 실패시 재시도 */
     (function(){
       const v = document.querySelector('.hero-video');
       if(!v) return;
-
       function tryPlay(){
         const p = v.play && v.play();
         if (p && p.catch) p.catch(()=>{});
       }
-
-      // 가시 영역에 들어오면 재생 시도
-      if ('IntersectionObserver' in window){
-        const io = new IntersectionObserver(entries=>{
-          entries.forEach(e=>{ if(e.isIntersecting) tryPlay(); });
-        }, {threshold: .25});
-        io.observe(v);
-      }
-
-      // 초기/복귀/사용자 제스처 트리거
       window.addEventListener('load', tryPlay);
       document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); });
-      ['touchstart','pointerdown','scroll','click'].forEach(ev=>{
-        window.addEventListener(ev, tryPlay, {once:true, passive:true});
-      });
+      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true}));
     })();
 
     /* 전기공사 PDF 클릭 태깅 */
