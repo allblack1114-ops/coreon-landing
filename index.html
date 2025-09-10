@@ -12,35 +12,21 @@
   <link rel="preload" as="video" href="/assets/hero_epcpm_720.mp4?v=20250910" type="video/mp4" />
 
   <style>
-    :root{
-      --navy:#0A1B2B; --navy-800:#0b1425; --blue:#0F6FFF; --gray:#6B7A90;
-      --bg:#F4F6F9; --card:#ffffff; --shadow:0 12px 28px rgba(10,27,43,.08);
-      --radius:16px; --max:1120px;
-    }
-
+    :root{ --navy:#0A1B2B; --navy-800:#0b1425; --blue:#0F6FFF; --gray:#6B7A90; --bg:#F4F6F9; --card:#ffffff; --shadow:0 12px 28px rgba(10,27,43,.08); --radius:16px; --max:1120px; }
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
-    body{
-      margin:0; color:var(--navy); background:var(--bg);
-      font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.55; word-break:keep-all
-    }
+    body{ margin:0; color:var(--navy); background:var(--bg); font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.55; word-break:keep-all }
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
     .sub{color:var(--gray);margin:0 0 28px}
     h2{margin:0 0 12px;font-size:clamp(20px,3.6vw,32px)}
 
-    /* Buttons */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap
-    }
+    .btn{ display:inline-flex;align-items:center;justify-content:center;gap:8px; padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap }
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
     .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
     .btn:hover{transform:translateY(-1px);transition:.2s}
 
-    /* NAV */
     .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9eef5;z-index:50}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
@@ -49,12 +35,10 @@
     .hamburger{display:none;border:1px solid #e1e7ef;background:#fff;border-radius:10px;padding:.5rem .7rem}
     .hamburger svg{width:20px;height:20px}
 
-    /* Drawer */
     .drawer{display:none;position:fixed;inset:64px 0 0 0;background:#fff;z-index:49;border-top:1px solid #e9eef5}
     .drawer a{display:block;padding:14px 24px;border-bottom:1px solid #eef2f7}
     .drawer .cta{padding:16px 24px;display:flex;gap:10px;flex-wrap:wrap}
 
-    /* HERO (Video) */
     .hero{position:relative;overflow:hidden;color:#fff;min-height:520px}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,26,.62),rgba(7,14,26,.55));z-index:1}
@@ -63,7 +47,6 @@
     .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
     .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
 
-    /* Grids / Cards */
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -71,46 +54,28 @@
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
 
-    /* Partner */
     .partner{background:var(--navy-800);color:#dbe7ff;border-radius:24px;padding:24px;box-shadow:0 14px 36px rgba(7,16,30,.22)}
     .partner-logo{width:140px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
 
-    /* Footer */
     footer{background:#0A1220;color:#c9d6e8}
     .foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding:16px 0;font-size:14px}
 
-    /* Responsive */
-    @media(max-width:980px){
-      .grid-2,.grid-3{grid-template-columns:1fr}
-      .hero,.hero-inner{min-height:460px}
-      .nav-links{display:none}
-      .hamburger{display:inline-flex}
-      .drawer[aria-hidden="false"]{display:block}
-    }
+    @media(max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} .hamburger{display:inline-flex} .drawer[aria-hidden="false"]{display:block} }
 
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
-      .hero{
-        background:
-          linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),
-          url('/assets/hero_epcpm_poster.jpg?v=20250910') center/cover no-repeat
-      }
+      .hero{background: linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)), url('/assets/hero_epcpm_poster.jpg?v=20250910') center/cover no-repeat}
     }
   </style>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQ0KL3273"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}    
-    gtag('js', new Date());
-    gtag('config', 'G-WKQ0KL3273');
+    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-WKQ0KL3273');
   </script>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="주요 메뉴">
     <div class="container nav-inner">
       <a class="brand" id="logo-link" href="./" aria-label="COREON 홈으로">
@@ -118,9 +83,7 @@
       </a>
 
       <button class="hamburger" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A1B2B" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0A1B2B" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
       <div class="nav-links">
@@ -136,7 +99,6 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <a href="#about">About</a>
       <a href="#framework">Framework</a>
@@ -152,14 +114,8 @@
     </div>
   </nav>
 
-  <!-- HERO (720p 단일 소스) -->
   <header class="hero">
-    <video class="hero-video"
-      muted autoplay playsinline webkit-playsinline preload="metadata" loop
-      poster="/assets/hero_epcpm_poster.jpg?v=20250910"
-      src="/assets/hero_epcpm_720.mp4?v=20250910">
-      브라우저가 영상을 지원하지 않습니다.
-    </video>
+    <video class="hero-video" muted autoplay playsinline webkit-playsinline preload="metadata" loop poster="/assets/hero_epcpm_poster.jpg?v=20250910" src="/assets/hero_epcpm_720.mp4?v=20250910">브라우저가 영상을 지원하지 않습니다.</video>
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
       <div>
@@ -167,20 +123,17 @@
         <p class="hero-sub">공공·제조·플랜트 현장의 계약·일정·안전·품질을 <b>통합적으로 관리</b>합니다.</p>
         <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
           <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=sharing">회사 소개서(PDF)</a>
           <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱(PDF)</a>
           <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
         </div>
         <div class="hero-chips" aria-label="Industries" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
-          <span class="chip">Public</span><span class="chip">Automotive</span>
-          <span class="chip">Display</span><span class="chip">Semiconductor</span>
-          <span class="chip">Energy</span><span class="chip">Plant/Infra</span>
+          <span class="chip">Public</span><span class="chip">Automotive</span><span class="chip">Display</span><span class="chip">Semiconductor</span><span class="chip">Energy</span><span class="chip">Plant/Infra</span>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- WHY -->
   <section id="about">
     <div class="container">
       <h2>Why COREON</h2>
@@ -193,7 +146,6 @@
     </div>
   </section>
 
-  <!-- EPC Framework -->
   <section id="framework">
     <div class="container">
       <h2>EPC 총괄 프레임 (EPC Management Framework)</h2>
@@ -209,11 +161,10 @@
     </div>
   </section>
 
-  <!-- Industries -->
   <section id="industries">
     <div class="container">
       <h2>대상 산업 (Industries We Serve)</h2>
-    <p class="sub">EPC 메이저사 · 공공/관급 · 자동차 · 디스플레이 · 반도체/FAB · 발전/에너지 · 플랜트 · 물류센터 등</p>
+      <p class="sub">EPC 메이저사 · 공공/관급 · 자동차 · 디스플레이 · 반도체/FAB · 발전/에너지 · 플랜트 · 물류센터 등</p>
       <div class="grid grid-3">
         <div class="card"><h3>공공/지자체</h3><p class="muted">조달요건 준수, 감리·감사 대응, 문서 체계화.</p></div>
         <div class="card"><h3>제조(자동차/디스플레이)</h3><p class="muted">생산중단 최소화, 셧다운 공정 PM/CM, 안전·품질 게이트 운영.</p></div>
@@ -225,7 +176,6 @@
     </div>
   </section>
 
-  <!-- Why Different -->
   <section id="why-different">
     <div class="container">
       <h2>COREON의 차별점 (Why We're Different)</h2>
@@ -240,7 +190,6 @@
     </div>
   </section>
 
-  <!-- Disciplines -->
   <section id="services">
     <div class="container">
       <h2>공종별 서비스 (Disciplines)</h2>
@@ -286,7 +235,6 @@
     </div>
   </section>
 
-  <!-- Outcomes -->
   <section id="outcomes">
     <div class="container">
       <h2>성과 지표 (Outcomes)</h2>
@@ -298,7 +246,6 @@
     </div>
   </section>
 
-  <!-- Compliance FAQ -->
   <section id="legal">
     <div class="container">
       <h2>합법 운영 안내 (Compliance FAQ)</h2>
@@ -311,13 +258,11 @@
     </div>
   </section>
 
-  <!-- Partners -->
   <section id="partners" style="padding-top:8px">
     <div class="container">
       <h2>파트너 네트워크 (Partners)</h2>
       <p class="sub">면허 보유 시공사와의 협력 체계</p>
 
-      <!-- Featured: KES -->
       <div class="partner" style="margin-bottom:18px">
         <div style="display:flex;gap:18px;align-items:flex-start;justify-content:space-between">
           <div>
@@ -328,7 +273,6 @@
         </div>
       </div>
 
-      <!-- Multi-partner grid (placeholders) -->
       <div class="grid grid-3">
         <div class="card"><h3>전기공사업체 A</h3><p class="muted">E&I 시공 파트너 (예시 슬롯)</p></div>
         <div class="card"><h3>전기안전관리업체 B</h3><p class="muted">안전관리·직무고시 파트너 (예시 슬롯)</p></div>
@@ -340,7 +284,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section style="padding-top:24px;padding-bottom:72px">
     <div class="container">
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
@@ -357,7 +300,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
       <div>
@@ -368,7 +310,7 @@
       <div>
         <h4 style="color:#fff;margin:0 0 8px">바로가기</h4>
         <p style="margin:0">
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1rbnzONRkhnWgUAOQeIEu9FA1d_eDtfPC/view?usp=sharing">회사 소개서(PDF)</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=sharing">회사 소개서(PDF)</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing">EPC 트랙</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing">자료실</a><br/>
@@ -381,52 +323,13 @@
   </footer>
 
   <script>
-    /* 로고 클릭: 상단 복귀 */
-    (function(){
-      const logo = document.getElementById('logo-link');
-      if(!logo) return;
-      logo.addEventListener('click',(e)=>{
-        e.preventDefault();
-        const clean = location.origin + location.pathname.replace(/[#?].*$/,'');
-        location.assign(clean);
-      });
-    })();
+    (function(){ const logo = document.getElementById('logo-link'); if(!logo) return; logo.addEventListener('click',(e)=>{ e.preventDefault(); const clean = location.origin + location.pathname.replace(/[#?].*$/,''); location.assign(clean); }); })();
 
-    /* 모바일 메뉴 토글 */
-    (function(){
-      const btn = document.getElementById('nav-toggle');
-      const drawer = document.getElementById('drawer');
-      if(!btn || !drawer) return;
-      btn.addEventListener('click', ()=>{
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        drawer.setAttribute('aria-hidden', String(open));
-      });
-      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-        btn.setAttribute('aria-expanded','false');
-        drawer.setAttribute('aria-hidden','true');
-      }));
-    })();
+    (function(){ const btn = document.getElementById('nav-toggle'); const drawer = document.getElementById('drawer'); if(!btn||!drawer) return; btn.addEventListener('click', ()=>{ const open = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded', String(!open)); drawer.setAttribute('aria-hidden', String(open)); }); drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ btn.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); })); })();
 
-    /* HERO 영상: 단일 720p 자동재생 보조 */
-    (function(){
-      const v = document.querySelector('.hero-video');
-      if(!v) return;
-      function tryPlay(){
-        const p = v.play && v.play();
-        if (p && p.catch) p.catch(()=>{});
-      }
-      window.addEventListener('load', tryPlay);
-      document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); });
-      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true}));
-    })();
+    (function(){ const v = document.querySelector('.hero-video'); if(!v) return; function tryPlay(){ const p = v.play && v.play(); if(p&&p.catch) p.catch(()=>{}); } window.addEventListener('load', tryPlay); document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); }); ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true})); })();
 
-    /* 전기공사 PDF 클릭 태깅 */
-    (function(){
-      const el=document.getElementById('elec-pdf-card');
-      if(!el) return;
-      el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); });
-    })();
+    (function(){ const el=document.getElementById('elec-pdf-card'); if(!el) return; el.addEventListener('click',()=>{ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); }); })();
   </script>
 </body>
 </html>
