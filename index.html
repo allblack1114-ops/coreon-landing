@@ -7,7 +7,7 @@
   <meta name="description" content="COREON은 EPC 프로젝트의 PM/CM 총괄 파트너이자 컨소시엄 에이전시입니다. 전기·계장·토목·조경·해체(철거)·아스콘 등 전 공종에 대해 합법적 PM/CM 조율과 실행 지원을 제공합니다." />
   <meta name="theme-color" content="#0A1B2B" />
 
-  <!-- 미리 불러오기 (포스터/비디오 모두 720p 단일 소스, 기존 자산 유지) -->
+  <!-- 미리 불러오기 (포스터/비디오 모두 720p 단일 소스) -->
   <link rel="preload" as="image" href="/assets/hero_epcpm_poster.jpg?v=20250910" />
   <link rel="preload" as="video" href="/assets/hero_epcpm_720.mp4?v=20250910" type="video/mp4" />
 
@@ -69,7 +69,7 @@
     }
   </style>
 
-  <!-- GA4 (기존 유지) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQ0KL3273"></script>
   <script>
     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-WKQ0KL3273');
@@ -94,7 +94,7 @@
         <a href="#outcomes">Outcomes</a>
         <a href="#partners">Partners</a>
         <a href="#legal">Compliance</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing">자료실</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a>
         <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a>
       </div>
     </div>
@@ -108,7 +108,7 @@
       <a href="#partners">Partners</a>
       <a href="#legal">Compliance</a>
       <div class="cta">
-        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing">자료실</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a>
         <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a>
       </div>
     </div>
@@ -123,12 +123,12 @@
         <p class="hero-sub">발주·계약·일정·안전·품질을 <b>컨소시엄 에이전시</b> 구조로 통합 관리합니다.</p>
         <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
           <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">프로젝트 상담</a>
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=sharing">회사 소개서(PDF)</a>
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱(PDF)</a>
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
-          <!-- 신규: 아스콘/해체 CTA -->
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=sharing">아스콘 공사(PDF)</a>
-          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=sharing">해체공사(철거)(PDF)</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a>
+          <a class="btn btn-ghost" id="cta-eps" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">EPC 패키지(PDF)</a>
+          <a class="btn btn-ghost" id="cta-elec" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
+          <a class="btn btn-ghost" id="cta-safety" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
+          <a class="btn btn-ghost" id="cta-ascon" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
+          <a class="btn btn-ghost" id="cta-demo" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
         </div>
         <div class="hero-chips" aria-label="Industries" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
           <span class="chip">Public</span><span class="chip">Automotive</span><span class="chip">Display</span><span class="chip">Semiconductor</span><span class="chip">Energy</span><span class="chip">Plant/Infra</span>
@@ -185,7 +185,7 @@
       <div class="grid grid-3">
         <div class="card"><h3>PM/CM 전문성</h3><p class="muted">시공사가 아닌 총괄 조율사. 공정·품질·안전·계약을 한 화면에서 관리.</p></div>
         <div class="card"><h3>즉시 동원력</h3><p class="muted">전기/계장·토목·조경·해체·아스콘 네트워크로 현장 투입 속도 확보.</p></div>
-        <div class="card"><h3>합법 구조</h3><p class="muted">도급은 면허 시공사, COREON은 PM/CM 용역으로 역할·책임 분리.</p></div>
+        <div class="card"><h3>합법 구조</h3><p class="muted">도급은 면허 시공사, COREON은 PM/CM·영업·조달·에이전시로 역할·책임 분리.</p></div>
         <div class="card"><h3>투명한 비용</h3><p class="muted">관리비·자문료 등 용역 대가 구조를 선명하게 제시.</p></div>
         <div class="card"><h3>문서·승인 거버넌스</h3><p class="muted">체크리스트/템플릿 체계화로 승인·검측·하자까지 추적.</p></div>
         <div class="card"><h3>산업별 레퍼런스</h3><p class="muted">공공·제조·플랜트에 맞춘 표준 절차/양식 제공.</p></div>
@@ -197,6 +197,7 @@
     <div class="container">
       <h2>공종별 서비스 (Disciplines)</h2>
       <p class="sub">토목 · 조경 · 전기/계장 · 해체(철거) · 아스콘 · 안전/품질 — PM/CM 중심 협력 시공(면허업체 연계)</p>
+
       <div class="grid grid-2">
         <div class="card">
           <span class="pill">토목 | Civil</span>
@@ -222,8 +223,8 @@
           <h3>수변전·내선·플랜트 E&I</h3>
           <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료(PDF)</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a>
+            <a class="btn btn-primary" id="elec-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
+            <a class="btn" id="elec-safety-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
           </div>
         </div>
         <div class="card">
@@ -236,14 +237,14 @@
         </div>
       </div>
 
-      <!-- 신규 섹션: 아스콘 / 해체(철거) 전용 카드 -->
+      <!-- 아스콘 / 해체(철거) 전용 카드 -->
       <div class="grid grid-2" style="margin-top:18px">
         <div class="card">
           <span class="pill">아스콘 | Asphalt Concrete</span>
           <h3>포장·보수·재포장 PM/CM</h3>
           <p class="muted">도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=sharing">아스콘 공사(PDF)</a>
+            <a class="btn btn-primary" id="ascon-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
             <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a>
           </div>
         </div>
@@ -252,7 +253,7 @@
           <h3>구조물 해체·철거 PM/CM</h3>
           <p class="muted">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=sharing">해체공사(철거)(PDF)</a>
+            <a class="btn btn-primary" id="demo-pdf-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
             <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">상담 요청</a>
           </div>
         </div>
@@ -327,14 +328,13 @@
       <div>
         <h4 style="color:#fff;margin:0 0 8px">바로가기</h4>
         <p style="margin:0">
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=sharing">회사 소개서(PDF)</a><br/>
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=sharing">전기안전 원스톱</a><br/>
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=sharing">EPC 트랙</a><br/>
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=sharing">전기공사 자료</a><br/>
-          <!-- 신규 바로가기: 아스콘/해체 링크 추가 -->
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=sharing">아스콘 공사</a><br/>
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=sharing">해체공사(철거)</a><br/>
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=sharing">자료실</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">EPC 패키지</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=drive_link">EPC 트랙</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a><br/>
           <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1eWCUNmfIXyOFPPOTMrR5LBh0KIpue0C5/view?usp=drive_link">개인정보처리방침</a>
         </p>
@@ -353,8 +353,25 @@
     // 히어로 비디오 자동재생 보정
     (function(){ const v = document.querySelector('.hero-video'); if(!v) return; function tryPlay(){ const p = v.play && v.play(); if(p&&p.catch) p.catch(()=>{}); } window.addEventListener('load', tryPlay); document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); }); ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true})); })();
 
-    // GA click event (전기공사 PDF)
-    (function(){ const el=document.getElementById('elec-pdf-card'); if(!el) return; el.addEventListener('click',()=>{ if(window.gtag){ gtag('event','click_pdf',{category:'electrical_works',label: el.href}); } }); })();
+    // GA click events (핵심 PDF들)
+    (function(){
+      const map = {
+        'cta-eps': 'EPC_package',
+        'cta-elec': 'electrical_works',
+        'cta-safety': 'electrical_safety',
+        'cta-ascon': 'ascon_package',
+        'cta-demo': 'demolition_package',
+        'elec-pdf-card': 'electrical_works_card',
+        'elec-safety-card': 'electrical_safety_card',
+        'ascon-pdf-card': 'ascon_card',
+        'demo-pdf-card': 'demolition_card'
+      };
+      Object.keys(map).forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.addEventListener('click',()=>{ if(window.gtag){ gtag('event','click_pdf',{category: map[id], label: el.href}); } });
+      });
+    })();
   </script>
 </body>
 </html>
