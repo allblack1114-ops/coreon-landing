@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>COREON | ONE-STOP 공사 관리·조정 (시공은 면허사 수행)</title>
-  <meta name="description" content="계약부터 준공까지 공사 관리·조정을 원스톱으로. 건축주는 예산·기간을 통제, 설계사는 설계의도·변경관리, 시공사는 시공에 집중. 시공은 관련 면허 보유사가 책임 수행합니다." />
+  <meta name="description" content="계약부터 준공까지 공사 관리·조정을 원스톱으로. 건축주는 예산·기간 통제와 비용 투명화, 설계사는 설계의도·변경관리·감리 대응 단축, 시공사는 시공 집중과 생산성 향상. 시공은 관련 면허 보유사가 책임 수행합니다." />
   <meta name="theme-color" content="#0A1B2B" />
 
   <!-- 미리 불러오기 -->
@@ -41,11 +41,13 @@
     .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
     .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
     .u-underline{ box-shadow: inset 0 -0.35em rgba(255,255,255,.18); }
+    .h1-top{display:block; font-size:clamp(30px,6vw,64px); line-height:1.05}
     .hero-points .point{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); color:#fff; padding:.5rem .7rem; border-radius:999px; font-weight:800; font-size:.9rem }
     .hero-legal{ margin:12px 0 0; font-size:.82rem; color:#dbe7ff; max-width:720px }
 
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
@@ -59,7 +61,7 @@
     .sticky-cta a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:800;padding:.75rem;border-right:1px solid rgba(255,255,255,.12)}
     .sticky-cta a:last-child{border-right:none}
     @media(min-width:980px){.sticky-cta{display:none}}
-    @media(max-width:980px){ .grid-2{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} }
+    @media(max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} }
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
       .hero{background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),url('/assets/hero_epcpm_poster.jpg?v=20250910') center/cover no-repeat}
@@ -82,7 +84,7 @@
     </div>
   </nav>
 
-  <!-- Hero (비디오 유지) -->
+  <!-- Hero (비디오 유지 + 줄바꿈 + 3포인트 확장) -->
   <header class="hero">
     <video class="hero-video" muted autoplay playsinline webkit-playsinline preload="metadata" loop
            poster="/assets/hero_epcpm_poster.jpg?v=20250910"
@@ -92,13 +94,16 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div>
-        <h1>계약부터 준공까지, COREON이 <span class="u-underline">관리·조정</span>합니다.</h1>
+        <h1>
+          <span class="h1-top">COREON</span>
+          계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.
+        </h1>
         <p class="hero-sub">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
 
         <div class="hero-points" role="list" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px">
-          <div class="point" role="listitem">건축주: <b>예산·기간 통제</b></div>
-          <div class="point" role="listitem">설계사: <b>설계의도 보전·변경관리</b></div>
-          <div class="point" role="listitem">시공사: <b>승인·조율 → 시공 집중</b></div>
+          <div class="point" role="listitem">건축주: <b>예산·기간 통제·비용 투명화</b></div>
+          <div class="point" role="listitem">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
+          <div class="point" role="listitem">시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b></div>
         </div>
 
         <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
@@ -128,18 +133,21 @@
           <h3>구조물 해체·철거 PM/CM</h3>
           <p class="muted">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담">상담 요청</a>
           </div>
         </div>
 
         <div class="card">
-          <span class="pill">전기/계장 | E&I</span>
-          <h3>수변전·내선·플랜트 E&I</h3>
+          <span class="pill">전기/계장 | E&amp;I</span>
+          <h3>수변전·내선·플랜트 E&amp;I</h3>
           <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
           </div>
         </div>
       </div>
@@ -150,48 +158,51 @@
           <h3>포장·보수·재포장 PM/CM</h3>
           <p class="muted">도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담">상담 요청</a>
           </div>
         </div>
 
         <div class="card">
-          <span class="pill">안전/품질 | Safety & Quality</span>
+          <span class="pill">안전/품질 | Safety &amp; Quality</span>
           <h3>JSA/RA/ITP/QCP · 감리 대응</h3>
           <p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20안전%2F품질%20상담">문의</a>
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20안전%2F품질%20문의">문의</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Partners(간단 표기만 유지) -->
+  <!-- Partners -->
   <section id="partners" style="padding-top:8px">
     <div class="container">
       <h2>파트너 네트워크 (Partners)</h2>
       <p class="sub">면허 보유 시공사 및 전문업체와의 협력 체계</p>
       <div class="grid grid-2">
-        <div class="card"><h3>전기공사업체 (예시)</h3><p class="muted">E&I 시공 파트너</p></div>
-        <div class="card"><h3>해체 전문업체 (예시)</h3><p class="muted">구조물 해체·철거 파트너</p></div>
+        <div class="card"><h3>전기/계장 시공 파트너</h3><p class="muted">E&I 시공 파트너</p></div>
+        <div class="card"><h3>해체 전문업체</h3><p class="muted">구조물 해체·철거 파트너</p></div>
       </div>
     </div>
   </section>
 
+  <!-- 합법 운영 안내(접이식: 최소 고지 유지, 과밀 방지) -->
   <section id="legal">
     <div class="container">
-      <h2>합법 운영 안내 (Compliance FAQ)</h2>
-      <div class="grid grid-2">
-        <div class="card"><h3>COREON이 직접 시공하나요?</h3><p class="muted">아니요. 모든 시공은 법령에 따른 <b>면허 보유 시공사</b>가 담당합니다. COREON은 PM/CM, 영업·조달 지원, 문서화·모니터링을 수행합니다.</p></div>
-        <div class="card"><h3>수익 구조는?</h3><p class="muted">공사대금과 무관한 <b>PM/CM 서비스 대가</b>(관리비, 영업 수수료, 컨설팅비 등)로 구성됩니다.</p></div>
-        <div class="card"><h3>계약 구조는?</h3><p class="muted">발주처↔면허 시공사(도급), COREON↔발주처/시공사(PM/CM/에이전시 용역)로 분리하여 역할·책임을 문서화합니다.</p></div>
-        <div class="card"><h3>공종 적용?</h3><p class="muted">토목(해체공사)/조경/아스콘/전기·계장 등 모든 공종에 동일 원칙을 적용합니다.</p></div>
-      </div>
+      <h2>합법 운영 안내</h2>
+      <details class="card">
+        <summary><b>COREON의 역할과 계약 구조 보기</b></summary>
+        <p class="muted" style="margin-top:8px">
+          COREON은 공사 <b>관리·조정(PM/CM)</b> 및 조달·영업을 수행하며, 실제 시공은 관련 <b>면허 보유 시공사</b>가 담당합니다.
+          발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할·책임을 문서화합니다.
+        </p>
+      </details>
     </div>
   </section>
 
-  <!-- 모바일 하단 고정 CTA (전화/이메일만) -->
+  <!-- 모바일 하단 고정 CTA -->
   <div class="sticky-cta" role="navigation" aria-label="빠른 상담 버튼">
     <a href="tel:010-9039-1482">전화</a>
     <a href="mailto:contact@coreon-global.com">이메일</a>
