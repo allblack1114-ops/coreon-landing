@@ -2,220 +2,171 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>COREON | ONE-STOP 공사 관리·조정 (시공은 면허사 수행)</title>
-  <meta name="description" content="계약부터 준공까지 공사 관리·조정을 원스톱으로. 건축주는 예산·기간 통제와 비용 투명화, 설계사는 설계의도·변경관리·감리 대응 단축, 시공사는 시공 집중과 생산성 향상. 시공은 관련 면허 보유사가 책임 수행합니다." />
-  <meta name="theme-color" content="#0A1B2B" />
-
-  <!-- 미리 불러오기 -->
-  <link rel="preload" as="image" href="/assets/hero_epcpm_poster.jpg?v=20250910" />
-  <link rel="preload" as="video" href="/assets/hero_epcpm_720.mp4?v=20250910" type="video/mp4" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COREON | 원스톱 공사 관리·조정</title>
+  <meta name="description" content="계약부터 준공까지 공사 관리·조정을 원스톱으로. 발주처는 예산·기간 통제와 비용 투명화, 설계사는 설계의도·변경관리·감리 대응 단축, 시공사는 시공 집중과 생산성 향상. 시공은 관련 면허 보유사가 책임 수행합니다.">
   <style>
-    :root{ --navy:#0A1B2B; --navy-800:#0b1425; --blue:#0F6FFF; --gray:#6B7A90; --bg:#F4F6F9; --card:#ffffff; --shadow:0 12px 28px rgba(10,27,43,.08); --radius:16px; --max:1120px; }
-    *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
-    body{ margin:0; color:var(--navy); background:var(--bg); font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.55; word-break:keep-all }
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-    .sub{color:var(--gray);margin:0 0 28px}
-    h2{margin:0 0 12px;font-size:clamp(20px,3.6vw,32px)}
-
-    .btn{ display:inline-flex;align-items:center;justify-content:center;gap:8px; padding:.78rem 1.1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;background:#fff;white-space:nowrap }
-    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
-    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
-    .btn:hover{transform:translateY(-1px);transition:.2s}
-
-    .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9eef5;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand img{width:28px;height:28px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-
-    .hero{position:relative;overflow:hidden;color:#fff;min-height:520px}
-    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,26,.62),rgba(7,14,26,.55));z-index:1}
-    .hero-inner{position:relative;z-index:2;min-height:520px;display:flex;align-items:center}
-    .hero h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(28px,5.5vw,60px)}
-    .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
-    .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
-    .u-underline{ box-shadow: inset 0 -0.35em rgba(255,255,255,.18); }
-    .h1-top{display:block; font-size:clamp(30px,6vw,64px); line-height:1.05}
-    .hero-points .point{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); color:#fff; padding:.5rem .7rem; border-radius:999px; font-weight:800; font-size:.9rem }
-    .hero-legal{ margin:12px 0 0; font-size:.82rem; color:#dbe7ff; max-width:720px }
-
-    .grid{display:grid;gap:18px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
-    .muted{color:var(--gray)}
-
-    footer{background:#0A1220;color:#c9d6e8}
-    .foot-grid{display:grid;gap:26px;grid-template-columns:2fr 1fr}
-    .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding:16px 0;font-size:14px}
-
-    /* 모바일 하단 CTA */
-    .sticky-cta{display:flex;justify-content:space-around;align-items:center;position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:.5rem 0;z-index:49;box-shadow:0 -6px 18px rgba(7,16,30,.16)}
-    .sticky-cta a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:800;padding:.75rem;border-right:1px solid rgba(255,255,255,.12)}
-    .sticky-cta a:last-child{border-right:none}
-    @media(min-width:980px){.sticky-cta{display:none}}
-    @media(max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} }
-    @media (prefers-reduced-motion: reduce){
-      .hero-video{display:none}
-      .hero{background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),url('/assets/hero_epcpm_poster.jpg?v=20250910') center/cover no-repeat}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.5;
+      color: #0A1B2B;
+      background: #F4F6F9;
+    }
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      min-height: 520px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,rgba(7,14,26,.62),rgba(7,14,26,.55));
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+    }
+    .hero h1 {
+      margin: 0 0 .8rem;
+      font-weight: 900;
+      font-size: clamp(28px,5.5vw,56px);
+      line-height: 1.2;
+    }
+    .hero-sub {
+      margin: 0 0 1.5rem;
+      font-size: clamp(14px,1.9vw,18px);
+    }
+    .hero-points {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .point { font-weight: 600; }
+    .cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .cta a {
+      display: inline-block;
+      background: #fff;
+      color: #0A1B2B;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta a:hover { background: #f2f2f2; }
+    .notice {
+      font-size: 0.8rem;
+      color: #ddd;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .sticky-cta {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0A1B2B;
+      padding: 0.5rem 0;
+      z-index: 10;
+    }
+    .sticky-cta a {
+      flex: 1;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .hero-points { flex-direction: row; justify-content: center; }
+      .sticky-cta { display: none; }
+    }
+    footer {
+      background: #0A1220;
+      color: #c9d6e8;
+      padding: 2rem 1.5rem;
+    }
+    .foot-grid {
+      display: grid;
+      gap: 26px;
+      grid-template-columns: 2fr 1fr;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .foot-grid h3, .foot-grid h4 { color: #fff; margin: 0 0 10px; }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 20px;
+      padding: 16px 0;
+      font-size: 14px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <nav class="nav" role="navigation" aria-label="주요 메뉴">
-    <div class="container nav-inner">
-      <a class="brand" id="logo-link" href="./" aria-label="COREON 홈으로">
-        <img src="./logo.png" alt="COREON 로고"><span>COREON</span>
-      </a>
-      <div class="nav-links">
-        <a href="#services">Disciplines</a>
-        <a href="#partners">Partners</a>
-        <a href="#legal">Compliance</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a>
-        <a class="btn btn-primary" href="mailto:contact@coreon-global.com">문의</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero (비디오 유지 + 줄바꿈 + 3포인트 확장) -->
   <header class="hero">
-    <video class="hero-video" muted autoplay playsinline webkit-playsinline preload="metadata" loop
-           poster="/assets/hero_epcpm_poster.jpg?v=20250910"
-           src="/assets/hero_epcpm_720.mp4?v=20250910" aria-hidden="true">
-      브라우저가 영상을 지원하지 않습니다.
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div>
-        <h1>
-          <span class="h1-top">COREON</span>
-          계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.
-        </h1>
-        <p class="hero-sub">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
-
-        <div class="hero-points" role="list" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px">
-          <div class="point" role="listitem">건축주: <b>예산·기간 통제·비용 투명화</b></div>
-          <div class="point" role="listitem">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
-          <div class="point" role="listitem">시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b></div>
-        </div>
-
-        <div class="cta-group" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
-          <a class="btn btn-primary" href="tel:010-9039-1482" aria-label="전화 문의하기">전화하기</a>
-          <a class="btn btn-ghost" href="mailto:contact@coreon-global.com" aria-label="이메일 문의하기">이메일 문의</a>
-        </div>
-
-        <p class="hero-legal">
-          COREON은 공사 <b>관리·조정</b>(PM/CM) 및 조달·영업을 담당하며, 실제 시공은 관련 <b>면허 보유 협력사</b>가 수행합니다.
-        </p>
-
-        <div class="hero-chips" aria-label="Industries" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
-          <span class="chip">Public</span><span class="chip">Automotive</span><span class="chip">Display</span><span class="chip">Semiconductor</span><span class="chip">Energy</span><span class="chip">Plant/Infra</span>
-        </div>
+    <video muted autoplay playsinline loop poster="/assets/hero_epcpm_poster.jpg?v=20250910" src="/assets/hero_epcpm_720.mp4?v=20250910">브라우저가 영상을 지원하지 않습니다.</video>
+    <div class="hero-inner">
+      <h1>
+        <span style="display:block">COREON</span>
+        계약부터 준공까지 COREON이 관리·조정합니다.
+      </h1>
+      <p class="hero-sub">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
+      <div class="hero-points">
+        <div class="point">발주처: <b>예산·기간 통제·비용 투명화</b></div>
+        <div class="point">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
+        <div class="point">시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b></div>
       </div>
+      <div class="cta">
+        <a href="tel:010-9039-1482">📞 전화하기</a>
+        <a href="mailto:contact@coreon-global.com">✉️ 이메일 문의</a>
+      </div>
+      <p class="notice">
+        COREON은 공사 관리·조정(PM/CM) 및 조달·영업을 담당하며, 실제 시공은 관련 면허를 보유한 협력사가 수행합니다.
+      </p>
     </div>
   </header>
 
-  <section id="services">
-    <div class="container">
-      <h2>공종별 서비스 (Disciplines)</h2>
-      <p class="sub">토목(해체공사) · 조경 · 전기/계장 · 아스콘 · 안전/품질 — PM/CM 중심 협력 시공</p>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <span class="pill">토목(해체공사)</span>
-          <h3>구조물 해체·철거 PM/CM</h3>
-          <p class="muted">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담">상담 요청</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <span class="pill">전기/계장 | E&amp;I</span>
-          <h3>수변전·내선·플랜트 E&amp;I</h3>
-          <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-2" style="margin-top:18px">
-        <div class="card">
-          <span class="pill">아스콘 | Asphalt Concrete</span>
-          <h3>포장·보수·재포장 PM/CM</h3>
-          <p class="muted">도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담">상담 요청</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <span class="pill">안전/품질 | Safety &amp; Quality</span>
-          <h3>JSA/RA/ITP/QCP · 감리 대응</h3>
-          <p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20안전%2F품질%20문의">문의</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners -->
-  <section id="partners" style="padding-top:8px">
-    <div class="container">
-      <h2>파트너 네트워크 (Partners)</h2>
-      <p class="sub">면허 보유 시공사 및 전문업체와의 협력 체계</p>
-      <div class="grid grid-2">
-        <div class="card"><h3>전기/계장 시공 파트너</h3><p class="muted">E&I 시공 파트너</p></div>
-        <div class="card"><h3>해체 전문업체</h3><p class="muted">구조물 해체·철거 파트너</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 합법 운영 안내(접이식: 최소 고지 유지, 과밀 방지) -->
-  <section id="legal">
-    <div class="container">
-      <h2>합법 운영 안내</h2>
-      <details class="card">
-        <summary><b>COREON의 역할과 계약 구조 보기</b></summary>
-        <p class="muted" style="margin-top:8px">
-          COREON은 공사 <b>관리·조정(PM/CM)</b> 및 조달·영업을 수행하며, 실제 시공은 관련 <b>면허 보유 시공사</b>가 담당합니다.
-          발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할·책임을 문서화합니다.
-        </p>
-      </details>
-    </div>
-  </section>
-
   <!-- 모바일 하단 고정 CTA -->
-  <div class="sticky-cta" role="navigation" aria-label="빠른 상담 버튼">
+  <div class="sticky-cta">
     <a href="tel:010-9039-1482">전화</a>
     <a href="mailto:contact@coreon-global.com">이메일</a>
   </div>
 
   <footer>
-    <div class="container foot-grid">
+    <div class="foot-grid">
       <div>
-        <h3 style="color:#fff;margin:0 0 10px">COREON</h3>
-        <p style="margin:0 0 10px;line-height:1.7">
-          COREON은 <b>공사 관리·조정(PM/CM)</b>과 조달·영업을 수행하는 총괄 파트너입니다.
-          모든 시공은 관련 <b>면허 보유 시공사</b>가 수행합니다.
-        </p>
+        <h3>COREON</h3>
+        <p>COREON은 EPC 프로젝트의 <b>PM/CM 총괄 파트너</b>이자 <b>컨소시엄 에이전시</b>로서, 제조·공공 현장의 요구에 맞춰 공종별 협력 시공을 조율합니다. 모든 시공은 면허 보유 시공사가 수행합니다.</p>
         <p style="margin:6px 0 0">
           상호: COREON<br/>
           사업자등록번호: 586-24-02279<br/>
@@ -225,43 +176,19 @@
         </p>
       </div>
       <div>
-        <h4 style="color:#fff;margin:0 0 8px">바로가기</h4>
-        <p style="margin:0">
+        <h4>바로가기</h4>
+        <p>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a><br/>
-          <!-- EPC 패키지 링크 제외 -->
-          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=drive_link">EPC 트랙</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a><br/>
+          <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdeugdyBAaqowKR5Dq7ncMfXyN7yz6K4DCyBzNYTdO_LceMcA/viewform?usp=dialog">문의</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1eWCUNmfIXyOFPPOTMrR5LBh0KIpue0C5/view?usp=drive_link">개인정보처리방침</a>
         </p>
       </div>
     </div>
-    <div class="container copyright">© 2025 COREON. All rights reserved.</div>
+    <div class="copyright">© 2025 COREON. All rights reserved.</div>
   </footer>
-
-  <script>
-    // 로고 클릭 시 홈으로
-    (function(){
-      const logo = document.getElementById('logo-link');
-      if(!logo) return;
-      logo.addEventListener('click',(e)=>{
-        e.preventDefault();
-        const clean = location.origin + location.pathname.replace(/[#?].*$/,'');
-        location.assign(clean);
-      });
-    })();
-
-    // 히어로 비디오 자동재생 보정
-    (function(){
-      const v = document.querySelector('.hero-video');
-      if(!v) return;
-      function tryPlay(){ const p = v.play && v.play(); if(p && p.catch) p.catch(()=>{}); }
-      window.addEventListener('load', tryPlay);
-      document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) tryPlay(); });
-      ['touchstart','scroll','click'].forEach(ev=>window.addEventListener(ev, tryPlay, {once:true}));
-    })();
-  </script>
 </body>
 </html>
