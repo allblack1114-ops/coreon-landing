@@ -48,7 +48,6 @@
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
@@ -61,13 +60,8 @@
     .sticky-cta{display:flex;justify-content:space-around;align-items:center;position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:.5rem 0;z-index:49;box-shadow:0 -6px 18px rgba(7,16,30,.16)}
     .sticky-cta a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:800;padding:.75rem;border-right:1px solid rgba(255,255,255,.12)}
     .sticky-cta a:last-child{border-right:none}
-
     @media(min-width:980px){.sticky-cta{display:none}}
-    @media(max-width:980px){
-      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-      .hero,.hero-inner{min-height:460px}
-      .nav-links{display:none}
-    }
+    @media(max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} }
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
       .hero{background:linear-gradient(180deg,rgba(7,14,26,.6),rgba(7,14,26,.52)),url('/assets/hero_epcpm_poster.jpg?v=20250910') center/cover no-repeat}
@@ -109,7 +103,6 @@
           계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.
         </h1>
         <p class="hero-sub">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
-
         <div class="hero-points" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px">
           <div class="point">건축주: <b>예산·기간 통제·비용 투명화</b></div>
           <div class="point">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
@@ -123,19 +116,30 @@
   <section id="services">
     <div class="container">
       <h2>공종별 서비스 (Disciplines)</h2>
-      <p class="sub">건축(해체공사) · 토목(포장) · 전기/계장 · 소방 · 안전/품질 — PM/CM 중심 협력 시공</p>
+      <p class="sub">건축(해체공사) · 토목(포장) · 전기공사 · 소방공사 · 안전/품질 — PM/CM 중심 협력 시공</p>
 
-      <!-- 1행: 건축(해체) + 토목(아스콘) -->
       <div class="grid grid-2">
         <div class="card">
           <span class="pill">건축(해체공사)</span>
           <h3>구조물 해체·철거 PM/CM</h3>
           <p class="muted">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담">상담 요청</a>
           </div>
         </div>
+        <div class="card">
+          <span class="pill">전기공사 | E&amp;I</span>
+          <h3>수변전·내선·플랜트 E&amp;I</h3>
+          <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
+          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:18px">
         <div class="card">
           <span class="pill">토목(포장) | Asphalt Concrete</span>
           <h3>포장·보수·재포장 PM/CM</h3>
@@ -145,21 +149,8 @@
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담">상담 요청</a>
           </div>
         </div>
-      </div>
-
-      <!-- 2행: 전기/계장 + 소방 -->
-      <div class="grid grid-2" style="margin-top:18px">
         <div class="card">
-          <span class="pill">전기/계장 | E&amp;I</span>
-          <h3>수변전·내선·플랜트 E&amp;I</h3>
-          <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
-          </div>
-        </div>
-        <div class="card">
-          <span class="pill">소방 | Fire Protection</span>
+          <span class="pill">소방공사 | Fire Protection</span>
           <h3>소방 공사 PM/CM</h3>
           <p class="muted">스프링클러·소화펌프·감지기 등 소방설비 공사 관리. 파트너 시공사와 협력 수행.</p>
           <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
@@ -169,7 +160,6 @@
         </div>
       </div>
 
-      <!-- 3행: 안전/품질 -->
       <div class="grid grid-2" style="margin-top:18px">
         <div class="card">
           <span class="pill">안전/품질 | Safety &amp; Quality</span>
@@ -188,11 +178,11 @@
     <div class="container">
       <h2>파트너 네트워크 (Partners)</h2>
       <p class="sub">면허 보유 시공사 및 전문업체와의 협력 체계</p>
-      <div class="grid grid-4">
-        <div class="card"><h3>해체 전문업체</h3><p class="muted">구조물 해체·철거 파트너</p></div>
-        <div class="card"><h3>아스콘 공사 파트너</h3><p class="muted">포장·재포장·도로 보수 파트너</p></div>
-        <div class="card"><h3>전기/계장 시공 파트너</h3><p class="muted">E&amp;I 시공 파트너</p></div>
-        <div class="card"><h3>소방 공사 파트너</h3><p class="muted">소방설비 시공 파트너</p></div>
+      <div class="grid grid-3">
+        <div class="card"><h3>해체공사 파트너</h3><p class="muted">건축 해체·철거 파트너</p></div>
+        <div class="card"><h3>전기공사 파트너</h3><p class="muted">E&I 시공 파트너</p></div>
+        <div class="card"><h3>토목(포장) 파트너</h3><p class="muted">포장·재포장·도로 보수 파트너</p></div>
+        <div class="card"><h3>소방공사 파트너</h3><p class="muted">소방설비 시공 파트너</p></div>
       </div>
     </div>
   </section>
@@ -212,7 +202,7 @@
       <details class="card" id="shop-policy">
         <summary><b>전자상거래/통신판매 안내</b></summary>
         <div class="muted" style="margin-top:8px">
-          <p>COREON은 사업자등록증 상 업태/종목에 <b>전자상거래 소매업</b>이 포함되어 있습니다. 향후 통신판매업 신고 완료 시, 신고번호를 본 페이지에 고지합니다.</p>
+          <p>통신판매업 신고 완료 시, 신고번호 등 필수 고지를 본 페이지에 표시합니다.</p>
           <ul>
             <li>상호/대표자/사업자등록번호/주소/연락처: 하단 푸터 참조</li>
             <li>통신판매업 신고번호: <i>신고 완료 후 업데이트</i></li>
