@@ -39,11 +39,9 @@
     .hero-inner{position:relative;z-index:2;min-height:520px;display:flex;align-items:center}
     .hero h1{margin:0 0 .6rem;font-weight:900;font-size:clamp(28px,5.5vw,60px)}
     .hero-sub{margin:0 0 6px;opacity:.98;font-size:clamp(14px,1.9vw,18px)}
-    .chip{display:inline-flex;align-items:center;padding:.42rem .7rem;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.84rem}
     .u-underline{ box-shadow: inset 0 -0.35em rgba(255,255,255,.18); }
     .h1-top{display:block; font-size:clamp(30px,6vw,64px); line-height:1.05}
     .hero-points .point{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); color:#fff; padding:.5rem .7rem; border-radius:999px; font-weight:800; font-size:.9rem }
-    .hero-legal{ margin:12px 0 0; font-size:.82rem; color:#dbe7ff; max-width:720px }
 
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -60,6 +58,7 @@
     .sticky-cta{display:flex;justify-content:space-around;align-items:center;position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:.5rem 0;z-index:49;box-shadow:0 -6px 18px rgba(7,16,30,.16)}
     .sticky-cta a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:800;padding:.75rem;border-right:1px solid rgba(255,255,255,.12)}
     .sticky-cta a:last-child{border-right:none}
+
     @media(min-width:980px){.sticky-cta{display:none}}
     @media(max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} .hero,.hero-inner{min-height:460px} .nav-links{display:none} }
     @media (prefers-reduced-motion: reduce){
@@ -81,6 +80,8 @@
       <div class="nav-links">
         <a href="#services">Disciplines</a>
         <a href="#partners">Partners</a>
+        <a href="#news">News</a><!-- 건설뉴스 -->
+        <a href="#portals">Portals</a><!-- 유관기관 -->
         <a href="#legal">Compliance</a>
         <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a>
         <a class="btn btn-primary" href="mailto:contact@coreon-global.com">문의</a>
@@ -128,6 +129,7 @@
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담">상담 요청</a>
           </div>
         </div>
+
         <div class="card">
           <span class="pill">전기공사 | E&amp;I</span>
           <h3>수변전·내선·플랜트 E&amp;I</h3>
@@ -149,6 +151,7 @@
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담">상담 요청</a>
           </div>
         </div>
+
         <div class="card">
           <span class="pill">소방공사 | Fire Protection</span>
           <h3>소방 공사 PM/CM</h3>
@@ -184,6 +187,84 @@
         <div class="card"><h3>토목(포장) 파트너</h3><p class="muted">포장·재포장·도로 보수 파트너</p></div>
         <div class="card"><h3>소방공사 파트너</h3><p class="muted">소방설비 시공 파트너</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- 건설뉴스 (Google News RSS) -->
+  <section id="news" style="padding-top:8px">
+    <div class="container">
+      <h2>건설뉴스 (Auto · 최근 7일)</h2>
+      <p class="sub">Google 뉴스 RSS에서 ‘건설’ 키워드의 최신 기사를 자동으로 불러옵니다. 오류 시 아래 바로가기를 이용하세요.</p>
+
+      <div id="news-grid" class="grid grid-3" aria-live="polite">
+        <!-- JS로 채움 -->
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <b>뉴스 바로가기:</b>
+        <a target="_blank" rel="noopener noreferrer" href="https://news.google.com/search?q=%EA%B1%B4%EC%84%A4%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">건설(7일)</a> ·
+        <a target="_blank" rel="noopener noreferrer" href="https://news.google.com/search?q=%EA%B4%80%EA%B8%89%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">관급공사</a> ·
+        <a target="_blank" rel="noopener noreferrer" href="https://news.google.com/search?q=%ED%95%B4%EC%B2%B4%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">해체공사</a> ·
+        <a target="_blank" rel="noopener noreferrer" href="https://news.google.com/search?q=%EC%A0%84%EA%B8%B0%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">전기공사</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 유관기관 바로가기 -->
+  <section id="portals" style="padding-top:8px">
+    <div class="container">
+      <h2>유관기관 바로가기 (Public Portals)</h2>
+      <p class="sub">관급입찰·법령확인·기술인력·협회 등 업무에 자주 쓰이는 공식 포털입니다. (새 창)</p>
+
+      <div class="grid grid-3">
+        <!-- 발주/조달 -->
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.g2b.go.kr">
+          <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">나라장터</h3>
+          <p class="muted">국가종합전자조달시스템</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.pps.go.kr">
+          <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">조달청</h3>
+          <p class="muted">조달 제도·계약 안내</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kiscon.net">
+          <span class="pill">기술/인증</span><h3 style="margin:4px 0 6px">KISCON</h3>
+          <p class="muted">건설산업지식정보(업체·실적·면허)</p>
+        </a>
+
+        <!-- 법령/규정 -->
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.law.go.kr">
+          <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국가법령정보센터</h3>
+          <p class="muted">건축물관리법·전기사업법·소방 관련</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.molit.go.kr">
+          <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국토교통부</h3>
+          <p class="muted">건설정책·입찰·안전 지침</p>
+        </a>
+
+        <!-- 협회/단체 -->
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.cak.or.kr">
+          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건설협회</h3>
+          <p class="muted">입찰·계약·정책 자료</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kira.or.kr">
+          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건축사협회</h3>
+          <p class="muted">건축사 정책·자료·교육</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.keca.or.kr">
+          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">한국전기공사협회</h3>
+          <p class="muted">전기공사·회원서비스</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.koengineer.or.kr">
+          <span class="pill">기술/인력</span><h3 style="margin:4px 0 6px">건설기술인협회</h3>
+          <p class="muted">경력관리·교육</p>
+        </a>
+        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.safekorea.go.kr">
+          <span class="pill">법령/안전</span><h3 style="margin:4px 0 6px">행정안전부 재난안전</h3>
+          <p class="muted">안전 가이드·지침</p>
+        </a>
+      </div>
+
+      <p class="muted" style="margin-top:10px;font-size:.9rem">※ 외부 사이트는 각 기관 소유이며 COREON과 별개입니다.</p>
     </div>
   </section>
 
@@ -287,6 +368,45 @@
       document.addEventListener('visibilitychange', function(){ if(!document.hidden) tryPlay(); });
       ['touchstart','scroll','click'].forEach(function(ev){ window.addEventListener(ev, tryPlay, {once:true}); });
       setTimeout(function(){ if(v.paused || v.readyState < 2) toFallback(); }, 1800);
+    })();
+
+    // 건설뉴스: Google News RSS -> 공개 프록시 -> XML 파싱
+    (function(){
+      const wrap = document.getElementById('news-grid');
+      if(!wrap) return;
+      const rss = 'https://news.google.com/rss/search?q=%EA%B1%B4%EC%84%A4%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako';
+      const url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(rss); // 공개 프록시
+
+      function card(href,title,src,when){
+        const a = document.createElement('a');
+        a.className='card'; a.href=href; a.target='_blank'; a.rel='noopener noreferrer';
+        a.innerHTML = `
+          <h3 style="margin:0 0 6px;font-size:16px;line-height:1.35">${title}</h3>
+          <p class="muted" style="margin:0">${src || 'Google 뉴스'} · ${when || ''}</p>
+        `;
+        return a;
+      }
+
+      fetch(url, {mode:'cors'})
+        .then(r=>r.text())
+        .then(xml=>{
+          const doc = new window.DOMParser().parseFromString(xml, 'text/xml');
+          const items = Array.from(doc.querySelectorAll('item')).slice(0,9);
+          if(!items.length) throw new Error('no items');
+          items.forEach(it=>{
+            const link = it.querySelector('link')?.textContent || '#';
+            const title = (it.querySelector('title')?.textContent || '기사').replace(' - Google 뉴스','');
+            const src = it.querySelector('source')?.textContent || '';
+            const pub = new Date(it.querySelector('pubDate')?.textContent||'');
+            const when = isNaN(pub)? '' : pub.toLocaleDateString('ko-KR');
+            wrap.appendChild(card(link,title,src,when));
+          });
+        })
+        .catch(_=>{
+          wrap.innerHTML = `
+            <div class="card"><b>자동 수집에 일시적 문제가 있습니다.</b><br/>
+            아래 ‘뉴스 바로가기’ 링크를 이용해 주세요.</div>`;
+        });
     })();
   </script>
 </body>
