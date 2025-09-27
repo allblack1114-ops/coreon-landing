@@ -46,7 +46,7 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
     .brand img{width:28px;height:28px}
-    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 
     .hero{position:relative;overflow:hidden;color:#fff;min-height:520px}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -64,6 +64,7 @@
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .pill{display:inline-flex;align-items:center;padding:.38rem .6rem;border-radius:999px;background:#EEF2F7;color:#32455d;font-weight:800;font-size:.78rem;margin-bottom:.45rem}
     .muted{color:var(--gray)}
@@ -82,8 +83,6 @@
     .tabpanel{display:none}
     .tabpanel[aria-hidden="false"]{display:block}
 
-    /* ---- 추가: Why/Compare 전용 보강 ---- */
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .feature-emoji{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#EAF4FF;color:#0F6FFF;font-weight:800}
     .table-wrap{overflow:auto}
     .table{width:100%;border-collapse:collapse;font-size:.95rem;background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -91,12 +90,19 @@
     .table thead th{background:#fff;font-weight:800;color:#32455d}
     .table tbody tr:nth-child(2n){background:#fafcff}
 
+    details.accordion{border:1px solid #e9eef5;border-radius:12px;background:#fff;box-shadow:var(--shadow);padding:0}
+    details.accordion>summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800}
+    details.accordion[open]>summary{border-bottom:1px solid #e9eef5}
+    .accordion .acc-body{padding:12px 18px 16px}
+
+    .lang-btn{border:1px solid #dbe3ec;background:#fff;border-radius:999px;padding:.45rem .75rem;font-weight:800;cursor:pointer}
+    .lang-btn[aria-pressed="true"]{background:#0F6FFF;color:#fff;border-color:#0F6FFF}
+
     @media(min-width:980px){.sticky-cta{display:none}}
     @media(max-width:980px){
-      .grid-2,.grid-3{grid-template-columns:1fr}
-      .grid-4{grid-template-columns:1fr}
+      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
       .hero,.hero-inner{min-height:460px}
-      .nav-links{display:none}
+      .nav-links{gap:10px}
     }
     @media (prefers-reduced-motion: reduce){
       .hero-video{display:none}
@@ -113,23 +119,23 @@
         <img src="./logo.png" alt="COREON 로고"><span>COREON</span>
       </a>
       <div class="nav-links">
-        <!-- 추가 앵커 -->
-        <a href="#why">Why</a>
-        <a href="#compare">Compare</a>
-        <!-- 기존 항목 유지 -->
-        <a href="#services">Disciplines</a>
-        <a href="#partners">Partners</a>
-        <a href="#news">News</a>
-        <a href="#portals">Portals</a>
-        <a href="#legal">Compliance</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a>
-        <a class="btn btn-primary" href="mailto:contact@coreon-global.com">문의</a>
+        <a href="#why" data-i18n="nav.why">Why</a>
+        <a href="#compare" data-i18n="nav.compare">Compare</a>
+        <a href="#services" data-i18n="nav.services">Disciplines</a>
+        <a href="#partners" data-i18n="nav.partners">Partners</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#portals" data-i18n="nav.portals">Portals</a>
+        <a href="#legal" data-i18n="nav.legal">Compliance</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link" data-i18n="nav.companyPdf">회사 소개서(PDF)</a>
+        <a class="btn btn-primary" href="mailto:contact@coreon-global.com" data-i18n="nav.contact">문의</a>
+        <button id="lang-kr" class="lang-btn" aria-pressed="true">KR</button>
+        <button id="lang-en" class="lang-btn" aria-pressed="false">EN</button>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" id="top">
     <video class="hero-video" muted autoplay playsinline webkit-playsinline preload="metadata" loop controlslist="nodownload" poster="/assets/hero_epcpm_poster.jpg?v=20250910" src="/assets/hero_epcpm_720.mp4?v=20250910" aria-hidden="true">
       브라우저가 영상을 지원하지 않습니다.
     </video>
@@ -138,101 +144,99 @@
       <div>
         <h1>
           <span class="h1-top">COREON</span>
-          계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.
+          <span data-i18n="hero.title">계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.</span>
         </h1>
-        <p class="hero-sub">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
+        <p class="hero-sub" data-i18n="hero.subtitle">시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.</p>
         <div class="hero-points" style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px">
-          <div class="point">건축주: <b>예산·기간 통제·비용 투명화</b></div>
-          <div class="point">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
-          <div class="point">시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b></div>
+          <div class="point" data-i18n="hero.point1">건축주: <b>예산·기간 통제·비용 투명화</b></div>
+          <div class="point" data-i18n="hero.point2">설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b></div>
+          <div class="point" data-i18n="hero.point3">시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b></div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- [추가] Why COREON -->
+  <!-- Why COREON -->
   <section id="why" style="padding-top:8px">
     <div class="container">
-      <h2>왜 COREON인가?</h2>
-      <p class="sub">대형사와 단순 비교가 아닌, <b>현장 성과</b>에 집중한 COREON의 차별 포인트.</p>
+      <h2 data-i18n="why.title">왜 COREON인가?</h2>
+      <p class="sub" data-i18n="why.sub">대형사와 단순 비교가 아닌, <b>현장 성과</b>에 집중한 COREON의 차별 포인트.</p>
 
       <div class="grid grid-4">
         <div class="card">
           <div class="feature-emoji">⚡</div>
-          <h3 style="margin:10px 0 6px">민첩한 실행</h3>
-          <p class="muted">복잡한 보고체계 대신 <b>대표 직결</b> 체계. 현장 이슈에 즉시 대응.</p>
+          <h3 style="margin:10px 0 6px" data-i18n="why.f1.t">민첩한 실행</h3>
+          <p class="muted" data-i18n="why.f1.d">복잡한 보고체계 대신 <b>대표 직결</b> 체계. 현장 이슈에 즉시 대응.</p>
         </div>
         <div class="card">
           <div class="feature-emoji">🔁</div>
-          <h3 style="margin:10px 0 6px">원스톱 패키지</h3>
-          <p class="muted">해체 인허가 → 시공 → PM/CM까지 <b>전 과정 일괄 책임</b>.</p>
+          <h3 style="margin:10px 0 6px" data-i18n="why.f2.t">원스톱 패키지</h3>
+          <p class="muted" data-i18n="why.f2.d">해체 인허가 → 시공 → PM/CM까지 <b>전 과정 일괄 책임</b>.</p>
         </div>
         <div class="card">
           <div class="feature-emoji">🔌</div>
-          <h3 style="margin:10px 0 6px">안전·전기 개선 연계</h3>
-          <p class="muted">전기안전 점검 결과를 <b>개선공사</b>까지 즉시 연결, 가시적 성과.</p>
+          <h3 style="margin:10px 0 6px" data-i18n="why.f3.t">안전·전기 개선 연계</h3>
+          <p class="muted" data-i18n="why.f3.d">전기안전 점검 결과를 <b>개선공사</b>까지 즉시 연결, 가시적 성과.</p>
         </div>
         <div class="card">
           <div class="feature-emoji">📊</div>
-          <h3 style="margin:10px 0 6px">투명한 관리</h3>
-          <p class="muted">기간/예산 준수와 <b>변경관리 이력</b>을 표준 리포트로 공유.</p>
+          <h3 style="margin:10px 0 6px" data-i18n="why.f4.t">투명한 관리</h3>
+          <p class="muted" data-i18n="why.f4.d">기간/예산 준수와 <b>변경관리 이력</b>을 표준 리포트로 공유.</p>
         </div>
       </div>
 
       <div class="card" style="margin-top:16px">
-        허가·안전·품질·비용·기간까지 <b>원스톱</b>으로 책임지는 <b>현장 밀착형</b> 파트너.
-        대형사처럼 복잡한 보고체계가 아닌 <b>즉각적인 의사결정과 실행</b>으로 프로젝트 성과를 만듭니다.
+        <span data-i18n="why.tail">허가·안전·품질·비용·기간까지 <b>원스톱</b>으로 책임지는 <b>현장 밀착형</b> 파트너. 대형사처럼 복잡한 보고체계가 아닌 <b>즉각적인 의사결정과 실행</b>으로 프로젝트 성과를 만듭니다.</span>
         <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20프로젝트%20상담%20문의">프로젝트 상담 문의</a>
-          <!-- 기존 회사소개서 링크만 노출 -->
+          <a class="btn btn-primary" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20프로젝트%20상담%20문의" data-i18n="why.cta1">프로젝트 상담 문의</a>
           <a class="btn" target="_blank" rel="noopener"
              href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link"
-             aria-label="회사 소개서 보기(새 창)">회사 소개서 보기</a>
+             aria-label="회사 소개서 보기(새 창)" data-i18n="why.cta2">회사 소개서 보기</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- [추가] Compare -->
+  <!-- Compare -->
   <section id="compare" style="background:#F7F9FC;padding:24px 0">
     <div class="container">
-      <h2>COREON vs 대형 PM/CM</h2>
-      <p class="sub">프로젝트 특성에 따라 파트너는 달라집니다. COREON은 <b>소·중형 프로젝트</b>와 <b>빠른 대응</b>이 필요한 현장에 최적화.</p>
+      <h2 data-i18n="cmp.title">COREON vs 대형 PM/CM</h2>
+      <p class="sub" data-i18n="cmp.sub">프로젝트 특성에 따라 파트너는 달라집니다. COREON은 <b>소·중형 프로젝트</b>와 <b>빠른 대응</b>이 필요한 현장에 최적화.</p>
 
       <div class="table-wrap">
         <table class="table" role="table" aria-label="COREON과 대형 PM/CM 비교표">
           <thead>
             <tr>
-              <th scope="col">구분</th>
-              <th scope="col">대형 PM/CM</th>
-              <th scope="col">COREON</th>
+              <th scope="col" data-i18n="cmp.col0">구분</th>
+              <th scope="col" data-i18n="cmp.col1">대형 PM/CM</th>
+              <th scope="col" data-i18n="cmp.col2">COREON</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="muted"><b>조직/의사결정</b></td>
-              <td>수백 명 규모, 다층 보고체계</td>
-              <td><b>대표 직결</b>, <b>즉각적</b> 의사결정</td>
+              <td class="muted"><b data-i18n="cmp.r1h">조직/의사결정</b></td>
+              <td data-i18n="cmp.r1l">수백 명 규모, 다층 보고체계</td>
+              <td><b data-i18n="cmp.r1r1">대표 직결</b>, <b data-i18n="cmp.r1r2">즉각적</b> <span data-i18n="cmp.r1r3">의사결정</span></td>
             </tr>
             <tr>
-              <td class="muted"><b>프로젝트 적합성</b></td>
-              <td>초대형·장기 프로젝트 중심</td>
-              <td><b>소·중형</b> 프로젝트, 긴급 이슈 대응</td>
+              <td class="muted"><b data-i18n="cmp.r2h">프로젝트 적합성</b></td>
+              <td data-i18n="cmp.r2l">초대형·장기 프로젝트 중심</td>
+              <td><b data-i18n="cmp.r2r1">소·중형</b> <span data-i18n="cmp.r2r2">프로젝트, 긴급 이슈 대응</span></td>
             </tr>
             <tr>
-              <td class="muted"><b>서비스 포커스</b></td>
-              <td>기획·설계·리포팅 중심</td>
-              <td><b>현장 실행</b>·허가·시공 <b>원스톱</b></td>
+              <td class="muted"><b data-i18n="cmp.r3h">서비스 포커스</b></td>
+              <td data-i18n="cmp.r3l">기획·설계·리포팅 중심</td>
+              <td><b data-i18n="cmp.r3r1">현장 실행</b>·<span data-i18n="cmp.r3r2">허가·시공</span> <b data-i18n="cmp.r3r3">원스톱</b></td>
             </tr>
             <tr>
-              <td class="muted"><b>관리 방식</b></td>
-              <td>표준화 프로세스, 대규모 시스템</td>
-              <td>경량 대시보드(공정/이슈/코스트), <b>현장 밀착</b></td>
+              <td class="muted"><b data-i18n="cmp.r4h">관리 방식</b></td>
+              <td data-i18n="cmp.r4l">표준화 프로세스, 대규모 시스템</td>
+              <td data-i18n="cmp.r4r">경량 대시보드(공정/이슈/코스트), <b>현장 밀착</b></td>
             </tr>
             <tr>
-              <td class="muted"><b>가치 제안</b></td>
-              <td>브랜드/글로벌 네트워크</td>
-              <td><b>기간·비용 준수</b> + <b>변경관리</b>의 실전 성과</td>
+              <td class="muted"><b data-i18n="cmp.r5h">가치 제안</b></td>
+              <td data-i18n="cmp.r5l">브랜드/글로벌 네트워크</td>
+              <td data-i18n="cmp.r5r"><b>기간·비용 준수</b> + <b>변경관리</b>의 실전 성과</td>
             </tr>
           </tbody>
         </table>
@@ -244,25 +248,25 @@
   <!-- Services -->
   <section id="services">
     <div class="container">
-      <h2>공종별 서비스 (Disciplines)</h2>
-      <p class="sub">건축(해체공사) · 전기공사 · 토목(포장) · 소방공사 · 안전/품질 — PM/CM 중심 협력 시공</p>
+      <h2 data-i18n="svc.title">공종별 서비스 (Disciplines)</h2>
+      <p class="sub" data-i18n="svc.sub">건축(해체공사) · 전기공사 · 토목(포장) · 소방공사 · <b>조경</b> · <b>방수</b> · 안전/품질 — PM/CM 중심 협력 시공</p>
 
       <div class="grid grid-2">
         <div class="card">
-          <span class="pill">건축(해체공사)</span>
-          <h3>구조물 해체·철거 PM/CM</h3>
-          <p class="muted">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
-            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link">해체공사(철거)(PDF)</a>
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담">상담 요청</a>
+          <span class="pill" data-i18n="svc.demo.pill">건축(해체공사)</span>
+          <h3 data-i18n="svc.demo.h">구조물 해체·철거 PM/CM</h3>
+          <p class="muted" data-i18n="svc.demo.d">교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view?usp=drive_link" data-i18n="btn.pdf">해체공사(철거)(PDF)</a>
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20해체공사%20상담" data-i18n="btn.consult">상담 요청</a>
           </div>
         </div>
 
         <div class="card">
           <span class="pill">전기공사 | E&amp;I</span>
-          <h3>수변전·내선·플랜트 E&amp;I</h3>
-          <p class="muted">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+          <h3 data-i18n="svc.elec.h">수변전·내선·플랜트 E&amp;I</h3>
+          <p class="muted" data-i18n="svc.elec.d">변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료(PDF)</a>
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1GJ7YokHIGmGqVYaZtv1pdwhokrabhCrQ/view?usp=drive_link">전기안전 원스톱(PDF)</a>
           </div>
@@ -272,21 +276,41 @@
       <div class="grid grid-2" style="margin-top:18px">
         <div class="card">
           <span class="pill">토목(포장) | Asphalt Concrete</span>
-          <h3>포장·보수·재포장 PM/CM</h3>
-          <p class="muted">도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+          <h3 data-i18n="svc.ac.h">포장·보수·재포장 PM/CM</h3>
+          <p class="muted" data-i18n="svc.ac.d">도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사(PDF)</a>
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담">상담 요청</a>
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20아스콘%20상담" data-i18n="btn.consult">상담 요청</a>
           </div>
         </div>
 
         <div class="card">
           <span class="pill">소방공사 | Fire Protection</span>
-          <h3>소방 공사 PM/CM</h3>
-          <p class="muted">스프링클러·소화펌프·감지기 등 소방설비 공사 관리. 파트너 시공사와 협력 수행.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+          <h3 data-i18n="svc.fire.h">소방 공사 PM/CM</h3>
+          <p class="muted" data-i18n="svc.fire.d">스프링클러·소화펌프·감지기 등 소방설비 공사 관리. 파트너 시공사와 협력 수행.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view?usp=sharing">소방공사 소개(PDF)</a>
-            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20소방공사%20문의">문의</a>
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20소방공사%20문의" data-i18n="btn.inquire">문의</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW: Landscaping & Waterproofing -->
+      <div class="grid grid-2" style="margin-top:18px">
+        <div class="card">
+          <span class="pill">조경 | Landscaping</span>
+          <h3>조경 시공·유지관리 PM/CM</h3>
+          <p class="muted">단지 조경·수목식재·옥상정원·관수/배수·사면녹화. 시공은 조경공사업체.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20조경%20상담">상담 요청</a>
+          </div>
+        </div>
+        <div class="card">
+          <span class="pill">방수 | Waterproofing</span>
+          <h3>옥상·외벽·기초 방수 PM/CM</h3>
+          <p class="muted">시트·도막·우레탄·침투방수, 누수 진단/보수. 시공은 방수 전문업체.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20방수%20상담">상담 요청</a>
           </div>
         </div>
       </div>
@@ -296,7 +320,7 @@
           <span class="pill">안전/품질 | Safety &amp; Quality</span>
           <h3>JSA/RA/ITP/QCP · 감리 대응</h3>
           <p class="muted">표준 점검·리포트 체계로 리스크를 선제 통제.</p>
-          <div class="cta-group" style="margin-top:12px;display:flex;gap:10px">
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20안전%2F품질%20문의">문의</a>
           </div>
         </div>
@@ -305,16 +329,18 @@
     </div>
   </section>
 
-  <!-- Partners -->
+  <!-- Partners -> COREON 관계사 -->
   <section id="partners" style="padding-top:8px">
     <div class="container">
-      <h2>파트너 네트워크 (Partners)</h2>
-      <p class="sub">면허 보유 시공사 및 전문업체와의 협력 체계</p>
+      <h2 data-i18n="rel.title">COREON 관계사 (Affiliates)</h2>
+      <p class="sub" data-i18n="rel.sub">면허 보유 시공사 및 전문업체와의 협력 체계</p>
       <div class="grid grid-3">
-        <div class="card"><h3>해체공사 파트너</h3><p class="muted">건축 해체·철거 파트너</p></div>
-        <div class="card"><h3>전기공사 파트너</h3><p class="muted">E&amp;I 시공 파트너</p></div>
-        <div class="card"><h3>토목(포장) 파트너</h3><p class="muted">포장·재포장·도로 보수 파트너</p></div>
-        <div class="card"><h3>소방공사 파트너</h3><p class="muted">소방설비 시공 파트너</p></div>
+        <div class="card"><h3>해체공사 관계사</h3><p class="muted">건축 해체·철거 전문</p></div>
+        <div class="card"><h3>전기공사 관계사</h3><p class="muted">E&amp;I/수변전 시공</p></div>
+        <div class="card"><h3>토목(포장) 관계사</h3><p class="muted">포장·재포장·보수</p></div>
+        <div class="card"><h3>소방공사 관계사</h3><p class="muted">소방설비 시공</p></div>
+        <div class="card"><h3>조경 관계사</h3><p class="muted">식재·유지관리</p></div>
+        <div class="card"><h3>방수 관계사</h3><p class="muted">옥상·외벽·기초</p></div>
       </div>
     </div>
   </section>
@@ -322,23 +348,23 @@
   <!-- News -->
   <section id="news" style="padding-top:8px">
     <div class="container">
-      <h2>건설뉴스 · 공종별</h2>
-      <p class="sub">최근 7일 기준. Google 뉴스 RSS 자동 수집(오류 시 아래 수동 링크 사용).</p>
+      <h2 data-i18n="news.title">건설뉴스 · 공종별</h2>
+      <p class="sub" data-i18n="news.sub">최근 7일 기준. Google 뉴스 RSS 자동 수집(오류 시 아래 수동 링크 사용).</p>
 
       <div class="tabs" role="tablist" aria-label="뉴스 카테고리">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-demo" id="tab-demo" data-q="해체공사">해체</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-ac" id="tab-ac" data-q="아스콘">아스콘</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-elec" id="tab-elec" data-q="전기공사">전기</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-fire" id="tab-fire" data-q="소방공사">소방</button>
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-demo" id="tab-demo" data-q="해체공사" data-i18n="news.tab.demo">해체</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-ac" id="tab-ac" data-q="아스콘" data-i18n="news.tab.ac">아스콘</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-elec" id="tab-elec" data-q="전기공사" data-i18n="news.tab.elec">전기</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-fire" id="tab-fire" data-q="소방공사" data-i18n="news.tab.fire">소방</button>
       </div>
 
       <div id="panel-demo" class="tabpanel" role="tabpanel" aria-labelledby="tab-demo" aria-hidden="false">
         <div class="grid grid-3" id="news-demo"></div>
         <div class="card" style="margin-top:12px">
-          <b>바로가기:</b>
+          <b data-i18n="news.goto">바로가기:</b>
           <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer" href="https://news.google.com/search?q=%ED%95%B4%EC%B2%B4%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">해체공사(7일)</a>
         </div>
-        <p class="muted" style="margin-top:8px;font-size:.85rem">
+        <p class="muted" style="margin-top:8px;font-size:.85rem" data-i18n="news.disclaimer">
           ※ 기사 제목·링크는 Google 뉴스 RSS를 통해 제공되며, 저작권은 각 언론사에 있습니다. 외부 기사로 이동 시 해당 사이트의 개인정보처리방침이 적용됩니다.
         </p>
       </div>
@@ -346,7 +372,7 @@
       <div id="panel-ac" class="tabpanel" role="tabpanel" aria-labelledby="tab-ac" aria-hidden="true">
         <div class="grid grid-3" id="news-ac"></div>
         <div class="card" style="margin-top:12px">
-          <b>바로가기:</b>
+          <b data-i18n="news.goto">바로가기:</b>
           <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer" href="https://news.google.com/search?q=%EC%95%84%EC%8A%A4%EC%BD%98%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">아스콘(7일)</a>
         </div>
       </div>
@@ -354,7 +380,7 @@
       <div id="panel-elec" class="tabpanel" role="tabpanel" aria-labelledby="tab-elec" aria-hidden="true">
         <div class="grid grid-3" id="news-elec"></div>
         <div class="card" style="margin-top:12px">
-          <b>바로가기:</b>
+          <b data-i18n="news.goto">바로가기:</b>
           <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer" href="https://news.google.com/search?q=%EC%A0%84%EA%B8%B0%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">전기공사(7일)</a>
         </div>
       </div>
@@ -362,75 +388,75 @@
       <div id="panel-fire" class="tabpanel" role="tabpanel" aria-labelledby="tab-fire" aria-hidden="true">
         <div class="grid grid-3" id="news-fire"></div>
         <div class="card" style="margin-top:12px">
-          <b>바로가기:</b>
+          <b data-i18n="news.goto">바로가기:</b>
           <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer" href="https://news.google.com/search?q=%EC%86%8C%EB%B0%A9%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">소방공사(7일)</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portals -->
+  <!-- Portals (accordion) -->
   <section id="portals" style="padding-top:8px">
     <div class="container">
-      <h2>유관기관 바로가기 (Public Portals)</h2>
-    <p class="sub">관급입찰·법령확인·기술인력·협회 등 자주 쓰는 공식 포털. (새 창)</p>
+      <h2 data-i18n="port.title">유관기관 바로가기 (Public Portals)</h2>
+      <p class="sub" data-i18n="port.sub">관급입찰·법령확인·기술인력·협회 등 자주 쓰는 공식 포털. (새 창)</p>
 
-      <div class="grid grid-3">
-        <!-- 발주/조달 -->
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.g2b.go.kr">
-          <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">나라장터</h3>
-          <p class="muted">국가종합전자조달시스템</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.pps.go.kr">
-          <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">조달청</h3>
-          <p class="muted">조달 제도·계약 안내</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kiscon.net">
-          <span class="pill">기술/인증</span><h3 style="margin:4px 0 6px">KISCON</h3>
-          <p class="muted">건설산업지식정보(업체·실적·면허)</p>
-        </a>
-        <!-- 법령/규정 -->
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.law.go.kr">
-          <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국가법령정보센터</h3>
-          <p class="muted">건축물관리법·전기사업법·소방 관련</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.molit.go.kr">
-          <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국토교통부</h3>
-          <p class="muted">건설정책·입찰·안전 지침</p>
-        </a>
-        <!-- 협회/단체 -->
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.cak.or.kr">
-          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건설협회</h3>
-          <p class="muted">입찰·계약·정책 자료</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kira.or.kr">
-          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건축사협회</h3>
-          <p class="muted">건축사 정책·자료·교육</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.keca.or.kr">
-          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">한국전기공사협회</h3>
-          <p class="muted">전기공사·회원서비스</p>
-        </a>
-        <!-- ▶ 한국소방시설협회 (HTTP, 새 창/리퍼러차단) -->
-        <a class="card" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" href="http://www.ekffa.or.kr">
-          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">한국소방시설협회</h3>
-          <p class="muted">소방 안전·교육·자료</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.ksea.or.kr">
-          <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건축구조기술사회</h3>
-          <p class="muted">구조기술 기준·교육</p>
-        </a>
-        <!-- ▶ 건설기술인협회 (HTTP, 새 창/리퍼러차단) -->
-        <a class="card" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" href="http://www.kocea.or.kr">
-          <span class="pill">기술/인력</span><h3 style="margin:4px 0 6px">건설기술인협회</h3>
-          <p class="muted">경력관리·교육</p>
-        </a>
-        <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.safekorea.go.kr">
-          <span class="pill">법령/안전</span><h3 style="margin:4px 0 6px">행정안전부 재난안전</h3>
-          <p class="muted">안전 가이드·지침</p>
-        </a>
-      </div>
-      <p class="muted" style="margin-top:10px;font-size:.9rem">
+      <details class="accordion">
+        <summary data-i18n="port.grp1">발주/조달</summary>
+        <div class="acc-body grid grid-3">
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.g2b.go.kr">
+            <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">나라장터</h3><p class="muted">국가종합전자조달시스템</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.pps.go.kr">
+            <span class="pill">발주/조달</span><h3 style="margin:4px 0 6px">조달청</h3><p class="muted">조달 제도·계약 안내</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kiscon.net">
+            <span class="pill">기술/인증</span><h3 style="margin:4px 0 6px">KISCON</h3><p class="muted">건설산업지식정보(업체·실적·면허)</p>
+          </a>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary data-i18n="port.grp2">법령/규정</summary>
+        <div class="acc-body grid grid-3">
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.law.go.kr">
+            <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국가법령정보센터</h3><p class="muted">건축물관리법·전기사업법·소방 관련</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.molit.go.kr">
+            <span class="pill">법령/규정</span><h3 style="margin:4px 0 6px">국토교통부</h3><p class="muted">건설정책·입찰·안전 지침</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.safekorea.go.kr">
+            <span class="pill">법령/안전</span><h3 style="margin:4px 0 6px">행정안전부 재난안전</h3><p class="muted">안전 가이드·지침</p>
+          </a>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary data-i18n="port.grp3">협회/단체 · 기술/인력</summary>
+        <div class="acc-body grid grid-3">
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.cak.or.kr">
+            <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건설협회</h3><p class="muted">입찰·계약·정책 자료</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.kira.or.kr">
+            <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건축사협회</h3><p class="muted">건축사 정책·자료·교육</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.keca.or.kr">
+            <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">한국전기공사협회</h3><p class="muted">전기공사·회원서비스</p>
+          </a>
+          <!-- HTTP 사이트는 리퍼러 차단 -->
+          <a class="card" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" href="http://www.ekffa.or.kr">
+            <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">한국소방시설협회</h3><p class="muted">소방 안전·교육·자료</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" href="https://www.ksea.or.kr">
+            <span class="pill">협회/단체</span><h3 style="margin:4px 0 6px">대한건축구조기술사회</h3><p class="muted">구조기술 기준·교육</p>
+          </a>
+          <a class="card" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" href="http://www.kocea.or.kr">
+            <span class="pill">기술/인력</span><h3 style="margin:4px 0 6px">건설기술인협회</h3><p class="muted">경력관리·교육</p>
+          </a>
+        </div>
+      </details>
+
+      <p class="muted" style="margin-top:10px;font-size:.9rem" data-i18n="port.note">
         ※ 외부 사이트는 각 기관 소유이며 COREON과 별개입니다.
       </p>
     </div>
@@ -439,28 +465,28 @@
   <!-- Legal -->
   <section id="legal">
     <div class="container">
-      <h2>합법 운영 안내</h2>
+      <h2 data-i18n="legal.title">합법 운영 안내</h2>
 
       <details class="card">
-        <summary><b>COREON의 역할과 계약 구조 보기</b></summary>
-        <p class="muted" style="margin-top:8px">
+        <summary><b data-i18n="legal.roleSum">COREON의 역할과 계약 구조 보기</b></summary>
+        <p class="muted" style="margin-top:8px" data-i18n="legal.role">
           COREON은 공사 <b>관리·조정(PM/CM)</b> 및 조달·영업을 수행하며, 실제 시공은 관련 <b>면허 보유 시공사</b>가 담당합니다.
           발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할·책임을 문서화합니다.
         </p>
       </details>
 
       <details class="card" id="shop-policy">
-        <summary><b>전자상거래/통신판매 안내</b></summary>
+        <summary><b data-i18n="legal.shopSum">전자상거래/통신판매 안내</b></summary>
         <div class="muted" style="margin-top:8px">
-          <p>통신판매업 신고 완료 시, 신고번호 등 필수 고지를 본 페이지에 표시합니다.</p>
+          <p data-i18n="legal.shop1">통신판매업 신고 완료 시, 신고번호 등 필수 고지를 본 페이지에 표시합니다.</p>
           <ul>
-            <li>상호/대표자/사업자등록번호/주소/연락처: 하단 푸터 참조</li>
-            <li>통신판매업 신고번호: <i>신고 완료 후 업데이트</i></li>
+            <li data-i18n="legal.shop2">상호/대표자/사업자등록번호/주소/연락처: 하단 푸터 참조</li>
+            <li data-i18n="legal.shop3">통신판매업 신고번호: <i>신고 완료 후 업데이트</i></li>
             <li>고객센터: 010-9039-1482 / <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a></li>
-            <li>교환/반품/환불 기준: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a></li>
-            <li>배송정책/AS 안내: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a></li>
+            <li data-i18n="legal.shop4">교환/반품/환불 기준: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a></li>
+            <li data-i18n="legal.shop5">배송정책/AS 안내: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a></li>
           </ul>
-          <p>본 안내는 「전자상거래 등에서의 소비자보호에 관한 법률」 등 관련 법령을 준수하기 위한 최소 고지입니다.</p>
+          <p data-i18n="legal.shop6">본 안내는 「전자상거래 등에서의 소비자보호에 관한 법률」 등 관련 법령을 준수하기 위한 최소 고지입니다.</p>
         </div>
       </details>
     </div>
@@ -468,15 +494,15 @@
 
   <!-- Mobile CTA -->
   <div class="sticky-cta" role="navigation" aria-label="빠른 상담 버튼">
-    <a href="tel:010-9039-1482">전화</a>
-    <a href="mailto:contact@coreon-global.com">이메일</a>
+    <a href="tel:010-9039-1482" data-i18n="cta.phone">전화</a>
+    <a href="mailto:contact@coreon-global.com" data-i18n="cta.email">이메일</a>
   </div>
 
   <footer>
     <div class="container foot-grid">
       <div>
         <h3 style="color:#fff;margin:0 0 10px">COREON</h3>
-        <p style="margin:0 0 10px;line-height:1.7">
+        <p style="margin:0 0 10px;line-height:1.7" data-i18n="foot.about">
           COREON은 <b>공사 관리·조정(PM/CM)</b>과 조달·영업을 수행하는 총괄 파트너입니다. 모든 시공은 관련 <b>면허 보유 시공사</b>가 수행합니다.
         </p>
         <p style="margin:6px 0 0">
@@ -486,12 +512,12 @@
           대표전화: 010-9039-1482<br/>
           이메일: <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
         </p>
-        <p style="margin-top:10px;font-size:.85rem;opacity:.8">
+        <p style="margin-top:10px;font-size:.85rem;opacity:.8" data-i18n="foot.disclaimer">
           ※ COREON은 제3자 기관·언론사와 직접적 제휴 관계가 아니며, 외부 사이트 정보의 정확성·최신성에 대해 책임지지 않습니다.
         </p>
       </div>
       <div>
-        <h4 style="color:#fff;margin:0 0 8px">바로가기</h4>
+        <h4 style="color:#fff;margin:0 0 8px" data-i18n="foot.quick">바로가기</h4>
         <p style="margin:0">
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1wMqZFKX7Gu-wIKIcqk-BGEw2jk7AaRxT/view?usp=drive_link">회사 소개서(PDF)</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1jTamffhtbIPN3ji_iycYYASF4v1lscLp/view?usp=drive_link">EPC 트랙</a><br/>
@@ -501,7 +527,7 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view?usp=sharing">소방공사 소개서</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1eWCUNmfIXyOFPPOTMrR5LBh0KIpue0C5/view?usp=drive_link">개인정보처리방침</a><br/>
-          <a href="#shop-policy">고객안내(통신판매)</a>
+          <a href="#shop-policy" data-i18n="foot.toShop">고객안내(통신판매)</a>
         </p>
       </div>
     </div>
@@ -516,7 +542,7 @@
       logo.addEventListener('click',(e)=>{
         e.preventDefault();
         const clean = location.origin + location.pathname.replace(/[#?].*$/,'');
-        location.assign(clean);
+        location.assign(clean + '#top');
       });
     })();
 
@@ -600,6 +626,98 @@
       });
       // 초기 로드(해체)
       loadNews('news-demo','해체공사');
+    })();
+
+    // 경량 i18n (KR/EN 토글) — data-i18n 키만 치환, 성능/메모리 최소화
+    (function(){
+      const dict = {
+        ko:{
+          'nav.why':'Why','nav.compare':'Compare','nav.services':'Disciplines','nav.partners':'Partners','nav.news':'News','nav.portals':'Portals','nav.legal':'Compliance','nav.companyPdf':'회사 소개서(PDF)','nav.contact':'문의',
+          'hero.title':'계약부터 준공까지 <b>COREON</b>이 <span class="u-underline">관리·조정</span>합니다.',
+          'hero.subtitle':'시공은 <b>관련 면허 보유 파트너사</b>가 책임 수행합니다.',
+          'hero.point1':'건축주: <b>예산·기간 통제·비용 투명화</b>','hero.point2':'설계사: <b>설계의도 보전·변경관리·감리 대응 단축</b>','hero.point3':'시공사: <b>승인·조율 → 시공 집중·현장 생산성 향상</b>',
+          'why.title':'왜 COREON인가?','why.sub':'대형사와 단순 비교가 아닌, <b>현장 성과</b>에 집중한 COREON의 차별 포인트.','why.f1.t':'민첩한 실행','why.f1.d':'복잡한 보고체계 대신 <b>대표 직결</b> 체계. 현장 이슈에 즉시 대응.',
+          'why.f2.t':'원스톱 패키지','why.f2.d':'해체 인허가 → 시공 → PM/CM까지 <b>전 과정 일괄 책임</b>.','why.f3.t':'안전·전기 개선 연계','why.f3.d':'전기안전 점검 결과를 <b>개선공사</b>까지 즉시 연결, 가시적 성과.',
+          'why.f4.t':'투명한 관리','why.f4.d':'기간/예산 준수와 <b>변경관리 이력</b>을 표준 리포트로 공유.','why.tail':'허가·안전·품질·비용·기간까지 <b>원스톱</b>으로 책임지는 <b>현장 밀착형</b> 파트너. 대형사처럼 복잡한 보고체계가 아닌 <b>즉각적인 의사결정과 실행</b>으로 프로젝트 성과를 만듭니다.',
+          'why.cta1':'프로젝트 상담 문의','why.cta2':'회사 소개서 보기',
+          'cmp.title':'COREON vs 대형 PM/CM','cmp.sub':'프로젝트 특성에 따라 파트너는 달라집니다. COREON은 <b>소·중형 프로젝트</b>와 <b>빠른 대응</b>이 필요한 현장에 최적화.',
+          'cmp.col0':'구분','cmp.col1':'대형 PM/CM','cmp.col2':'COREON',
+          'cmp.r1h':'조직/의사결정','cmp.r1l':'수백 명 규모, 다층 보고체계','cmp.r1r1':'대표 직결','cmp.r1r2':'즉각적','cmp.r1r3':'의사결정',
+          'cmp.r2h':'프로젝트 적합성','cmp.r2l':'초대형·장기 프로젝트 중심','cmp.r2r1':'소·중형','cmp.r2r2':'프로젝트, 긴급 이슈 대응',
+          'cmp.r3h':'서비스 포커스','cmp.r3l':'기획·설계·리포팅 중심','cmp.r3r1':'현장 실행','cmp.r3r2':'허가·시공','cmp.r3r3':'원스톱',
+          'cmp.r4h':'관리 방식','cmp.r4l':'표준화 프로세스, 대규모 시스템','cmp.r4r':'경량 대시보드(공정/이슈/코스트), <b>현장 밀착</b>',
+          'cmp.r5h':'가치 제안','cmp.r5l':'브랜드/글로벌 네트워크','cmp.r5r':'<b>기간·비용 준수</b> + <b>변경관리</b>의 실전 성과',
+          'svc.title':'공종별 서비스 (Disciplines)','svc.sub':'건축(해체공사) · 전기공사 · 토목(포장) · 소방공사 · <b>조경</b> · <b>방수</b> · 안전/품질 — PM/CM 중심 협력 시공',
+          'svc.demo.pill':'건축(해체공사)','svc.demo.h':'구조물 해체·철거 PM/CM','svc.demo.d':'교량·고가도로·건축물 해체, 폐기물 계획·안전/진동·분진 관리. 시공은 해체 전문업체.',
+          'svc.elec.h':'수변전·내선·플랜트 E&amp;I','svc.elec.d':'변압기/배전반/차단기 교체, 접지/피뢰, 방폭·계측·제어·시운전. 시공은 전기공사업체.',
+          'svc.ac.h':'포장·보수·재포장 PM/CM','svc.ac.d':'도시 도로/단지/물류센터 포장 및 보수, 교통·안전 계획 연계. 시공은 아스콘 전문업체.',
+          'svc.fire.h':'소방 공사 PM/CM','svc.fire.d':'스프링클러·소화펌프·감지기 등 소방설비 공사 관리. 파트너 시공사와 협력 수행.',
+          'btn.pdf':'자료(PDF)','btn.consult':'상담 요청','btn.inquire':'문의',
+          'rel.title':'COREON 관계사 (Affiliates)','rel.sub':'면허 보유 시공사 및 전문업체와의 협력 체계',
+          'news.title':'건설뉴스 · 공종별','news.sub':'최근 7일 기준. Google 뉴스 RSS 자동 수집(오류 시 아래 수동 링크 사용).',
+          'news.tab.demo':'해체','news.tab.ac':'아스콘','news.tab.elec':'전기','news.tab.fire':'소방','news.goto':'바로가기:','news.disclaimer':'※ 기사 제목·링크는 Google 뉴스 RSS를 통해 제공되며, 저작권은 각 언론사에 있습니다. 외부 기사로 이동 시 해당 사이트의 개인정보처리방침이 적용됩니다.',
+          'port.title':'유관기관 바로가기 (Public Portals)','port.sub':'관급입찰·법령확인·기술인력·협회 등 자주 쓰는 공식 포털. (새 창)',
+          'port.grp1':'발주/조달','port.grp2':'법령/규정','port.grp3':'협회/단체 · 기술/인력','port.note':'※ 외부 사이트는 각 기관 소유이며 COREON과 별개입니다.',
+          'legal.title':'합법 운영 안내','legal.roleSum':'COREON의 역할과 계약 구조 보기',
+          'legal.role':'COREON은 공사 <b>관리·조정(PM/CM)</b> 및 조달·영업을 수행하며, 실제 시공은 관련 <b>면허 보유 시공사</b>가 담당합니다. 발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할·책임을 문서화합니다.',
+          'legal.shopSum':'전자상거래/통신판매 안내','legal.shop1':'통신판매업 신고 완료 시, 신고번호 등 필수 고지를 본 페이지에 표시합니다.',
+          'legal.shop2':'상호/대표자/사업자등록번호/주소/연락처: 하단 푸터 참조','legal.shop3':'통신판매업 신고번호: <i>신고 완료 후 업데이트</i>','legal.shop4':'교환/반품/환불 기준: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a>','legal.shop5':'배송정책/AS 안내: <a href="#" aria-disabled="true" title="업데이트 예정">정책 페이지(업데이트 예정)</a>','legal.shop6':'본 안내는 「전자상거래 등에서의 소비자보호에 관한 법률」 등 관련 법령을 준수하기 위한 최소 고지입니다.',
+          'cta.phone':'전화','cta.email':'이메일',
+          'foot.about':'COREON은 <b>공사 관리·조정(PM/CM)</b>과 조달·영업을 수행하는 총괄 파트너입니다. 모든 시공은 관련 <b>면허 보유 시공사</b>가 수행합니다.',
+          'foot.disclaimer':'※ COREON은 제3자 기관·언론사와 직접적 제휴 관계가 아니며, 외부 사이트 정보의 정확성·최신성에 대해 책임지지 않습니다.',
+          'foot.quick':'바로가기','foot.toShop':'고객안내(통신판매)'
+        },
+        en:{
+          'nav.why':'Why','nav.compare':'Compare','nav.services':'Disciplines','nav.partners':'Partners','nav.news':'News','nav.portals':'Portals','nav.legal':'Compliance','nav.companyPdf':'Company Profile (PDF)','nav.contact':'Contact',
+          'hero.title':'From contract to completion, <b>COREON</b> <span class="u-underline">manages & coordinates</span>.','hero.subtitle':'Execution by <b>licensed partner contractors</b>.',
+          'hero.point1':'Owner: <b>Budget/Schedule control & cost transparency</b>','hero.point2':'Architect: <b>Design intent preserved, faster change & supervision response</b>','hero.point3':'Contractor: <b>Approvals & coordination → focus on execution</b>',
+          'why.title':'Why COREON','why.sub':'Not a simple size comparison — we focus on <b>field results</b>.','why.f1.t':'Agile Execution','why.f1.d':'Direct line to the CEO. Immediate response on site issues.',
+          'why.f2.t':'One-Stop Package','why.f2.d':'From demolition permits to construction and PM/CM — <b>end-to-end ownership</b>.','why.f3.t':'Safety & Electrical Linkage','why.f3.d':'Electrical safety findings turn into <b>immediate improvement works</b>.','why.f4.t':'Transparent Control','why.f4.d':'Standard reports for <b>schedule/budget compliance</b> and change logs.',
+          'why.tail':'We are a <b>field-centric</b> partner owning permits, safety, quality, cost and schedule in <b>one stop</b> with <b>immediate decisions</b> for results.',
+          'why.cta1':'Project Inquiry','why.cta2':'Open Profile',
+          'cmp.title':'COREON vs Large PM/CM','cmp.sub':'Choose the right partner by project characteristics. COREON fits <b>small/medium projects</b> and <b>fast-response</b> sites.',
+          'cmp.col0':'Item','cmp.col1':'Large PM/CM','cmp.col2':'COREON','cmp.r1h':'Organization/Decision','cmp.r1l':'Hundreds, multi-layer reporting','cmp.r1r1':'Direct to CEO','cmp.r1r2':'Instant','cmp.r1r3':'decision-making',
+          'cmp.r2h':'Project Fit','cmp.r2l':'Mega/long-term focus','cmp.r2r1':'Small/Medium','cmp.r2r2':'projects, urgent issues',
+          'cmp.r3h':'Service Focus','cmp.r3l':'Planning/Design/Reporting','cmp.r3r1':'Field execution','cmp.r3r2':'Permits/Construction','cmp.r3r3':'One-stop',
+          'cmp.r4h':'Management','cmp.r4l':'Highly standardized, heavy systems','cmp.r4r':'Lightweight dashboards (progress/issues/cost), <b>on-site</b>',
+          'cmp.r5h':'Value','cmp.r5l':'Brand/global network','cmp.r5r':'<b>Schedule/cost compliance</b> + <b>change control</b> results',
+          'svc.title':'Disciplines','svc.sub':'Demolition · Electrical · Paving · Fire Protection · <b>Landscaping</b> · <b>Waterproofing</b> · Safety/Quality — PM/CM with licensed partners',
+          'svc.demo.pill':'Demolition','svc.demo.h':'Demolition PM/CM','svc.demo.d':'Buildings/bridges; waste, vibration/dust control. Executed by licensed demo contractors.',
+          'svc.elec.h':'MV/LV & Plant E&amp;I','svc.elec.d':'Transformer/switchgear/breaker, grounding/lightning, Ex/inst/control/commissioning.',
+          'svc.ac.h':'Paving PM/CM','svc.ac.d':'Urban/industrial/logistics paving & repairs; traffic/safety plan linkage.',
+          'svc.fire.h':'Fire Protection PM/CM','svc.fire.d':'Sprinklers, fire pumps, detectors; delivered with partner installers.',
+          'btn.pdf':'Brochure (PDF)','btn.consult':'Request Consult','btn.inquire':'Inquire',
+          'rel.title':'COREON Affiliates','rel.sub':'Execution network with licensed specialists',
+          'news.title':'Construction News by Discipline','news.sub':'Past 7 days via Google News RSS (use quick links if feed fails).',
+          'news.tab.demo':'Demolition','news.tab.ac':'Asphalt','news.tab.elec':'Electrical','news.tab.fire':'Fire Prot.','news.goto':'Quick link:','news.disclaimer':'* Titles/links via Google News RSS; copyrights belong to publishers. External sites have their own privacy policies.',
+          'port.title':'Public Portals','port.sub':'Frequently used official portals for bids, laws, credentials (open in new tab).',
+          'port.grp1':'Bids/Procurement','port.grp2':'Laws/Guidelines','port.grp3':'Associations & Credentials','port.note':'* External sites are owned by their institutions; COREON is not affiliated.',
+          'legal.title':'Compliance','legal.roleSum':'See COREON roles & contract structure',
+          'legal.role':'COREON performs <b>PM/CM</b> and procurement/sales; execution is by <b>licensed contractors</b>. Owner↔Contractor (construction), COREON↔Owner/Contractor (services) are documented.',
+          'legal.shopSum':'E-Commerce Notice','legal.shop1':'Upon registration, mandatory notices (reg. no. etc.) will be displayed here.',
+          'legal.shop2':'Company/Rep./Biz No./Address/Contacts: see footer','legal.shop3':'E-commerce reg. no.: <i>to be updated</i>','legal.shop4':'Exchange/Return/Refund policy: <a href="#" aria-disabled="true" title="TBD">Policy page (TBD)</a>','legal.shop5':'Shipping/After-service: <a href="#" aria-disabled="true" title="TBD">Policy page (TBD)</a>','legal.shop6':'This is a minimum notice to comply with consumer protection laws.',
+          'cta.phone':'Call','cta.email':'Email',
+          'foot.about':'COREON provides <b>PM/CM</b> and procurement/sales. All construction is executed by <b>licensed contractors</b>.',
+          'foot.disclaimer':'* COREON is not directly affiliated with third-party institutions or media; we do not guarantee accuracy/recency of external content.',
+          'foot.quick':'Quick Links','foot.toShop':'Customer Notice (E-Commerce)'
+        }
+      };
+      function setLang(lang){
+        const map = dict[lang]||dict.ko;
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+          const key = el.getAttribute('data-i18n');
+          if(map[key]!==undefined){ el.innerHTML = map[key]; }
+        });
+        document.documentElement.lang = (lang==='en'?'en':'ko');
+        krBtn.setAttribute('aria-pressed', lang==='ko' ? 'true':'false');
+        enBtn.setAttribute('aria-pressed', lang==='en' ? 'true':'false');
+      }
+      const krBtn = document.getElementById('lang-kr');
+      const enBtn = document.getElementById('lang-en');
+      krBtn.addEventListener('click', ()=>setLang('ko'));
+      enBtn.addEventListener('click', ()=>setLang('en'));
+      // 초기 상태: 한국어
+      setLang('ko');
     })();
   </script>
 </body>
