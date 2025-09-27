@@ -200,7 +200,6 @@
           <h3>조경 시공·유지관리 PM/CM</h3>
           <p class="muted">단지 조경·수목식재·옥상정원·관수/배수·사면녹화. 시공은 조경공사업체.</p>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <!-- 업데이트: 조경 PDF 링크 반영 -->
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view?usp=sharing">조경공사 PM/CM(PDF)</a>
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20조경%20상담">상담 요청</a>
           </div>
@@ -210,7 +209,6 @@
           <h3>옥상·외벽·기초 방수 PM/CM</h3>
           <p class="muted">시트·도막·우레탄·침투방수, 누수 진단/보수. 시공은 방수 전문업체.</p>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <!-- 업데이트: 방수 PDF 링크 반영 -->
             <a class="btn btn-primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view?usp=sharing">방수공사 PM/CM(PDF)</a>
             <a class="btn" href="mailto:contact@coreon-global.com?subject=%5BCOREON%5D%20방수%20상담">상담 요청</a>
           </div>
@@ -240,8 +238,9 @@
         <div class="card"><h3>전기공사 관계사</h3><p class="muted">E&amp;I/수변전 시공</p></div>
         <div class="card"><h3>토목(포장) 관계사</h3><p class="muted">포장·재포장·보수</p></div>
         <div class="card"><h3>소방공사 관계사</h3><p class="muted">소방설비 시공</p></div>
-        <div class="card"><h3>조경 관계사</h3><p class="muted">식재·유지관리</p></div>
-        <div class="card"><h3>방수 관계사</h3><p class="muted">옥상·외벽·기초</p></div>
+        <!-- ▼ 요청: 명칭 변경 -->
+        <div class="card"><h3>조경공사 관계사</h3><p class="muted">식재·유지관리</p></div>
+        <div class="card"><h3>방수공사 관계사</h3><p class="muted">옥상·외벽·기초</p></div>
       </div>
     </div>
   </section>
@@ -256,6 +255,9 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-ac" id="tab-ac" data-q="아스콘">아스콘</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-elec" id="tab-elec" data-q="전기공사">전기</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-fire" id="tab-fire" data-q="소방공사">소방</button>
+        <!-- ▼ 요청: 조경/방수 탭 추가 -->
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-land" id="tab-land" data-q="조경공사">조경</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-water" id="tab-water" data-q="방수공사">방수</button>
       </div>
       <div id="panel-demo" class="tabpanel" role="tabpanel" aria-labelledby="tab-demo" aria-hidden="false">
         <div class="grid grid-3" id="news-demo"></div>
@@ -280,6 +282,22 @@
         <div class="grid grid-3" id="news-fire"></div>
         <div class="card" style="margin-top:12px"><b>바로가기:</b>
           <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer" href="https://news.google.com/search?q=%EC%86%8C%EB%B0%A9%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">소방공사(7일)</a>
+        </div>
+      </div>
+      <!-- ▼ 요청: 조경 패널 -->
+      <div id="panel-land" class="tabpanel" role="tabpanel" aria-labelledby="tab-land" aria-hidden="true">
+        <div class="grid grid-3" id="news-land"></div>
+        <div class="card" style="margin-top:12px"><b>바로가기:</b>
+          <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"
+             href="https://news.google.com/search?q=%EC%A1%B0%EA%B2%BD%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">조경공사(7일)</a>
+        </div>
+      </div>
+      <!-- ▼ 요청: 방수 패널 -->
+      <div id="panel-water" class="tabpanel" role="tabpanel" aria-labelledby="tab-water" aria-hidden="true">
+        <div class="grid grid-3" id="news-water"></div>
+        <div class="card" style="margin-top:12px"><b>바로가기:</b>
+          <a target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"
+             href="https://news.google.com/search?q=%EB%B0%A9%EC%88%98%EA%B3%B5%EC%82%AC%20when%3A7d&hl=ko&gl=KR&ceid=KR%3Ako">방수공사(7일)</a>
         </div>
       </div>
     </div>
@@ -364,6 +382,9 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view?usp=drive_link">아스콘 공사</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view?usp=drive_link">전기공사 자료</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view?usp=sharing">소방공사 소개서</a><br/>
+          <!-- ▼ 요청: 조경/방수 링크 추가 -->
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view?usp=sharing">조경공사 소개서</a><br/>
+          <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view?usp=sharing">방수공사 소개서</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1e-LMtfEcDp2BdrL-8-12-zAkIlOrm_1b/view?usp=drive_link">자료실</a><br/>
           <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1eWCUNmfIXyOFPPOTMrR5LBh0KIpue0C5/view?usp=drive_link">개인정보처리방침</a><br/>
           <a href="#shop-policy" data-i18n="foot.toShop">고객안내(통신판매)</a>
@@ -399,7 +420,17 @@
       function makeCard(href,title,src,when){ const a=document.createElement('a'); a.className='card'; a.href=href; a.target='_blank'; a.rel='noopener noreferrer nofollow'; a.referrerPolicy='no-referrer'; a.innerHTML='<h3 style="margin:0 0 6px;font-size:16px;line-height:1.35">'+title+'</h3><p class="muted" style="margin:0">'+(src||'Google 뉴스')+' · '+(when||'')+'</p>'; return a; }
       function loadNews(targetId,q){ const wrap=document.getElementById(targetId); if(!wrap) return; wrap.innerHTML='<div class="card">불러오는 중…</div>';
         fetch(proxy(rssUrl(q)),{mode:'cors'}).then(r=>r.text()).then(xml=>{ const doc=new DOMParser().parseFromString(xml,'text/xml'); const items=Array.from(doc.querySelectorAll('item')).slice(0,9); if(!items.length) throw new Error('no items'); wrap.innerHTML=''; items.forEach(it=>{ const link=it.querySelector('link')?.textContent||'#'; const title=(it.querySelector('title')?.textContent||'기사').replace(' - Google 뉴스',''); const src=it.querySelector('source')?.textContent||''; const pub=new Date(it.querySelector('pubDate')?.textContent||''); const when=isNaN(pub)?'':pub.toLocaleDateString('ko-KR'); wrap.appendChild(makeCard(link,title,src,when));});}).catch(_=>{ wrap.innerHTML='<div class="card"><b>자동 수집에 문제가 있습니다.</b><br/>아래 “바로가기” 링크를 이용해 주세요.</div>'; });}
-      tabs.forEach(btn=>{ btn.addEventListener('click', ()=>{ tabs.forEach(b=>b.setAttribute('aria-selected','false')); panels.forEach(p=>p.setAttribute('aria-hidden','true')); btn.setAttribute('aria-selected','true'); const panel=document.getElementById(btn.getAttribute('aria-controls')); panel.setAttribute('aria-hidden','false'); const q=btn.dataset.q; const map={'panel-demo':'news-demo','panel-ac':'news-ac','panel-elec':'news-elec','panel-fire':'news-fire'}; loadNews(map[panel.id],q); }); });
+      tabs.forEach(btn=>{ btn.addEventListener('click', ()=>{ tabs.forEach(b=>b.setAttribute('aria-selected','false')); panels.forEach(p=>p.setAttribute('aria-hidden','true')); btn.setAttribute('aria-selected','true'); const panel=document.getElementById(btn.getAttribute('aria-controls')); panel.setAttribute('aria-hidden','false'); const q=btn.dataset.q;
+        // ▼ 요청: 새 패널 매핑 추가
+        const map={
+          'panel-demo':'news-demo',
+          'panel-ac':'news-ac',
+          'panel-elec':'news-elec',
+          'panel-fire':'news-fire',
+          'panel-land':'news-land',
+          'panel-water':'news-water'
+        };
+        loadNews(map[panel.id],q); }); });
       loadNews('news-demo','해체공사');
     })();
 
