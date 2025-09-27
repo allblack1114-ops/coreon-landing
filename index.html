@@ -8,8 +8,7 @@
   <meta name="theme-color" content="#0A1B2B" />
   <style>
     :root{--navy:#0A1B2B;--blue:#0F6FFF;--bg:#F4F6F9;--card:#fff;--radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
     a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -24,7 +23,7 @@
 
     /* Fullscreen hero */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease, transform 6s ease}
+    .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
     .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
     .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
@@ -51,11 +50,10 @@
   </style>
 </head>
 <body>
-  <!-- Nav -->
+  <!-- Nav (상단 파란 무료견적 버튼 제거됨) -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand"><b>COREON</b></a>
-      <a class="btn btn-primary" href="tel:010-9039-1482">무료견적</a>
       <div class="nav-links">
         <a href="#about">회사소개</a><a href="#disciplines">공종별</a><a href="#services">서비스</a>
         <a href="#case-studies">실적사례</a><a href="#insights">인사이트</a><a href="#library">자료실</a><a href="#contact">문의</a>
@@ -65,7 +63,7 @@
 
   <!-- Hero -->
   <header id="top" class="hero-full">
-    <div class="hero-bg" id="heroBg" style="background-image:url('assets/hero_scaffold_sky.jpg')"></div>
+    <div class="hero-bg" id="heroBg" style="background-image:url('./assets/hero_scaffold_sky.jpg')"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <h1>계약부터 준공까지 COREON이 관리·조정합니다</h1>
@@ -111,27 +109,27 @@
       <h2>실적사례</h2>
       <div class="grid grid-3">
         <div class="card"><figure style="margin:0">
-          <img src="assets/thumb_scaffold_close.jpg" alt="스캐폴드 작업 근접" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/thumb_scaffold_close.jpg" alt="스캐폴드 작업 근접" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">스캐폴드 근접 작업 관리</h3><p>다단비계 구간 안전·품질 점검 및 공정 조정</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="assets/hero_scaffold_sky.jpg" alt="대형 스캐폴드 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/hero_scaffold_sky.jpg" alt="대형 스캐폴드 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">영종 모듈 현장 PM/CM</h3><p>대형 모듈 동 시공 구간 일정·리스크 관리</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="assets/thumb_team_rooftop.jpg" alt="현장 팀 사진" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/thumb_team_rooftop.jpg" alt="현장 팀 사진" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">현장 조직 운영</h3><p>HSE/QA·QC·공정 통합 운영 체계</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="assets/thumb_demo_building.jpg" alt="해체 대상 건물" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/thumb_demo_building.jpg" alt="해체 대상 건물" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">도시형 해체 PM/CM</h3><p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="assets/hero_module_transport.jpg" alt="거대 모듈 운송" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/hero_module_transport.jpg" alt="거대 모듈 운송" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">거대 모듈 운송/설치</h3><p>리프팅·S-PMT·야적/운송 인터페이스 관리</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="assets/thumb_powerline_sunset.jpg" alt="송전선 석양" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="./assets/thumb_powerline_sunset.jpg" alt="송전선 석양" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">전력 인프라 제안</h3><p>수변전·송배전 관련 패키지 제안 및 실적</p></figcaption>
         </figure></div>
       </div>
@@ -160,12 +158,12 @@
 
       <h3>관계사</h3>
       <div class="grid grid-3" style="margin-bottom:16px">
-        <div class="card"><h4>해체</h4><p>구조물해체·보강·폐기물 관리</p></div>
-        <div class="card"><h4>전기</h4><p>수변전·내선전기공사·E&I(전기계장)</p></div>
-        <div class="card"><h4>포장</h4><p>아스콘 포장/도로보수</p></div>
-        <div class="card"><h4>소방</h4><p>스프링클러·펌프설치공사</p></div>
-        <div class="card"><h4>조경</h4><p>단지·옥상정원 조경공사</p></div>
-        <div class="card"><h4>방수</h4><p>옥상·외벽 방수공사</p></div>
+        <div class="card"><h4>해체</h4><p>부분해체·폐기물 관리</p></div>
+        <div class="card"><h4>전기</h4><p>수변전·E&I</p></div>
+        <div class="card"><h4>포장</h4><p>아스콘 포장/보수</p></div>
+        <div class="card"><h4>소방</h4><p>스프링클러·펌프</p></div>
+        <div class="card"><h4>조경</h4><p>단지·옥상정원</p></div>
+        <div class="card"><h4>방수</h4><p>옥상·외벽</p></div>
       </div>
 
       <h3>유관기관</h3>
@@ -239,24 +237,25 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    // 히어로 슬라이드
+    // 히어로 슬라이드 (버그 수정: 현재 BG 엘리먼트 참조를 갱신)
     const heroImages = [
-      'assets/hero_scaffold_sky.jpg',
-      'assets/hero_multi_modules.jpg',
-      'assets/hero_module_transport.jpg'
+      './assets/hero_scaffold_sky.jpg',
+      './assets/hero_multi_modules.jpg',
+      './assets/hero_module_transport.jpg'
     ];
-    const bg = document.getElementById('heroBg');
     heroImages.forEach(src=>{const i=new Image(); i.src=src;}); // preload
-    let idx=0;
+
+    let idx = 0;
+    let bgEl = document.getElementById('heroBg');
     setInterval(()=>{
-      idx=(idx+1)%heroImages.length;
-      const next=bg.cloneNode();
-      next.classList.add('next');
-      next.style.backgroundImage=`url('${heroImages[idx]}')`;
-      bg.parentNode.insertBefore(next,bg);
-      requestAnimationFrame(()=>{bg.classList.add('next'); next.classList.remove('next');});
-      setTimeout(()=>{bg.remove(); window.heroBg=document.getElementById('heroBg')||next;},1100);
-    },3000);
+      idx = (idx + 1) % heroImages.length;
+      const nextEl = bgEl.cloneNode();
+      nextEl.classList.add('next');
+      nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
+      bgEl.parentNode.insertBefore(nextEl, bgEl);
+      requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
+      setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
+    }, 6000);
   </script>
 </body>
 </html>
