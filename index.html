@@ -27,17 +27,29 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* HERO */
-    .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    /* ===== HERO (좌측 정렬) ===== */
+    .hero-full{
+      position:relative;min-height:100vh;display:flex;align-items:center;
+      justify-content:flex-start; /* 좌측 배치 */
+      overflow:hidden
+    }
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
-    .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900}
-    .hero-title .line1{display:block;font-size:clamp(30px,6vw,64px)}
-    .hero-title .line2{display:block;font-size:clamp(30px,6vw,64px)}
-    .hero-content p{margin:0 0 24px;font-size:clamp(15px,2.2vw,20px);opacity:.95}
-    .btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .hero-overlay{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 40% 70%, rgba(15,111,255,.18), transparent),
+      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
+    .hero-content{
+      position:relative;z-index:2;color:#fff;
+      text-align:left;                 /* 텍스트 좌측 정렬 */
+      max-width:min(760px,92vw);       /* 가독성 위해 폭 제한 */
+      margin-left:clamp(16px,6vw,96px);/* 화면별 좌여백 */
+      padding-right:16px
+    }
+    .hero-title{margin:0 0 16px;line-height:1.08;font-weight:900}
+    .hero-title .line1{display:block;font-size:clamp(28px,5.8vw,62px)}
+    .hero-title .line2{display:block;font-size:clamp(28px,5.8vw,62px)}
+    .hero-content p{margin:0 0 24px;font-size:clamp(15px,2.1vw,20px);opacity:.97}
+    .btn-group{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap}
 
     /* GRID & CARD */
     .grid{display:grid;gap:18px}
@@ -62,6 +74,12 @@
       .sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;background:#0A1B2B;z-index:99}
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
+    }
+
+    /* 초소형 화면 보정 */
+    @media(max-width:420px){
+      .hero-title .line1,.hero-title .line2{font-size:clamp(24px,8vw,30px)}
+      .hero-content{margin-left:16px}
     }
 
     /* INSIGHTS - accordion */
@@ -140,37 +158,31 @@
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
     <div class="grid grid-3">
-      <!-- 해체(철거) -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" alt="해체(철거) 공사" loading="lazy"></div>
         <h3>해체(철거)</h3>
         <p>구조물 해체·구조물 보강·대수선공사·폐기물 관리</p>
       </div>
-      <!-- 토목(포장/아스콘) -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" alt="아스콘 포장" loading="lazy"></div>
         <h3>토목(포장/아스콘)</h3>
         <p>도로포장·보수·교통/품질 관리</p>
       </div>
-      <!-- 방수 -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" alt="방수 공사" loading="lazy"></div>
         <h3>방수</h3>
         <p>옥상·외벽·균열 보수 및 방수 시공 관리</p>
       </div>
-      <!-- 조경 -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" alt="조경" loading="lazy"></div>
         <h3>조경</h3>
         <p>단지 조경·옥상정원·식재·유지관리</p>
       </div>
-      <!-- 전기 -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" alt="전기 E&I 신재생" loading="lazy"></div>
         <h3>전기(E&I/신재생)</h3>
         <p>수·변전·내선공사·시험/검사·신재생 연계</p>
       </div>
-      <!-- 소방 -->
       <div class="card">
         <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" alt="소방 공사" loading="lazy"></div>
         <h3>소방</h3>
