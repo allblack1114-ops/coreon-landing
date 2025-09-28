@@ -17,7 +17,7 @@
 
     /* NAV */
     .nav{background:#fff;border-bottom:1px solid #e9eef5;position:sticky;top:0;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:900}
     .brand img{height:28px;width:auto}
     .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
@@ -27,29 +27,19 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* ===== HERO (좌측 정렬) ===== */
-    .hero-full{
-      position:relative;min-height:100vh;display:flex;align-items:center;
-      justify-content:flex-start; /* 좌측 배치 */
-      overflow:hidden
-    }
+    /* HERO (좌측 정렬) */
+    .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:
-      radial-gradient(1200px 600px at 40% 70%, rgba(15,111,255,.18), transparent),
-      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{
-      position:relative;z-index:2;color:#fff;
-      text-align:left;                 /* 텍스트 좌측 정렬 */
-      max-width:min(760px,92vw);       /* 가독성 위해 폭 제한 */
-      margin-left:clamp(16px,6vw,96px);/* 화면별 좌여백 */
-      padding-right:16px
-    }
+    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
+    .hero-content{position:relative;z-index:2;width:100%;}
+    .hero-inner{max-width:min(760px,92vw);margin:0 auto;padding:0 20px;color:#fff} /* 좌측 정렬용 폭 고정 */
     .hero-title{margin:0 0 16px;line-height:1.08;font-weight:900}
-    .hero-title .line1{display:block;font-size:clamp(28px,5.8vw,62px)}
-    .hero-title .line2{display:block;font-size:clamp(28px,5.8vw,62px)}
-    .hero-content p{margin:0 0 24px;font-size:clamp(15px,2.1vw,20px);opacity:.97}
-    .btn-group{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap}
+    /* PC에서 정확히 두 줄을 노리도록 클램프 튜닝 */
+    .hero-title .line1{display:block;font-size:clamp(36px,5.2vw,64px)}
+    .hero-title .line2{display:block;font-size:clamp(36px,5.2vw,64px)}
+    .hero-desc{margin:0 0 24px;font-size:clamp(15px,2.2vw,20px);opacity:.95}
+    .btn-group{display:flex;gap:12px;flex-wrap:wrap}
 
     /* GRID & CARD */
     .grid{display:grid;gap:18px}
@@ -76,10 +66,17 @@
       body{padding-bottom:64px}
     }
 
-    /* 초소형 화면 보정 */
-    @media(max-width:420px){
-      .hero-title .line1,.hero-title .line2{font-size:clamp(24px,8vw,30px)}
-      .hero-content{margin-left:16px}
+    /* 모바일 네비: 흰 배경 여백 ↑, 메뉴 오른쪽 정렬(두 줄) */
+    @media(max-width:980px){
+      .nav-inner{flex-wrap:wrap;height:auto;row-gap:8px;padding:14px 0 10px}
+      .brand img{height:34px}
+      .brand span{font-size:20px}
+      .nav-links{order:2;width:100%;justify-content:flex-end;gap:14px;border-top:1px solid #eef3fb;padding-top:8px}
+      /* 히어로 여백 상향 + 좌측 정렬 유지 */
+      .hero-full{min-height:92vh}
+      .hero-inner{max-width:780px;padding-top:8px}
+      .hero-title .line1,.hero-title .line2{font-size:clamp(26px,7.6vw,38px)}
+      .hero-desc{font-size:clamp(14px,4vw,18px)}
     }
 
     /* INSIGHTS - accordion */
@@ -113,20 +110,22 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (좌측 정렬 영역만 래핑) -->
   <header id="top" class="hero-full">
     <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=3')"></div>
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1 class="hero-title">
-        <span class="line1">계약부터 준공까지</span>
-        <span class="line2">COREON이 관리·조정합니다</span>
-      </h1>
-      <p>해체·토목(포장/아스콘)·방수·조경·전기·소방 - 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
-      <div class="btn-group">
-        <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
-        <a class="btn" href="#library">자료실 보기</a>
-        <a class="btn" href="#case-studies">실적사례 보기</a>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          <span class="line1">계약부터 준공까지</span>
+          <span class="line2">COREON이 관리·조정합니다</span>
+        </h1>
+        <p class="hero-desc">해체·토목(포장/아스콘)·방수·조경·전기·소방 - 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
+          <a class="btn" href="#library">자료실 보기</a>
+          <a class="btn" href="#case-studies">실적사례 보기</a>
+        </div>
       </div>
     </div>
   </header>
@@ -346,7 +345,7 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    /* 히어로 배경 슬라이드 (캐시 버스터 포함) */
+    /* 히어로 배경 슬라이드 */
     const heroImages = [
       '/assets/hero_scaffold_sky.jpg?v=3',
       '/assets/hero_multi_modules.jpg?v=3',
@@ -365,7 +364,7 @@
       setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
     }, 6000);
 
-    /* 인사이트: 구글 뉴스 RSS (아코디언/꺾임형) */
+    /* 인사이트: 구글 뉴스 RSS (아코디언) */
     const queries = ['해체 OR 철거','전기 공사','아스콘 포장','소방 공사','조경 공사','방수 공사'];
     const proxies = [
       url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
