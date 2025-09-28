@@ -14,7 +14,8 @@
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
     .nav{background:#fff;border-bottom:1px solid #e9eef5;position:sticky;top:0;z-index:50}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-    .brand{font-weight:900}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+    .brand img{height:28px;width:auto}
     .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a.active{background:#eef3fb;color:#0F6FFF}
@@ -27,7 +28,10 @@
     .hero-full .next{opacity:0}
     .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
     .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
-    .hero-content h1{margin:0 0 16px;font-size:clamp(34px,6vw,64px);line-height:1.1}
+    /* 두 줄 고정 타이틀 */
+    .hero-title{margin:0 0 16px;line-height:1.1}
+    .hero-title .line1{display:block;font-size:clamp(28px,4.8vw,56px);font-weight:900}
+    .hero-title .line2{display:block;font-size:clamp(28px,4.8vw,56px);font-weight:900}
     .hero-content p{margin:0 0 24px;font-size:clamp(16px,2.2vw,22px);opacity:.95}
     .btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
@@ -47,13 +51,21 @@
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
     }
+    /* 인사이트 카드 */
+    .news-list{display:grid;gap:16px}
+    .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:14px;padding:14px;display:grid;gap:6px}
+    .news-item a{color:#0F6FFF;font-weight:700}
+    .muted{color:#6c7a89;font-size:13px}
   </style>
 </head>
 <body>
   <!-- Nav -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="brand"><b>COREON</b></a>
+      <a href="#top" class="brand" aria-label="COREON">
+        <img src="./logo.png" alt="COREON 로고" />
+        <span>COREON</span>
+      </a>
       <div class="nav-links">
         <a href="#about">회사소개</a><a href="#disciplines">공종별</a><a href="#services">서비스</a>
         <a href="#case-studies">실적사례</a><a href="#insights">인사이트</a><a href="#library">자료실</a><a href="#contact">문의</a>
@@ -66,7 +78,10 @@
     <div class="hero-bg" id="heroBg" style="background-image:url('./hero_scaffold_sky.jpg?v=20250928')"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1>계약부터 준공까지 COREON이 관리·조정합니다</h1>
+      <h1 class="hero-title">
+        <span class="line1">계약부터 준공까지 COREON이</span>
+        <span class="line2">관리·조정합니다</span>
+      </h1>
       <p>해체·전기·포장·소방·조경·방수 — 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
       <div class="btn-group">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
@@ -139,7 +154,8 @@
   <!-- Insights -->
   <section id="insights" class="container" style="padding:40px 0">
     <h2>인사이트</h2>
-    <p>Google 뉴스 RSS 기반 자동 수집(해체·전기·포장·소방·조경·방수)</p>
+    <p class="muted">해체·철거·전기·포장·소방·조경·방수 관련 최신 뉴스</p>
+    <div id="news" class="news-list"></div>
   </section>
 
   <!-- Library -->
@@ -200,6 +216,7 @@
         <h3>COREON</h3>
         <p>COREON은 공사 관리·조정(PM/CM)을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
         <p>사업자등록번호: 586-24-02279 | 대표전화: 010-9039-1482</p>
+        <p style="margin-top:8px;color:#9fb0c8">© 2025 COREON. All rights reserved.</p>
       </div>
       <div>
         <h4>바로가기</h4>
@@ -237,7 +254,7 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    // 히어로 슬라이드 (루트 경로로 수정)
+    // 히어로 슬라이드 (루트 경로 & 두 겹 페이드)
     const heroImages = [
       './hero_scaffold_sky.jpg?v=20250928',
       './hero_multi_modules.jpg?v=20250928',
@@ -256,268 +273,81 @@
       requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
       setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
     }, 6000);
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>COREON | ONE-STOP 공사 관리·조정</title>
-  <meta name="description" content="계약부터 준공까지 공사 관리·조정을 원스톱으로. 시공은 관련 면허 보유사가 책임 수행합니다." />
-  <meta name="theme-color" content="#0A1B2B" />
-  <style>
-    :root{--navy:#0A1B2B;--blue:#0F6FFF;--bg:#F4F6F9;--card:#fff;--radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
-    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    .nav{background:#fff;border-bottom:1px solid #e9eef5;position:sticky;top:0;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-    .brand{font-weight:900}
-    .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-    .nav-links a{padding:.4rem .6rem;border-radius:10px}
-    .nav-links a.active{background:#eef3fb;color:#0F6FFF}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
-    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* Fullscreen hero */
-    .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
-    .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
-    .hero-content h1{margin:0 0 16px;font-size:clamp(34px,6vw,64px);line-height:1.1}
-    .hero-content p{margin:0 0 24px;font-size:clamp(16px,2.2vw,22px);opacity:.95}
-    .btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-    .grid{display:grid;gap:18px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
-    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .card img{border-radius:12px}
-    section{scroll-margin-top:88px}
-    h2{margin:0 0 16px}
-    footer{background:#0A1220;color:#c9d6e8;padding:30px 0;margin-top:40px}
-    .foot-grid{display:grid;gap:20px;grid-template-columns:2fr 1fr}
-    .sticky-cta{display:none}
-    @media(max-width:980px){
-      .sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;background:#0A1B2B;z-index:99}
-      .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
-      body{padding-bottom:64px}
-    }
-  </style>
-</head>
-<body>
-  <!-- Nav (상단 파란 무료견적 버튼 제거됨) -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand"><b>COREON</b></a>
-      <div class="nav-links">
-        <a href="#about">회사소개</a><a href="#disciplines">공종별</a><a href="#services">서비스</a>
-        <a href="#case-studies">실적사례</a><a href="#insights">인사이트</a><a href="#library">자료실</a><a href="#contact">문의</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header id="top" class="hero-full">
-    <div class="hero-bg" id="heroBg" style="background-image:url('./assets/hero_scaffold_sky.jpg')"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>계약부터 준공까지 COREON이 관리·조정합니다</h1>
-      <p>해체·전기·포장·소방·조경·방수 — 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
-      <div class="btn-group">
-        <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
-        <a class="btn" href="#library">자료실 보기</a>
-        <a class="btn" href="#case-studies">실적사례 보기</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="container" style="padding:40px 0">
-    <h2>회사소개</h2>
-    <p>COREON은 해체·전기·포장·소방·조경·방수 공종에서 공사 관리·조정(PM/CM)을 수행하며, 시공은 면허 보유 관계사가 담당합니다.</p>
-  </section>
-
-  <!-- Disciplines -->
-  <section id="disciplines" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2>공종별</h2>
-      <div class="grid grid-3">
-        <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체(철거) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener">전기(E&I) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">포장(아스콘) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener">소방 PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener">조경 PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">방수 PM/CM 바로가기</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="container" style="padding:40px 0">
-    <h2>서비스</h2>
-    <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
-  </section>
-
-  <!-- Case Studies -->
-  <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2>실적사례</h2>
-      <div class="grid grid-3">
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/thumb_scaffold_close.jpg" alt="스캐폴드 작업 근접" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">스캐폴드 근접 작업 관리</h3><p>다단비계 구간 안전·품질 점검 및 공정 조정</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/hero_scaffold_sky.jpg" alt="대형 스캐폴드 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">영종 모듈 현장 PM/CM</h3><p>대형 모듈 동 시공 구간 일정·리스크 관리</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/thumb_team_rooftop.jpg" alt="현장 팀 사진" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">현장 조직 운영</h3><p>HSE/QA·QC·공정 통합 운영 체계</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/thumb_demo_building.jpg" alt="해체 대상 건물" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">도시형 해체 PM/CM</h3><p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/hero_module_transport.jpg" alt="거대 모듈 운송" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">거대 모듈 운송/설치</h3><p>리프팅·S-PMT·야적/운송 인터페이스 관리</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./assets/thumb_powerline_sunset.jpg" alt="송전선 석양" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">전력 인프라 제안</h3><p>수변전·송배전 관련 패키지 제안 및 실적</p></figcaption>
-        </figure></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Insights -->
-  <section id="insights" class="container" style="padding:40px 0">
-    <h2>인사이트</h2>
-    <p>Google 뉴스 RSS 기반 자동 수집(해체·전기·포장·소방·조경·방수)</p>
-  </section>
-
-  <!-- Library -->
-  <section id="library" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2>자료실</h2>
-      <h3 style="margin-top:8px">공종별 PDF</h3>
-      <div class="grid grid-3" style="margin-bottom:16px">
-        <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체공사 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener">전기공사 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">포장공사 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener">소방공사 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener">조경공사 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">방수공사 바로가기</a>
-      </div>
-
-      <h3>관계사</h3>
-      <div class="grid grid-3" style="margin-bottom:16px">
-        <div class="card"><h4>해체</h4><p>부분해체·폐기물 관리</p></div>
-        <div class="card"><h4>전기</h4><p>수변전·E&I</p></div>
-        <div class="card"><h4>포장</h4><p>아스콘 포장/보수</p></div>
-        <div class="card"><h4>소방</h4><p>스프링클러·펌프</p></div>
-        <div class="card"><h4>조경</h4><p>단지·옥상정원</p></div>
-        <div class="card"><h4>방수</h4><p>옥상·외벽</p></div>
-      </div>
-
-      <h3>유관기관</h3>
-      <div class="grid grid-2" style="margin-bottom:16px">
-        <a class="card" href="https://www.g2b.go.kr" target="_blank" rel="noopener">나라장터</a>
-        <a class="card" href="https://www.pps.go.kr" target="_blank" rel="noopener">조달청</a>
-        <a class="card" href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a>
-        <a class="card" href="https://www.kiscon.net" target="_blank" rel="noopener">KISCON</a>
-      </div>
-
-      <h3>컴플라이언스</h3>
-      <div class="card">
-        <p>COREON은 공사 관리·조정(PM/CM)과 영업을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
-        <p>발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할과 책임을 명확히 합니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" style="background:#f7f9fc;padding:40px 0">
-    <div class="container" style="text-align:center">
-      <h2>문의</h2>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-primary" href="tel:010-9039-1482">무료견적(전화)</a>
-        <a class="btn" href="mailto:contact@coreon-global.com">상세문의(메일)</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container foot-grid">
-      <div>
-        <h3>COREON</h3>
-        <p>COREON은 공사 관리·조정(PM/CM)을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
-        <p>사업자등록번호: 586-24-02279 | 대표전화: 010-9039-1482</p>
-      </div>
-      <div>
-        <h4>바로가기</h4>
-        <p><a href="#library">자료실</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Mobile sticky CTA -->
-  <div class="sticky-cta">
-    <a href="tel:010-9039-1482">전화</a>
-    <a href="mailto:contact@coreon-global.com">메일</a>
-  </div>
-
-  <script>
-    // 활성 메뉴 표시
-    const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
-    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-    function setActiveLink(){
-      const y = window.scrollY + 120;
-      let currentId = 'top';
-      for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
-      navLinks.forEach(a=>{
-        const id = (a.getAttribute('href').startsWith('#') ? a.getAttribute('href').slice(1) : '');
-        a.classList.toggle('active', id === currentId);
-      });
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
-      });
-    });
-    window.addEventListener('scroll', setActiveLink);
-    window.addEventListener('load', setActiveLink);
-
-    // 히어로 슬라이드 (버그 수정: 현재 BG 엘리먼트 참조를 갱신)
-    const heroImages = [
-      './assets/hero_scaffold_sky.jpg',
-      './assets/hero_multi_modules.jpg',
-      './assets/hero_module_transport.jpg'
+    // ===== 인사이트: RSS → 뉴스 카드 생성 =====
+    // CORS 회피 프록시(공개): allorigins
+    const proxies = [
+      url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      url => `https://r.jina.ai/http://` + url.replace(/^https?:\/\//,'') // 백업
     ];
-    heroImages.forEach(src=>{const i=new Image(); i.src=src;}); // preload
 
-    let idx = 0;
-    let bgEl = document.getElementById('heroBg');
-    setInterval(()=>{
-      idx = (idx + 1) % heroImages.length;
-      const nextEl = bgEl.cloneNode();
-      nextEl.classList.add('next');
-      nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
-      bgEl.parentNode.insertBefore(nextEl, bgEl);
-      requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
-      setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
-    }, 6000);
+    const queries = [
+      '해체 OR 철거',
+      '전기 공사',
+      '아스콘 포장',
+      '소방 공사',
+      '조경 공사',
+      '방수 공사'
+    ];
+
+    async function fetchRSS(rssUrl){
+      for (const wrap of proxies){
+        try{
+          const res = await fetch(wrap(rssUrl));
+          if(!res.ok) continue;
+          const text = await res.text();
+          const doc = new window.DOMParser().parseFromString(text, 'text/xml');
+          if (doc.querySelector('parsererror')) continue;
+          return [...doc.querySelectorAll('item')];
+        }catch(e){ /* try next proxy */ }
+      }
+      return [];
+    }
+
+    async function loadNews(){
+      const box = document.getElementById('news');
+      if(!box) return;
+      box.innerHTML = '<div class="muted">불러오는 중…</div>';
+
+      const items = [];
+      for (const q of queries){
+        const rss = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ko&gl=KR&ceid=KR:ko`;
+        const list = await fetchRSS(rss);
+        items.push(...list.slice(0,2)); // 각 주제 상위 2개
+      }
+
+      if(items.length === 0){
+        box.innerHTML = '<div class="muted">현재 뉴스를 불러오지 못했습니다.</div>';
+        return;
+      }
+
+      // 최신순 정렬
+      items.sort((a,b)=> new Date(b.querySelector('pubDate').textContent) - new Date(a.querySelector('pubDate').textContent));
+
+      // 상위 8개만 렌더
+      box.innerHTML = items.slice(0,8).map(it=>{
+        const title = it.querySelector('title')?.textContent || '기사';
+        const link = it.querySelector('link')?.textContent || '#';
+        const pub = new Date(it.querySelector('pubDate')?.textContent || Date.now());
+        const ago = timeAgo(pub);
+        return `
+          <div class="news-item">
+            <a href="${link}" target="_blank" rel="noopener">${escapeHtml(title)}</a>
+            <div class="muted">${ago}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function timeAgo(d){
+      const diff = (Date.now()-d.getTime())/1000;
+      if(diff<60) return '방금 전';
+      if(diff<3600) return `${Math.floor(diff/60)}분 전`;
+      if(diff<86400) return `${Math.floor(diff/3600)}시간 전`;
+      return `${Math.floor(diff/86400)}일 전`;
+    }
+    function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]))}
+
+    loadNews();
   </script>
 </body>
 </html>
-
