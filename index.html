@@ -35,34 +35,30 @@
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:
-      radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent),
-      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
+    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
 
-    /* HERO CONTENT 좌측 정렬 – 로고/컨테이너 라인과 정확히 정렬 */
+    /* HERO CONTENT 좌측 정렬 – 로고/컨테이너 라인과 정렬 */
     .hero-content{
       position:relative;z-index:2;color:#fff;
+      /* 컨테이너 왼쪽선: (뷰포트-컨테이너)/2 + 좌우여백, 최소 20px */
       padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));
       padding-right:var(--gutter);
-      max-width:720px;
+      max-width:760px; /* PC 텍스트 폭 */
       text-align:left;margin:0;
     }
 
-    /* 3줄 타이틀 스타일 (요청 반영: line1=설명, line2/line3=메인 두 줄) */
-    .hero-title{margin:0 0 16px;line-height:1.25;font-weight:900;word-break:keep-all}
-    /* line1: 안내/설명 */
-    .hero-title .line1{
-      display:block;margin-bottom:12px;
-      font-size:clamp(16px,2.2vw,22px);
-      font-weight:700;line-height:1.5;opacity:.95
-    }
-    /* line2/line3: 메인 두 줄(크고 굵게) */
-    .hero-title .line2,
-    .hero-title .line3{
-      display:block;font-size:clamp(36px,5vw,58px)
+    /* 제목 2줄 고정(PC) */
+    .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900;word-break:keep-all}
+    .hero-title .line1,
+    .hero-title .line2{
+      display:block;
+      font-size:58px;           /* 월리 느낌의 큼직한 타이포 */
+      letter-spacing:-0.8px;
+      white-space:nowrap;       /* 각 라인을 한 줄로 고정 */
+      font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;
     }
 
-    .hero-desc{margin:0 0 24px;font-size:clamp(15px,2.2vw,20px);opacity:.95}
+    .hero-desc{margin:0 0 24px;font-size:18px;opacity:.95}
     .btn-group{display:flex;gap:12px;flex-wrap:wrap}
 
     /* GRID & CARD */
@@ -90,16 +86,19 @@
       body{padding-bottom:64px}
     }
 
-    /* 모바일 네비게이션 */
+    /* 모바일 네비 & 타이틀 크기만 축소(2줄 자연 유지) */
     @media(max-width:980px){
       .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
       .brand img{height:36px}
       .brand span{font-size:20px;font-weight:900}
       .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
       .hero-full{min-height:92vh}
-      .hero-title .line2,.hero-title .line3{font-size:clamp(22px,6vw,32px)}
-      .hero-title .line1{font-size:clamp(14px,4vw,18px)}
-      .hero-desc{font-size:clamp(14px,4vw,18px)}
+      .hero-desc{font-size:16px}
+      .hero-title .line1,
+      .hero-title .line2{
+        font-size:32px;      /* 글자만 줄이고 */
+        white-space:normal;  /* 모바일은 자연 줄바꿈 허용 */
+      }
     }
 
     /* INSIGHTS - accordion */
@@ -140,10 +139,10 @@
 
     <div class="hero-content">
       <h1 class="hero-title">
-        <span class="line1">해체·토목(포장/아스콘)·방수·조경·전기·소방 - 시공은 면허 보유 파트너사가 책임 수행합니다.</span>
-        <span class="line2">계약부터 준공까지</span>
-        <span class="line3">코레온(COREON)이 관리·조정합니다</span>
+        <span class="line1">계약부터 준공까지</span>
+        <span class="line2">코레온(COREON)이 관리,조정합니다</span>
       </h1>
+      <p class="hero-desc">해체·토목(포장/아스콘)·방수·조경·전기·소방 - 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
       <div class="btn-group">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
         <a class="btn" href="#library">자료실 보기</a>
