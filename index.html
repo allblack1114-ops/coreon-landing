@@ -21,10 +21,11 @@
     .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a.active{background:#eef3fb;color:#0F6FFF}
+
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* HERO - 모바일 최적화 */
+    /* HERO (모바일 최적화 + 2줄 고정) */
     .hero-full{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
@@ -34,14 +35,13 @@
     .hero-title .line1,.hero-title .line2{display:block;font-size:clamp(30px,5.2vw,58px);font-weight:900;letter-spacing:-.02em}
     .hero-content p{margin:0 0 22px;font-size:clamp(15px,2.2vw,20px);opacity:.95}
     .btn-group{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-
     @media (max-width: 640px){
       .hero-full{min-height:76vh}
       .nav-inner{height:56px}
       .btn{padding:.62rem .9rem}
     }
 
-    /* LAYOUT */
+    /* GRID / CARD */
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -51,7 +51,7 @@
     section{scroll-margin-top:88px}
     h2{margin:0 0 16px}
 
-    /* 인사이트: 아코디언(꺾은 형태) */
+    /* 아코디언 뉴스 */
     .accordion{background:#fff;border:1px solid #e5ebf2;border-radius:14px;overflow:hidden}
     .accordion details{border-top:1px solid #eef2f7}
     .accordion details:first-child{border-top:none}
@@ -76,11 +76,11 @@
   </style>
 </head>
 <body>
-  <!-- Nav -->
+  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand" aria-label="COREON">
-        <img src="./logo.png" alt="COREON 로고" />
+        <img src="/assets/logo.png?v=20250929" alt="COREON 로고" />
         <span>COREON</span>
       </a>
       <div class="nav-links">
@@ -90,9 +90,9 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <header id="top" class="hero-full">
-    <div class="hero-bg" id="heroBg" style="background-image:url('./hero_scaffold_sky.jpg?v=20250928')"></div>
+    <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=20250929')"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <h1 class="hero-title">
@@ -108,13 +108,13 @@
     </div>
   </header>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about" class="container" style="padding:40px 0">
     <h2>회사소개</h2>
     <p>COREON은 해체·전기·포장·소방·조경·방수 공종에서 공사 관리·조정(PM/CM)을 수행하며, 시공은 면허 보유 관계사가 담당합니다.</p>
   </section>
 
-  <!-- Disciplines (기존 링크 유지) -->
+  <!-- DISCIPLINES -->
   <section id="disciplines" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>공종별</h2>
@@ -129,31 +129,36 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- SERVICES (대표 이미지 3종) -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="card"><img src="/assets/service_ascon.png.png?v=20250929" alt="아스콘 포장" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">포장(아스콘)</h3><p>포장·보수·교통/품질 관리</p></div>
+      <div class="card"><img src="/assets/service_electric.png.png?v=20250929" alt="전기 신재생" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">전기(E&I/신재생)</h3><p>수전·변전·시험/검사·신재생 연계</p></div>
+      <div class="card"><img src="/assets/service_landscape.png.png?v=20250929" alt="조경" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">조경</h3><p>단지·옥상정원·식재·유지관리</p></div>
+    </div>
   </section>
 
-  <!-- Case Studies (이전 메시지에서 반영된 자산 경로 유지) -->
+  <!-- CASE STUDIES -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
       <div class="grid grid-3">
         <div class="card"><figure style="margin:0">
-          <img src="./assets/case-kendallsquare-10mw-inspection-quote.jpg.jpg?v=20250928" alt="검단 켄달스퀘어 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg.jpg?v=20250929" alt="검단 켄달스퀘어 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">검단 켄달스퀘어 전기점검</h3><p>수전용량 10,000kW 전기점검 견적서 제출 완료</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="./assets/case-yojin-coatech-busduct-request.jpg.jpg?v=20250928" alt="인천 요진코아텍 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-yojin-coatech-busduct-request.jpg.jpg?v=20250929" alt="인천 요진코아텍 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">요진코아텍 BUS-DUCT 점검</h3><p>전기 BUS-DUCT 상태 점검 의뢰 접수</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="./assets/case-verthillcc-5mw-inspection-quote.jpg.jpg?v=20250928" alt="베르힐CC 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-verthillcc-5mw-inspection-quote.jpg.jpg?v=20250929" alt="베르힐CC 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">베르힐CC 전기점검</h3><p>수전용량 5,000kW 전기점검 제안서 제출</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="./assets/case-yeongjong-parking-restoration.jpg.jpg?v=20250928" alt="영종 복합문화센터 주차장 부지" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-yeongjong-parking-restoration.jpg.jpg?v=20250929" alt="영종 복합문화센터 주차장 부지" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">영종 복합문화센터 원상복구</h3><p>주차장 부지 원상복구공사 제안서 공문 접수</p></figcaption>
         </figure></div>
       </div>
@@ -170,14 +175,14 @@
     </div>
   </section>
 
-  <!-- Insights (아코디언 뉴스) -->
+  <!-- INSIGHTS (아코디언 뉴스) -->
   <section id="insights" class="container" style="padding:40px 0">
     <h2>인사이트</h2>
-    <p class="muted">해체·철거·전기·포장·소방·조경·방수 관련 최신 뉴스 (요약 제목을 눌러 펼쳐보기)</p>
+    <p style="color:#6c7a89;font-size:13px">해체·철거·전기·포장·소방·조경·방수 관련 최신 뉴스 (제목을 눌러 펼쳐보기)</p>
     <div id="news" class="accordion"></div>
   </section>
 
-  <!-- Library (동일) -->
+  <!-- LIBRARY -->
   <section id="library" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>자료실</h2>
@@ -193,7 +198,7 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" style="background:#f7f9fc;padding:40px 0">
     <div class="container" style="text-align:center">
       <h2>문의</h2>
@@ -204,7 +209,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
       <div>
@@ -217,8 +222,8 @@
       <div class="foot-links">
         <h4>바로가기</h4>
         <p><a href="#library">자료실</a></p>
-        <p><a href="./privacy.html">개인정보처리방침</a></p>
-        <p><a href="./404.html">404 페이지</a></p>
+        <p><a href="/privacy.html">개인정보처리방침</a></p>
+        <p><a href="/404.html">404 페이지</a></p>
       </div>
     </div>
   </footer>
@@ -252,11 +257,11 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    /* 히어로 슬라이드 */
+    /* 히어로 슬라이드 (경로 통일) */
     const heroImages = [
-      './hero_scaffold_sky.jpg?v=20250928',
-      './hero_multi_modules.jpg?v=20250928',
-      './hero_module_transport.jpg?v=20250928'
+      '/assets/hero_scaffold_sky.jpg?v=20250929',
+      '/assets/hero_multi_modules.jpg?v=20250929',
+      '/assets/hero_module_transport.jpg?v=20250929'
     ];
     heroImages.forEach(src=>{const i=new Image(); i.src=src;});
     let idx = 0;
@@ -305,19 +310,16 @@
       if(!items.length){ box.innerHTML='<div class="card" style="padding:14px">현재 뉴스를 불러오지 못했습니다.</div>'; return; }
 
       items.sort((a,b)=>new Date(b.querySelector('pubDate').textContent)-new Date(a.querySelector('pubDate').textContent));
-      const html = items.slice(0,10).map(it=>{
+      box.innerHTML = items.slice(0,10).map(it=>{
         const title=esc(it.querySelector('title')?.textContent||'기사');
         const link=it.querySelector('link')?.textContent||'#';
         const pub=new Date(it.querySelector('pubDate')?.textContent||Date.now());
         return `
           <details>
             <summary><span class="chev">▶</span><span class="title">${title}</span><span class="meta">${timeAgo(pub)}</span></summary>
-            <div class="body">
-              <p style="margin:10px 0 6px">원문 링크: <a href="${link}" target="_blank" rel="noopener">${link}</a></p>
-            </div>
+            <div class="body"><p style="margin:10px 0 6px">원문 링크: <a href="${link}" target="_blank" rel="noopener">${link}</a></p></div>
           </details>`;
       }).join('');
-      box.innerHTML = html;
     }
     loadNews();
   </script>
