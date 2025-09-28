@@ -22,19 +22,18 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* Fullscreen hero */
+    /* Hero */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
     .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
     .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
-    /* 두 줄 고정 타이틀 */
     .hero-title{margin:0 0 16px;line-height:1.1}
-    .hero-title .line1{display:block;font-size:clamp(28px,4.8vw,56px);font-weight:900}
-    .hero-title .line2{display:block;font-size:clamp(28px,4.8vw,56px);font-weight:900}
+    .hero-title .line1,.hero-title .line2{display:block;font-size:clamp(28px,4.8vw,56px);font-weight:900}
     .hero-content p{margin:0 0 24px;font-size:clamp(16px,2.2vw,22px);opacity:.95}
     .btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
+    /* Layout */
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -51,7 +50,8 @@
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
     }
-    /* 인사이트 카드 */
+
+    /* 뉴스 카드 */
     .news-list{display:grid;gap:16px}
     .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:14px;padding:14px;display:grid;gap:6px}
     .news-item a{color:#0F6FFF;font-weight:700}
@@ -97,17 +97,23 @@
     <p>COREON은 해체·전기·포장·소방·조경·방수 공종에서 공사 관리·조정(PM/CM)을 수행하며, 시공은 면허 보유 관계사가 담당합니다.</p>
   </section>
 
-  <!-- Disciplines -->
+  <!-- Disciplines (서비스 대표 이미지 3종 반영) -->
   <section id="disciplines" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>공종별</h2>
       <div class="grid grid-3">
-        <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체(철거) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener">전기(E&I) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">포장(아스콘) PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener">소방 PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener">조경 PM/CM 바로가기</a>
-        <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">방수 PM/CM 바로가기</a>
+        <div class="card"><figure style="margin:0">
+          <img src="./service_ascon.png?v=20250928" alt="아스콘 포장" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">포장(아스콘)</h3><p>포장·보수·현장 교통/품질 관리</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="./service_electric.png?v=20250928" alt="전기 신재생" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">전기(E&I/신재생)</h3><p>수전·변전·시험/검사·신재생 연계</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="./service_landscape.png?v=20250928" alt="조경" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">조경</h3><p>단지·옥상정원·식재·유지관리</p></figcaption>
+        </figure></div>
       </div>
     </div>
   </section>
@@ -118,35 +124,36 @@
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
   </section>
 
-  <!-- Case Studies -->
+  <!-- Case Studies (요청하신 4건 반영) -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
       <div class="grid grid-3">
+
+        <!-- 검단 켄달스퀘어 10,000kW 수전설비 전기점검 견적 제출 -->
         <div class="card"><figure style="margin:0">
-          <img src="./thumb_scaffold_close.jpg?v=20250928" alt="스캐폴드 작업 근접" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">스캐폴드 근접 작업 관리</h3><p>다단비계 구간 안전·품질 점검 및 공정 조정</p></figcaption>
+          <img src="./case-kendallsquare-10mw-inspection-quote.jpg?v=20250928" alt="검단 켄달스퀘어 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">검단 켄달스퀘어 전기점검 견적</h3><p>수전설비 용량 10,000kW 전기점검 견적서 제출</p></figcaption>
         </figure></div>
+
+        <!-- 베르힐CC 5,000kW 수전설비 전기점검 제안서 제출 -->
         <div class="card"><figure style="margin:0">
-          <img src="./hero_scaffold_sky.jpg?v=20250928" alt="대형 스캐폴드 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">영종 모듈 현장 PM/CM</h3><p>대형 모듈 동 시공 구간 일정·리스크 관리</p></figcaption>
+          <img src="./case-verthillcc-5mw-inspection-quote.jpg?v=20250928" alt="베르힐CC 클럽하우스 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">베르힐CC 전기점검 제안</h3><p>수전설비 용량 5,000kW 전기점검 제안서 제출 완료</p></figcaption>
         </figure></div>
+
+        <!-- 영종복합문화센터 주차장 부지 원상복구공사 제안서 공문 접수 -->
         <div class="card"><figure style="margin:0">
-          <img src="./thumb_team_rooftop.jpg?v=20250928" alt="현장 팀 사진" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">현장 조직 운영</h3><p>HSE/QA·QC·공정 통합 운영 체계</p></figcaption>
+          <img src="./case-yeongjong-parking-restoration.jpg?v=20250928" alt="영종복합문화센터 주차장 부지" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">영종복합문화센터 원상복구</h3><p>주차장 부지 원상복구공사 제안서 공문 접수</p></figcaption>
         </figure></div>
+
+        <!-- 인천 요진코아텍 BUSDUCT 점검 의뢰 접수 -->
         <div class="card"><figure style="margin:0">
-          <img src="./thumb_demo_building.jpg?v=20250928" alt="해체 대상 건물" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">도시형 해체 PM/CM</h3><p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p></figcaption>
+          <img src="./case-yojin-coatech-busduct-request.jpg?v=20250928" alt="인천 요진코아텍 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">요진코아텍 BUSDUCT 점검</h3><p>BUSDUCT 상태 점검 의뢰 접수(인천)</p></figcaption>
         </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./hero_module_transport.jpg?v=20250928" alt="거대 모듈 운송" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">거대 모듈 운송/설치</h3><p>리프팅·S-PMT·야적/운송 인터페이스 관리</p></figcaption>
-        </figure></div>
-        <div class="card"><figure style="margin:0">
-          <img src="./thumb_powerline_sunset.jpg?v=20250928" alt="송전선 석양" loading="lazy" style="width:100%;height:180px;object-fit:cover">
-          <figcaption><h3 style="margin:10px 0 6px">전력 인프라 제안</h3><p>수변전·송배전 관련 패키지 제안 및 실적</p></figcaption>
-        </figure></div>
+
       </div>
     </div>
   </section>
@@ -232,7 +239,7 @@
   </div>
 
   <script>
-    // 활성 메뉴 표시
+    /* 활성 메뉴 표시 */
     const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
     const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
     function setActiveLink(){
@@ -254,14 +261,13 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    // 히어로 슬라이드 (루트 경로 & 두 겹 페이드)
+    /* 히어로 슬라이드 */
     const heroImages = [
       './hero_scaffold_sky.jpg?v=20250928',
       './hero_multi_modules.jpg?v=20250928',
       './hero_module_transport.jpg?v=20250928'
     ];
-    heroImages.forEach(src=>{const i=new Image(); i.src=src;}); // preload
-
+    heroImages.forEach(src=>{const i=new Image(); i.src=src;});
     let idx = 0;
     let bgEl = document.getElementById('heroBg');
     setInterval(()=>{
@@ -274,79 +280,42 @@
       setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
     }, 6000);
 
-    // ===== 인사이트: RSS → 뉴스 카드 생성 =====
-    // CORS 회피 프록시(공개): allorigins
+    /* 인사이트: RSS → 뉴스 카드 */
     const proxies = [
       url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-      url => `https://r.jina.ai/http://` + url.replace(/^https?:\/\//,'') // 백업
+      url => `https://r.jina.ai/http://` + url.replace(/^https?:\/\//,'')
     ];
-
-    const queries = [
-      '해체 OR 철거',
-      '전기 공사',
-      '아스콘 포장',
-      '소방 공사',
-      '조경 공사',
-      '방수 공사'
-    ];
-
+    const queries = ['해체 OR 철거','전기 공사','아스콘 포장','소방 공사','조경 공사','방수 공사'];
     async function fetchRSS(rssUrl){
       for (const wrap of proxies){
         try{
           const res = await fetch(wrap(rssUrl));
           if(!res.ok) continue;
           const text = await res.text();
-          const doc = new window.DOMParser().parseFromString(text, 'text/xml');
+          const doc = new DOMParser().parseFromString(text, 'text/xml');
           if (doc.querySelector('parsererror')) continue;
           return [...doc.querySelectorAll('item')];
-        }catch(e){ /* try next proxy */ }
-      }
-      return [];
+        }catch(e){}
+      } return [];
     }
-
+    function timeAgo(d){const s=(Date.now()-d.getTime())/1e3; if(s<60)return'방금 전'; if(s<3600)return`${(s/60|0)}분 전`; if(s<86400)return`${(s/3600|0)}시간 전`; return`${(s/86400|0)}일 전`;}
+    function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]))}
     async function loadNews(){
-      const box = document.getElementById('news');
-      if(!box) return;
-      box.innerHTML = '<div class="muted">불러오는 중…</div>';
-
-      const items = [];
+      const box=document.getElementById('news'); if(!box) return; box.innerHTML='<div class="muted">불러오는 중…</div>';
+      const items=[];
       for (const q of queries){
-        const rss = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ko&gl=KR&ceid=KR:ko`;
-        const list = await fetchRSS(rss);
-        items.push(...list.slice(0,2)); // 각 주제 상위 2개
+        const rss=`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ko&gl=KR&ceid=KR:ko`;
+        const list=await fetchRSS(rss); items.push(...list.slice(0,2));
       }
-
-      if(items.length === 0){
-        box.innerHTML = '<div class="muted">현재 뉴스를 불러오지 못했습니다.</div>';
-        return;
-      }
-
-      // 최신순 정렬
-      items.sort((a,b)=> new Date(b.querySelector('pubDate').textContent) - new Date(a.querySelector('pubDate').textContent));
-
-      // 상위 8개만 렌더
-      box.innerHTML = items.slice(0,8).map(it=>{
-        const title = it.querySelector('title')?.textContent || '기사';
-        const link = it.querySelector('link')?.textContent || '#';
-        const pub = new Date(it.querySelector('pubDate')?.textContent || Date.now());
-        const ago = timeAgo(pub);
-        return `
-          <div class="news-item">
-            <a href="${link}" target="_blank" rel="noopener">${escapeHtml(title)}</a>
-            <div class="muted">${ago}</div>
-          </div>`;
+      if(!items.length){ box.innerHTML='<div class="muted">현재 뉴스를 불러오지 못했습니다.</div>'; return; }
+      items.sort((a,b)=>new Date(b.querySelector('pubDate').textContent)-new Date(a.querySelector('pubDate').textContent));
+      box.innerHTML=items.slice(0,8).map(it=>{
+        const title=it.querySelector('title')?.textContent||'기사';
+        const link=it.querySelector('link')?.textContent||'#';
+        const pub=new Date(it.querySelector('pubDate')?.textContent||Date.now());
+        return `<div class="news-item"><a href="${link}" target="_blank" rel="noopener">${escapeHtml(title)}</a><div class="muted">${timeAgo(pub)}</div></div>`;
       }).join('');
     }
-
-    function timeAgo(d){
-      const diff = (Date.now()-d.getTime())/1000;
-      if(diff<60) return '방금 전';
-      if(diff<3600) return `${Math.floor(diff/60)}분 전`;
-      if(diff<86400) return `${Math.floor(diff/3600)}시간 전`;
-      return `${Math.floor(diff/86400)}일 전`;
-    }
-    function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]))}
-
     loadNews();
   </script>
 </body>
