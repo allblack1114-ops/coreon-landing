@@ -25,7 +25,7 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    /* HERO (모바일 최적화 + 2줄 고정) */
+    /* HERO */
     .hero-full{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
@@ -80,7 +80,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand" aria-label="COREON">
-        <img src="/assets/logo.png?v=20250929" alt="COREON 로고" />
+        <img src="/logo.png?v=20250929b" alt="COREON 로고" />
         <span>COREON</span>
       </a>
       <div class="nav-links">
@@ -92,7 +92,7 @@
 
   <!-- HERO -->
   <header id="top" class="hero-full">
-    <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=20250929')"></div>
+    <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=20250929b')"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <h1 class="hero-title">
@@ -129,41 +129,71 @@
     </div>
   </section>
 
-  <!-- SERVICES (대표 이미지 3종) -->
+  <!-- SERVICES (대표 3종 이미지) -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
     <div class="grid grid-3" style="margin-top:12px">
-      <div class="card"><img src="/assets/service_ascon.png.png?v=20250929" alt="아스콘 포장" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">포장(아스콘)</h3><p>포장·보수·교통/품질 관리</p></div>
-      <div class="card"><img src="/assets/service_electric.png.png?v=20250929" alt="전기 신재생" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">전기(E&I/신재생)</h3><p>수전·변전·시험/검사·신재생 연계</p></div>
-      <div class="card"><img src="/assets/service_landscape.png.png?v=20250929" alt="조경" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">조경</h3><p>단지·옥상정원·식재·유지관리</p></div>
+      <div class="card"><img src="/assets/service_ascon.png.png?v=20250929b" alt="아스콘 포장" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">포장(아스콘)</h3><p>포장·보수·교통/품질 관리</p></div>
+      <div class="card"><img src="/assets/service_electric.png.png?v=20250929b" alt="전기 신재생" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">전기(E&I/신재생)</h3><p>수전·변전·시험/검사·신재생 연계</p></div>
+      <div class="card"><img src="/assets/service_landscape.png.png?v=20250929b" alt="조경" style="width:100%;height:180px;object-fit:cover"><h3 style="margin:12px 0 6px">조경</h3><p>단지·옥상정원·식재·유지관리</p></div>
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
+  <!-- CASE STUDIES (기존 6장 + 신규 4장 = 10장) -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
-      <div class="grid grid-3">
+
+      <!-- 신규 4건 -->
+      <div class="grid grid-3" style="margin-bottom:18px">
         <div class="card"><figure style="margin:0">
-          <img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg.jpg?v=20250929" alt="검단 켄달스퀘어 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg.jpg?v=20250929b" alt="검단 켄달스퀘어 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">검단 켄달스퀘어 전기점검</h3><p>수전용량 10,000kW 전기점검 견적서 제출 완료</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="/assets/case-yojin-coatech-busduct-request.jpg.jpg?v=20250929" alt="인천 요진코아텍 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-yojin-coatech-busduct-request.jpg.jpg?v=20250929b" alt="인천 요진코아텍 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">요진코아텍 BUS-DUCT 점검</h3><p>전기 BUS-DUCT 상태 점검 의뢰 접수</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="/assets/case-verthillcc-5mw-inspection-quote.jpg.jpg?v=20250929" alt="베르힐CC 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-verthillcc-5mw-inspection-quote.jpg.jpg?v=20250929b" alt="베르힐CC 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">베르힐CC 전기점검</h3><p>수전용량 5,000kW 전기점검 제안서 제출</p></figcaption>
         </figure></div>
         <div class="card"><figure style="margin:0">
-          <img src="/assets/case-yeongjong-parking-restoration.jpg.jpg?v=20250929" alt="영종 복합문화센터 주차장 부지" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <img src="/assets/case-yeongjong-parking-restoration.jpg.jpg?v=20250929b" alt="영종 복합문화센터 주차장 부지" loading="lazy" style="width:100%;height:180px;object-fit:cover">
           <figcaption><h3 style="margin:10px 0 6px">영종 복합문화센터 원상복구</h3><p>주차장 부지 원상복구공사 제안서 공문 접수</p></figcaption>
         </figure></div>
       </div>
 
-      <!-- 9월 업데이트(텍스트 실적) -->
+      <!-- 기존 6건 -->
+      <div class="grid grid-3">
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/thumb_scaffold_close.jpg?v=20250929b" alt="스캐폴드 작업 근접" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">스캐폴드 근접 작업 관리</h3><p>다단비계 구간 안전·품질 점검 및 공정 조정</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/hero_scaffold_sky.jpg?v=20250929b" alt="대형 스캐폴드 전경" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">영종 모듈 현장 PM/CM</h3><p>대형 모듈 동 시공 구간 일정·리스크 관리</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/thumb_team_rooftop.jpg?v=20250929b" alt="현장 팀 사진" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">현장 조직 운영</h3><p>HSE/QA·QC·공정 통합 운영 체계</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/thumb_demo_building.jpg?v=20250929b" alt="해체 대상 건물" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">도시형 해체 PM/CM</h3><p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/hero_module_transport.jpg?v=20250929b" alt="거대 모듈 운송" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">거대 모듈 운송/설치</h3><p>리프팅·S-PMT·야적/운송 인터페이스 관리</p></figcaption>
+        </figure></div>
+        <div class="card"><figure style="margin:0">
+          <img src="/assets/thumb_powerline_sunset.jpg?v=20250929b" alt="송전선 석양" loading="lazy" style="width:100%;height:180px;object-fit:cover">
+          <figcaption><h3 style="margin:10px 0 6px">전력 인프라 제안</h3><p>수변전·송배전 관련 패키지 제안 및 실적</p></figcaption>
+        </figure></div>
+      </div>
+
+      <!-- 9월 업데이트(텍스트) -->
       <div class="card" style="margin-top:18px">
         <h3 style="margin:0 0 8px">9월 업데이트</h3>
         <ul style="margin:0; padding-left:18px">
@@ -257,11 +287,11 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    /* 히어로 슬라이드 (경로 통일) */
+    /* 히어로 슬라이드 */
     const heroImages = [
-      '/assets/hero_scaffold_sky.jpg?v=20250929',
-      '/assets/hero_multi_modules.jpg?v=20250929',
-      '/assets/hero_module_transport.jpg?v=20250929'
+      '/assets/hero_scaffold_sky.jpg?v=20250929b',
+      '/assets/hero_multi_modules.jpg?v=20250929b',
+      '/assets/hero_module_transport.jpg?v=20250929b'
     ];
     heroImages.forEach(src=>{const i=new Image(); i.src=src;});
     let idx = 0;
