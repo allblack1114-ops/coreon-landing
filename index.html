@@ -70,7 +70,7 @@
     details.ins-acc>summary{cursor:pointer;font-weight:800}
     .news-list{display:grid;gap:12px;margin-top:10px}
     .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:12px;padding:12px}
-    .news-item a{color:#0F6FFF;font-weight:700}
+    .news-item a{color:var(--blue);font-weight:700}
     .muted{color:#6c7a89;font-size:13px}
 
     /* Footer */
@@ -175,7 +175,14 @@
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
-      <!-- ... 기존 코드 유지 ... -->
+      <div class="grid grid-3">
+        <div class="card"><figure><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" alt="켄달스퀘어 전기점검" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>검단 켄달스퀘어</h3><p>10,000kW 수전설비 전기점검 견적서 제출</p></figcaption></figure></div>
+        <div class="card"><figure><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" alt="베르힐CC 전기점검" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>베르힐CC</h3><p>5,000kW 수전설비 전기점검 견적서 제출</p></figcaption></figure></div>
+        <div class="card"><figure><img src="/assets/case-yeongjong-parking-restoration.jpg" alt="영종 복합문화센터 원상복구" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>영종 복합문화센터</h3><p>주차장 부지 원상복구공사 제안서 공문 접수</p></figcaption></figure></div>
+        <div class="card"><figure><img src="/assets/case-yojin-coatech-busduct-request.jpg" alt="요진코아텍 busduct" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>요진코아텍</h3><p>전기 Bus-Duct 점검 의뢰 접수</p></figcaption></figure></div>
+        <div class="card"><figure><img src="/assets/thumb_demo_building.jpg" alt="예단포 도로포장" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>예단포 도로포장</h3><p>도로포장공사 현장조사 진행 중</p></figcaption></figure></div>
+        <div class="card"><figure><img src="/assets/thumb_team_rooftop.jpg" alt="COREON 특허" style="width:100%;height:180px;object-fit:cover"><figcaption><h3>COREON TH 시리즈</h3><p>3건 출원 진행 중</p></figcaption></figure></div>
+      </div>
     </div>
   </section>
 
@@ -192,7 +199,39 @@
   <section id="library" style="padding:40px 0">
     <div class="container">
       <h2>자료실</h2>
-      <!-- ... -->
+      <h3>공종별 PDF</h3>
+      <div class="grid grid-3" style="margin-bottom:16px">
+        <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank">해체공사</a>
+        <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank">전기공사</a>
+        <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank">포장공사</a>
+        <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank">소방공사</a>
+        <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank">조경공사</a>
+        <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank">방수공사</a>
+      </div>
+
+      <h3>관계사</h3>
+      <div class="grid grid-3" style="margin-bottom:16px">
+        <div class="card"><h4>해체</h4><p>구조물해체·구조물보강·대수선공사·폐기물 관리</p></div>
+        <div class="card"><h4>전기</h4><p>수변전·E&I</p></div>
+        <div class="card"><h4>포장</h4><p>아스콘 포장/보수</p></div>
+        <div class="card"><h4>소방</h4><p>스프링클러·펌프</p></div>
+        <div class="card"><h4>조경</h4><p>단지·옥상정원</p></div>
+        <div class="card"><h4>방수</h4><p>옥상·외벽</p></div>
+      </div>
+
+      <h3>유관기관</h3>
+      <div class="grid grid-2" style="margin-bottom:16px">
+        <a class="card" href="https://www.g2b.go.kr" target="_blank">나라장터</a>
+        <a class="card" href="https://www.pps.go.kr" target="_blank">조달청</a>
+        <a class="card" href="https://www.law.go.kr" target="_blank">국가법령정보센터</a>
+        <a class="card" href="https://www.kiscon.net" target="_blank">KISCON</a>
+      </div>
+
+      <h3>컴플라이언스</h3>
+      <div class="card">
+        <p>COREON은 공사 관리·조정(PM/CM)과 영업을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
+        <p>발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할과 책임을 명확히 합니다.</p>
+      </div>
     </div>
   </section>
 
