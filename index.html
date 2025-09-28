@@ -120,7 +120,7 @@
     <p class="muted">주소: 인천광역시 중구 중산동 두미포로112</p>
   </section>
 
-  <!-- DISCIPLINES (공종별 PDF 링크) -->
+  <!-- DISCIPLINES -->
   <section id="disciplines" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>공종별</h2>
@@ -135,47 +135,55 @@
     </div>
   </section>
 
-  <!-- SERVICES (설명 우선, 이미지 옵션) -->
+  <!-- SERVICES (이미지 반영) -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
     <div class="grid grid-3">
+      <!-- 해체(철거) -->
       <div class="card">
+        <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" alt="해체(철거) 공사" loading="lazy"></div>
         <h3>해체(철거)</h3>
-        <p>구조물해체·구조물보강·대수선공사·허가·석면·안전계획서·폐기물 계획 일괄 관리</p>
+        <p>구조물 해체·구조물 보강·대수선공사·폐기물 관리</p>
       </div>
+      <!-- 토목(포장/아스콘) -->
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_ascon.png" alt="아스콘 포장" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" alt="아스콘 포장" loading="lazy"></div>
         <h3>토목(포장/아스콘)</h3>
         <p>도로포장·보수·교통/품질 관리</p>
       </div>
+      <!-- 방수 -->
       <div class="card">
+        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" alt="방수 공사" loading="lazy"></div>
         <h3>방수</h3>
-        <p>옥상·외벽·도장·균열 보수 및 방수 시공 관리</p>
+        <p>옥상·외벽·균열 보수 및 방수 시공 관리</p>
       </div>
+      <!-- 조경 -->
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_landscape.png" alt="조경" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" alt="조경" loading="lazy"></div>
         <h3>조경</h3>
         <p>단지 조경·옥상정원·식재·유지관리</p>
       </div>
+      <!-- 전기 -->
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_electric.png" alt="전기 신재생" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" alt="전기 E&I 신재생" loading="lazy"></div>
         <h3>전기(E&I/신재생)</h3>
         <p>수·변전·내선공사·시험/검사·신재생 연계</p>
       </div>
+      <!-- 소방 -->
       <div class="card">
+        <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" alt="소방 공사" loading="lazy"></div>
         <h3>소방</h3>
         <p>스프링클러·펌프·감지·경보 설비 및 점검/검사 대응</p>
       </div>
     </div>
   </section>
 
-  <!-- CASE STUDIES (신규 4 + 기존 6) -->
+  <!-- CASE STUDIES -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
 
-      <!-- 9월 업데이트 실적 -->
       <div class="card" style="margin-bottom:16px">
         <strong>2025년 9월 업데이트</strong>
         <ul>
@@ -185,7 +193,6 @@
       </div>
 
       <div class="grid grid-3">
-        <!-- 신규 4건 -->
         <div class="card">
           <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" alt="검단 켄달스퀘어 전경" loading="lazy"></div>
           <h3>검단 켄달스퀘어 전기점검</h3>
@@ -207,7 +214,6 @@
           <p>주차장 부지 원상복구공사 제안서 공문 접수</p>
         </div>
 
-        <!-- 기존 6건 -->
         <div class="card">
           <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" alt="스캐폴드 작업 근접" loading="lazy"></div>
           <h3>스캐폴드 근접 작업 관리</h3>
@@ -229,7 +235,7 @@
           <p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p>
         </div>
         <div class="card">
-          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" alt="거대 모듈 운송" loading="lazy"></div>
+          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" alt="대형 모듈 운송" loading="lazy"></div>
           <h3>대형 모듈 운송/설치</h3>
           <p>리프팅·S-PMT·야적/운송 인터페이스 관리</p>
         </div>
@@ -242,7 +248,7 @@
     </div>
   </section>
 
-  <!-- INSIGHTS (구글 뉴스 아코디언) -->
+  <!-- INSIGHTS -->
   <section id="insights" class="container" style="padding:40px 0">
     <h2>인사이트</h2>
     <p class="muted">해체·철거·전기·포장·소방·조경·방수 관련 최신 뉴스 (아코디언 보기)</p>
@@ -382,7 +388,7 @@
       for (const q of queries){
         const rss = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ko&gl=KR&ceid=KR:ko`;
         const list = await fetchRSS(rss);
-        items.push(...list.slice(0,2)); // 주제당 2개
+        items.push(...list.slice(0,2));
       }
       if(items.length===0){ box.innerHTML='<div class="muted">현재 뉴스를 불러오지 못했습니다.</div>'; return; }
       items.sort((a,b)=> new Date(b.querySelector('pubDate').textContent) - new Date(a.querySelector('pubDate').textContent));
