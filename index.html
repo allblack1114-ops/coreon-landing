@@ -47,6 +47,8 @@
 
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.4rem .7rem;border-radius:999px;font-size:13px;font-weight:700}
+    .badge svg{opacity:.9}
 
     /* HERO */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -61,7 +63,6 @@
     .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900;word-break:keep-all}
     .hero-title .line1,
     .hero-title .line2{display:block;font-size:58px;letter-spacing:-0.8px;white-space:nowrap;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
-    /* 월리 느낌 강조 */
     .hero-title .line1{font-weight:900}
     .hero-title .line2{font-weight:900}
 
@@ -120,6 +121,10 @@
       html{scroll-behavior:auto}
       .hero-full .hero-bg{transition:none}
     }
+
+    /* helper */
+    .subtle{color:#3e5166}
+    .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
   </style>
 </head>
 <body>
@@ -135,6 +140,8 @@
         <a href="#disciplines">공종별</a>
         <a href="#services">서비스</a>
         <a href="#case-studies">실적사례</a>
+        <a href="#partners">파트너 네트워크</a>
+        <a href="#capabilities">기술·지식자산</a>
         <a href="#insights">인사이트</a>
         <a href="#library">자료실</a>
         <a href="#contact">문의</a>
@@ -148,6 +155,11 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
+      <div class="badge" style="margin-bottom:10px" aria-label="핵심 포지셔닝">
+        <!-- icon: bolt -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        해체·전기 EPCM 전문 PM/CM
+      </div>
       <h1 class="hero-title">
         <span class="line1">계약부터 준공까지</span>
         <span class="line2">코레온(COREON)이 관리·조정합니다</span>
@@ -168,7 +180,7 @@
     <p class="muted">주소: 인천광역시 중구 중산동 두미포로112</p>
   </section>
 
-  <!-- DISCIPLINES -->
+  <!-- DISCIPLINES (기존 유지) -->
   <section id="disciplines" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>공종별</h2>
@@ -183,7 +195,7 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (기존 유지) -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
@@ -221,7 +233,7 @@
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
+  <!-- CASE STUDIES (기존 유지 + 간단 라벨) -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
@@ -236,52 +248,62 @@
 
       <div class="grid grid-3">
         <div class="card">
+          <div class="kicker">전기·점검 제안</div>
           <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" width="640" height="360" alt="검단 켄달스퀘어 전경" loading="lazy"></div>
           <h3>검단 켄달스퀘어 전기점검</h3>
           <p>수전용량 10,000kW 전기점검 견적서 제출 완료</p>
         </div>
         <div class="card">
+          <div class="kicker">전기·설비 상태 점검</div>
           <div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" width="640" height="360" alt="인천 요진코아텍 전경" loading="lazy"></div>
           <h3>요진코아텍 BUS-DUCT 점검</h3>
           <p>전기 BUS-DUCT 상태 점검 의뢰 접수</p>
         </div>
         <div class="card">
+          <div class="kicker">전기·점검 제안</div>
           <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 전경" loading="lazy"></div>
           <h3>베르힐CC 전기점검</h3>
           <p>수전용량 5,000kW 전기점검 제안서 제출</p>
         </div>
         <div class="card">
+          <div class="kicker">공공·원상복구</div>
           <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 부지" loading="lazy"></div>
           <h3>영종 복합문화센터 원상복구</h3>
           <p>주차장 부지 원상복구공사 제안서 공문 접수</p>
         </div>
 
         <div class="card">
+          <div class="kicker">안전·품질 관리</div>
           <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="스캐폴드 작업 근접" loading="lazy"></div>
           <h3>스캐폴드 근접 작업 관리</h3>
           <p>다단비계 구간 안전·품질 점검 및 공정 조정</p>
         </div>
         <div class="card">
+          <div class="kicker">모듈 PM/CM</div>
           <div class="imgbox"><img src="/assets/hero_scaffold_sky.jpg" width="640" height="360" alt="대형 스캐폴드 전경" loading="lazy"></div>
           <h3>대형 모듈 현장 PM/CM</h3>
           <p>대형 모듈 동 시공 구간 일정·리스크 관리</p>
         </div>
         <div class="card">
+          <div class="kicker">현장 운영</div>
           <div class="imgbox"><img src="/assets/thumb_team_rooftop.jpg" width="640" height="360" alt="현장 팀 사진" loading="lazy"></div>
           <h3>현장 조직 운영</h3>
           <p>HSE/QA·QC·공정 통합 운영 체계</p>
         </div>
         <div class="card">
+          <div class="kicker">도시형 해체</div>
           <div class="imgbox"><img src="/assets/thumb_demo_building.jpg" width="640" height="360" alt="해체 대상 건물" loading="lazy"></div>
           <h3>도시형 해체 PM/CM</h3>
           <p>허가·석면·안전계획서·폐기물 계획 일괄 관리</p>
         </div>
         <div class="card">
+          <div class="kicker">운송·설치</div>
           <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송" loading="lazy"></div>
           <h3>대형 모듈 운송/설치</h3>
           <p>리프팅·S-PMT·야적/운송 인터페이스 관리</p>
         </div>
         <div class="card">
+          <div class="kicker">전력 인프라</div>
           <div class="imgbox"><img src="/assets/thumb_powerline_sunset.jpg" width="640" height="360" alt="송전선 석양" loading="lazy"></div>
           <h3>전력 인프라 제안</h3>
           <p>수변전·송배전 관련 패키지 제안 및 실적</p>
@@ -290,14 +312,62 @@
     </div>
   </section>
 
-  <!-- INSIGHTS -->
+  <!-- PARTNERS: JV/컨소시엄 제도화 (신규) -->
+  <section id="partners" class="container" style="padding:40px 0">
+    <h2>파트너 네트워크</h2>
+    <p class="subtle">COREON은 면허 보유 시공사 및 전문 엔지니어링 파트너와의 <strong>공동 수행 협력체계</strong>를 통해 프로젝트를 실행합니다. (표시는 예시이며, 계약 유형에 따라 달라질 수 있습니다)</p>
+    <div class="grid grid-3" style="margin-top:14px">
+      <div class="card">
+        <h3>시공 파트너</h3>
+        <p>해체·토목(포장/아스콘)·방수·조경·전기·소방 면허사
+        <br><span class="muted">도급: 발주처↔시공사 / 용역: COREON↔발주처·시공사</span></p>
+      </div>
+      <div class="card">
+        <h3>설계·기술사</h3>
+        <p>구조기술사·건축사·전기/소방 설계사무소 협업으로 인허가·검토 대응
+        <br><span class="muted">해체계획서·구조검토·전기/소방 설계 변경관리</span></p>
+      </div>
+      <div class="card">
+        <h3>FM/O&amp;M 연계</h3>
+        <p>전기안전관리, 설비 유지관리, 정기점검 파트너십을 통한 장기 운영 지원</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES: 특허/프로그램 (신규) -->
+  <section id="capabilities" style="background:#f7f9fc;padding:40px 0">
+    <div class="container">
+      <h2>기술·지식자산 (COREON S&amp;Q Standard)</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>특허 포트폴리오</h3>
+          <ul>
+            <li>TH-1 콘크리트 펌프카 안전 보조 시스템 (출원)</li>
+            <li>TH-2 안전조끼 일체형 호흡 보호 장치 (출원)</li>
+            <li>TH-3 해제 홈 구조 안전 개봉 제어 시스템 (출원)</li>
+          </ul>
+          <p class="muted">※ 세부 내용은 공개 범위에 따라 제한될 수 있습니다.</p>
+        </div>
+        <div class="card">
+          <h3>HW 프로그램</h3>
+          <p>견적·비용 자동화, PM/CM 체크리스트, 안전·품질 문서 템플릿, 변경관리 리포트 등 현장 실행형 툴킷.</p>
+        </div>
+        <div class="card">
+          <h3>프로세스 표준화</h3>
+          <p>허가–안전–품질–조달–변경관리 End-to-End 표준 프로세스 운영으로 리스크/기간/비용 통제.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS (기존) -->
   <section id="insights" class="container" style="padding:40px 0">
     <h2>인사이트</h2>
     <p class="muted">해체·철거·전기·포장·소방·조경·방수 관련 최신 뉴스 (아코디언 보기)</p>
     <div id="news" class="news-list"></div>
   </section>
 
-  <!-- LIBRARY -->
+  <!-- LIBRARY (기존) -->
   <section id="library" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>자료실</h2>
@@ -315,10 +385,16 @@
         <p>COREON은 공사 관리·조정(PM/CM)과 영업을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
         <p>발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할과 책임을 명확히 합니다.</p>
       </div>
+
+      <!-- FM/O&M Coming Soon (신규 안내 블록) -->
+      <h3 style="margin-top:20px">FM/O&amp;M 서비스 <span class="muted">(준비 중)</span></h3>
+      <div class="card">
+        <p>해체 이후 <strong>전기 안전관리·설비 유지관리·정기점검</strong>까지 연계하는 장기 운영 지원 패키지를 준비하고 있습니다. 파트너십 체계 확정 시 순차 공개 예정입니다.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (기존) -->
   <section id="contact" style="background:#f7f9fc;padding:40px 0">
     <div class="container" style="text-align:center">
       <h2>문의</h2>
@@ -329,7 +405,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (기존) -->
   <footer>
     <div class="container foot-grid">
       <div>
@@ -347,7 +423,7 @@
     </div>
   </footer>
 
-  <!-- MOBILE CTA -->
+  <!-- MOBILE CTA (기존) -->
   <div class="sticky-cta" aria-label="모바일 하단 고정 연락 버튼">
     <a href="tel:010-9039-1482">전화</a>
     <a href="mailto:contact@coreon-global.com">메일</a>
