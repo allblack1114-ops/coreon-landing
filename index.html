@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>COREON | 해체·철거·아스콘·조경·전기·소방·도장(방수) 공사 PM/CM</title>
-  <meta name="description" content="해체(철거), 아스콘, 조경, 전기, 소방, 도장(방수) 공사 PM/CM. 계약부터 준공까지 일정·비용·품질·리스크 통합 관리 — 시공은 면허 보유 파트너사가 책임 수행." />
+  <title>COREON | ONE-STOP 공사 관리·조정</title>
+  <meta name="description" content="계약부터 준공까지 PM/CM. 해체·토목(포장/아스콘)·방수·조경·전기·소방 — 시공은 관련 면허 보유사가 책임 수행합니다." />
   <meta name="theme-color" content="#0A1B2B" />
   <link rel="icon" href="/favicon.ico" />
 
@@ -12,13 +12,13 @@
   <link rel="canonical" href="https://www.coreon-global.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
-  <meta property="og:title" content="COREON | 해체·철거·아스콘·조경·전기·소방·도장(방수) 공사 PM/CM" />
-  <meta property="og:description" content="계약부터 준공까지 PM/CM. 해체(철거)·아스콘·조경·전기·소방·도장(방수) — 시공은 면허 보유 파트너사가 책임 수행." />
+  <meta property="og:title" content="COREON | ONE-STOP 공사 관리·조정" />
+  <meta property="og:description" content="계약부터 준공까지 PM/CM. 시공은 면허 보유 파트너사가 책임 수행." />
   <meta property="og:image" content="https://www.coreon-global.com/assets/hero_scaffold_sky.jpg?v=3" />
   <meta property="og:url" content="https://www.coreon-global.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Ownership / Indexing (필요 시 실제 코드로 교체) -->
+  <!-- Ownership / Indexing (실제 코드가 있다면 값 교체 가능) -->
   <meta name="naver-site-verification" content="" />
   <meta name="google-site-verification" content="" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -33,12 +33,20 @@
   <link rel="preload" as="image" href="/assets/hero_scaffold_sky.jpg?v=3" />
 
   <style>
-    :root{--navy:#0A1B2B;--blue:#0F6FFF;--bg:#F4F6F9;--card:#fff;--radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08);--container:1120px;--gutter:20px}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    :root{
+      --navy:#0A1B2B;--blue:#0F6FFF;--bg:#F4F6F9;--card:#fff;
+      --radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08);
+      --container:1120px;--gutter:20px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
-    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
     .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
 
+    /* NAV */
     .nav{background:#fff;border-bottom:1px solid #e9eef5;position:sticky;top:0;z-index:50}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:900}
@@ -47,60 +55,71 @@
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a.active{background:#eef3fb;color:var(--blue)}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap;gap:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
 
-    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.45rem .75rem;border-radius:999px;font-size:13px;font-weight:700}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.4rem .7rem;border-radius:999px;font-size:13px;font-weight:700}
 
-    /* ---------- HERO ---------- */
+    /* HERO */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
     .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{position:relative;z-index:2;color:#fff;padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));padding-right:var(--gutter);max-width:980px}
 
-    .hero-title{margin:14px 0 16px;line-height:1.12;font-weight:900;word-break:keep-all}
-    /* 기본: 데스크톱은 2줄 구조 */
-    .hero-title .row{display:block;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;letter-spacing:-.8px;white-space:normal}
-    .hero-title .row{font-size:clamp(30px,5.4vw,64px)}
-    /* 모바일: 첫 줄 안의 '코레온(COREON)이'만 줄바꿈 → 총 3줄 */
-    .inline-break{display:inline}
-    @media (max-width:720px){
-      .hero-content{max-width:unset;padding-left:var(--gutter);padding-right:var(--gutter)}
-      .hero-full{min-height:92vh}
-      .hero-title .row{font-size:clamp(22px,7.2vw,30px)}
-      .inline-break{display:block} /* ← 여기서만 줄바꿈 */
-    }
+    .hero-content{position:relative;z-index:2;color:#fff;padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));padding-right:var(--gutter);max-width:760px}
 
-    .hero-desc{margin:0 0 22px;font-size:clamp(15px,1.2vw,18px);opacity:.98}
-    .btn-group{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900;word-break:keep-all}
+    .hero-title .line1,.hero-title .line2{display:block;font-size:58px;letter-spacing:-0.8px;white-space:nowrap;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
 
+    .hero-desc{margin:0 0 24px;font-size:18px;opacity:.95}
+
+    /* GRID & CARD */
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .imgbox{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#eef2f7}
-    .imgbox img{width:100%;height:100%;object-fit:cover}
 
-    section{scroll-margin-top:88px} h2{margin:0 0 16px}
+    /* 이미지 왜곡 방지: 카드 썸네일 비율 고정 */
+    .imgbox{
+      width:100%;
+      aspect-ratio:16/9;          /* 카드 폭에 맞춰 자동 높이 */
+      border-radius:12px;
+      overflow:hidden;
+      background:#eef2f7;
+    }
+    .imgbox img{
+      width:100%;
+      height:100%;
+      object-fit:cover;            /* 꽉 채우되 비율 유지 */
+      object-position:center;
+      display:block;
+    }
 
+    section{scroll-margin-top:88px}
+    h2{margin:0 0 16px}
+
+    /* FOOTER */
     footer{background:#0A1220;color:#c9d6e8;padding:30px 0;margin-top:40px}
     .foot-grid{display:grid;gap:20px;grid-template-columns:2fr 1fr}
 
+    /* MOBILE STICKY CTA */
     .sticky-cta{display:none}
     @media(max-width:980px){
       .sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;background:#0A1B2B;z-index:99}
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
       .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
-      .brand img{height:32px}
+      .brand img{height:36px}
+      .brand span{font-size:20px;font-weight:900}
       .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
-      .hero-desc{font-size:14.5px;margin-bottom:16px}
-      .btn{padding:.66rem .9rem;font-size:14px}
-      .btn-group{gap:10px}
+      .hero-full{min-height:92vh}
+      .hero-desc{font-size:16px}
+      .hero-title .line1,.hero-title .line2{font-size:32px;white-space:normal}
     }
 
+    /* INSIGHTS - accordion */
     .news-list{display:grid;gap:10px}
     .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:14px}
     .news-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
@@ -108,14 +127,26 @@
     .news-item.open .chev{transform:rotate(0)}
     .news-body{display:none;padding:0 14px 14px}
     .news-item.open .news-body{display:block}
+
     .muted{color:#6c7a89;font-size:13px}
+    .subtle{color:#3e5166}
     .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
+
+    /* 사용자 선호 반영: 모션 감소 */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .hero-full .hero-bg{transition:none}
+    }
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <nav class="nav" aria-label="주요 메뉴">
     <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="COREON 홈"><img src="/logo.png" alt="COREON 로고" /><span>COREON</span></a>
+      <a href="#top" class="brand" aria-label="COREON 홈">
+        <img src="/logo.png" alt="COREON 로고" />
+        <span>COREON</span>
+      </a>
       <div class="nav-links" role="navigation">
         <a href="#about">회사소개</a>
         <a href="#sectors">산업별</a>
@@ -129,23 +160,20 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <header id="top" class="hero-full" aria-label="히어로">
     <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=3')" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="badge" style="margin-bottom:10px" aria-label="핵심 포지셔닝">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        EPCM 기반 PM/CM · 해체·아스콘·조경·전기·소방·도장(방수)
+        EPCM 기반 PM/CM · 해체·토목·전기·방수·조경·소방
       </div>
-
-      <!-- ✅ PC: 2줄 / 모바일: 3줄 자동 -->
-      <h1 class="hero-title" aria-label="계약부터 준공까지 코레온이 프로젝트관리 공사관리를 수행합니다">
-        <span class="row">계약부터 준공까지 <span class="inline-break">코레온(COREON)이</span></span>
-        <span class="row">프로젝트관리·공사관리를 수행합니다</span>
+      <h1 class="hero-title">
+        <span class="line1">계약부터 준공까지</span>
+        <span class="line2">코레온(COREON)이 일정·비용·품질을 통제합니다</span>
       </h1>
-
       <p class="hero-desc">허가–안전–품질–조달–변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
-
       <div class="btn-group" aria-label="주요 행동 버튼">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
         <a class="btn" href="#case-studies">실적사례 보기</a>
@@ -154,17 +182,14 @@
     </div>
   </header>
 
+  <!-- ABOUT -->
   <section id="about" class="container" style="padding:40px 0">
     <h2>회사소개</h2>
-    <p>
-      COREON은 PM/CM 전문 기업으로,
-      <strong>해체(철거)공사·아스콘공사·조경공사·전기공사·소방공사·도장(방수)공사</strong>
-      등 전 공종을 EPCM 기반으로 관리·조정합니다. 발주처 관점에서 일정·비용·품질·리스크를 통합 통제하며,
-      시공은 면허 보유 파트너사가 책임 수행합니다.
-    </p>
+    <p>COREON은 PM/CM 전문 기업으로, 해체·토목(포장/아스콘)·방수·조경·전기·소방 등 전 공종을 관리·조정합니다. 시공은 관련 면허 보유사가 책임 수행하며, 발주처 관점에서 일정·비용·품질·리스크를 통합 통제합니다.</p>
     <p class="muted">주소: 인천광역시 중구 중산동 두미포로112 · 대표전화: 010-9039-1482</p>
   </section>
 
+  <!-- SECTORS -->
   <section id="sectors" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>산업별</h2>
@@ -176,55 +201,93 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
     <div class="grid grid-3">
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" alt="해체(철거) PM/CM" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" width="640" height="360" alt="해체 PM/CM: 허가·석면·안전·폐기물 계획 통합 관리" loading="lazy"></div>
         <h3>해체(철거)</h3><p>구조물 해체·보강·대수선·폐기물</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" alt="아스콘 포장/보수" loading="lazy"></div>
-        <h3>아스콘(포장)</h3><p>도로 포장·보수·교통/품질</p>
+        <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" width="640" height="360" alt="아스콘 포장: 도로 포장·보수·교통/품질 관리" loading="lazy"></div>
+        <h3>토목(포장/아스콘)</h3><p>도로 포장·보수·교통/품질</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" alt="도장/방수" loading="lazy"></div>
-        <h3>도장(방수)</h3><p>옥상·외벽·균열/도장 보수</p>
+        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수 공사: 옥상·외벽·균열 보수" loading="lazy"></div>
+        <h3>방수</h3><p>옥상·외벽·균열 보수</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" alt="조경" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" width="640" height="360" alt="조경: 단지 조경·옥상정원·유지관리" loading="lazy"></div>
         <h3>조경</h3><p>단지 조경·옥상정원·유지관리</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" alt="전기(E&I/신재생)" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" width="640" height="360" alt="전기(E&I/신재생): 수변전·내선·시험/검사" loading="lazy"></div>
         <h3>전기(E&I/신재생)</h3><p>수·변전·내선·시험/검사</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" alt="소방" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" width="640" height="360" alt="소방: 스프링클러·펌프·감지/경보·검사 대응" loading="lazy"></div>
         <h3>소방</h3><p>스프링클러·펌프·감지/경보</p>
       </div>
     </div>
   </section>
 
+  <!-- CASE STUDIES -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
+
       <div class="card" style="margin-bottom:16px">
         <strong>2025년 9월 업데이트</strong>
         <ul>
           <li>코레온 특허: 3건 출원 진행 중</li>
-          <li>해체·아스콘·도장(방수)·조경·전기·소방 등 <strong>14개 관계사</strong>와 협력 체결</li>
+          <li>해체·토목·방수·조경·전기·소방 등 <strong>14개 관계사</strong>와 협력 체결</li>
         </ul>
       </div>
+
       <div class="grid grid-3">
-        <div class="card"><div class="kicker">전기·점검 제안</div><div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" alt="검단 켄달스퀘어 10MW 전기점검 견적 제출" loading="lazy"></div><h3>검단 켄달스퀘어 전기점검</h3><p>수전 10,000kW 전기점검 견적서 제출</p></div>
-        <div class="card"><div class="kicker">전기·설비 점검</div><div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" alt="요진코아텍 BUS-DUCT 상태 점검 의뢰" loading="lazy"></div><h3>요진코아텍 BUS-DUCT 점검</h3><p>설비 상태 점검 의뢰 접수</p></div>
-        <div class="card"><div class="kicker">전기·점검 제안</div><div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" alt="베르힐CC 5MW 전기점검 제안서" loading="lazy"></div><h3>베르힐CC 전기점검</h3><p>수전 5,000kW 전기점검 제안</p></div>
+        <div class="card">
+          <div class="kicker">전기·점검 제안</div>
+          <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" width="640" height="360" alt="검단 켄달스퀘어 10MW 전기점검 견적 제출" loading="lazy"></div>
+          <h3>검단 켄달스퀘어 전기점검</h3>
+          <p>수전 10,000kW 전기점검 견적서 제출</p>
+        </div>
+        <div class="card">
+          <div class="kicker">전기·설비 점검</div>
+          <div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" width="640" height="360" alt="요진코아텍 BUS-DUCT 상태 점검 의뢰" loading="lazy"></div>
+          <h3>요진코아텍 BUS-DUCT 점검</h3>
+          <p>설비 상태 점검 의뢰 접수</p>
+        </div>
+        <div class="card">
+          <div class="kicker">전기·점검 제안</div>
+          <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 5MW 전기점검 제안서 제출" loading="lazy"></div>
+          <h3>베르힐CC 전기점검</h3>
+          <p>수전 5,000kW 전기점검 제안</p>
+        </div>
+        <div class="card">
+          <div class="kicker">공공·원상복구</div>
+          <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 원상복구 제안" loading="lazy"></div>
+          <h3>영종 복합문화센터 원상복구</h3>
+          <p>부지 원상복구 공문 접수</p>
+        </div>
+        <div class="card">
+          <div class="kicker">안전·품질</div>
+          <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="다단비계 구간 안전·품질 점검" loading="lazy"></div>
+          <h3>스캐폴드 근접 작업</h3>
+          <p>안전·품질 점검 및 공정 조정</p>
+        </div>
+        <div class="card">
+          <div class="kicker">모듈 PM/CM</div>
+          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송/설치 인터페이스 관리" loading="lazy"></div>
+          <h3>대형 모듈 운송/설치</h3>
+          <p>리프팅·S-PMT·야적/운송 인터페이스</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- SQC -->
   <section id="sqc" class="container" style="padding:40px 0">
     <h2>안전·품질·컴플라이언스</h2>
     <div class="grid grid-3">
@@ -234,22 +297,42 @@
     </div>
   </section>
 
+  <!-- INSIGHTS -->
   <section id="insights" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>인사이트</h2>
+      <p class="muted">현장형 가이드·체크리스트를 정기 발행합니다.</p>
+      <div class="news-list">
+        <div class="news-item open">
+          <div class="news-head">
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="flex:1">도시형 해체 허가·석면·교통 가이드</div>
+            <span class="muted">정적</span>
+          </div>
+          <div class="news-body"><p>도심 현장의 인허가·석면·교통대책 흐름도를 제공합니다.</p></div>
+        </div>
+        <div class="news-item open">
+          <div class="news-head">
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="flex:1">아스콘 포장 품질관리 10포인트</div>
+            <span class="muted">정적</span>
+          </div>
+          <div class="news-body"><p>혼합물·포설·다짐·온도·시험의 핵심 체크포인트.</p></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 자료실: 해체(철거) / 아스콘 / 조경 / 전기 / 소방 / 도장(방수) -->
+  <!-- LIBRARY -->
   <section id="library" class="container" style="padding:40px 0">
     <h2>자료실</h2>
     <div class="grid grid-3" style="margin-bottom:16px">
-      <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체(철거)공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">아스콘공사 바로가기</a>
+      <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체공사 바로가기</a>
+      <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">포장공사 바로가기</a>
+      <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">방수공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener">조경공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener">전기공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener">소방공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">도장(방수)공사 바로가기</a>
     </div>
 
     <h3>컴플라이언스</h3>
@@ -258,6 +341,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" style="background:#f7f9fc;padding:40px 0">
     <div class="container" style="text-align:center">
       <h2>문의</h2>
@@ -268,6 +352,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
       <div>
@@ -285,45 +370,104 @@
     </div>
   </footer>
 
+  <!-- MOBILE CTA -->
   <div class="sticky-cta" aria-label="모바일 하단 고정 연락 버튼">
     <a href="tel:010-9039-1482">전화</a>
     <a href="mailto:contact@coreon-global.com">메일</a>
   </div>
 
   <script>
-    const sections=[...document.querySelectorAll('section, header.hero-full')];
-    const navLinks=[...document.querySelectorAll('.nav-links a')];
+    /* 활성 메뉴 하이라이트 */
+    const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
     function setActiveLink(){
-      const y=window.scrollY+120;let currentId='top';
-      for(const s of sections){ if(y>=s.offsetTop) currentId=s.id||'top'; }
+      const y = window.scrollY + 120;
+      let currentId = 'top';
+      for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
       navLinks.forEach(a=>{
-        const id=(a.getAttribute('href').startsWith('#')?a.getAttribute('href').slice(1):'');
-        a.classList.toggle('active',id===currentId);
+        const id = (a.getAttribute('href').startsWith('#') ? a.getAttribute('href').slice(1) : '');
+        a.classList.toggle('active', id === currentId);
       });
     }
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
-        if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-72,behavior:'smooth'}); }
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
       });
     });
-    window.addEventListener('scroll',setActiveLink);window.addEventListener('load',setActiveLink);
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
 
-    const heroImages=['/assets/hero_scaffold_sky.jpg?v=3','/assets/hero_multi_modules.jpg?v=3','/assets/hero_module_transport.jpg?v=3'];
-    heroImages.slice(1).forEach(src=>{const i=new Image();i.src=src;});
-    let idx=0, bgEl=document.getElementById('heroBg');
-    const rotateHero=()=>{idx=(idx+1)%heroImages.length;const nextEl=bgEl.cloneNode();nextEl.classList.add('next');nextEl.style.backgroundImage=`url('${heroImages[idx]}')`;bgEl.parentNode.insertBefore(nextEl,bgEl);requestAnimationFrame(()=>{bgEl.classList.add('next');nextEl.classList.remove('next');});setTimeout(()=>{bgEl.remove();nextEl.id='heroBg';bgEl=nextEl;},1100);};
-    let slideTimer=setInterval(rotateHero,6000);
-    document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(slideTimer);}else{slideTimer=setInterval(rotateHero,6000);}});
+    /* 히어로 배경 슬라이드 */
+    const heroImages = [
+      '/assets/hero_scaffold_sky.jpg?v=3',
+      '/assets/hero_multi_modules.jpg?v=3',
+      '/assets/hero_module_transport.jpg?v=3'
+    ];
+    heroImages.slice(1).forEach(src=>{const i=new Image(); i.src=src;});
+    let idx = 0;
+    let bgEl = document.getElementById('heroBg');
+
+    const rotateHero = () => {
+      idx = (idx + 1) % heroImages.length;
+      const nextEl = bgEl.cloneNode();
+      nextEl.classList.add('next');
+      nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
+      bgEl.parentNode.insertBefore(nextEl, bgEl);
+      requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
+      setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
+    };
+
+    let slideTimer = setInterval(rotateHero, 6000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { clearInterval(slideTimer); }
+      else { slideTimer = setInterval(rotateHero, 6000); }
+    });
   </script>
 
+  <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"COREON",
-    "url":"https://www.coreon-global.com/",
-    "logo":"https://www.coreon-global.com/logo.png",
-    "telephone":"+82-10-9039-1482"
+    "@context":"https://schema.org","@type":"WebSite","name":"COREON","url":"https://www.coreon-global.com/",
+    "potentialAction":{"@type":"SearchAction","target":"https://www.google.com/search?q=site:coreon-global.com+{search_term_string}","query-input":"required name=search_term_string"}
+  }</script>
+
+  <!-- JSON-LD: Breadcrumb -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.coreon-global.com/"},
+      {"@type":"ListItem","position":2,"name":"Services","item":"https://www.coreon-global.com/#services"},
+      {"@type":"ListItem","position":3,"name":"Projects","item":"https://www.coreon-global.com/#case-studies"}
+    ]
+  }</script>
+
+  <!-- JSON-LD: Services -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"ItemList","name":"COREON Services",
+    "itemListElement":[
+      {"@type":"Service","name":"해체(철거) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"허가·석면·안전·폐기물 계획까지 일괄 관리"},
+      {"@type":"Service","name":"전기(E&I) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"수·변전, 내선, 시험/검사 대응 및 일정/리스크 통합 관리"},
+      {"@type":"Service","name":"토목(포장/아스콘) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"도로 포장·보수 공정, 교통/품질 관리 표준화"}
+    ]
+  }</script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"COREON은 시공도 하나요?","acceptedAnswer":{"@type":"Answer","text":"COREON은 PM/CM 및 영업을 수행하며, 실제 시공은 관련 면허 보유 파트너사가 책임 수행합니다."}},
+      {"@type":"Question","name":"어떤 지역을 커버하나요?","acceptedAnswer":{"@type":"Answer","text":"수도권(인천·경기·서울) 중심으로 전국 대응합니다."}},
+      {"@type":"Question","name":"프로젝트 견적/제안은 어떻게 받나요?","acceptedAnswer":{"@type":"Answer","text":"상단 ‘무료견적(전화)’ 또는 ‘상세문의(메일)’로 연락 주시면 24시간 내 1차 회신 드립니다."}}
+    ]
+  }</script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"Organization","name":"COREON","url":"https://www.coreon-global.com/","logo":"https://www.coreon-global.com/logo.png","telephone":"+82-10-9039-1482",
+    "address":{"@type":"PostalAddress","addressCountry":"KR","addressLocality":"인천광역시 중구","streetAddress":"중산동 두미포로112"},
+    "contactPoint":[{"@type":"ContactPoint","telephone":"+82-10-9039-1482","contactType":"customer service","areaServed":"KR","availableLanguage":["ko","en"]}],
+    "areaServed":"KR","sameAs":[]
   }</script>
 </body>
 </html>
