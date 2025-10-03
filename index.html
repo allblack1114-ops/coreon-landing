@@ -43,7 +43,6 @@
     body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-
     .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
 
     /* NAV */
@@ -55,47 +54,57 @@
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a.active{background:#eef3fb;color:var(--blue)}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap;gap:8px}
+    .btn svg{flex:0 0 auto}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+    .btn-kakao{background:#FAE100;border-color:#EAD200;color:#111}
 
-    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.4rem .7rem;border-radius:999px;font-size:13px;font-weight:700}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.45rem .75rem;border-radius:999px;font-size:13px;font-weight:700}
 
     /* HERO */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
+    .hero-overlay{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent),
+      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
+    .hero-content{position:relative;z-index:2;color:#fff;
+      padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));
+      padding-right:var(--gutter);max-width:980px}
 
-    .hero-content{position:relative;z-index:2;color:#fff;padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));padding-right:var(--gutter);max-width:760px}
+    /* 3줄 고정 가독성 타이틀: PC는 큼직하게, 모바일은 자동 축소 */
+    .hero-title{margin:14px 0 16px;line-height:1.06;font-weight:900;word-break:keep-all}
+    .hero-title .line1,
+    .hero-title .line2,
+    .hero-title .line3{
+      display:block;
+      letter-spacing:-0.8px;
+      font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif
+    }
+    /* PC 크기 */
+    @media(min-width:981px){
+      .hero-title .line1{font-size:64px}
+      .hero-title .line2{font-size:64px}
+      .hero-title .line3{font-size:64px}
+    }
+    /* 모바일/태블릿은 clamp로 자동 크기 조절 + 줄바꿈 유지 */
+    @media(max-width:980px){
+      .hero-title .line1,
+      .hero-title .line2,
+      .hero-title .line3{font-size:clamp(22px, 7.2vw, 32px)}
+    }
 
-    .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900;word-break:keep-all}
-    .hero-title .line1,.hero-title .line2{display:block;font-size:58px;letter-spacing:-0.8px;white-space:nowrap;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
-
-    .hero-desc{margin:0 0 24px;font-size:18px;opacity:.95}
+    .hero-desc{margin:0 0 22px;font-size:clamp(15px,1.2vw,18px);opacity:.98}
+    .btn-group{display:flex;gap:12px;flex-wrap:wrap}
 
     /* GRID & CARD */
     .grid{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
-
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-
-    /* 이미지 왜곡 방지: 카드 썸네일 비율 고정 */
-    .imgbox{
-      width:100%;
-      aspect-ratio:16/9;          /* 카드 폭에 맞춰 자동 높이 */
-      border-radius:12px;
-      overflow:hidden;
-      background:#eef2f7;
-    }
-    .imgbox img{
-      width:100%;
-      height:100%;
-      object-fit:cover;            /* 꽉 채우되 비율 유지 */
-      object-position:center;
-      display:block;
-    }
+    .imgbox{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#eef2f7}
+    .imgbox img{width:100%;height:100%;object-fit:cover}
 
     section{scroll-margin-top:88px}
     h2{margin:0 0 16px}
@@ -111,12 +120,13 @@
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
       .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
-      .brand img{height:36px}
-      .brand span{font-size:20px;font-weight:900}
+      .brand img{height:32px}
       .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
       .hero-full{min-height:92vh}
-      .hero-desc{font-size:16px}
-      .hero-title .line1,.hero-title .line2{font-size:32px;white-space:normal}
+      .hero-content{max-width:unset;padding-left:var(--gutter);padding-right:var(--gutter)}
+      .hero-desc{font-size:14.5px;margin-bottom:16px}
+      .btn{padding:.66rem .9rem;font-size:14px}
+      .btn-group{gap:10px}
     }
 
     /* INSIGHTS - accordion */
@@ -127,7 +137,6 @@
     .news-item.open .chev{transform:rotate(0)}
     .news-body{display:none;padding:0 14px 14px}
     .news-item.open .news-body{display:block}
-
     .muted{color:#6c7a89;font-size:13px}
     .subtle{color:#3e5166}
     .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
@@ -169,15 +178,28 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         EPCM기반 PM/CM · 해체·토목·조경·방수·전기·소방
       </div>
-      <h1 class="hero-title">
+
+      <!-- 3줄 고정 타이틀 -->
+      <h1 class="hero-title" aria-label="계약부터 준공까지 코레온이 프로젝트관리 공사관리를 수행합니다">
         <span class="line1">계약부터 준공까지</span>
-        <span class="line2">코레온(COREON)이 일정·비용·품질을 관리합니다</span>
+        <span class="line2">코레온(COREON)이</span>
+        <span class="line3">프로젝트관리·공사관리를 수행합니다</span>
       </h1>
+
       <p class="hero-desc">허가·안전·품질·조달·변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
+
+      <!-- CTA 버튼들 (카카오톡 문의 추가) -->
       <div class="btn-group" aria-label="주요 행동 버튼">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
         <a class="btn" href="#case-studies">실적사례 보기</a>
         <a class="btn" href="#library">자료실</a>
+        <a class="btn btn-kakao" href="https://pf.kakao.com/_xefhLn/chat" target="_blank" rel="noopener" aria-label="카카오톡 1:1 문의 열기">
+          <!-- 카카오 말풍선+번개 느낌 아이콘 -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 11.5c0 4.65-4.46 8.5-9.96 8.5-1.1 0-2.17-.15-3.16-.43L3 21l1.8-4.3C3.67 15.22 3 13.44 3 11.5 3 6.85 7.46 3 12.96 3 17.54 3 21 6.44 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          카카오톡 문의
+        </a>
       </div>
     </div>
   </header>
@@ -215,7 +237,7 @@
         <h3>토목(포장/아스콘)</h3><p>도로 포장·보수·교통/품질</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수 공사: 옥상·외벽·균열 보수" loading="lazy"></div>
+        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수/도장: 옥상·외벽·균열 보수" loading="lazy"></div>
         <h3>도장·방수</h3><p>옥상·외벽·균열 보수</p>
       </div>
       <div class="card">
@@ -233,11 +255,10 @@
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
+  <!-- CASE STUDIES (요청대로 3건만 노출) -->
   <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>실적사례</h2>
-
       <div class="card" style="margin-bottom:16px">
         <strong>2025년 9월 업데이트</strong>
         <ul>
@@ -245,7 +266,6 @@
           <li>해체·토목·방수·조경·전기·소방 등 <strong>14개 관계사</strong>와 협력 체결</li>
         </ul>
       </div>
-
       <div class="grid grid-3">
         <div class="card">
           <div class="kicker">전기·점검 제안</div>
@@ -264,24 +284,6 @@
           <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 5MW 전기점검 제안서 제출" loading="lazy"></div>
           <h3>베르힐CC 전기점검</h3>
           <p>수전 5,000kW 전기점검 제안</p>
-        </div>
-        <div class="card">
-          <div class="kicker">공공·원상복구</div>
-          <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 원상복구 제안" loading="lazy"></div>
-          <h3>영종 복합문화센터 원상복구</h3>
-          <p>부지 원상복구 공문 접수</p>
-        </div>
-        <div class="card">
-          <div class="kicker">안전·품질</div>
-          <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="다단비계 구간 안전·품질 점검" loading="lazy"></div>
-          <h3>스캐폴드 근접 작업</h3>
-          <p>안전·품질 점검 및 공정 조정</p>
-        </div>
-        <div class="card">
-          <div class="kicker">모듈 PM/CM</div>
-          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송/설치 인터페이스 관리" loading="lazy"></div>
-          <h3>대형 모듈 운송/설치</h3>
-          <p>리프팅·S-PMT·야적/운송 인터페이스</p>
         </div>
       </div>
     </div>
@@ -323,16 +325,16 @@
     </div>
   </section>
 
-  <!-- LIBRARY -->
+  <!-- LIBRARY (해체/아스콘/조경/전기/소방/도장방수) -->
   <section id="library" class="container" style="padding:40px 0">
     <h2>자료실</h2>
     <div class="grid grid-3" style="margin-bottom:16px">
       <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener">해체·철거공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">포장공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">도장·방수공사 바로가기</a>
+      <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener">아스콘공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener">조경공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener">전기공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener">소방공사 바로가기</a>
+      <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener">도장(방수)공사 바로가기</a>
     </div>
 
     <h3>컴플라이언스</h3>
