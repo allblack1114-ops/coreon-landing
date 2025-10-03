@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>COREON 인사이트</title>
+    <link>https://www.coreon-global.com/</link>
+    <description>현장형 가이드·체크리스트를 정기 발행합니다.</description>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 03 Oct 2025 09:00:00 +0900</lastBuildDate>
+
+    <item>
+      <title>도시형 해체 허가·석면·교통 가이드</title>
+      <link>https://www.coreon-global.com/#insights</link>
+      <guid isPermaLink="false">insight-urban-demolition-20251003</guid>
+      <pubDate>Fri, 03 Oct 2025 09:00:00 +0900</pubDate>
+      <description><![CDATA[도심 현장의 인허가·석면·교통대책 흐름도를 제공합니다.]]></description>
+    </item>
+
+    <item>
+      <title>아스콘 포장 품질관리 10포인트</title>
+      <link>https://www.coreon-global.com/#insights</link>
+      <guid isPermaLink="false">insight-ascon-qc-20251003</guid>
+      <pubDate>Fri, 03 Oct 2025 09:00:00 +0900</pubDate>
+      <description><![CDATA[혼합물·포설·다짐·온도·시험의 핵심 체크포인트.]]></description>
+    </item>
+  </channel>
+</rss>
