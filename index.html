@@ -52,13 +52,26 @@
 
     .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.45rem .75rem;border-radius:999px;font-size:13px;font-weight:700}
 
+    /* ---------- HERO ---------- */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
     .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
     .hero-content{position:relative;z-index:2;color:#fff;padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));padding-right:var(--gutter);max-width:980px}
-    .hero-title{margin:14px 0 16px;line-height:1.08;font-weight:900;word-break:keep-all}
-    .hero-title .line1,.hero-title .line2{display:block;font-size:clamp(30px,5.4vw,64px);letter-spacing:-.8px;white-space:normal;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
+
+    .hero-title{margin:14px 0 16px;line-height:1.12;font-weight:900;word-break:keep-all}
+    /* 기본: 데스크톱은 2줄 구조 */
+    .hero-title .row{display:block;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;letter-spacing:-.8px;white-space:normal}
+    .hero-title .row{font-size:clamp(30px,5.4vw,64px)}
+    /* 모바일: 첫 줄 안의 '코레온(COREON)이'만 줄바꿈 → 총 3줄 */
+    .inline-break{display:inline}
+    @media (max-width:720px){
+      .hero-content{max-width:unset;padding-left:var(--gutter);padding-right:var(--gutter)}
+      .hero-full{min-height:92vh}
+      .hero-title .row{font-size:clamp(22px,7.2vw,30px)}
+      .inline-break{display:block} /* ← 여기서만 줄바꿈 */
+    }
+
     .hero-desc{margin:0 0 22px;font-size:clamp(15px,1.2vw,18px);opacity:.98}
     .btn-group{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -83,9 +96,6 @@
       .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
       .brand img{height:32px}
       .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
-      .hero-full{min-height:92vh}
-      .hero-content{max-width:unset;padding-left:var(--gutter);padding-right:var(--gutter)}
-      .hero-title .line1,.hero-title .line2{font-size:clamp(22px,7.2vw,30px)}
       .hero-desc{font-size:14.5px;margin-bottom:16px}
       .btn{padding:.66rem .9rem;font-size:14px}
       .btn-group{gap:10px}
@@ -127,11 +137,15 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         EPCM 기반 PM/CM · 해체·아스콘·조경·전기·소방·도장(방수)
       </div>
-      <h1 class="hero-title">
-        <span class="line1">계약부터 준공까지 코레온(COREON)이</span>
-        <span class="line2">프로젝트관리·공사관리를 수행합니다</span>
+
+      <!-- ✅ PC: 2줄 / 모바일: 3줄 자동 -->
+      <h1 class="hero-title" aria-label="계약부터 준공까지 코레온이 프로젝트관리 공사관리를 수행합니다">
+        <span class="row">계약부터 준공까지 <span class="inline-break">코레온(COREON)이</span></span>
+        <span class="row">프로젝트관리·공사관리를 수행합니다</span>
       </h1>
+
       <p class="hero-desc">허가–안전–품질–조달–변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
+
       <div class="btn-group" aria-label="주요 행동 버튼">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
         <a class="btn" href="#case-studies">실적사례 보기</a>
@@ -303,7 +317,6 @@
     document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(slideTimer);}else{slideTimer=setInterval(rotateHero,6000);}});
   </script>
 
-  <!-- 간결 JSON-LD -->
   <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"Organization",
