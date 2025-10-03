@@ -18,7 +18,7 @@
   <meta property="og:url" content="https://www.coreon-global.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Ownership / Indexing (실제 값으로 교체) -->
+  <!-- Ownership / Indexing (필요 시 실제 값으로 교체) -->
   <meta name="naver-site-verification" content="여기에_네이버코드" />
   <meta name="google-site-verification" content="여기에_구글코드" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -55,22 +55,51 @@
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a.active{background:#eef3fb;color:var(--blue)}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap;gap:8px}
+    .btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;padding:.75rem 1.05rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap}
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
-    .btn-outline{background:#fff;color:var(--navy)}
-    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.4rem .7rem;border-radius:999px;font-size:13px;font-weight:700}
+    .btn-ghost{background:#fff;color:#0A1B2B}
+    .btn-kakao{background:#FEE500;border-color:#FEE500}
+    .btn-naver{background:#03C75A;border-color:#03C75A;color:#fff}
+
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.42rem .72rem;border-radius:999px;font-size:13px;font-weight:700}
+    .badge svg{opacity:.9}
 
     /* HERO */
     .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
     .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent), linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{position:relative;z-index:2;color:#fff;padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));padding-right:var(--gutter);max-width:980px}
-    .hero-title{margin:0 0 16px;line-height:1.1;font-weight:900;word-break:keep-all}
-    .hero-title .line1,.hero-title .line2{display:block;font-size:58px;letter-spacing:-0.8px;white-space:nowrap;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
-    /* 요청: 데스크톱에서 라인2(설명)를 한 줄로 고정 */
+    .hero-overlay{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent),
+      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))
+    }
+
+    .hero-content{position:relative;z-index:2;color:#fff;
+      padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));
+      padding-right:var(--gutter);
+      max-width:1100px; /* 살짝 넓혀 가독성 ↑ */
+      text-align:left;
+      margin:0;
+    }
+
+    /* === HERO title sizing fix: 넘침 방지 반응형 === */
+    .hero-title{margin:0 0 14px;line-height:1.08}
+    .hero-title .line1,
+    .hero-title .line2{
+      display:block;white-space:nowrap;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;
+      font-weight:900;letter-spacing:-0.6px;
+      font-size:clamp(26px,4.6vw,52px);
+    }
+    @media (max-width:980px){
+      .hero-title .line1,.hero-title .line2{
+        font-size:clamp(22px,6.2vw,32px);
+      }
+    }
+    @media (min-width:1440px){
+      .hero-title .line1,.hero-title .line2{font-size:48px}
+    }
+
     .hero-desc{margin:0 0 24px;font-size:18px;opacity:.95}
-    @media (min-width:981px){ .hero-desc{white-space:nowrap} }
+    .btn-group{display:flex;gap:12px;flex-wrap:wrap}
 
     /* GRID & CARD */
     .grid{display:grid;gap:18px}
@@ -78,16 +107,11 @@
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    /* 이미지 비율 깨짐 방지 */
-    .imgbox{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#eef2f7}
-    .imgbox img{width:100%;height:100%;object-fit:cover}
+    .imgbox{width:100%;height:180px;border-radius:12px;overflow:hidden;background:#eef2f7}
+    .imgbox img{width:100%;height:100%;object-fit:cover;image-rendering:auto}
 
     section{scroll-margin-top:88px}
     h2{margin:0 0 16px}
-
-    /* 섹션 상단 퀵 CTA 바 */
-    .section-cta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 20px}
-    .icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px}
 
     /* FOOTER */
     footer{background:#0A1220;color:#c9d6e8;padding:30px 0;margin-top:40px}
@@ -100,10 +124,11 @@
       .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
       body{padding-bottom:64px}
       .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
-      .brand img{height:36px}.brand span{font-size:20px;font-weight:900}
+      .brand img{height:36px}
+      .brand span{font-size:20px;font-weight:900}
       .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
-      .hero-full{min-height:92vh}.hero-desc{font-size:16px}
-      .hero-title .line1,.hero-title .line2{font-size:32px;white-space:normal}
+      .hero-full{min-height:92vh}
+      .hero-desc{font-size:16px}
     }
 
     /* INSIGHTS - accordion */
@@ -114,10 +139,15 @@
     .news-item.open .chev{transform:rotate(0)}
     .news-body{display:none;padding:0 14px 14px}
     .news-item.open .news-body{display:block}
-
     .muted{color:#6c7a89;font-size:13px}
     .subtle{color:#3e5166}
     .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
+
+    /* 접근성: 모션 선호도 */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .hero-full .hero-bg{transition:none}
+    }
   </style>
 </head>
 <body>
@@ -149,34 +179,22 @@
     <div class="hero-content">
       <div class="badge" style="margin-bottom:10px" aria-label="핵심 포지셔닝">
         <!-- icon: bolt -->
-        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         EPCM 기반 PM/CM · 해체·토목·전기·방수·조경·소방
       </div>
 
-      <!-- 요청: 라인1/텍스트 변경 -->
       <h1 class="hero-title">
         <span class="line1">계약부터 준공까지</span>
         <span class="line2">코레온(COREON)이 프로젝트관리·공사관리를 수행합니다</span>
       </h1>
+      <p class="hero-desc">허가–안전–품질–조달–변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
 
-      <!-- 요청: 데스크톱에서 한 줄 배치 -->
-      <p class="hero-desc">허가–안전–품질–조달–변경관리까지 원스톱 · 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
-
-      <div class="btn-group" aria-label="주요 행동 버튼" style="display:flex;gap:12px;flex-wrap:wrap">
+      <div class="btn-group" aria-label="주요 행동 버튼">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적 전화</a>
-        <a class="btn" href="#case-studies">실적사례 보기</a>
-        <a class="btn" href="#library">자료실</a>
-        <!-- 카카오/네이버 톡(히어로 보조 버튼) -->
-        <a class="btn btn-outline" href="https://pf.kakao.com/_YOUR_CHANNEL" target="_blank" rel="noopener" aria-label="카카오톡 문의">
-          <!-- Kakao icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.57 1.6 4.85 4.06 6.3L5 21l3.33-1.83c1.06.3 2.19.47 3.36.47 5.52 0 10-3.58 10-8s-4.48-8-10-8Z"/></svg>
-          카톡문의
-        </a>
-        <a class="btn btn-outline" href="https://talk.naver.com/YOUR_TALK_ID" target="_blank" rel="noopener" aria-label="네이버 톡톡 문의">
-          <!-- N icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v16H4zM9 8v8h2.5l3.5-4.7V16H17V8h-2.5L11 12.7V8H9z"/></svg>
-          네이버톡
-        </a>
+        <a class="btn btn-ghost" href="#case-studies">실적사례 보기</a>
+        <a class="btn btn-ghost" href="#library">자료실</a>
+        <a class="btn btn-kakao" href="https://pf.kakao.com/_YOUR_ID/chat" target="_blank" rel="noopener" aria-label="카카오톡 문의">💬 카톡문의</a>
+        <a class="btn btn-naver" href="https://talk.naver.com/ct/YOUR_CHANNEL" target="_blank" rel="noopener" aria-label="네이버톡 문의">🅝 네이버톡</a>
       </div>
     </div>
   </header>
@@ -192,18 +210,6 @@
   <section id="sectors" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>산업별</h2>
-      <!-- 섹션 CTA -->
-      <div class="section-cta">
-        <a class="btn btn-outline" href="https://pf.kakao.com/_YOUR_CHANNEL" target="_blank" rel="noopener" aria-label="카카오톡 문의">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.57 1.6 4.85 4.06 6.3L5 21l3.33-1.83c1.06.3 2.19.47 3.36.47 5.52 0 10-3.58 10-8s-4.48-8-10-8Z"/></svg>
-          카톡문의
-        </a>
-        <a class="btn btn-outline" href="https://talk.naver.com/YOUR_TALK_ID" target="_blank" rel="noopener" aria-label="네이버 톡톡 문의">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v16H4zM9 8v8h2.5l3.5-4.7V16H17V8h-2.5L11 12.7V8H9z"/></svg>
-          네이버톡
-        </a>
-      </div>
-
       <div class="grid grid-3">
         <div class="card"><h3>물류센터/산업단지</h3><p>신축·리노베이션 PM/CM, 포장/전기/소방 통합</p></div>
         <div class="card"><h3>공공/원상복구</h3><p>부지 정리·도로포장·안전·품질·검수 대응</p></div>
@@ -215,49 +221,30 @@
   <!-- SERVICES -->
   <section id="services" class="container" style="padding:40px 0">
     <h2>서비스</h2>
-
-    <!-- 섹션 CTA -->
-    <div class="section-cta">
-      <a class="btn btn-outline" href="https://pf.kakao.com/_YOUR_CHANNEL" target="_blank" rel="noopener" aria-label="카카오톡 문의">카톡문의</a>
-      <a class="btn btn-outline" href="https://talk.naver.com/YOUR_TALK_ID" target="_blank" rel="noopener" aria-label="네이버 톡톡 문의">네이버톡</a>
-    </div>
-
     <p>허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
     <div class="grid grid-3">
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_demolition.jpg?v=20250928d" width="640" height="360" alt="해체 PM/CM: 허가·석면·안전·폐기물 계획 통합 관리" loading="lazy" decoding="async">
-        </div>
+        <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" width="640" height="360" alt="해체 PM/CM: 허가·석면·안전·폐기물 계획 통합 관리" loading="lazy"></div>
         <h3>해체(철거)</h3><p>구조물 해체·보강·대수선·폐기물</p>
       </div>
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_ascon.png?v=20250928d" width="640" height="360" alt="아스콘 포장: 도로 포장·보수·교통/품질 관리" loading="lazy" decoding="async">
-        </div>
+        <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" width="640" height="360" alt="아스콘 포장: 도로 포장·보수·교통/품질 관리" loading="lazy"></div>
         <h3>토목(포장/아스콘)</h3><p>도로 포장·보수·교통/품질</p>
       </div>
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수 공사: 옥상·외벽·균열 보수" loading="lazy" decoding="async">
-        </div>
+        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수 공사: 옥상·외벽·균열 보수" loading="lazy"></div>
         <h3>방수</h3><p>옥상·외벽·균열 보수</p>
       </div>
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_landscape.png?v=20250928d" width="640" height="360" alt="조경: 단지 조경·옥상정원·유지관리" loading="lazy" decoding="async">
-        </div>
+        <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" width="640" height="360" alt="조경: 단지 조경·옥상정원·유지관리" loading="lazy"></div>
         <h3>조경</h3><p>단지 조경·옥상정원·유지관리</p>
       </div>
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_electric.png?v=20250928d" width="640" height="360" alt="전기(E&I/신재생): 수변전·내선·시험/검사" loading="lazy" decoding="async">
-        </div>
-        <h3>전기(E&I/신재생)</h3><p>수·변전·내선·시험/검사</p>
+        <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" width="640" height="360" alt="전기(E&I/신재생): 수변전·내선·시험/검사" loading="lazy"></div>
+        <h3>전기(E&amp;I/신재생)</h3><p>수·변전·내선·시험/검사</p>
       </div>
       <div class="card">
-        <div class="imgbox">
-          <img src="/assets/service_fire.jpg?v=20250928d" width="640" height="360" alt="소방: 스프링클러·펌프·감지/경보·검사 대응" loading="lazy" decoding="async">
-        </div>
+        <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" width="640" height="360" alt="소방: 스프링클러·펌프·감지/경보·검사 대응" loading="lazy"></div>
         <h3>소방</h3><p>스프링클러·펌프·감지/경보</p>
       </div>
     </div>
@@ -279,37 +266,37 @@
       <div class="grid grid-3">
         <div class="card">
           <div class="kicker">전기·점검 제안</div>
-          <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" width="640" height="360" alt="검단 켄달스퀘어 10MW 전기점검 견적 제출" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" width="640" height="360" alt="검단 켄달스퀘어 10MW 전기점검 견적 제출" loading="lazy"></div>
           <h3>검단 켄달스퀘어 전기점검</h3>
           <p>수전 10,000kW 전기점검 견적서 제출</p>
         </div>
         <div class="card">
           <div class="kicker">전기·설비 점검</div>
-          <div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" width="640" height="360" alt="요진코아텍 BUS-DUCT 상태 점검 의뢰" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" width="640" height="360" alt="요진코아텍 BUS-DUCT 상태 점검 의뢰" loading="lazy"></div>
           <h3>요진코아텍 BUS-DUCT 점검</h3>
           <p>설비 상태 점검 의뢰 접수</p>
         </div>
         <div class="card">
           <div class="kicker">전기·점검 제안</div>
-          <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 5MW 전기점검 제안서 제출" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 5MW 전기점검 제안서 제출" loading="lazy"></div>
           <h3>베르힐CC 전기점검</h3>
           <p>수전 5,000kW 전기점검 제안</p>
         </div>
         <div class="card">
           <div class="kicker">공공·원상복구</div>
-          <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 원상복구 제안" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 원상복구 제안" loading="lazy"></div>
           <h3>영종 복합문화센터 원상복구</h3>
           <p>부지 원상복구 공문 접수</p>
         </div>
         <div class="card">
           <div class="kicker">안전·품질</div>
-          <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="다단비계 구간 안전·품질 점검" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="다단비계 구간 안전·품질 점검" loading="lazy"></div>
           <h3>스캐폴드 근접 작업</h3>
           <p>안전·품질 점검 및 공정 조정</p>
         </div>
         <div class="card">
           <div class="kicker">모듈 PM/CM</div>
-          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송/설치 인터페이스 관리" loading="lazy" decoding="async"></div>
+          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송/설치 인터페이스 관리" loading="lazy"></div>
           <h3>대형 모듈 운송/설치</h3>
           <p>리프팅·S-PMT·야적/운송 인터페이스</p>
         </div>
@@ -376,9 +363,8 @@
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a class="btn btn-primary" href="tel:010-9039-1482">무료견적(전화)</a>
         <a class="btn" href="mailto:contact@coreon-global.com">상세문의(메일)</a>
-        <!-- 요청: 카카오/네이버 톡 버튼 추가 -->
-        <a class="btn btn-outline" href="https://pf.kakao.com/_YOUR_CHANNEL" target="_blank" rel="noopener">카톡문의</a>
-        <a class="btn btn-outline" href="https://talk.naver.com/YOUR_TALK_ID" target="_blank" rel="noopener">네이버톡</a>
+        <a class="btn btn-kakao" href="https://pf.kakao.com/_YOUR_ID/chat" target="_blank" rel="noopener" aria-label="카카오톡 문의">💬 카톡문의</a>
+        <a class="btn btn-naver" href="https://talk.naver.com/ct/YOUR_CHANNEL" target="_blank" rel="noopener" aria-label="네이버톡 문의">🅝 네이버톡</a>
       </div>
     </div>
   </section>
@@ -409,42 +395,52 @@
 
   <script>
     /* 활성 메뉴 하이라이트 */
-    const sections=[...document.querySelectorAll('section, header.hero-full')];
-    const navLinks=[...document.querySelectorAll('.nav-links a')];
+    const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
     function setActiveLink(){
-      const y=window.scrollY+120;
-      let currentId='top';
-      for(const s of sections){ if(y>=s.offsetTop) currentId=s.id||'top'; }
+      const y = window.scrollY + 120;
+      let currentId = 'top';
+      for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
       navLinks.forEach(a=>{
-        const id=(a.getAttribute('href').startsWith('#')?a.getAttribute('href').slice(1):'');
-        a.classList.toggle('active',id===currentId);
+        const id = (a.getAttribute('href').startsWith('#') ? a.getAttribute('href').slice(1) : '');
+        a.classList.toggle('active', id === currentId);
       });
     }
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const id=a.getAttribute('href').slice(1);
-        const el=document.getElementById(id);
-        if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-72,behavior:'smooth'}); }
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
       });
     });
-    window.addEventListener('scroll',setActiveLink);
-    window.addEventListener('load',setActiveLink);
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
 
     /* 히어로 배경 슬라이드 */
-    const heroImages=['/assets/hero_scaffold_sky.jpg?v=3','/assets/hero_multi_modules.jpg?v=3','/assets/hero_module_transport.jpg?v=3'];
+    const heroImages = [
+      '/assets/hero_scaffold_sky.jpg?v=3',
+      '/assets/hero_multi_modules.jpg?v=3',
+      '/assets/hero_module_transport.jpg?v=3'
+    ];
     heroImages.slice(1).forEach(src=>{const i=new Image(); i.src=src;});
-    let idx=0; let bgEl=document.getElementById('heroBg');
-    const rotateHero=()=>{
-      idx=(idx+1)%heroImages.length;
-      const nextEl=bgEl.cloneNode();
+    let idx = 0;
+    let bgEl = document.getElementById('heroBg');
+
+    const rotateHero = () => {
+      idx = (idx + 1) % heroImages.length;
+      const nextEl = bgEl.cloneNode();
       nextEl.classList.add('next');
-      nextEl.style.backgroundImage=`url('${heroImages[idx]}')`;
-      bgEl.parentNode.insertBefore(nextEl,bgEl);
+      nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
+      bgEl.parentNode.insertBefore(nextEl, bgEl);
       requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
-      setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl=nextEl; },1100);
+      setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
     };
-    let slideTimer=setInterval(rotateHero,6000);
-    document.addEventListener('visibilitychange',()=>{ if(document.hidden){clearInterval(slideTimer);} else {slideTimer=setInterval(rotateHero,6000);} });
+
+    let slideTimer = setInterval(rotateHero, 6000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { clearInterval(slideTimer); }
+      else { slideTimer = setInterval(rotateHero, 6000); }
+    });
   </script>
 
   <!-- JSON-LD: WebSite -->
