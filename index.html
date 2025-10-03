@@ -6,28 +6,41 @@
   <title>COREON | ONE-STOP 공사 관리·조정</title>
   <meta name="description" content="계약부터 준공까지 PM/CM. 해체·토목(포장/아스콘)·방수·조경·전기·소방 — 시공은 관련 면허 보유사가 책임 수행합니다." />
   <meta name="theme-color" content="#0A1B2B" />
+  <meta name="format-detection" content="telephone=no,address=no,email=no" />
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Canonical & Social -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://www.coreon-global.com/" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="COREON" />
   <meta property="og:title" content="COREON | ONE-STOP 공사 관리·조정" />
   <meta property="og:description" content="계약부터 준공까지 PM/CM. 시공은 면허 보유 파트너사가 책임 수행." />
   <meta property="og:image" content="https://www.coreon-global.com/assets/hero_scaffold_sky.jpg?v=3" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://www.coreon-global.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Ownership / Indexing -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="COREON | ONE-STOP 공사 관리·조정" />
+  <meta name="twitter:description" content="계약부터 준공까지 PM/CM. 시공은 면허 보유 파트너사가 책임 수행." />
+  <meta name="twitter:image" content="https://www.coreon-global.com/assets/hero_scaffold_sky.jpg?v=3" />
+
+  <!-- Ownership / Indexing (파일 검증과 병행해도 무해) -->
   <meta name="naver-site-verification" content="여기에_네이버코드" />
   <meta name="google-site-verification" content="여기에_구글코드" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-  <!-- Hreflang -->
+  <!-- Hreflang (실제 다국어 페이지가 생기면 항목 추가) -->
   <link rel="alternate" href="https://www.coreon-global.com/" hreflang="ko-kr" />
-  <link rel="alternate" href="https://www.coreon-global.com/en/" hreflang="en" />
-  <link rel="alternate" href="https://www.coreon-global.com/ja/" hreflang="ja" />
   <link rel="alternate" href="https://www.coreon-global.com/" hreflang="x-default" />
+
+  <!-- Discoverability: sitemap & feed -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="alternate" type="application/rss+xml" title="COREON 소식" href="/feed.xml" />
 
   <!-- Preload hero (LCP) -->
   <link rel="preload" as="image" href="/assets/hero_scaffold_sky.jpg?v=3" />
@@ -132,9 +145,9 @@
     <div class="container">
       <h2>산업별</h2>
       <div class="grid grid-3">
-        <div class="card"><h3>물류센터/산업단지</h3><p>신축·리노베이션 PM/CM, 포장/전기/소방 통합</p></div>
-        <div class="card"><h3>공공/원상복구</h3><p>부지 정리·도로포장·안전·품질·검수 대응</p></div>
-        <div class="card"><h3>상업/도시형</h3><p>도심 해체·석면·허가·교통·폐기물 일괄 관리</p></div>
+        <div class="card><h3>물류센터/산업단지</h3><p>신축·리노베이션 PM/CM, 포장/전기/소방 통합</p></div>
+        <div class="card><h3>공공/원상복구</h3><p>부지 정리·도로포장·안전·품질·검수 대응</p></div>
+        <div class="card><h3>상업/도시형</h3><p>도심 해체·석면·허가·교통·폐기물 일괄 관리</p></div>
       </div>
     </div>
   </section>
@@ -185,7 +198,7 @@
     </div>
   </section>
 
-  <!-- INSIGHTS (직무안전고시 항목 제거됨) -->
+  <!-- INSIGHTS -->
   <section id="insights" style="background:#f7f9fc;padding:40px 0">
     <div class="container">
       <h2>인사이트</h2>
@@ -270,7 +283,10 @@
 
   <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"WebSite","name":"COREON","url":"https://www.coreon-global.com/",
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"COREON",
+    "url":"https://www.coreon-global.com/",
     "potentialAction":{"@type":"SearchAction","target":"https://www.google.com/search?q=site:coreon-global.com+{search_term_string}","query-input":"required name=search_term_string"}
   }</script>
 
@@ -304,12 +320,21 @@
     ]
   }</script>
 
-  <!-- JSON-LD: Organization -->
+  <!-- JSON-LD: LocalBusiness / ProfessionalService -->
   <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"Organization","name":"COREON","url":"https://www.coreon-global.com/","logo":"https://www.coreon-global.com/logo.png","telephone":"+82-10-9039-1482",
-    "address":{"@type":"PostalAddress","addressCountry":"KR","addressLocality":"인천광역시 중구","streetAddress":"중산동 두미포로112"},
-    "contactPoint":[{"@type":"ContactPoint","telephone":"+82-10-9039-1482","contactType":"customer service","areaServed":"KR","availableLanguage":["ko","en"]}],
-    "areaServed":"KR","sameAs":[]
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"COREON",
+    "url":"https://www.coreon-global.com/",
+    "image":"https://www.coreon-global.com/logo.png",
+    "telephone":"+82-10-9039-1482",
+    "areaServed":{"@type":"AdministrativeArea","name":"KR"},
+    "address":{
+      "@type":"PostalAddress",
+      "addressCountry":"KR",
+      "addressLocality":"인천광역시 중구",
+      "streetAddress":"중산동 두미포로112"
+    }
   }</script>
 </body>
 </html>
