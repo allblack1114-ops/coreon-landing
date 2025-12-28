@@ -1,6 +1,5 @@
 <!-- =========================
 PART 1/3 : HEAD + STYLE
-(원본 유지 + 토글 문제 해결 반영용 준비)
 ========================= -->
 <!DOCTYPE html>
 <html lang="ko">
@@ -149,6 +148,7 @@ PART 1/3 : HEAD + STYLE
     }
   </style>
 </head>
+
 <!-- =========================
 PART 2/3 : BODY (HTML)
 ========================= -->
@@ -502,176 +502,299 @@ PART 2/3 : BODY (HTML)
     <a href="mailto:contact@coreon-global.com" data-i18n="mcta.mail">메일</a>
     <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" data-i18n="mcta.shop">자재몰</a>
   </div>
+
 <!-- =========================
-PART 3/3 : SCRIPT + SEO + CLOSE
+PART 3/3 : SCRIPTS + JSON-LD + CLOSE
 ========================= -->
+  <script>
+    // ===== i18n dictionary (KR is default in HTML, EN overwrites by key) =====
+    const I18N = {
+      en: {
+        "nav.about":"About",
+        "nav.sectors":"Industries",
+        "nav.services":"Services",
+        "nav.cases":"Case Studies",
+        "nav.sqc":"Safety · Quality · Compliance",
+        "nav.insights":"Insights",
+        "nav.library":"Library",
+        "nav.shop":"Materials Store",
+        "nav.contact":"Contact",
 
-<script>
-/* =========================
-   I18N DATA
-========================= */
-const I18N = {
-  ko: {
-    "nav.about":"회사소개",
-    "nav.sectors":"산업별",
-    "nav.services":"서비스",
-    "nav.cases":"실적사례",
-    "nav.sqc":"안전·품질·컴플라이언스",
-    "nav.insights":"인사이트",
-    "nav.library":"자료실",
-    "nav.shop":"자재몰",
-    "nav.contact":"문의",
+        "hero.badge":"EPCM-based PM/CM · Demolition · Civil · Landscape · Waterproofing · Electrical · Fire",
+        "hero.l1":"From Contract to Completion",
+        "hero.l2":"COREON",
+        "hero.l3":"Manages Project & Construction",
+        "hero.desc":"One-stop control across permits, safety, quality, procurement, and change management. Licensed partners execute the construction.",
 
-    "hero.badge":"EPCM기반 PM/CM · 해체·토목·조경·방수·전기·소방",
-    "hero.l1":"계약부터 준공까지",
-    "hero.l2":"코레온(COREON)이",
-    "hero.l3":"프로젝트관리·공사관리를 수행합니다",
-    "hero.desc":"허가·안전·품질·조달·변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.",
+        "cta.call":"Call for a Free Quote",
+        "cta.cases":"View Case Studies",
+        "cta.library":"Library",
+        "cta.shop":"Go to Materials Store",
+        "cta.kakao":"KakaoTalk Chat",
 
-    "cta.call":"무료견적 전화",
-    "cta.cases":"실적사례 보기",
-    "cta.library":"자료실",
-    "cta.shop":"자재몰 바로가기",
-    "cta.kakao":"카카오톡 문의",
+        "patents.title":"Patent-based Technical Issues",
+        "patents.desc1":"COREON goes beyond construction execution,",
+        "patents.desc2":"designing PM/CM structures that prevent on-site risks in advance",
+        "patents.desc3":".",
 
-    "about.title":"회사소개",
-    "about.p1":"COREON은 PM/CM 전문 기업으로, 해체·토목(포장/아스콘)·방수·조경·전기·소방 등 전 공종을 관리·조정합니다.",
-    "about.addr":"주소: 인천광역시 중구 중산동 두미포로112 · 대표전화: 010-9039-1482",
+        "patents.c1.h":"3 Safety Patent Applications",
+        "patents.c1.p1a":"COREON has filed",
+        "patents.c1.p1b":"three safety-related patents",
+        "patents.c1.p1c":", and",
+        "patents.c1.p1d":"the examination process is currently in progress.",
+        "patents.c1.p2a":"Not for equipment sales, but",
+        "patents.c1.p2b":"for proactive risk-prevention structures from a PM/CM perspective",
+        "patents.c1.p2c":".",
 
-    "sectors.title":"산업별",
-    "services.title":"서비스",
-    "cases.title":"실적사례",
-    "sqc.title":"안전·품질·컴플라이언스",
-    "insights.title":"인사이트",
-    "library.title":"자료실",
-    "shop.title":"자재몰",
-    "contact.title":"문의",
+        "patents.c2.h":"Wearable Respiratory Protection Device",
+        "patents.c2.p1a":"For hazardous gas, dust, and confined-space work,",
+        "patents.c2.p1b":"featuring automatic switching & blocking mechanisms,",
+        "patents.c2.p1c":"a wearable respiratory protection system",
+        "patents.c2.p1d":".",
+        "patents.c2.li1":"Construction / demolition work",
+        "patents.c2.li2":"Industrial sites / plants / confined spaces",
+        "patents.c2.li3a":"Expandable to defense & military environments",
+        "patents.c2.li3b":"(training, maintenance, hazardous exposure tasks, etc.)",
 
-    "footer.p1":"COREON은 PM/CM을 수행하며, 시공은 면허 보유사가 담당합니다.",
-    "footer.p2":"사업자등록번호: 586-24-02279 | 대표전화: 010-9039-1482",
-    "footer.p3":"주소: 인천광역시 중구 중산동 두미포로112",
-    "footer.policyTitle":"정책/안내",
-    "footer.privacy":"개인정보처리방침",
-    "footer.faq":"자주 묻는 질문",
+        "patents.c3.h":"How It’s Applied in PM/CM",
+        "patents.c3.p1a":"COREON applies these technologies",
+        "patents.c3.p1b":"not as equipment supply",
+        "patents.c3.p1c":", but as part of management execution.",
+        "patents.c3.li1":"Embedded in permit & safety planning stage",
+        "patents.c3.li2":"Coordination with owners, supervisors, safety managers",
+        "patents.c3.li3":"Risk removal-first control structure",
+        "patents.c3.p2a":"More than the tech itself,",
+        "patents.c3.p2b":"we focus on embedding it into site management",
+        "patents.c3.p2c":".",
 
-    "mcta.call":"전화",
-    "mcta.mail":"메일",
-    "mcta.shop":"자재몰"
-  },
+        "about.title":"About COREON",
+        "about.p1":"COREON is a PM/CM specialist coordinating multiple disciplines including demolition, civil (paving/ascon), waterproofing, landscaping, electrical, and fire protection. Licensed partners execute construction while COREON integrates schedule, cost, quality, and risk control from the owner’s perspective.",
+        "about.addr":"Address: 112, Dumipo-ro, Jungsan-dong, Jung-gu, Incheon | Tel: +82-10-9039-1482",
 
-  en: {
-    "nav.about":"About",
-    "nav.sectors":"Sectors",
-    "nav.services":"Services",
-    "nav.cases":"Case Studies",
-    "nav.sqc":"Safety & Quality",
-    "nav.insights":"Insights",
-    "nav.library":"Library",
-    "nav.shop":"Materials Store",
-    "nav.contact":"Contact",
+        "sectors.title":"Industries",
+        "sectors.c1.h":"Logistics Centers / Industrial Complexes",
+        "sectors.c1.p":"New build & remodeling PM/CM, integrated paving/electrical/fire coordination",
+        "sectors.c2.h":"Public / Restoration",
+        "sectors.c2.p":"Site restoration, paving, safety, quality, inspection response",
+        "sectors.c3.h":"Commercial / Urban",
+        "sectors.c3.p":"Urban demolition, asbestos, permits, waste management",
 
-    "hero.badge":"EPCM-based PM/CM · Demolition · Civil · Landscape · Waterproof · Electrical · Fire",
-    "hero.l1":"From Contract to Completion",
-    "hero.l2":"COREON",
-    "hero.l3":"Manages Project & Construction",
-    "hero.desc":"One-stop management from permits to safety, quality, procurement and change control. Construction is executed by licensed partners.",
+        "services.title":"Services",
+        "services.desc":"One-stop management for permits, safety, quality, change control, and procurement",
+        "services.s1.h":"Demolition PM/CM",
+        "services.s1.p":"Structure demolition, reinforcement, permits, waste planning",
+        "services.s2.h":"Civil (Paving/Ascon) PM/CM",
+        "services.s2.p":"Road paving/repair, traffic & quality control",
+        "services.s3.h":"Painting · Waterproofing",
+        "services.s3.p":"Rooftop/exterior waterproofing, crack repair",
+        "services.s4.h":"Landscaping",
+        "services.s4.p":"Complex landscaping, rooftop garden, maintenance",
+        "services.s5.h":"Electrical (E&I/Renewables)",
+        "services.s5.p":"Substation, internal wiring, tests/inspections",
+        "services.s6.h":"Fire Protection",
+        "services.s6.p":"Sprinklers, pumps, detection/alarm, inspection support",
 
-    "cta.call":"Call for Quote",
-    "cta.cases":"View Cases",
-    "cta.library":"Library",
-    "cta.shop":"Go to Store",
-    "cta.kakao":"KakaoTalk Inquiry",
+        "cases.title":"Case Studies",
+        "cases.update":"Updated Sep 2025",
+        "cases.li1":"COREON patents: 3 applications in progress",
+        "cases.li2":"Partnership network formed with <strong>14 specialist companies</strong> across key trades",
+        "cases.c1.k":"Electrical · Proposal",
+        "cases.c1.h":"Geomdan Kendallsquare Electrical Inspection",
+        "cases.c1.p":"Submitted inspection quote for 10,000kW supply capacity",
+        "cases.c2.k":"Electrical · Inspection",
+        "cases.c2.h":"Yojin Coatech BUS-DUCT Inspection",
+        "cases.c2.p":"Received inspection request",
+        "cases.c3.k":"Electrical · Proposal",
+        "cases.c3.h":"Verthill CC Electrical Inspection",
+        "cases.c3.p":"Proposed inspection for 5,000kW supply capacity",
+        "cases.c4.k":"Public · Restoration",
+        "cases.c4.h":"Yeongjong Complex Cultural Center Restoration",
+        "cases.c4.p":"Submitted restoration official letter",
+        "cases.c5.k":"Safety · Quality",
+        "cases.c5.h":"Scaffold Close-up Work",
+        "cases.c5.p":"Safety/quality inspection & schedule coordination",
+        "cases.c6.k":"Module PM/CM",
+        "cases.c6.h":"Large Module Transport/Installation",
+        "cases.c6.p":"Lifting, SPMT, yard/transport interface control",
 
-    "about.title":"About COREON",
-    "about.p1":"COREON is a professional PM/CM company coordinating demolition, civil, waterproofing, landscaping, electrical and fire protection works.",
-    "about.addr":"Address: Jung-gu, Incheon · Tel: +82-10-9039-1482",
+        "sqc.title":"Safety · Quality · Compliance",
+        "sqc.c1.h":"Standard Process",
+        "sqc.c1.p":"E2E standardization across permits–safety–quality–procurement–change control",
+        "sqc.c2.h":"HSE / QA·QC",
+        "sqc.c2.p":"JSA/RA/LOTO, ITP/QCP, weekly/monthly report templates",
+        "sqc.c3.h":"Patents / HW Program",
+        "sqc.c3.p":"TH-1/2/3 (filed) + field-ready checklists & automation tools",
 
-    "sectors.title":"Industry Sectors",
-    "services.title":"Services",
-    "cases.title":"Case Studies",
-    "sqc.title":"Safety · Quality · Compliance",
-    "insights.title":"Insights",
-    "library.title":"Library",
-    "shop.title":"Materials Store",
-    "contact.title":"Contact",
+        "insights.title":"Insights",
+        "insights.desc":"We regularly publish field-ready guides and checklists.",
+        "insights.i1.h":"Urban Demolition: Permits, Asbestos, Traffic Guide",
+        "insights.i1.p":"Provides a workflow map for permits, asbestos, and traffic planning in urban sites.",
+        "insights.i2.h":"Ascon Paving: Quality Control Points",
+        "insights.i2.p":"Key checkpoints for mix, paving, compaction, temperature, and testing.",
+        "insights.static":"Static",
 
-    "footer.p1":"COREON provides PM/CM services. Construction is executed by licensed contractors.",
-    "footer.p2":"Business Reg No: 586-24-02279 | Tel: +82-10-9039-1482",
-    "footer.p3":"Address: Jung-gu, Incheon, Korea",
-    "footer.policyTitle":"Policy",
-    "footer.privacy":"Privacy Policy",
-    "footer.faq":"FAQ",
+        "library.title":"Library",
+        "library.l1":"Go to Demolition Package",
+        "library.l2":"Go to Ascon Package",
+        "library.l3":"Go to Landscaping Package",
+        "library.l4":"Go to Electrical Package",
+        "library.l5":"Go to Fire Package",
+        "library.l6":"Go to Painting/Waterproofing Package",
+        "library.compTitle":"Compliance",
+        "library.compDesc":"COREON provides PM/CM and business development. Construction is executed by licensed partners. Roles are clearly separated: Owner↔Contractor (construction contract), COREON↔Owner/Contractor (service contract).",
 
-    "mcta.call":"Call",
-    "mcta.mail":"Email",
-    "mcta.shop":"Store"
-  }
-};
+        "shop.title":"Materials Store",
+        "shop.desc":"We sell selected on-site materials such as waterproofing, aggregates, and safety items. Pay securely via Naver SmartStore.",
+        "shop.linked":"SmartStore Linked",
+        "shop.go":"Go to Store ↗",
+        "shop.c1.h":"Waterproofing",
+        "shop.c1.p":"Rooftops, parking decks, crack repair. Korea-made focused.",
+        "shop.c2.h":"Aggregates",
+        "shop.c2.p":"Aggregates/sand/decomposed granite delivered to site.",
+        "shop.c3.h":"Safety Items",
+        "shop.c3.p":"Helmets, PPE, signs, etc.",
 
-/* =========================
-   LANGUAGE TOGGLE (FIXED)
-========================= */
-let currentLang = "ko";
+        "contact.title":"Contact",
+        "contact.call":"Call (Free Quote)",
+        "contact.mail":"Email Inquiry",
+        "contact.shop":"Store",
 
-function setLanguage(lang){
-  currentLang = lang;
-  document.documentElement.lang = lang;
+        "footer.p1":"COREON provides PM/CM while licensed partners execute construction.",
+        "footer.p2":"Business Reg No: 586-24-02279 | Tel: +82-10-9039-1482",
+        "footer.p3":"Address: 112, Dumipo-ro, Jungsan-dong, Jung-gu, Incheon",
+        "footer.policyTitle":"Policy / Help",
+        "footer.privacy":"Privacy Policy",
+        "footer.faq":"FAQ",
 
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.dataset.i18n;
-    if(I18N[lang][key]){
-      el.textContent = I18N[lang][key];
+        "mcta.call":"Call",
+        "mcta.mail":"Email",
+        "mcta.shop":"Store"
+      }
+    };
+
+    // ===== Helpers =====
+    function applyLang(lang){
+      const dict = I18N[lang] || {};
+      document.documentElement.lang = (lang === "en" ? "en" : "ko");
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.innerHTML = dict[key]; // allow <strong> in some keys
+      });
+
+      // button state
+      const btnKo = document.getElementById("btn-ko");
+      const btnEn = document.getElementById("btn-en");
+      if (btnKo && btnEn){
+        btnKo.classList.toggle("active", lang !== "en");
+        btnEn.classList.toggle("active", lang === "en");
+      }
+
+      localStorage.setItem("coreon_lang", lang);
     }
-  });
 
-  document.getElementById("btn-ko").classList.toggle("active", lang==="ko");
-  document.getElementById("btn-en").classList.toggle("active", lang==="en");
-}
+    document.addEventListener("DOMContentLoaded", () => {
+      // 연도 표시
+      document.getElementById('yy').textContent = new Date().getFullYear();
 
-document.getElementById("btn-ko").addEventListener("click", ()=>setLanguage("ko"));
-document.getElementById("btn-en").addEventListener("click", ()=>setLanguage("en"));
+      // language init
+      const saved = localStorage.getItem("coreon_lang") || "ko";
+      applyLang(saved);
 
-/* =========================
-   INSIGHTS ACCORDION
-========================= */
-document.querySelectorAll(".news-head").forEach(head=>{
-  head.addEventListener("click",()=>{
-    const item = head.closest(".news-item");
-    item.classList.toggle("open");
-  });
-});
+      // bind buttons
+      const btnKo = document.getElementById("btn-ko");
+      const btnEn = document.getElementById("btn-en");
+      if (btnKo) btnKo.addEventListener("click", () => applyLang("ko"));
+      if (btnEn) btnEn.addEventListener("click", () => applyLang("en"));
 
-/* =========================
-   FOOTER YEAR
-========================= */
-document.getElementById("yy").textContent = new Date().getFullYear();
-</script>
+      /* 활성 메뉴 하이라이트 */
+      const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+      function setActiveLink(){
+        const y = window.scrollY + 120;
+        let currentId = 'top';
+        for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
+        navLinks.forEach(a=>{
+          const href = a.getAttribute('href') || "";
+          if (!href.startsWith("#")) return;
+          const id = href.slice(1);
+          a.classList.toggle('active', id === currentId);
+        });
+      }
 
-<!-- =========================
-   SEO STRUCTURED DATA
-========================= -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"COREON",
-  "url":"https://www.coreon-global.com",
-  "logo":"https://www.coreon-global.com/logo.png",
-  "contactPoint":{
-    "@type":"ContactPoint",
-    "telephone":"+82-10-9039-1482",
-    "contactType":"customer service",
-    "availableLanguage":["Korean","English"]
-  },
-  "address":{
-    "@type":"PostalAddress",
-    "addressCountry":"KR",
-    "addressRegion":"Incheon",
-    "addressLocality":"Jung-gu",
-    "streetAddress":"Dumipo-ro 112"
-  }
-}
-</script>
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
+        });
+      });
+      window.addEventListener('scroll', setActiveLink);
+      window.addEventListener('load', setActiveLink);
+      setActiveLink();
 
+      /* 히어로 배경 슬라이드 */
+      const heroImages = [
+        '/assets/hero_scaffold_sky.jpg?v=3',
+        '/assets/hero_multi_modules.jpg?v=3',
+        '/assets/hero_module_transport.jpg?v=3'
+      ];
+      heroImages.slice(1).forEach(src=>{const i=new Image(); i.src=src;});
+      let idx = 0;
+      let bgEl = document.getElementById('heroBg');
+
+      const rotateHero = () => {
+        if (!bgEl) return;
+        idx = (idx + 1) % heroImages.length;
+        const nextEl = bgEl.cloneNode();
+        nextEl.classList.add('next');
+        nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
+        bgEl.parentNode.insertBefore(nextEl, bgEl);
+        requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
+        setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
+      };
+
+      let slideTimer = setInterval(rotateHero, 6000);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { clearInterval(slideTimer); }
+        else { slideTimer = setInterval(rotateHero, 6000); }
+      });
+    });
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"WebSite","name":"COREON","url":"https://www.coreon-global.com/",
+    "potentialAction":{"@type":"SearchAction","target":"https://www.google.com/search?q=site:coreon-global.com+{search_term_string}","query-input":"required name=search_term_string"}
+  }</script>
+
+  <!-- JSON-LD: Breadcrumb -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.coreon-global.com/"},
+      {"@type":"ListItem","position":2,"name":"Services","item":"https://www.coreon-global.com/#services"},
+      {"@type":"ListItem","position":3,"name":"Projects","item":"https://www.coreon-global.com/#case-studies"},
+      {"@type":"ListItem","position":4,"name":"Shop","item":"https://www.coreon-global.com/#shop"}
+    ]
+  }</script>
+
+  <!-- JSON-LD: Services -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"ItemList","name":"COREON Services",
+    "itemListElement":[
+      {"@type":"Service","name":"해체(철거) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"허가·석면·안전·폐기물 계획까지 일괄 관리"},
+      {"@type":"Service","name":"전기(E&I) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"수·변전, 내선, 시험/검사 대응 및 일정/리스크 통합 관리"},
+      {"@type":"Service","name":"토목(포장/아스콘) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"도로 포장·보수 공정, 교통/품질 관리 표준화"}
+    ]
+  }</script>
+
+  <!-- JSON-LD: Organization + Store link -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"Organization","name":"COREON","url":"https://www.coreon-global.com/","logo":"https://www.coreon-global.com/logo.png","telephone":"+82-10-9039-1482",
+    "address":{"@type":"PostalAddress","addressCountry":"KR","addressLocality":"인천광역시 중구","streetAddress":"중산동 두미포로112"},
+    "contactPoint":[{"@type":"ContactPoint","telephone":"+82-10-9039-1482","contactType":"customer service","areaServed":"KR","availableLanguage":["ko","en"]}],
+    "sameAs":["https://smartstore.naver.com/coreonmall"]
+  }</script>
 </body>
 </html>
