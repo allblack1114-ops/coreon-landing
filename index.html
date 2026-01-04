@@ -1,5 +1,7 @@
-<!-- ========================= 
-COREON index.html (FULL) — KR/EN TOGGLE FIXED (EN -> KR 복원 100%)
+<!-- =========================
+COREON index.html (FULL) — MASTER 유지 + IP 브로슈어(PDF) 덧붙임
+- 원본 구조/스타일/스크립트 유지
+- 추가: 브로슈어 다운로드 CTA + 자료실 카드
 ========================= -->
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,12 +26,12 @@ content="COREON(코레온)은 특허기반 안전·리스크 관리 개념을 EP
   <meta property="og:url" content="https://www.coreon-global.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Ownership / Indexing (실제 코드가 있다면 값 교체 가능) -->
+  <!-- Ownership / Indexing -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
   <!-- Hreflang -->
- <link rel="alternate" href="https://www.coreon-global.com/" hreflang="x-default" />
-<link rel="alternate" href="https://www.coreon-global.com/" hreflang="ko" />
+  <link rel="alternate" href="https://www.coreon-global.com/" hreflang="x-default" />
+  <link rel="alternate" href="https://www.coreon-global.com/" hreflang="ko" />
 
   <!-- Preload hero (LCP) -->
   <link rel="preload" as="image" href="/assets/hero_scaffold_sky.jpg?v=3" />
@@ -61,6 +63,7 @@ content="COREON(코레온)은 특허기반 안전·리스크 관리 개념을 EP
     .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
     .btn-kakao{background:#FAE100;border-color:#EAD200;color:#111}
     .btn-outline{background:#fff;border-color:#e4ecf5}
+    .btn-soft{background:#eef6ff;border-color:#cfe3ff;color:#124a92}
 
     .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.45rem .75rem;border-radius:999px;font-size:13px;font-weight:700}
 
@@ -141,6 +144,18 @@ content="COREON(코레온)은 특허기반 안전·리스크 관리 개념을 EP
     .subtle{color:#3e5166}
     .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
 
+    /* ✅ 추가: IP 다운로드 콜아웃(디자인 최소) */
+    .ip-download{
+      display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+      background:linear-gradient(135deg,#0b1b2b,#0b2c55);
+      border:1px solid rgba(255,255,255,.16);
+      padding:16px;border-radius:16px;color:#fff;margin-top:18px
+    }
+    .ip-download .title{font-weight:900}
+    .ip-download .desc{opacity:.9}
+    .ip-download .btn{border-color:rgba(255,255,255,.22)}
+    .ip-download .btn-soft{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#fff}
+
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
       .hero-full .hero-bg{transition:none}
@@ -212,6 +227,7 @@ content="COREON(코레온)은 특허기반 안전·리스크 관리 개념을 EP
 
   <!-- =========================
 PATENT PRE-SALES (SAFE VERSION)
++ ✅ 브로슈어 다운로드 CTA 추가
 ========================= -->
 <section id="ip-status" style="background:#ffffff;padding:60px 0;border-top:1px solid #eee;">
   <div class="container">
@@ -225,6 +241,16 @@ PATENT PRE-SALES (SAFE VERSION)
       <strong>현장 안전·운영 리스크를 사전에 줄이기 위한 관리 구조</strong>를
       지속적으로 연구·정리하고 있습니다.
     </p>
+
+    <!-- ✅ 추가: 다운로드 콜아웃 -->
+    <div class="ip-download" role="region" aria-label="COREON Safety IP Overview PDF 다운로드">
+      <div style="flex:1;min-width:240px">
+        <div class="title" data-i18n="ip.dl.title">COREON Safety IP Overview (PDF)</div>
+        <div class="desc" data-i18n="ip.dl.desc">특허 기반 안전 IP 플랫폼 1페이지 브로슈어를 다운로드하여 제조사/투자자 검토에 활용하세요.</div>
+      </div>
+      <a class="btn btn-soft" id="brochureBtnTop" href="/assets/COREON_brochure_260104.pdf" target="_blank" rel="noopener"
+         data-i18n="ip.dl.btn">브로슈어 PDF 다운로드</a>
+    </div>
 
     <div class="grid grid-3" style="margin-top:32px;gap:24px;">
 
@@ -306,7 +332,6 @@ END PATENT PRE-SALES
     </a>
   </div>
 </section>
-
 
   <!-- ABOUT -->
   <section id="about" class="container" style="padding:40px 0">
@@ -423,67 +448,65 @@ END PATENT PRE-SALES
 
   <!-- INSIGHTS -->
   <section id="insights" style="background:#f7f9fc;padding:40px 0">
-  <div class="container">
-    <h2 data-i18n="insights.title">인사이트</h2>
-    <p class="muted" data-i18n="insights.desc">
-      현장형 가이드·체크리스트를 정기 발행합니다.
-    </p>
+    <div class="container">
+      <h2 data-i18n="insights.title">인사이트</h2>
+      <p class="muted" data-i18n="insights.desc">
+        현장형 가이드·체크리스트를 정기 발행합니다.
+      </p>
 
-    <div class="news-list">
-
-      <div class="news-item open">
-        <div class="news-head">
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div style="flex:1" data-i18n="insights.i1.h">
-            도시형 해체 허가·석면·교통 가이드
+      <div class="news-list">
+        <div class="news-item open">
+          <div class="news-head">
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div style="flex:1" data-i18n="insights.i1.h">
+              도시형 해체 허가·석면·교통 가이드
+            </div>
+            <span class="muted" data-i18n="insights.static">정적</span>
           </div>
-          <span class="muted" data-i18n="insights.static">정적</span>
-        </div>
-        <div class="news-body">
-          <p data-i18n="insights.i1.p">
-            도심 현장의 인허가·석면·교통대책 흐름도를 제공합니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="news-item open">
-        <div class="news-head">
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div style="flex:1" data-i18n="insights.i2.h">
-            아스콘 포장 품질관리 포인트
+          <div class="news-body">
+            <p data-i18n="insights.i1.p">
+              도심 현장의 인허가·석면·교통대책 흐름도를 제공합니다.
+            </p>
           </div>
-          <span class="muted" data-i18n="insights.static">정적</span>
         </div>
 
-        <div class="news-body">
-          <p data-i18n="insights.i2.p">
-            혼합물·포설·다짐·온도·시험의 핵심 체크포인트.
-          </p>
+        <div class="news-item open">
+          <div class="news-head">
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div style="flex:1" data-i18n="insights.i2.h">
+              아스콘 포장 품질관리 포인트
+            </div>
+            <span class="muted" data-i18n="insights.static">정적</span>
+          </div>
 
-          <p style="margin-top:10px;">
-            <a href="/kr/construction-safety-risk-management.html"
-   style="color:#0F6FFF;font-weight:700;">
-  ▶ 건설·플랜트 안전 리스크 관리 자세히 보기
-</a>
+          <div class="news-body">
+            <p data-i18n="insights.i2.p">
+              혼합물·포설·다짐·온도·시험의 핵심 체크포인트.
+            </p>
 
-          </p>
+            <p style="margin-top:10px;">
+              <a href="/kr/construction-safety-risk-management.html"
+                 style="color:#0F6FFF;font-weight:700;">
+                ▶ 건설·플랜트 안전 리스크 관리 자세히 보기
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- LIBRARY -->
   <section id="library" class="container" style="padding:40px 0">
     <h2 data-i18n="library.title">자료실</h2>
+
     <div class="grid grid-3" style="margin-bottom:16px">
       <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener" data-i18n="library.l1">해체·철거공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener" data-i18n="library.l2">아스콘공사 바로가기</a>
@@ -491,6 +514,11 @@ END PATENT PRE-SALES
       <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener" data-i18n="library.l4">전기공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener" data-i18n="library.l5">소방공사 바로가기</a>
       <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener" data-i18n="library.l6">도장(방수)공사 바로가기</a>
+
+      <!-- ✅ 추가: IP 브로슈어 다운로드 카드 -->
+      <a class="card" id="brochureCard" href="/assets/COREON_brochure_260104.pdf" target="_blank" rel="noopener" data-i18n="library.ipBrochure">
+        특허기반 Safety IP 브로슈어(PDF) 다운로드
+      </a>
     </div>
 
     <h3 data-i18n="library.compTitle">컴플라이언스</h3>
@@ -538,6 +566,8 @@ END PATENT PRE-SALES
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a class="btn btn-primary" href="tel:010-9469-8334" data-i18n="contact.call">무료견적(전화)</a>
         <a class="btn" href="mailto:contact@coreon-global.com" data-i18n="contact.mail">상세문의(메일)</a>
+        <a class="btn btn-soft" id="brochureBtnBottom" href="/assets/COREON_brochure_260104.pdf" target="_blank" rel="noopener"
+           data-i18n="contact.brochure">IP 브로슈어(PDF)</a>
         <a class="btn" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" data-i18n="contact.shop">자재몰</a>
       </div>
     </div>
@@ -548,7 +578,7 @@ END PATENT PRE-SALES
     <div class="container foot-grid">
       <div>
         <h3>COREON</h3>
-        <p data-i18n="footer.p1">COREON은 PM/CM을 수행하며, 시공은 면허 보유사가 담당합니다.</p>
+        <p data-i18n="footer.p1">COREON은 PM/CM을 수행하며, 시공은 면허 보유 파트너사가 담당합니다.</p>
         <p data-i18n="footer.p2">사업자등록번호: 586-24-02279 | 대표전화: 010-9469-8334</p>
         <p data-i18n="footer.p3">주소: 인천광역시 중구 중산동</p>
         <p style="margin-top:8px;color:#9fb0c8">© <span id="yy"></span> COREON. All rights reserved.</p>
@@ -565,10 +595,13 @@ END PATENT PRE-SALES
   <div class="sticky-cta" aria-label="모바일 하단 고정 연락 버튼">
     <a href="tel:010-9469-8334" data-i18n="mcta.call">전화</a>
     <a href="mailto:contact@coreon-global.com" data-i18n="mcta.mail">메일</a>
-    <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" data-i18n="mcta.shop">자재몰</a>
+    <a href="/assets/COREON_brochure_260104.pdf" target="_blank" rel="noopener" data-i18n="mcta.brochure">브로슈어</a>
   </div>
 
   <script>
+    // ✅ PDF 경로는 여기만 바꾸면 전체 반영됨
+    const BROCHURE_URL = "/assets/COREON_brochure_260104.pdf";
+
     // ===== i18n dictionary (KR is default in HTML, EN overwrites by key) =====
     const I18N = {
       en: {
@@ -593,41 +626,6 @@ END PATENT PRE-SALES
         "cta.library":"Library",
         "cta.shop":"Go to Materials Store",
         "cta.kakao":"KakaoTalk Chat",
-
-        "patents.title":"Patent-based Technical Issues",
-        "patents.desc1":"COREON goes beyond construction execution,",
-        "patents.desc2":"designing PM/CM structures that prevent on-site risks in advance",
-        "patents.desc3":".",
-
-        "patents.c1.h":"3 Safety Patent Applications",
-        "patents.c1.p1a":"COREON has filed",
-        "patents.c1.p1b":"three safety-related patents",
-        "patents.c1.p1c":", and",
-        "patents.c1.p1d":"the examination process is currently in progress.",
-        "patents.c1.p2a":"Not for equipment sales, but",
-        "patents.c1.p2b":"for proactive risk-prevention structures from a PM/CM perspective",
-        "patents.c1.p2c":".",
-
-        "patents.c2.h":"Wearable Respiratory Protection Device",
-        "patents.c2.p1a":"For hazardous gas, dust, and confined-space work,",
-        "patents.c2.p1b":"featuring automatic switching & blocking mechanisms,",
-        "patents.c2.p1c":"a wearable respiratory protection system",
-        "patents.c2.p1d":".",
-        "patents.c2.li1":"Construction / demolition work",
-        "patents.c2.li2":"Industrial sites / plants / confined spaces",
-        "patents.c2.li3a":"Expandable to defense & military environments",
-        "patents.c2.li3b":"(training, maintenance, hazardous exposure tasks, etc.)",
-
-        "patents.c3.h":"How It’s Applied in PM/CM",
-        "patents.c3.p1a":"COREON applies these technologies",
-        "patents.c3.p1b":"not as equipment supply",
-        "patents.c3.p1c":", but as part of management execution.",
-        "patents.c3.li1":"Embedded in permit & safety planning stage",
-        "patents.c3.li2":"Coordination with owners, supervisors, safety managers",
-        "patents.c3.li3":"Risk removal-first control structure",
-        "patents.c3.p2a":"More than the tech itself,",
-        "patents.c3.p2b":"we focus on embedding it into site management",
-        "patents.c3.p2c":".",
 
         "about.title":"About COREON",
         "about.p1":"COREON is a PM/CM specialist coordinating multiple disciplines including demolition, civil (paving/ascon), waterproofing, landscaping, electrical, and fire protection. Licensed partners execute construction while COREON integrates schedule, cost, quality, and risk control from the owner’s perspective.",
@@ -702,6 +700,7 @@ END PATENT PRE-SALES
         "library.l4":"Go to Electrical Package",
         "library.l5":"Go to Fire Package",
         "library.l6":"Go to Painting/Waterproofing Package",
+        "library.ipBrochure":"Download: Patent-based Safety IP Brochure (PDF)",
         "library.compTitle":"Compliance",
         "library.compDesc":"COREON provides PM/CM and business development. Construction is executed by licensed partners. Roles are clearly separated: Owner↔Contractor (construction contract), COREON↔Owner/Contractor (service contract).",
 
@@ -720,6 +719,7 @@ END PATENT PRE-SALES
         "contact.call":"Call (Free Quote)",
         "contact.mail":"Email Inquiry",
         "contact.shop":"Store",
+        "contact.brochure":"IP Brochure (PDF)",
 
         "footer.p1":"COREON provides PM/CM while licensed partners execute construction.",
         "footer.p2":"Business Reg No: 586-24-02279 | Tel: +82-10-9469-8334",
@@ -731,33 +731,35 @@ END PATENT PRE-SALES
         "mcta.call":"Call",
         "mcta.mail":"Email",
         "mcta.shop":"Store",
+        "mcta.brochure":"Brochure",
 
-/* ===== IP / PATENT PRE-SALES ===== */
-"ip.title":"Future Technology · IP Readiness",
+        /* ===== IP / PATENT PRE-SALES ===== */
+        "ip.title":"Future Technology · IP Readiness",
+        "ip.desc":"COREON goes beyond simple construction execution and continuously develops management structures designed to reduce on-site safety and operational risks in advance.",
 
-"ip.desc":"COREON goes beyond simple construction execution and continuously develops management structures designed to reduce on-site safety and operational risks in advance.",
+        "ip.c1.h":"Patent Filing Status",
+        "ip.c1.p1":"COREON has filed multiple patent applications related to on-site safety and operational management, and the examination process is currently in progress.",
+        "ip.c1.p2":"These filings are not intended for manufacturing, but to structure risk-management concepts from a PM/CM perspective.",
 
-"ip.c1.h":"Patent Filing Status",
-"ip.c1.p1":"COREON has filed multiple patent applications related to on-site safety and operational management, and the examination process is currently in progress.",
-"ip.c1.p2":"These filings are not intended for manufacturing, but to structure risk-management concepts from a PM/CM perspective.",
+        "ip.c2.h":"Scope of Disclosure",
+        "ip.c2.p1":"Specific structures, mechanisms, and application methods of the filed technologies are not disclosed until patent registration is completed.",
+        "ip.c2.p2":"This is a fundamental operational principle for technology protection and partner collaboration.",
 
-"ip.c2.h":"Scope of Disclosure",
-"ip.c2.p1":"Specific structures, mechanisms, and application methods of the filed technologies are not disclosed until patent registration is completed.",
-"ip.c2.p2":"This is a fundamental operational principle for technology protection and partner collaboration.",
+        "ip.c3.h":"Business Application Direction",
+        "ip.c3.li1":"Not intended for direct manufacturing or sales",
+        "ip.c3.li2":"Focused on advancing site management processes",
+        "ip.c3.li3":"Licensing and collaboration models reviewed after registration",
+        "ip.c3.p1":"COREON focuses not on the technology itself, but on how it is applied and managed in real construction environments.",
 
-"ip.c3.h":"Business Application Direction",
-"ip.c3.li1":"Not intended for direct manufacturing or sales",
-"ip.c3.li2":"Focused on advancing site management processes",
-"ip.c3.li3":"Licensing and collaboration models reviewed after registration",
-"ip.c3.p1":"COREON focuses not on the technology itself, but on how it is applied and managed in real construction environments."
-
+        /* ✅ 추가: 브로슈어 다운로드 문구 */
+        "ip.dl.title":"COREON Safety IP Overview (PDF)",
+        "ip.dl.desc":"Download the 1-page brochure for manufacturer & investor review.",
+        "ip.dl.btn":"Download Brochure (PDF)"
       }
     };
 
     // =========================================================
-    // ✅ FIX 핵심: "요소(element) 단위"로 KR 원문을 1회 백업
-    // - key 기반 백업은 중복/분절/innerHTML 덮어쓰기로 복원 실패 가능
-    // - WeakMap + data attribute로 100% 원복 보장
+    // ✅ KR 원문 백업(원본 유지)
     // =========================================================
     const ORIG = new WeakMap();
     function backupOriginalKR(){
@@ -765,7 +767,6 @@ END PATENT PRE-SALES
         if (!ORIG.has(el)) {
           const html = el.innerHTML;
           ORIG.set(el, html);
-          // 디버깅/안전용(필요시 확인 가능)
           el.setAttribute("data-i18n-orig", html);
         }
       });
@@ -777,18 +778,14 @@ END PATENT PRE-SALES
 
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-
         if (lang === "en") {
-          // EN은 dict가 있으면 덮어쓰기, 없으면 원문 유지
           if (dict[key]) el.innerHTML = dict[key];
         } else {
-          // ✅ KR 복원은 "항상 백업 원문"으로 되돌림
           const orig = ORIG.get(el);
           if (typeof orig === "string") el.innerHTML = orig;
         }
       });
 
-      // button state
       const btnKo = document.getElementById("btn-ko");
       const btnEn = document.getElementById("btn-en");
       if (btnKo && btnEn){
@@ -806,6 +803,10 @@ END PATENT PRE-SALES
 
       // ✅ 반드시 "언어 적용 전에" KR 원문 백업
       backupOriginalKR();
+
+      // ✅ 브로슈어 링크를 한 번에 통일 적용
+      const brochureEls = ["brochureBtnTop","brochureBtnBottom","brochureCard"].map(id => document.getElementById(id)).filter(Boolean);
+      brochureEls.forEach(a => a.setAttribute("href", BROCHURE_URL));
 
       // language init
       const saved = localStorage.getItem("coreon_lang") || "ko";
@@ -899,30 +900,30 @@ END PATENT PRE-SALES
     ]
   }</script>
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"COREON",
-  "alternateName":["코레온","Coreon","coreon","COREON(코레온)"],
-  "url":"https://www.coreon-global.com/",
-  "logo":"https://www.coreon-global.com/logo.png",
-  "telephone":"+82-10-9469-8334",
-  "address":{
-    "@type":"PostalAddress",
-    "addressCountry":"KR",
-    "addressLocality":"인천광역시 중구",
-    "streetAddress":"중산동"
-  },
-  "contactPoint":[{
-    "@type":"ContactPoint",
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"COREON",
+    "alternateName":["코레온","Coreon","coreon","COREON(코레온)"],
+    "url":"https://www.coreon-global.com/",
+    "logo":"https://www.coreon-global.com/logo.png",
     "telephone":"+82-10-9469-8334",
-    "contactType":"customer service",
-    "areaServed":"KR",
-    "availableLanguage":["ko","en"]
-  }],
-  "sameAs":["https://smartstore.naver.com/coreonmall"]
-}
-</script>
+    "address":{
+      "@type":"PostalAddress",
+      "addressCountry":"KR",
+      "addressLocality":"인천광역시 중구",
+      "streetAddress":"중산동"
+    },
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "telephone":"+82-10-9469-8334",
+      "contactType":"customer service",
+      "areaServed":"KR",
+      "availableLanguage":["ko","en"]
+    }],
+    "sameAs":["https://smartstore.naver.com/coreonmall"]
+  }
+  </script>
 </body>
 </html>
