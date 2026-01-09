@@ -1,1047 +1,308 @@
-<!-- =========================
-COREON index.html (FULL) — MASTER 유지 + IP 브로슈어(PDF) 덧붙임
-- 원본 구조/스타일/스크립트 유지
-- ✅ 반영 완료:
-  1) ‘특허 기반 Safety IP’ 섹션을 홈페이지 중심축으로 고정 (히어로 직후)
-  2) 특허 상태 문구 보수적 공개:
-     - 펌프카: 등록 완료
-     - 조끼일체형: 등록 진행 중(등록결정 완료)  ※ 등록 전
-     - 해제홈: 심사 진행 중 + 명칭 보수화
-  3) 변리사/테헤란 톤: 법적 안전문구(디스클레이머) / 공시범위 안내 강화
-  4) PDF 링크 일원화: BROCHURE_URL 한 곳만 변경하면 전부 반영
-========================= -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="content-language" content="ko-KR" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="naver-site-verification" content="593523237d06de1dcb671391c41df6df3b90b9d9" />
-  <title>COREON(코레온) | 특허기반 Safety IP · EPCM/PM·CM 공사관리</title>
-  <meta name="description"
-content="COREON(코레온)은 특허기반 Safety IP(안전·리스크 관리) 개념을 EPCM 기반 PM/CM 공사관리에 적용하는 전문 기업입니다. 해체·토목·방수·조경·전기·소방 등 전 공종을 계약부터 준공까지 통합 관리합니다." />
-  <meta name="theme-color" content="#0A1B2B" />
-  <link rel="icon" href="/favicon.ico" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>COREON(코레온) | 특허 기반 Safety IP · PM/CM</title>
 
-  <!-- Canonical & Social -->
-  <link rel="canonical" href="https://www.coreon-global.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ko_KR" />
-  <meta property="og:title" content="COREON(코레온) | 특허기반 Safety IP · EPCM/PM·CM 공사관리" />
-  <meta property="og:description" content="계약부터 준공까지 PM/CM. 시공은 면허 보유 파트너사가 책임 수행." />
-  <meta property="og:image" content="https://www.coreon-global.com/assets/hero_scaffold_sky.jpg?v=3" />
-  <meta property="og:url" content="https://www.coreon-global.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
+<meta name="description" content="COREON은 특허 기반 Safety IP를 중심으로 중대재해 리스크를 구조적으로 통제하는 PM/CM 전문 조직입니다."/>
+<link rel="canonical" href="https://www.coreon-global.com/"/>
+<link rel="icon" href="/favicon.ico"/>
 
-  <!-- Ownership / Indexing -->
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+<style>
+/* =========================
+   GLOBAL / RESET
+========================= */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color:#0A1B2B;
+  background:#F4F6F9;
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  <!-- Hreflang -->
-  <link rel="alternate" href="https://www.coreon-global.com/" hreflang="x-default" />
-  <link rel="alternate" href="https://www.coreon-global.com/" hreflang="ko" />
+/* =========================
+   NAV
+========================= */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:#fff;
+  border-bottom:1px solid #E2E8F0;
+}
+nav .nav-inner{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+  letter-spacing:.3px;
+}
+.nav-brand img{height:30px}
+.nav-menu a{
+  margin-left:24px;
+  font-weight:600;
+  font-size:15px;
+  color:#0A1B2B;
+}
 
-  <!-- Preload hero (LCP) -->
-  <link rel="preload" as="image" href="/assets/hero_scaffold_sky.jpg?v=3" />
+/* =========================
+   HERO
+========================= */
+header{
+  position:relative;
+  min-height:100vh;
+  color:#fff;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center;
+  transition:background-image 1.2s ease;
+  filter:brightness(.55);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(6,18,34,.75) 0%,
+    rgba(6,18,34,.85) 60%,
+    rgba(6,18,34,.95) 100%
+  );
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:160px 24px 120px;
+}
+.hero-eyebrow{
+  font-weight:700;
+  letter-spacing:.15em;
+  font-size:13px;
+  opacity:.85;
+}
+.hero-content h1{
+  font-size:clamp(34px,6vw,64px);
+  line-height:1.15;
+  margin:24px 0 24px;
+}
+.hero-desc{
+  font-size:18px;
+  max-width:760px;
+  opacity:.95;
+}
+.hero-note{
+  margin-top:16px;
+  font-size:14px;
+  opacity:.85;
+}
 
-  <style>
-    :root{
-      --navy:#0A1B2B;--blue:#0F6FFF;--bg:#F4F6F9;--card:#fff;--accent:#0EA5E9;
-      --radius:16px;--shadow:0 12px 28px rgba(10,27,43,.08);
-      --container:1120px;--gutter:20px
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--bg);line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+/* =========================
+   SECTION COMMON
+========================= */
+section{padding:96px 0}
+section.light{background:#F8FAFC}
+section.dark{
+  background:#0A1220;
+  color:#E5EDFA;
+}
+h2{
+  font-size:clamp(26px,4vw,40px);
+  margin:0 0 32px;
+}
+h3{
+  margin:0 0 12px;
+  font-size:20px;
+}
+.grid{display:grid;gap:24px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:960px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
+}
 
-    /* NAV */
-    .nav{background:#fff;border-bottom:1px solid #e9eef5;position:sticky;top:0;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
-    .brand img{height:28px;width:auto}
-    .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-    .nav-links a{padding:.4rem .6rem;border-radius:10px}
-    .nav-links a.active{background:#eef3fb;color:var(--blue)}
+/* =========================
+   CARD
+========================= */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:32px;
+  border:1px solid #E6EDF6;
+}
+.dark .card{
+  background:#101C33;
+  border-color:#1E2B46;
+}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1rem;border-radius:12px;font-weight:800;border:1px solid #dbe3ec;white-space:nowrap;gap:8px}
-    .btn svg{flex:0 0 auto}
-    .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
-    .btn-kakao{background:#FAE100;border-color:#EAD200;color:#111}
-    .btn-outline{background:#fff;border-color:#e4ecf5}
-    .btn-soft{background:#eef6ff;border-color:#cfe3ff;color:#124a92}
+/* =========================
+   IP
+========================= */
+.ip-status{
+  margin-top:8px;
+  font-size:14px;
+  color:#5B6C84;
+}
+.dark .ip-status{color:#A9B7CF}
 
-    .badge{display:inline-flex;align-items:center;gap:8px;background:#091a2e;border:1px solid rgba(255,255,255,.18);color:#cfe0ff;padding:.45rem .75rem;border-radius:999px;font-size:13px;font-weight:700}
+/* =========================
+   BROCHURE
+========================= */
+.brochure{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.brochure a{
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:999px;
+  background:#0A1B2B;
+  color:#fff;
+  font-weight:700;
+  font-size:15px;
+}
 
-    /* Language toggle */
-    .lang-toggle{display:flex;gap:6px;align-items:center}
-    .lang-toggle button{
-      border:1px solid #dbe3ec;background:#fff;padding:6px 10px;border-radius:10px;
-      font-size:12px;font-weight:900;cursor:pointer
-    }
-    .lang-toggle button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-
-    /* HERO */
-    .hero-full{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-    .hero-full .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72);transition:opacity 1s ease}
-    .hero-full .next{opacity:0}
-    .hero-overlay{position:absolute;inset:0;background:
-      radial-gradient(1200px 600px at 50% 70%, rgba(15,111,255,.18), transparent),
-      linear-gradient(180deg, rgba(10,27,43,.55), rgba(10,27,43,.55))}
-    .hero-content{position:relative;z-index:2;color:#fff;
-      padding-left:max(var(--gutter), calc((100vw - var(--container))/2 + var(--gutter)));
-      padding-right:var(--gutter);max-width:980px}
-
-    .hero-title{margin:14px 0 16px;line-height:1.06;font-weight:900;word-break:keep-all}
-    .hero-title .line1,.hero-title .line2,.hero-title .line3{display:block;letter-spacing:-0.8px;font-family:"Montserrat","Pretendard","Noto Sans KR",system-ui,-apple-system,sans-serif}
-    @media(min-width:981px){ .hero-title .line1,.hero-title .line2,.hero-title .line3{font-size:64px} }
-    @media(max-width:980px){ .hero-title .line1,.hero-title .line2,.hero-title .line3{font-size:clamp(22px,7.2vw,32px)} }
-
-    .hero-desc{margin:0 0 22px;font-size:clamp(15px,1.2vw,18px);opacity:.98}
-    .btn-group{display:flex;gap:12px;flex-wrap:wrap}
-
-    /* GRID & CARD */
-    .grid{display:grid;gap:18px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media(max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
-    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .imgbox{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#eef2f7}
-    .imgbox img{width:100%;height:100%;object-fit:cover}
-
-    section{scroll-margin-top:88px}
-    h2{margin:0 0 16px}
-
-    /* SHOP */
-    .shop-callout{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,#E6F7FF,#F0FFFF);border:1px solid #D6F0FB;padding:16px;border-radius:16px}
-    .shop-callout strong{font-size:18px}
-    .price{font-weight:900}
-
-    /* FOOTER */
-    footer{background:#0A1220;color:#c9d6e8;padding:30px 0;margin-top:40px}
-    .foot-grid{display:grid;gap:20px;grid-template-columns:2fr 1fr}
-
-    /* MOBILE STICKY CTA */
-    .sticky-cta{display:none}
-    @media(max-width:980px){
-      .sticky-cta{display:flex;position:fixed;bottom:0;left:0;right:0;background:#0A1B2B;z-index:99}
-      .sticky-cta a{flex:1;color:#fff;padding:1rem;text-align:center}
-      body{padding-bottom:64px}
-      .nav-inner{flex-direction:column;align-items:flex-start;padding:12px var(--gutter);height:auto;row-gap:8px}
-      .brand img{height:32px}
-      .nav-links{width:100%;justify-content:flex-end;background:#fff;margin-top:8px;padding:6px 0;border-top:1px solid #e9eef5}
-      .hero-full{min-height:92vh}
-      .hero-content{max-width:unset;padding-left:var(--gutter);padding-right:var(--gutter)}
-      .hero-desc{font-size:14.5px;margin-bottom:16px}
-      .btn{padding:.66rem .9rem;font-size:14px}
-      .btn-group{gap:10px}
-      .lang-toggle{margin-left:auto}
-    }
-
-    /* INSIGHTS - accordion */
-    .news-list{display:grid;gap:10px}
-    .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:14px}
-    .news-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
-    .news-head .chev{transition:.2s;transform:rotate(-90deg)}
-    .news-item.open .chev{transform:rotate(0)}
-    .news-body{display:none;padding:0 14px 14px}
-    .news-item.open .news-body{display:block}
-    .muted{color:#6c7a89;font-size:13px}
-    .subtle{color:#3e5166}
-    .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
-
-    /* ✅ IP 다운로드 콜아웃 */
-    .ip-download{
-      display:flex;gap:12px;align-items:center;flex-wrap:wrap;
-      background:linear-gradient(135deg,#0b1b2b,#0b2c55);
-      border:1px solid rgba(255,255,255,.16);
-      padding:16px;border-radius:16px;color:#fff;margin-top:18px
-    }
-    .ip-download .title{font-weight:900}
-    .ip-download .desc{opacity:.9}
-    .ip-download .btn{border-color:rgba(255,255,255,.22)}
-    .ip-download .btn-soft{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#fff}
-
-    /* ✅ Teheran-ish legal note style (minimal / classy) */
-    .legal-note{
-      margin-top:14px;
-      background:#fbfcfe;
-      border:1px solid #e7eef7;
-      border-left:4px solid #0F6FFF;
-      border-radius:14px;
-      padding:14px 14px;
-      color:#334155;
-      font-size:13.5px;
-      line-height:1.7;
-    }
-    .legal-note strong{font-weight:900}
-    .legal-note .small{font-size:12.5px;color:#64748b}
-    .legal-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .legal-badge{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 10px;border-radius:999px;
-      background:#eef6ff;border:1px solid #cfe3ff;
-      color:#124a92;font-weight:800;font-size:12px
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .hero-full .hero-bg{transition:none}
-    }
-  </style>
+/* =========================
+   FOOTER
+========================= */
+footer{
+  background:#060B16;
+  color:#B9C6DA;
+  padding:64px 0;
+}
+footer p{
+  margin:6px 0;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <nav class="nav" aria-label="주요 메뉴">
-    <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="COREON 홈">
-        <img src="/logo.png" alt="COREON 로고" />
-        <span>COREON</span>
-      </a>
 
-      <div class="nav-links" role="navigation">
-        <!-- Language Toggle -->
-        <div class="lang-toggle" aria-label="언어 선택">
-          <button id="btn-ko" class="active" type="button">KR</button>
-          <button id="btn-en" type="button">EN</button>
-        </div>
-
-        <a href="#about" data-i18n="nav.about">회사소개</a>
-        <a href="#sectors" data-i18n="nav.sectors">산업별</a>
-        <a href="#services" data-i18n="nav.services">서비스</a>
-        <a href="#case-studies" data-i18n="nav.cases">실적사례</a>
-        <a href="#sqc" data-i18n="nav.sqc">안전·품질·컴플라이언스</a>
-        <a href="#insights" data-i18n="nav.insights">인사이트</a>
-        <a href="#library" data-i18n="nav.library">자료실</a>
-        <a href="#shop" class="active" data-i18n="nav.shop">자재몰</a>
-        <a href="#contact" data-i18n="nav.contact">문의</a>
-      </div>
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-brand">
+      <img src="/logo.png" alt="COREON"/>
+      <span>COREON</span>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <header id="top" class="hero-full" aria-label="히어로">
-    <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero_scaffold_sky.jpg?v=3')" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <div class="badge" style="margin-bottom:10px" aria-label="핵심 포지셔닝">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span data-i18n="hero.badge">EPCM기반 PM/CM · 해체·토목·조경·방수·전기·소방</span>
-      </div>
-
-      <h1 class="hero-title" aria-label="계약부터 준공까지 코레온이 프로젝트관리 공사관리를 수행합니다">
-        <span class="line1" data-i18n="hero.l1">계약부터 준공까지</span>
-        <span class="line2" data-i18n="hero.l2">코레온(COREON)이</span>
-        <span class="line3" data-i18n="hero.l3">프로젝트관리·공사관리를 수행합니다</span>
-      </h1>
-
-      <p class="hero-desc" data-i18n="hero.desc">허가·안전·품질·조달·변경관리까지 원스톱. 시공은 면허 보유 파트너사가 책임 수행합니다.</p>
-
-      <div class="btn-group" aria-label="주요 행동 버튼">
-        <a class="btn btn-primary" href="tel:010-9469-8334" data-i18n="cta.call">무료견적 전화</a>
-        <a class="btn" href="#case-studies" data-i18n="cta.cases">실적사례 보기</a>
-        <a class="btn" href="#library" data-i18n="cta.library">자료실</a>
-        <a class="btn btn-outline" href="#shop" data-i18n="cta.shop">자재몰 바로가기</a>
-        <a class="btn btn-kakao" href="https://pf.kakao.com/_xefhLn/chat" target="_blank" rel="noopener" aria-label="카카오톡 1:1 문의 열기">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 11.5c0 4.65-4.46 8.5-9.96 8.5-1.1 0-2.17-.15-3.16-.43L3 21l1.8-4.3C3.67 15.22 3 13.44 3 11.5 3 6.85 7.46 3 12.96 3 17.54 3 21 6.44 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-          <span data-i18n="cta.kakao">카카오톡 문의</span>
-        </a>
-      </div>
+    <div class="nav-menu">
+      <a href="#ip">Safety IP</a>
+      <a href="#structure">운영구조</a>
+      <a href="#contact">문의</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- =========================
-PATENT PRE-SALES (SAFE VERSION)
-- ✅ 중심축: 특허 기반 Safety IP
-- ✅ 보수적 상태 공개 + 공시 범위 안내 + 법적 디스클레이머
-========================= -->
-<section id="ip-status" style="background:#ffffff;padding:60px 0;border-top:1px solid #eee;">
-  <div class="container">
-
-    <h2 data-i18n="ip.title" style="margin-bottom:16px;">
-      특허 기반 Safety IP · 권리 현황
-    </h2>
-
-    <p data-i18n="ip.desc" style="max-width:820px;color:#555;line-height:1.7;">
-      COREON은 단순 시공 수행을 넘어,<br>
-      <strong>현장에서 반복되는 안전·운영 리스크를 ‘관리 구조’로 줄이는 방식</strong>을
-      특허 권리로 정리하고 있습니다.
-      <span class="subtle">※ 본 페이지는 공시 가능한 범위 내에서만 요약 안내합니다.</span>
+<header>
+  <div class="hero-bg" id="heroBg" style="background-image:url('/assets/hero/hero_pumptruck_01.png')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">PATENT-BASED SAFETY IP</div>
+    <h1>
+      사고는 현장이 아니라<br/>
+      구조에서 발생합니다
+    </h1>
+    <p class="hero-desc">
+      COREON은 특허 기반 Safety IP 관점으로<br/>
+      중대재해 리스크를 사후 대응이 아닌 구조적으로 통제하는 PM/CM 조직입니다.
     </p>
-
-    <!-- ✅ 다운로드 콜아웃 -->
-    <div class="ip-download" role="region" aria-label="COREON Safety IP Overview PDF 다운로드">
-      <div style="flex:1;min-width:240px">
-        <div class="title" data-i18n="ip.dl.title">COREON Safety IP Overview (PDF)</div>
-        <div class="desc" data-i18n="ip.dl.desc">제조사/보험/투자자 검토용 1페이지 브로슈어를 다운로드하여 검토에 활용하세요.</div>
-      </div>
-      <a class="btn btn-soft" id="brochureBtnTop" href="#" target="_blank" rel="noopener" data-i18n="ip.dl.btn">브로슈어 PDF 다운로드</a>
-    </div>
-
-    <!-- ✅ Teheran-ish legal guidance -->
-    <div class="legal-note" role="note" aria-label="특허 공시 범위 및 디스클레이머">
-      <strong data-i18n="ip.legal.h">공시 범위 및 디스클레이머</strong><br>
-      <span data-i18n="ip.legal.p1">
-        본 페이지는 등록/심사 단계 및 협업 검토를 위한 ‘개요’로서, 출원/심사 중 기술의 구체 구성·방법·도면·작동 원리는 등록 전까지 공개하지 않습니다.
-        또한 본 안내는 특정 성능/결과를 보장하거나 법적 책임을 면제하는 자료가 아닙니다.
-      </span>
-      <div class="legal-badges" aria-hidden="true">
-        <span class="legal-badge">SAFE DISCLOSURE</span>
-        <span class="legal-badge">IP SUMMARY</span>
-        <span class="legal-badge">PM/CM FRAME</span>
-      </div>
-      <div class="small" style="margin-top:8px" data-i18n="ip.legal.p2">
-        ※ 특허 상태/문구는 등록·공보 게재 등 진행에 따라 수시 업데이트될 수 있습니다.
-      </div>
-    </div>
-
-    <div class="grid grid-3" style="margin-top:24px;gap:24px;">
-
-      <!-- Card 1 -->
-      <div class="card" style="padding:24px;border:1px solid #eee;">
-        <h3 data-i18n="ip.c1.h" style="margin-bottom:12px;">권리 현황(요약)</h3>
-
-        <p data-i18n="ip.c1.p1" style="color:#555;line-height:1.6;">
-          COREON은 현장 안전 및 운영 관리와 관련된 기술에 대해
-          <strong>등록 완료 1건</strong>과
-          <strong>등록 진행 중(등록결정 포함)</strong>,
-          <strong>심사 진행 중</strong> 권리를 보유/추진하고 있습니다.
-        </p>
-
-        <ul style="margin:12px 0 0;padding-left:18px;color:#475569;line-height:1.8;font-size:14px">
-          <li data-i18n="ip.c1.li1"><strong>콘크리트 펌프카 안전보조 시스템</strong> : 특허 등록 완료</li>
-          <li data-i18n="ip.c1.li2"><strong>조끼 일체형 호흡 보호 장비</strong> : 등록 진행 중(등록결정 완료)</li>
-          <li data-i18n="ip.c1.li3"><strong>개봉 제어 구조 기반 안전 커버 시스템</strong> : 특허 심사 진행 중</li>
-        </ul>
-
-        <p data-i18n="ip.c1.p2" style="margin-top:12px;color:#64748b;font-size:13.5px;">
-          해당 권리는 ‘제조·판매’ 목적이 아니라,<br>
-          <strong>PM/CM 관점의 사고 예방·책임 분리·리스크 관리 프레임</strong>을 권리화한 것입니다.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="card" style="padding:24px;border:1px solid #eee;">
-        <h3 data-i18n="ip.c2.h" style="margin-bottom:12px;">공개 범위(원칙)</h3>
-
-        <p data-i18n="ip.c2.p1" style="color:#555;line-height:1.6;">
-          출원·심사 중인 기술의 구체적인 구조, 방식,
-          적용 방법에 대한 상세 내용은
-          <strong>등록 전까지 제한적으로 공개</strong>합니다.
-        </p>
-
-        <p data-i18n="ip.c2.p2" style="margin-top:10px;color:#777;font-size:14px;">
-          이는 기술 보호 및
-          파트너사 협업을 위한
-          기본 운영 원칙입니다.
-        </p>
-
-        <p style="margin-top:12px;color:#475569;font-size:14px;line-height:1.7" data-i18n="ip.c2.p3">
-          협업 검토(제조/보험/시공/투자)는
-          <strong>NDA 체결</strong> 및
-          <strong>필요 범위 한정 제공</strong> 원칙으로 진행합니다.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card" style="padding:24px;border:1px solid #eee;">
-        <h3 data-i18n="ip.c3.h" style="margin-bottom:12px;">적용 방향(전략)</h3>
-
-        <ul style="color:#555;line-height:1.8;padding-left:18px;">
-          <li data-i18n="ip.c3.li1">직접 제조·판매 목적 아님</li>
-          <li data-i18n="ip.c3.li2">현장 관리 프로세스(안전·품질·변경) 고도화 목적</li>
-          <li data-i18n="ip.c3.li3">등록 이후 라이선스·JV·협업 방식 단계적 검토</li>
-        </ul>
-
-        <p data-i18n="ip.c3.p1" style="margin-top:10px;color:#777;font-size:14px;">
-          COREON은 기술 자체보다<br>
-          <strong>현장에 어떻게 적용하고, 책임을 어떻게 분리·관리하는지</strong>에 집중합니다.
-        </p>
-      </div>
-
-    </div>
-
+    <p class="hero-note">
+      ※ COREON은 시공을 수행하지 않으며 PM/CM(관리·조정) 역할만 수행합니다.
+    </p>
   </div>
-</section>
-<!-- =========================
-END PATENT PRE-SALES
-========================= -->
+</header>
 
-<section class="core-focus-links">
+<section id="ip" class="light">
   <div class="container">
-    <h2>COREON Focus Areas (KR)</h2>
-
-    <a href="/kr/safety-opening-prevention-device.html">
-      ▶ 산업 안전 개구부 개방 방지 시스템
-    </a><br>
-
-    <a href="/kr/construction-safety-risk-management.html">
-      ▶ 건설·플랜트 안전 리스크 관리 (PM / CM)
-    </a><br>
-
-    <a href="/kr/defense-industrial-safety-solution.html">
-      ▶ 고위험 산업 안전 솔루션
-    </a><br>
-
-    <a href="/kr/industrial-safety-patent.html">
-      ▶ 산업 안전 특허 · IP 전략
-    </a>
-  </div>
-</section>
-
-  <!-- ABOUT -->
-  <section id="about" class="container" style="padding:40px 0">
-    <h2 data-i18n="about.title">회사소개</h2>
-    <p data-i18n="about.p1">COREON은 PM/CM 전문 기업으로, 해체·토목(포장/아스콘)·방수·조경·전기·소방 등 전 공종을 관리·조정합니다. 시공은 관련 면허 보유사가 책임 수행하며, 발주처 관점에서 일정·비용·품질·리스크를 통합 통제합니다.</p>
-    <p class="muted" data-i18n="about.addr">주소: 인천광역시 중구 중산동· 대표전화: 010-9469-8334</p>
-  </section>
-
-  <!-- SECTORS -->
-  <section id="sectors" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2 data-i18n="sectors.title">산업별</h2>
-      <div class="grid grid-3">
-        <div class="card"><h3 data-i18n="sectors.c1.h">물류센터/산업단지</h3><p data-i18n="sectors.c1.p">신축·리모델링 PM/CM, 포장/전기/소방 통합</p></div>
-        <div class="card"><h3 data-i18n="sectors.c2.h">공공/원상복구</h3><p data-i18n="sectors.c2.p">부지 정리·도로포장·안전·품질·검수 대응</p></div>
-        <div class="card"><h3 data-i18n="sectors.c3.h">상업/도시형</h3><p data-i18n="sectors.c3.p">도심 해체·철거·석면·인허가·폐기물 일괄 관리</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="container" style="padding:40px 0">
-    <h2 data-i18n="services.title">서비스</h2>
-    <p data-i18n="services.desc">허가·안전·품질·변경관리·조달까지 원스톱 관리</p>
+    <h2>특허 기반 Safety IP</h2>
     <div class="grid grid-3">
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_demolition.jpg?v=20250928d" width="640" height="360" alt="해체 PM/CM: 허가·석면·안전·폐기물 계획 통합 관리" loading="lazy"></div>
-        <h3 data-i18n="services.s1.h">해체(철거)</h3><p data-i18n="services.s1.p">구조물 해체·보강·인허가·대수선·폐기물</p>
+        <h3>콘크리트 펌프카 안전보조 시스템</h3>
+        <p class="ip-status">특허 등록 완료</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_ascon.png?v=20250928d" width="640" height="360" alt="아스콘 포장: 도로 포장·보수·교통/품질 관리" loading="lazy"></div>
-        <h3 data-i18n="services.s2.h">토목(포장/아스콘)</h3><p data-i18n="services.s2.p">도로 포장·보수·교통/품질</p>
+        <h3>웨어러블 일체형 안전 호흡 보호장치</h3>
+        <p class="ip-status">특허 등록결정 (등록 예정)</p>
       </div>
       <div class="card">
-        <div class="imgbox"><img src="/assets/service_waterproof.jpg?v=20250928d" width="640" height="360" alt="방수/도장: 옥상·외벽·균열 보수" loading="lazy"></div>
-        <h3 data-i18n="services.s3.h">도장·방수</h3><p data-i18n="services.s3.p">옥상·외벽·균열 보수</p>
-      </div>
-      <div class="card">
-        <div class="imgbox"><img src="/assets/service_landscape.png?v=20250928d" width="640" height="360" alt="조경: 단지 조경·옥상정원·유지관리" loading="lazy"></div>
-        <h3 data-i18n="services.s4.h">조경</h3><p data-i18n="services.s4.p">단지 조경·옥상정원·유지관리</p>
-      </div>
-      <div class="card">
-        <div class="imgbox"><img src="/assets/service_electric.png?v=20250928d" width="640" height="360" alt="전기(E&I/신재생): 수변전·내선·시험/검사" loading="lazy"></div>
-        <h3 data-i18n="services.s5.h">전기(E&I/신재생)</h3><p data-i18n="services.s5.p">수·변전·내선·시험/검사</p>
-      </div>
-      <div class="card">
-        <div class="imgbox"><img src="/assets/service_fire.jpg?v=20250928d" width="640" height="360" alt="소방: 스프링클러·펌프·감지/경보·검사 대응" loading="lazy"></div>
-        <h3 data-i18n="services.s6.h">소방</h3><p data-i18n="services.s6.p">스프링클러·펌프·감지/경보</p>
+        <h3>해제 홈 구조 안전 개방 제어 시스템</h3>
+        <p class="ip-status">특허 심사 진행 중</p>
       </div>
     </div>
-  </section>
 
-  <!-- CASE STUDIES -->
-  <section id="case-studies" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2 data-i18n="cases.title">실적사례</h2>
-      <div class="card" style="margin-bottom:16px">
-        <strong data-i18n="cases.update">2025년 9월 업데이트</strong>
-        <ul>
-          <li data-i18n="cases.li1">코레온 특허: 등록 1건 + 등록결정/심사 진행 권리 운영</li>
-          <li data-i18n="cases.li2">해체·토목·방수·조경·전기·소방 등 <strong>14개 관계사</strong>와 협력 체결</li>
-        </ul>
+    <div class="card brochure" style="margin-top:40px">
+      <div>
+        <strong>Safety IP 브로슈어</strong><br/>
+        특허 기반 Safety IP 구조를 한눈에 확인하세요.
       </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c1.k">전기·점검 제안</div>
-          <div class="imgbox"><img src="/assets/case-kendallsquare-10mw-inspection-quote.jpg" width="640" height="360" alt="검단 켄달스퀘어 10MW 전기점검 견적 제출" loading="lazy"></div>
-          <h3 data-i18n="cases.c1.h">검단 켄달스퀘어 전기점검</h3>
-          <p data-i18n="cases.c1.p">수전 10,000kW 전기점검 견적서 제출</p>
-        </div>
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c2.k">전기·설비 점검</div>
-          <div class="imgbox"><img src="/assets/case-yojin-coatech-busduct-request.jpg" width="640" height="360" alt="요진코아텍 BUS-DUCT 상태 점검 의뢰" loading="lazy"></div>
-          <h3 data-i18n="cases.c2.h">요진코아텍 BUS-DUCT 점검</h3>
-          <p data-i18n="cases.c2.p">설비 상태 점검 의뢰 접수</p>
-        </div>
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c3.k">전기·점검 제안</div>
-          <div class="imgbox"><img src="/assets/case-verthillcc-5mw-inspection-quote.jpg" width="640" height="360" alt="베르힐CC 5MW 전기점검 제안서 제출" loading="lazy"></div>
-          <h3 data-i18n="cases.c3.h">베르힐CC 전기점검</h3>
-          <p data-i18n="cases.c3.p">수전 5,000kW 전기점검 제안</p>
-        </div>
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c4.k">공공·원상복구</div>
-          <div class="imgbox"><img src="/assets/case-yeongjong-parking-restoration.jpg" width="640" height="360" alt="영종 복합문화센터 주차장 원상복구 제안" loading="lazy"></div>
-          <h3 data-i18n="cases.c4.h">영종 복합문화센터 원상복구</h3>
-          <p data-i18n="cases.c4.p">부지 원상복구 공문 접수</p>
-        </div>
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c5.k">안전·품질</div>
-          <div class="imgbox"><img src="/assets/thumb_scaffold_close.jpg" width="640" height="360" alt="다단비계 구간 안전·품질 점검" loading="lazy"></div>
-          <h3 data-i18n="cases.c5.h">스캐폴드 근접 작업</h3>
-          <p data-i18n="cases.c5.p">안전·품질 점검 및 공정 조정</p>
-        </div>
-        <div class="card">
-          <div class="kicker" data-i18n="cases.c6.k">모듈 PM/CM</div>
-          <div class="imgbox"><img src="/assets/hero_module_transport.jpg" width="640" height="360" alt="대형 모듈 운송/설치 인터페이스 관리" loading="lazy"></div>
-          <h3 data-i18n="cases.c6.h">대형 모듈 운송/설치</h3>
-          <p data-i18n="cases.c6.p">리프팅·S-PMT·야적/운송 인터페이스</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SQC -->
-  <section id="sqc" class="container" style="padding:40px 0">
-    <h2 data-i18n="sqc.title">안전·품질·컴플라이언스</h2>
-    <div class="grid grid-3">
-      <div class="card"><h3 data-i18n="sqc.c1.h">표준 프로세스</h3><p data-i18n="sqc.c1.p">허가–안전–품질–조달–변경관리 E2E 표준화, 리스크/납기 통제</p></div>
-      <div class="card"><h3 data-i18n="sqc.c2.h">HSE/QA·QC</h3><p data-i18n="sqc.c2.p">JSA/RA/LOTO, ITP/QCP, 주간/월간 리포트 템플릿 제공</p></div>
-      <div class="card"><h3 data-i18n="sqc.c3.h">특허/HW 프로그램</h3><p data-i18n="sqc.c3.p">Safety IP(등록/진행) + 현장 실행형 체크리스트/자동화 도구</p></div>
-    </div>
-  </section>
-
-  <!-- INSIGHTS -->
-  <section id="insights" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2 data-i18n="insights.title">인사이트</h2>
-      <p class="muted" data-i18n="insights.desc">
-        현장형 가이드·체크리스트를 정기 발행합니다.
-      </p>
-
-      <div class="news-list">
-
-        <!-- [ADD] COREON Safety IP Notice -->
-        <div class="news-item open">
-          <div class="news-head">
-            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M8 10l4 4 4-4"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"/>
-            </svg>
-
-            <div style="flex:1;font-weight:700;">
-              <a href="/notices/2026-01-05-ip-update.html"
-                 style="color:#0F6FFF;text-decoration:none;" data-i18n="insights.notice.h">
-                COREON Safety IP Update · 권리 현황(공시 범위)
-              </a>
-            </div>
-
-            <span class="muted">NOTICE</span>
-          </div>
-
-          <div class="news-body">
-            <p data-i18n="insights.notice.p">
-              펌프카 Safety IP는 등록 완료 되었으며, 조끼 일체형 호흡 보호 장비는 등록 진행 중(등록결정 완료) 단계입니다.
-              개봉 제어 구조 기반 안전 커버 시스템은 특허 심사 진행 중입니다.
-            </p>
-
-            <p style="margin-top:8px;">
-              <a href="/notices/index.html" style="font-weight:600;">
-                ▶ 공지 전체 보기
-              </a>
-            </p>
-          </div>
-        </div>
-        <!-- [END ADD] -->
-
-        <div class="news-item open">
-          <div class="news-head">
-            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div style="flex:1" data-i18n="insights.i1.h">
-              도시형 해체 허가·석면·교통 가이드
-            </div>
-            <span class="muted" data-i18n="insights.static">정적</span>
-          </div>
-          <div class="news-body">
-            <p data-i18n="insights.i1.p">
-              도심 현장의 인허가·석면·교통대책 흐름도를 제공합니다.
-            </p>
-          </div>
-        </div>
-
-        <div class="news-item open">
-          <div class="news-head">
-            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div style="flex:1" data-i18n="insights.i2.h">
-              아스콘 포장 품질관리 포인트
-            </div>
-            <span class="muted" data-i18n="insights.static">정적</span>
-          </div>
-
-          <div class="news-body">
-            <p data-i18n="insights.i2.p">
-              혼합물·포설·다짐·온도·시험의 핵심 체크포인트.
-            </p>
-
-            <p style="margin-top:10px;">
-              <a href="/kr/construction-safety-risk-management.html"
-                 style="color:#0F6FFF;font-weight:700;">
-                ▶ 건설·플랜트 안전 리스크 관리 자세히 보기
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LIBRARY -->
-  <section id="library" class="container" style="padding:40px 0">
-    <h2 data-i18n="library.title">자료실</h2>
-
-    <div class="grid grid-3" style="margin-bottom:16px">
-      <a class="card" href="https://drive.google.com/file/d/169ylgyIBjED1EcbcNyjzSOsAgepdTqET/view" target="_blank" rel="noopener" data-i18n="library.l1">해체·철거공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1NFT1MZXpAM6eCPgfYB9roeSwdHE2x5Ln/view" target="_blank" rel="noopener" data-i18n="library.l2">아스콘공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/16DAL4HeJ69z4HdhgTi6nJZ15xoKTLicS/view" target="_blank" rel="noopener" data-i18n="library.l3">조경공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1ljrnfHifUgbhp7idzAMuLJRwgiXskMvM/view" target="_blank" rel="noopener" data-i18n="library.l4">전기공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1qAJsLdZ-aQkkltEY3JD2uy43RcmArNP1/view" target="_blank" rel="noopener" data-i18n="library.l5">소방공사 바로가기</a>
-      <a class="card" href="https://drive.google.com/file/d/1axUhareUVrKhUqIziIxppwO9kj8cngLs/view" target="_blank" rel="noopener" data-i18n="library.l6">도장(방수)공사 바로가기</a>
-
-      <!-- ✅ IP 브로슈어 다운로드 카드 -->
-      <a class="card" id="brochureCard" href="#" target="_blank" rel="noopener" data-i18n="library.ipBrochure">
-        특허기반 Safety IP 브로슈어(PDF) 다운로드
+      <a href="/assets/pdf/coreon-safety-ip-brochure.pdf" target="_blank">
+        PDF 다운로드
       </a>
     </div>
-
-    <h3 data-i18n="library.compTitle">컴플라이언스</h3>
-    <div class="card">
-      <p data-i18n="library.compDesc">COREON은 PM/CM과 영업을 수행하며, 시공은 면허 보유사가 담당합니다. 발주처↔시공사(도급), COREON↔발주처/시공사(용역)로 역할을 명확히 합니다.</p>
-    </div>
-  </section>
-
-  <!-- SHOP -->
-  <section id="shop" style="background:#f7f9fc;padding:40px 0">
-    <div class="container">
-      <h2 data-i18n="shop.title">자재몰</h2>
-      <p class="muted" data-i18n="shop.desc">현장에서 바로 쓰는 방수·골재·안전용품 등 선정 자재를 판매합니다. 네이버 스마트스토어에서 안전하게 결제하세요.</p>
-      <div class="shop-callout">
-        <strong>COREONmall</strong>
-        <span aria-hidden>·</span>
-        <span data-i18n="shop.linked">스마트스토어 연동</span>
-        <a class="btn btn-primary" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" data-i18n="shop.go">자재몰 바로가기 ↗</a>
-      </div>
-
-      <div class="grid grid-3" style="margin-top:16px">
-        <a class="card" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">
-          <div class="imgbox"><img src="/assets/shop_waterproof.jpg" alt="방수 자재(국내제조)" loading="lazy"></div>
-          <h3 data-i18n="shop.c1.h">방수 자재</h3>
-          <p data-i18n="shop.c1.p">옥상·주차장·균열 보수. 국내제조 위주.</p>
-        </a>
-        <a class="card" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">
-          <div class="imgbox"><img src="/assets/shop_aggregate.jpg" alt="골재·모래·마사토" loading="lazy"></div>
-          <h3 data-i18n="shop.c2.h">골재 자재</h3>
-          <p data-i18n="shop.c2.p">골재/모래/마사토 등 현장 납품.</p>
-        </a>
-        <a class="card" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">
-          <div class="imgbox"><img src="/assets/shop_safety.jpg" alt="안전용품" loading="lazy"></div>
-          <h3 data-i18n="shop.c3.h">안전용품</h3>
-          <p data-i18n="shop.c3.p">안전모·보호구·표지판 등.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" style="background:#f7f9fc;padding:40px 0">
-    <div class="container" style="text-align:center">
-      <h2 data-i18n="contact.title">문의</h2>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-primary" href="tel:010-9469-8334" data-i18n="contact.call">무료견적(전화)</a>
-        <a class="btn" href="mailto:contact@coreon-global.com" data-i18n="contact.mail">상세문의(메일)</a>
-        <a class="btn btn-soft" id="brochureBtnBottom" href="#" target="_blank" rel="noopener" data-i18n="contact.brochure">IP 브로슈어(PDF)</a>
-        <a class="btn" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" data-i18n="contact.shop">자재몰</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container foot-grid">
-      <div>
-        <h3>COREON</h3>
-        <p data-i18n="footer.p1">COREON은 PM/CM을 수행하며, 시공은 면허 보유 파트너사가 담당합니다.</p>
-        <p data-i18n="footer.p2">사업자등록번호: 586-24-02279 | 대표전화: 010-9469-8334</p>
-        <p data-i18n="footer.p3">주소: 인천광역시 중구 중산동</p>
-        <p style="margin-top:8px;color:#9fb0c8">© <span id="yy"></span> COREON. All rights reserved.</p>
-      </div>
-      <div>
-        <h4 data-i18n="footer.policyTitle">정책/안내</h4>
-        <p><a href="/privacy.html" data-i18n="footer.privacy">개인정보처리방침</a></p>
-        <p><a href="/faq.html" data-i18n="footer.faq">자주 묻는 질문</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- MOBILE CTA -->
-  <div class="sticky-cta" aria-label="모바일 하단 고정 연락 버튼">
-    <a href="tel:010-9469-8334" data-i18n="mcta.call">전화</a>
-    <a href="mailto:contact@coreon-global.com" data-i18n="mcta.mail">메일</a>
-    <a href="#" id="brochureBtnMobile" target="_blank" rel="noopener" data-i18n="mcta.brochure">브로슈어</a>
   </div>
+</section>
 
-  <script>
-    // ✅ PDF 경로는 여기만 바꾸면 전체 반영됨
-    //    (서버 실제 경로에 맞춰 1곳만 수정하면 됩니다.)
-    const BROCHURE_URL = "/assets/pdf/coreon-safety-ip-brochure.pdf";
+<section id="structure" class="dark">
+  <div class="container">
+    <h2>PM/CM 운영 구조</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>역할 분리</h3>
+        <p>시공과 관리의 분리를 통해 책임과 리스크를 명확히 합니다.</p>
+      </div>
+      <div class="card">
+        <h3>증빙 중심 관리</h3>
+        <p>문서·기록·절차를 기준으로 리스크를 관리합니다.</p>
+      </div>
+      <div class="card">
+        <h3>리스크 선제 통제</h3>
+        <p>사고 이후가 아닌 사고 이전 구조에서 차단합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // ===== i18n dictionary (KR is default in HTML, EN overwrites by key) =====
-    const I18N = {
-      en: {
-        "nav.about":"About",
-        "nav.sectors":"Industries",
-        "nav.services":"Services",
-        "nav.cases":"Case Studies",
-        "nav.sqc":"Safety · Quality · Compliance",
-        "nav.insights":"Insights",
-        "nav.library":"Library",
-        "nav.shop":"Materials Store",
-        "nav.contact":"Contact",
+<section id="contact" class="light">
+  <div class="container">
+    <h2>문의</h2>
+    <p>전화: 010-9469-8334</p>
+    <p>이메일: contact@coreon-global.com</p>
+  </div>
+</section>
 
-        "hero.badge":"EPCM-based PM/CM · Demolition · Civil · Landscape · Waterproofing · Electrical · Fire",
-        "hero.l1":"From Contract to Completion",
-        "hero.l2":"COREON",
-        "hero.l3":"Manages Project & Construction",
-        "hero.desc":"One-stop control across permits, safety, quality, procurement, and change management. Licensed partners execute the construction.",
+<footer>
+  <div class="container">
+    <p>COREON (코레온)</p>
+    <p>사업자등록번호 586-24-02279</p>
+    <p>인천광역시 중구 중산동</p>
+    <p>© COREON. All rights reserved.</p>
+  </div>
+</footer>
 
-        "cta.call":"Call for a Free Quote",
-        "cta.cases":"View Case Studies",
-        "cta.library":"Library",
-        "cta.shop":"Go to Materials Store",
-        "cta.kakao":"KakaoTalk Chat",
+<script>
+const images=[
+  "/assets/hero/hero_pumptruck_01.png",
+  "/assets/hero/hero_pumptruck_02.png",
+  "/assets/hero/hero_worker_01.png"
+];
+let idx=0;
+setInterval(()=>{
+  idx=(idx+1)%images.length;
+  document.getElementById("heroBg").style.backgroundImage=`url('${images[idx]}')`;
+},7000);
+</script>
 
-        "about.title":"About COREON",
-        "about.p1":"COREON is a PM/CM specialist coordinating multiple disciplines including demolition, civil (paving/ascon), waterproofing, landscaping, electrical, and fire protection. Licensed partners execute construction while COREON integrates schedule, cost, quality, and risk control from the owner’s perspective.",
-        "about.addr":"Address: Jungsan-dong, Jung-gu, Incheon | Tel: +82-10-9469-8334",
-
-        "sectors.title":"Industries",
-        "sectors.c1.h":"Logistics Centers / Industrial Complexes",
-        "sectors.c1.p":"New build & remodeling PM/CM, integrated paving/electrical/fire coordination",
-        "sectors.c2.h":"Public / Restoration",
-        "sectors.c2.p":"Site restoration, paving, safety, quality, inspection response",
-        "sectors.c3.h":"Commercial / Urban",
-        "sectors.c3.p":"Urban demolition, asbestos, permits, waste management",
-
-        "services.title":"Services",
-        "services.desc":"One-stop management for permits, safety, quality, change control, and procurement",
-        "services.s1.h":"Demolition PM/CM",
-        "services.s1.p":"Structure demolition, reinforcement, permits, waste planning",
-        "services.s2.h":"Civil (Paving/Ascon) PM/CM",
-        "services.s2.p":"Road paving/repair, traffic & quality control",
-        "services.s3.h":"Painting · Waterproofing",
-        "services.s3.p":"Rooftop/exterior waterproofing, crack repair",
-        "services.s4.h":"Landscaping",
-        "services.s4.p":"Complex landscaping, rooftop garden, maintenance",
-        "services.s5.h":"Electrical (E&I/Renewables)",
-        "services.s5.p":"Substation, internal wiring, tests/inspections",
-        "services.s6.h":"Fire Protection",
-        "services.s6.p":"Sprinklers, pumps, detection/alarm, inspection support",
-
-        "cases.title":"Case Studies",
-        "cases.update":"Updated Sep 2025",
-        "cases.li1":"COREON IP: 1 registered + rights under registration/examination (safe disclosure)",
-        "cases.li2":"Partnership network formed with <strong>14 specialist companies</strong> across key trades",
-        "cases.c1.k":"Electrical · Proposal",
-        "cases.c1.h":"Geomdan Kendallsquare Electrical Inspection",
-        "cases.c1.p":"Submitted inspection quote for 10,000kW supply capacity",
-        "cases.c2.k":"Electrical · Inspection",
-        "cases.c2.h":"Yojin Coatech BUS-DUCT Inspection",
-        "cases.c2.p":"Received inspection request",
-        "cases.c3.k":"Electrical · Proposal",
-        "cases.c3.h":"Verthill CC Electrical Inspection",
-        "cases.c3.p":"Proposed inspection for 5,000kW supply capacity",
-        "cases.c4.k":"Public · Restoration",
-        "cases.c4.h":"Yeongjong Complex Cultural Center Restoration",
-        "cases.c4.p":"Submitted restoration official letter",
-        "cases.c5.k":"Safety · Quality",
-        "cases.c5.h":"Scaffold Close-up Work",
-        "cases.c5.p":"Safety/quality inspection & schedule coordination",
-        "cases.c6.k":"Module PM/CM",
-        "cases.c6.h":"Large Module Transport/Installation",
-        "cases.c6.p":"Lifting, SPMT, yard/transport interface control",
-
-        "sqc.title":"Safety · Quality · Compliance",
-        "sqc.c1.h":"Standard Process",
-        "sqc.c1.p":"E2E standardization across permits–safety–quality–procurement–change control",
-        "sqc.c2.h":"HSE / QA·QC",
-        "sqc.c2.p":"JSA/RA/LOTO, ITP/QCP, weekly/monthly report templates",
-        "sqc.c3.h":"Safety IP / HW Program",
-        "sqc.c3.p":"Registered / in-progress Safety IP + field-ready checklists & automation tools",
-
-        "insights.title":"Insights",
-        "insights.desc":"We regularly publish field-ready guides and checklists.",
-        "insights.i1.h":"Urban Demolition: Permits, Asbestos, Traffic Guide",
-        "insights.i1.p":"Provides a workflow map for permits, asbestos, and traffic planning in urban sites.",
-        "insights.i2.h":"Ascon Paving: Quality Control Points",
-        "insights.i2.p":"Key checkpoints for mix, paving, compaction, temperature, and testing.",
-        "insights.static":"Static",
-        "insights.notice.h":"COREON Safety IP Update · Rights Status (Safe Disclosure)",
-        "insights.notice.p":"Pump-truck Safety IP is registered. The integrated vest respirator is under registration (allowance granted). The safety cover system based on an opening-control structure is under examination.",
-
-        "library.title":"Library",
-        "library.l1":"Go to Demolition Package",
-        "library.l2":"Go to Ascon Package",
-        "library.l3":"Go to Landscaping Package",
-        "library.l4":"Go to Electrical Package",
-        "library.l5":"Go to Fire Package",
-        "library.l6":"Go to Painting/Waterproofing Package",
-        "library.ipBrochure":"Download: Patent-based Safety IP Brochure (PDF)",
-        "library.compTitle":"Compliance",
-        "library.compDesc":"COREON provides PM/CM and business development. Construction is executed by licensed partners. Roles are clearly separated: Owner↔Contractor (construction contract), COREON↔Owner/Contractor (service contract).",
-
-        "shop.title":"Materials Store",
-        "shop.desc":"We sell selected on-site materials such as waterproofing, aggregates, and safety items. Pay securely via Naver SmartStore.",
-        "shop.linked":"SmartStore Linked",
-        "shop.go":"Go to Store ↗",
-        "shop.c1.h":"Waterproofing",
-        "shop.c1.p":"Rooftops, parking decks, crack repair. Korea-made focused.",
-        "shop.c2.h":"Aggregates",
-        "shop.c2.p":"Aggregates/sand/decomposed granite delivered to site.",
-        "shop.c3.h":"Safety Items",
-        "shop.c3.p":"Helmets, PPE, signs, etc.",
-
-        "contact.title":"Contact",
-        "contact.call":"Call (Free Quote)",
-        "contact.mail":"Email Inquiry",
-        "contact.shop":"Store",
-        "contact.brochure":"IP Brochure (PDF)",
-
-        "footer.p1":"COREON provides PM/CM while licensed partners execute construction.",
-        "footer.p2":"Business Reg No: 586-24-02279 | Tel: +82-10-9469-8334",
-        "footer.p3":"Address: Jungsan-dong, Jung-gu, Incheon",
-        "footer.policyTitle":"Policy / Help",
-        "footer.privacy":"Privacy Policy",
-        "footer.faq":"FAQ",
-
-        "mcta.call":"Call",
-        "mcta.mail":"Email",
-        "mcta.shop":"Store",
-        "mcta.brochure":"Brochure",
-
-        /* ===== IP / PATENT PRE-SALES ===== */
-        "ip.title":"Patent-based Safety IP · Rights Status",
-        "ip.desc":"COREON goes beyond simple construction execution and structures a PM/CM-driven framework to reduce on-site safety and operational risks. This page provides a safe-disclosure summary only.",
-
-        "ip.dl.title":"COREON Safety IP Overview (PDF)",
-        "ip.dl.desc":"Download the 1-page brochure for manufacturer/insurer/investor review.",
-        "ip.dl.btn":"Download Brochure (PDF)",
-
-        "ip.legal.h":"Disclosure Scope & Disclaimer",
-        "ip.legal.p1":"This page is a high-level overview for review purposes. Detailed structures, methods, drawings, and operational principles of filed/examined technologies are not disclosed prior to registration. This material does not guarantee outcomes or provide any legal exemption of responsibility.",
-        "ip.legal.p2":"Status and wording may be updated as procedures progress (registration/gazette, etc.).",
-
-        "ip.c1.h":"Rights Snapshot",
-        "ip.c1.p1":"COREON holds/advances a set of safety & operational management IP: 1 registered right, rights under registration (including allowance granted), and rights under examination.",
-        "ip.c1.li1":"Pump-truck Safety Assist System: Registered",
-        "ip.c1.li2":"Integrated Vest Respirator: Under registration (Allowance granted)",
-        "ip.c1.li3":"Safety Cover System based on Opening-Control Structure: Under examination",
-        "ip.c1.p2":"These rights are not for direct manufacturing sales; they protect a PM/CM risk-management framework (prevention, accountability separation, operational control).",
-
-        "ip.c2.h":"Disclosure Policy",
-        "ip.c2.p1":"Specific structures, mechanisms, and application methods are disclosed only within a limited scope until registration is completed.",
-        "ip.c2.p2":"This is a fundamental operational principle for technology protection and partner collaboration.",
-        "ip.c2.p3":"Collaboration review (manufacturing/insurance/construction/investment) proceeds under NDA and need-to-know disclosure.",
-
-        "ip.c3.h":"Application Strategy",
-        "ip.c3.li1":"Not intended for direct manufacturing or retail sales",
-        "ip.c3.li2":"Focused on advancing site management processes (safety/quality/change control)",
-        "ip.c3.li3":"Licensing/JV/collaboration reviewed step-by-step after registration",
-        "ip.c3.p1":"COREON focuses not on the technology itself, but on how it is applied, governed, and managed in real projects."
-      }
-    };
-
-    // =========================================================
-    // ✅ KR 원문 백업(원본 유지)
-    // =========================================================
-    const ORIG = new WeakMap();
-    function backupOriginalKR(){
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        if (!ORIG.has(el)) {
-          const html = el.innerHTML;
-          ORIG.set(el, html);
-          el.setAttribute("data-i18n-orig", html);
-        }
-      });
-    }
-
-    function applyLang(lang){
-      const dict = (I18N[lang] || {});
-      document.documentElement.lang = (lang === "en" ? "en" : "ko");
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (lang === "en") {
-          if (dict[key]) el.innerHTML = dict[key];
-        } else {
-          const orig = ORIG.get(el);
-          if (typeof orig === "string") el.innerHTML = orig;
-        }
-      });
-
-      const btnKo = document.getElementById("btn-ko");
-      const btnEn = document.getElementById("btn-en");
-      if (btnKo && btnEn){
-        btnKo.classList.toggle("active", lang !== "en");
-        btnEn.classList.toggle("active", lang === "en");
-      }
-
-      localStorage.setItem("coreon_lang", lang);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // 연도 표시
-      const yy = document.getElementById('yy');
-      if (yy) yy.textContent = new Date().getFullYear();
-
-      // ✅ 반드시 "언어 적용 전에" KR 원문 백업
-      backupOriginalKR();
-
-      // ✅ 브로슈어 링크를 한 번에 통일 적용
-      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile","brochureCard"];
-      brochureIds
-        .map(id => document.getElementById(id))
-        .filter(Boolean)
-        .forEach(a => a.setAttribute("href", BROCHURE_URL));
-
-      // language init
-      const saved = localStorage.getItem("coreon_lang") || "ko";
-      applyLang(saved);
-
-      // bind buttons
-      const btnKo = document.getElementById("btn-ko");
-      const btnEn = document.getElementById("btn-en");
-      if (btnKo) btnKo.addEventListener("click", () => applyLang("ko"));
-      if (btnEn) btnEn.addEventListener("click", () => applyLang("en"));
-
-      /* 활성 메뉴 하이라이트 */
-      const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
-      const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-      function setActiveLink(){
-        const y = window.scrollY + 120;
-        let currentId = 'top';
-        for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
-        navLinks.forEach(a=>{
-          const href = a.getAttribute('href') || "";
-          if (!href.startsWith("#")) return;
-          const id = href.slice(1);
-          a.classList.toggle('active', id === currentId);
-        });
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', e=>{
-          const id = a.getAttribute('href').slice(1);
-          const el = document.getElementById(id);
-          if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
-        });
-      });
-      window.addEventListener('scroll', setActiveLink);
-      window.addEventListener('load', setActiveLink);
-      setActiveLink();
-
-      /* 히어로 배경 슬라이드 */
-      const heroImages = [
-        '/assets/hero_scaffold_sky.jpg?v=3',
-        '/assets/hero_multi_modules.jpg?v=3',
-        '/assets/hero_module_transport.jpg?v=3'
-      ];
-      heroImages.slice(1).forEach(src=>{const i=new Image(); i.src=src;});
-      let idx = 0;
-      let bgEl = document.getElementById('heroBg');
-
-      const rotateHero = () => {
-        if (!bgEl) return;
-        idx = (idx + 1) % heroImages.length;
-        const nextEl = bgEl.cloneNode();
-        nextEl.classList.add('next');
-        nextEl.style.backgroundImage = `url('${heroImages[idx]}')`;
-        bgEl.parentNode.insertBefore(nextEl, bgEl);
-        requestAnimationFrame(()=>{ bgEl.classList.add('next'); nextEl.classList.remove('next'); });
-        setTimeout(()=>{ bgEl.remove(); nextEl.id='heroBg'; bgEl = nextEl; }, 1100);
-      };
-
-      let slideTimer = setInterval(rotateHero, 6000);
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) { clearInterval(slideTimer); }
-        else { slideTimer = setInterval(rotateHero, 6000); }
-      });
-
-      /* Insights accordion toggle */
-      document.querySelectorAll(".news-item .news-head").forEach(head=>{
-        head.addEventListener("click", ()=>{
-          const item = head.closest(".news-item");
-          if (!item) return;
-          item.classList.toggle("open");
-        });
-      });
-    });
-  </script>
-
-  <!-- JSON-LD: WebSite -->
-  <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"WebSite","name":"COREON","url":"https://www.coreon-global.com/",
-    "potentialAction":{"@type":"SearchAction","target":"https://www.google.com/search?q=site:coreon-global.com+{search_term_string}","query-input":"required name=search_term_string"}
-  }</script>
-
-  <!-- JSON-LD: Breadcrumb -->
-  <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.coreon-global.com/"},
-      {"@type":"ListItem","position":2,"name":"Services","item":"https://www.coreon-global.com/#services"},
-      {"@type":"ListItem","position":3,"name":"Projects","item":"https://www.coreon-global.com/#case-studies"},
-      {"@type":"ListItem","position":4,"name":"Shop","item":"https://www.coreon-global.com/#shop"}
-    ]
-  }</script>
-
-  <!-- JSON-LD: Services -->
-  <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"ItemList","name":"COREON Services",
-    "itemListElement":[
-      {"@type":"Service","name":"해체(철거) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"허가·석면·안전·폐기물 계획까지 일괄 관리"},
-      {"@type":"Service","name":"전기(E&I) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"수·변전, 내선, 시험/검사 대응 및 일정/리스크 통합 관리"},
-      {"@type":"Service","name":"토목(포장/아스콘) PM/CM","areaServed":"KR","provider":{"@type":"Organization","name":"COREON"},"url":"https://www.coreon-global.com/#services","description":"도로 포장·보수 공정, 교통/품질 관리 표준화"}
-    ]
-  }</script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"COREON",
-    "alternateName":["코레온","Coreon","coreon","COREON(코레온)"],
-    "url":"https://www.coreon-global.com/",
-    "logo":"https://www.coreon-global.com/logo.png",
-    "telephone":"+82-10-9469-8334",
-    "address":{
-      "@type":"PostalAddress",
-      "addressCountry":"KR",
-      "addressLocality":"인천광역시 중구",
-      "streetAddress":"중산동"
-    },
-    "contactPoint":[{
-      "@type":"ContactPoint",
-      "telephone":"+82-10-9469-8334",
-      "contactType":"customer service",
-      "areaServed":"KR",
-      "availableLanguage":["ko","en"]
-    }],
-    "sameAs":["https://smartstore.naver.com/coreonmall"]
-  }
-  </script>
 </body>
 </html>
