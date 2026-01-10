@@ -34,8 +34,8 @@
     </p>
 
     <div class="cta">
-      <a href="#contact?target=partner">Get the Global Partner Deck</a> |
-      <a href="#contact?target=spec">Request Technical Specification</a>
+      <a href="?target=partner#contact">Get the Global Partner Deck</a> |
+      <a href="?target=spec#contact">Request Technical Specification</a>
     </div>
   </section>
 
@@ -61,28 +61,28 @@
       <h3>For Manufacturers (OEM)</h3>
       <p><strong>Upgrade Your Equipment’s Safety Grade.</strong></p>
       <p>Seamless interlock module integration. Position your equipment as a Safety-First standard.</p>
-      <a href="#contact?target=oem">Request OEM Integration Guide</a>
+      <a href="?target=oem#contact">Request OEM Integration Guide</a>
     </div>
 
     <div id="persona-rental">
       <h3>For Rental Companies</h3>
       <p><strong>Minimize Downtime. Maximize Asset Value.</strong></p>
       <p>Reduce accident-driven idle time and extend equipment lifecycle with real-time monitoring.</p>
-      <a href="#contact?target=rental">Apply for a 3-Site Pilot Program</a>
+      <a href="?target=rental#contact">Apply for a 3-Site Pilot Program</a>
     </div>
 
     <div id="persona-insurer">
       <h3>For Insurers</h3>
       <p><strong>Standardize Your Risk Data.</strong></p>
       <p>Objectively verify safety compliance and improve loss ratios with patented incident-prevention logs.</p>
-      <a href="#contact?target=insurer">Download Risk Data Specification</a>
+      <a href="?target=insurer#contact">Download Risk Data Specification</a>
     </div>
 
     <div id="persona-contractor">
       <h3>For Contractors</h3>
       <p><strong>Clear Legal Defense & Site Control.</strong></p>
       <p>Demonstrable compliance with serious accident regulations and automated inspection documentation.</p>
-      <a href="#contact?target=contractor">Request a Site Risk Assessment</a>
+      <a href="?target=contractor#contact">Request a Site Risk Assessment</a>
     </div>
   </section>
 
@@ -95,14 +95,14 @@
     </p>
 
     <div class="cta">
-      <a href="#contact?target=briefing">Schedule a Briefing with Our IP Expert</a>
+      <a href="?target=briefing#contact">Schedule a Briefing with Our IP Expert</a>
     </div>
   </section>
 
   <!-- CONTACT / NDA -->
   <section id="contact">
 
-    <!-- ✅ STEP 2-1: CTA 타겟 표시용 (다음 단계에서 자동 채워짐) -->
+    <!-- ✅ STEP 2-1: CTA 타겟 표시용 -->
     <p id="contact-target" style="font-weight:600; color:#0056b3;"></p>
 
     <h2>Contact & NDA Notice</h2>
@@ -116,6 +116,15 @@
       and country so we can respond appropriately.
     </p>
   </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get("target");
+    if (target) {
+      document.getElementById("contact-target").textContent =
+        "Inquiry Type: " + target.toUpperCase();
+    }
+  </script>
 
 </body>
 </html>
