@@ -332,7 +332,11 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
     <!-- CTA 버튼 -->
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:010-9469-8334">전화 문의</a>
-      <a class="btn btn-outline" href="#library">자료실</a>
+      <a class="btn btn-outline" id="brochureBtnHero"
+   href="#" target="_blank" rel="noopener">
+  IP 브로슈어(PDF)
+</a>
+
       <a class="btn btn-kakao" href="https://pf.kakao.com/_xefhLn/chat" target="_blank" rel="noopener">
         카카오톡 문의
       </a>
@@ -348,7 +352,7 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
     <div class="why-head">
       <div>
         <div class="kicker" data-i18n="why.kicker">WHY COREON</div>
-        <h2 class="why-title" data-i18n="why.title">왜 COREON인가?</h2>
+        <h2 class="why-title">왜 ‘특허 기반 Safety IP’ 인가?</h2>
         <p class="why-sub" data-i18n="why.sub">
           COREON은 ‘사고 이후 대응’이 아니라, 사고가 발생하지 않도록 만드는 구조를 설계합니다.
         </p>
@@ -501,8 +505,9 @@ PATENT PRE-SALES (SAFE VERSION)
 
 
 <p class="ip-note">
-  ※ 본 PDF는 특허청 공개 공보 기준 자료이며,
-  기술의 상업적 실시 범위·적용 결과를 보장하지 않습니다.
+  ※ 본 자료는 기술 소개 목적이며,
+COREON은 시공·제조 결과가 아닌
+관리 구조 설계 및 적용에 대한 용역 책임만을 부담합니다.
 </p>
 
 
@@ -1024,7 +1029,7 @@ END PATENT PRE-SALES
       backupOriginalKR();
 
       // ✅ 브로슈어 링크를 한 번에 통일 적용
-      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile"];
+      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile","brochureBtnHero"];
       brochureIds
         .map(id => document.getElementById(id))
         .filter(Boolean)
