@@ -582,15 +582,7 @@ END PATENT PRE-SALES
     <div class="grid grid-3" style="margin-bottom:16px">
       </div>
 
-    <div class="grid grid-3" style="margin-bottom:16px">
-  <a class="card">해체·철거공사 바로가기</a>
-  <a class="card">아스콘공사 바로가기</a>
-  <a class="card">조경공사 바로가기</a>
-  <a class="card">전기공사 바로가기</a>
-  <a class="card">소방공사 바로가기</a>
-  <a class="card">도장(방수)공사 바로가기</a>
-  <a class="card" id="brochureCard">특허 공보(PDF)…</a>
-</div><div class="grid grid-3" style="margin-bottom:16px">
+    </div><div class="grid grid-3" style="margin-bottom:16px">
   <a class="card">해체·철거공사 바로가기</a>
   <a class="card">아스콘공사 바로가기</a>
   <a class="card">조경공사 바로가기</a>
@@ -600,16 +592,7 @@ END PATENT PRE-SALES
   <a class="card" id="brochureCard">특허 공보(PDF)…</a>
 </div>
 
-      <!-- IP 브로슈어 카드 -->
-    <a class="card"
-       id="brochureCard"
-       href="#"
-       target="_blank"
-       rel="noopener"
-       data-i18n="library.ipBrochure">
-      특허 공보(PDF) · 콘크리트 펌프카 안전보조 시스템
-    </a>
-
+      
     <h3 data-i18n="library.compTitle" style="margin-top:24px">
       컴플라이언스
     </h3>
@@ -830,7 +813,7 @@ END PATENT PRE-SALES
       backupOriginalKR();
 
       // ✅ 브로슈어 링크를 한 번에 통일 적용
-      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile","brochureCard"];
+      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile"];
       brochureIds
         .map(id => document.getElementById(id))
         .filter(Boolean)
