@@ -19,6 +19,7 @@
     h1, h2, h3 { margin-bottom:16px; }
     p { max-width:720px; line-height:1.6; }
     .cta { margin-top:24px; }
+    .cta a { margin-right:12px; }
   </style>
 </head>
 
@@ -34,7 +35,7 @@
     </p>
 
     <div class="cta">
-      <a href="?target=partner#contact">Get the Global Partner Deck</a> |
+      <a href="?target=partner#contact">Get the Global Partner Deck</a>
       <a href="?target=spec#contact">Request Technical Specification</a>
     </div>
   </section>
@@ -102,7 +103,7 @@
   <!-- CONTACT / NDA -->
   <section id="contact">
 
-    <!-- ✅ STEP 2-1: CTA 타겟 표시용 -->
+    <!-- STEP 2-1 + 2-3 : Inquiry Type 표시 -->
     <p id="contact-target" style="font-weight:600; color:#0056b3;"></p>
 
     <h2>Contact & NDA Notice</h2>
@@ -115,14 +116,36 @@
       Please include your company type (OEM, Rental, Insurance, or Contractor)
       and country so we can respond appropriately.
     </p>
+
+    <!-- STEP 2-3 : 자동 메일 버튼 -->
+    <div class="cta">
+      <a id="contact-mail" href="mailto:contact@coreon-global.com">
+        Send Inquiry Email
+      </a>
+    </div>
+
   </section>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const target = params.get("target");
+
     if (target) {
+      const upperTarget = target.toUpperCase();
+
       document.getElementById("contact-target").textContent =
-        "Inquiry Type: " + target.toUpperCase();
+        "Inquiry Type: " + upperTarget;
+
+      const subject =
+        "[COREON] " + upperTarget + " Inquiry – Concrete Pump Safety";
+
+      const mailLink =
+        "mailto:contact@coreon-global.com?subject=" +
+        encodeURIComponent(subject);
+
+      document
+        .getElementById("contact-mail")
+        .setAttribute("href", mailLink);
     }
   </script>
 
