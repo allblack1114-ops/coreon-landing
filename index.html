@@ -1,3 +1,15 @@
+<!-- =========================
+COREON index.html (FULL) — MASTER 유지 + IP 브로슈어(PDF) 덧붙임
+- 원본 구조/스타일/스크립트 유지
+- ✅ 반영 완료:
+  1) ‘특허 기반 Safety IP’ 섹션을 홈페이지 중심축으로 고정 (히어로 직후)
+  2) 특허 상태 문구 보수적 공개:
+     - 펌프카: 등록 완료
+     - 조끼일체형: 등록 진행 중(등록결정 완료)  ※ 등록 전
+     - 해제홈: 심사 진행 중 + 명칭 보수화
+  3) 변리사/테헤란 톤: 법적 안전문구(디스클레이머) / 공시범위 안내 강화
+  4) PDF 링크 일원화: BROCHURE_URL 한 곳만 변경하면 전부 반영
+========================= -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -318,28 +330,18 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
   단순한 안전 장비를 넘어, 기계적 제어(Interlock)와 신속 대응(Wearable) 기술을 결합하여 중대재해처벌법 하의 기업 리스크를 실질적으로 해소합니다.
 </p>
 
+    <!-- CTA 버튼 -->
     <div class="hero-cta">
+  <a class="btn btn-primary" href="tel:010-9469-8334" data-i18n="cta.call2">전화 문의</a>
 
-  <!-- Pumpcar IP -->
-  <a class="btn btn-outline"
-     id="brochurePumpBtn"
-     target="_blank"
-     rel="noopener">
-    <span data-lang="ko">IP 브로슈어 · 펌프카</span>
-    <span data-lang="en">IP Brochure · Pump Safety</span>
-  </a>
+<a class="btn btn-outline" id="brochureBtnHero" href="#" target="_blank" rel="noopener" data-i18n="cta.brochure2">
+  IP 브로슈어(PDF)
+</a>
 
-  <!-- Respirator IP -->
-  <a class="btn btn-outline"
-     id="brochureRespBtn"
-     target="_blank"
-     rel="noopener">
-    <span data-lang="ko">IP 브로슈어 · 호흡보호</span>
-    <span data-lang="en">IP Brochure · Respirator</span>
-  </a>
-
+<a class="btn btn-soft" href="/lp/pump-safety.html" data-i18n="cta.partnerDeck">
+  Request Global Partner Deck
+</a>
 </div>
-
 
 </header>
 <!-- =========================
@@ -1012,8 +1014,9 @@ END PATENT PRE-SALES
   <script>
     // ✅ PDF 경로는 여기만 바꾸면 전체 반영됨
     //    (서버 실제 경로에 맞춰 1곳만 수정하면 됩니다.)
-    const BROCHURE_PUMP_URL = "/assets/coreon-patent-pumpcar-safety-system.pdf";
-    const BROCHURE_RESP_URL = "/assets/coreon-patent-vest-integrated-respirator-10-2912421.pdf";
+    const BROCHURE_URL = "/assets/coreon-patent-pumpcar-safety-system.pdf";
+
+    // ===== i18n dictionary (KR is default in HTML, EN overwrites by key) =====
     const I18N = {
       en: {
         "nav.about":"About",
@@ -1194,13 +1197,11 @@ END PATENT PRE-SALES
       backupOriginalKR();
 
       // ✅ 브로슈어 링크를 한 번에 통일 적용
-      const brochureRespIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile"];
-
-brochureRespIds
-  .map(id => document.getElementById(id))
-  .filter(Boolean)
-  .forEach(a => a.setAttribute("href", BROCHURE_RESP_URL));
-
+      const brochureIds = ["brochureBtnTop","brochureBtnBottom","brochureBtnMobile","brochureBtnHero"];
+      brochureIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean)
+        .forEach(a => a.setAttribute("href", BROCHURE_URL));
 
       // language init
       const saved = localStorage.getItem("coreon_lang") || "ko";
@@ -1275,25 +1276,6 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-// === Safety IP brochure binding (Hero) ===
-
-// Pumpcar IP
-const brochurePumpBtn = document.getElementById("brochurePumpBtn");
-if (brochurePumpBtn) {
-  brochurePumpBtn.setAttribute(
-    "href",
-    "/assets/coreon-patent-pumpcar-safety-system.pdf"
-  );
-}
-
-// Respirator IP
-const brochureRespBtn = document.getElementById("brochureRespBtn");
-if (brochureRespBtn) {
-  brochureRespBtn.setAttribute(
-    "href",
-    "/assets/coreon-patent-vest-integrated-respirator-10-2912421.pdf"
-  );
-}
 
       /* Insights accordion toggle */
       document.querySelectorAll(".news-item .news-head").forEach(head=>{
