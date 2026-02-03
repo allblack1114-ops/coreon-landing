@@ -41,4 +41,68 @@
       border-radius:14px;padding:12px 14px;color:#334155;font-size:13.5px;line-height:1.7
     }
     .note strong{font-weight:900}
-    .videoWrap{margin-top:14px;border-radius:16px;overflow:hidden;bord
+    .videoWrap{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid #e7eef7;background:#000}
+    video{width:100%;height:auto;display:block}
+    .foot{margin-top:14px;color:var(--muted);font-size:13px}
+    @media(max-width:720px){h1{font-size:26px}}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/" aria-label="COREON 홈">
+        <img src="/logo.png" alt="COREON 로고" />
+        <span>COREON</span>
+      </a>
+      <a class="btn" href="/notices/index.html">공지 목록</a>
+      <a class="btn btn-primary" href="tel:010-9469-8334">문의: 010-9469-8334</a>
+    </div>
+
+    <article class="card">
+      <div class="hero">
+        <div class="kicker">NOTICE · PATENT DEMO</div>
+        <h1>[공지] 등록특허 제10-2912421호<br>특허공보 데모 영상 게시</h1>
+        <div class="meta">
+          대상 특허: 조끼일체형 호흡보호장비 (Patent No. 10-2912421)<br>
+          게시일: 2026-02-03 · 게시: COREON
+        </div>
+      </div>
+
+      <div class="section">
+        <p style="margin:0;color:#334155">
+          본 페이지는 COREON이 보유한 등록특허 중
+          <strong>조끼일체형 호흡보호장비(등록특허 제10-2912421호)</strong>에 대하여,
+          특허공보 내용을 기준으로 구조적 작동 원리와 단계적 호흡 보호 개념을
+          시각적으로 구현한 <strong>Concept Demonstration</strong> 영상을 공식 게시합니다.
+        </p>
+
+        <ul class="bullet">
+          <li>내부 치수·제조 상세 정보 비공개 (Safe Disclosure)</li>
+          <li>산소 공급 → 필터링 전환 등 ‘구조적 보호 흐름’ 중심 설명</li>
+          <li>행정·산업·법무 검토용 참고 자료</li>
+        </ul>
+
+        <div class="videoWrap" aria-label="특허공보 데모 영상">
+          <video controls playsinline preload="metadata"
+                 poster="/assets/patent-demo-vest-2912421-thumb-v1.png">
+            <source src="/assets/patent-demo-vest-2912421-v1.mp4" type="video/mp4" />
+            브라우저가 video 태그를 지원하지 않습니다.
+          </video>
+        </div>
+
+        <div class="note" role="note" aria-label="디스클레이머">
+          <strong>공시 범위 안내</strong><br>
+          본 영상은 제품 시연 또는 성능 보장을 위한 자료가 아니며,
+          등록특허 공보의 이해를 돕기 위한 설명용 증거 자료입니다.
+          협업 검토(제조/보험/공공/투자)는 NDA 및 필요 범위 한정 제공 원칙으로 진행합니다.
+        </div>
+
+        <div class="foot">
+          ※ 페이지/파일명은 버전 관리(v1→v2) 기준으로 운영됩니다.
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
