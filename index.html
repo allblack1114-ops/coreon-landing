@@ -1173,7 +1173,7 @@ END PATENT PRE-SALES
     <div class="news-list">
 
       <!-- [NOTICE] Safety IP Relations -->
-      <div class="news-item open">
+      <div class="news-item">
         <div class="news-head">
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M8 10l4 4 4-4"
@@ -1198,7 +1198,7 @@ END PATENT PRE-SALES
       </div>
 
       <!-- [NOTICE] MOD Security Review -->
-      <div class="news-item open">
+      <div class="news-item">
         <div class="news-head">
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M8 10l4 4 4-4"
@@ -1222,7 +1222,7 @@ END PATENT PRE-SALES
       </div>
 
       <!-- [NOTICE] MOLIT Submission -->
-      <div class="news-item open">
+      <div class="news-item">
         <div class="news-head">
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M8 10l4 4 4-4"
@@ -1247,7 +1247,7 @@ END PATENT PRE-SALES
       </div>
 
       <!-- [NOTICE] Safety IP Registration -->
-<div class="news-item open">
+<div class="news-item">
   <div class="news-head">
     <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none">
       <path d="M8 10l4 4 4-4"
@@ -1612,6 +1612,12 @@ END PATENT PRE-SALES
           a.classList.toggle('active', id === currentId);
         });
       }
+/* 🔧 INSIGHTS 초기 줄맞춤 보정 */
+requestAnimationFrame(() => {
+  document.querySelectorAll(".news-item").forEach(item => {
+    item.classList.add("open");
+  });
+});
 
       document.querySelectorAll('a[href^="#"]').forEach(a=>{
         a.addEventListener('click', e=>{
