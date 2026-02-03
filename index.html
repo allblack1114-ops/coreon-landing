@@ -165,18 +165,7 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
       .lang-toggle{margin-left:auto}
     }
 
-    /* INSIGHTS - accordion */
-    .news-list{display:grid;gap:10px}
-    .news-item{background:#fff;border:1px solid #e5ebf2;border-radius:14px}
-    .news-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
-    .news-head .chev{transition:.2s;transform:rotate(-90deg)}
-    .news-item.open .chev{transform:rotate(0)}
-    .news-body{display:none;padding:0 14px 14px}
-    .news-item.open .news-body{display:block}
-    .muted{color:#6c7a89;font-size:13px}
-    .subtle{color:#3e5166}
-    .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
-
+    
     /* ✅ IP 다운로드 콜아웃 */
     .ip-download{
       display:flex;gap:12px;align-items:center;flex-wrap:wrap;
@@ -304,6 +293,65 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
       font-weight:700;
       color:#0F6FFF;
     }
+/* INSIGHTS - accordion (ALIGN PATCH) */
+.news-list{display:grid;gap:10px}
+
+.news-item{
+  background:#fff;
+  border:1px solid #e5ebf2;
+  border-radius:14px;
+  overflow:hidden; /* 라운드 유지 */
+}
+
+/* ✅ 헤더 한 줄 정렬 */
+.news-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  cursor:pointer;
+}
+
+/* ✅ 화살표(chev) 높이/기준선 고정 */
+.news-head .chev{
+  flex:0 0 16px;
+  transition:.2s;
+  transform:rotate(-90deg);
+}
+
+/* ✅ 제목 영역: 줄바꿈돼도 'NOTICE'는 우측 끝 고정 */
+.news-head > div{
+  flex:1;
+  min-width:0; /* 긴 제목이 있어도 레이아웃 안깨짐 */
+}
+
+/* ✅ NOTICE 배지: 항상 우측 끝 + 세로 정렬 */
+.news-head .muted{
+  margin-left:auto;
+  flex:0 0 auto;
+  font-size:12px;
+  color:#6c7a89;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-weight:800;
+}
+
+/* ✅ 제목 링크가 너무 길면 2줄까지만(선택) */
+.news-head a{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* 오픈/클로즈 */
+.news-item.open .chev{transform:rotate(0)}
+.news-body{display:none;padding:0 14px 14px}
+.news-item.open .news-body{display:block}
+
+.subtle{color:#3e5166}
+.kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
+
   </style>
 </head>
 <body>
