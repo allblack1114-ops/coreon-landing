@@ -1,129 +1,356 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-<title>COREON 물리적 접근통제 커버 | 무단 개방 차단 구조</title>
-<meta name="description" content="자물쇠 없이 임의 개방을 차단하는 구조적 접근통제 커버. 밸브·배관·패널·점검구 적용 가능">
+  <title>COREON 물리적 접근통제 커버 | 비인가 조작을 구조로 차단</title>
+  <meta name="description" content="자물쇠·봉인 관리가 아니라, 구조 자체로 임의 개방/비인가 조작을 차단하는 접근통제 커버. 밸브·배관·패널·점검구 적용 검토." />
+  <meta name="theme-color" content="#0A1B2B" />
+  <link rel="canonical" href="https://www.coreon-global.com/physical-access-control.html" />
 
-<style>
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans KR;background:#0f1720;color:#fff}
-section{padding:90px 20px}
-.container{max-width:1100px;margin:auto}
-h1{font-size:48px;line-height:1.25;margin:0 0 20px;font-weight:800}
-h2{font-size:32px;margin-bottom:20px}
-p{color:#c9d4df;line-height:1.8;font-size:17px}
-.dark{background:#0f1720}
-.light{background:#f3f6f9;color:#111}
-.light p{color:#333}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-.card{background:#fff;color:#111;padding:24px;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.08)}
-.btn{
-display:inline-block;
-margin-top:30px;
-background:#1b66ff;
-color:white;
-padding:16px 28px;
-border-radius:12px;
-font-weight:700;
-text-decoration:none
-}
-.hero{padding-top:120px;padding-bottom:120px}
-.center{text-align:center}
-.note{margin-top:18px;color:#8ea3b7;font-size:15px}
-.small{font-size:14px;color:#9fb0c0;margin-top:12px}
-</style>
+  <!-- Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="COREON 물리적 접근통제 커버 | 비인가 조작을 구조로 차단" />
+  <meta property="og:description" content="외부 자물쇠 없이 접근을 물리적으로 제한합니다. 설비 종류만으로 1차 적용 가능 여부를 회신합니다." />
+  <meta property="og:url" content="https://www.coreon-global.com/physical-access-control.html" />
+  <!-- 이미지가 있으면 교체 -->
+  <meta property="og:image" content="https://www.coreon-global.com/assets/hero_scaffold_sky.jpg?v=3" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --navy:#0A1B2B;--blue:#0F6FFF;--bg:#0b1220;
+      --card:#0f2744;--card2:#ffffff;
+      --muted:#9fb0c8;--muted2:#475569;
+      --line:rgba(255,255,255,.10);
+      --line2:#e5ebf2;
+      --radius:16px;
+      --shadow:0 14px 34px rgba(0,0,0,.28);
+      --container:1120px;--gutter:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+      background:var(--bg);color:#fff;line-height:1.6
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(10,27,43,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+    .brand img{height:28px;width:auto}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:.52rem .8rem;border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      color:#e7f0ff;font-weight:800;font-size:13px;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:.78rem 1.02rem;border-radius:12px;
+      font-weight:900;border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);color:#fff;
+      white-space:nowrap
+    }
+    .btn-primary{background:var(--blue);border-color:var(--blue)}
+    .btn-outline{background:rgba(255,255,255,.06)}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    .hero{
+      padding:78px 0 66px;border-top:none;
+      background:
+        radial-gradient(900px 500px at 35% 20%, rgba(15,111,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.55));
+    }
+    .kicker{letter-spacing:.08em;font-weight:900;font-size:12px;text-transform:uppercase;color:#9fb9ff}
+    h1{margin:12px 0 14px;font-size:52px;line-height:1.06;font-weight:1000;letter-spacing:-.8px}
+    .sub{max-width:860px;color:#d6e2f2;font-size:17px;line-height:1.9;margin:0}
+    .note{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.7}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(max-width:980px){
+      h1{font-size:clamp(28px,7vw,40px)}
+      section{padding:46px 0}
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .nav-inner{height:auto;padding:12px 0;align-items:flex-start;flex-direction:column}
+      .nav-links{width:100%;justify-content:flex-start}
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:18px 18px;
+      box-shadow:var(--shadow);
+    }
+    .card.light{
+      background:#fff;color:#0f172a;
+      border:1px solid var(--line2);
+      box-shadow:0 12px 28px rgba(10,27,43,.10);
+    }
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:#cfe0ff}
+    .card.light p{color:var(--muted2)}
+    .bullets{margin:10px 0 0;padding-left:18px;line-height:1.85;color:#d9e6ff}
+    .bullets li{margin:4px 0}
+    .bullets.light{color:#334155}
+    .legal{
+      margin-top:16px;
+      background:#fbfcfe;color:#334155;
+      border:1px solid #e7eef7;border-left:4px solid var(--blue);
+      border-radius:14px;padding:14px 14px;
+      line-height:1.75;font-size:13.5px
+    }
+    .faq details{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      border-radius:14px;padding:12px 14px
+    }
+    .faq summary{cursor:pointer;font-weight:900}
+    .faq p{margin:10px 0 0;color:#d6e2f2}
+    .sticky{
+      display:none
+    }
+    @media(max-width:980px){
+      .sticky{
+        display:flex;position:fixed;left:0;right:0;bottom:0;z-index:99;
+        background:rgba(10,27,43,.92);border-top:1px solid var(--line)
+      }
+      .sticky a{flex:1;text-align:center;padding:14px 10px;font-weight:1000}
+      body{padding-bottom:56px}
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO (관심 유도) -->
-<section class="dark hero">
-<div class="container">
-<h1>
-자물쇠 없이<br>
-임의 개방을 차단합니다
-</h1>
-<p>
-케이블타이, 패드락, 봉인스티커는 관리 방식입니다.<br>
-COREON 커버는 구조 자체로 접근을 제한합니다.
-</p>
+  <!-- NAV -->
+  <nav class="nav" aria-label="상단 메뉴">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="COREON 로고" />
+        <span>COREON</span>
+      </a>
+      <div class="nav-links">
+        <a class="pill" href="/#ip-status">특허/권리 현황</a>
+        <a class="pill" href="/notices/index.html">공지/행정 기록</a>
+        <a class="pill" href="/patents.html">자료실</a>
+        <a class="btn btn-primary" href="/contact/sales.html?type=accesscontrol">적용 가능 여부 문의</a>
+      </div>
+    </div>
+  </nav>
 
-<p class="note">
-다음과 같은 경우 검토 대상입니다:<br>
-· 자물쇠/봉인으로 관리 중인 설비<br>
-· 작업자 접근 통제가 필요한 설비<br>
-· 점검 후 복구 누락 이력이 있는 설비
-</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">PHYSICAL ACCESS CONTROL</div>
+      <h1>
+        자물쇠 없이<br/>
+        비인가 조작을 “구조”로 차단합니다
+      </h1>
+      <p class="sub">
+        케이블타이·패드락·봉인스티커는 <strong>관리 방식</strong>입니다.<br/>
+        COREON 커버는 외부 잠금장치 없이 <strong>접근 자체를 물리적으로 제한</strong>하도록 설계된 구조형 커버입니다.
+      </p>
 
-<a class="btn" href="#check">적용 대상인지 확인하기</a>
-</div>
-</section>
+      <div class="note">
+        검토 대상 예시: (1) 자물쇠/봉인으로 관리 중인 설비 (2) 작업자 접근 통제가 필요한 설비
+        (3) 점검 후 복구 누락 이력이 있는 설비
+      </div>
 
-<!-- PROBLEM -->
-<section class="light">
-<div class="container">
-<h2>왜 대부분의 설비는 여전히 열릴까요?</h2>
-<div class="grid">
-<div class="card">비인가 조작 발생 시 관리 책임 발생</div>
-<div class="card">작업자 임의 해체 가능</div>
-<div class="card">잠금장치 분실 관리 문제</div>
-<div class="card">점검 후 미복구 상태 발생</div>
-<div class="card">봉인 훼손 확인 지연</div>
-</div>
-</div>
-</section>
+      <div class="btn-row" style="margin-top:18px">
+        <a class="btn btn-primary" href="/contact/sales.html?type=accesscontrol">현장 적용 가능 여부 문의</a>
+        <a class="btn btn-outline" href="tel:010-9469-8334">전화 문의</a>
+        <a class="btn btn-outline" href="mailto:contact@coreon-global.com?subject=COREON%20Access%20Control%20Review&body=설비%20종류%20/%20설치%20장소%20/%20현재%20관리%20방식%20(자물쇠%2C%20봉인%2C%20기타)%20/%20문의%20사항%20을%20기재해%20주세요.">메일 문의</a>
+      </div>
 
-<!-- SOLUTION -->
-<section class="dark">
-<div class="container">
-<h2>COREON 접근통제 커버 구조</h2>
-<p>
-작업자 숙련도와 관리 상태에 의존하지 않고<br>
-설비 접근 가능 상태 자체를 제거합니다.
-</p>
-<div class="grid">
-<div>외부 자물쇠 불필요</div>
-<div>임의 개방 차단</div>
-<div>개방 이력 즉시 확인</div>
-<div>반복 사용 가능</div>
-</div>
-</div>
-</section>
+      <div class="legal" style="margin-top:18px">
+        <strong>공시 범위 안내</strong><br/>
+        본 페이지는 등록특허 공보 이해를 돕기 위한 개념 소개 자료이며,
+        특정 성능/결과를 보장하거나 법적 책임을 면제하는 자료가 아닙니다.
+        상세 도면/구성은 협업 검토 시 NDA 및 필요 범위 한정 제공 원칙으로 진행합니다.
+      </div>
+    </div>
+  </section>
 
-<!-- APPLICATION -->
-<section class="light">
-<div class="container">
-<h2>적용 가능 설비</h2>
-<div class="grid">
-<div class="card">비인가자 무단출입 통제</div>
-<div class="card">주요설비 출입통제</div>
-<div class="card">밸브 커버</div>
-<div class="card">배전반 도어</div>
-<div class="card">배관 점검구</div>
-<div class="card">계기 보호커버</div>
-<div class="card">화학 보관 용기</div>
-<div class="card">유지보수 개구부</div>
-</div>
-</div>
-</section>
+  <!-- PROBLEM -->
+  <section style="background:#ffffff;color:#0f172a;border-top:1px solid #e9eef5">
+    <div class="container">
+      <div class="kicker" style="color:#0F6FFF">WHY IT FAILS</div>
+      <h2 style="margin:8px 0 10px;font-size:34px;letter-spacing:-.6px">왜 대부분의 설비는 여전히 열릴까요?</h2>
+      <p style="margin:0;color:#475569;max-width:900px;line-height:1.9">
+        ‘잠금장치가 있다’가 아니라, 실제 운영에서는 <strong>열릴 수밖에 없는 조건</strong>이 반복됩니다.
+        관리 방식은 누락될 수 있지만, 구조는 누락되지 않습니다.
+      </p>
 
-<!-- FINAL CTA (전환 지점) -->
-<section id="check" class="dark center">
-<div class="container">
-<h2>현재 설비 상태 확인</h2>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card light">
+          <h3>비인가 조작 발생 시 책임 리스크</h3>
+          <p>사후 확인/책임 공방이 커지고, 관리 증빙이 약해집니다.</p>
+        </div>
+        <div class="card light">
+          <h3>작업자 임의 해체 가능</h3>
+          <p>“편의”로 열어두는 순간 통제는 종료됩니다.</p>
+        </div>
+        <div class="card light">
+          <h3>잠금장치 분실·공유 문제</h3>
+          <p>키/자물쇠 관리가 복잡해질수록 누락 확률이 올라갑니다.</p>
+        </div>
+        <div class="card light">
+          <h3>점검 후 미복구</h3>
+          <p>점검 완료 후 원복 누락은 반복되는 패턴입니다.</p>
+        </div>
+        <div class="card light">
+          <h3>봉인 훼손 확인 지연</h3>
+          <p>‘훼손’은 사후입니다. 중요한 건 “열 수 없게” 만드는 것.</p>
+        </div>
+        <div class="card light">
+          <h3>감사/점검 대응 부담</h3>
+          <p>관리기록/증빙이 없으면 조직 전체 리스크가 됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p class="small">
-도면 없이 설비 종류만으로 1차 적용 가능 여부를 회신합니다.
-</p>
+  <!-- SOLUTION -->
+  <section>
+    <div class="container">
+      <div class="kicker">SOLUTION</div>
+      <h2 style="margin:8px 0 10px;font-size:34px;letter-spacing:-.6px">COREON 접근통제 커버 구조</h2>
+      <p class="sub" style="max-width:920px">
+        작업자 숙련도와 관리 상태에 의존하지 않고,<br/>
+        설비가 “열릴 수 있는 상태” 자체를 제거하도록 설계합니다.
+      </p>
 
-<a class="btn" href="/contact/sales.html?type=accesscontrol">
-적용 가능 여부 1차 판정 받기
-</a>
+      <div class="grid grid-2" style="margin-top:18px">
+        <div class="card">
+          <h3>외부 자물쇠 불필요</h3>
+          <p>추가 부품(패드락/키 관리)에 의존하지 않습니다.</p>
+        </div>
+        <div class="card">
+          <h3>임의 개방 차단</h3>
+          <p>특정 해제 동작 없이는 개방이 불가능한 구조를 지향합니다.</p>
+        </div>
+        <div class="card">
+          <h3>개방 이력 식별</h3>
+          <p>무단 개봉 여부를 “늦게”가 아니라 “즉시” 확인 가능하게 설계합니다.</p>
+        </div>
+        <div class="card">
+          <h3>반복 운용</h3>
+          <p>봉인 스티커 소모 방식이 아닌, 운영 가능한 구조를 목표로 합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <!-- APPLICATION -->
+  <section style="background:#ffffff;color:#0f172a;border-top:1px solid #e9eef5">
+    <div class="container">
+      <div class="kicker" style="color:#0F6FFF">APPLICATION</div>
+      <h2 style="margin:8px 0 10px;font-size:34px;letter-spacing:-.6px">적용 가능 설비</h2>
+      <p style="margin:0;color:#475569;max-width:900px;line-height:1.9">
+        도면 없이도 <strong>설비 종류/설치 환경/현재 관리 방식</strong>만으로
+        1차 적용 가능 여부를 회신할 수 있습니다.
+      </p>
 
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card light"><h3>밸브 커버</h3><p>중요 유체/가스 라인 무단 조작 리스크</p></div>
+        <div class="card light"><h3>배전반/패널 도어</h3><p>비인가 개방/조작 예방</p></div>
+        <div class="card light"><h3>배관 점검구</h3><p>점검 후 원복 누락 리스크</p></div>
+        <div class="card light"><h3>계기 보호 커버</h3><p>설정 변경/탈거 방지</p></div>
+        <div class="card light"><h3>화학 보관 용기</h3><p>임의 개봉/혼입 사고 리스크</p></div>
+        <div class="card light"><h3>유지보수 개구부</h3><p>접근 통제가 필요한 설비 전반</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS + FAQ -->
+  <section>
+    <div class="container">
+      <div class="kicker">PROCESS</div>
+      <h2 style="margin:8px 0 10px;font-size:34px;letter-spacing:-.6px">검토 절차 (2-Step)</h2>
+
+      <div class="grid grid-2" style="margin-top:18px">
+        <div class="card">
+          <h3>Step 1) 1차 적용성 진단</h3>
+          <ul class="bullets">
+            <li>설비 종류 / 설치 위치 / 접근 통제 목적</li>
+            <li>현재 관리 방식(자물쇠·봉인·절차)과 문제 이력</li>
+            <li>도면 없이도 가능 (현장 사진 1~2장만 있어도 충분)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Step 2) 샘플 테스트/협업 검토</h3>
+          <ul class="bullets">
+            <li>필요 시 NDA 후 상세 구조/적용 범위 협의</li>
+            <li>샘플/PoC 범위 설정 → 결과 회신</li>
+            <li>도입 형태: 용역(PM/CM) / 라이선스 / 제도 연계 등</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kicker" style="margin-top:28px">FAQ</div>
+      <div class="grid faq" style="margin-top:12px">
+        <details>
+          <summary>자물쇠(패드락)와 무엇이 다른가요?</summary>
+          <p>자물쇠는 “관리 방식”이라 분실·공유·원복 누락 문제가 반복됩니다. COREON은 외부 잠금장치 의존을 줄이고, 열릴 수 있는 상태 자체를 줄이는 구조를 지향합니다.</p>
+        </details>
+        <details>
+          <summary>도면이 없어도 검토가 가능한가요?</summary>
+          <p>가능합니다. 설비 종류/설치 환경/현재 관리 방식만으로 1차 적용성 판단을 회신합니다. 필요 시 NDA 후 상세 범위를 좁혀갑니다.</p>
+        </details>
+        <details>
+          <summary>지금 바로 제품을 구매할 수 있나요?</summary>
+          <p>COREON은 단순 제품 판매보다 “현장 리스크를 구조적으로 줄이는 프레임”을 중심으로 검토합니다. 적용성 진단 → 협업 검토 단계로 진행합니다.</p>
+        </details>
+      </div>
+
+      <div class="btn-row" style="margin-top:18px">
+        <a class="btn btn-primary" href="/contact/sales.html?type=accesscontrol">현재 설비상태 진단 요청</a>
+        <a class="btn btn-outline" href="/">메인 페이지로 돌아가기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section style="padding:28px 0;border-top:1px solid var(--line);background:#08101c">
+    <div class="container" style="color:#9fb0c8;font-size:13px;line-height:1.7">
+      <div style="font-weight:900;color:#dbeafe">COREON</div>
+      <div>대표전화: 010-9469-8334 · 메일: contact@coreon-global.com</div>
+      <div style="margin-top:6px">© <span id="yy"></span> COREON. All rights reserved.</div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="sticky" aria-label="모바일 하단 고정 CTA">
+    <a href="tel:010-9469-8334">전화</a>
+    <a href="/contact/sales.html?type=accesscontrol">진단요청</a>
+    <a href="mailto:contact@coreon-global.com">메일</a>
+  </div>
+
+  <script>
+    document.getElementById("yy").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"COREON 물리적 접근통제 커버",
+    "url":"https://www.coreon-global.com/physical-access-control.html",
+    "description":"자물쇠·봉인 관리가 아니라, 구조 자체로 임의 개방/비인가 조작을 차단하는 접근통제 커버."
+  }
+  </script>
 </body>
 </html>
