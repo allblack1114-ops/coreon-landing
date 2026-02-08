@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COREON 영업팀 문의</title>
+
+<style>
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background:#f4f6f8;
+    color:#1a1a1a;
+}
+.hero{
+    background:#1f2a37;
+    color:white;
+    padding:60px 20px;
+}
+.hero h1{
+    margin:0;
+    font-size:34px;
+    font-weight:700;
+}
+.container{
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+}
+label{
+    display:block;
+    font-weight:600;
+    margin-top:18px;
+}
+input,textarea,select{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #d0d5db;
+    border-radius:6px;
+    font-size:15px;
+}
+textarea{min-height:120px;}
+button{
+    margin-top:28px;
+    background:#0f6cbd;
+    color:white;
+    border:none;
+    padding:14px 22px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover{background:#0c58a0;}
+.notice{
+    color:#555;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>영업팀 문의</h1>
+    <p>현장 적용 및 기술자료 요청에 대해 담당자가 직접 연락드립니다.</p>
+</div>
+
+<div class="container">
+
+<p class="notice">
+필요하신 적용 대상, 수량 또는 검토 목적을 남겨주시면 검토 후 회신드립니다.
+</p>
+
+<form onsubmit="redirectToGoogleForm(); return false;">
+
+<label>회사명 *</label>
+<input type="text" name="company" required>
+
+<label>이름 *</label>
+<input type="text" name="name" required>
+
+<label>연락처 *</label>
+<input type="text" name="phone" required>
+
+<label>이메일 *</label>
+<input type="email" name="email" required>
+
+<label>문의 유형 *</label>
+<select name="type">
+<option>기술자료 요청</option>
+<option>시험 설치 문의</option>
+<option>납품 문의</option>
+<option>기타</option>
+</select>
+
+<label>적용 대상 / 현장 정보</label>
+<textarea name="message"></textarea>
+
+<button type="submit">제출</button>
+
+</form>
+
+</div>
+
+<script>
+function redirectToGoogleForm(){
+
+const company = document.querySelector('[name="company"]').value;
+const name = document.querySelector('[name="name"]').value;
+const phone = document.querySelector('[name="phone"]').value;
+const email = document.querySelector('[name="email"]').value;
+const type = document.querySelector('[name="type"]').value;
+const message = document.querySelector('[name="message"]').value;
+
+const url = "https://docs.google.com/forms/d/e/1FAIpQLSeZOTWvLO4giyNwx2zwlTWqESGkJcMi1AoM4LPq3USTXBjHHQ/viewform?usp=pp_url"
++ "&entry.1523847025=" + encodeURIComponent(company)
++ "&entry.926531969=" + encodeURIComponent(name)
++ "&entry.710556538=" + encodeURIComponent(phone)
++ "&entry.1003325577=" + encodeURIComponent(email)
++ "&entry.1894120447=" + encodeURIComponent(type)
++ "&entry.264990906=" + encodeURIComponent(message);
+
+window.location.href = url;
+}
+</script>
+
+</body>
+</html>
