@@ -11,7 +11,7 @@ COREON index.html (FULL) — MASTER 유지 + IP 브로슈어(PDF) 덧붙임
   4) PDF 링크 일원화: BROCHURE_URL 한 곳만 변경하면 전부 반영
 ========================= -->
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
   <meta charset="utf-8" />
 <!-- Google Tag Manager -->
@@ -379,7 +379,7 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
         <a href="#about" data-i18n="nav.about">회사소개</a>
         <a href="#sqc" data-i18n="nav.sqc">안전·품질·컴플라이언스</a>
         <a href="#insights" data-i18n="nav.insights">인사이트</a>
-        <a href="#library" data-i18n="nav.library">자료실</a>
+        <a href="/patents.html" data-i18n="nav.library">자료실</a>
         <a href="/contact/sales.html" data-i18n="nav.contact">문의</a>
       </div>
     </div>
@@ -619,6 +619,7 @@ PATENT DEMONSTRATION – ADDITIONAL VIDEOS
 
     <div class="grid grid-2" style="margin-top:22px">
 
+
       <!-- 콘크리트 펌프카 -->
 <div class="card" style="border:1px solid #e5ebf2">
   <h3 style="margin:0 0 8px">
@@ -673,8 +674,15 @@ PATENT DEMONSTRATION – ADDITIONAL VIDEOS
   </a>
 </div>
 
-</section>
+<div style="grid-column:1/-1;text-align:center;margin-top:10px">
+  <a class="btn btn-primary" href="/patents.html">
+    등록 특허 포트폴리오 전체 보기 →
+  </a>
+</div>
 
+</div>
+
+</section>
 
 <!-- =========================
 END PATENT DEMONSTRATION
@@ -1582,7 +1590,7 @@ END PATENT PRE-SALES
 
     function applyLang(lang){
       const dict = (I18N[lang] || {});
-      document.documentElement.lang = (lang === "en" ? "en" : "ko");
+      document.documentElement.setAttribute("data-lang", lang);
 
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
@@ -1633,16 +1641,32 @@ END PATENT PRE-SALES
       const sections = Array.from(document.querySelectorAll('section, header.hero-full'));
       const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
       function setActiveLink(){
-        const y = window.scrollY + 120;
-        let currentId = 'top';
-        for (const s of sections){ if (y >= s.offsetTop) currentId = s.id || 'top'; }
-        navLinks.forEach(a=>{
-          const href = a.getAttribute('href') || "";
-          if (!href.startsWith("#")) return;
-          const id = href.slice(1);
-          a.classList.toggle('active', id === currentId);
-        });
-      }
+  const y = window.scrollY + 120;
+  let currentId = 'top';
+
+  for (const s of sections){
+    if (y >= s.offsetTop) currentId = s.id || 'top';
+  }
+
+  navLinks.forEach(a=>{
+    const href = a.getAttribute('href') || "";
+
+    // 1) 같은 페이지 앵커
+    if (href.startsWith("#")){
+      const id = href.slice(1);
+      a.classList.toggle('active', id === currentId);
+      return;
+    }
+
+    // 2) 다른 html 페이지
+    if (href.startsWith("/")){
+      const path = location.pathname.replace(/\/$/,'');
+      const target = href.replace(/\/$/,'');
+      a.classList.toggle('active', path === target);
+    }
+  });
+}
+
 /* 🔧 INSIGHTS 초기 줄맞춤 보정 */
 requestAnimationFrame(() => {
   document.querySelectorAll(".news-item").forEach(item => {
@@ -1651,12 +1675,25 @@ requestAnimationFrame(() => {
 });
 
       document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', e=>{
-          const id = a.getAttribute('href').slice(1);
-          const el = document.getElementById(id);
-          if (el){ e.preventDefault(); window.scrollTo({top: el.offsetTop - 72, behavior: 'smooth'}); }
-        });
+  a.addEventListener('click', e=>{
+    const href = a.getAttribute('href');
+    if (!href || href.length <= 1) return;
+
+    const targetId = href.slice(1);
+    const el = document.getElementById(targetId);
+
+    // 현재 문서에 존재하는 요소일 때만 스크롤 처리
+    if (el && location.pathname === location.pathname){
+      e.preventDefault();
+      window.scrollTo({
+        top: el.offsetTop - 72,
+        behavior: 'smooth'
       });
+    }
+  });
+});
+
+
       window.addEventListener('scroll', setActiveLink);
       window.addEventListener('load', setActiveLink);
       setActiveLink();
