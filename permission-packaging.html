@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-require="packaging">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>COREON Controlled Packaging | Authorized Opening Structure</title>
+<meta name="description" content="A structural packaging technology that prevents unauthorized opening without disposable seals or external locks.">
+
+<script>
+(function(){
+  const allowed = localStorage.getItem("coreon_entry");
+  const REQUIRED = document.documentElement.dataset.require;
+  if(allowed !== REQUIRED){
+    location.replace("/entry.html");
+  }
+})();
+</script>
+
+<style>
+:root{
+--bg:#0b1220;
+--card:#121a2c;
+--blue:#0F6FFF;
+--text:#eaf2ff;
+--muted:#9fb3c8;
+--line:rgba(255,255,255,.08);
+--radius:18px;
+--container:1100px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans KR;line-height:1.7}
+section{padding:80px 20px}
+.container{max-width:var(--container);margin:auto}
+h1{font-size:46px;line-height:1.2;margin:12px 0 14px;font-weight:900}
+h2{font-size:32px;margin-bottom:12px}
+p{color:var(--muted);max-width:880px}
+.hero{text-align:center;padding-top:120px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-top:24px}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+.btn{display:inline-block;background:var(--blue);padding:15px 26px;border-radius:14px;font-weight:800;text-decoration:none;color:white;margin-top:20px}
+
+.video-box{
+position:relative;
+margin-top:26px;
+border-radius:16px;
+overflow:hidden;
+border:1px solid var(--line)
+}
+
+.note{font-size:13px;color:#6e8197;margin-top:14px}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="container">
+<h1>Opening becomes an authorized action</h1>
+<p>Most packages rely on disposable seals or trust in procedure.<br>
+COREON changes the structure so that opening requires a specific release action.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Why conventional packaging fails</h2>
+<div class="grid grid-3">
+<div class="card">Anyone can open it once accessible</div>
+<div class="card">Tamper seals destroy usability</div>
+<div class="card">External locks complicate logistics</div>
+<div class="card">Responsibility cannot be traced</div>
+<div class="card">Children & unauthorized users access</div>
+<div class="card">Repackaging becomes possible</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>COREON Structural Mechanism</h2>
+<p>Instead of adding a security device, the opening path itself is restricted.
+The key access area is hidden and requires a specific release motion.</p>
+
+<div class="grid grid-2">
+<div class="card">Hidden key-access groove</div>
+<div class="card">Physical prevention of random opening</div>
+<div class="card">Tamper evidence immediately visible</div>
+<div class="card">Reusable without destruction</div>
+</div>
+
+<div class="video-box" id="videoArea">
+  <img src="/assets/patent-demo-2917068-thumb-v2.png"
+       alt="COREON structural mechanism demonstration"
+       style="width:100%;display:block;cursor:pointer"
+       onclick="playVideo()">
+
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+    <div style="background:rgba(0,0,0,.55);padding:18px 26px;border-radius:40px;font-weight:700">
+      ▶ Concept Verification Video
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Target Markets</h2>
+<div class="grid grid-3">
+<div class="card">Premium food containers</div>
+<div class="card">Child-safe packaging</div>
+<div class="card">Medical & chemical storage</div>
+<div class="card">Controlled distribution goods</div>
+<div class="card">Allergy-risk ingredients</div>
+<div class="card">Brand authenticity packaging</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Collaboration Model</h2>
+<div class="grid grid-2">
+<div class="card">Technology licensing</div>
+<div class="card">Joint product development</div>
+<div class="card">ODM structural integration</div>
+<div class="card">Royalty-based adoption</div>
+</div>
+
+<a class="btn" href="/contact/sales.html">Request Technical Discussion</a>
+<div class="note">Detailed drawings are provided under NDA after technical fit review</div>
+</div>
+</section>
+
+<script>
+function playVideo(){
+  const box=document.getElementById("videoArea");
+  box.innerHTML = `
+    <video controls width="100%">
+      <source src="/assets/patent-demo-2917068-v2.mp4" type="video/mp4">
+    </video>
+  `;
+}
+</script>
+
+</body>
+</html>
