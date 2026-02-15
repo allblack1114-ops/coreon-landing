@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>COREON | Technology Select</title>
+  <meta name="description" content="COREON 기술 적용 분야를 선택하세요." />
+  <meta name="theme-color" content="#081523" />
+  <link rel="canonical" href="https://www.coreon-global.com/entry.html" />
+
+  <style>
+    :root{
+      --bg:#081523;
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.15);
+      --hover:rgba(255,255,255,.12);
+      --text:#ffffff;
+      --muted:#b9c7da;
+      --blue:#0F6FFF;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      text-align:center;
+    }
+
+    .wrap{
+      max-width:920px;
+      padding:40px 20px;
+    }
+
+    h1{
+      font-size:34px;
+      margin-bottom:10px;
+      font-weight:900;
+      letter-spacing:-.3px;
+    }
+
+    .sub{
+      color:var(--muted);
+      margin-bottom:40px;
+      font-size:16px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:42px 24px;
+      cursor:pointer;
+      transition:.18s ease;
+      background:var(--card);
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      background:var(--hover);
+      border-color:var(--blue);
+    }
+
+    .title{
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .desc{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    footer{
+      margin-top:40px;
+      font-size:13px;
+      color:#7f93ad;
+    }
+
+    @media(max-width:720px){
+      .grid{grid-template-columns:1fr}
+      h1{font-size:26px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="wrap" role="main">
+    <h1>적용 분야를 선택해주세요</h1>
+    <div class="sub">COREON 기술은 적용 대상에 따라 설명 방식이 다릅니다.</div>
+
+    <div class="grid">
+      <div class="card" onclick="goSafety()" role="button" aria-label="산업 안전 기술 페이지로 이동">
+        <div class="title">Industrial Safety</div>
+        <div class="desc">설비 · 시설 · 작업자 접근 통제 기술</div>
+      </div>
+
+      <div class="card" onclick="goPackaging()" role="button" aria-label="제품 및 패키징 기술 페이지로 이동">
+        <div class="title">Product & Packaging</div>
+        <div class="desc">제품 · 용기 · 패키징 구조 기술</div>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="yy"></span> COREON
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("yy").textContent = new Date().getFullYear();
+
+    function goSafety(){
+      localStorage.setItem("coreon_entry","safety");
+      location.replace("/physical-access-control.html");
+    }
+
+    function goPackaging(){
+      localStorage.setItem("coreon_entry","packaging");
+      location.replace("/permission-packaging.html");
+    }
+  </script>
+
+</body>
+</html>
