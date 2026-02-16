@@ -1,159 +1,172 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <title>COREON | Technology Select</title>
-  <meta name="description" content="COREON 기술 적용 분야를 선택하세요." />
-  <meta name="theme-color" content="#081523" />
-  <link rel="canonical" href="https://www.coreon-global.com/entry.html" />
+<title>COREON | Technology Select</title>
+<meta name="description" content="COREON 기술 적용 분야를 선택하세요." />
+<meta name="theme-color" content="#081523" />
+<link rel="canonical" href="https://www.coreon-global.com/entry.html" />
 
-  <style>
-    :root{
-      --bg:#081523;
-      --card:rgba(255,255,255,.06);
-      --border:rgba(255,255,255,.15);
-      --hover:rgba(255,255,255,.12);
-      --text:#ffffff;
-      --muted:#b9c7da;
-      --blue:#0F6FFF;
-      --radius:18px;
-    }
+<style>
+:root{
+  --bg:#081523;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.15);
+  --hover:rgba(255,255,255,.12);
+  --text:#ffffff;
+  --muted:#b9c7da;
+  --blue:#0F6FFF;
+  --radius:18px;
+}
+*{box-sizing:border-box}
 
-    *{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  text-align:center;
+}
 
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      text-align:center;
-    }
+.wrap{max-width:920px;padding:40px 20px;}
 
-    .wrap{
-      max-width:920px;
-      padding:40px 20px;
-    }
+h1{
+  font-size:34px;
+  margin-bottom:10px;
+  font-weight:900;
+  letter-spacing:-.3px;
+}
 
-    h1{
-      font-size:34px;
-      margin-bottom:10px;
-      font-weight:900;
-      letter-spacing:-.3px;
-    }
+.sub{
+  color:var(--muted);
+  margin-bottom:40px;
+  font-size:16px;
+}
 
-    .sub{
-      color:var(--muted);
-      margin-bottom:40px;
-      font-size:16px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
+.card{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:42px 24px;
+  cursor:pointer;
+  transition:.18s ease;
+  background:var(--card);
+}
 
-    .card{
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:42px 24px;
-      cursor:pointer;
-      transition:.18s ease;
-      background:var(--card);
-    }
+.card:hover{
+  transform:translateY(-5px);
+  background:var(--hover);
+  border-color:var(--blue);
+}
 
-    .card:hover{
-      transform:translateY(-5px);
-      background:var(--hover);
-      border-color:var(--blue);
-    }
+.title{
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:10px;
+}
 
-    .title{
-      font-size:22px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
+.desc{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:15px;
+}
 
-    .desc{
-      color:var(--muted);
-      line-height:1.6;
-      font-size:15px;
-    }
+footer{
+  margin-top:40px;
+  font-size:13px;
+  color:#7f93ad;
+}
 
-    footer{
-      margin-top:40px;
-      font-size:13px;
-      color:#7f93ad;
-    }
-
-    @media(max-width:720px){
-      .grid{grid-template-columns:1fr}
-      h1{font-size:26px}
-    }
-  </style>
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  h1{font-size:26px}
+}
+</style>
 </head>
 
 <body>
 
-  <main class="wrap" role="main">
-    <h1>적용 분야를 선택해주세요</h1>
-    <div class="sub">COREON 기술은 적용 대상에 따라 설명 방식이 다릅니다.</div>
+<main class="wrap" role="main">
+  <h1>적용 분야를 선택해주세요</h1>
+  <div class="sub">COREON 기술은 적용 대상에 따라 설명 방식이 다릅니다.</div>
 
-    <div class="grid">
-      <div class="card" onclick="goSafety()" role="button" aria-label="산업 안전 기술 페이지로 이동">
-        <div class="title">Industrial Safety</div>
-        <div class="desc">설비 · 시설 · 작업자 접근 통제 기술</div>
-      </div>
-
-      <div class="card" onclick="goPackaging()" role="button" aria-label="제품 및 패키징 기술 페이지로 이동">
-        <div class="title">Product & Packaging</div>
-        <div class="desc">제품 · 용기 · 패키징 구조 기술</div>
-      </div>
+  <div class="grid">
+    <div class="card" onclick="goSafety()" role="button">
+      <div class="title">Industrial Safety</div>
+      <div class="desc">설비 · 시설 · 작업자 접근 통제 기술</div>
     </div>
 
-    <footer>
-      © <span id="yy"></span> COREON
-    </footer>
-  </main>
+    <div class="card" onclick="goPackaging()" role="button">
+      <div class="title">Product & Packaging</div>
+      <div class="desc">제품 · 용기 · 패키징 구조 기술</div>
+    </div>
+  </div>
 
-  <script>
-  // 연도 표시 (엘리먼트 없을 때 에러 방지)
-  const yyEl = document.getElementById("yy");
-  if (yyEl) yyEl.textContent = new Date().getFullYear();
+  <footer>
+    © <span id="yy"></span> COREON
+  </footer>
+</main>
 
-  // 공통 진입 처리 함수
-  function setEntry(type, target){
-    try{
-      // 세션 단위 접근 허용 (브라우저 종료 시 초기화)
-      sessionStorage.setItem("coreon_entry", type);
+<script>
+// 연도 표시
+document.getElementById("yy").textContent = new Date().getFullYear();
 
-      // 접근 시간 기록 (선택: 로그/증빙용)
-      sessionStorage.setItem("coreon_entry_time", Date.now());
+/* -------------------------------------------------
+ENTRY CONTROL SYSTEM
+- 유입 구분
+- 직접접속 방지
+- 세션 만료
+- 뒤로가기 루프 방지
+------------------------------------------------- */
 
-      location.replace(target);
-    }catch(e){
-      alert("브라우저 보안 설정으로 접근이 제한되었습니다.");
-      console.error(e);
-    }
+// 이미 통과한 상태면 entry 재진입 방지
+if(sessionStorage.getItem("coreon_entry")){
+  history.replaceState(null,null,"/");
+}
+
+// 공통 진입 처리
+function setEntry(type, target){
+  try{
+    // 유입 유형 기록
+    sessionStorage.setItem("coreon_entry", type);
+
+    // 접근 시간 기록
+    sessionStorage.setItem("coreon_entry_time", Date.now());
+
+    // 30분 유효
+    sessionStorage.setItem("coreon_entry_expire", Date.now() + (1000*60*30));
+
+    location.replace(target);
+
+  }catch(e){
+    alert("브라우저 보안 설정으로 접근이 제한되었습니다.");
+    console.error(e);
   }
+}
 
-  // 안전기술 페이지 진입
-  function goSafety(){
-    setEntry("safety","/physical-access-control.html");
-  }
+/* 실제 페이지 경로 (현재 사이트 구조 기준) */
 
-  // 패키징(소비재/락앤락 등) 진입
-  function goPackaging(){
-    setEntry("packaging","/permission-packaging.html");
-  }
+// 산업 안전 기술
+function goSafety(){
+  setEntry("safety","/lp/pump-safety.html");
+}
+
+// 패키징 / 제품 구조 기술
+function goPackaging(){
+  setEntry("packaging","/kr/safety-opening-prevention-device.html");
+}
 </script>
-
 
 </body>
 </html>
