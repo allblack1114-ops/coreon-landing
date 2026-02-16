@@ -353,6 +353,49 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
 .kicker{letter-spacing:.08em;font-weight:800;font-size:12px;text-transform:uppercase;color:#6f7f94}
 
   </style>
+
+<script>
+(function(){
+
+  const entry = sessionStorage.getItem("coreon_entry");
+  const expire = sessionStorage.getItem("coreon_entry_expire");
+
+  if(entry && expire && Date.now() < Number(expire)) return;
+
+  const allowDirect = [
+    "/notices/",
+    "/patents",
+    "/patents.html",
+    "/whitepaper",
+    "/contact",
+    "/privacy",
+    "/privacy.html",
+    "/faq",
+    "/faq.html"
+  ];
+
+  const path = location.pathname.toLowerCase();
+  if(allowDirect.some(p => path.startsWith(p))) return;
+
+  // 외부 유입 허용
+  const ref = document.referrer;
+  if(ref && !ref.includes(location.hostname)) return;
+
+  // 앱/메일/메신저 외부 유입 허용 (직접 입력은 차단)
+const nav = performance.getEntriesByType("navigation")[0];
+const isDirect = nav && nav.type === "navigate" && !ref;
+
+if(!ref && !isDirect) return;
+
+
+  // 검색엔진 봇 허용
+  if(/bot|crawl|spider|slurp|naver|daum/i.test(navigator.userAgent)) return;
+
+  location.replace("/entry.html");
+
+})();
+</script>
+
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -423,10 +466,10 @@ content="COREON은 특허 기반 Safety IP 관점으로 중대재해 리스크�
 
     <!-- CTA 버튼 -->
     <div class="hero-cta">
-<a class="btn btn-primary"
-href="/physical-access-control.html">
-설비적용 가능여부 확인
-</a>
+  <a class="btn btn-primary" href="/entry.html">
+    설비적용 가능여부 확인
+  </a>
+
 
   <a class="btn btn-primary" href="tel:010-9469-8334" data-i18n="cta.call2">전화 문의</a>
 
@@ -455,10 +498,10 @@ href="/physical-access-control.html">
     </p>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <a class="btn btn-primary"
-href="/physical-access-control.html">
-적용 가능 여부 확인
+      <a class="btn btn-primary" href="/entry.html">
+  적용 가능 여부 확인
 </a>
+
 
 <a class="btn btn-outline"
 href="/notices/2026-02-08-physical-access-blocking.html">
