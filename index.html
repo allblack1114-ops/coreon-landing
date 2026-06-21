@@ -1120,6 +1120,24 @@
       margin-top: 4px;
     }
 
+
+    .google-form-frame {
+      margin-top: 26px;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid #d6e3f1;
+      background: #ffffff;
+      box-shadow: 0 14px 40px rgba(6, 26, 51, .08);
+    }
+
+    .google-form-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 920px;
+      border: 0;
+      background: #ffffff;
+    }
+
     footer {
       padding: 42px 0;
       background: #071526;
@@ -1275,6 +1293,11 @@
       .ip-grid,
       .video-proof-grid {
         grid-template-columns: 1fr;
+      }
+
+
+      .google-form-frame iframe {
+        min-height: 980px;
       }
 
       .business-grid {
@@ -2037,63 +2060,33 @@
               <div>주소 : (22402) 인천광역시 중구 영종대로 881, 리베라베리움 205호</div>
               <div>대표 : 이호원 / 상호 : 코레온(COREON)</div>
             </div>
-          </div>
-
-          <div class="contact-note">
-            <div class="section-label">Inquiry Flow</div>
-
-            <h3>문의는 제품명, 현장 위치, 사용 목적을 함께 남겨주시면 검토가 빠릅니다.</h3>
-
-            <p>
-              안전화·보호구 구매, 대형 냉방기 렌탈, 미스트 냉방, 분진 억제, 도로안전용품 납품,
-              공공·기업 제안 검토 등 목적을 알려주시면 현장 조건에 맞춰 제품과 제안 방향을 정리해 드릴 수 있습니다.
-            </p>
-
-            <form class="quick-form" onsubmit="return sendCoreonInquiry(event)">
-              <div class="form-row">
-                <label>
-                  이름
-                  <input type="text" id="inquiryName" placeholder="성함을 입력해 주세요" required>
-                </label>
-
-                <label>
-                  회사명 / 현장명
-                  <input type="text" id="inquiryCompany" placeholder="회사명 또는 현장명">
-                </label>
-              </div>
-
-              <div class="form-row">
-                <label>
-                  연락처
-                  <input type="tel" id="inquiryPhone" placeholder="010-0000-0000" required>
-                </label>
-
-                <label>
-                  문의 유형
-                  <select id="inquiryType" required>
-                    <option value="">선택해 주세요</option>
-                    <option value="제품 구매">제품 구매</option>
-                    <option value="렌탈 문의">렌탈 문의</option>
-                    <option value="대량 납품">대량 납품</option>
-                    <option value="현장 상담">현장 상담</option>
-                    <option value="공공·기업 제안">공공·기업 제안</option>
-                    <option value="기타 문의">기타 문의</option>
-                  </select>
-                </label>
-              </div>
-
-              <label>
-                문의 내용
-                <textarea id="inquiryMessage" rows="5" placeholder="필요 제품, 현장 위치, 사용 목적, 희망 일정 등을 남겨주세요." required></textarea>
-              </label>
-
-              <button class="btn btn-primary form-submit" type="submit">현장 조건 남기고 상담 요청하기</button>
-            </form>
 
             <div class="hero-actions">
               <a class="btn btn-gold" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 보기</a>
-              <a class="btn btn-dark" href="tel:01090391482">전화 문의</a>
               <a class="btn btn-light" href="mailto:contact@coreon-global.com">메일 문의</a>
+            </div>
+          </div>
+
+          <div class="contact-note">
+            <div class="section-label">COREON Inquiry</div>
+
+            <h3>귀찮게 메일 쓰지 마세요.<br>30초 만에 현장 맞춤 제안을 요청하세요.</h3>
+
+            <p>
+              안전화·보호구 구매, 대형 냉방기 렌탈, 미스트 냉방, 분진 억제, 도로안전용품 납품,
+              공공·기업 제안 검토 등 목적을 알려주시면 현장 조건에 맞춰 제품과 제안 방향을 정리해 드립니다.
+            </p>
+
+            <div class="google-form-frame">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeZOTWvLO4giyNwx2zwlTWqESGkJcMi1AoM4LPq3USTXBjHHQ/viewform?embedded=true"
+                width="100%"
+                height="920"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0">
+                로드 중…
+              </iframe>
             </div>
           </div>
         </div>
@@ -2120,37 +2113,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    function sendCoreonInquiry(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("inquiryName").value.trim();
-      const company = document.getElementById("inquiryCompany").value.trim();
-      const phone = document.getElementById("inquiryPhone").value.trim();
-      const type = document.getElementById("inquiryType").value.trim();
-      const message = document.getElementById("inquiryMessage").value.trim();
-
-      const subject = `[COREON 홈페이지 문의] ${type} / ${company || name}`;
-      const body = [
-        "COREON 홈페이지 간편 문의",
-        "",
-        `이름: ${name}`,
-        `회사명/현장명: ${company}`,
-        `연락처: ${phone}`,
-        `문의 유형: ${type}`,
-        "",
-        "문의 내용:",
-        message,
-        "",
-        "※ 홈페이지 문의 폼에서 자동 생성된 메일입니다."
-      ].join("\n");
-
-      window.location.href =
-        `mailto:contact@coreon-global.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      return false;
-    }
-  </script>
 </body>
 </html>
