@@ -519,15 +519,18 @@
     }
 
     .video-proof {
-      background: linear-gradient(135deg, #061a33, #0a2b57);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(22, 119, 255, .18), transparent 30%),
+        linear-gradient(135deg, #061a33, #0a2b57);
       color: #ffffff;
     }
 
-    .video-proof-grid {
+    .video-proof-head {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
       gap: 38px;
-      align-items: center;
+      align-items: end;
+      margin-bottom: 34px;
     }
 
     .video-copy h2 {
@@ -562,24 +565,66 @@
       font-weight: 950;
     }
 
-    .video-shell {
-      position: relative;
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .video-card {
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .16);
       box-shadow: var(--shadow2);
+    }
+
+    .video-card.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .video-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
       background: #000;
     }
 
-    .video-shell video,
-    .video-shell img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+    .video-card-body {
+      padding: 20px;
     }
 
-    .video-mobile-poster {
-      display: none;
+    .video-card-body span {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: #8fd0ff;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .video-card-body h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.28;
+      letter-spacing: -.035em;
+      color: #ffffff;
+    }
+
+    .video-card.featured .video-card-body h3 {
+      font-size: clamp(26px, 3vw, 36px);
+    }
+
+    .video-card-body p {
+      margin: 0;
+      color: rgba(255, 255, 255, .76);
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 520;
     }
 
     .competency {
@@ -1291,8 +1336,17 @@
       .mall-grid,
       .contact-grid,
       .ip-grid,
-      .video-proof-grid {
+      .video-proof-head {
         grid-template-columns: 1fr;
+      }
+
+      .video-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-card.featured {
+        grid-column: span 2;
+        grid-row: auto;
       }
 
 
@@ -1451,12 +1505,16 @@
         padding: 8px 12px;
       }
 
-      .video-shell video {
-        display: none;
+      .video-gallery {
+        grid-template-columns: 1fr;
       }
 
-      .video-mobile-poster {
-        display: block;
+      .video-card.featured {
+        grid-column: span 1;
+      }
+
+      .video-card-body {
+        padding: 18px;
       }
 
       .form-row {
@@ -1680,22 +1738,25 @@
 
       <section class="video-proof" id="field-video">
       <div class="container">
-        <div class="video-proof-grid">
+        <div class="video-proof-head">
           <div class="video-copy">
             <div class="section-label">Field Video</div>
 
             <h2>말보다 빠른 증명,<br>실제 현장 가동 영상</h2>
 
             <p>
-              야외행사와 대기공간에서 미스트 냉방 장비가 실제로 가동되는 장면입니다.
-              현장 담당자는 장비의 설명보다 실제로 돌아가는 모습을 먼저 보고 판단합니다.
+              야외행사, 휴게공간, 대공간 좌석, 공원 미스트 라인, 분진·미스트 분사 테스트까지
+              COREON이 연결하는 현장형 솔루션은 실제 가동 장면으로 설득합니다.
             </p>
+          </div>
 
+          <div>
             <div class="video-points">
               <span>야외행사</span>
               <span>대기공간</span>
-              <span>쿨존 구성</span>
+              <span>휴게공간</span>
               <span>미스트 냉방</span>
+              <span>분진 억제</span>
             </div>
 
             <div class="hero-actions">
@@ -1703,14 +1764,73 @@
               <a class="btn btn-gold" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 보기</a>
             </div>
           </div>
+        </div>
 
-          <div class="video-shell">
-            <video autoplay muted loop playsinline preload="metadata" poster="/assets/coreon-mist-cooling-poster.jpg?v=20260621-30">
-              <source src="/assets/coreon-mist-cooling-field.mp4?v=20260621-30" type="video/mp4">
+        <div class="video-gallery">
+          <article class="video-card featured">
+            <video controls playsinline preload="metadata" poster="/assets/coreon-mist-cooling-poster.jpg?v=20260621-video5">
+              <source src="/assets/coreon-mist-cooling-field.mp4?v=20260621-video5" type="video/mp4">
+              사용 중인 브라우저에서 영상을 지원하지 않습니다.
             </video>
 
-            <img class="video-mobile-poster" src="/assets/coreon-mist-cooling-poster.jpg?v=20260621-30" alt="야외행사 미스트 냉방 현장 영상 미리보기">
-          </div>
+            <div class="video-card-body">
+              <span>Main Field</span>
+              <h3>야외행사 대기공간 미스트 냉방 가동</h3>
+              <p>많은 인원이 머무는 대기공간에서 미스트 냉방 장비가 실제로 가동되는 대표 현장 영상입니다.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline preload="metadata" poster="/assets/coreon-video-outdoor-cafe-mist-poster.jpg?v=20260621-video5">
+              <source src="/assets/coreon-video-outdoor-cafe-mist.mp4?v=20260621-video5" type="video/mp4">
+              사용 중인 브라우저에서 영상을 지원하지 않습니다.
+            </video>
+
+            <div class="video-card-body">
+              <span>Cooling Fog</span>
+              <h3>야외 휴게공간 쿨링 미스트</h3>
+              <p>카페, 휴게공간, 야외 대기구역에 적용 가능한 미스트 냉방 활용 장면입니다.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline preload="metadata" poster="/assets/coreon-video-stadium-mist-cooling-poster.jpg?v=20260621-video5">
+              <source src="/assets/coreon-video-stadium-mist-cooling.mp4?v=20260621-video5" type="video/mp4">
+              사용 중인 브라우저에서 영상을 지원하지 않습니다.
+            </video>
+
+            <div class="video-card-body">
+              <span>Large Space</span>
+              <h3>대공간 좌석 미스트 냉방</h3>
+              <p>행사장, 공연장, 야외 좌석 공간 등 다중 이용공간의 체감온도 저감 사례입니다.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline preload="metadata" poster="/assets/coreon-video-park-mist-line-poster.jpg?v=20260621-video5">
+              <source src="/assets/coreon-video-park-mist-line.mp4?v=20260621-video5" type="video/mp4">
+              사용 중인 브라우저에서 영상을 지원하지 않습니다.
+            </video>
+
+            <div class="video-card-body">
+              <span>Mist Line</span>
+              <h3>공원·산책로 미스트 라인 가동</h3>
+              <p>보행자 동선과 야외 공간을 따라 설치되는 미스트 라인 적용 가능성을 보여줍니다.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline preload="metadata" poster="/assets/coreon-video-dust-cannon-demo-poster.jpg?v=20260621-video5">
+              <source src="/assets/coreon-video-dust-cannon-demo.mp4?v=20260621-video5" type="video/mp4">
+              사용 중인 브라우저에서 영상을 지원하지 않습니다.
+            </video>
+
+            <div class="video-card-body">
+              <span>Dust Control</span>
+              <h3>캐논형 분진·미스트 분사 테스트</h3>
+              <p>분진 억제, 비산먼지 저감, 현장 작업환경 개선에 활용 가능한 분사 장면입니다.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
