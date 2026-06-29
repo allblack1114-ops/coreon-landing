@@ -11,6 +11,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.coreon-global.com/">
 
+  <link rel="preload" as="image" href="/assets/coreon-hero-field-pc.webp.jpg?v=20260629-field-ceo" media="(min-width: 981px)">
+  <link rel="preload" as="image" href="/assets/coreon-hero-field-mobile.webp.jpg?v=20260629-field-ceo" media="(max-width: 980px)">
+
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:site_name" content="COREON">
@@ -225,35 +229,50 @@
       align-items: center;
       overflow: hidden;
       color: #ffffff;
-      background-image:
-        linear-gradient(
-          90deg,
-          rgba(6, 26, 51, 0.98) 0%,
-          rgba(6, 26, 51, 0.94) 35%,
-          rgba(6, 26, 51, 0.72) 58%,
-          rgba(6, 26, 51, 0.40) 82%,
-          rgba(6, 26, 51, 0.18) 100%
-        ),
-        url("/assets/coreon-hero-field-pc.webp.png?v=20260627-season2");
-      background-size: cover;
-      background-position: center right;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 72% 22%, rgba(22, 119, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 18% 18%, rgba(22, 119, 255, 0.18), transparent 34%),
+        linear-gradient(135deg, #061a33 0%, #08264d 58%, #071526 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url("/assets/coreon-hero-field-pc.webp.jpg?v=20260629-field-ceo");
+      background-size: auto 93%;
+      background-position: right 7% bottom;
       background-repeat: no-repeat;
+      opacity: 0.92;
+      filter: saturate(1.05) contrast(1.04);
+      pointer-events: none;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 1;
       background:
-        radial-gradient(circle at 18% 20%, rgba(22, 119, 255, 0.22), transparent 32%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.14));
+        linear-gradient(
+          90deg,
+          rgba(6, 26, 51, 0.98) 0%,
+          rgba(6, 26, 51, 0.96) 36%,
+          rgba(6, 26, 51, 0.76) 58%,
+          rgba(6, 26, 51, 0.38) 78%,
+          rgba(6, 26, 51, 0.16) 100%
+        ),
+        radial-gradient(circle at 74% 30%, rgba(255, 255, 255, 0.18), transparent 22%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.18));
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(880px, 100%);
+      width: min(780px, 100%);
       padding: 72px 0;
     }
 
@@ -311,7 +330,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-top: 36px;
-      width: min(900px, 100%);
+      width: min(780px, 100%);
     }
 
     .hero-point {
@@ -1158,19 +1177,29 @@
 
       .hero {
         min-height: auto;
-        background-image:
+      }
+
+      .hero::before {
+        background-image: url("/assets/coreon-hero-field-mobile.webp.jpg?v=20260629-field-ceo");
+        background-size: auto 98%;
+        background-position: right -110px bottom;
+        opacity: 0.42;
+      }
+
+      .hero::after {
+        background:
           linear-gradient(
             180deg,
-            rgba(6, 26, 51, 0.95) 0%,
-            rgba(6, 26, 51, 0.91) 42%,
-            rgba(6, 26, 51, 0.83) 72%,
-            rgba(6, 26, 51, 0.75) 100%
+            rgba(6, 26, 51, 0.98) 0%,
+            rgba(6, 26, 51, 0.95) 43%,
+            rgba(6, 26, 51, 0.90) 72%,
+            rgba(6, 26, 51, 0.86) 100%
           ),
-          url("/assets/coreon-hero-field-mobile.webp.png?v=20260627-season2");
-        background-position: 66% center;
+          radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.12), transparent 22%);
       }
 
       .hero-content {
+        width: min(720px, 100%);
         padding: 72px 0 58px;
       }
 
@@ -1203,6 +1232,16 @@
     @media (max-width: 640px) {
       .container {
         width: min(100% - 28px, var(--max));
+      }
+
+      .hero::before {
+        background-size: auto 84%;
+        background-position: center bottom;
+        opacity: 0.24;
+      }
+
+      .hero-content {
+        padding: 58px 0 48px;
       }
 
       .hero h1 {
