@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COREON AI기반 중대재해 예방솔루션</title>
+  <meta name="theme-color" content="#071a33">
+  <meta name="application-name" content="COREON AI기반 중대재해 예방솔루션">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="apple-mobile-web-app-title" content="COREON AI안전">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/coreon-ai-safety-app.webmanifest">
+  <style>
+    :root {
+      --navy:#071a33; --blue:#1677ff; --ink:#0c1728; --muted:#647083;
+      --line:#dce7f3; --soft:#f4f8fc; --red:#c92a2a; --green:#0f8b4c;
+      --shadow:0 18px 50px rgba(7,26,51,.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      min-height:100vh;
+      min-height:100dvh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#eef5fc,#fff);
+      word-break:keep-all;
+    }
+    header {
+      position:sticky; top:0; z-index:20;
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(14px);
+    }
+    .wrap { width:min(1240px,calc(100% - 32px)); margin:0 auto; }
+    .topbar { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+    .brand b { display:block; font-size:21px; color:var(--navy); letter-spacing:-.03em; }
+    .brand span { display:block; margin-top:4px; color:var(--muted); font-size:12px; font-weight:800; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    button, .btn {
+      border:0; min-height:40px; border-radius:12px; padding:0 14px;
+      font:inherit; font-weight:900; cursor:pointer; background:var(--blue); color:#fff;
+      text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
+    }
+    button.secondary, .btn.secondary { background:var(--navy); }
+    button.light, .btn.light { background:#eaf4ff; color:#07599d; border:1px solid #cfe4fa; }
+    button.danger { background:#ffecec; color:var(--red); border:1px solid #ffd2d2; }
+    main { padding:24px 0 60px; }
+    .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin-bottom:16px; }
+    .panel { background:#fff; border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow); overflow:hidden; }
+    .panel-body { padding:22px; }
+    h1 { margin:0; color:var(--navy); font-size:clamp(30px,4vw,48px); line-height:1.1; letter-spacing:-.05em; }
+    h2 { margin:0 0 14px; font-size:22px; letter-spacing:-.035em; }
+    .lead { margin:14px 0 0; color:var(--muted); line-height:1.75; font-weight:650; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:16px; }
+    .metric { padding:14px; border-radius:15px; background:var(--soft); border:1px solid #e0ebf7; }
+    .metric b { display:block; font-size:24px; color:var(--navy); }
+    .metric span { display:block; margin-top:5px; color:var(--muted); font-size:12px; font-weight:850; }
+    .notice { padding:15px; border-radius:16px; background:#fff9e8; border:1px solid #f1d992; color:#6b4b00; line-height:1.65; font-weight:750; }
+    .tabs {
+      display:flex; gap:8px; margin:18px 0; padding:10px 0; flex-wrap:wrap;
+      position:sticky; top:75px; z-index:10; background:rgba(238,245,252,.92); backdrop-filter:blur(12px);
+    }
+    .tab { background:#fff; color:var(--navy); border:1px solid var(--line); }
+    .tab.active { background:var(--navy); color:#fff; }
+    .view { display:none; }
+    .view.active { display:block; }
+    .grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:18px; align-items:start; }
+    .form-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .full { grid-column:1 / -1; }
+    label { display:block; margin-bottom:6px; font-size:13px; font-weight:900; color:#33445c; }
+    input, select, textarea {
+      width:100%; min-height:42px; border:1px solid var(--line); border-radius:12px;
+      padding:10px 12px; font:inherit; background:#fff; color:var(--ink);
+    }
+    textarea { min-height:88px; resize:vertical; }
+    .cards { display:grid; gap:12px; }
+    .lead-card { padding:16px; border:1px solid var(--line); border-radius:16px; background:#fff; }
+    .lead-head { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+    .lead-head h3 { margin:0; font-size:18px; letter-spacing:-.025em; }
+    .badge { min-width:42px; min-height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; font-size:13px; font-weight:950; }
+    .grade-a { background:#eaf7ef; color:var(--green); border:1px solid #bde8ce; }
+    .grade-b { background:#fff6da; color:#8b6400; border:1px solid #f2d885; }
+    .grade-c { background:#f1f3f5; color:#55606e; border:1px solid #d9dee4; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .meta span { padding:5px 8px; border-radius:999px; background:#f4f8fc; color:#43536a; font-size:12px; font-weight:850; }
+    .card-actions { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+    .mini { min-height:30px; padding:0 9px; border-radius:9px; font-size:12px; }
+    .news-list { display:grid; gap:8px; margin:10px 0; }
+    .news-item { padding:10px; border-radius:12px; background:#f7fbff; border:1px solid #dce7f3; }
+    .news-item a { color:#07599d; font-weight:900; text-decoration:none; line-height:1.45; }
+    .news-item span { display:block; margin-top:4px; color:var(--muted); font-size:12px; font-weight:750; }
+    .tool-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+    .tool-row .btn, .tool-row button { min-height:44px; }
+    .pipeline { display:grid; grid-template-columns:repeat(7,minmax(160px,1fr)); gap:10px; overflow-x:auto; padding-bottom:8px; }
+    .stage { min-height:210px; padding:12px; border-radius:16px; background:#f4f8fc; border:1px solid #e0ebf7; }
+    .stage h3 { margin:0 0 10px; color:var(--navy); font-size:14px; }
+    .stage-item { padding:11px; margin-bottom:8px; border-radius:12px; background:#fff; border:1px solid #e4edf7; box-shadow:0 8px 18px rgba(7,26,51,.05); }
+    .stage-item b { display:block; font-size:13px; }
+    .stage-item span { display:block; margin-top:5px; color:var(--muted); font-size:12px; }
+    .template-box { white-space:pre-wrap; padding:16px; border-radius:14px; background:#071a33; color:#eaf5ff; line-height:1.75; min-height:220px; font-size:14px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+    th { background:#f4f8fc; color:var(--navy); }
+    .table-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:16px; }
+    .table-scroll table { min-width:820px; }
+    .status-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .status-card { padding:14px; border:1px solid var(--line); border-radius:15px; background:#fff; }
+    .status-card strong { display:flex; justify-content:space-between; gap:10px; color:var(--navy); }
+    .status-card p { margin:8px 0 0; color:var(--muted); line-height:1.55; font-size:13px; font-weight:700; }
+    .status-done { color:var(--green); font-weight:950; }
+    .status-wait { color:#8b6400; font-weight:950; }
+    .action-list { display:grid; gap:10px; }
+    .action-row { padding:14px; border:1px solid var(--line); border-radius:15px; background:#fff; }
+    .action-row h3 { margin:0; font-size:17px; color:var(--navy); }
+    .action-row p { margin:8px 0 0; line-height:1.6; color:#34445a; font-weight:700; }
+    .readiness { display:flex; align-items:center; gap:12px; margin:14px 0; }
+    .readiness-bar { flex:1; height:14px; background:#e8f1fa; border-radius:999px; overflow:hidden; border:1px solid #d5e4f3; }
+    .readiness-bar span { display:block; height:100%; background:linear-gradient(90deg,#1677ff,#0f8b4c); width:0%; }
+    @media (max-width:980px) {
+      .hero,.grid { grid-template-columns:1fr; }
+      .metrics { grid-template-columns:repeat(2,1fr); }
+      .form-grid { grid-template-columns:1fr; }
+      .full { grid-column:auto; }
+      .status-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:720px) {
+      .wrap { width:min(100% - 20px,1240px); }
+      .topbar { min-height:auto; padding:12px 0; flex-direction:column; align-items:stretch; }
+      .brand b { font-size:18px; }
+      .actions { width:100%; }
+      .actions button,.actions .btn { flex:1; padding:0 8px; }
+      .actions .btn,.actions button { min-width:calc(50% - 4px); }
+      main { padding:16px 0 calc(44px + env(safe-area-inset-bottom)); }
+      .tabs { top:0; margin:12px -10px 14px; padding:10px; overflow-x:auto; flex-wrap:nowrap; border-top:1px solid rgba(220,231,243,.7); border-bottom:1px solid rgba(220,231,243,.9); }
+      .tab { flex:0 0 auto; min-height:38px; white-space:nowrap; }
+      .panel { border-radius:16px; }
+      .panel-body { padding:18px; }
+      h1 { font-size:28px; letter-spacing:-.035em; }
+      .lead { font-size:14px; }
+      .lead-head { flex-direction:column; }
+      .tool-row .btn,.tool-row button { width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <b>COREON AI기반 중대재해 예방솔루션 v12</b>
+        <span>관리자 전용 · 실전 영업엔진 · 실시간 뉴스 · 한글엑셀 · PDF보고서 · 모바일 PWA</span>
+      </div>
+      <div class="actions">
+        <a class="btn light" href="/inquiry.html" target="_blank">문의폼</a>
+        <a class="btn light" href="/mobile.html">모바일 설치</a>
+        <a class="btn light" href="/api/import-template.xls">기업DB템플릿</a>
+        <a class="btn light" href="/api/export.xls">한글엑셀</a>
+        <a class="btn light" href="/api/export-utf8.csv">백업CSV</a>
+        <a class="btn light" href="/report.html" target="_blank">PDF보고서</a>
+        <a class="btn light" href="/reset-cache.html">캐시초기화</a>
+        <button class="secondary" id="installBtn">앱 설치</button>
+        <button class="danger" id="logoutBtn">로그아웃</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="panel">
+        <div class="panel-body">
+          <h1>고객 발굴부터 계약까지<br>코레온 리드를 서버에서 관리합니다</h1>
+          <p class="lead">홈페이지 문의는 자동으로 Lead에 등록되고, 내부 기준으로 점수화됩니다. 대표님은 모바일에서 로그인 후 A등급부터 접촉·제안·계약 단계까지 관리하면 됩니다.</p>
+          <div class="metrics">
+            <div class="metric"><b id="mTotal">0</b><span>전체 리드</span></div>
+            <div class="metric"><b id="mA">0</b><span>A등급 우선접촉</span></div>
+            <div class="metric"><b id="mProposal">0</b><span>제안 단계 이상</span></div>
+            <div class="metric"><b id="mValue">0</b><span>예상 매출(만원)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-body">
+          <h2>운영 기준</h2>
+          <div class="notice">공개 홈페이지는 고객 문의만 받습니다. 점수화 기준, ABM 타깃, 접촉 이력, 제안 전략은 로그인된 관리자 화면에서만 운영합니다.</div>
+          <p class="lead" id="syncStatus">서버 DB 연결 확인 중</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" data-view="leads">1. 리드 등록/발굴</button>
+      <button class="tab" data-view="pipeline">2. CRM 파이프라인</button>
+      <button class="tab" data-view="message">3. 제안 메시지</button>
+      <button class="tab" data-view="ops">4. 연동/운영 상태</button>
+      <button class="tab" data-view="automation">5. 자동화 실행</button>
+      <button class="tab" data-view="engine">6. 실전 영업엔진</button>
+    </div>
+
+    <section class="view active" id="leads">
+      <div class="grid">
+        <div class="panel">
+          <div class="panel-body">
+            <h2>내부 리드 등록</h2>
+            <form id="leadForm" class="form-grid">
+              <div><label>기업/현장명</label><input name="company" required placeholder="예: ○○건설 송도 현장"></div>
+              <div><label>업종</label><select name="industry"><option>건설</option><option>제조</option><option>식품</option><option>물류</option><option>EPC·플랜트</option><option>공공·지자체</option><option>행사·시설</option></select></div>
+              <div><label>규모</label><select name="size"><option value="small">소규모</option><option value="mid">중견</option><option value="large">대형</option></select></div>
+              <div><label>CRM 단계</label><select name="stage"><option>Lead</option><option>Contact</option><option>Meeting</option><option>Proposal</option><option>POC</option><option>Contract</option><option>Maintenance</option></select></div>
+              <div><label>최근 안전 이슈</label><select name="issue"><option value="none">확인 전</option><option value="minor">안전관리 관심</option><option value="major">사고/뉴스/감독 이슈</option></select></div>
+              <div><label>안전예산/설비투자</label><select name="budget"><option value="unknown">확인 전</option><option value="possible">가능성 있음</option><option value="confirmed">확인됨</option></select></div>
+              <div><label>담당자 확보</label><select name="contactStatus"><option value="unknown">확인 전</option><option value="team">부서/대표번호 확보</option><option value="person">담당자 이름·직통 확보</option></select></div>
+              <div><label>ABM 적합도</label><select name="abmFit"><option value="normal">일반</option><option value="fit">적합</option><option value="core">핵심 타깃</option></select></div>
+              <div><label>수집 출처</label><select name="source"><option>직접 발굴</option><option>홈페이지 문의</option><option>뉴스/보도자료</option><option>나라장터/조달</option><option>협회/세미나</option><option>지인/소개</option></select></div>
+              <div><label>예상 매출(만원)</label><input name="value" type="number" min="0" placeholder="500"></div>
+              <div class="full"><label>위험요인</label><input name="hazards" placeholder="폭염, 분진, 끼임, 추락, 비상전원, 배수"></div>
+              <div class="full"><label>담당자/연락처</label><input name="contact" placeholder="안전팀 김○○ / 010-0000-0000"></div>
+              <div class="full"><label>메모</label><textarea name="notes" placeholder="현장상황, 통화내용, 다음 행동"></textarea></div>
+              <div class="full"><button type="submit">서버 DB에 등록</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="panel"><div class="panel-body"><h2>우선순위 리드</h2><div class="cards" id="leadCards"></div></div></div>
+      </div>
+    </section>
+
+    <section class="view" id="pipeline">
+      <div class="panel"><div class="panel-body"><h2>CRM 7단계 파이프라인</h2><div class="pipeline" id="pipelineBoard"></div></div></div>
+    </section>
+
+    <section class="view" id="message">
+      <div class="grid">
+        <div class="panel"><div class="panel-body">
+          <h2>맞춤 제안 메시지</h2>
+          <label>대상 리드</label><select id="messageLead"></select>
+          <label style="margin-top:12px;">메시지 유형</label><select id="messageType"><option value="email">1차 제안 이메일</option><option value="call">전화 스크립트</option><option value="kakao">카카오톡 후속문자</option></select>
+          <div style="margin-top:14px;"><button id="generateMessage">생성</button><button class="light" id="copyMessage">복사</button></div>
+        </div></div>
+        <div class="panel"><div class="panel-body"><h2>생성 결과</h2><div class="template-box" id="messageOutput">대상 리드를 선택하고 메시지를 생성하세요.</div></div></div>
+      </div>
+    </section>
+
+    <section class="view" id="ops">
+      <div class="grid">
+        <div class="panel"><div class="panel-body">
+          <h2>서버/DB/문의폼 연동 상태</h2>
+          <div class="table-scroll"><table><thead><tr><th>영역</th><th>현재 구현</th><th>다음 고도화</th></tr></thead><tbody>
+            <tr><td>관리자 로그인</td><td>서버 세션 쿠키 로그인</td><td>비밀번호 변경 UI, 2단계 인증</td></tr>
+            <tr><td>서버 DB</td><td>JSON 파일 DB 저장</td><td>PostgreSQL/Supabase 전환</td></tr>
+            <tr><td>홈페이지 문의</td><td>공개 문의폼 접수 후 리드 자동 등록</td><td>운영 도메인에서 서버 문의폼으로 연결</td></tr>
+            <tr><td>신규 문의 알림</td><td>Webhook 설정 시 외부 알림 자동 전송</td><td>문자·카카오 알림톡·Gmail 연동</td></tr>
+            <tr><td>모바일 앱</td><td>PWA 설치 및 설치 상태 진단</td><td>푸시 알림, 일정 알림</td></tr>
+            <tr><td>결제/계약</td><td>설계 단계</td><td>PG 결제, 계약서, 전자서명 연동</td></tr>
+          </tbody></table></div>
+        </div></div>
+        <div class="panel"><div class="panel-body">
+          <h2>운영 주기</h2>
+          <div class="notice">실시간: 문의 접수 → Lead 등록. 매일: A등급 우선 접촉. 매주: 미접촉 리드 정리. 매월: 업종별 전환율과 예상 매출 분석.</div>
+          <p class="lead" id="appStatus">PWA 상태 확인 중</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="view" id="automation">
+      <div class="grid">
+        <div class="panel"><div class="panel-body">
+          <h2>AI 발굴 자동화 실행</h2>
+          <div class="notice">버튼을 누르면 중대재해처벌법 시행령과 미팅 전략 기준을 반영해 5인 이상 사업장, 건설사, 식품공장, 프랜차이즈, 물류센터, 병원, 학원, 공중이용시설, 지자체 협력 후보를 실명 타깃 DB로 생성합니다. 또한 Google News RSS를 기본 수집하고, 네이버/구글 API 키가 있으면 해당 API로 최신 뉴스 신호를 반영합니다.</div>
+          <label style="margin-top:14px; display:flex; align-items:center; gap:8px;">
+            <input id="useAiAnalysis" type="checkbox" style="width:auto; min-height:auto;">
+            실제 AI API 분석 사용
+          </label>
+          <label style="margin-top:10px; display:flex; align-items:center; gap:8px;">
+            <input id="useRealtimeNews" type="checkbox" checked style="width:auto; min-height:auto;">
+            실시간 뉴스 수집 반영
+          </label>
+          <div class="tool-row">
+            <button id="runAutomationBtn">자동화 실행</button>
+            <button class="light" id="refreshNewsBtn">뉴스 전체 갱신</button>
+            <button class="light" id="refreshAutomationBtn">상태 새로고침</button>
+            <a class="btn secondary" href="/api/export.xls">한글엑셀 다운로드</a>
+            <a class="btn secondary" href="/report.html" target="_blank">PDF보고서 열기</a>
+          </div>
+          <p class="lead" id="automationStatus">자동화 상태 확인 중</p>
+          <p class="lead">OPENAI_API_KEY가 없으면 로컬 규칙 기반 분석으로 실행됩니다. 네이버/구글 검색 API 키가 없으면 Google News RSS로 최신 뉴스 수집을 시도합니다.</p>
+        </div></div>
+        <div class="panel"><div class="panel-body">
+          <h2>최근 자동화 로그</h2>
+          <div class="cards" id="automationRuns"></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="view" id="engine">
+      <div class="grid">
+        <div class="panel"><div class="panel-body">
+          <h2>실전 영업엔진 준비도</h2>
+          <div class="notice" id="engineRule">상태 확인 중입니다.</div>
+          <div class="readiness">
+            <strong id="readinessText">0%</strong>
+            <div class="readiness-bar"><span id="readinessBar"></span></div>
+          </div>
+          <div class="status-grid" id="engineChecklist"></div>
+        </div></div>
+        <div class="panel"><div class="panel-body">
+          <h2>오늘 우선 실행 리스트</h2>
+          <p class="lead">A등급과 고득점 리드부터 전화 → 이메일 → 카카오 → 방문 제안 순으로 처리합니다.</p>
+          <div class="action-list" id="todayActions"></div>
+        </div></div>
+      </div>
+      <div class="panel" style="margin-top:18px;"><div class="panel-body">
+        <h2>다음 연결 순서</h2>
+        <div class="table-scroll"><table>
+          <thead><tr><th>우선순위</th><th>연결 기능</th><th>목적</th><th>완료 기준</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>실제 기업 DB Import</td><td>지자체·건설·식품·물류·프랜차이즈 후보를 대량 등록</td><td>기업DB템플릿 작성 후 Import API로 등록</td></tr>
+            <tr><td>2</td><td>네이버 뉴스 API / Google CSE</td><td>중대재해·사고·감독·ESG 이슈를 최신 신호로 반영</td><td>.env에 API 키 등록 후 뉴스 갱신 시 API 결과 표시</td></tr>
+            <tr><td>3</td><td>담당자 연락처 DB</td><td>전화·이메일·카카오 접촉 실행 가능 상태로 전환</td><td>A등급 리드의 담당자/연락처 70% 이상 확보</td></tr>
+            <tr><td>4</td><td>알림/메일 자동화</td><td>신규 문의와 A등급 리드 발생 시 즉시 알림</td><td>Webhook 또는 이메일 발송 로그 생성</td></tr>
+            <tr><td>5</td><td>결제/예약/계약 연동</td><td>무료 진단 → 유료 진단비/착수금/예약금 결제로 전환</td><td>문의폼에서 결제 또는 예약 완료 리드 자동 생성</td></tr>
+          </tbody>
+        </table></div>
+      </div></div>
+    </section>
+  </main>
+
+  <script>
+    const stages = ["Lead", "Contact", "Meeting", "Proposal", "POC", "Contract", "Maintenance"];
+    let leads = [];
+    let automationRuns = [];
+    let engineStatus = null;
+    let todayActions = [];
+    let deferredInstallPrompt = null;
+
+    const $ = id => document.getElementById(id);
+    const escapeHtml = str => String(str || "").replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[ch]));
+    const gradeClass = grade => `grade-${String(grade || "c").toLowerCase()}`;
+    const renderNews = lead => {
+      const items = lead.news?.items || [];
+      if (!items.length) {
+        return `<p><b>최신 뉴스:</b> ${escapeHtml(lead.news?.error || "아직 수집 결과 없음")}</p>`;
+      }
+      return `<div class="news-list">
+        ${items.slice(0, 3).map(item => `
+          <div class="news-item">
+            <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
+            <span>${escapeHtml(item.source)} · ${escapeHtml(item.publishedAt || lead.newsUpdatedAt || "")}</span>
+          </div>`).join("")}
+      </div>`;
+    };
+    const searchUrl = (lead, type) => {
+      const base = lead.company || "";
+      const q = {
+        news: lead.searchKeywords || `${base} 중대재해 안전사고 안전보건`,
+        buyer: `${base} 안전보건팀 구매팀 EHS 담당자 대표자`,
+        bid: `${base} 중대재해 예방 지원사업 안전관리 설비투자 공고`,
+        homepage: `${base} 공식 홈페이지 안전보건 ESG`
+      }[type] || base;
+      if (type === "naver") return `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(lead.searchKeywords || `${base} 중대재해 안전`)}`;
+      return `https://www.google.com/search?q=${encodeURIComponent(q)}`;
+    };
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {
+        ...options,
+        headers: { "Content-Type": "application/json", ...(options.headers || {}) }
+      });
+      if (response.status === 401) location.href = "/login.html";
+      if (!response.ok) throw new Error("API error");
+      return response.json();
+    }
+
+    async function loadLeads() {
+      const data = await api("/api/leads");
+      leads = data.leads || [];
+      $("syncStatus").textContent = `서버 DB 연결 완료 · 마지막 동기화 ${new Date().toLocaleString("ko-KR")}`;
+      renderAll();
+    }
+
+    async function loadAutomationStatus() {
+      const data = await api("/api/automation/status");
+      automationRuns = data.runs || [];
+      $("automationStatus").textContent = data.lastRun
+        ? `${data.lastRun.summary} · ${new Date(data.lastRun.date).toLocaleString("ko-KR")}`
+        : `아직 자동화 실행 이력이 없습니다. 현재 전체 ${data.totalLeads}건, A등급 ${data.aLeads}건.`;
+      renderAutomationRuns();
+    }
+
+    async function loadSalesEngine() {
+      const status = await api("/api/sales-engine/status");
+      const actions = await api("/api/today-actions");
+      engineStatus = status;
+      todayActions = actions.actions || [];
+      renderSalesEngine();
+    }
+
+    function renderMetrics() {
+      $("mTotal").textContent = leads.length;
+      $("mA").textContent = leads.filter(l => l.grade === "A").length;
+      $("mProposal").textContent = leads.filter(l => stages.indexOf(l.stage) >= 3).length;
+      $("mValue").textContent = leads.reduce((sum, l) => sum + Number(l.value || 0), 0).toLocaleString("ko-KR");
+    }
+
+    function renderLeads() {
+      const sorted = [...leads].sort((a, b) => b.score - a.score);
+      $("leadCards").innerHTML = sorted.map(lead => `
+        <article class="lead-card">
+          <div class="lead-head">
+            <h3>${escapeHtml(lead.company)}</h3>
+            <span class="badge ${gradeClass(lead.grade)}">${lead.grade} · ${lead.score}</span>
+          </div>
+          <div class="meta">
+            <span>${escapeHtml(lead.industry)}</span><span>${escapeHtml(lead.stage)}</span><span>${Number(lead.value || 0).toLocaleString("ko-KR")}만원</span><span>${escapeHtml(lead.source)}</span>
+          </div>
+          <p><b>위험요인:</b> ${escapeHtml(lead.hazards || "확인 전")}</p>
+          <p><b>법령근거:</b> ${escapeHtml(lead.legalBasis || "중대재해처벌법 적용 가능성 확인")}</p>
+          <p><b>발굴사유:</b> ${escapeHtml(lead.leadReason || "5인 이상 사업장 및 위험업종 기준 확인 필요")}</p>
+          ${renderNews(lead)}
+          ${lead.analysis ? `<p><b>Pain Point:</b> ${escapeHtml(lead.analysis.painPoint)}</p><p><b>제안 포인트:</b> ${escapeHtml(lead.analysis.proposalFocus)}</p>` : ""}
+          <p><b>다음 행동:</b> ${escapeHtml(lead.nextAction)}</p>
+          <div class="card-actions">
+            <a class="btn mini light" href="${searchUrl(lead, "naver")}" target="_blank" rel="noopener">네이버뉴스</a>
+            <a class="btn mini light" href="${searchUrl(lead, "news")}" target="_blank" rel="noopener">안전이슈</a>
+            <a class="btn mini light" href="${searchUrl(lead, "buyer")}" target="_blank" rel="noopener">담당자검색</a>
+            <a class="btn mini light" href="${searchUrl(lead, "bid")}" target="_blank" rel="noopener">공고/투자</a>
+            ${stages.map(stage => `<button class="mini light" onclick="moveLead('${lead.id}','${stage}')">${stage}</button>`).join("")}
+            <button class="mini light" onclick="refreshLeadNews('${lead.id}')">뉴스갱신</button>
+            <button class="mini light" onclick="analyzeLead('${lead.id}')">AI 분석</button>
+            <button class="mini danger" onclick="deleteLead('${lead.id}')">삭제</button>
+          </div>
+        </article>`).join("") || `<div class="notice">아직 등록된 리드가 없습니다.</div>`;
+    }
+
+    function renderAutomationRuns() {
+      $("automationRuns").innerHTML = automationRuns.slice(0, 8).map(run => `
+        <article class="lead-card">
+          <div class="lead-head">
+            <h3>${new Date(run.date).toLocaleString("ko-KR")}</h3>
+            <span class="badge grade-a">${run.aLeads} A</span>
+          </div>
+          <p>${escapeHtml(run.summary)}</p>
+          <p><b>분석 모드:</b> ${escapeHtml(run.mode || "local-rules")}</p>
+          <p><b>다음 행동:</b> ${escapeHtml(run.nextAction)}</p>
+        </article>`).join("") || `<div class="notice">아직 자동화 실행 이력이 없습니다.</div>`;
+    }
+
+    function renderSalesEngine() {
+      if (!engineStatus) return;
+      const readiness = engineStatus.readiness || 0;
+      $("engineRule").textContent = engineStatus.operatingRule;
+      $("readinessText").textContent = `${readiness}%`;
+      $("readinessBar").style.width = `${readiness}%`;
+      $("engineChecklist").innerHTML = (engineStatus.checklist || []).map(item => `
+        <article class="status-card">
+          <strong>${escapeHtml(item.label)} <span class="${item.done ? "status-done" : "status-wait"}">${item.done ? "완료" : "연결 필요"}</span></strong>
+          <p>${escapeHtml(item.note)}</p>
+        </article>`).join("");
+      $("todayActions").innerHTML = todayActions.map((lead, index) => `
+        <article class="action-row">
+          <div class="lead-head">
+            <h3>${index + 1}. ${escapeHtml(lead.company)}</h3>
+            <span class="badge ${gradeClass(lead.grade)}">${escapeHtml(lead.grade)} · ${escapeHtml(lead.score)}</span>
+          </div>
+          <div class="meta">
+            <span>${escapeHtml(lead.industry)}</span>
+            <span>${escapeHtml(lead.stage)}</span>
+            <span>${Number(lead.value || 0).toLocaleString("ko-KR")}만원</span>
+            <span>뉴스 ${lead.newsCount || 0}건</span>
+          </div>
+          <p><b>접촉 정보:</b> ${escapeHtml(lead.contact)}</p>
+          <p><b>Pain Point:</b> ${escapeHtml(lead.painPoint)}</p>
+          <p><b>제안 포인트:</b> ${escapeHtml(lead.proposalFocus)}</p>
+          <p><b>실행 순서:</b> ${escapeHtml(lead.recommendedChannel || lead.nextAction)}</p>
+        </article>`).join("") || `<div class="notice">우선 실행 리드가 없습니다. 자동화 실행 또는 기업 DB 등록을 먼저 진행하세요.</div>`;
+    }
+
+    function renderPipeline() {
+      $("pipelineBoard").innerHTML = stages.map(stage => {
+        const items = leads.filter(lead => lead.stage === stage);
+        return `<div class="stage"><h3>${stage} · ${items.length}</h3>${items.map(lead => `<div class="stage-item"><b>${escapeHtml(lead.company)}</b><span>${lead.grade}등급 · ${lead.score}점</span></div>`).join("")}</div>`;
+      }).join("");
+    }
+
+    function renderMessageSelect() {
+      $("messageLead").innerHTML = leads.map(lead => `<option value="${lead.id}">${escapeHtml(lead.company)} · ${lead.industry} · ${lead.grade}등급</option>`).join("");
+    }
+
+    function renderAll() {
+      renderMetrics();
+      renderLeads();
+      renderPipeline();
+      renderMessageSelect();
+      renderSalesEngine();
+    }
+
+    window.moveLead = async (id, stage) => {
+      await api(`/api/leads/${id}`, { method: "PATCH", body: JSON.stringify({ stage }) });
+      await loadLeads();
+    };
+
+    window.deleteLead = async id => {
+      if (!confirm("이 리드를 삭제할까요?")) return;
+      await api(`/api/leads/${id}`, { method: "DELETE" });
+      await loadLeads();
+    };
+
+    window.analyzeLead = async id => {
+      await api(`/api/leads/${id}/analyze`, { method: "POST", body: JSON.stringify({ useAi: $("useAiAnalysis")?.checked }) });
+      await loadLeads();
+    };
+
+    window.refreshLeadNews = async id => {
+      $("automationStatus").textContent = "선택 리드 뉴스 갱신 중입니다...";
+      const result = await api("/api/news/refresh", { method: "POST", body: JSON.stringify({ leadId: id }) });
+      leads = result.leads || leads;
+      $("automationStatus").textContent = `뉴스 갱신 완료: ${result.updatedCount || 0}건`;
+      renderAll();
+    };
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+        tab.classList.add("active");
+        $(tab.dataset.view).classList.add("active");
+        if (tab.dataset.view === "engine") loadSalesEngine().catch(() => {});
+      });
+    });
+
+    $("leadForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      const body = Object.fromEntries(new FormData(event.target).entries());
+      await api("/api/leads", { method: "POST", body: JSON.stringify(body) });
+      event.target.reset();
+      await loadLeads();
+      await loadSalesEngine();
+    });
+
+    $("logoutBtn").addEventListener("click", async () => {
+      await fetch("/api/logout", { method: "POST" });
+      location.href = "/login.html";
+    });
+
+    $("runAutomationBtn").addEventListener("click", async () => {
+      $("automationStatus").textContent = "자동화 실행 중입니다...";
+      const result = await api("/api/automation/run", { method: "POST", body: JSON.stringify({ useAi: $("useAiAnalysis").checked, fetchNews: $("useRealtimeNews").checked }) });
+      leads = result.leads || leads;
+      automationRuns = result.runs || [];
+      $("automationStatus").textContent = result.run.summary;
+      renderAll();
+      renderAutomationRuns();
+      await loadSalesEngine();
+    });
+
+    $("refreshNewsBtn").addEventListener("click", async () => {
+      $("automationStatus").textContent = "전체 리드 최신 뉴스 수집 중입니다...";
+      const result = await api("/api/news/refresh", { method: "POST", body: JSON.stringify({}) });
+      leads = result.leads || leads;
+      $("automationStatus").textContent = `뉴스 전체 갱신 완료: ${result.updatedCount || 0}건`;
+      renderAll();
+      await loadAutomationStatus();
+      await loadSalesEngine();
+    });
+
+    $("refreshAutomationBtn").addEventListener("click", loadAutomationStatus);
+
+    $("generateMessage").addEventListener("click", () => {
+      const lead = leads.find(item => item.id === $("messageLead").value);
+      $("messageOutput").textContent = lead ? makeMessage(lead, $("messageType").value) : "등록된 리드가 없습니다.";
+    });
+
+    $("copyMessage").addEventListener("click", async () => {
+      await navigator.clipboard.writeText($("messageOutput").textContent);
+      alert("복사 완료");
+    });
+
+    function makeMessage(lead, type) {
+      const base = {
+        건설: "건설현장의 중대재해 예방, 폭염·분진·추락 위험, 임시전원 및 현장장비 운용",
+        제조: "제조현장의 끼임·전기·화재·분진 위험과 작업환경 개선",
+        식품: "식품공장의 끼임·절단·고온·생산중단 리스크",
+        물류: "물류창고의 폭염, 지게차 동선, 추락, 화재, 작업자 피로",
+        "EPC·플랜트": "플랜트·EPC 현장의 복합설비 안전과 작업허가 관리",
+        "공공·지자체": "관내 사업장 중대재해 예방 진단과 안전 캠페인",
+        "행사·시설": "행사장·시설의 냉방, 전원, 안전동선, 현장 운영 리스크"
+      }[lead.industry] || "현장 안전진단과 산업안전 제품 조달";
+      if (type === "call") return `안녕하세요. 코레온 이호원 대표입니다.\n\n${lead.company} 관련해서 ${base} 관점으로 현장 안전진단 상담과 필요한 장비 조달 안내를 드리고자 연락드렸습니다.\n\n혹시 안전담당자님 또는 현장 운영 담당자님과 10분 정도 통화 가능하실까요?`;
+      if (type === "kakao") return `안녕하세요. 코레온 이호원 대표입니다.\n\n말씀드린 내용처럼 ${lead.company} 현장의 ${base} 관련해 간단한 안전진단 상담과 필요 장비 검토를 도와드릴 수 있습니다.\n\n현장 사진, 사용 목적, 필요 수량, 납품 장소를 보내주시면 검토 후 안내드리겠습니다.\n\n코레온 고객센터 0507-1358-1482`;
+      return `제목: ${lead.company} 현장 안전진단 및 산업안전 장비 조달 상담 제안\n\n안녕하세요. 코레온 이호원 대표입니다.\n\n코레온은 중대재해 예방 관점에서 현장 위험요인을 함께 확인하고, 필요한 산업안전용품과 현장장비 조달 상담까지 연결하는 기업입니다.\n\n${lead.company}의 경우 ${base} 관점에서 사전 점검과 개선 방향 검토가 가능할 것으로 보여 연락드립니다.\n\n검토 가능 범위는 다음과 같습니다.\n- 현장 위험요인 간단 진단\n- 안전용품 및 현장장비 필요 품목 검토\n- 냉방·분진·비상전원·배수 등 작업환경 개선 상담\n- 대량구매, 렌탈, 현장납품 가능 여부 확인\n\n감사합니다.\n코레온 이호원 드림\n고객센터: 0507-1358-1482`;
+    }
+
+    window.addEventListener("beforeinstallprompt", event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+    });
+
+    $("installBtn").addEventListener("click", async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+      } else {
+        alert("모바일 브라우저 메뉴에서 '홈 화면에 추가' 또는 '앱 설치'를 선택하면 앱처럼 사용할 수 있습니다.");
+      }
+    });
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/coreon-ai-safety-sw.js")
+        .then(() => $("appStatus").textContent = "PWA 서비스워커 등록 완료")
+        .catch(() => $("appStatus").textContent = "PWA 등록 실패 · 배포 경로 확인 필요");
+    }
+
+    Promise.all([loadLeads(), loadAutomationStatus(), loadSalesEngine()]).catch(() => location.href = "/login.html");
+  </script>
+</body>
+</html>
