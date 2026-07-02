@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COREON(코레온) | 산업안전 솔루션과 현장 조달을 연결하는 기업</title>
+  <title>COREON(코레온) | 중대재해 위험 사업장 AI 발굴 플랫폼 × 현장 조달</title>
 
-  <meta name="description" content="COREON(코레온)은 산업안전 솔루션과 현장 조달 서비스를 연결합니다. 산업안전용품, 현장장비, 발전기·소형건설기계, 냉방·분진 대응, 제빙기, 쇼케이스 등 현장에 필요한 제품을 코레온몰과 상담 채널을 통해 안내합니다.">
-  <meta name="keywords" content="코레온, COREON, 코레온몰, 산업안전, 안전용품, 현장장비, 발전기, 소형건설기계, 콤팩타, 휘니샤, 바이브레터, 제빙기, 쇼케이스, 쿨링포그, 분진억제, 중대재해 예방, 특허, 벤처기업">
+  <meta name="description" content="COREON(코레온)은 중대재해 위험 사업장을 AI 기반으로 발굴·점수화하고, Safety IP와 현장 조달 솔루션을 연결합니다. 산업안전용품, 현장장비, 발전기, 냉방·분진 대응, 제빙기, 쇼케이스 등 현장에 필요한 제품을 코레온몰과 상담 채널을 통해 안내합니다.">
+  <meta name="keywords" content="코레온, COREON, Safety Risk Score, 중대재해 위험 사업장, 산업안전 AI 플랫폼, ABM, 코레온몰, 산업안전, 안전용품, 현장장비, 발전기, 소형건설기계, 쿨링포그, 분진억제, 중대재해 예방, 특허, 벤처기업, 공공조달">
   <meta name="author" content="COREON">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.coreon-global.com/">
@@ -18,14 +18,14 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:site_name" content="COREON">
-  <meta property="og:title" content="COREON(코레온) | 산업안전 솔루션 × 현장 조달">
-  <meta property="og:description" content="산업안전 솔루션과 현장에 필요한 제품 조달을 연결하는 COREON.">
+  <meta property="og:title" content="COREON(코레온) | 중대재해 위험 사업장 AI 발굴 플랫폼">
+  <meta property="og:description" content="AI 기반 Safety Risk Score로 위험 사업장을 발굴하고 Safety IP와 현장 조달을 연결하는 COREON.">
   <meta property="og:url" content="https://www.coreon-global.com/">
   <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260627-season2">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="COREON(코레온) | 산업안전 솔루션 × 현장 조달">
-  <meta name="twitter:description" content="산업안전 솔루션과 현장에 필요한 제품 조달을 연결하는 COREON.">
+  <meta name="twitter:title" content="COREON(코레온) | 중대재해 위험 사업장 AI 발굴 플랫폼">
+  <meta name="twitter:description" content="AI 기반 Safety Risk Score로 위험 사업장을 발굴하고 Safety IP와 현장 조달을 연결하는 COREON.">
   <meta name="twitter:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260627-season2">
 
   <style>
@@ -354,6 +354,261 @@
       line-height: 1.45;
       color: rgba(255, 255, 255, 0.82);
       font-weight: 750;
+    }
+
+    .platform {
+      background:
+        radial-gradient(circle at 8% 10%, rgba(22, 119, 255, 0.12), transparent 34%),
+        radial-gradient(circle at 92% 6%, rgba(214, 167, 47, 0.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f5f9fd 100%);
+      border-bottom: 1px solid #e7eff8;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .platform-lead {
+      padding: 42px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.96), rgba(10, 43, 87, 0.92)),
+        url("/assets/coreon-supply-safety-ip.png?v=20260702-platform") center/cover no-repeat;
+      color: #ffffff;
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .platform-lead::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(143, 208, 255, 0.20), transparent 28%),
+        linear-gradient(180deg, rgba(6, 26, 51, 0.14), rgba(6, 26, 51, 0.70));
+    }
+
+    .platform-lead h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.16;
+      letter-spacing: -0.055em;
+      font-weight: 950;
+    }
+
+    .platform-lead p {
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 17px;
+      line-height: 1.78;
+      font-weight: 540;
+    }
+
+    .platform-lead strong {
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .score-panel {
+      margin-top: 28px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(12px);
+    }
+
+    .score-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .score-top span {
+      display: block;
+      color: #bfe5ff;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .score-top b {
+      display: block;
+      margin-top: 4px;
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+    }
+
+    .score-grade {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .score-bar {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.20);
+    }
+
+    .score-bar i {
+      display: block;
+      width: 87%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #8fd0ff, #1677ff, #d6a72f);
+    }
+
+    .score-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .score-items span {
+      padding: 12px 13px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.10);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .platform-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .platform-card {
+      padding: 28px;
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .platform-card h3 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+      color: #061a33;
+    }
+
+    .platform-card p {
+      margin: 0;
+      color: #5b6678;
+      font-size: 15px;
+      line-height: 1.72;
+      font-weight: 540;
+    }
+
+    .platform-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .platform-tags span {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: #07599d;
+      border: 1px solid #d4e9ff;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .platform-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .platform-step {
+      padding: 20px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(6, 26, 51, 0.06);
+    }
+
+    .platform-step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 13px;
+      background: #eaf5ff;
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 950;
+    }
+
+    .platform-step h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+    }
+
+    .platform-step p {
+      margin: 0;
+      color: #5b6678;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 540;
+    }
+
+    .procurement-bridge {
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: 28px;
+      background: #061a33;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow2);
+    }
+
+    .procurement-bridge h3 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -0.04em;
+    }
+
+    .procurement-bridge p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.7;
+      font-weight: 540;
     }
 
 
@@ -1210,6 +1465,7 @@
 
       .hero-points,
       .about-grid,
+      .platform-grid,
       .mall-grid,
       .ip-grid,
       .contact-grid {
@@ -1222,6 +1478,14 @@
 
       .flow-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .platform-flow {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .procurement-bridge {
+        grid-template-columns: 1fr;
       }
 
       section {
@@ -1254,9 +1518,11 @@
       }
 
       .hero-points,
+      .score-items,
       .category-grid,
       .proof-grid,
       .flow-grid,
+      .platform-flow,
       .supply-grid,
       .season-grid {
         grid-template-columns: 1fr;
@@ -1264,6 +1530,8 @@
 
       .about-card,
       .white-card,
+      .platform-lead,
+      .platform-card,
       .contact-card,
       .contact-note {
         padding: 26px;
@@ -1318,7 +1586,7 @@
       "@type": "Person",
       "name": "이호원"
     },
-    "description": "COREON은 산업안전 솔루션과 현장 조달 서비스를 연결하는 기업입니다.",
+    "description": "COREON은 중대재해 위험 사업장을 AI 기반으로 발굴·점수화하고 Safety IP와 현장 조달 서비스를 연결하는 기업입니다.",
     "email": "contact@coreon-global.com",
     "telephone": "+82-0507-1358-1482",
     "sameAs": [
@@ -1343,6 +1611,7 @@
       <label class="mobile-menu-label" for="menu-toggle"></label>
 
       <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#risk-platform">AI진단 플랫폼</a>
         <a href="#about">회사소개</a>
         <a href="#mall">코레온몰</a>
         <a href="#season">시즌대비</a>
@@ -1369,45 +1638,187 @@
     <section class="hero" id="top">
       <div class="container">
         <div class="hero-content">
-          <div class="eyebrow">Safety Solution · Field Supply · COREON Mall</div>
+          <div class="eyebrow">AI Safety Risk Platform · Safety IP · COREON Mall</div>
 
-          <h1>산업안전 솔루션과<br>현장 조달을 연결하는<br>COREON</h1>
+          <h1>중대재해 위험 사업장을<br>AI로 발굴하고<br>현장 조달까지 연결합니다</h1>
 
           <p>
-            <strong>코레온은 현장에 필요한 안전용품, 장비, 소모품, 업소용 제품을 한 곳에서 확인하고 상담할 수 있도록 연결합니다.</strong>
-            산업안전과 현장 운영 관점에서 필요한 제품을 선별하고, 구매·견적·대량납품·렌탈 상담까지 이어갑니다.
+            <strong>코레온은 사업장 규모, 업종, 사고 이력, 안전관리 공백을 분석해 Safety Risk Score를 도출하는 산업안전 AI 플랫폼을 지향합니다.</strong>
+            진단 결과는 Safety IP, 무상 현장진단, 공공·조달시장 대응, 코레온몰 현장장비 조달 상담으로 연결됩니다.
           </p>
 
           <div class="hero-actions">
+            <a class="btn btn-primary" href="#risk-platform">AI 위험진단 보기</a>
             <a class="btn btn-primary" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 바로가기</a>
-            <a class="btn btn-gold" href="#season">시즌별 대비 보기</a>
             <a class="btn btn-kakao" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a>
-            <a class="btn btn-gold" href="#supply">공급 품목 보기</a>
             <a class="btn btn-light" href="#ip">Safety IP 보기</a>
             <a class="btn btn-dark" href="tel:0507-1358-1482">전화 상담 문의</a>
           </div>
 
           <div class="hero-points">
             <div class="hero-point">
-              <b>Safety</b>
-              <span>산업안전 관점의 제품 선별</span>
+              <b>AI Score</b>
+              <span>사업장 위험도 점수화</span>
+            </div>
+
+            <div class="hero-point">
+              <b>ABM</b>
+              <span>구매 가능 기업 선별</span>
+            </div>
+
+            <div class="hero-point">
+              <b>Safety IP</b>
+              <span>특허 기반 안전 솔루션</span>
             </div>
 
             <div class="hero-point">
               <b>Supply</b>
-              <span>현장장비·소모품 조달 상담</span>
-            </div>
-
-            <div class="hero-point">
-              <b>B2B</b>
-              <span>대량구매·현장납품 문의</span>
-            </div>
-
-            <div class="hero-point">
-              <b>COREON Mall</b>
-              <span>스마트스토어 기반 구매 연결</span>
+              <span>조달·렌탈·납품 병행</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform" id="risk-platform">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">AI Safety Risk Platform</div>
+
+          <h2>더 큰 기회는<br>“산업안전 AI 플랫폼”입니다</h2>
+
+          <p>
+            코레온은 단순히 제품을 판매하는 회사에 머무르지 않습니다.
+            사업장 규모, 업종, 산재 발생 이력, 고용노동부 감독 이력, 안전기사, ESG, 안전투자, 공급입찰 참여 데이터를 분석해
+            중대재해 위험 사업장을 발굴하고, 진단·제안·조달 상담으로 연결하는 플랫폼을 구축합니다.
+          </p>
+        </div>
+
+        <div class="platform-grid">
+          <div class="platform-lead">
+            <div class="eyebrow">COREON Risk Intelligence</div>
+
+            <h2>“Safety Risk Score 87점”<br>위험 신호를 먼저 보여주는 플랫폼</h2>
+
+            <p>
+              AI가 업종, 사업장 규모, 최근 뉴스, 사고 이력, 안전관리 공백, ESG 이슈를 분석해
+              <strong>구매 가능성과 위험도를 동시에 판단</strong>합니다. 이 점수는 무상진단, 맞춤 제안서, Safety IP,
+              코레온몰 장비 조달로 이어지는 첫 관문입니다.
+            </p>
+
+            <div class="score-panel" aria-label="Safety Risk Score 예시">
+              <div class="score-top">
+                <div>
+                  <span>Sample Result</span>
+                  <b>87점</b>
+                </div>
+
+                <div class="score-grade">A 등급</div>
+              </div>
+
+              <div class="score-bar"><i></i></div>
+
+              <div class="score-items">
+                <span>중대재해 리스크 높음</span>
+                <span>안전예산 가능성 확인</span>
+                <span>무상진단 우선 대상</span>
+                <span>맞춤 제안서 발급 후보</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="platform-stack">
+            <article class="platform-card">
+              <h3>ABM 타깃 기업 DB 구축</h3>
+              <p>
+                불특정 다수 광고가 아니라 건설사, EPC, 제조공장, 식품공장, 물류센터, 공공기관처럼
+                구매 가능성이 높은 기업을 먼저 선별합니다.
+              </p>
+
+              <div class="platform-tags">
+                <span>삼성물산</span>
+                <span>현대건설</span>
+                <span>GS건설</span>
+                <span>DL이앤씨</span>
+                <span>식품공장</span>
+                <span>물류센터</span>
+              </div>
+            </article>
+
+            <article class="platform-card">
+              <h3>Pain Point Mapping</h3>
+              <p>
+                사고 이력, 안전관리 비용, ESG 대응, 현장 작업환경, 공공조달 조건을 분석해
+                “왜 이 회사가 지금 코레온 제품과 Safety IP가 필요한지”를 자동으로 발굴합니다.
+              </p>
+
+              <div class="platform-tags">
+                <span>CEO 리스크</span>
+                <span>중대재해 대응</span>
+                <span>폭염·분진</span>
+                <span>공공조달</span>
+              </div>
+            </article>
+
+            <article class="platform-card">
+              <h3>기존 조달시장 병행 전략</h3>
+              <p>
+                AI 플랫폼은 미래 성장축이고, 코레온몰·현장장비·안전용품·발전기·냉방·제빙기·쇼케이스 조달은
+                현재 매출과 고객 접점을 만드는 병행축입니다.
+              </p>
+
+              <div class="platform-tags">
+                <span>코레온몰</span>
+                <span>대량견적</span>
+                <span>렌탈 상담</span>
+                <span>현장납품</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="platform-flow" aria-label="AI 위험 사업장 발굴 플랫폼 흐름">
+          <article class="platform-step">
+            <b>01</b>
+            <h3>기업 DB 수집</h3>
+            <p>업종, 규모, 담당자, 뉴스, 사고 이력, 안전예산 징후를 수집합니다.</p>
+          </article>
+
+          <article class="platform-step">
+            <b>02</b>
+            <h3>AI Scoring</h3>
+            <p>중대재해 위험도와 구매 가능성을 점수화해 우선순위를 나눕니다.</p>
+          </article>
+
+          <article class="platform-step">
+            <b>03</b>
+            <h3>무상 진단</h3>
+            <p>현장 사진, 설비, 작업환경을 기반으로 위험요인을 확인합니다.</p>
+          </article>
+
+          <article class="platform-step">
+            <b>04</b>
+            <h3>맞춤 제안</h3>
+            <p>기업별 Pain Point에 맞춰 Safety IP와 장비 솔루션을 연결합니다.</p>
+          </article>
+
+          <article class="platform-step">
+            <b>05</b>
+            <h3>조달 연결</h3>
+            <p>코레온몰, 대량견적, 렌탈, 현장납품, 공공조달 검토로 확장합니다.</p>
+          </article>
+        </div>
+
+        <div class="procurement-bridge">
+          <div>
+            <h3>AI 플랫폼 + 기존 조달시장, 둘 다 가져갑니다</h3>
+            <p>
+              홈페이지는 위험 사업장을 발굴하는 플랫폼으로 발전시키고,
+              코레온몰은 안전용품·현장장비·발전기·냉방·분진·제빙기·쇼케이스를 실제 구매와 상담으로 연결하는 매출 채널로 유지합니다.
+            </p>
+          </div>
+
+          <a class="btn btn-gold" href="#mall">조달 채널 보기</a>
         </div>
       </div>
     </section>
