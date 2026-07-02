@@ -3,777 +3,2348 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COREON 현장 안전진단 문의 | 중대재해 예방 솔루션</title>
-  <meta name="description" content="COREON 현장 안전진단 문의 페이지입니다. 산업현장, 건설현장, 제조공장, 식품공장, 지자체·기관의 중대재해 예방과 안전관리 개선 상담을 접수합니다.">
+  <title>COREON(코레온) | AI 기반 중대재해 예방·현장 안전진단 상담</title>
+
+  <meta name="description" content="COREON(코레온)은 중대재해 예방이 필요한 건설, 제조, 식품, 물류, 공공·지자체 현장의 위험요인 확인과 현장 안전진단 상담, 산업안전용품·현장장비 조달을 연결합니다.">
+  <meta name="keywords" content="코레온, COREON, 코레온몰, 산업안전, 안전용품, 현장장비, 발전기, 소형건설기계, 줄눈컷팅기, 쿨링포그, 분진억제, 중대재해 예방, 현장 안전진단, 특허, 벤처기업">
+  <meta name="author" content="COREON">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.coreon-global.com/inquiry.html">
+  <link rel="canonical" href="https://www.coreon-global.com/">
+
+  <link rel="preload" as="image" href="/assets/coreon-hero-field-pc.webp.jpg?v=20260702-safe">
+  <link rel="preload" as="image" href="/assets/coreon-hero-field-mobile.webp.jpg?v=20260702-safe" media="(max-width: 980px)">
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:site_name" content="COREON">
-  <meta property="og:title" content="COREON 현장 안전진단 문의">
-  <meta property="og:description" content="중대재해 예방, 현장 위험요인 확인, 안전관리 개선 상담을 COREON에 문의하세요.">
-  <meta property="og:url" content="https://www.coreon-global.com/inquiry.html">
-  <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg">
+  <meta property="og:title" content="COREON(코레온) | AI 기반 중대재해 예방·현장 안전진단 상담">
+  <meta property="og:description" content="중대재해 예방 관점의 현장 위험요인 확인, 안전진단 상담, 산업안전 제품 조달을 연결하는 COREON.">
+  <meta property="og:url" content="https://www.coreon-global.com/">
+  <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260702-safe">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="COREON(코레온) | AI 기반 중대재해 예방·현장 안전진단 상담">
+  <meta name="twitter:description" content="중대재해 예방 관점의 현장 위험요인 확인, 안전진단 상담, 산업안전 제품 조달을 연결하는 COREON.">
+  <meta name="twitter:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260702-safe">
+
   <style>
     :root {
-      --navy: #071529;
-      --blue: #1d6fff;
-      --deep-blue: #0c3d91;
-      --cyan: #08a8ff;
-      --orange: #ff6b1a;
-      --text: #132033;
-      --muted: #617089;
-      --line: #dce6f3;
-      --soft: #f4f8fd;
-      --white: #fff;
-      --shadow: 0 24px 70px rgba(12, 38, 72, .12);
-      --radius: 24px;
+      --navy: #061a33;
+      --navy2: #0a2b57;
+      --blue: #1677ff;
+      --blue2: #07599d;
+      --gold: #d6a72f;
+      --gold2: #b88918;
+      --ink: #0d1b2f;
+      --muted: #5b6678;
+      --line: #dbe6f3;
+      --soft: #f4f8fc;
+      --white: #ffffff;
+      --shadow: 0 18px 55px rgba(6, 26, 51, 0.12);
+      --shadow2: 0 28px 85px rgba(6, 26, 51, 0.24);
+      --radius: 28px;
+      --max: 1240px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
-      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(29, 111, 255, .12), transparent 36rem),
-        linear-gradient(180deg, #f8fbff 0%, #ffffff 44%, #f4f8fd 100%);
-      line-height: 1.65;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      word-break: keep-all;
+      overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      min-height: 100vh;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .topbar {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      border-bottom: 1px solid rgba(220, 230, 243, .9);
-      background: rgba(255, 255, 255, .88);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(219, 230, 243, 0.9);
     }
 
-    .topbar-inner {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-      min-height: 72px;
+    .nav-wrap {
+      height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 900;
-      letter-spacing: .02em;
-      color: var(--navy);
-    }
-
-    .brand img {
-      width: 112px;
-      max-height: 34px;
-      object-fit: contain;
-    }
-
-    .brand-fallback {
-      font-size: 20px;
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #44536a;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .top-actions a {
-      padding: 9px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--white);
-    }
-
-    .hero {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 72px 0 34px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(29, 111, 255, .1);
-      color: var(--deep-blue);
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: .02em;
-    }
-
-    .hero h1 {
-      margin: 22px 0 20px;
-      color: var(--navy);
-      font-size: clamp(38px, 6vw, 72px);
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .hero h1 span {
-      color: var(--blue);
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 760px;
-      color: #4c5e77;
-      font-size: clamp(18px, 2.2vw, 23px);
-      font-weight: 650;
-      word-break: keep-all;
-    }
-
-    .hero-points {
-      margin: 30px 0 0;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .point {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, .8);
-      box-shadow: 0 16px 40px rgba(12, 38, 72, .08);
-    }
-
-    .point strong {
-      display: block;
-      color: var(--navy);
-      font-size: 15px;
-      line-height: 1.35;
-    }
-
-    .point span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .contact-card {
-      padding: 26px;
-      border: 1px solid rgba(29, 111, 255, .16);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, #ffffff, #eef6ff);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card h2 {
-      margin: 0 0 10px;
-      color: var(--navy);
+      font-weight: 950;
       font-size: 24px;
-      line-height: 1.25;
+      color: var(--navy);
+      letter-spacing: 0.01em;
     }
 
-    .contact-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 700;
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #ffffff;
     }
 
-    .quick-links {
-      display: grid;
-      gap: 10px;
-    }
-
-    .quick-links a {
+    .nav-links {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      padding: 14px 15px;
-      border-radius: 16px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      color: var(--navy);
-      font-weight: 900;
-    }
-
-    .quick-links span {
-      color: var(--blue);
-    }
-
-    .section {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 34px 0 78px;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, .94);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .panel-head {
-      padding: 34px 34px 24px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(29, 111, 255, .1), rgba(8, 168, 255, .07));
-    }
-
-    .panel-head h2 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.15;
-    }
-
-    .panel-head p {
-      margin: 0;
-      color: #4c5e77;
-      font-size: 17px;
-      font-weight: 700;
-      word-break: keep-all;
-    }
-
-    .form-grid {
-      padding: 34px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      color: var(--navy);
+      gap: 17px;
+      font-weight: 850;
       font-size: 14px;
-      font-weight: 900;
+      white-space: nowrap;
+      color: #12243d;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      min-height: 52px;
-      padding: 14px 15px;
-      border: 1px solid #cfdbea;
-      border-radius: 14px;
-      background: #fff;
-      color: var(--text);
-      font: inherit;
-      font-size: 16px;
-      outline: none;
-      transition: border-color .18s ease, box-shadow .18s ease;
+    .nav-links a {
+      opacity: 0.92;
+      transition: 0.2s;
     }
 
-    textarea {
-      min-height: 140px;
-      resize: vertical;
+    .nav-links a:hover {
+      color: var(--blue);
+      opacity: 1;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(29, 111, 255, .12);
-    }
-
-    .helper {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .actions {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
+    .menu-toggle,
+    .mobile-menu-label {
+      display: none;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 0 20px;
-      border: 0;
+      min-height: 52px;
+      padding: 0 24px;
       border-radius: 999px;
-      font: inherit;
-      font-size: 16px;
       font-weight: 950;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      font-size: 15px;
+      transition: 0.2s;
+      border: 1px solid transparent;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      color: #fff;
-      background: linear-gradient(135deg, var(--blue), var(--deep-blue));
-      box-shadow: 0 18px 40px rgba(29, 111, 255, .28);
+      background: var(--blue);
+      color: #ffffff;
     }
 
-    .btn-orange {
-      color: #fff;
-      background: linear-gradient(135deg, var(--orange), #ff8a3d);
-      box-shadow: 0 18px 40px rgba(255, 107, 26, .25);
+    .btn-dark {
+      background: #061a33;
+      color: #ffffff;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #ffffff;
     }
 
     .btn-light {
-      color: var(--navy);
-      background: #edf4ff;
-      border: 1px solid var(--line);
+      background: #eaf5ff;
+      color: var(--blue2);
     }
 
-    .result {
-      display: none;
-      margin: 0 34px 34px;
-      padding: 24px;
-      border-radius: 22px;
-      border: 1px solid rgba(29, 111, 255, .2);
-      background: #f7fbff;
+    .btn-kakao {
+      background: #fee500;
+      color: #191919;
+      border-color: #f2d900;
     }
 
-    .result.is-visible {
-      display: block;
-    }
-
-    .result h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 22px;
-    }
-
-    .summary-box {
-      width: 100%;
-      min-height: 220px;
-      margin-top: 12px;
-      white-space: pre-wrap;
-      word-break: keep-all;
-      font-family: inherit;
-      line-height: 1.7;
-    }
-
-    .notice {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: #fff8f3;
-      color: #7a3a10;
-      font-size: 14px;
-      font-weight: 750;
-      word-break: keep-all;
-    }
-
-    .process {
-      margin-top: 28px;
+    .social-floating {
+      position: fixed;
+      right: 22px;
+      bottom: 24px;
+      z-index: 1200;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
     }
 
-    .step {
-      padding: 18px;
-      border: 1px solid var(--line);
+    .social-floating a {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 18px;
-      background: var(--white);
+      background: #ffffff;
+      box-shadow: 0 12px 35px rgba(6, 26, 51, 0.20);
+      border: 1px solid rgba(219, 230, 243, 0.95);
+      overflow: hidden;
+      transition: 0.2s;
     }
 
-    .step b {
+    .social-floating a:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-floating img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-floating .kakao {
+      background: #fee500;
+    }
+
+    .social-floating .youtube img {
+      padding: 8px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 820px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #ffffff;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 72% 22%, rgba(22, 119, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 18% 18%, rgba(22, 119, 255, 0.18), transparent 34%),
+        linear-gradient(135deg, #061a33 0%, #08264d 58%, #071526 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url("/assets/coreon-hero-field-pc.webp.jpg?v=20260702-safe");
+      background-size: auto 93%;
+      background-position: right 7% bottom;
+      background-repeat: no-repeat;
+      opacity: 0.92;
+      filter: saturate(1.05) contrast(1.04);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(6, 26, 51, 0.98) 0%,
+          rgba(6, 26, 51, 0.96) 36%,
+          rgba(6, 26, 51, 0.76) 58%,
+          rgba(6, 26, 51, 0.38) 78%,
+          rgba(6, 26, 51, 0.16) 100%
+        ),
+        radial-gradient(circle at 74% 30%, rgba(255, 255, 255, 0.18), transparent 22%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.18));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(800px, 100%);
+      padding: 72px 0;
+    }
+
+    .eyebrow {
       display: inline-flex;
-      margin-bottom: 8px;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.13em;
+      color: #bfe5ff;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #8fd0ff;
+      box-shadow: 0 0 0 6px rgba(143, 208, 255, 0.14);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(43px, 5.7vw, 76px);
+      line-height: 1.1;
+      letter-spacing: -0.065em;
+      font-weight: 950;
+    }
+
+    .hero p {
+      margin: 28px 0 0;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.72;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 520;
+    }
+
+    .hero p strong {
+      font-weight: 950;
+      color: #ffffff;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 36px;
+      width: min(780px, 100%);
+    }
+
+    .hero-point {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-point b {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .hero-point span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 750;
+    }
+
+    .section-title {
+      margin-bottom: 36px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eaf5ff;
+      color: var(--blue2);
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: #061a33;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.14;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .section-title p {
+      max-width: 880px;
+      margin: 18px 0 0;
+      color: #5b6678;
+      font-size: 18px;
+      line-height: 1.78;
+      font-weight: 540;
+    }
+
+    .safety-guide {
+      background:
+        radial-gradient(circle at 8% 10%, rgba(22, 119, 255, 0.12), transparent 34%),
+        radial-gradient(circle at 92% 6%, rgba(214, 167, 47, 0.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f5f9fd 100%);
+      border-bottom: 1px solid #e7eff8;
+    }
+
+    .safety-guide-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .safety-guide-lead {
+      padding: 42px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.96), rgba(10, 43, 87, 0.92)),
+        url("/assets/coreon-supply-safety-ip.png?v=20260702-safe") center/cover no-repeat;
+      color: #ffffff;
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .safety-guide-lead::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(143, 208, 255, 0.20), transparent 28%),
+        linear-gradient(180deg, rgba(6, 26, 51, 0.14), rgba(6, 26, 51, 0.70));
+    }
+
+    .safety-guide-lead h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.16;
+      letter-spacing: -0.055em;
+      font-weight: 950;
+    }
+
+    .safety-guide-lead p {
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 17px;
+      line-height: 1.78;
+      font-weight: 540;
+    }
+
+    .safety-guide-lead strong {
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .check-panel {
+      margin-top: 28px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(12px);
+    }
+
+    .check-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .check-top span {
+      display: block;
+      color: #bfe5ff;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .check-top b {
+      display: block;
+      margin-top: 4px;
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+    }
+
+    .check-grade {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .check-bar {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.20);
+    }
+
+    .check-bar i {
+      display: block;
+      width: 87%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #8fd0ff, #1677ff, #d6a72f);
+    }
+
+    .check-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .check-items span {
+      padding: 12px 13px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.10);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .safety-guide-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .safety-guide-card,
+    .public-proof-card,
+    .legal-check-card,
+    .audience-card,
+    .category-card,
+    .white-card,
+    .proof-card,
+    .flow-card,
+    .contact-card,
+    .contact-note {
+      padding: 28px;
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .safety-guide-card h3,
+    .public-proof-card h3,
+    .legal-check-card h3,
+    .audience-card h3,
+    .category-card h3,
+    .white-card h2,
+    .proof-card span,
+    .flow-card h3,
+    .contact-card h2,
+    .contact-note h3 {
+      margin: 0 0 12px;
+      color: #061a33;
+      letter-spacing: -0.04em;
+    }
+
+    .safety-guide-card h3,
+    .public-proof-card h3,
+    .legal-check-card h3,
+    .audience-card h3,
+    .category-card h3,
+    .flow-card h3 {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .white-card h2,
+    .contact-card h2 {
+      font-size: clamp(31px, 3vw, 48px);
+      line-height: 1.16;
+      font-weight: 950;
+    }
+
+    .safety-guide-card p,
+    .public-proof-card p,
+    .legal-check-card p,
+    .audience-card p,
+    .category-card p,
+    .white-card p,
+    .proof-card p,
+    .flow-card p,
+    .contact-card p,
+    .contact-note p {
+      margin: 0;
+      color: #5b6678;
+      font-size: 15px;
+      line-height: 1.72;
+      font-weight: 540;
+    }
+
+    .safety-guide-tags,
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .safety-guide-tags span,
+    .chip {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: #07599d;
+      border: 1px solid #d4e9ff;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .public-proof-grid,
+    .legal-checklist,
+    .audience-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .public-proof-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .legal-checklist {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .audience-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .public-proof-card b,
+    .legal-check-card b,
+    .audience-card b {
+      display: block;
       color: var(--blue);
       font-size: 13px;
-      letter-spacing: .04em;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .step strong {
-      display: block;
-      color: var(--navy);
+    .legal-check-card {
+      position: relative;
+      padding-left: 58px;
+    }
+
+    .legal-check-card::before {
+      content: "✓";
+      position: absolute;
+      left: 24px;
+      top: 28px;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf5ff;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .privacy-note {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #fff8e6;
+      border: 1px solid rgba(214, 167, 47, 0.35);
+      color: #7a5600;
+      font-weight: 820;
+      line-height: 1.65;
+    }
+
+    .safety-guide-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .safety-guide-step {
+      padding: 20px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(6, 26, 51, 0.06);
+    }
+
+    .safety-guide-step b,
+    .flow-card b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 13px;
+      background: #eaf5ff;
+      color: var(--blue);
       font-size: 17px;
-      line-height: 1.4;
+      font-weight: 950;
     }
 
-    .step span {
+    .safety-guide-step h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+    }
+
+    .safety-guide-step p {
+      margin: 0;
+      color: #5b6678;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 540;
+    }
+
+    .procurement-bridge {
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: 28px;
+      background: #061a33;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow2);
+    }
+
+    .procurement-bridge h3 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -0.04em;
+    }
+
+    .procurement-bridge p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.7;
+      font-weight: 540;
+    }
+
+    .season,
+    .mall {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(22, 119, 255, 0.10), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(214, 167, 47, 0.12), transparent 32%),
+        linear-gradient(180deg, #ffffff, #f4f8fc);
+      border-bottom: 1px solid #e7eff8;
+    }
+
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .season-card {
+      position: relative;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      padding: 24px;
+      border-radius: 28px;
+      color: #ffffff;
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      isolation: isolate;
+      transition: 0.24s ease;
+    }
+
+    .season-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 34px 90px rgba(6, 26, 51, 0.26);
+    }
+
+    .season-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(135deg, #061a33, #0a2b57);
+    }
+
+    .season-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.24), transparent 28%),
+        linear-gradient(180deg, rgba(6, 26, 51, 0.02), rgba(6, 26, 51, 0.72));
+    }
+
+    .season-card.rain::before {
+      background:
+        linear-gradient(135deg, rgba(4, 31, 74, 0.94), rgba(13, 91, 166, 0.88)),
+        url("/assets/coreon-season-rain-pump.png?v=20260702-safe") center/cover no-repeat;
+    }
+
+    .season-card.generator::before {
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.93), rgba(245, 166, 35, 0.70)),
+        url("/assets/coreon-season-generator.png?v=20260702-safe") center/cover no-repeat;
+    }
+
+    .season-card.heat::before {
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.90), rgba(225, 113, 0, 0.68)),
+        url("/assets/coreon-season-heat-cooling.png?v=20260702-safe") center/cover no-repeat;
+    }
+
+    .season-card.road::before {
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.92), rgba(43, 55, 74, 0.78)),
+        url("/assets/coreon-season-road-equipment.png?v=20260702-safe") center/cover no-repeat;
+    }
+
+    .season-card.consult::before {
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.93), rgba(5, 102, 108, 0.72)),
+        url("/assets/coreon-season-b2b-consulting.png?v=20260702-safe") center/cover no-repeat;
+    }
+
+    .season-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .season-card span,
+    .supply-body span {
+      color: #8fd0ff;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .season-card h3 {
+      margin: 10px 0 10px;
+      font-size: 27px;
+      line-height: 1.18;
+      letter-spacing: -0.05em;
+    }
+
+    .season-card p {
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 560;
+    }
+
+    .season-card b {
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .about-grid,
+    .mall-grid,
+    .ip-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-card,
+    .message-card {
+      padding: 42px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h2,
+    .message-card h3 {
+      margin: 0 0 18px;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.13;
+      letter-spacing: -0.06em;
+      color: #061a33;
+    }
+
+    .about-card h3 {
+      margin: 0 0 18px;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #203a5c;
+    }
+
+    .about-card p,
+    .message-card p {
+      margin: 0;
+      color: #5b6678;
+      line-height: 1.78;
+      font-weight: 540;
+    }
+
+    .message-card {
+      background:
+        linear-gradient(135deg, rgba(6, 26, 51, 0.90), rgba(10, 43, 87, 0.78)),
+        url("/assets/coreon-industrial-technical-services.jpg?v=20260702-safe") center/cover no-repeat;
+      color: #ffffff;
+      display: flex;
+      align-items: flex-end;
+      min-height: 430px;
+    }
+
+    .message-card h3,
+    .message-card p {
+      color: #ffffff;
+    }
+
+    .message-badge {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      font-weight: 950;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mall-banner-wrap {
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+      background: #ffffff;
+    }
+
+    .mall-banner-wrap img {
+      width: 100%;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      box-shadow: 0 12px 34px rgba(6, 26, 51, 0.07);
+    }
+
+    .category-card .icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 14px;
+      border-radius: 15px;
+      background: #eaf5ff;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+    }
+
+    .supply-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .supply-card {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .supply-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      background: #f7fafc;
+    }
+
+    .supply-card.image-contain img {
+      object-fit: contain;
+      padding: 28px;
+    }
+
+    .supply-body {
+      padding: 26px;
+    }
+
+    .supply-body span {
+      color: var(--blue);
+    }
+
+    .supply-body h3 {
+      margin: 10px 0 10px;
+      color: #061a33;
+      font-size: 27px;
+      line-height: 1.22;
+      letter-spacing: -0.04em;
+    }
+
+    .supply-body p {
+      margin: 0;
+      color: #5b6678;
+      line-height: 1.65;
+      font-weight: 540;
+    }
+
+    .notice-box {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 26px;
+      background: #eef7ff;
+      border: 1px solid #d4e9ff;
+    }
+
+    .notice-box h3 {
+      margin: 0 0 10px;
+      color: #061a33;
+      font-size: 24px;
+    }
+
+    .notice-box p {
+      margin: 0;
+      color: #5b6678;
+      line-height: 1.7;
+      font-weight: 540;
+    }
+
+    .asset-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .asset-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .patent-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .patent-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: 18px;
+      background: #f5f9fd;
+      border: 1px solid #e3edf8;
+    }
+
+    .patent-no {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: #061a33;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+    }
+
+    .patent-item h3 {
+      margin: 0 0 6px;
+      color: #061a33;
+      font-size: 20px;
+    }
+
+    .patent-item p {
+      margin: 0;
+      color: #5b6678;
+      line-height: 1.6;
+      font-weight: 540;
+    }
+
+    .blue-band {
+      background:
+        radial-gradient(circle at 12% 14%, rgba(22, 119, 255, 0.24), transparent 30%),
+        radial-gradient(circle at 86% 14%, rgba(214, 167, 47, 0.16), transparent 28%),
+        linear-gradient(135deg, #061a33, #0a2b57);
+      color: #ffffff;
+    }
+
+    .blue-band .section-title h2,
+    .blue-band .section-title p {
+      color: #ffffff;
+    }
+
+    .proof-grid,
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .proof-card {
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: none;
+      color: #ffffff;
+    }
+
+    .proof-card b {
+      display: block;
+      margin-bottom: 14px;
+      color: #8fd0ff;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .proof-card span {
+      display: block;
+      color: #ffffff;
+      font-size: 23px;
+    }
+
+    .proof-card p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .link-panel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .external-link {
+      padding: 22px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 32px rgba(6, 26, 51, 0.07);
+      font-weight: 950;
+      color: #061a33;
+    }
+
+    .external-link span {
       display: block;
       margin-top: 6px;
-      color: var(--muted);
+      color: #5b6678;
       font-size: 14px;
-      font-weight: 700;
-      line-height: 1.55;
+      line-height: 1.5;
+      font-weight: 620;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .contact-list a {
+      padding: 16px 18px;
+      border-radius: 17px;
+      background: #f5f9fd;
+      border: 1px solid #e3edf8;
+      color: #061a33;
+      font-weight: 900;
     }
 
     footer {
-      padding: 32px 20px 42px;
-      color: #637189;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
+      padding: 42px 0;
+      background: #071526;
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 50px;
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-weight: 850;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .small {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    @media (max-width: 1180px) {
+      .nav-links {
+        gap: 13px;
+        font-size: 13px;
       }
 
       .hero-points,
-      .process {
-        grid-template-columns: 1fr;
+      .proof-grid,
+      .supply-grid,
+      .season-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .contact-card {
-        max-width: 520px;
+      .season-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 680px) {
-      .topbar-inner,
-      .hero,
-      .section {
-        width: min(100% - 28px, 1120px);
+    @media (max-width: 980px) {
+      .container {
+        width: min(100% - 34px, var(--max));
       }
 
-      .topbar-inner {
-        min-height: 64px;
+      .nav-wrap {
+        height: 68px;
       }
 
-      .brand img {
-        width: 96px;
+      .brand {
+        font-size: 22px;
       }
 
-      .top-actions {
-        gap: 6px;
-        font-size: 12px;
+      .brand-logo {
+        width: 46px;
+        height: 46px;
       }
 
-      .top-actions a {
-        padding: 7px 9px;
+      .mobile-menu-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        color: var(--navy);
+        font-weight: 950;
+        cursor: pointer;
+      }
+
+      .mobile-menu-label::before {
+        content: "메뉴";
+        font-size: 13px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 18px 18px;
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 20px 45px rgba(6, 26, 51, 0.12);
+      }
+
+      .nav-links a {
+        padding: 15px 8px;
+        border-bottom: 1px solid #edf2f7;
+      }
+
+      .menu-toggle:checked ~ .nav-links {
+        display: flex;
       }
 
       .hero {
-        padding: 38px 0 26px;
+        min-height: auto;
+      }
+
+      .hero::before {
+        background-image: url("/assets/coreon-hero-field-mobile.webp.jpg?v=20260702-safe");
+        background-size: auto 98%;
+        background-position: right -110px bottom;
+        opacity: 0.42;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(6, 26, 51, 0.98) 0%,
+            rgba(6, 26, 51, 0.95) 43%,
+            rgba(6, 26, 51, 0.90) 72%,
+            rgba(6, 26, 51, 0.86) 100%
+          ),
+          radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.12), transparent 22%);
+      }
+
+      .hero-content {
+        width: min(720px, 100%);
+        padding: 72px 0 58px;
       }
 
       .hero h1 {
-        font-size: 40px;
+        font-size: clamp(38px, 10vw, 66px);
+        line-height: 1.08;
       }
 
-      .panel {
-        border-radius: 22px;
-      }
-
-      .panel-head,
-      .form-grid {
-        padding: 24px 18px;
-      }
-
-      .form-grid {
+      .hero-points,
+      .about-grid,
+      .safety-guide-grid,
+      .mall-grid,
+      .ip-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
       }
 
-      .result {
-        margin: 0 18px 24px;
-        padding: 18px;
+      .public-proof-grid,
+      .legal-checklist,
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .actions .btn {
+      .category-grid,
+      .flow-grid,
+      .safety-guide-flow,
+      .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .procurement-bridge {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 74px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .hero::before {
+        background-size: auto 84%;
+        background-position: center bottom;
+        opacity: 0.24;
+      }
+
+      .hero-content {
+        padding: 58px 0 48px;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 11vw, 56px);
+      }
+
+      .btn {
         width: 100%;
+        min-height: 50px;
+      }
+
+      .hero-points,
+      .check-items,
+      .category-grid,
+      .proof-grid,
+      .flow-grid,
+      .safety-guide-flow,
+      .public-proof-grid,
+      .legal-checklist,
+      .audience-grid,
+      .supply-grid,
+      .season-grid,
+      .link-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card,
+      .message-card,
+      .white-card,
+      .safety-guide-lead,
+      .safety-guide-card,
+      .public-proof-card,
+      .legal-check-card,
+      .audience-card,
+      .contact-card,
+      .contact-note {
+        padding: 26px;
+      }
+
+      .legal-check-card {
+        padding-left: 54px;
+      }
+
+      .mall-banner-wrap {
+        border-radius: 24px;
+      }
+
+      .season-card {
+        min-height: 280px;
+      }
+
+      .supply-card img {
+        height: 230px;
+      }
+
+      .social-floating {
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .social-floating a {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
       }
     }
   </style>
-</head>
-<body>
-  <div class="page">
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a class="brand" href="https://www.coreon-global.com/" aria-label="COREON 홈페이지로 이동">
-          <img src="/assets/coreon-logo.png" alt="COREON" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-          <span class="brand-fallback" style="display:none;">COREON</span>
-        </a>
-        <nav class="top-actions" aria-label="상단 메뉴">
-          <a href="https://www.coreon-global.com/">홈으로</a>
-          <a href="tel:050713581482">전화 상담</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <span class="eyebrow">COREON Safety Inquiry</span>
-          <h1>현장 안전진단<br><span>문의 접수</span></h1>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "COREON",
+    "alternateName": "코레온",
+    "url": "https://www.coreon-global.com/",
+    "logo": "https://www.coreon-global.com/assets/coreon-logo.png",
+    "image": "https://www.coreon-global.com/assets/coreon-og.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "이호원"
+    },
+    "description": "COREON은 중대재해 예방이 필요한 산업현장의 위험요인 확인, 현장 안전진단 상담, 산업안전 제품 조달을 연결하는 기업입니다.",
+    "email": "contact@coreon-global.com",
+    "telephone": "+82-0507-1358-1482",
+    "sameAs": [
+      "https://smartstore.naver.com/coreonmall",
+      "https://www.youtube.com/@coreonsolution",
+      "https://blog.naver.com/valueup1114",
+      "http://pf.kakao.com/_DCnxfX"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="COREON 홈">
+        <img class="brand-logo" src="/assets/coreon-logo.png" alt="COREON 로고">
+        <span>COREON</span>
+      </a>
+
+      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="모바일 메뉴 열기">
+      <label class="mobile-menu-label" for="menu-toggle"></label>
+
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#safety-check">안전진단 안내</a>
+        <a href="#legal-check">시행령 체크</a>
+        <a href="#about">회사소개</a>
+        <a href="#mall">코레온몰</a>
+        <a href="#season">시즌대비</a>
+        <a href="#supply">공급 품목</a>
+        <a href="#ip">Safety IP</a>
+        <a href="#proof">인증·특허</a>
+        <a href="#process">상담 절차</a>
+        <a href="#contact">문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="social-floating" aria-label="COREON 빠른 채널">
+    <a class="kakao" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener" aria-label="코레온 카카오톡 상담하기">
+      <img src="/assets/coreon-kakao-channel.png" alt="카카오톡 상담">
+    </a>
+
+    <a class="youtube" href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener" aria-label="코레온 유튜브 채널 보기">
+      <img src="/assets/coreon-youtube-logo.png" alt="유튜브">
+    </a>
+  </div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">AI Safety Diagnosis · Safety IP · COREON Mall</div>
+
+          <h1>중대재해 위험 현장 분석부터 최적의 개선 솔루션 연결까지<br>코레온(COREON)이<br>실시간으로 함께합니다.</h1>
+
           <p>
-            중대재해 예방, 산업현장 위험요인 확인, 냉방·분진·안전관리 개선이 필요한 사업장을 대상으로
-            COREON이 현장 조건에 맞는 상담을 안내합니다.
+            <strong>코레온은 건설, 제조, 식품, 물류, 공공·지자체 현장의 위험요인 확인과 중대재해 예방 상담을 연결합니다.</strong>
+            중대재해처벌법 대응 관점의 안전진단 안내, Safety IP 기반 상담, 산업안전용품·현장장비 조달, 코레온몰 구매 상담까지 현장 조건에 맞춰 안내합니다.
           </p>
 
-          <div class="hero-points" aria-label="문의 대상">
-            <div class="point">
-              <strong>건설·EPC 현장</strong>
-              <span>작업환경, 안전관리, 계절성 위험 대응 상담</span>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.coreon-global.com/inquiry.html" target="_blank" rel="noopener">현장 안전진단 문의하기</a>
+            <a class="btn btn-light" href="#safety-check">안전진단 안내 보기</a>
+            <a class="btn btn-primary" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 바로가기</a>
+            <a class="btn btn-kakao" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a>
+            <a class="btn btn-light" href="#ip">Safety IP 보기</a>
+            <a class="btn btn-dark" href="tel:0507-1358-1482">전화 상담 문의</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="hero-point">
+              <b>Risk Check</b>
+              <span>현장 위험요인 사전 확인</span>
             </div>
-            <div class="point">
-              <strong>제조·식품공장</strong>
-              <span>현장 위험요인, 설비 주변 안전관리 개선</span>
+
+            <div class="hero-point">
+              <b>Legal Guide</b>
+              <span>중대재해 예방 기준 안내</span>
             </div>
-            <div class="point">
-              <strong>지자체·기관</strong>
-              <span>관내 사업장 안전진단·예방 사업 협의</span>
+
+            <div class="hero-point">
+              <b>Safety IP</b>
+              <span>특허 기반 안전 솔루션</span>
+            </div>
+
+            <div class="hero-point">
+              <b>Supply</b>
+              <span>조달·렌탈·납품 병행</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <aside class="contact-card" aria-label="빠른 상담">
-          <h2>빠른 상담 채널</h2>
-          <p>문의 내용을 남기기 전 바로 상담이 필요한 경우 아래 채널을 이용해 주세요.</p>
-          <div class="quick-links">
-            <a href="tel:050713581482">코레온 고객센터 <span>0507-1358-1482</span></a>
-            <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담 <span>바로가기</span></a>
-            <a href="https://www.coreon-global.com/">COREON 홈페이지 <span>이동</span></a>
-          </div>
-        </aside>
-      </section>
+    <section class="safety-guide" id="safety-check">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">AI Safety Diagnosis Guide</div>
 
-      <section class="section" aria-labelledby="inquiry-title">
-        <div class="panel">
-          <div class="panel-head">
-            <h2 id="inquiry-title">문의 정보를 입력해 주세요</h2>
+          <h2>중대재해 예방이 필요한 사업장을 위한<br>현장 안전진단 상담 안내</h2>
+
+          <p>
+            코레온은 대한민국 5인 이상 사업장, 건설·제조·식품·물류·공공 현장의 유해·위험요인을
+            중대재해처벌법 대응 관점에서 함께 확인하고, 필요한 안전용품·현장장비·개선 품목 상담까지 연결합니다.
+            홈페이지에는 고객이 확인해야 할 기준만 공개하고, 세부 진단과 제안은 상담 과정에서 개별 안내합니다.
+          </p>
+        </div>
+
+        <div class="safety-guide-grid">
+          <div class="safety-guide-lead">
+            <div class="eyebrow">COREON Safety Brief</div>
+
+            <h2>법령 기준은 알기 쉽게,<br>현장 개선안은 상담으로 구체화합니다</h2>
+
             <p>
-              아래 내용을 작성하면 상담용 문의 요약문이 자동 생성됩니다.
-              생성된 내용을 복사한 뒤 카카오톡 상담으로 보내주시면 더 빠르게 검토할 수 있습니다.
+              중대재해 예방은 단순히 안전용품을 구매하는 문제가 아닙니다.
+              코레온은 <strong>법령 기준, 현장 위험요인, 작업환경, 필요 품목</strong>을 함께 보고
+              고객 사업장에 맞는 상담 방향을 정리합니다.
+            </p>
+
+            <div class="check-panel" aria-label="코레온 안전진단 공개 안내">
+              <div class="check-top">
+                <div>
+                  <span>Public Safety Guide</span>
+                  <b>공개 기준</b>
+                </div>
+
+                <div class="check-grade">상담형</div>
+              </div>
+
+              <div class="check-bar"><i></i></div>
+
+              <div class="check-items">
+                <span>중대재해처벌법 시행령 기준 안내</span>
+                <span>사업장 유해·위험요인 확인</span>
+                <span>안전용품·현장장비 개선 상담</span>
+                <span>문의 접수 후 개별 검토</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="safety-guide-stack">
+            <article class="safety-guide-card">
+              <h3>고객에게 필요한 정보만 공개합니다</h3>
+              <p>
+                홈페이지에서는 사업자가 알아야 할 안전관리 기준, 상담 범위, 문의 절차를 안내합니다.
+                내부 검토 기준, 세부 분석 방식, 사업장별 상담 내용은 공개하지 않습니다.
+              </p>
+
+              <div class="safety-guide-tags">
+                <span>고객 안내</span>
+                <span>전략 보호</span>
+                <span>개별 상담</span>
+              </div>
+            </article>
+
+            <article class="safety-guide-card">
+              <h3>5인 이상 사업장까지 넓게 봅니다</h3>
+              <p>
+                건설사뿐 아니라 제조공장, 식품공장, 물류창고, 병원·학원·프랜차이즈, 지자체 관내 사업장 등
+                중대재해 예방이 필요한 현장을 상담 대상으로 봅니다.
+              </p>
+
+              <div class="safety-guide-tags">
+                <span>건설·EPC</span>
+                <span>제조·식품</span>
+                <span>물류·시설</span>
+                <span>공공·지자체</span>
+              </div>
+            </article>
+
+            <article class="safety-guide-card">
+              <h3>상담 이후 현장 조달까지 연결합니다</h3>
+              <p>
+                위험요인 확인 후 필요한 안전용품, 냉방·분진 대응 장비, 발전기·양수기, 소형건설기계,
+                줄눈컷팅기 등 현장 개선 품목 상담을 코레온몰과 함께 이어갈 수 있습니다.
+              </p>
+
+              <div class="safety-guide-tags">
+                <span>안전용품</span>
+                <span>현장장비</span>
+                <span>대량견적</span>
+                <span>렌탈·납품</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="public-proof-grid" aria-label="코레온 공개 운영 원칙">
+          <article class="public-proof-card">
+            <b>Open</b>
+            <h3>공개하는 것</h3>
+            <p>중대재해 예방 체크 항목, 상담 가능 업종, 현장 개선 품목, 문의 절차를 고객이 이해하기 쉽게 공개합니다.</p>
+          </article>
+
+          <article class="public-proof-card">
+            <b>Private</b>
+            <h3>보호하는 것</h3>
+            <p>사업장별 세부 판단, 내부 검토 기준, 연락 이력, 개별 제안 내용은 외부에 공개하지 않습니다.</p>
+          </article>
+
+          <article class="public-proof-card">
+            <b>Action</b>
+            <h3>상담으로 연결</h3>
+            <p>문의가 접수되면 업종, 작업환경, 위험요인, 필요 품목을 확인한 뒤 담당자가 순차적으로 상담합니다.</p>
+          </article>
+        </div>
+
+        <div class="section-title" id="legal-check" style="margin-top: 70px;">
+          <div class="section-label">Legal Checklist</div>
+
+          <h2>중대재해처벌법 시행령 기준으로<br>먼저 확인할 항목</h2>
+
+          <p>
+            중대재해 예방을 위해 사업주와 경영책임자가 점검해야 할 안전보건관리체계의 핵심 항목을
+            고객이 이해하기 쉽게 정리했습니다. 실제 적용 여부와 개선 방향은 사업장 규모와 현장 조건에 따라 달라질 수 있습니다.
+          </p>
+        </div>
+
+        <div class="legal-checklist" aria-label="중대재해처벌법 시행령 기반 체크리스트">
+          <article class="legal-check-card">
+            <b>01</b>
+            <h3>안전·보건 목표와 경영방침</h3>
+            <p>사업장에 맞는 안전보건 목표와 경영방침이 수립되어 있는지 확인합니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>02</b>
+            <h3>유해·위험요인 확인과 개선 절차</h3>
+            <p>위험요인을 확인하고 개선하는 업무절차와 이행 점검 체계가 있는지 살펴봅니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>03</b>
+            <h3>인력·시설·장비 예산</h3>
+            <p>재해 예방을 위한 안전보건 인력, 시설, 장비와 개선 예산이 편성되어 있는지 검토합니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>04</b>
+            <h3>안전보건관리책임자 권한</h3>
+            <p>관리책임자에게 필요한 권한과 예산이 부여되고 업무 수행 여부가 점검되는지 확인합니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>05</b>
+            <h3>종사자 의견 청취</h3>
+            <p>작업자가 위험요인과 개선 의견을 제시하고 실제 개선으로 연결되는 절차가 있는지 봅니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>06</b>
+            <h3>중대산업재해 대응 매뉴얼</h3>
+            <p>급박한 위험, 작업중지, 대피, 구호조치, 추가 피해 방지 절차가 마련되어 있는지 확인합니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>07</b>
+            <h3>도급·용역·위탁 안전 절차</h3>
+            <p>협력업체 선정과 업무 수행 과정에서 안전보건 확보 기준과 점검 절차가 있는지 검토합니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>08</b>
+            <h3>관계 법령 의무 이행 점검</h3>
+            <p>안전보건 관계 법령상 의무 이행 여부를 정기적으로 확인하고 필요한 조치를 하는지 봅니다.</p>
+          </article>
+
+          <article class="legal-check-card">
+            <b>09</b>
+            <h3>안전보건 교육 이행</h3>
+            <p>유해·위험 작업에 필요한 안전보건 교육이 누락 없이 진행되고 있는지 확인합니다.</p>
+          </article>
+        </div>
+
+        <div class="privacy-note">
+          홈페이지에는 고객이 의사결정에 필요한 공개 정보만 제공합니다.
+          사업장별 세부 검토 기준, 현장별 개선 제안, 상담 내용은 문의 접수 후 개별 상담으로 안내합니다.
+        </div>
+
+        <div class="section-title" style="margin-top: 70px;">
+          <div class="section-label">Target Workplace</div>
+
+          <h2>어떤 사업장이 상담 대상인가요?</h2>
+
+          <p>
+            건설사 중심의 안전관리뿐 아니라 5인 이상 사업장, 제조·식품·물류·시설 운영 현장까지
+            중대재해 예방과 작업환경 개선이 필요한 곳이라면 상담이 가능합니다.
+          </p>
+        </div>
+
+        <div class="audience-grid" aria-label="코레온 상담 대상 사업장">
+          <article class="audience-card">
+            <b>Construction</b>
+            <h3>건설·EPC 현장</h3>
+            <p>추락, 끼임, 장비 운용, 폭염, 분진, 임시전원, 배수 등 현장 위험요인을 확인합니다.</p>
+          </article>
+
+          <article class="audience-card">
+            <b>Manufacturing</b>
+            <h3>제조·식품공장</h3>
+            <p>설비 주변 안전관리, 작업동선, 환기, 냉방, 분진, 안전용품 개선 방향을 상담합니다.</p>
+          </article>
+
+          <article class="audience-card">
+            <b>Logistics</b>
+            <h3>물류·창고·시설</h3>
+            <p>상하차, 지게차 동선, 온열질환, 작업자 보호구, 시설 안전관리 품목을 검토합니다.</p>
+          </article>
+
+          <article class="audience-card">
+            <b>Public</b>
+            <h3>공공·지자체·기관</h3>
+            <p>관내 사업장 안전진단, 예방 캠페인, 현장 개선 품목 상담과 협업 방향을 안내합니다.</p>
+          </article>
+        </div>
+
+        <div class="safety-guide-flow" aria-label="현장 안전진단 상담 흐름">
+          <article class="safety-guide-step">
+            <b>01</b>
+            <h3>문의 접수</h3>
+            <p>회사명, 업종, 현장 위치, 작업환경, 상담이 필요한 내용을 남깁니다.</p>
+          </article>
+
+          <article class="safety-guide-step">
+            <b>02</b>
+            <h3>기준 확인</h3>
+            <p>중대재해 예방 관점에서 법령 기준과 현장 위험요인을 함께 확인합니다.</p>
+          </article>
+
+          <article class="safety-guide-step">
+            <b>03</b>
+            <h3>현장 개선 방향</h3>
+            <p>안전용품, 현장장비, 냉방·분진, 전원·배수 등 필요한 품목군을 정리합니다.</p>
+          </article>
+
+          <article class="safety-guide-step">
+            <b>04</b>
+            <h3>견적·렌탈 검토</h3>
+            <p>구매, 대량견적, 렌탈, 현장납품 가능 여부를 사용 조건에 맞춰 검토합니다.</p>
+          </article>
+
+          <article class="safety-guide-step">
+            <b>05</b>
+            <h3>상담 연결</h3>
+            <p>카카오톡, 고객센터, 코레온몰을 통해 후속 상담과 구매 절차를 이어갑니다.</p>
+          </article>
+        </div>
+
+        <div class="procurement-bridge">
+          <div>
+            <h3>중대재해 예방 상담과 현장 조달을 함께 연결합니다</h3>
+            <p>
+              코레온은 홈페이지에서 중대재해 예방 기준과 상담 범위를 명확히 안내하고,
+              접수된 문의를 바탕으로 현장 조건에 맞는 안전진단 상담과 조달 상담을 이어갑니다.
             </p>
           </div>
 
-          <form class="form-grid" id="inquiryForm">
-            <div class="field">
-              <label for="company">회사명·기관명 *</label>
-              <input id="company" name="company" type="text" autocomplete="organization" required placeholder="예: 코레온건설 / ○○식품 / ○○시청">
-            </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="btn btn-gold" href="https://www.coreon-global.com/inquiry.html" target="_blank" rel="noopener">현장 안전진단 문의하기</a>
+            <a class="btn btn-light" href="#mall">코레온몰 상담 보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="field">
-              <label for="name">담당자명 *</label>
-              <input id="name" name="name" type="text" autocomplete="name" required placeholder="예: 홍길동">
-            </div>
+    <section class="season" id="season">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Seasonal Field Response</div>
 
-            <div class="field">
-              <label for="phone">연락처 *</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="예: 010-0000-0000">
-            </div>
+          <h2>현장 상황별로<br>필요한 제품을 바로 확인하세요</h2>
 
-            <div class="field">
-              <label for="email">이메일</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="예: coreon@example.com">
-            </div>
+          <p>
+            장마철 수해, 발전기·임시전원, 폭염·냉방, 분진 억제, 도로·건설장비,
+            대량구매와 현장납품 상담까지 코레온몰의 주요 카테고리로 바로 연결됩니다.
+          </p>
+        </div>
 
-            <div class="field">
-              <label for="siteType">사업장 유형 *</label>
-              <select id="siteType" name="siteType" required>
-                <option value="">선택해 주세요</option>
-                <option>건설현장 / EPC</option>
-                <option>제조공장</option>
-                <option>식품공장</option>
-                <option>물류창고</option>
-                <option>프랜차이즈 / 다점포</option>
-                <option>지자체 / 공공기관</option>
-                <option>기타 산업현장</option>
-              </select>
-            </div>
+        <div class="season-grid">
+          <a class="season-card rain" href="https://smartstore.naver.com/coreonmall/category/e118e27a74ce4dbeb4f606094c3a5c64?cp=1" target="_blank" rel="noopener">
+            <div class="season-icon">01</div>
+            <span>Rainy Season · Drainage</span>
+            <h3>장마철<br>수해 대비</h3>
+            <p>침수·배수 취약 현장에 필요한 양수기, 엔진펌프, 배수장비를 확인하세요.</p>
+            <b>양수기 카테고리</b>
+          </a>
 
-            <div class="field">
-              <label for="region">현장 지역</label>
-              <input id="region" name="region" type="text" placeholder="예: 경기도 화성시 / 충남 천안시 / 인천 남동공단">
-            </div>
+          <a class="season-card generator" href="https://smartstore.naver.com/coreonmall/category/524ee2bce3e941c7860dc7b403703d50?cp=1" target="_blank" rel="noopener">
+            <div class="season-icon">02</div>
+            <span>Generator · Power Supply</span>
+            <h3>발전기·<br>임시전원 대비</h3>
+            <p>정전, 야간작업, 임시전원, 현장장비 운용에 필요한 발전기 제품군을 확인하세요.</p>
+            <b>발전기 카테고리</b>
+          </a>
 
-            <div class="field">
-              <label for="workers">현장 인원·규모</label>
-              <select id="workers" name="workers">
-                <option value="">선택해 주세요</option>
-                <option>5인 미만</option>
-                <option>5~49인</option>
-                <option>50~299인</option>
-                <option>300인 이상</option>
-                <option>프로젝트·현장별 상이</option>
-              </select>
-            </div>
+          <a class="season-card heat" href="https://smartstore.naver.com/coreonmall/category/27fc574117d44866acc77ac652fd9cdd?cp=1" target="_blank" rel="noopener">
+            <div class="season-icon">03</div>
+            <span>Heat · Cooling · Dust</span>
+            <h3>폭염·냉방<br>분진억제 대비</h3>
+            <p>쿨링포그, 미스트, 냉방장비, 분진 억제 장비 등 작업환경 개선 제품군입니다.</p>
+            <b>냉방·분진장비</b>
+          </a>
 
-            <div class="field">
-              <label for="schedule">상담 희망 시점</label>
-              <select id="schedule" name="schedule">
-                <option value="">선택해 주세요</option>
-                <option>즉시 상담 희망</option>
-                <option>1주 이내</option>
-                <option>2주 이내</option>
-                <option>이번 달 내 검토</option>
-                <option>예산 편성 전 사전 검토</option>
-              </select>
-            </div>
+          <a class="season-card road" href="https://smartstore.naver.com/coreonmall/category/3ad1b71009284db39af7d8ad794d4277?cp=1" target="_blank" rel="noopener">
+            <div class="season-icon">04</div>
+            <span>Road · Construction</span>
+            <h3>도로·건설<br>현장장비</h3>
+            <p>콤팩타, 휘니샤, 바이브레터, 줄눈컷팅기 등 도로·건설 현장장비를 확인하세요.</p>
+            <b>도로·건설장비</b>
+          </a>
 
-            <div class="field full">
-              <label for="issue">현재 가장 필요한 사항 *</label>
-              <select id="issue" name="issue" required>
-                <option value="">선택해 주세요</option>
-                <option>중대재해 예방 관점의 현장 위험요인 확인</option>
-                <option>폭염·냉방·작업환경 개선</option>
-                <option>분진·비산먼지 억제</option>
-                <option>안전용품·산업장비 공급 상담</option>
-                <option>지자체·기관 연계 안전진단 협의</option>
-                <option>현장 맞춤 제안서·견적 요청</option>
-                <option>기타 상담</option>
-              </select>
-            </div>
+          <a class="season-card consult" href="https://smartstore.naver.com/coreonmall/" target="_blank" rel="noopener">
+            <div class="season-icon">05</div>
+            <span>B2B · Supply Consulting</span>
+            <h3>대량구매·<br>현장납품 상담</h3>
+            <p>수량, 납품지, 사용목적, 희망일정 기준으로 상품 Q&A와 톡톡 상담을 연결합니다.</p>
+            <b>코레온몰 홈</b>
+          </a>
+        </div>
+      </div>
+    </section>
 
-            <div class="field full">
-              <label for="message">문의 내용 *</label>
-              <textarea id="message" name="message" required placeholder="현장 상황, 필요한 장비·솔루션, 사고 예방 관점에서 우려되는 부분, 상담 희망 내용을 적어주세요."></textarea>
-              <div class="helper">상세할수록 초기 검토와 상담 방향 설정이 빨라집니다.</div>
-            </div>
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="section-label">About COREON</div>
 
-            <div class="actions">
-              <button class="btn btn-primary" type="submit">문의 요약 생성</button>
-              <a class="btn btn-orange" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담 열기</a>
-              <a class="btn btn-light" href="tel:050713581482">전화 상담하기</a>
-            </div>
-          </form>
+            <h2>현장에 필요한 제품을<br>고객이 찾기 쉽게 연결합니다</h2>
 
-          <div class="result" id="result" aria-live="polite">
-            <h3>상담용 문의 요약문</h3>
-            <p class="helper">아래 내용을 복사해서 카카오톡 상담창에 붙여넣어 주세요.</p>
-            <textarea class="summary-box" id="summary" readonly></textarea>
-            <div class="actions">
-              <button class="btn btn-primary" type="button" id="copyBtn">문의 내용 복사</button>
-              <a class="btn btn-orange" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡으로 전달</a>
+            <h3>코레온은 산업안전, 현장장비, 냉방·분진, 제빙기, 소형건설기계 품목을 중심으로 고객의 구매와 상담을 돕습니다.</h3>
+
+            <p>
+              건설현장, 공장, 물류창고, 행사장, 매장 운영 현장에서는 필요한 제품이 다양합니다.
+              코레온은 현장 상황에 맞는 품목을 확인할 수 있도록 코레온몰과 상담 채널을 운영하며,
+              단품 구매부터 대량 구매, 현장 납품, 렌탈 가능 여부까지 빠르게 안내합니다.
+            </p>
+
+            <div class="chips">
+              <span class="chip">산업안전용품</span>
+              <span class="chip">현장장비</span>
+              <span class="chip">발전기·소형건설기계</span>
+              <span class="chip">냉방·분진 대응</span>
+              <span class="chip">제빙기</span>
             </div>
-            <div class="notice">
-              이 페이지는 고객 편의를 위한 정적 문의 접수 페이지입니다. 입력 내용은 서버에 자동 저장되지 않으며,
-              상담 진행을 위해 복사 후 카카오톡 또는 전화로 전달해 주세요.
+          </div>
+
+          <div class="message-card">
+            <div class="message-inner">
+              <div class="message-badge">COREON Field Direction</div>
+
+              <h3>필요한 제품 확인부터<br>구매·견적 상담까지<br>한 번에 연결합니다.</h3>
+
+              <p>코레온몰, 카카오톡, 고객센터를 통해 현장 조건에 맞는 상담을 도와드립니다.</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="process" aria-label="상담 절차">
-          <div class="step">
-            <b>STEP 01</b>
-            <strong>문의 접수</strong>
-            <span>현장 유형과 필요사항을 확인합니다.</span>
+    <section class="mall" id="mall">
+      <div class="container">
+        <div class="mall-banner-wrap">
+          <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener" aria-label="코레온몰 바로가기">
+            <picture>
+              <source media="(max-width: 640px)" srcset="/assets/coreon-mall-main-banner-mobile.png?v=20260702-safe">
+              <img src="/assets/coreon-mall-main-banner-pc.png?v=20260702-safe" alt="코레온몰 현장 맞춤 조달부터 반복구매까지">
+            </picture>
+          </a>
+        </div>
+
+        <div class="mall-grid">
+          <div class="category-grid">
+            <article class="category-card">
+              <div class="icon">01</div>
+              <h3>산업안전용품</h3>
+              <p>안전화, 안전모, 보호구, 시설안전용품, 도로안전용품 등 현장에서 반복적으로 필요한 품목.</p>
+            </article>
+
+            <article class="category-card">
+              <div class="icon">02</div>
+              <h3>현장장비</h3>
+              <p>발전기, 콤팩타, 휘니샤, 바이브레터, 줄눈컷팅기 등 건설·공장 현장에서 활용되는 장비 품목.</p>
+            </article>
+
+            <article class="category-card">
+              <div class="icon">03</div>
+              <h3>냉방·제빙 장비</h3>
+              <p>폭염 대응, 업소용 제빙기, 현장 휴게공간 운영 등 계절성·상업용 품목.</p>
+            </article>
+
+            <article class="category-card">
+              <div class="icon">04</div>
+              <h3>냉방·분진 대응</h3>
+              <p>쿨링포그, 미스트 냉방, 분진 억제 장비 등 작업환경 개선에 필요한 제품군.</p>
+            </article>
+
+            <article class="category-card">
+              <div class="icon">05</div>
+              <h3>반복구매 상품</h3>
+              <p>생수, 커피, 생활소비재 등 현장 운영과 사무공간에서 반복 구매가 가능한 실속형 상품.</p>
+            </article>
+
+            <article class="category-card">
+              <div class="icon">06</div>
+              <h3>B2B 맞춤 상담</h3>
+              <p>건설사, 공장, 관공서, 현장 운영 고객을 위한 대량견적·현장납품 상담.</p>
+            </article>
           </div>
-          <div class="step">
-            <b>STEP 02</b>
-            <strong>초기 검토</strong>
-            <span>위험요인, 작업환경, 공급 가능 품목을 검토합니다.</span>
-          </div>
-          <div class="step">
-            <b>STEP 03</b>
-            <strong>상담·제안</strong>
-            <span>현장 조건에 맞는 개선 방향과 견적을 안내합니다.</span>
-          </div>
-          <div class="step">
-            <b>STEP 04</b>
-            <strong>진행 협의</strong>
-            <span>방문, 납품, 설치, 후속 관리 범위를 협의합니다.</span>
+
+          <div class="white-card">
+            <div class="section-label">Purchase & Quotation</div>
+
+            <h2>단품 구매부터<br>현장 단위 상담까지</h2>
+
+            <p>
+              코레온몰에서 필요한 제품을 확인하고, 수량·납품장소·사용 목적에 따라 별도 견적 상담을 받을 수 있습니다.
+              대량 구매, 현장 납품, 렌탈 가능 여부, 배송 조건 등은 상품 Q&A, 톡톡, 카카오톡, 고객센터를 통해 문의해 주세요.
+            </p>
+
+            <div class="chips">
+              <span class="chip">상품 구매</span>
+              <span class="chip">대량 견적</span>
+              <span class="chip">현장 납품</span>
+              <span class="chip">렌탈 상담</span>
+              <span class="chip">배송 조건 확인</span>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      <div>COREON | 산업안전 솔루션과 현장 조달을 연결합니다.</div>
-      <div>코레온 고객센터 0507-1358-1482</div>
-    </footer>
-  </div>
+    <section id="supply">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Supply Lineup</div>
 
-  <script>
-    const form = document.getElementById('inquiryForm');
-    const result = document.getElementById('result');
-    const summary = document.getElementById('summary');
-    const copyBtn = document.getElementById('copyBtn');
+          <h2>코레온이 안내하는<br>주요 공급 품목</h2>
 
-    const field = (id) => document.getElementById(id).value.trim() || '-';
+          <p>
+            현장에 필요한 제품을 품목군별로 확인할 수 있도록 구성했습니다.
+            구매 전 제품 사양, 사용 환경, 배송 조건을 확인하시면 더 정확한 상담이 가능합니다.
+          </p>
+        </div>
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
+        <div class="supply-grid">
+          <article class="supply-card">
+            <img src="/assets/coreon-supply-safety-ip.png?v=20260702-safe" alt="특허기반 Safety IP">
+            <div class="supply-body">
+              <span>Safety IP</span>
+              <h3>특허기반 Safety IP</h3>
+              <p>산업현장의 사고 예방과 안전관리 관점에서 필요한 기술·제품·솔루션 방향을 제안합니다.</p>
+            </div>
+          </article>
 
-      if (!form.reportValidity()) return;
+          <article class="supply-card">
+            <img src="/assets/coreon-supply-cooling-dust.png?v=20260702-safe" alt="냉방·분진 솔루션">
+            <div class="supply-body">
+              <span>Cooling & Dust</span>
+              <h3>냉방·분진 솔루션</h3>
+              <p>폭염 대응, 미스트 냉방, 분진 억제 등 작업환경 개선을 위한 제품군을 안내합니다.</p>
+            </div>
+          </article>
 
-      const text = [
-        '[COREON 현장 안전진단 문의]',
-        '',
-        '회사명/기관명: ' + field('company'),
-        '담당자명: ' + field('name'),
-        '연락처: ' + field('phone'),
-        '이메일: ' + field('email'),
-        '사업장 유형: ' + field('siteType'),
-        '현장 지역: ' + field('region'),
-        '현장 인원/규모: ' + field('workers'),
-        '상담 희망 시점: ' + field('schedule'),
-        '필요 사항: ' + field('issue'),
-        '',
-        '문의 내용:',
-        field('message'),
-        '',
-        '위 내용으로 COREON 현장 안전진단 및 상담을 요청드립니다.'
-      ].join('\n');
+          <article class="supply-card">
+            <img src="/assets/coreon-supply-ice-machine.png?v=20260702-safe" alt="제빙기·업소용 장비">
+            <div class="supply-body">
+              <span>Ice Machine</span>
+              <h3>제빙기·업소용 장비</h3>
+              <p>카페, 식당, 행사장, 현장 휴게공간 등에 필요한 제빙기와 업소용 장비를 확인할 수 있습니다.</p>
+            </div>
+          </article>
 
-      summary.value = text;
-      result.classList.add('is-visible');
-      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+          <article class="supply-card">
+            <img src="/assets/coreon-supply-safety-tools.png?v=20260702-safe" alt="산업안전용품·공구">
+            <div class="supply-body">
+              <span>Safety Tools</span>
+              <h3>산업안전용품·공구</h3>
+              <p>안전화, 안전모, 보호구, 전동공구, 현장 소모품 등 반복 구매가 가능한 제품군을 운영합니다.</p>
+            </div>
+          </article>
 
-    copyBtn.addEventListener('click', async () => {
-      if (!summary.value.trim()) return;
+          <article class="supply-card">
+            <img src="/assets/coreon-supply-construction-equipment.png?v=20260702-safe" alt="발전기·소형건설기계">
+            <div class="supply-body">
+              <span>Construction Equipment</span>
+              <h3>발전기·소형건설기계</h3>
+              <p>발전기, 콤팩타, 휘니샤, 바이브레터 등 건설현장과 공장 현장에서 필요한 장비를 안내합니다.</p>
+            </div>
+          </article>
 
-      try {
-        await navigator.clipboard.writeText(summary.value);
-        copyBtn.textContent = '복사 완료';
-      } catch (error) {
-        summary.focus();
-        summary.select();
-        document.execCommand('copy');
-        copyBtn.textContent = '복사 완료';
-      }
+          <article class="supply-card image-contain">
+            <img src="/assets/coreon-supply-joint-cutter.png?v=20260702-safe" alt="줄눈컷팅기">
+            <div class="supply-body">
+              <span>Joint Cutter</span>
+              <h3>줄눈컷팅기</h3>
+              <p>콘크리트 바닥, 도로, 공장 바닥 보수·시공 현장에서 필요한 줄눈 절단 장비를 안내합니다.</p>
+            </div>
+          </article>
+        </div>
 
-      window.setTimeout(() => {
-        copyBtn.textContent = '문의 내용 복사';
-      }, 1800);
-    });
-  </script>
+        <div class="notice-box">
+          <h3>구매 전 상담이 필요한 경우</h3>
+          <p>
+            대량 구매, 화물 배송, 현장 납품, 렌탈 가능 여부, 기업·기관 구매 상담은 코레온몰 상품 Q&A,
+            스마트스토어 톡톡, 카카오톡 상담, 고객센터를 통해 문의해 주세요.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ip">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Safety IP</div>
+
+          <h2>코레온은 산업안전 관점의<br>기술 기반을 함께 갖추고 있습니다</h2>
+
+          <p>
+            코레온은 현장 제품 조달뿐 아니라 산업안전 분야의 지식재산과 안전 솔루션 방향을 함께 발전시키고 있습니다.
+            공개 가능한 인증·특허 자료를 통해 기술 기반 기업으로서의 신뢰를 보여드립니다.
+          </p>
+        </div>
+
+        <div class="ip-grid">
+          <div class="white-card">
+            <div class="section-label">COREON Safety Direction</div>
+
+            <h2>현장 안전을 제품과<br>시스템 관점에서 봅니다</h2>
+
+            <p>
+              산업현장의 안전 문제는 단순 보호구만으로 해결되지 않습니다.
+              코레온은 현장 조건, 작업 환경, 장비 사용 방식, 작업자 보호 관점을 함께 고려해
+              고객에게 필요한 제품과 솔루션 방향을 제안합니다.
+            </p>
+
+            <div class="patent-list">
+              <div class="patent-item">
+                <div class="patent-no">01</div>
+                <div>
+                  <h3>산업안전 중심</h3>
+                  <p>현장 위험을 줄이기 위한 제품, 장비, 보호구, 솔루션을 함께 검토합니다.</p>
+                </div>
+              </div>
+
+              <div class="patent-item">
+                <div class="patent-no">02</div>
+                <div>
+                  <h3>지식재산 기반</h3>
+                  <p>등록특허와 공개 가능한 기술 자료를 바탕으로 안전 솔루션 방향을 확장합니다.</p>
+                </div>
+              </div>
+
+              <div class="patent-item">
+                <div class="patent-no">03</div>
+                <div>
+                  <h3>현장 적용성</h3>
+                  <p>건설, 제조, 물류, 행사, 매장 운영 등 실제 사용 현장에 맞는 상담을 제공합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="asset-card">
+            <img src="/assets/patent_3set.png?v=20260702-safe" alt="COREON 등록특허 자료" onerror="this.src='/assets/patents/patent_3set.png?v=20260702-safe';">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blue-band" id="proof">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Verification</div>
+
+          <h2>공개 가능한 인증과 자료로<br>신뢰를 확인합니다</h2>
+
+          <p>
+            코레온은 산업안전과 현장 조달을 연결하는 기업으로서,
+            공개 가능한 인증·특허 자료를 기반으로 고객 신뢰를 쌓아가고 있습니다.
+          </p>
+        </div>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <b>Venture</b>
+            <span>벤처기업 확인</span>
+            <p>혁신성장유형 벤처기업으로 확인된 기업입니다.</p>
+          </div>
+
+          <div class="proof-card">
+            <b>Patent</b>
+            <span>등록특허 기반</span>
+            <p>산업안전 분야의 지식재산을 바탕으로 사업 방향을 확장합니다.</p>
+          </div>
+
+          <div class="proof-card">
+            <b>Field</b>
+            <span>현장 중심</span>
+            <p>건설, 제조, 물류, 행사, 매장 운영 현장의 수요를 기준으로 제품을 안내합니다.</p>
+          </div>
+
+          <div class="proof-card">
+            <b>B2B</b>
+            <span>구매 상담</span>
+            <p>대량 구매, 현장 납품, 렌탈 가능 여부 등 고객 조건에 맞춰 상담합니다.</p>
+          </div>
+        </div>
+
+        <div class="asset-card" style="margin-top:28px;">
+          <img src="/assets/venture-enterprise-coreon-2026-03-25.png?v=20260702-safe" alt="COREON 벤처기업확인서">
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Consulting Process</div>
+
+          <h2>구매와 견적 상담은<br>간단하게 진행됩니다</h2>
+
+          <p>
+            제품명, 수량, 납품 장소, 사용 목적, 희망 일정만 알려주시면 확인 후 순차적으로 안내드립니다.
+          </p>
+        </div>
+
+        <div class="flow-grid">
+          <div class="flow-card">
+            <b>1</b>
+            <h3>제품 확인</h3>
+            <p>코레온몰 또는 홈페이지에서 필요한 품목군을 확인합니다.</p>
+          </div>
+
+          <div class="flow-card">
+            <b>2</b>
+            <h3>상담 요청</h3>
+            <p>상품 Q&A, 톡톡, 카카오톡, 고객센터로 문의를 남깁니다.</p>
+          </div>
+
+          <div class="flow-card">
+            <b>3</b>
+            <h3>조건 확인</h3>
+            <p>수량, 납품지, 배송 방식, 렌탈 가능 여부 등을 확인합니다.</p>
+          </div>
+
+          <div class="flow-card">
+            <b>4</b>
+            <h3>구매·납품 안내</h3>
+            <p>상품 구매, 견적 상담, 현장 납품 가능 여부를 안내합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mall" id="links">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Channel Hub</div>
+
+          <h2>코레온의 공식 채널을<br>한 곳에서 확인하세요</h2>
+
+          <p>코레온몰, 카카오톡, 유튜브, 블로그를 통해 상품 확인과 상담을 이어갈 수 있습니다.</p>
+        </div>
+
+        <div class="link-panel">
+          <a class="external-link" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">
+            <div>
+              코레온몰 바로가기
+              <span>네이버 스마트스토어 · 상품 구매 및 Q&A</span>
+            </div>
+          </a>
+
+          <a class="external-link" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">
+            <div>
+              카카오톡 상담
+              <span>대량구매 · 현장납품 · 렌탈 · 배송 문의</span>
+            </div>
+          </a>
+
+          <a class="external-link" href="https://www.coreon-global.com/inquiry.html" target="_blank" rel="noopener">
+            <div>
+              현장 안전진단 문의
+              <span>중대재해 예방 · 위험요인 확인 · 현장 상담 접수</span>
+            </div>
+          </a>
+
+          <a class="external-link" href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener">
+            <div>
+              COREON 유튜브
+              <span>제품 영상 · 현장 적용 콘텐츠</span>
+            </div>
+          </a>
+
+          <a class="external-link" href="https://blog.naver.com/valueup1114" target="_blank" rel="noopener">
+            <div>
+              COREON 블로그
+              <span>산업안전 · 현장 제품 · 사업화 인사이트</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h2>현장에 필요한 제품과<br>안전 솔루션을 상담하세요</h2>
+
+            <p>
+              단품 구매부터 대량 구매, 현장 납품, 렌탈 가능 여부, 배송 조건까지 코레온 고객센터와 상담 채널을 통해 안내드립니다.
+            </p>
+
+            <div class="contact-list">
+              <a href="tel:0507-1358-1482">고객센터: 0507-1358-1482</a>
+              <a href="mailto:contact@coreon-global.com">이메일: contact@coreon-global.com</a>
+              <a href="https://www.coreon-global.com/inquiry.html" target="_blank" rel="noopener">현장 안전진단 문의하기</a>
+              <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담 바로가기</a>
+              <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 바로가기</a>
+            </div>
+          </div>
+
+          <div class="contact-note">
+            <h3>상담 시 알려주시면 좋은 정보</h3>
+
+            <p>
+              제품명, 필요한 수량, 납품 장소, 사용 현장, 희망 일정, 배송 방식, 렌탈 여부를 함께 알려주시면
+              더 빠르고 정확하게 안내드릴 수 있습니다.
+            </p>
+
+            <div class="chips">
+              <span class="chip">제품명</span>
+              <span class="chip">수량</span>
+              <span class="chip">납품 장소</span>
+              <span class="chip">사용 목적</span>
+              <span class="chip">희망 일정</span>
+              <span class="chip">렌탈 여부</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">COREON</div>
+        <div class="small">
+          코레온(COREON) · 대표 이호원<br>
+          산업안전 솔루션과 현장 조달을 연결하는 기업
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰</a>
+        <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡</a>
+        <a href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener">유튜브</a>
+        <a href="https://blog.naver.com/valueup1114" target="_blank" rel="noopener">블로그</a>
+      </div>
+
+      <div class="small">
+        Contact: contact@coreon-global.com<br>
+        Customer Center: 0507-1358-1482
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
