@@ -11,8 +11,8 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.coreon-global.com/">
 
-  <link rel="preload" as="image" href="/assets/coreon-hero-field-pc.webp.jpg?v=20260703-v15-ai-platform" media="(min-width: 981px)">
-  <link rel="preload" as="image" href="/assets/coreon-hero-field-mobile.webp.jpg?v=20260703-v15-ai-platform" media="(max-width: 980px)">
+  <link rel="preload" as="image" href="/assets/coreon-hero-ai-platform.png?v=20260703-v16" media="(min-width: 981px)">
+  <link rel="preload" as="image" href="/assets/coreon-hero-ai-platform.png?v=20260703-v16" media="(max-width: 980px)">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
@@ -20,12 +20,12 @@
   <meta property="og:title" content="COREON(코레온) | AI 기반 중대재해 예방 진단 플랫폼">
   <meta property="og:description" content="무료 1차 안전진단부터 법령 체크, 위험요인 확인, 정밀진단 상담까지 연결하는 COREON.">
   <meta property="og:url" content="https://www.coreon-global.com/">
-  <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v15-ai-platform">
+  <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v16">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="COREON(코레온) | AI 기반 중대재해 예방 진단 플랫폼">
   <meta name="twitter:description" content="무료 1차 안전진단부터 법령 체크, 위험요인 확인, 정밀진단 상담까지 연결하는 COREON.">
-  <meta name="twitter:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v15-ai-platform">
+  <meta name="twitter:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v16">
 
   <style>
     :root {
@@ -46,9 +46,13 @@
       --max: 1240px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -59,9 +63,19 @@
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    section { padding: 96px 0; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    section {
+      padding: 96px 0;
+    }
 
     .container {
       width: min(var(--max), calc(100% - 48px));
@@ -113,11 +127,20 @@
       color: #12243d;
     }
 
-    .nav-links a { opacity: 0.92; transition: 0.2s; }
-    .nav-links a:hover { color: var(--blue); opacity: 1; }
+    .nav-links a {
+      opacity: 0.92;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+      opacity: 1;
+    }
 
     .menu-toggle,
-    .mobile-menu-label { display: none; }
+    .mobile-menu-label {
+      display: none;
+    }
 
     .btn {
       display: inline-flex;
@@ -132,12 +155,35 @@
       border: 1px solid transparent;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--blue); color: #ffffff; }
-    .btn-dark { background: #061a33; color: #ffffff; }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #ffffff; }
-    .btn-light { background: #eaf5ff; color: var(--blue2); }
-    .btn-kakao { background: #fee500; color: #191919; border-color: #f2d900; }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .btn-dark {
+      background: #061a33;
+      color: #ffffff;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #ffffff;
+    }
+
+    .btn-light {
+      background: #eaf5ff;
+      color: var(--blue2);
+    }
+
+    .btn-kakao {
+      background: #fee500;
+      color: #191919;
+      border-color: #f2d900;
+    }
 
     .social-floating {
       position: fixed;
@@ -162,23 +208,33 @@
       transition: 0.2s;
     }
 
-    .social-floating a:hover { transform: translateY(-3px); }
-    .social-floating img { width: 100%; height: 100%; object-fit: contain; }
-    .social-floating .kakao { background: #fee500; }
-    .social-floating .youtube img { padding: 8px; }
+    .social-floating a:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-floating img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-floating .kakao {
+      background: #fee500;
+    }
+
+    .social-floating .youtube img {
+      padding: 8px;
+    }
 
     .hero {
       position: relative;
-      min-height: 820px;
+      min-height: 840px;
       display: flex;
       align-items: center;
       overflow: hidden;
       color: #ffffff;
       isolation: isolate;
-      background:
-        radial-gradient(circle at 72% 22%, rgba(22, 119, 255, 0.18), transparent 30%),
-        radial-gradient(circle at 18% 18%, rgba(22, 119, 255, 0.18), transparent 34%),
-        linear-gradient(135deg, #061a33 0%, #08264d 58%, #071526 100%);
+      background: linear-gradient(135deg, #071a33 0%, #0a2344 50%, #0a2d57 100%);
     }
 
     .hero::before {
@@ -186,12 +242,11 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background-image: url("/assets/coreon-hero-field-pc.webp.jpg?v=20260703-v15-ai-platform");
-      background-size: auto 93%;
-      background-position: right 7% bottom;
+      background-image: url("/assets/coreon-hero-ai-platform.png?v=20260703-v16");
+      background-size: cover;
+      background-position: center right;
       background-repeat: no-repeat;
-      opacity: 0.92;
-      filter: saturate(1.05) contrast(1.04);
+      opacity: 1;
       pointer-events: none;
     }
 
@@ -200,18 +255,23 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(6, 26, 51, 0.98) 0%, rgba(6, 26, 51, 0.96) 36%, rgba(6, 26, 51, 0.76) 58%, rgba(6, 26, 51, 0.38) 78%, rgba(6, 26, 51, 0.16) 100%),
-        radial-gradient(circle at 74% 30%, rgba(255, 255, 255, 0.18), transparent 22%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.18));
+      background: linear-gradient(
+        90deg,
+        rgba(7, 26, 51, 0.96) 0%,
+        rgba(7, 26, 51, 0.90) 28%,
+        rgba(7, 26, 51, 0.72) 45%,
+        rgba(7, 26, 51, 0.42) 62%,
+        rgba(7, 26, 51, 0.16) 78%,
+        rgba(7, 26, 51, 0.04) 100%
+      );
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(850px, 100%);
-      padding: 72px 0;
+      width: min(640px, 100%);
+      padding: 82px 0;
     }
 
     .eyebrow {
@@ -237,48 +297,51 @@
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(41px, 5.4vw, 74px);
-      line-height: 1.1;
-      letter-spacing: -0.065em;
+      font-size: clamp(42px, 5vw, 74px);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
       font-weight: 950;
     }
 
     .hero p {
-      margin: 28px 0 0;
-      font-size: clamp(18px, 2.1vw, 24px);
+      margin: 24px 0 0;
+      font-size: clamp(18px, 2vw, 23px);
       line-height: 1.72;
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(255, 255, 255, 0.90);
       font-weight: 520;
     }
 
-    .hero p strong { font-weight: 950; color: #ffffff; }
+    .hero p strong {
+      font-weight: 950;
+      color: #ffffff;
+    }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .hero-points {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 36px;
-      width: min(780px, 100%);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+      width: min(640px, 100%);
     }
 
     .hero-point {
-      padding: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
+      padding: 18px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.20);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
     }
 
     .hero-point b {
       display: block;
-      font-size: 20px;
+      font-size: 18px;
       margin-bottom: 6px;
       color: #ffffff;
     }
@@ -291,7 +354,9 @@
       font-weight: 750;
     }
 
-    .section-title { margin-bottom: 36px; }
+    .section-title {
+      margin-bottom: 36px;
+    }
 
     .section-label {
       display: inline-flex;
@@ -348,7 +413,9 @@
     }
 
     .blue-band .section-title h2,
-    .blue-band .section-title p { color: #ffffff; }
+    .blue-band .section-title p {
+      color: #ffffff;
+    }
 
     .grid-2 {
       display: grid;
@@ -407,9 +474,16 @@
       line-height: 1.25;
     }
 
-    .card h3 { font-size: 23px; }
+    .card h3 {
+      font-size: 23px;
+    }
+
     .white-card h2,
-    .contact-card h2 { font-size: clamp(31px, 3vw, 48px); line-height: 1.16; font-weight: 950; }
+    .contact-card h2 {
+      font-size: clamp(31px, 3vw, 48px);
+      line-height: 1.16;
+      font-weight: 950;
+    }
 
     .card p,
     .white-card p,
@@ -427,7 +501,7 @@
       border-radius: var(--radius);
       background:
         linear-gradient(135deg, rgba(6, 26, 51, 0.96), rgba(10, 43, 87, 0.92)),
-        url("/assets/coreon-supply-safety-ip.png?v=20260703-v15-ai-platform") center/cover no-repeat;
+        url("/assets/coreon-supply-safety-ip.png?v=20260703-v16") center/cover no-repeat;
       color: #ffffff;
       box-shadow: var(--shadow2);
       position: relative;
@@ -643,8 +717,8 @@
       overflow: hidden;
       box-shadow: var(--shadow2);
       background:
-        linear-gradient(135deg, rgba(6, 26, 51, 0.90), rgba(10, 43, 87, 0.78)),
-        url("/assets/coreon-industrial-technical-services.jpg?v=20260703-v15-ai-platform") center/cover no-repeat;
+        linear-gradient(135deg, rgba(6, 26, 51, 0.84), rgba(10, 43, 87, 0.62)),
+        url("/assets/coreon-ceo-safety-profile.png?v=20260703-v16") center/cover no-repeat;
       color: #ffffff;
     }
 
@@ -700,9 +774,14 @@
       color: #ffffff;
     }
 
-    .proof-card b { color: #8fd0ff; }
+    .proof-card b {
+      color: #8fd0ff;
+    }
+
     .proof-card h3,
-    .proof-card p { color: #ffffff; }
+    .proof-card p {
+      color: #ffffff;
+    }
 
     .contact-grid {
       display: grid;
@@ -797,18 +876,38 @@
     }
 
     @media (max-width: 1180px) {
-      .nav-links { gap: 14px; font-size: 13px; }
+      .nav-links {
+        gap: 14px;
+        font-size: 13px;
+      }
+
       .hero-points,
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 980px) {
-      .container { width: min(100% - 34px, var(--max)); }
+      .container {
+        width: min(100% - 34px, var(--max));
+      }
 
-      .nav-wrap { height: 68px; }
-      .brand { font-size: 22px; }
-      .brand-logo { width: 46px; height: 46px; }
+      .nav-wrap {
+        height: 68px;
+      }
+
+      .brand {
+        font-size: 22px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+      }
 
       .mobile-menu-label {
         display: inline-flex;
@@ -823,7 +922,10 @@
         cursor: pointer;
       }
 
-      .mobile-menu-label::before { content: "☰"; font-size: 22px; }
+      .mobile-menu-label::before {
+        content: "☰";
+        font-size: 22px;
+      }
 
       .nav-links {
         position: absolute;
@@ -845,31 +947,51 @@
         border-bottom: 1px solid #edf2f7;
       }
 
-      .menu-toggle:checked ~ .nav-links { display: flex; }
+      .menu-toggle:checked ~ .nav-links {
+        display: flex;
+      }
 
-      .hero { min-height: auto; }
+      .hero {
+        min-height: 880px;
+        align-items: flex-start;
+      }
 
       .hero::before {
-        background-image: url("/assets/coreon-hero-field-mobile.webp.jpg?v=20260703-v15-ai-platform");
-        background-size: auto 98%;
-        background-position: right -110px bottom;
-        opacity: 0.42;
+        background-image: url("/assets/coreon-hero-ai-platform.png?v=20260703-v16");
+        background-size: cover;
+        background-position: center center;
       }
 
       .hero::after {
-        background:
-          linear-gradient(180deg, rgba(6, 26, 51, 0.98) 0%, rgba(6, 26, 51, 0.95) 43%, rgba(6, 26, 51, 0.90) 72%, rgba(6, 26, 51, 0.86) 100%),
-          radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.12), transparent 22%);
+        background: linear-gradient(
+          180deg,
+          rgba(7, 26, 51, 0.76) 0%,
+          rgba(7, 26, 51, 0.56) 20%,
+          rgba(7, 26, 51, 0.28) 42%,
+          rgba(7, 26, 51, 0.10) 58%,
+          rgba(7, 26, 51, 0.48) 76%,
+          rgba(7, 26, 51, 0.82) 100%
+        );
       }
 
       .hero-content {
-        width: min(720px, 100%);
-        padding: 72px 0 58px;
+        width: 100%;
+        padding: 68px 0 54px;
       }
 
       .hero h1 {
-        font-size: clamp(38px, 10vw, 66px);
-        line-height: 1.08;
+        font-size: clamp(36px, 10vw, 58px);
+        line-height: 1.10;
+      }
+
+      .hero p {
+        font-size: 17px;
+        line-height: 1.68;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+        width: 100%;
       }
 
       .grid-2,
@@ -877,33 +999,46 @@
         grid-template-columns: 1fr;
       }
 
-      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       .bridge {
         grid-template-columns: 1fr;
       }
 
-      section { padding: 74px 0; }
+      section {
+        padding: 74px 0;
+      }
     }
 
     @media (max-width: 640px) {
-      .container { width: min(100% - 28px, var(--max)); }
-
-      .hero::before {
-        background-size: auto 84%;
-        background-position: center bottom;
-        opacity: 0.24;
+      .container {
+        width: min(100% - 28px, var(--max));
       }
 
-      .hero-content { padding: 58px 0 48px; }
-      .hero h1 { font-size: clamp(36px, 11vw, 56px); }
+      .hero {
+        min-height: 920px;
+      }
+
+      .hero-content {
+        padding: 56px 0 42px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
 
       .btn {
         width: 100%;
         min-height: 50px;
       }
 
-      .hero-points,
       .grid-3,
       .grid-4,
       .grid-5 {
@@ -918,10 +1053,14 @@
         padding: 26px;
       }
 
-      .legal-card { padding-left: 54px; }
+      .legal-card {
+        padding-left: 54px;
+      }
 
       .section-title h2,
-      .white-card h2 { font-size: 34px; }
+      .white-card h2 {
+        font-size: 34px;
+      }
 
       .social-floating {
         right: 14px;
@@ -935,7 +1074,9 @@
         border-radius: 16px;
       }
 
-      .footer-grid { display: grid; }
+      .footer-grid {
+        display: grid;
+      }
     }
   </style>
 
@@ -947,7 +1088,7 @@
     "alternateName": "코레온",
     "url": "https://www.coreon-global.com/",
     "logo": "https://www.coreon-global.com/assets/coreon-logo.png",
-    "image": "https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v15-ai-platform",
+    "image": "https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v16",
     "founder": {
       "@type": "Person",
       "name": "이호원"
@@ -1001,41 +1142,41 @@
     <section class="hero" id="top">
       <div class="container">
         <div class="hero-content">
-          <div class="eyebrow">AI Safety Diagnosis · Safety Risk Score · Safety IP</div>
+          <div class="eyebrow">AI Safety Diagnosis Platform</div>
 
-          <h1>우리 사업장은<br>중대재해 리스크로부터<br>안전합니까?</h1>
+          <h1>
+            AI로 먼저 진단하고,<br>
+            현장에 맞게 대응하는<br>
+            COREON
+          </h1>
 
           <p>
-            <strong>COREON은 5인 이상 사업장과 산업현장의 위험요인을 AI 기반으로 구조화하고, 무료 1차 안전진단부터 정밀진단 상담까지 연결합니다.</strong>
-            건설, 제조, 식품, 물류, 공공·지자체 현장의 안전관리 공백을 수치와 절차로 확인하세요.
+            코레온은 <strong>5인 이상 사업장과 산업현장</strong>을 대상으로
+            중대재해 예방을 위한 <strong>무료 1차 안전진단</strong>,
+            위험요인 구조화, 법령 체크, 정밀진단 상담까지 연결하는
+            <strong>AI 기반 산업안전 진단 플랫폼</strong>입니다.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.coreon-global.com/inquiry.html?source=coreon-home&offer=free-diagnosis" target="_blank" rel="noopener">무료 1차 안전진단 신청</a>
             <a class="btn btn-light" href="#diagnosis">진단 프로세스 보기</a>
             <a class="btn btn-kakao" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a>
-            <a class="btn btn-dark" href="tel:0507-1358-1482">전화 상담 문의</a>
           </div>
 
           <div class="hero-points">
             <div class="hero-point">
-              <b>AI Check</b>
-              <span>사업장 위험요인 구조화</span>
+              <b>Safety Risk Score</b>
+              <span>사업장 위험요인 점수화</span>
             </div>
 
             <div class="hero-point">
-              <b>Risk Score</b>
-              <span>위험도 점수화 상담</span>
+              <b>Legal Check</b>
+              <span>법령 기준 핵심 항목 확인</span>
             </div>
 
             <div class="hero-point">
-              <b>Legal Guide</b>
-              <span>중대재해 법령 체크</span>
-            </div>
-
-            <div class="hero-point">
-              <b>Safety IP</b>
-              <span>특허 기반 예방 관점</span>
+              <b>Precision Guide</b>
+              <span>정밀진단 및 후속 상담 연결</span>
             </div>
           </div>
         </div>
@@ -1291,8 +1432,8 @@
 
           <div class="message-card">
             <div>
-              <div class="message-badge">COREON AI Safety Platform</div>
-              <h3>진단, 점수화, 제안,<br>개선 연결까지</h3>
+              <div class="message-badge">COREON Field Leadership</div>
+              <h3>현장을 아는<br>안전진단 플랫폼</h3>
               <p>코레온은 사업장의 위험요인을 먼저 확인하고, 필요한 경우 정밀진단과 산업안전 인프라 매칭으로 연결합니다.</p>
             </div>
           </div>
@@ -1339,11 +1480,11 @@
 
         <div class="grid-2" style="margin-top:28px;">
           <div class="asset-card">
-            <img src="/assets/venture-enterprise-coreon-2026-03-25.png?v=20260703-v15-ai-platform" alt="COREON 벤처기업확인서">
+            <img src="/assets/venture-enterprise-coreon-2026-03-25.png?v=20260703-v16" alt="COREON 벤처기업확인서">
           </div>
 
           <div class="asset-card">
-            <img src="/assets/patent_3set.png?v=20260703-v15-ai-platform" alt="COREON 등록특허 자료" onerror="this.src='/assets/patents/patent_3set.png?v=20260703-v15-ai-platform';">
+            <img src="/assets/patent_3set.png?v=20260703-v16" alt="COREON 등록특허 자료" onerror="this.src='/assets/patents/patent_3set.png?v=20260703-v16';">
           </div>
         </div>
       </div>
