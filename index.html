@@ -559,7 +559,9 @@
       margin-top: 28px;
       padding: 30px;
       border-radius: var(--radius);
-      background: #ffffff;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(22,119,255,0.10), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
@@ -604,43 +606,182 @@
       white-space: nowrap;
     }
 
-    .report-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .sample-sheet {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid #d9e7f5;
+      background: #ffffff;
+      box-shadow: 0 18px 46px rgba(6,26,51,0.10);
     }
 
-    .report-item {
-      padding: 18px;
+    .sample-sheet-top {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 22px;
+      background: linear-gradient(135deg, #061a33 0%, #123e76 100%);
+      color: #ffffff;
+    }
+
+    .sample-score {
+      display: grid;
+      place-items: center;
+      min-height: 148px;
       border-radius: 18px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      text-align: center;
+    }
+
+    .sample-score strong {
+      display: block;
+      font-size: 54px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+    }
+
+    .sample-score span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.82);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .sample-title {
+      align-self: center;
+    }
+
+    .sample-title em {
+      display: inline-flex;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: #fff3d8;
+      color: #7c4b00;
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .sample-title h4 {
+      margin: 0 0 8px;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1.22;
+      letter-spacing: -0.04em;
+    }
+
+    .sample-title p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .sample-sheet-body {
+      padding: 22px;
+    }
+
+    .sample-alert {
+      margin: 0 0 18px;
+      color: #172642;
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 850;
+    }
+
+    .sample-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .sample-metric {
+      min-height: 74px;
+      padding: 13px 14px;
+      border-radius: 15px;
       background: #f8fbff;
       border: 1px solid #e2edf8;
     }
 
-    .report-item b {
+    .sample-metric b {
       display: block;
-      margin-bottom: 8px;
-      color: var(--blue);
-      font-size: 12px;
+      margin-bottom: 6px;
+      color: #62728a;
+      font-size: 11px;
       font-weight: 950;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
-    .report-item strong {
+    .sample-metric strong {
       display: block;
       color: var(--navy);
-      font-size: 18px;
-      line-height: 1.35;
-      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.1;
     }
 
-    .report-item span {
+    .sample-law-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .sample-law {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid #e2edf8;
+      background: #ffffff;
+    }
+
+    .sample-law b {
+      display: inline-flex;
+      margin-bottom: 9px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #eaf5ff;
+      color: var(--blue2);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .sample-law strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .sample-law span {
       display: block;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.62;
       font-weight: 560;
+    }
+
+    .sample-source {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #e2edf8;
+    }
+
+    .sample-source span {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f3f7fb;
+      color: #42526a;
+      border: 1px solid #e2edf8;
+      font-size: 11px;
+      font-weight: 900;
     }
 
     .solution-card {
@@ -1160,6 +1301,9 @@
       .grid-2, .contact-grid { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: repeat(2, 1fr); }
       .report-grid { grid-template-columns: 1fr; }
+      .sample-sheet-top { grid-template-columns: 1fr; }
+      .sample-metrics { grid-template-columns: repeat(2, 1fr); }
+      .sample-law-grid { grid-template-columns: 1fr; }
       .choice-grid { grid-template-columns: 1fr; }
       .bridge { grid-template-columns: 1fr; }
       section { padding: 74px 0; }
@@ -1190,6 +1334,9 @@
       .diagnosis-lead, .white-card, .card, .contact-card, .contact-note, .form-preview { padding: 26px; }
       .report-sample, .privacy-card { padding: 24px; }
       .report-head { display: grid; }
+      .sample-sheet-body { padding: 18px; }
+      .sample-metrics { grid-template-columns: 1fr; }
+      .sample-title h4 { font-size: 24px; }
       .form-progress { grid-template-columns: 1fr; }
       .solution-card { padding: 0; }
       .legal-card { padding-left: 54px; }
@@ -1401,35 +1548,72 @@
           </div>
         </div>
 
-        <div class="report-sample" aria-label="COREON AI Safety Brief 예시">
+        <div class="report-sample" aria-label="AI 법령 체크 리포트 샘플 미리보기">
           <div class="report-head">
             <div>
-              <h3>COREON AI Safety Brief 예시</h3>
-              <p>신청 후 사업장 정보와 선택한 위험요인을 바탕으로 아래와 같은 요약 결과와 후속 상담 방향을 확인합니다.</p>
+              <h3>AI가 도출하는 법령 체크 리포트 샘플</h3>
+              <p>무료 진단을 신청하면 입력한 업종, 근로자 수, 현장 위험요인, 법령 미이행 항목을 바탕으로 아래와 같은 1차 리포트가 생성됩니다.</p>
             </div>
-            <span class="report-badge">Sample Report</span>
+            <span class="report-badge">Preview</span>
           </div>
 
-          <div class="report-grid">
-            <div class="report-item">
-              <b>Risk Summary</b>
-              <strong>주요 위험요인 요약</strong>
-              <span>업종, 근로자 수, 현장 유형, 선택 위험요인을 기준으로 우선 확인할 위험요인을 정리합니다.</span>
+          <div class="sample-sheet">
+            <div class="sample-sheet-top">
+              <div class="sample-score">
+                <div>
+                  <strong>50</strong>
+                  <span>Safety Risk Score</span>
+                </div>
+              </div>
+              <div class="sample-title">
+                <em>위험 · 중대 리스크 개선 필요</em>
+                <h4>COREON AI Safety Brief</h4>
+                <p>제조·식품 사업장에 대한 노동부 점검표 및 중대재해처벌법 시행령 기준 1차 안전진단 예시입니다.</p>
+              </div>
             </div>
-            <div class="report-item">
-              <b>Legal Check</b>
-              <strong>중대재해처벌법 핵심 항목</strong>
-              <span>안전보건 목표, 위험요인 개선 절차, 예산, 교육, 비상대응 등 9가지 항목을 1차 체크합니다.</span>
-            </div>
-            <div class="report-item">
-              <b>Next Action</b>
-              <strong>정밀진단 필요 여부</strong>
-              <span>현장 방문, 개선 리포트, 추가 상담이 필요한지 판단하고 우선순위를 안내합니다.</span>
-            </div>
-            <div class="report-item">
-              <b>Solution Match</b>
-              <strong>추천 개선 솔루션</strong>
-              <span>보호구, 안전장비, 작업환경 개선, 비상전원 등 필요한 산업안전 인프라 상담 방향을 제안합니다.</span>
+
+            <div class="sample-sheet-body">
+              <p class="sample-alert">
+                현재 사업장은 위험 단계로, 현장 위험요인과 법령 이행 공백이 함께 확인됩니다.
+                단순 체크리스트가 아니라 위험요인 개선 절차, 예산 편성·집행, 비상조치 매뉴얼을 기준으로 정밀 확인이 필요합니다.
+              </p>
+
+              <div class="sample-metrics" aria-label="법령 체크 감점 요약">
+                <div class="sample-metric"><b>위험요인 감점</b><strong>22</strong></div>
+                <div class="sample-metric"><b>법령 공백 감점</b><strong>16</strong></div>
+                <div class="sample-metric"><b>폭염·현장 조건</b><strong>12</strong></div>
+                <div class="sample-metric"><b>근로자 수 보정</b><strong>5~49인</strong></div>
+              </div>
+
+              <div class="sample-law-grid" aria-label="AI 법령 체크 예시">
+                <div class="sample-law">
+                  <b>시행령 제4조 제3호</b>
+                  <strong>유해·위험요인 확인 및 개선 절차</strong>
+                  <span>위험요인을 주기적으로 파악하고 개선조치 이행 여부를 반기 1회 이상 점검해야 합니다.</span>
+                </div>
+                <div class="sample-law">
+                  <b>시행령 제4조 제4호</b>
+                  <strong>재해예방 예산 편성 및 집행</strong>
+                  <span>확인된 유해·위험요인 개선에 필요한 인력·시설·장비 예산을 편성하고 용도에 맞게 집행해야 합니다.</span>
+                </div>
+                <div class="sample-law">
+                  <b>시행령 제4조 제8호</b>
+                  <strong>비상조치 매뉴얼 마련</strong>
+                  <span>작업중지, 대피, 구호조치, 추가 피해방지 절차와 훈련·점검 기록을 확인합니다.</span>
+                </div>
+                <div class="sample-law">
+                  <b>추천 개선 솔루션</b>
+                  <strong>정밀진단 + 보호구·작업환경 개선</strong>
+                  <span>보호구, 안전장비, 쿨링·환기, 설비 방호 등 현장 조건에 맞는 개선 품목을 후속 상담으로 연결합니다.</span>
+                </div>
+              </div>
+
+              <div class="sample-source" aria-label="리포트 산출 기준">
+                <span>고용노동부 안전보건관리체계 자율점검표</span>
+                <span>중대재해처벌법 시행령 제4조</span>
+                <span>시행령 제5조 의무이행 점검</span>
+                <span>위험성평가 체크리스트</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1534,8 +1718,8 @@
             <img src="/assets/coreon-supply-safety-ip.png?v=20260705-v19" alt="Safety IP 기반 산업안전 개선 방향">
             <div class="solution-body">
               <b>Safety IP</b>
-              <h3>특수 솔루션</h3>
-              <p>산업현장 안전개선 장비, Safety IP 기반 예방 구조까지 확장 가능성을 검토합니다.</p>
+              <h3>Safety IP 기반 개선</h3>
+              <p>산업현장 안전개선 장비, 물리적 차단, 위험인지, 예방 중심 구조까지 확장 가능성을 검토합니다.</p>
               <ul>
                 <li>현장 맞춤 개선 방향</li>
                 <li>B2B/B2G 협업 상담</li>
