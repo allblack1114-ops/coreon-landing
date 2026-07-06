@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COREON 등록특허 제10-2917068호 기구 작동 시뮬레이터</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #111827;
+      --panel-2: #172033;
+      --line: #2b3a55;
+      --text: #eef3fb;
+      --muted: #a9b4c7;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --red: #fb7185;
+      --steel: #7f8ea3;
+      --part: #d7e0ef;
+      --part-dark: #44556d;
+      --ring: #f3c15f;
+      --key: #72d4ff;
+      --shadow: rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 32rem),
+        linear-gradient(135deg, #08101d 0%, #0b1220 55%, #111827 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 0 18px;
+      border-bottom: 1px solid rgba(169, 180, 199, 0.22);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      letter-spacing: 0;
+      line-height: 1.18;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 760px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(56, 189, 248, 0.42);
+      background: rgba(56, 189, 248, 0.1);
+      color: #bdeeff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.85fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.86);
+      border: 1px solid rgba(169, 180, 199, 0.18);
+      border-radius: 12px;
+      box-shadow: 0 20px 60px var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(90deg, rgba(23, 32, 51, 0.96), rgba(17, 24, 39, 0.96));
+      border-bottom: 1px solid rgba(169, 180, 199, 0.16);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .status {
+      min-width: 184px;
+      text-align: center;
+      border: 1px solid rgba(169, 180, 199, 0.22);
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      background: rgba(11, 18, 32, 0.86);
+    }
+
+    .status.ready { color: var(--muted); }
+    .status.blocked { color: var(--red); border-color: rgba(251, 113, 133, 0.45); }
+    .status.engaged { color: var(--amber); border-color: rgba(251, 191, 36, 0.45); }
+    .status.released { color: var(--green); border-color: rgba(52, 211, 153, 0.48); }
+    .status.over { color: var(--red); border-color: rgba(251, 113, 133, 0.6); }
+
+    .viewport {
+      position: relative;
+      padding: 12px;
+      min-height: 560px;
+      background:
+        linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+        #0b1324;
+      background-size: 28px 28px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 500px;
+    }
+
+    .part { fill: var(--part-dark); stroke: var(--part); stroke-width: 2.2; }
+    .housing { fill: #253148; stroke: #b9c6d9; stroke-width: 2.4; }
+    .bead { fill: #dae3f1; stroke: #f8fafc; stroke-width: 1.7; }
+    .cover { fill: #2d3a51; stroke: #dce7f5; stroke-width: 2.2; transition: d 160ms ease; }
+    .gasket { fill: none; stroke: #59e7c7; stroke-width: 6; opacity: 0.65; }
+    .ring { fill: rgba(243, 193, 95, 0.92); stroke: #ffe19b; stroke-width: 2; transition: opacity 180ms ease, transform 180ms ease; }
+    .tamper { fill: #fbbf24; stroke: #ffefb5; stroke-width: 1.4; transition: fill 160ms ease, transform 160ms ease; }
+    .tamper.break { fill: #fb7185; }
+    .key { fill: rgba(114, 212, 255, 0.92); stroke: #dff7ff; stroke-width: 2; transition: transform 140ms ease; }
+    .wedge { fill: rgba(56, 189, 248, 0.78); stroke: #dff7ff; stroke-width: 2; }
+    .label {
+      fill: #dbe7f6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .small-label {
+      fill: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .force-line {
+      stroke: var(--blue);
+      stroke-width: 2.4;
+      stroke-dasharray: 7 6;
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .force-line.on { opacity: 1; }
+    .warning-zone {
+      fill: rgba(251, 113, 133, 0.1);
+      stroke: rgba(251, 113, 133, 0.42);
+      stroke-width: 1.5;
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .warning-zone.on { opacity: 1; }
+
+    .controls {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .control-block {
+      border: 1px solid rgba(169, 180, 199, 0.16);
+      background: rgba(23, 32, 51, 0.54);
+      border-radius: 10px;
+      padding: 13px;
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .value {
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--blue);
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(169, 180, 199, 0.22);
+      background: #223049;
+      color: var(--text);
+      border-radius: 9px;
+      padding: 11px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover { border-color: rgba(56, 189, 248, 0.58); }
+    button.primary { background: #0f5f83; border-color: rgba(56, 189, 248, 0.58); }
+    button.danger { background: #4b1d2a; border-color: rgba(251, 113, 133, 0.5); }
+
+    .sequence {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 0 16px 16px;
+    }
+
+    .step {
+      border: 1px solid rgba(169, 180, 199, 0.18);
+      border-radius: 9px;
+      padding: 10px 8px;
+      background: rgba(11, 18, 32, 0.72);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .step.active {
+      color: var(--text);
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .terminal {
+      min-height: 166px;
+      white-space: pre-wrap;
+      color: #c9f7d8;
+      background: #07100c;
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      border-radius: 10px;
+      padding: 12px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 0 16px 16px;
+    }
+
+    .metric {
+      border: 1px solid rgba(169, 180, 199, 0.16);
+      border-radius: 10px;
+      padding: 11px;
+      background: rgba(23, 32, 51, 0.54);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .claim-map {
+      margin-top: 18px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .claim {
+      border: 1px solid rgba(169, 180, 199, 0.16);
+      border-radius: 10px;
+      background: rgba(17, 24, 39, 0.8);
+      padding: 13px;
+    }
+
+    .claim strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .claim p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .notice {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .header { align-items: flex-start; flex-direction: column; }
+      .grid { grid-template-columns: 1fr; }
+      .viewport { min-height: 420px; }
+      svg { min-height: 390px; }
+      .claim-map { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 20px, 1180px); padding: 16px 0; }
+      .sequence, .metrics { grid-template-columns: 1fr 1fr; }
+      .btn-row { grid-template-columns: 1fr; }
+      .card-head { align-items: flex-start; flex-direction: column; }
+      .status { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <h1>COREON 등록특허 기구 작동 시뮬레이터</h1>
+        <p class="subtitle">
+          등록특허 제10-2917068호 공보에 공개된 안전개봉 커버어셈블리의 홀딩링, 키홈, 개방키, 쐐기형 해제돌기부 작동 순서를 공개용 파라미터로 시각화한 Virtual PoC입니다.
+        </p>
+      </div>
+      <div class="badge">등록특허 제10-2917068호</div>
+    </header>
+
+    <section class="grid" aria-label="안전개봉 커버어셈블리 시뮬레이터">
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">공보 기반 단면 기구 뷰어</h2>
+          <div id="status" class="status ready">ENGINE_READY_IDLE</div>
+        </div>
+        <div class="viewport">
+          <svg id="mechanism" viewBox="0 0 760 500" role="img" aria-label="안전개봉 커버어셈블리 단면 시뮬레이션">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"></path>
+              </marker>
+            </defs>
+
+            <rect x="80" y="120" width="600" height="280" rx="34" class="housing"></rect>
+            <path d="M145 358 C205 385, 555 385, 615 358" class="gasket"></path>
+            <text x="93" y="144" class="label">BODY PART (110)</text>
+            <text x="563" y="144" class="small-label">GASKET (113)</text>
+
+            <rect id="bead-left" x="224" y="300" width="52" height="42" rx="8" class="bead"></rect>
+            <rect id="bead-right" x="484" y="300" width="52" height="42" rx="8" class="bead"></rect>
+            <text x="209" y="360" class="small-label">BEAD (112)</text>
+            <text x="474" y="360" class="small-label">BEAD (112)</text>
+
+            <path id="cover-left" class="cover" d="M210 108 L316 108 L316 244 C316 276 292 300 260 300 L224 300 L224 244 C224 168 176 160 210 108 Z"></path>
+            <path id="cover-right" class="cover" d="M550 108 L444 108 L444 244 C444 276 468 300 500 300 L536 300 L536 244 C536 168 584 160 550 108 Z"></path>
+            <text x="317" y="96" class="label">COVER PART (120)</text>
+
+            <path id="notch-left" d="M330 116 L352 150 L352 222" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"></path>
+            <path id="notch-right" d="M430 116 L408 150 L408 222" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"></path>
+            <text x="342" y="236" class="small-label">KEY GROOVE (121)</text>
+
+            <g id="ring-group">
+              <rect x="314" y="96" width="132" height="34" rx="9" class="ring"></rect>
+              <path id="tamper-left" d="M324 130 L340 154 L356 130 Z" class="tamper"></path>
+              <path id="tamper-right" d="M404 130 L420 154 L436 130 Z" class="tamper"></path>
+              <text x="324" y="118" class="small-label">HOLDING RING (130)</text>
+            </g>
+
+            <g id="key-group" class="key" transform="translate(0, -44)">
+              <rect x="367" y="16" width="26" height="190" rx="8" class="key"></rect>
+              <path d="M352 202 L408 202 L380 262 Z" class="wedge"></path>
+              <rect x="330" y="20" width="100" height="24" rx="7" class="key"></rect>
+              <text x="315" y="12" class="small-label">OPENING KEY (140)</text>
+              <text x="412" y="236" class="small-label">WEDGE PROTRUSION (142)</text>
+            </g>
+
+            <line id="force-y" x1="380" y1="92" x2="380" y2="218" class="force-line" marker-end="url(#arrow)"></line>
+            <line id="force-l" x1="360" y1="258" x2="304" y2="285" class="force-line" marker-end="url(#arrow)"></line>
+            <line id="force-r" x1="400" y1="258" x2="456" y2="285" class="force-line" marker-end="url(#arrow)"></line>
+            <rect id="blocked-zone" x="318" y="93" width="124" height="63" rx="10" class="warning-zone"></rect>
+          </svg>
+        </div>
+        <div class="sequence" aria-label="작동 단계">
+          <div id="step-1" class="step active">1. 밀폐</div>
+          <div id="step-2" class="step">2. 홀딩링 탈거</div>
+          <div id="step-3" class="step">3. 개방키 작동</div>
+          <div id="step-4" class="step">4. 결착 해제</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="card-head">
+          <h2 class="card-title">공개용 기구 연산 패널</h2>
+        </div>
+
+        <div class="controls">
+          <div class="control-block">
+            <div class="control-head">
+              <span>청구항 1: 홀딩링(130)에 의한 키홈(121) 밀폐 구조</span>
+            </div>
+            <div class="btn-row">
+              <button id="ring-btn" class="danger" type="button">홀딩링 탈거 전</button>
+              <button id="auto-btn" class="primary" type="button">작동 시퀀스 실행</button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>청구항 5: 개방키(140) 수직 삽입 변위</span>
+              <span id="stroke-value" class="value">0.0 mm</span>
+            </div>
+            <input id="stroke" type="range" min="0" max="18" step="0.1" value="0">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>쐐기형 해제돌기부(142) 사면각</span>
+              <span id="angle-value" class="value">18°</span>
+            </div>
+            <input id="angle" type="range" min="10" max="30" step="1" value="18">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>공개용 탄성 허용 변위 한계</span>
+              <span id="limit-value" class="value">5.2 mm</span>
+            </div>
+            <input id="limit" type="range" min="3.8" max="6.4" step="0.1" value="5.2">
+          </div>
+
+          <div class="terminal" id="terminal" aria-live="polite"></div>
+          <button id="reset-btn" type="button">초기 상태로 복귀</button>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <b id="metric-dx">0.0</b>
+            <span>쐐기 확산 변위 mm</span>
+          </div>
+          <div class="metric">
+            <b id="metric-gap">4.2</b>
+            <span>잔여 결착 간섭 mm</span>
+          </div>
+          <div class="metric">
+            <b id="metric-margin">5.2</b>
+            <span>탄성 안전 마진 mm</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="claim-map card" aria-label="청구항 매핑">
+      <div class="claim">
+        <strong>청구항 1 매핑</strong>
+        <p>본체부(110), 커버부(120), 결착 비드구조(112), 키홈(121), 결착 홈구조(123), 홀딩링(130)의 결합 상태를 초기 밀폐 구조로 표현합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 4 매핑</strong>
+        <p>홀딩링 탈거 시 탬퍼표시부(131)가 파단되어 개봉 이력을 시각적으로 드러내는 상태 변화를 별도 색상으로 표시합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 5 매핑</strong>
+        <p>개방키(140)의 삽입부(141), 쐐기형 해제돌기부(142), 핸들부(143)의 지렛대 작용을 공개용 변위 모델로 시뮬레이션합니다.</p>
+      </div>
+    </section>
+
+    <p class="notice">
+      공개 고지: 본 화면은 등록특허 공보에 공개된 구성요소와 작동 순서를 설명하기 위한 개념 시뮬레이터입니다.
+      실제 시제품의 상세 치수, 재질, 공차, 금형 조건, 시험 하중값은 비공개이며 본 공개용 파라미터는 제품 설계값을 의미하지 않습니다.
+    </p>
+  </main>
+
+  <script>
+    const state = {
+      ringInstalled: true,
+      stroke: 0,
+      angle: 18,
+      limit: 5.2,
+      clearance: 4.2,
+      autoTimer: null
+    };
+
+    const els = {
+      status: document.getElementById("status"),
+      ringBtn: document.getElementById("ring-btn"),
+      autoBtn: document.getElementById("auto-btn"),
+      resetBtn: document.getElementById("reset-btn"),
+      stroke: document.getElementById("stroke"),
+      angle: document.getElementById("angle"),
+      limit: document.getElementById("limit"),
+      strokeValue: document.getElementById("stroke-value"),
+      angleValue: document.getElementById("angle-value"),
+      limitValue: document.getElementById("limit-value"),
+      terminal: document.getElementById("terminal"),
+      keyGroup: document.getElementById("key-group"),
+      ringGroup: document.getElementById("ring-group"),
+      tamperLeft: document.getElementById("tamper-left"),
+      tamperRight: document.getElementById("tamper-right"),
+      coverLeft: document.getElementById("cover-left"),
+      coverRight: document.getElementById("cover-right"),
+      notchLeft: document.getElementById("notch-left"),
+      notchRight: document.getElementById("notch-right"),
+      forceY: document.getElementById("force-y"),
+      forceL: document.getElementById("force-l"),
+      forceR: document.getElementById("force-r"),
+      blockedZone: document.getElementById("blocked-zone"),
+      dx: document.getElementById("metric-dx"),
+      gap: document.getElementById("metric-gap"),
+      margin: document.getElementById("metric-margin"),
+      steps: [
+        document.getElementById("step-1"),
+        document.getElementById("step-2"),
+        document.getElementById("step-3"),
+        document.getElementById("step-4")
+      ]
+    };
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function calculate() {
+      const blockedStroke = state.ringInstalled ? Math.min(state.stroke, 2.8) : state.stroke;
+      const penetration = Math.max(0, blockedStroke - 5.2);
+      const wedgeRatio = Math.tan(state.angle * Math.PI / 180);
+      const deltaX = penetration * wedgeRatio * 1.16;
+      const gap = Math.max(0, state.clearance - deltaX);
+      const margin = state.limit - deltaX;
+
+      let mode = "ready";
+      if (state.ringInstalled && state.stroke > 2.8) mode = "blocked";
+      else if (state.stroke === 0) mode = "ready";
+      else if (deltaX < state.clearance) mode = "engaged";
+      else if (deltaX <= state.limit) mode = "released";
+      else mode = "over";
+
+      return { blockedStroke, penetration, deltaX, gap, margin, mode };
+    }
+
+    function setStep(mode) {
+      let index = 0;
+      if (!state.ringInstalled) index = 1;
+      if (!state.ringInstalled && state.stroke > 1) index = 2;
+      if (mode === "released" || mode === "over") index = 3;
+      els.steps.forEach((step, i) => step.classList.toggle("active", i === index));
+    }
+
+    function updateSvg(result) {
+      const y = -44 + result.blockedStroke * 10.5;
+      const dx = clamp(result.deltaX * 5.2, 0, 34);
+
+      els.keyGroup.setAttribute("transform", `translate(0, ${y.toFixed(1)})`);
+      els.ringGroup.style.opacity = state.ringInstalled ? "1" : "0.16";
+      els.ringGroup.style.transform = state.ringInstalled ? "translateY(0)" : "translateY(-12px)";
+      els.tamperLeft.classList.toggle("break", !state.ringInstalled);
+      els.tamperRight.classList.toggle("break", !state.ringInstalled);
+      els.tamperLeft.setAttribute("transform", state.ringInstalled ? "" : "translate(-12 10) rotate(-20 336 142)");
+      els.tamperRight.setAttribute("transform", state.ringInstalled ? "" : "translate(12 10) rotate(20 420 142)");
+
+      els.coverLeft.setAttribute("d", `M${210 - dx} 108 L316 108 L316 244 C316 276 ${292 - dx} 300 ${260 - dx} 300 L${224 - dx} 300 L${224 - dx} 244 C${224 - dx} 168 ${176 - dx} 160 ${210 - dx} 108 Z`);
+      els.coverRight.setAttribute("d", `M${550 + dx} 108 L444 108 L444 244 C444 276 ${468 + dx} 300 ${500 + dx} 300 L${536 + dx} 300 L${536 + dx} 244 C${536 + dx} 168 ${584 + dx} 160 ${550 + dx} 108 Z`);
+
+      const activeForce = result.penetration > 0 && result.mode !== "blocked";
+      els.forceY.classList.toggle("on", state.stroke > 0);
+      els.forceL.classList.toggle("on", activeForce);
+      els.forceR.classList.toggle("on", activeForce);
+      els.blockedZone.classList.toggle("on", result.mode === "blocked");
+
+      let strokeColor = "#60a5fa";
+      if (result.mode === "blocked" || result.mode === "over") strokeColor = "#fb7185";
+      if (result.mode === "engaged") strokeColor = "#fbbf24";
+      if (result.mode === "released") strokeColor = "#34d399";
+      els.notchLeft.setAttribute("stroke", strokeColor);
+      els.notchRight.setAttribute("stroke", strokeColor);
+    }
+
+    function updateStatus(result) {
+      const labels = {
+        ready: "ENGINE_READY_IDLE",
+        blocked: "HOLDING_RING_BLOCKED",
+        engaged: "SNAP_FIT_ENGAGED",
+        released: "VALID_RELEASE_CONFIRMED",
+        over: "PUBLIC_MODEL_LIMIT_EXCEEDED"
+      };
+      els.status.className = `status ${result.mode}`;
+      els.status.textContent = labels[result.mode];
+    }
+
+    async function publicHash(payload) {
+      const text = JSON.stringify(payload);
+      if (window.crypto && window.crypto.subtle && window.TextEncoder) {
+        const buffer = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buffer)).map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 24);
+      }
+
+      let hash = 2166136261;
+      for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return `fnv-${(hash >>> 0).toString(16)}`;
+    }
+
+    async function updateTerminal(result) {
+      const event = {
+        patent: "KR10-2917068",
+        ringInstalled: state.ringInstalled,
+        stroke: Number(state.stroke.toFixed(1)),
+        angle: state.angle,
+        publicElasticLimit: state.limit,
+        deltaX: Number(result.deltaX.toFixed(2)),
+        mode: result.mode
+      };
+      const hash = await publicHash(event);
+
+      const lines = [
+        "[COREON] PUBLIC MECHANISM SIMULATION KERNEL",
+        `[PATENT] 등록특허 제10-2917068호 / Safety Opening Cover Assembly`,
+        `[INPUT] ring=${state.ringInstalled ? "installed" : "removed"}, stroke=${state.stroke.toFixed(1)}mm, wedgeAngle=${state.angle}deg`,
+        `[CALC] wedge lateral displacement Δx=${result.deltaX.toFixed(2)}mm / residual interference=${result.gap.toFixed(2)}mm`,
+        `[LIMIT] public elastic allowance=${state.limit.toFixed(1)}mm / safety margin=${result.margin.toFixed(2)}mm`,
+        `[TRACE] public event hash=${hash}`
+      ];
+
+      if (result.mode === "blocked") lines.push("[RESULT] 청구항 1 구조: 홀딩링(130)이 키홈(121) 접근을 차단합니다.");
+      if (result.mode === "engaged") lines.push("[RESULT] 결착 비드구조(112)와 결착 홈구조(123)의 간섭이 유지됩니다.");
+      if (result.mode === "released") lines.push("[RESULT] 청구항 5 구조: 개방키(140)의 쐐기 작용으로 정상 해제 조건에 도달했습니다.");
+      if (result.mode === "over") lines.push("[RESULT] 공개 모델 한계를 초과했습니다. 실제 설계 검토용 수치는 비공개 엔지니어링 모드에서만 사용합니다.");
+      if (result.mode === "ready") lines.push("[RESULT] 초기 밀폐 상태. 시퀀스를 실행하거나 홀딩링을 탈거하십시오.");
+
+      els.terminal.textContent = lines.join("\n");
+    }
+
+    async function render() {
+      state.stroke = Number(els.stroke.value);
+      state.angle = Number(els.angle.value);
+      state.limit = Number(els.limit.value);
+
+      const result = calculate();
+      els.strokeValue.textContent = `${state.stroke.toFixed(1)} mm`;
+      els.angleValue.textContent = `${state.angle}°`;
+      els.limitValue.textContent = `${state.limit.toFixed(1)} mm`;
+      els.ringBtn.textContent = state.ringInstalled ? "홀딩링 탈거 전" : "홀딩링 탈거 완료";
+      els.ringBtn.className = state.ringInstalled ? "danger" : "primary";
+      els.dx.textContent = result.deltaX.toFixed(1);
+      els.gap.textContent = result.gap.toFixed(1);
+      els.margin.textContent = result.margin.toFixed(1);
+
+      updateSvg(result);
+      updateStatus(result);
+      setStep(result.mode);
+      await updateTerminal(result);
+    }
+
+    function stopAuto() {
+      if (state.autoTimer) {
+        window.clearInterval(state.autoTimer);
+        state.autoTimer = null;
+      }
+    }
+
+    function reset() {
+      stopAuto();
+      state.ringInstalled = true;
+      els.stroke.value = "0";
+      els.angle.value = "18";
+      els.limit.value = "5.2";
+      render();
+    }
+
+    function runAuto() {
+      stopAuto();
+      state.ringInstalled = true;
+      els.stroke.value = "0";
+      let frame = 0;
+      state.autoTimer = window.setInterval(() => {
+        frame += 1;
+        if (frame === 8) state.ringInstalled = false;
+        if (frame > 10) els.stroke.value = String(Math.min(18, (frame - 10) * 1.15));
+        if (frame > 28) {
+          stopAuto();
+          els.stroke.value = "18";
+        }
+        render();
+      }, 120);
+      render();
+    }
+
+    els.ringBtn.addEventListener("click", () => {
+      stopAuto();
+      state.ringInstalled = !state.ringInstalled;
+      if (state.ringInstalled) els.stroke.value = "0";
+      render();
+    });
+    els.autoBtn.addEventListener("click", runAuto);
+    els.resetBtn.addEventListener("click", reset);
+    els.stroke.addEventListener("input", () => { stopAuto(); render(); });
+    els.angle.addEventListener("input", () => { stopAuto(); render(); });
+    els.limit.addEventListener("input", () => { stopAuto(); render(); });
+
+    render();
+  </script>
+</body>
+</html>
