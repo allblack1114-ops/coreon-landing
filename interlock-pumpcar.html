@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COREON 등록특허 제10-2910824호 펌프카 안전보조시스템 시뮬레이터</title>
+  <style>
+    :root {
+      --bg: #080f1d;
+      --surface: #101827;
+      --surface-2: #172235;
+      --line: #2a3a55;
+      --text: #edf4ff;
+      --muted: #a7b5ca;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --red: #fb7185;
+      --orange: #fb923c;
+      --steel: #94a3b8;
+      --shadow: rgba(0, 0, 0, 0.44);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(56, 189, 248, 0.14), transparent 31rem),
+        radial-gradient(circle at 90% 18%, rgba(251, 146, 60, 0.12), transparent 24rem),
+        linear-gradient(135deg, #070b14 0%, #080f1d 54%, #111827 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    }
+
+    .shell {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(167, 181, 202, 0.22);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      border: 1px solid rgba(56, 189, 248, 0.42);
+      background: rgba(56, 189, 248, 0.1);
+      color: #c2f0ff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(350px, 0.85fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: rgba(16, 24, 39, 0.88);
+      border: 1px solid rgba(167, 181, 202, 0.18);
+      border-radius: 12px;
+      box-shadow: 0 20px 60px var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(90deg, rgba(23, 34, 53, 0.98), rgba(16, 24, 39, 0.96));
+      border-bottom: 1px solid rgba(167, 181, 202, 0.16);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .status {
+      min-width: 216px;
+      text-align: center;
+      border: 1px solid rgba(167, 181, 202, 0.24);
+      border-radius: 8px;
+      background: rgba(8, 15, 29, 0.86);
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .status.normal { color: var(--green); border-color: rgba(52, 211, 153, 0.46); }
+    .status.caution { color: var(--amber); border-color: rgba(251, 191, 36, 0.5); }
+    .status.warning { color: var(--orange); border-color: rgba(251, 146, 60, 0.5); }
+    .status.emergency { color: var(--red); border-color: rgba(251, 113, 133, 0.58); }
+    .status.bypass { color: var(--amber); border-color: rgba(251, 191, 36, 0.58); }
+
+    .viewport {
+      padding: 12px;
+      min-height: 582px;
+      background:
+        linear-gradient(rgba(56, 189, 248, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.055) 1px, transparent 1px),
+        #0a1324;
+      background-size: 28px 28px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 525px;
+    }
+
+    .ground { stroke: #3b4b64; stroke-width: 2; stroke-dasharray: 7 7; }
+    .support-base { fill: #253148; stroke: #c2cfdf; stroke-width: 2.2; }
+    .tower { stroke: #dbe6f3; stroke-width: 8; stroke-linecap: round; }
+    .tower-inner { stroke: #38bdf8; stroke-width: 2.5; stroke-dasharray: 7 7; opacity: 0.7; }
+    .truck { fill: #334155; stroke: #c2cfdf; stroke-width: 2.2; }
+    .wheel { fill: #0b1220; stroke: #94a3b8; stroke-width: 2; }
+    .outrigger { stroke: #9aa8bc; stroke-width: 7; stroke-linecap: round; }
+    .foot { fill: #dbe6f3; stroke: #f8fafc; stroke-width: 2; }
+    .foot-warn { fill: var(--amber); }
+    .foot-danger { fill: var(--red); }
+    .boom-1 { stroke: #f59e0b; stroke-width: 9; stroke-linecap: round; }
+    .boom-2 { stroke: #fb923c; stroke-width: 7; stroke-linecap: round; }
+    .boom-3 { stroke: #fb7185; stroke-width: 5; stroke-linecap: round; }
+    .joint { fill: #e2e8f0; stroke: #0b1220; stroke-width: 2; }
+    .wire { stroke: var(--green); stroke-width: 3; stroke-dasharray: 9 6; transition: stroke 140ms ease, stroke-width 140ms ease; }
+    .wire.warning { stroke: var(--amber); stroke-width: 4; }
+    .wire.emergency { stroke: var(--red); stroke-width: 5; }
+    .drum { fill: #172235; stroke: var(--blue); stroke-width: 2; }
+    .sensor { fill: var(--green); stroke: #d7ffe9; stroke-width: 2; }
+    .sensor.caution { fill: var(--amber); }
+    .sensor.warning { fill: var(--orange); }
+    .sensor.emergency { fill: var(--red); }
+    .safe-map { fill: rgba(52, 211, 153, 0.08); stroke: rgba(52, 211, 153, 0.5); stroke-width: 1.8; }
+    .danger-map { fill: rgba(251, 113, 133, 0.08); stroke: rgba(251, 113, 133, 0.38); stroke-width: 1.5; opacity: 0; }
+    .danger-map.on { opacity: 1; }
+    .label { fill: #dce8f7; font-size: 11px; font-weight: 800; }
+    .small-label { fill: var(--muted); font-size: 10px; font-weight: 800; }
+
+    .controls {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .control-block {
+      border: 1px solid rgba(167, 181, 202, 0.16);
+      border-radius: 10px;
+      background: rgba(23, 34, 53, 0.56);
+      padding: 13px;
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .value { color: var(--blue); white-space: nowrap; }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--blue);
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(167, 181, 202, 0.24);
+      background: #223049;
+      color: var(--text);
+      border-radius: 9px;
+      padding: 11px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover { border-color: rgba(56, 189, 248, 0.58); }
+    button.primary { background: #0f5f83; border-color: rgba(56, 189, 248, 0.58); }
+    button.danger { background: #4b1d2a; border-color: rgba(251, 113, 133, 0.5); }
+    button.safe { background: #12372d; border-color: rgba(52, 211, 153, 0.42); }
+
+    .sequence {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 0 16px 16px;
+    }
+
+    .step {
+      border: 1px solid rgba(167, 181, 202, 0.18);
+      border-radius: 9px;
+      padding: 10px 8px;
+      background: rgba(8, 15, 29, 0.72);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .step.active {
+      color: var(--text);
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .terminal {
+      min-height: 190px;
+      white-space: pre-wrap;
+      color: #c9f7d8;
+      background: #07100c;
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      border-radius: 10px;
+      padding: 12px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 0 16px 16px;
+    }
+
+    .metric {
+      border: 1px solid rgba(167, 181, 202, 0.16);
+      border-radius: 10px;
+      padding: 11px;
+      background: rgba(23, 34, 53, 0.54);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .claim-map {
+      margin-top: 18px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .claim {
+      border: 1px solid rgba(167, 181, 202, 0.16);
+      border-radius: 10px;
+      background: rgba(16, 24, 39, 0.8);
+      padding: 13px;
+    }
+
+    .claim strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .claim p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .notice {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1040px) {
+      .grid { grid-template-columns: 1fr; }
+      .claim-map { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .header { align-items: flex-start; flex-direction: column; }
+      .viewport { min-height: 430px; }
+      svg { min-height: 400px; }
+      .claim-map { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 20px, 1220px); padding: 16px 0; }
+      .sequence, .metrics { grid-template-columns: 1fr 1fr; }
+      .btn-row { grid-template-columns: 1fr; }
+      .card-head { align-items: flex-start; flex-direction: column; }
+      .status { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <h1>COREON 펌프카 안전보조시스템 Virtual PoC</h1>
+        <p class="subtitle">
+          등록특허 제10-2910824호 공보의 핵심 구조인 지지대 형성부(110), 아웃트리거 작동부(120), 인터록 작동부(130)를 기준으로 붐대 거동, 지지대 거동, 와이어 장력, 장력 자동보정 및 비상동작 제어 흐름을 공개용 파라미터로 시각화합니다.
+        </p>
+      </div>
+      <div class="badge">등록특허 제10-2910824호</div>
+    </header>
+
+    <section class="grid" aria-label="콘크리트 펌프카 안전보조시스템 시뮬레이터">
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">공보 기반 지지대·와이어·인터록 뷰어</h2>
+          <div id="status" class="status normal">SAFETY_STATE_NORMAL</div>
+        </div>
+
+        <div class="viewport">
+          <svg viewBox="0 0 860 540" role="img" aria-label="콘크리트 펌프카 안전보조시스템 구조 시뮬레이션">
+            <rect id="safe-map" x="78" y="350" width="704" height="86" rx="14" class="safe-map"></rect>
+            <rect id="danger-map" x="596" y="258" width="218" height="184" rx="12" class="danger-map"></rect>
+            <line x1="48" y1="436" x2="812" y2="436" class="ground"></line>
+            <text x="54" y="458" class="small-label">GROUND REFERENCE</text>
+
+            <rect x="548" y="335" width="184" height="62" rx="8" class="truck"></rect>
+            <rect x="588" y="302" width="84" height="38" rx="7" class="truck"></rect>
+            <circle cx="582" cy="404" r="18" class="wheel"></circle>
+            <circle cx="698" cy="404" r="18" class="wheel"></circle>
+            <text x="640" y="370" class="label" text-anchor="middle">CONCRETE PUMP-CAR (10)</text>
+
+            <g id="boom-group" transform="translate(640 332)">
+              <line id="boom-1" x1="0" y1="0" x2="0" y2="-118" class="boom-1"></line>
+              <circle cx="0" cy="0" r="9" class="joint"></circle>
+              <g id="joint-1" transform="translate(0 -118) rotate(-44)">
+                <line id="boom-2" x1="0" y1="0" x2="0" y2="-108" class="boom-2"></line>
+                <circle cx="0" cy="0" r="8" class="joint"></circle>
+                <g id="joint-2" transform="translate(0 -108) rotate(24)">
+                  <line id="boom-3" x1="0" y1="0" x2="0" y2="-84" class="boom-3"></line>
+                  <circle id="boom-tip" cx="0" cy="-84" r="6" fill="#38bdf8"></circle>
+                </g>
+              </g>
+            </g>
+
+            <rect id="base-module" x="126" y="372" width="168" height="48" rx="8" class="support-base"></rect>
+            <text x="210" y="403" class="label" text-anchor="middle">MOVABLE BASE (111)</text>
+            <line id="tower-main" x1="210" y1="372" x2="210" y2="116" class="tower"></line>
+            <line x1="210" y1="364" x2="210" y2="126" class="tower-inner"></line>
+            <text x="226" y="126" class="small-label">VERTICAL MODULE (112)</text>
+
+            <path id="support-outrigger-l" d="M 146 394 L 78 436" class="outrigger"></path>
+            <path id="support-outrigger-r" d="M 274 394 L 342 436" class="outrigger"></path>
+            <circle id="support-foot-l" cx="78" cy="436" r="11" class="foot"></circle>
+            <circle id="support-foot-r" cx="342" cy="436" r="11" class="foot"></circle>
+            <text x="210" y="456" class="small-label" text-anchor="middle">OUTRIGGER PART (120)</text>
+
+            <circle id="wire-module-top" cx="210" cy="152" r="10" class="sensor"></circle>
+            <circle id="wire-module-mid" cx="210" cy="226" r="9" class="sensor"></circle>
+            <rect id="tension-drum" x="182" y="250" width="56" height="38" rx="8" class="drum"></rect>
+            <text x="210" y="276" class="small-label" text-anchor="middle">DRUM (114)</text>
+
+            <line id="wire-main" x1="210" y1="152" x2="480" y2="176" class="wire"></line>
+            <line id="wire-sub" x1="210" y1="226" x2="498" y2="220" class="wire"></line>
+            <text x="286" y="144" class="small-label">WIRE EXTENSION MODULE (113)</text>
+
+            <path id="truck-outrigger-l" d="M 560 386 L 506 436" class="outrigger"></path>
+            <path id="truck-outrigger-r" d="M 720 386 L 780 436" class="outrigger"></path>
+            <circle id="truck-foot-l" cx="506" cy="436" r="10" class="foot"></circle>
+            <circle id="truck-foot-r" cx="780" cy="436" r="10" class="foot"></circle>
+
+            <circle id="boom-monitor" cx="480" cy="176" r="10" class="sensor"></circle>
+            <circle id="support-monitor" cx="238" cy="372" r="8" class="sensor"></circle>
+            <text x="492" y="164" class="small-label">BOOM MONITOR (131)</text>
+            <text x="250" y="360" class="small-label">SUPPORT MONITOR (132)</text>
+
+            <rect x="356" y="366" width="138" height="48" rx="9" class="support-base"></rect>
+            <text x="425" y="386" class="small-label" text-anchor="middle">SAFETY STATE</text>
+            <text x="425" y="402" class="small-label" text-anchor="middle">JUDGEMENT (133)</text>
+          </svg>
+        </div>
+
+        <div class="sequence" aria-label="작동 단계">
+          <div id="step-1" class="step active">1. 이동거치·지지</div>
+          <div id="step-2" class="step">2. 와이어 장력보정</div>
+          <div id="step-3" class="step">3. 안전상태 판단</div>
+          <div id="step-4" class="step">4. 비상동작 제어</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="card-head">
+          <h2 class="card-title">공개용 안전상태 판단 패널</h2>
+        </div>
+
+        <div class="controls">
+          <div class="control-block">
+            <div class="control-head">
+              <span>수직연장모듈(112) 높이</span>
+              <span id="height-value" class="value">8.0 m</span>
+            </div>
+            <input id="height" type="range" min="5" max="12" step="0.5" value="8">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>와이어 장력 편차</span>
+              <span id="tension-value" class="value">8%</span>
+            </div>
+            <input id="tension" type="range" min="0" max="45" step="1" value="8">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>붐대 실시간 거동 편차</span>
+              <span id="boom-value" class="value">12%</span>
+            </div>
+            <input id="boom" type="range" min="0" max="70" step="1" value="12">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>지지대 기울기·변형 편차</span>
+              <span id="support-value" class="value">6%</span>
+            </div>
+            <input id="support" type="range" min="0" max="60" step="1" value="6">
+          </div>
+
+          <div class="control-block">
+            <div class="control-head">
+              <span>아웃트리거 지면결착 상태</span>
+              <span id="ground-value" class="value">92%</span>
+            </div>
+            <input id="ground" type="range" min="35" max="100" step="1" value="92">
+          </div>
+
+          <div class="btn-row">
+            <button id="interlock-btn" class="safe" type="button">자동 비상동작 제어</button>
+            <button id="auto-btn" class="primary" type="button">위험 시퀀스 실행</button>
+          </div>
+
+          <div class="terminal" id="terminal" aria-live="polite"></div>
+          <button id="reset-btn" type="button">초기 안정 상태로 복귀</button>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <b id="metric-score">18</b>
+            <span>위험 점수 / 100</span>
+          </div>
+          <div class="metric">
+            <b id="metric-tension">92</b>
+            <span>장력 안정도 %</span>
+          </div>
+          <div class="metric">
+            <b id="metric-action">정상</b>
+            <span>제어 판정</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="claim-map card" aria-label="청구항 매핑">
+      <div class="claim">
+        <strong>청구항 1</strong>
+        <p>지지대 형성부(110), 아웃트리거 작동부(120), 인터록 작동부(130)의 결합 구조를 전체 시스템으로 표현합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 2</strong>
+        <p>이동거치모듈(111), 수직연장모듈(112), 와이어연장모듈(113), 장력보정모듈(114)을 시각 요소와 입력값으로 매핑합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 3</strong>
+        <p>탈착모듈(121), 측방확장모듈(122), 지면결착모듈(123)을 아웃트리거 접지·고정 상태로 표현합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 4</strong>
+        <p>붐대 모니터링모듈(131)과 지지대 모니터링모듈(132)의 데이터를 안전상태 판단으로 전달하는 흐름을 표시합니다.</p>
+      </div>
+      <div class="claim">
+        <strong>청구항 5</strong>
+        <p>안전상태 판단모듈(133)과 비상동작 제어모듈(134)의 판단·비상정지·안전범위 복귀 명령을 결과 로그로 출력합니다.</p>
+      </div>
+    </section>
+
+    <p class="notice">
+      공개 고지: 본 화면은 등록특허 제10-2910824호 공보에 공개된 구성요소와 제어 흐름을 설명하기 위한 Virtual PoC입니다.
+      실제 장비의 유압 제어 프로토콜, 제조사별 하중표, 와이어 재질·규격, 센서 사양, 현장 검증 데이터 및 안전판정 임계값은 비공개이며 본 공개용 파라미터는 실제 설계값이나 법정 안전판정값을 의미하지 않습니다.
+    </p>
+  </main>
+
+  <script>
+    const state = {
+      height: 8,
+      tension: 8,
+      boom: 12,
+      support: 6,
+      ground: 92,
+      interlockEnabled: true,
+      autoTimer: null
+    };
+
+    const els = {
+      status: document.getElementById("status"),
+      height: document.getElementById("height"),
+      tension: document.getElementById("tension"),
+      boom: document.getElementById("boom"),
+      support: document.getElementById("support"),
+      ground: document.getElementById("ground"),
+      heightValue: document.getElementById("height-value"),
+      tensionValue: document.getElementById("tension-value"),
+      boomValue: document.getElementById("boom-value"),
+      supportValue: document.getElementById("support-value"),
+      groundValue: document.getElementById("ground-value"),
+      interlockBtn: document.getElementById("interlock-btn"),
+      autoBtn: document.getElementById("auto-btn"),
+      resetBtn: document.getElementById("reset-btn"),
+      terminal: document.getElementById("terminal"),
+      towerMain: document.getElementById("tower-main"),
+      wireMain: document.getElementById("wire-main"),
+      wireSub: document.getElementById("wire-sub"),
+      boomGroup: document.getElementById("boom-group"),
+      joint1: document.getElementById("joint-1"),
+      joint2: document.getElementById("joint-2"),
+      wireModuleTop: document.getElementById("wire-module-top"),
+      wireModuleMid: document.getElementById("wire-module-mid"),
+      boomMonitor: document.getElementById("boom-monitor"),
+      supportMonitor: document.getElementById("support-monitor"),
+      supportFootL: document.getElementById("support-foot-l"),
+      supportFootR: document.getElementById("support-foot-r"),
+      truckFootR: document.getElementById("truck-foot-r"),
+      dangerMap: document.getElementById("danger-map"),
+      score: document.getElementById("metric-score"),
+      tensionMetric: document.getElementById("metric-tension"),
+      action: document.getElementById("metric-action"),
+      steps: [
+        document.getElementById("step-1"),
+        document.getElementById("step-2"),
+        document.getElementById("step-3"),
+        document.getElementById("step-4")
+      ]
+    };
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function calculate() {
+      const groundRisk = Math.max(0, 100 - state.ground) * 0.7;
+      const heightRisk = Math.max(0, state.height - 8) * 2.4;
+      const riskScore = clamp(
+        state.tension * 0.85 + state.boom * 0.72 + state.support * 0.66 + groundRisk + heightRisk,
+        0,
+        100
+      );
+      const tensionStability = clamp(100 - state.tension * 1.42, 0, 100);
+
+      let mode = "normal";
+      if (riskScore >= 78) mode = state.interlockEnabled ? "emergency" : "bypass";
+      else if (riskScore >= 58) mode = "warning";
+      else if (riskScore >= 36) mode = "caution";
+
+      let controlAction = "정상";
+      if (mode === "caution") controlAction = "장력보정";
+      if (mode === "warning") controlAction = "속도제한";
+      if (mode === "emergency") controlAction = "비상정지";
+      if (mode === "bypass") controlAction = "우회";
+
+      return { riskScore, tensionStability, mode, controlAction };
+    }
+
+    function setStep(result) {
+      let index = 0;
+      if (state.tension > 14 || state.height > 8.5) index = 1;
+      if (result.mode === "caution" || result.mode === "warning" || result.mode === "emergency" || result.mode === "bypass") index = 2;
+      if (result.mode === "emergency" || result.mode === "bypass") index = 3;
+      els.steps.forEach((step, i) => step.classList.toggle("active", i === index));
+    }
+
+    function setSensorClass(node, mode) {
+      node.setAttribute("class", `sensor ${mode === "normal" ? "" : mode}`.trim());
+    }
+
+    function updateSvg(result) {
+      const towerTopY = 372 - state.height * 32;
+      const boomOffset = state.boom * 1.75;
+      const tensionOffset = state.tension * 0.85;
+      const supportTilt = state.support * 0.38;
+      const groundSink = Math.max(0, 92 - state.ground) * 0.7;
+
+      els.towerMain.setAttribute("x2", 210 + supportTilt);
+      els.towerMain.setAttribute("y2", towerTopY);
+      els.wireModuleTop.setAttribute("cx", 210 + supportTilt);
+      els.wireModuleTop.setAttribute("cy", towerTopY + 36);
+      els.wireModuleMid.setAttribute("cx", 210 + supportTilt * 0.5);
+      els.wireModuleMid.setAttribute("cy", towerTopY + 110);
+
+      const boomTargetX = 480 + boomOffset;
+      const boomTargetY = 176 + Math.max(0, state.tension - 20) * 1.25;
+      els.wireMain.setAttribute("x1", 210 + supportTilt);
+      els.wireMain.setAttribute("y1", towerTopY + 36);
+      els.wireMain.setAttribute("x2", boomTargetX);
+      els.wireMain.setAttribute("y2", boomTargetY);
+      els.wireSub.setAttribute("x1", 210 + supportTilt * 0.5);
+      els.wireSub.setAttribute("y1", towerTopY + 110);
+      els.wireSub.setAttribute("x2", 498 + boomOffset * 0.72);
+      els.wireSub.setAttribute("y2", 220 + tensionOffset * 0.45);
+
+      els.boomGroup.setAttribute("transform", `translate(640 332) rotate(${(state.boom * 0.12).toFixed(1)})`);
+      els.joint1.setAttribute("transform", `translate(0 -118) rotate(${(-44 + state.boom * 0.16).toFixed(1)})`);
+      els.joint2.setAttribute("transform", `translate(0 -108) rotate(${(24 - state.boom * 0.08).toFixed(1)})`);
+      els.boomMonitor.setAttribute("cx", boomTargetX);
+      els.boomMonitor.setAttribute("cy", boomTargetY);
+      els.supportMonitor.setAttribute("cx", 238 + supportTilt);
+      els.supportFootL.setAttribute("cy", 436 + groundSink * 0.35);
+      els.supportFootR.setAttribute("cy", 436 + groundSink);
+      els.truckFootR.setAttribute("cy", 436 + groundSink * 0.72);
+      els.dangerMap.classList.toggle("on", result.mode === "warning" || result.mode === "emergency" || result.mode === "bypass");
+
+      els.wireMain.setAttribute("class", `wire ${result.mode === "normal" ? "" : result.mode === "caution" ? "warning" : "emergency"}`.trim());
+      els.wireSub.setAttribute("class", `wire ${result.mode === "normal" ? "" : result.mode === "caution" ? "warning" : "emergency"}`.trim());
+      setSensorClass(els.wireModuleTop, result.mode);
+      setSensorClass(els.wireModuleMid, result.mode);
+      setSensorClass(els.boomMonitor, result.mode);
+      setSensorClass(els.supportMonitor, result.mode);
+      els.supportFootR.setAttribute("class", `foot ${state.ground < 72 ? "foot-danger" : state.ground < 84 ? "foot-warn" : ""}`.trim());
+    }
+
+    function updateStatus(result) {
+      const label = {
+        normal: "SAFETY_STATE_NORMAL",
+        caution: "TENSION_COMPENSATION_ACTIVE",
+        warning: "SAFETY_RANGE_WARNING",
+        emergency: "EMERGENCY_CONTROL_ENGAGED",
+        bypass: "WARNING_MANUAL_BYPASS"
+      }[result.mode];
+      els.status.className = `status ${result.mode}`;
+      els.status.textContent = label;
+    }
+
+    async function publicHash(payload) {
+      const text = JSON.stringify(payload);
+      if (window.crypto && window.crypto.subtle && window.TextEncoder) {
+        const buffer = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buffer)).map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 24);
+      }
+      let hash = 2166136261;
+      for (let i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return `fnv-${(hash >>> 0).toString(16)}`;
+    }
+
+    async function updateTerminal(result) {
+      const event = {
+        patent: "KR10-2910824",
+        height: state.height,
+        tensionDeviation: state.tension,
+        boomMotion: state.boom,
+        supportMotion: state.support,
+        groundFixing: state.ground,
+        riskScore: Number(result.riskScore.toFixed(1)),
+        mode: result.mode
+      };
+      const hash = await publicHash(event);
+      const lines = [
+        "[COREON] PUBLIC PUMP-CAR SAFETY ASSIST SIMULATION KERNEL",
+        "[PATENT] 등록특허 제10-2910824호 / Concrete Pump-Car Safety Assist System",
+        `[INPUT] height=${state.height.toFixed(1)}m, tensionDeviation=${state.tension}%, boomMotion=${state.boom}%, supportMotion=${state.support}%, groundFixing=${state.ground}%`,
+        `[FUSION] boomMonitor(131) + supportMonitor(132) + tensionCorrection(114) synchronized`,
+        `[JUDGE] safetyStateModule(133) risk=${result.riskScore.toFixed(1)}/100 / tensionStability=${result.tensionStability.toFixed(1)}%`,
+        `[TRACE] public event hash=${hash}`
+      ];
+
+      if (result.mode === "normal") lines.push("[RESULT] 정상 상태. 지지대 형성부(110)와 와이어 장력이 공개 모델 기준 안정 범위에 있습니다.");
+      if (result.mode === "caution") lines.push("[RESULT] 장력 편차 감지. 장력보정모듈(114)이 권취드럼 보정 명령을 수행하는 단계입니다.");
+      if (result.mode === "warning") lines.push("[RESULT] 안전범위 접근. 붐 연장폭·연장각도 제한 및 아웃트리거 접지 재확인이 필요한 단계입니다.");
+      if (result.mode === "emergency") lines.push("[RESULT] 비상 조건 도달. 비상동작 제어모듈(134)이 펌프카 작동 정지 및 붐 안전범위 복귀 명령을 표시합니다.");
+      if (result.mode === "bypass") lines.push("[RESULT] 위험 조건에서 수동 우회 상태입니다. 실제 적용 시 승인·이중확인·로그 기록이 필요한 영역입니다.");
+
+      els.terminal.textContent = lines.join("\n");
+    }
+
+    async function render() {
+      state.height = Number(els.height.value);
+      state.tension = Number(els.tension.value);
+      state.boom = Number(els.boom.value);
+      state.support = Number(els.support.value);
+      state.ground = Number(els.ground.value);
+
+      const result = calculate();
+      els.heightValue.textContent = `${state.height.toFixed(1)} m`;
+      els.tensionValue.textContent = `${state.tension}%`;
+      els.boomValue.textContent = `${state.boom}%`;
+      els.supportValue.textContent = `${state.support}%`;
+      els.groundValue.textContent = `${state.ground}%`;
+      els.interlockBtn.textContent = state.interlockEnabled ? "자동 비상동작 제어" : "수동 우회 모드";
+      els.interlockBtn.className = state.interlockEnabled ? "safe" : "danger";
+      els.score.textContent = Math.round(result.riskScore);
+      els.tensionMetric.textContent = Math.round(result.tensionStability);
+      els.action.textContent = result.controlAction;
+
+      updateSvg(result);
+      updateStatus(result);
+      setStep(result);
+      await updateTerminal(result);
+    }
+
+    function stopAuto() {
+      if (state.autoTimer) {
+        window.clearInterval(state.autoTimer);
+        state.autoTimer = null;
+      }
+    }
+
+    function reset() {
+      stopAuto();
+      state.interlockEnabled = true;
+      els.height.value = "8";
+      els.tension.value = "8";
+      els.boom.value = "12";
+      els.support.value = "6";
+      els.ground.value = "92";
+      render();
+    }
+
+    function runAuto() {
+      stopAuto();
+      state.interlockEnabled = true;
+      els.height.value = "8";
+      els.tension.value = "8";
+      els.boom.value = "12";
+      els.support.value = "6";
+      els.ground.value = "92";
+      let frame = 0;
+      state.autoTimer = window.setInterval(() => {
+        frame += 1;
+        if (frame > 4) els.height.value = String(Math.min(11, 8 + (frame - 4) * 0.1));
+        if (frame > 8) els.tension.value = String(Math.min(42, 8 + (frame - 8) * 1.35));
+        if (frame > 13) els.boom.value = String(Math.min(66, 12 + (frame - 13) * 2.1));
+        if (frame > 18) els.support.value = String(Math.min(55, 6 + (frame - 18) * 1.75));
+        if (frame > 22) els.ground.value = String(Math.max(48, 92 - (frame - 22) * 2.15));
+        if (frame > 38) {
+          stopAuto();
+          els.height.value = "10.5";
+          els.tension.value = "38";
+          els.boom.value = "62";
+          els.support.value = "48";
+          els.ground.value = "54";
+        }
+        render();
+      }, 115);
+      render();
+    }
+
+    els.interlockBtn.addEventListener("click", () => {
+      stopAuto();
+      state.interlockEnabled = !state.interlockEnabled;
+      render();
+    });
+    els.autoBtn.addEventListener("click", runAuto);
+    els.resetBtn.addEventListener("click", reset);
+    [els.height, els.tension, els.boom, els.support, els.ground].forEach((input) => {
+      input.addEventListener("input", () => { stopAuto(); render(); });
+    });
+
+    render();
+  </script>
+</body>
+</html>
