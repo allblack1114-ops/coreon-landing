@@ -218,15 +218,17 @@
       display: grid;
       align-content: center;
       justify-items: center;
-      min-height: min(700px, calc(100vh - 150px));
+      min-height: 0;
     }
 
     .hero-visual {
       position: relative;
       z-index: 2;
-      width: min(560px, 100%);
+      width: auto;
+      max-width: 100%;
       min-height: 0;
-      height: min(700px, calc(100vh - 150px));
+      height: min(760px, calc(100vh - 150px));
+      aspect-ratio: 546 / 984;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -240,8 +242,9 @@
     }
 
     .hero-visual img {
-      width: 100%;
+      width: auto;
       height: 100%;
+      max-width: 100%;
       max-height: none;
       object-fit: contain;
       object-position: center center;
