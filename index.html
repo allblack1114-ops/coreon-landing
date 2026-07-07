@@ -174,9 +174,9 @@
 
     .hero {
       position: relative;
-      min-height: 830px;
+      min-height: calc(100vh - 74px);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       overflow: hidden;
       color: #ffffff;
       isolation: isolate;
@@ -200,10 +200,10 @@
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
       gap: 44px;
       align-items: center;
-      padding: 82px 0 76px;
+      padding: clamp(28px, 4.5vh, 48px) 0 52px;
     }
 
     .hero-content {
@@ -212,11 +212,21 @@
       width: min(650px, 100%);
     }
 
+    .hero-side {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      min-height: min(700px, calc(100vh - 150px));
+    }
+
     .hero-visual {
       position: relative;
       z-index: 2;
-      width: 100%;
-      min-height: 620px;
+      width: min(560px, 100%);
+      min-height: 0;
+      height: min(700px, calc(100vh - 150px));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -232,7 +242,7 @@
     .hero-visual img {
       width: 100%;
       height: 100%;
-      max-height: 720px;
+      max-height: none;
       object-fit: contain;
       object-position: center center;
       display: block;
@@ -1213,10 +1223,7 @@
 
 
     .ip-hero-visual { display: grid; place-items: center; background: linear-gradient(145deg, rgba(6,26,51,0.92), rgba(12,51,93,0.72)); }
-    .ip-hero-panel { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 28px; padding: 28px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.22); background: rgba(6,26,51,0.78); backdrop-filter: blur(12px); color: #fff; }
-    .ip-hero-panel span { display: inline-flex; margin-bottom: 10px; color: var(--gold); font-size: 13px; font-weight: 950; text-transform: uppercase; letter-spacing: 0.08em; }
-    .ip-hero-panel strong { display: block; font-size: clamp(28px, 4vw, 46px); line-height: 1.05; letter-spacing: -0.04em; }
-    .ip-hero-panel p { margin: 14px 0 0; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.6; font-weight: 750; }
+    .ip-hero-panel { display: none; }
     .patent-simulator-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 18px; }
     .patent-sim-card { position: relative; min-height: 440px; padding: 32px; border-radius: 28px; border: 1px solid rgba(6,26,51,0.12); background: #fff; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
     .patent-sim-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: linear-gradient(90deg, var(--blue), var(--gold)); }
@@ -1289,16 +1296,20 @@
       .hero-layout {
         grid-template-columns: 1fr;
         gap: 32px;
-        padding: 58px 0 62px;
+        padding: 42px 0 56px;
       }
 
       .hero-content {
         width: 100%;
       }
 
+      .hero-side {
+        min-height: auto;
+      }
+
       .hero-visual {
         min-height: auto;
-        height: min(74vh, 640px);
+        height: min(72vh, 640px);
         border-radius: 28px;
       }
 
@@ -1341,7 +1352,7 @@
       .hero { min-height: auto; }
 
       .hero-layout {
-        padding: 44px 0 54px;
+        padding: 34px 0 48px;
         gap: 26px;
       }
 
@@ -1475,13 +1486,10 @@
             </div>
           </div>
 
-          <div class="hero-visual ip-hero-visual" aria-label="COREON Safety IP 기반 중대재해 예방 기술 이미지">
-            <div class="ip-hero-panel">
-              <span>COREON Safety AI</span>
-              <strong>Risk Score<br>+ Safety Diagnosis<br>+ Field Solution</strong>
-              <p>사업장 데이터를 분석하고, 필요한 안전 개선 솔루션까지 연결합니다.</p>
+          <div class="hero-side">
+            <div class="hero-visual ip-hero-visual" aria-label="COREON Safety Risk Score 기반 산업안전 AI 플랫폼 이미지">
+              <img src="/assets/coreon-hero-ai-platform.png?v=20260703-v18" alt="태블릿에 Safety Score 85%가 표시된 산업안전 AI 플랫폼 이미지">
             </div>
-            <img src="/assets/coreon-hero-ai-platform.png?v=20260703-v18" alt="산업안전 AI 플랫폼과 Safety Risk Score 시각화">
           </div>
         </div>
       </div>
