@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COREON(코레온) | 산업안전 AI 플랫폼 · 중대재해 예방 안전진단</title>
+  <title>COREON(코레온) | 사업장 안전진단 · 운영기관용 Safety AX</title>
 
-  <meta name="description" content="COREON(코레온)은 사업장 규모, 업종, 위험요인, 안전관리 이력을 바탕으로 Safety Risk Score를 산출하고 무료 1차 안전진단, 정밀진단, 안전용품·현장장비·작업환경 개선 솔루션까지 연결하는 산업안전 AI 플랫폼입니다.">
-  <meta name="keywords" content="코레온, COREON, Safety IP, 등록특허, 중대재해 예방, 산업안전 AI, 안전개봉 커버어셈블리, 콘크리트 펌프카 안전보조시스템, 조끼일체형 호흡보호장비, 무료 안전진단, 중대재해처벌법, 산업안전 AI 진단, Safety Risk Score, 현장 안전진단, 산업안전 인프라 매칭">
+  <meta name="description" content="COREON은 우리 사업장 무료 1차 안전진단부터 정밀진단·현장 개선까지 연결하고, 운영기관·컨설턴트에는 클린제조 현장진단·사진증빙·위험감소율 KPI·최종보고서 관리를 지원하는 Safety AX 플랫폼입니다.">
+  <meta name="keywords" content="코레온, COREON, 사업장 안전진단, 무료 안전진단, 중대재해 예방, 중대재해처벌법, 산업안전 AI, Safety Risk Score, 클린제조환경조성사업, 클린사업장조성지원, 소공인 안전진단, 운영기관 AX, 컨설턴트 AX, 사진대지, 위험감소율 KPI, 산업안전 인프라 매칭">
   <meta name="author" content="COREON">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.coreon-global.com/">
@@ -17,14 +17,14 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:site_name" content="COREON">
-  <meta property="og:title" content="COREON(코레온) | 산업안전 AI 플랫폼 · 중대재해 예방 안전진단">
-  <meta property="og:description" content="AI 안전진단, Safety Risk Score, 산업안전 인프라 매칭까지 연결하는 COREON.">
+  <meta property="og:title" content="COREON | 사업장 안전진단 · 운영기관용 Safety AX">
+  <meta property="og:description" content="사업장 무료 1차 안전진단과 운영기관·컨설턴트용 진단·증빙·KPI 관리 AX를 한곳에서 만나보세요.">
   <meta property="og:url" content="https://www.coreon-global.com/">
   <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v18">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="COREON(코레온) | 산업안전 AI 플랫폼 · 중대재해 예방 안전진단">
-  <meta name="twitter:description" content="AI 안전진단, Safety Risk Score, 산업안전 인프라 매칭까지 연결하는 COREON.">
+  <meta name="twitter:title" content="COREON | 사업장 안전진단 · 운영기관용 Safety AX">
+  <meta name="twitter:description" content="사업장 무료 1차 안전진단과 운영기관·컨설턴트용 진단·증빙·KPI 관리 AX를 한곳에서 만나보세요.">
   <meta name="twitter:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v18">
 
   <style>
@@ -1404,6 +1404,91 @@
 
       .footer-grid { display: grid; }
     }
+
+    .service-paths {
+      background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+      padding-top: 72px;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 38px;
+    }
+
+    .path-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 440px;
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: var(--blue);
+    }
+
+    .path-card.institution::before { background: var(--gold); }
+    .path-card.institution { background: linear-gradient(145deg, #fff 0%, #fffaf0 100%); }
+
+    .path-badge {
+      align-self: flex-start;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eaf3ff;
+      color: var(--blue2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .institution .path-badge { background: #fff1c9; color: #765300; }
+    .path-card h3 { margin: 20px 0 12px; font-size: 30px; line-height: 1.28; }
+    .path-card > p { margin: 0; color: var(--muted); line-height: 1.75; }
+
+    .path-list {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .path-list li {
+      position: relative;
+      padding-left: 24px;
+      color: #26364b;
+      line-height: 1.55;
+    }
+
+    .path-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 950;
+    }
+
+    .institution .path-list li::before { color: var(--gold2); }
+    .path-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    .path-note { margin-top: 16px; color: #6a7585; font-size: 13px; line-height: 1.6; }
+
+    @media (max-width: 820px) {
+      .path-grid { grid-template-columns: 1fr; }
+      .path-card { min-height: auto; padding: 28px; }
+      .path-card h3 { font-size: 25px; }
+      .path-actions .btn { width: 100%; }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -1416,7 +1501,7 @@
     "logo": "https://www.coreon-global.com/assets/coreon-logo.png",
     "image": "https://www.coreon-global.com/assets/coreon-og.jpg?v=20260703-v18",
     "founder": { "@type": "Person", "name": "이호원" },
-    "description": "COREON은 사업장 데이터를 바탕으로 Safety Risk Score를 산출하고 안전진단, 정밀상담, 산업안전 인프라 매칭까지 연결하는 산업안전 AI 플랫폼입니다.",
+    "description": "COREON은 사업장 안전진단과 현장 개선을 연결하고, 운영기관·컨설턴트를 위한 클린제조 진단·사진증빙·KPI·최종보고서 관리 기능을 제공하는 산업안전 AX 플랫폼입니다.",
     "email": "contact@coreon-global.com",
     "telephone": "+82-0507-1358-1482",
     "sameAs": [
@@ -1439,11 +1524,11 @@
       <label class="mobile-menu-label" for="menu-toggle"></label>
 
       <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#service-paths">이용 유형</a>
         <a href="#diagnosis">무료진단</a>
         <a href="#risk-score">Risk Score</a>
         <a href="#solutions">솔루션 매칭</a>
-        <a href="#patent-tech">기술 기반</a>
-        <a href="#proof">인증·특허</a>
+        <a href="https://app.coreon-global.com/clean-manufacturing-kpi?source=coreon-nav" target="_blank" rel="noopener">기관용 AX</a>
         <a href="#contact">상담 문의</a>
       </nav>
     </div>
@@ -1472,12 +1557,12 @@
             <p>
               <strong>COREON은 사업장의 산업안전 데이터를 바탕으로 위험을 점수화하고 개선 방향을 제안하는 산업안전 AI 플랫폼입니다.</strong><br>
               사업장 규모, 업종, 위험요인, 안전관리 이력을 종합해 Safety Risk Score를 산출하고,
-              필요한 경우 무료 1차 안전진단, 정밀진단, 안전용품·현장장비·작업환경 개선 솔루션까지 연결합니다.
+              일반 사업장에는 무료 1차 안전진단과 정밀진단·현장 개선을, 운영기관과 컨설턴트에는 진단·증빙·KPI 관리 AX를 제공합니다.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="https://app.coreon-global.com/inquiry.html?source=coreon-home&offer=free-diagnosis" target="_blank" rel="noopener">무료 1차 안전진단 시작</a>
-              <a class="btn btn-light" href="#risk-score">Safety Risk Score 보기</a>
+              <a class="btn btn-primary" href="https://app.coreon-global.com/inquiry.html?source=coreon-home&amp;offer=free-diagnosis&amp;inquiryType=direct_diagnosis" target="_blank" rel="noopener">우리 사업장 무료 안전진단</a>
+              <a class="btn btn-gold" href="https://app.coreon-global.com/clean-manufacturing-kpi?source=coreon-home" target="_blank" rel="noopener">운영기관·컨설턴트 AX 도입</a>
               <a class="btn btn-kakao" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담하기</a>
             </div>
 
@@ -1494,6 +1579,51 @@
               <img src="/assets/coreon-hero-ai-platform.png?v=20260703-v18" alt="태블릿에 Safety Score 85%가 표시된 산업안전 AI 플랫폼 이미지">
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-paths" id="service-paths">
+      <div class="container">
+        <div class="section-title">
+          <div class="section-label">Choose Your Path</div>
+          <h2>필요한 이용 방식을<br>먼저 선택하세요</h2>
+          <p>개별 사업장의 안전 고민과 여러 현장을 관리하는 기관·컨설턴트의 업무는 다릅니다. 목적에 맞는 흐름으로 바로 연결합니다.</p>
+        </div>
+
+        <div class="path-grid">
+          <article class="path-card direct">
+            <span class="path-badge">사업장 대표·안전담당자</span>
+            <h3>우리 사업장 안전진단</h3>
+            <p>현재 현장의 위험요인을 먼저 확인하고, 필요한 경우 정밀진단과 실행 가능한 개선 솔루션으로 연결합니다.</p>
+            <ul class="path-list">
+              <li>30초 무료 1차 안전진단 접수</li>
+              <li>업종·공정·위험요인 기반 Safety Risk Score</li>
+              <li>정밀검토·현장방문·장비 및 환경개선 상담</li>
+              <li>무료 범위 확인 후 유료 서비스는 별도 견적·동의</li>
+            </ul>
+            <div class="path-actions">
+              <a class="btn btn-primary" href="https://app.coreon-global.com/inquiry.html?source=coreon-path&amp;offer=free-diagnosis&amp;inquiryType=direct_diagnosis" target="_blank" rel="noopener">무료 안전진단 시작</a>
+              <a class="btn btn-light" href="#risk-score">Risk Score 보기</a>
+            </div>
+          </article>
+
+          <article class="path-card institution">
+            <span class="path-badge">운영기관·컨설턴트</span>
+            <h3>현장진단·증빙·KPI 관리 AX</h3>
+            <p>여러 소공인·사업장의 진단 결과를 표준화하고 사진대지, 위험감소율, 최종보고서와 기관 라이선스를 관리합니다.</p>
+            <ul class="path-list">
+              <li>KOSHA 기반 체크리스트와 KPI 계산 무결성</li>
+              <li>개선 전·후 사진대지 및 감사이력 관리</li>
+              <li>기관 계약·소속 컨설턴트·크레딧 원장</li>
+              <li>최종보고서 확정 시점 기준 크레딧 차감</li>
+            </ul>
+            <div class="path-actions">
+              <a class="btn btn-gold" href="https://app.coreon-global.com/clean-manufacturing-kpi?source=coreon-path" target="_blank" rel="noopener">기관용 AX 살펴보기</a>
+              <a class="btn btn-light" href="https://app.coreon-global.com/inquiry.html?source=coreon-path&amp;offer=b2b-license&amp;inquiryType=institution_ax" target="_blank" rel="noopener">도입 상담 신청</a>
+            </div>
+            <div class="path-note">COREON은 정부기관을 사칭하거나 사업 선정을 보장하지 않으며, 진단·증빙·성과관리 업무에 활용 가능한 민간 Safety AX 도구를 제공합니다.</div>
+          </article>
         </div>
       </div>
     </section>
@@ -1956,7 +2086,8 @@
               코레온이 확인 후 무료 1차 진단 결과와 상담 방향을 안내드립니다.
             </p>
             <div class="contact-list">
-              <a href="https://app.coreon-global.com/inquiry.html?source=coreon-home&offer=free-diagnosis" target="_blank" rel="noopener">무료 1차 진단 결과 신청하기</a>
+              <a href="https://app.coreon-global.com/inquiry.html?source=coreon-contact&amp;offer=free-diagnosis&amp;inquiryType=direct_diagnosis" target="_blank" rel="noopener">우리 사업장 무료 1차 진단 신청</a>
+              <a href="https://app.coreon-global.com/inquiry.html?source=coreon-contact&amp;offer=b2b-license&amp;inquiryType=institution_ax" target="_blank" rel="noopener">운영기관·컨설턴트 AX 도입 문의</a>
               <a href="tel:0507-1358-1482">고객센터: 0507-1358-1482</a>
               <a href="mailto:contact@coreon-global.com">이메일: contact@coreon-global.com</a>
               <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">폼 입력이 번거로우면 카카오톡 1:1 상담</a>
@@ -1975,6 +2106,7 @@
             </div>
 
             <div class="choice-grid" aria-label="신청 폼 선택 항목 예시">
+              <div class="choice">문의 목적: 사업장 안전진단 / 기관용 AX 도입 / 클린제조 지원 준비 / 장비 견적</div>
               <div class="choice">근로자 수: 5인 미만 / 5~49인 / 50인 이상 / 잘 모르겠음</div>
               <div class="choice">현장 유형: 제조·식품 / 건설·EPC / 물류·창고 / 시설·기타</div>
               <div class="choice">위험요인: 추락·끼임 / 폭염·환기 / 지게차·상하차 / 분진</div>
@@ -2002,20 +2134,21 @@
         <div class="privacy-card">
           <h2>개인정보처리방침</h2>
           <p>
-            코레온(COREON)은 무료 1차 안전진단 신청, 상담 접수, 산업안전 인프라 제안 과정에서 필요한 최소한의 개인정보를 수집하며,
+            코레온(COREON)은 무료 1차 안전진단, 정밀진단 상담, 기관용 AX 도입 및 계약 상담 과정에서 필요한 최소한의 개인정보를 수집하며,
             수집한 정보는 아래 목적 범위 내에서만 안전하게 이용합니다.
           </p>
 
           <h3>1. 수집하는 개인정보 항목</h3>
           <ul>
             <li>필수 항목: 회사명 또는 사업장명, 담당자명, 연락처, 문의 내용</li>
-            <li>선택 항목: 이메일, 업종, 근로자 수, 현장 위치, 현장 유형, 주요 위험요인, 정밀진단 희망 여부</li>
+            <li>선택 항목: 이메일, 업종, 근로자 수, 현장 위치, 현장 유형, 주요 위험요인, 정밀진단 희망 여부, 기관·컨설턴트 구분 및 도입 희망 규모</li>
           </ul>
 
           <h3>2. 개인정보의 수집 및 이용 목적</h3>
           <ul>
             <li>무료 1차 안전진단 결과 안내 및 상담 연락</li>
             <li>사업장 위험요인 확인, 정밀진단 필요 여부 검토</li>
+            <li>운영기관·컨설턴트용 AX 도입, 기관 라이선스 및 계약 상담</li>
             <li>안전보호구, 안전장비, 작업환경 개선 등 산업안전 인프라 상담 및 제안</li>
             <li>문의 이력 관리 및 서비스 품질 개선</li>
           </ul>
@@ -2053,7 +2186,8 @@
       </div>
 
       <div class="footer-links">
-        <a href="https://app.coreon-global.com/inquiry.html?source=coreon-footer&offer=free-diagnosis" target="_blank" rel="noopener">무료진단 신청</a>
+        <a href="https://app.coreon-global.com/inquiry.html?source=coreon-footer&amp;offer=free-diagnosis&amp;inquiryType=direct_diagnosis" target="_blank" rel="noopener">사업장 무료진단</a>
+        <a href="https://app.coreon-global.com/clean-manufacturing-kpi?source=coreon-footer" target="_blank" rel="noopener">기관용 AX</a>
         <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡</a>
         <a href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener">유튜브</a>
         <a href="https://blog.naver.com/valueup1114" target="_blank" rel="noopener">블로그</a>
