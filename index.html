@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>COREON | AX Agent · 중대재해 예방 지원 · Safety IP</title>
+    <title>COREON | 중대재해 위험을 조치·증빙·재평가로 연결하는 AX Agent</title>
     <meta
       name="description"
-      content="COREON은 AX Agent, 중대재해 예방 지원, 등록특허 기반 Safety IP와 현장 안전업무 기술을 제공하는 벤처기업입니다."
+      content="COREON은 현장 위험과 사건을 담당자 조치, 증빙 확인, 잔여위험 재평가까지 연결하는 AX Agent와 등록특허 기반 Safety IP를 개발하는 산업안전 기술 벤처기업입니다."
     />
     <meta
       name="keywords"
@@ -27,11 +27,11 @@
     <meta property="og:site_name" content="COREON" />
     <meta
       property="og:title"
-      content="COREON | AX Agent · 중대재해 예방 지원 · Safety IP"
+      content="COREON | 중대재해 위험을 조치·증빙·재평가로 연결하는 AX Agent"
     />
     <meta
       property="og:description"
-      content="현장 사건을 조치·증빙·잔여위험 재평가까지 연결하는 COREON AX Agent와 등록특허 기반 산업안전 기술을 확인하세요."
+      content="중대재해 위험의 확인부터 담당자 조치, 증빙 확인, 잔여위험 재평가까지 연결하는 COREON AX Agent와 등록특허 기반 Safety IP를 확인하세요."
     />
     <meta property="og:url" content="https://www.coreon-global.com/" />
     <meta
@@ -177,6 +177,12 @@
         line-height: 1.8;
         max-width: 690px;
       }
+      .hero-note {
+        margin-top: 14px !important;
+        color: #bcd7ff !important;
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+      }
       .actions {
         display: flex;
         flex-wrap: wrap;
@@ -310,6 +316,63 @@
         border-radius: 14px;
         line-height: 1.72;
         color: #31546a;
+      }
+      .value-market {
+        background: #071a33;
+        color: #fff;
+      }
+      .value-market .section-head {
+        max-width: 900px;
+      }
+      .value-market .kicker {
+        color: #77e0d3;
+      }
+      .value-market .section-head p {
+        color: #cfdef0;
+      }
+      .value-card {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: none;
+      }
+      .value-card b {
+        color: #77e0d3;
+      }
+      .value-card h3 {
+        color: #fff;
+      }
+      .value-card p {
+        color: #cfdef0;
+      }
+      .market-position {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .position-item {
+        border-radius: 18px;
+        padding: 20px;
+        background: #fff;
+        color: var(--ink);
+      }
+      .position-item b {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--blue2);
+      }
+      .position-item p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .evidence-note {
+        margin-top: 20px;
+        padding: 17px 19px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 15px;
+        color: #cfdef0;
+        line-height: 1.7;
       }
       .major-panel {
         display: grid;
@@ -617,6 +680,7 @@
         }
         .grid-3,
         .major-panel,
+        .market-position,
         .contact-grid {
           grid-template-columns: 1fr;
         }
@@ -740,12 +804,14 @@
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div>
-            <span class="eyebrow">INDUSTRIAL SAFETY TECHNOLOGY COMPANY</span>
-            <h1>현장 안전을<br />AX와 기술로<br />연결합니다.</h1>
+            <span class="eyebrow"
+              >중대재해 예방을 위한 산업안전 AX 기술기업</span
+            >
+            <h1>중대재해 위험을<br />조치·증빙·재평가까지<br />연결합니다.</h1>
             <p>
-              COREON은 현장 사건을 조치·증빙·잔여위험 재평가까지 연결하는 AX
-              Agent와 중대재해 예방 지원, 등록특허 기반 Safety IP를 개발하는
-              기술 벤처기업입니다.
+              COREON은 현장 위험과 사건을 발견하는 데서 멈추지 않고, 담당자
+              조치, 증빙 확인, 잔여위험 재평가까지 연결하는 COREON AX Agent와
+              등록특허 기반 Safety IP를 개발합니다.
             </p>
             <div class="actions">
               <a
@@ -762,14 +828,14 @@
                 rel="noopener"
                 >COREON AX Agent</a
               >
-              <a
-                class="btn btn-light"
-                href="https://app.coreon-global.com/inquiry.html?source=coreon-focus-home&amp;offer=free-diagnosis"
-                target="_blank"
-                rel="noopener"
-                >개인정보 없이 무료진단</a
+              <a class="btn btn-light" href="#major-accident"
+                >중대재해 예방 지원</a
               >
             </div>
+            <p class="hero-note">
+              회사명·연락처 입력 없이 30초 게스트 체험과 무료진단을 먼저 확인할
+              수 있습니다.
+            </p>
           </div>
           <div class="hero-art">
             <img
@@ -854,6 +920,91 @@
             <strong>현재 공개 범위:</strong> 제품 안내, 개인정보 없는 무료진단,
             안전방과 무저장 합성 Demo입니다. 관리자·실데이터 통합 Workbench·복원
             및 보안 시험면은 공개하지 않습니다.
+          </div>
+        </div>
+      </section>
+
+      <section class="value-market" id="value-market">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">PROBLEM · VALUE · MARKET POSITION</span>
+            <h2>
+              안전서류를 더 만드는 도구가 아니라<br />미결정·미조치·미검증을
+              줄이는 통제 흐름
+            </h2>
+            <p>
+              COREON AX Agent가 해결하려는 핵심 문제는 서류 부족이 아니라,
+              경영의 결정과 현장의 실행, 효과성 확인과 사고·감독 대응 증빙이
+              서로 분절되는 것입니다.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card value-card">
+              <b>01 · 경영-현장 단절</b>
+              <h3>결정에서 실행까지</h3>
+              <p>
+                미결정·미배정·기한초과 상태를 담당자, 자원, 실행기록과 연결해
+                경영책임 통제가 현장 행동으로 이어지도록 설계합니다.
+              </p>
+            </article>
+            <article class="card value-card">
+              <b>02 · 서류형 안전관리</b>
+              <h3>체크에서 효과성까지</h3>
+              <p>
+                사진이나 체크만으로 닫지 않고 조치 결과와 잔여위험을 다시
+                확인하며, 효과가 부족하면 업무를 재개방하는 흐름을 지향합니다.
+              </p>
+            </article>
+            <article class="card value-card">
+              <b>03 · 증빙 신뢰 부족</b>
+              <h3>원본과 검토 이력 연결</h3>
+              <p>
+                작성자·시각·원본 참조·역할분리·변경 탐지 정보를 연결해 사후
+                검토와 감사에 필요한 설명 가능성을 높입니다.
+              </p>
+            </article>
+          </div>
+
+          <div class="market-position" aria-label="COREON 시장 포지션">
+            <article class="position-item">
+              <b>시장의 기본 기대</b>
+              <p>
+                위험성평가·TBM·모바일 제보·문서와 현장 편의는 이미 경쟁이 치열한
+                기본영역입니다.
+              </p>
+            </article>
+            <article class="position-item">
+              <b>COREON의 집중 영역</b>
+              <p>
+                경영 의사결정-현장 실행-독립 검토-효과성 확인-신뢰 증빙의
+                폐쇄루프에 집중합니다.
+              </p>
+            </article>
+            <article class="position-item">
+              <b>실증으로 확인할 가치</b>
+              <p>
+                사용률·종결시간·증거 완결성·재개방률·반복위험 감소를 제한
+                Pilot의 KPI로 확인합니다.
+              </p>
+            </article>
+          </div>
+
+          <div class="evidence-note">
+            <strong>현재 판단:</strong> 통제·증빙 구조는 COREON의 잠재적
+            차별점입니다. 실제 시장우위는 고객 현장 Pilot, 운영 KPI, 실제
+            Staging 검증과 독립 보안시험을 통해 확인해야 합니다.
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-guest" href="#contact">제한 Pilot 상담</a>
+            <a
+              class="btn btn-light"
+              href="https://app.coreon-global.com/ax-agent-demo?source=coreon-value-market"
+              target="_blank"
+              rel="noopener"
+              >핵심 흐름 먼저 체험</a
+            >
           </div>
         </div>
       </section>
