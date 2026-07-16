@@ -152,6 +152,9 @@
       .pilot-panel { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 25px; align-items: center; padding: 34px; border: 1px solid #bfe6df; border-radius: 28px; background: #fff; }
       .pilot-panel h2 { margin: 10px 0 14px; font-size: clamp(32px, 4vw, 48px); }
       .pilot-panel p { color: var(--muted); line-height: 1.75; }
+      .vision-pilot-note { margin-top: 18px; padding: 17px 19px; border: 1px solid #a9dcd3; border-radius: 17px; background: #edfaf7; color: #31546a; line-height: 1.65; }
+      .vision-pilot-note b { display: block; margin-bottom: 5px; color: #08786c; }
+      .vision-pilot-note small { display: block; margin-top: 6px; color: #61778a; }
       .pilot-list { display: grid; gap: 10px; }
       .pilot-list div { padding: 15px 17px; border-radius: 15px; background: var(--soft); color: #36516f; font-weight: 800; line-height: 1.55; }
       .pilot-list b { color: var(--blue2); }
@@ -273,7 +276,7 @@
         <div class="container hero-grid">
           <div>
             <span class="badge">사고를 예방하는 Safety IP 전문기업</span>
-            <h1>5인 이상 사업장<br />중대재해처벌법,<br /><em>무엇부터 준비해야 할지</em><br />막막하다면</h1>
+            <h1>5인 이상 사업장<br />중대재해처벌법,<br /><em>무엇부터</em><br /><em>준비해야 할지</em><br />막막하다면</h1>
             <p>
               중대재해처벌법 대응을 위해 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙을 먼저 정리할 수 있도록 코레온이 무료 1차 안전진단을 지원합니다.
               <br /><strong style="color:#fff">COREON Safety AX Agent는 진단 이후의 현장 제보·담당자 조치·사진증빙·재확인까지 연결합니다.</strong>
@@ -283,7 +286,7 @@
               <a class="btn btn-primary" href="https://app.coreon-global.com/ax-agent-demo?source=coreon-report-home" target="_blank" rel="noopener">AX Agent 30초 체험</a>
               <a class="btn btn-light" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a>
             </div>
-            <p class="hero-note">v26.137 제한적 현장 파일럿 후보 · 안전관리자의 판단과 법률·전문가 검토를 대신하지 않습니다.</p>
+            <p class="hero-note">v26.140 제한적 현장·Vision Edge 파일럿 후보 · 안전관리자의 판단과 법률·전문가 검토를 대신하지 않습니다.</p>
           </div>
           <div class="hero-art">
             <img src="/assets/coreon-hero-ai-platform.png?v=20260716-value" alt="현장 위험제보와 조치현황을 연결하는 COREON AX Agent" />
@@ -421,9 +424,14 @@
       <section class="pilot" id="pilot">
         <div class="container pilot-panel">
           <div>
-            <span class="kicker">LIMITED FIELD PILOT</span>
+            <span class="kicker">LIMITED FIELD + VISION EDGE PILOT</span>
             <h2>전면 도입 전,<br />한 개 현장에서 먼저 확인하세요.</h2>
-            <p>현재 v26.137은 정식 상용출시가 아닌 제한적 현장 파일럿 후보입니다. 고객 현장의 실제 업무에 맞춰 적용 범위를 정하고, 사용성과 KPI, 지원 SLA, 보안·운영 조건을 함께 확인한 뒤 다음 단계를 결정합니다.</p>
+            <p>현재 v26.140은 정식 상용출시가 아닌 제한적 현장 파일럿 후보입니다. 고객 현장의 실제 업무에 맞춰 적용 범위를 정하고, 사용성과 KPI, 지원 SLA, 보안·운영 조건을 함께 확인한 뒤 다음 단계를 결정합니다.</p>
+            <div class="vision-pilot-note">
+              <b>NEW · Vision Edge 제한 파일럿</b>
+              지원 카메라와 COREON Edge Gateway를 연결해 안전모 미착용, 제한구역 진입, 작업자와 지게차의 위험 접근 후보를 감지하고 안전책임자의 확인과 개선조치로 연결합니다.
+              <small>지원 장비 확인과 현장 설치가 필요합니다. AI 단독판단·자동 작업중지 기능이 아니며, 실제 적용 전 카메라 호환성·네트워크·개인정보 보호·현장 정확도를 검증합니다.</small>
+            </div>
             <div class="actions">
               <a class="btn btn-primary" href="#contact">파일럿 도입 상담</a>
               <a class="btn btn-light" href="https://app.coreon-global.com/free-diagnosis?source=coreon-pilot" target="_blank" rel="noopener">무료 안전진단</a>
