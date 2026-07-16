@@ -3,749 +3,245 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>COREON | 중대재해 위험을 조치·증빙·재평가로 연결하는 AX Agent</title>
+    <title>COREON Safety AX Agent | 5인 이상 사업장 중대재해처벌법 대응</title>
     <meta
       name="description"
-      content="COREON은 현장 위험과 사건을 담당자 조치, 증빙 확인, 잔여위험 재평가까지 연결하는 AX Agent와 등록특허 기반 Safety IP를 개발하는 산업안전 기술 벤처기업입니다."
+      content="5인 이상 사업장 중대재해처벌법 대응이 막막하다면 COREON Safety AX Agent로 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙과 무료 1차 안전진단부터 시작하세요."
     />
     <meta
       name="keywords"
-      content="COREON, 코레온, AX Agent, 중대재해 예방, 산업안전 AI, 현장 안전방, 위험성평가, Safety Risk Score, Safety IP, 등록특허, 벤처기업"
+      content="COREON, 코레온 AX Agent, 중대재해 예방, 산업안전 AI, 현장 안전관리, 안전방, 위험성평가, TBM, 건설현장 안전, 제조공장 안전, 물류창고 안전, 식품공장 안전"
     />
     <meta name="author" content="COREON" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <link rel="canonical" href="https://www.coreon-global.com/" />
-    <link
-      rel="preload"
-      as="image"
-      href="/assets/coreon-hero-ai-platform.png?v=20260715-focus"
-      media="(min-width:801px)"
-    />
+    <link rel="preload" as="image" href="/assets/coreon-hero-ai-platform.png?v=20260716-value" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:site_name" content="COREON" />
-    <meta
-      property="og:title"
-      content="COREON | 중대재해 위험을 조치·증빙·재평가로 연결하는 AX Agent"
-    />
+    <meta property="og:title" content="5인 이상 사업장 중대재해처벌법, 무엇부터 준비해야 할지 막막하다면" />
     <meta
       property="og:description"
-      content="중대재해 위험의 확인부터 담당자 조치, 증빙 확인, 잔여위험 재평가까지 연결하는 COREON AX Agent와 등록특허 기반 Safety IP를 확인하세요."
+      content="위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙을 먼저 정리할 수 있도록 코레온이 무료 1차 안전진단과 Safety AX Agent를 지원합니다."
     />
     <meta property="og:url" content="https://www.coreon-global.com/" />
-    <meta
-      property="og:image"
-      content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260715-focus"
-    />
+    <meta property="og:image" content="https://www.coreon-global.com/assets/coreon-og.jpg?v=20260716-value" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <style>
       :root {
         --navy: #061a33;
-        --navy2: #0a2b57;
-        --blue: #1677ff;
-        --blue2: #075fc5;
-        --teal: #0d9488;
-        --gold: #d6a72f;
+        --navy2: #0b315f;
+        --blue: #1475e8;
+        --blue2: #075db8;
+        --teal: #0b8f83;
+        --mint: #e7f8f5;
+        --gold: #d7a62b;
         --ink: #10233f;
-        --muted: #5f6f84;
+        --muted: #5d6e82;
         --line: #d8e4f0;
-        --soft: #f3f7fc;
+        --soft: #f4f8fc;
         --white: #fff;
         --max: 1200px;
         --shadow: 0 20px 60px rgba(6, 26, 51, 0.12);
       }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         color: var(--ink);
         background: #fff;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
-          "Malgun Gothic", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
         word-break: keep-all;
       }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-      }
-      .container {
-        width: min(var(--max), calc(100% - 44px));
-        margin: auto;
-      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      .container { width: min(var(--max), calc(100% - 44px)); margin: auto; }
       .site-header {
         position: sticky;
         top: 0;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--line);
       }
-      .nav-wrap {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 22px;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 25px;
-        font-weight: 950;
-        color: var(--navy);
-      }
-      .brand img {
-        width: 54px;
-        height: 54px;
-        object-fit: contain;
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 19px;
-        font-size: 14px;
-        font-weight: 900;
-        white-space: nowrap;
-      }
-      .nav-links a:hover {
-        color: var(--blue);
-      }
-      .nav-links .mall {
-        padding: 10px 15px;
-        border-radius: 999px;
-        background: var(--navy);
-        color: #fff;
-      }
-      .menu-toggle,
-      .menu-label {
-        display: none;
-      }
+      .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .brand { display: flex; align-items: center; gap: 11px; color: var(--navy); font-size: 24px; font-weight: 950; }
+      .brand img { width: 53px; height: 53px; object-fit: contain; }
+      .nav-links { display: flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 900; white-space: nowrap; }
+      .nav-links a:hover { color: var(--blue); }
+      .nav-links .contact-btn { padding: 11px 16px; border-radius: 999px; background: var(--navy); color: #fff; }
+      .menu-toggle, .menu-label { display: none; }
+      section { padding: 88px 0; }
       .hero {
         color: #fff;
+        overflow: hidden;
         background:
-          radial-gradient(
-            circle at 78% 25%,
-            rgba(22, 119, 255, 0.28),
-            transparent 32%
-          ),
-          linear-gradient(135deg, #061a33, #0a2b57 62%, #075fc5);
-        overflow: hidden;
-      }
-      .hero-grid {
-        min-height: 720px;
-        display: grid;
-        grid-template-columns: 1.03fr 0.97fr;
-        align-items: center;
-        gap: 55px;
-        padding: 68px 0;
-      }
-      .eyebrow,
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 7px 12px;
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 950;
-      }
-      .eyebrow {
-        background: #dff8f2;
-        color: #075e52;
-      }
-      .hero h1 {
-        margin: 20px 0 22px;
-        font-size: clamp(43px, 5.7vw, 72px);
-        line-height: 1.08;
-        letter-spacing: -0.045em;
-      }
-      .hero p {
-        margin: 0;
-        color: #dceaff;
-        font-size: 19px;
-        line-height: 1.8;
-        max-width: 690px;
-      }
-      .hero-note {
-        margin-top: 14px !important;
-        color: #bcd7ff !important;
-        font-size: 14px !important;
-        line-height: 1.65 !important;
-      }
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 11px;
-        margin-top: 27px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 52px;
-        padding: 0 21px;
-        border-radius: 999px;
-        font-weight: 950;
-        border: 1px solid transparent;
-        transition: 0.2s;
-      }
-      .btn:hover {
-        transform: translateY(-2px);
-      }
-      .btn-guest {
-        background: #13a391;
-        color: #fff;
-      }
-      .btn-primary {
-        background: var(--blue);
-        color: #fff;
-      }
-      .btn-light {
-        background: #fff;
-        color: var(--navy);
-      }
-      .btn-gold {
-        background: linear-gradient(135deg, #e0b230, #b88918);
-        color: #fff;
-      }
-      .hero-art {
-        justify-self: end;
-        width: min(500px, 100%);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 34px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.06);
-        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.24);
-      }
-      .hero-art img {
-        width: 100%;
-        max-height: 590px;
-        object-fit: cover;
-        border-radius: 24px;
-      }
-      section {
-        padding: 92px 0;
-      }
-      .section-head {
-        max-width: 780px;
-        margin-bottom: 35px;
-      }
-      .kicker {
-        color: var(--blue2);
-        font-weight: 950;
-        letter-spacing: 0.04em;
-      }
-      .section-head h2 {
-        font-size: clamp(34px, 4.3vw, 53px);
-        line-height: 1.18;
-        letter-spacing: -0.035em;
-        margin: 10px 0 16px;
-      }
-      .section-head p {
-        font-size: 18px;
-        line-height: 1.75;
-        color: var(--muted);
-        margin: 0;
-      }
-      .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-      .card {
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        background: #fff;
-        padding: 24px;
-        box-shadow: 0 12px 35px rgba(6, 26, 51, 0.06);
-      }
-      .card b {
-        color: var(--blue2);
-      }
-      .card h3 {
-        font-size: 22px;
-        margin: 10px 0;
-      }
-      .card p,
-      .card li {
-        color: var(--muted);
-        line-height: 1.7;
-      }
-      .card ul {
-        padding-left: 19px;
-        margin-bottom: 0;
-      }
-      .soft {
-        background: var(--soft);
-      }
-      .ax-flow {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
-        margin-top: 27px;
-      }
-      .ax-step {
-        padding: 18px 12px;
-        border-radius: 16px;
-        background: var(--navy);
-        color: #fff;
-        text-align: center;
-        font-weight: 950;
-      }
-      .scope-note {
-        margin-top: 24px;
-        border-left: 5px solid var(--teal);
-        background: #edf9f7;
-        padding: 18px 20px;
-        border-radius: 14px;
-        line-height: 1.72;
-        color: #31546a;
-      }
-      .value-market {
-        background: #071a33;
-        color: #fff;
-      }
-      .value-market .section-head {
-        max-width: 900px;
-      }
-      .value-market .kicker {
-        color: #77e0d3;
-      }
-      .value-market .section-head p {
-        color: #cfdef0;
-      }
-      .value-card {
-        border-color: rgba(255, 255, 255, 0.14);
-        background: rgba(255, 255, 255, 0.07);
-        box-shadow: none;
-      }
-      .value-card b {
-        color: #77e0d3;
-      }
-      .value-card h3 {
-        color: #fff;
-      }
-      .value-card p {
-        color: #cfdef0;
-      }
-      .market-position {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        margin-top: 22px;
-      }
-      .position-item {
-        border-radius: 18px;
-        padding: 20px;
-        background: #fff;
-        color: var(--ink);
-      }
-      .position-item b {
-        display: block;
-        margin-bottom: 7px;
-        color: var(--blue2);
-      }
-      .position-item p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.65;
-      }
-      .evidence-note {
-        margin-top: 20px;
-        padding: 17px 19px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 15px;
-        color: #cfdef0;
-        line-height: 1.7;
-      }
-      .major-panel {
-        display: grid;
-        grid-template-columns: 0.86fr 1.14fr;
-        gap: 24px;
-        align-items: stretch;
-      }
-      .major-copy {
-        border-radius: 26px;
-        padding: 32px;
-        background: linear-gradient(145deg, #071a33, #0c4b71);
-        color: #fff;
-      }
-      .major-copy h3 {
-        font-size: 31px;
-        margin: 0 0 13px;
-      }
-      .major-copy p {
-        color: #dcebf5;
-        line-height: 1.78;
-      }
-      .check-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 13px;
-      }
-      .check {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: #fff;
-        padding: 19px;
-      }
-      .check b {
-        display: block;
-        color: var(--teal);
-        margin-bottom: 6px;
-      }
-      .check span {
-        color: var(--muted);
-        line-height: 1.55;
-      }
-      .patent-card {
-        overflow: hidden;
-        padding: 0;
-      }
-      .patent-card .body {
-        padding: 23px;
-      }
-      .patent-card img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        background: #eef3f8;
-      }
-      .proof-band {
-        color: #fff;
-        background: linear-gradient(135deg, #071a33, #124b85);
-      }
-      .proof-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
-      .proof-copy h2 {
-        font-size: clamp(35px, 4.3vw, 54px);
-        margin: 9px 0 17px;
-      }
-      .proof-copy p {
-        color: #dce9f8;
-        font-size: 18px;
-        line-height: 1.78;
-      }
-      .proof-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 13px;
-      }
-      .proof {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 18px;
-        padding: 20px;
-      }
-      .proof b {
-        color: #9ad8ff;
-      }
-      .proof h3 {
-        margin: 8px 0;
-      }
-      .proof p {
-        color: #dce9f8;
-        line-height: 1.6;
-      }
-      .assets {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 22px;
-      }
-      .asset {
-        background: #fff;
-        border-radius: 18px;
-        padding: 13px;
-      }
-      .asset img {
-        width: 100%;
-        height: 230px;
-        object-fit: contain;
-      }
-      .mall-band {
-        padding: 62px 0;
-        background: #fff7dc;
-        border-top: 1px solid #f1d98e;
-        border-bottom: 1px solid #f1d98e;
-      }
-      .mall-layout {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 28px;
-      }
-      .mall-layout h2 {
-        font-size: clamp(31px, 4vw, 48px);
-        margin: 0 0 12px;
-      }
-      .mall-layout p {
-        color: #6c6043;
-        font-size: 18px;
-        line-height: 1.65;
-        margin: 0;
-        max-width: 750px;
-      }
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
-      .contact-card {
-        border-radius: 24px;
-        padding: 30px;
-        background: var(--navy);
-        color: #fff;
-      }
-      .contact-card h2 {
-        font-size: 35px;
-        margin: 0 0 14px;
-      }
-      .contact-card p {
-        color: #dce8f5;
-        line-height: 1.75;
-      }
-      .contact-links {
-        display: grid;
-        gap: 10px;
-      }
-      .contact-links a {
-        display: block;
-        padding: 15px 17px;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        background: #fff;
-        font-weight: 850;
-      }
-      .privacy {
-        border-top: 1px solid var(--line);
-        background: #f8fafc;
-      }
-      .privacy details {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: #fff;
-        padding: 20px;
-      }
-      .privacy summary {
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: 950;
-      }
-      .privacy .body {
-        color: var(--muted);
-        line-height: 1.75;
-        padding-top: 12px;
-      }
-      .privacy h3 {
-        color: var(--ink);
-        margin-bottom: 5px;
-      }
-      .social {
-        position: fixed;
-        right: 20px;
-        bottom: 22px;
-        z-index: 1100;
-        display: grid;
-        gap: 9px;
-      }
-      .social a {
-        width: 58px;
-        height: 58px;
-        border-radius: 18px;
-        overflow: hidden;
-        background: #fff;
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow);
-      }
-      .social img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      .social .youtube img {
-        padding: 8px;
-      }
-      footer {
-        background: #05162d;
-        color: #cbd9ea;
-        padding: 35px 0;
-      }
-      .footer-grid {
-        display: flex;
-        justify-content: space-between;
-        gap: 25px;
-        align-items: flex-start;
-      }
-      .footer-brand {
-        font-size: 26px;
-        color: #fff;
-        font-weight: 950;
-      }
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 15px;
-      }
-      .small {
-        font-size: 13px;
-        line-height: 1.7;
-        color: #9eb0c5;
-      }
+          radial-gradient(circle at 77% 25%, rgba(32, 141, 255, 0.28), transparent 30%),
+          linear-gradient(135deg, #061a33, #0a2d58 62%, #0967c8);
+      }
+      .hero-grid { min-height: 690px; display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 54px; padding: 62px 0; }
+      .badge { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border-radius: 999px; background: #ddf8f3; color: #066459; font-size: 13px; font-weight: 950; }
+      .badge:before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #0b9f8e; }
+      .hero h1 { margin: 20px 0 22px; font-size: clamp(42px, 5.5vw, 70px); line-height: 1.09; letter-spacing: -0.045em; }
+      .hero h1 em { color: #86d6ff; font-style: normal; }
+      .hero p { margin: 0; max-width: 700px; color: #dfebfb; font-size: 19px; line-height: 1.78; }
+      .hero-note { margin-top: 14px !important; color: #bcd5f3 !important; font-size: 14px !important; }
+      .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 21px; border: 1px solid transparent; border-radius: 999px; font-weight: 950; transition: 0.2s; }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: var(--blue); color: #fff; }
+      .btn-guest { background: #12a08f; color: #fff; }
+      .btn-light { background: #fff; color: var(--navy); border-color: var(--line); }
+      .btn-gold { background: linear-gradient(135deg, #e1b43a, #b88713); color: #fff; }
+      .hero-art { justify-self: end; width: min(500px, 100%); padding: 15px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 32px; background: rgba(255, 255, 255, 0.07); box-shadow: 0 35px 90px rgba(0, 0, 0, 0.25); }
+      .hero-art img { width: 100%; max-height: 575px; object-fit: cover; border-radius: 23px; }
+      .industry-strip { padding: 20px 0; background: #fff; border-bottom: 1px solid var(--line); }
+      .industry-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; }
+      .industry-row strong { margin-right: 5px; color: var(--navy); }
+      .industry-row span { padding: 8px 13px; border-radius: 999px; background: var(--soft); color: #36516f; font-size: 14px; font-weight: 800; }
+      .section-head { max-width: 820px; margin-bottom: 34px; }
+      .kicker { color: var(--blue2); font-size: 14px; font-weight: 950; letter-spacing: 0.04em; }
+      .section-head h2 { margin: 10px 0 16px; font-size: clamp(33px, 4.2vw, 52px); line-height: 1.18; letter-spacing: -0.035em; }
+      .section-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.75; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+      .card { padding: 24px; border: 1px solid var(--line); border-radius: 22px; background: #fff; box-shadow: 0 12px 35px rgba(6, 26, 51, 0.06); }
+      .card .num { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 11px; background: #e9f3ff; color: var(--blue2); font-weight: 950; }
+      .card b { color: var(--blue2); }
+      .card h3 { margin: 12px 0 9px; font-size: 22px; line-height: 1.35; }
+      .card p, .card li { color: var(--muted); line-height: 1.7; }
+      .card p { margin-bottom: 0; }
+      .card ul { margin: 12px 0 0; padding-left: 19px; }
+      .soft { background: var(--soft); }
+      .problem-card { border-top: 5px solid #cbd9e7; }
+      .problem-card strong { display: block; margin-bottom: 8px; color: #8b3e31; }
+      .problem-card .answer { margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--navy); font-weight: 850; line-height: 1.65; }
+      .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+      .audience { position: relative; overflow: hidden; min-height: 215px; }
+      .audience:after { content: ""; position: absolute; width: 90px; height: 90px; right: -28px; bottom: -28px; border-radius: 50%; background: #e7f2ff; }
+      .audience small { color: var(--teal); font-weight: 950; }
+      .audience h3 { max-width: 250px; }
+      .value-section { color: #fff; background: var(--navy); }
+      .value-section .kicker { color: #79e1d5; }
+      .value-section .section-head p { color: #cfdef0; }
+      .value-card { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.08); box-shadow: none; }
+      .value-card b { color: #86d6ff; }
+      .value-card h3 { color: #fff; }
+      .value-card p { color: #d5e2f2; }
+      .value-note { margin-top: 20px; padding: 17px 19px; border: 1px solid rgba(255, 255, 255, 0.17); border-radius: 15px; color: #cad9ea; line-height: 1.7; }
+      .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; counter-reset: step; }
+      .flow-step { position: relative; padding: 22px 16px; border: 1px solid var(--line); border-radius: 19px; background: #fff; }
+      .flow-step:before { counter-increment: step; content: counter(step); display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 10px; background: var(--navy); color: #fff; font-weight: 950; }
+      .flow-step h3 { margin: 13px 0 7px; font-size: 19px; }
+      .flow-step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+      .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .feature { box-shadow: none; }
+      .feature b { display: block; margin-bottom: 8px; color: var(--teal); }
+      .feature strong { color: var(--ink); }
+      .executive-panel { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: stretch; }
+      .executive-copy { padding: 34px; border-radius: 26px; background: linear-gradient(145deg, #071a33, #0c4b71); color: #fff; }
+      .executive-copy h2 { margin: 9px 0 15px; font-size: clamp(32px, 4vw, 48px); }
+      .executive-copy p { color: #dcebf5; line-height: 1.78; }
+      .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+      .check { padding: 19px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+      .check b { display: block; margin-bottom: 6px; color: var(--teal); }
+      .check span { color: var(--muted); line-height: 1.55; }
+      .pilot { background: #eef9f7; }
+      .pilot-panel { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 25px; align-items: center; padding: 34px; border: 1px solid #bfe6df; border-radius: 28px; background: #fff; }
+      .pilot-panel h2 { margin: 10px 0 14px; font-size: clamp(32px, 4vw, 48px); }
+      .pilot-panel p { color: var(--muted); line-height: 1.75; }
+      .pilot-list { display: grid; gap: 10px; }
+      .pilot-list div { padding: 15px 17px; border-radius: 15px; background: var(--soft); color: #36516f; font-weight: 800; line-height: 1.55; }
+      .pilot-list b { color: var(--blue2); }
+      .trust-band { color: #fff; background: linear-gradient(135deg, #071a33, #124b85); }
+      .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+      .trust-copy h2 { margin: 9px 0 16px; font-size: clamp(33px, 4.2vw, 51px); }
+      .trust-copy p { color: #dce9f8; font-size: 17px; line-height: 1.75; }
+      .trust-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .trust-card { padding: 19px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 17px; background: rgba(255, 255, 255, 0.1); }
+      .trust-card b { color: #9ad8ff; }
+      .trust-card h3 { margin: 8px 0; }
+      .trust-card p { margin: 0; color: #dce9f8; line-height: 1.6; }
+      .mall-band { padding: 58px 0; background: #fff7dc; border-top: 1px solid #f1d98e; border-bottom: 1px solid #f1d98e; }
+      .mall-layout { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+      .mall-layout h2 { margin: 0 0 11px; font-size: clamp(30px, 4vw, 46px); }
+      .mall-layout p { margin: 0; max-width: 760px; color: #6c6043; font-size: 17px; line-height: 1.65; }
+      .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      .contact-card { padding: 31px; border-radius: 24px; background: var(--navy); color: #fff; }
+      .contact-card h2 { margin: 0 0 14px; font-size: 35px; }
+      .contact-card p { color: #dce8f5; line-height: 1.75; }
+      .contact-links { display: grid; gap: 10px; }
+      .contact-links a { display: block; padding: 15px 17px; border: 1px solid var(--line); border-radius: 14px; background: #fff; font-weight: 850; }
+      .legal-note { margin-top: 20px; padding: 18px 20px; border-left: 5px solid var(--teal); border-radius: 14px; background: #edf9f7; color: #31546a; line-height: 1.72; }
+      .privacy { padding: 55px 0; border-top: 1px solid var(--line); background: #f8fafc; }
+      .privacy details { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+      .privacy summary { cursor: pointer; font-size: 19px; font-weight: 950; }
+      .privacy .body { padding-top: 12px; color: var(--muted); line-height: 1.75; }
+      .social { position: fixed; right: 20px; bottom: 22px; z-index: 1100; display: grid; gap: 9px; }
+      .social a { width: 58px; height: 58px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
+      .social img { width: 100%; height: 100%; object-fit: contain; }
+      .social .youtube img { padding: 8px; }
+      footer { padding: 35px 0; background: #05162d; color: #cbd9ea; }
+      .footer-grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 25px; }
+      .footer-brand { color: #fff; font-size: 26px; font-weight: 950; }
+      .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 15px; }
+      .small { color: #9eb0c5; font-size: 13px; line-height: 1.7; }
       @media (max-width: 1050px) {
-        .nav-links {
-          gap: 12px;
-          font-size: 13px;
-        }
-        .hero-grid {
-          grid-template-columns: 1fr 0.8fr;
-        }
-        .grid-4 {
-          grid-template-columns: 1fr 1fr;
-        }
-        .ax-flow {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .proof-grid {
-          grid-template-columns: 1fr;
-        }
+        .nav-links { gap: 11px; font-size: 13px; }
+        .hero-grid { grid-template-columns: 1fr 0.82fr; }
+        .grid-4 { grid-template-columns: 1fr 1fr; }
+        .flow { grid-template-columns: repeat(3, 1fr); }
       }
       @media (max-width: 800px) {
-        .container {
-          width: min(100% - 30px, var(--max));
-        }
-        .menu-label {
-          display: flex;
-          width: 42px;
-          height: 42px;
-          border: 1px solid var(--line);
-          border-radius: 12px;
-          align-items: center;
-          justify-content: center;
-        }
-        .menu-label:after {
-          content: "메뉴";
-          font-size: 12px;
-          font-weight: 900;
-        }
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 76px;
-          left: 0;
-          right: 0;
-          padding: 18px;
-          background: #fff;
-          border-bottom: 1px solid var(--line);
-          flex-direction: column;
-          align-items: stretch;
-        }
-        .menu-toggle:checked ~ .nav-links {
-          display: flex;
-        }
-        .nav-links a {
-          padding: 9px;
-        }
-        .hero-grid {
-          min-height: auto;
-          grid-template-columns: 1fr;
-          padding: 55px 0;
-        }
-        .hero-art {
-          justify-self: center;
-          max-width: 420px;
-        }
-        .hero h1 {
-          font-size: 45px;
-        }
-        .grid-3,
-        .major-panel,
-        .market-position,
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-        .ax-flow {
-          grid-template-columns: 1fr;
-        }
-        .proof-cards,
-        .assets {
-          grid-template-columns: 1fr 1fr;
-        }
-        .mall-layout,
-        .footer-grid {
-          display: grid;
-        }
-        .footer-links {
-          justify-content: flex-start;
-        }
-        .check-grid {
-          grid-template-columns: 1fr;
-        }
+        .container { width: min(100% - 30px, var(--max)); }
+        .menu-label { display: flex; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; }
+        .menu-label:after { content: "메뉴"; font-size: 12px; font-weight: 900; }
+        .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 18px; background: #fff; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
+        .menu-toggle:checked ~ .nav-links { display: flex; }
+        .nav-links a { padding: 9px; }
+        .hero-grid { min-height: auto; grid-template-columns: 1fr; padding: 55px 0; }
+        .hero-art { justify-self: center; max-width: 430px; }
+        .grid-3, .audience-grid, .feature-grid, .executive-panel, .pilot-panel, .trust-grid, .contact-grid { grid-template-columns: 1fr; }
+        .flow { grid-template-columns: 1fr 1fr; }
+        .mall-layout, .footer-grid { display: grid; }
+        .footer-links { justify-content: flex-start; }
       }
       @media (max-width: 520px) {
-        section {
-          padding: 68px 0;
-        }
-        .grid-4,
-        .proof-cards,
-        .assets {
-          grid-template-columns: 1fr;
-        }
-        .actions {
-          display: grid;
-        }
-        .btn {
-          width: 100%;
-        }
-        .hero h1 {
-          font-size: 39px;
-        }
-        .hero p {
-          font-size: 17px;
-        }
-        .social {
-          right: 10px;
-          bottom: 12px;
-        }
-        .social a {
-          width: 50px;
-          height: 50px;
-        }
+        section { padding: 66px 0; }
+        .hero h1 { font-size: 39px; }
+        .hero p { font-size: 17px; }
+        .grid-4, .flow, .check-grid, .trust-cards { grid-template-columns: 1fr; }
+        .actions { display: grid; }
+        .btn { width: 100%; }
+        .pilot-panel { padding: 23px; }
+        .social { right: 10px; bottom: 12px; }
+        .social a { width: 50px; height: 50px; }
       }
     </style>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "COREON",
-        "url": "https://www.coreon-global.com/",
-        "logo": "https://www.coreon-global.com/assets/coreon-logo.png",
-        "email": "contact@coreon-global.com",
-        "telephone": "0507-1358-1482",
-        "sameAs": [
-          "https://www.youtube.com/@coreonsolution",
-          "https://smartstore.naver.com/coreonmall"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "COREON",
+            "url": "https://www.coreon-global.com/",
+            "logo": "https://www.coreon-global.com/assets/coreon-logo.png",
+            "email": "contact@coreon-global.com",
+            "telephone": "0507-1358-1482",
+            "sameAs": ["https://www.youtube.com/@coreonsolution", "https://smartstore.naver.com/coreonmall"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "COREON AX Agent",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "산업현장의 위험제보를 담당자 조치, 증빙 확인, 재확인까지 연결하는 안전업무 지원 프로그램",
+            "url": "https://app.coreon-global.com/ax-agent"
+          }
         ]
       }
     </script>
@@ -753,514 +249,235 @@
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="COREON 홈"
-          ><img src="/assets/coreon-logo.png" alt="COREON 로고" /><span
-            >COREON</span
-          ></a
-        >
-        <input
-          class="menu-toggle"
-          id="menu-toggle"
-          type="checkbox"
-          aria-label="모바일 메뉴 열기"
-        />
+        <a class="brand" href="#top" aria-label="COREON 홈"><img src="/assets/coreon-logo.png" alt="COREON 로고" /><span>COREON</span></a>
+        <input class="menu-toggle" id="menu-toggle" type="checkbox" aria-label="모바일 메뉴 열기" />
         <label class="menu-label" for="menu-toggle"></label>
         <nav class="nav-links" aria-label="주요 메뉴">
-          <a href="#ax-agent">AX Agent</a>
-          <a href="#major-accident">중대재해 예방</a>
-          <a href="#patents">특허기술</a>
-          <a href="#venture">벤처·신뢰</a>
-          <a
-            class="mall"
-            href="https://smartstore.naver.com/coreonmall"
-            target="_blank"
-            rel="noopener"
-            >COREON Mall</a
-          >
-          <a href="#contact">상담 문의</a>
+          <a href="#value">고객가치</a>
+          <a href="#customers">사용대상</a>
+          <a href="#how">작동방식</a>
+          <a href="#features">주요기능</a>
+          <a href="#pilot">파일럿</a>
+          <a class="contact-btn" href="#contact">도입 상담</a>
         </nav>
       </div>
     </header>
 
     <div class="social" aria-label="COREON 채널">
-      <a
-        href="http://pf.kakao.com/_DCnxfX/chat"
-        target="_blank"
-        rel="noopener"
-        aria-label="카카오톡 상담"
-        ><img src="/assets/coreon-kakao-channel.png" alt="카카오톡"
-      /></a>
-      <a
-        class="youtube"
-        href="https://www.youtube.com/@coreonsolution"
-        target="_blank"
-        rel="noopener"
-        aria-label="유튜브 채널"
-        ><img src="/assets/coreon-youtube-logo.png" alt="유튜브"
-      /></a>
+      <a href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener" aria-label="카카오톡 상담"><img src="/assets/coreon-kakao-channel.png" alt="카카오톡" /></a>
+      <a class="youtube" href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener" aria-label="유튜브 채널"><img src="/assets/coreon-youtube-logo.png" alt="유튜브" /></a>
     </div>
 
     <main>
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div>
-            <span class="eyebrow"
-              >중대재해 예방을 위한 산업안전 AX 기술기업</span
-            >
-            <h1>중대재해 위험을<br />조치·증빙·재평가까지<br />연결합니다.</h1>
+            <span class="badge">사고를 예방하는 Safety IP 전문기업</span>
+            <h1>5인 이상 사업장<br />중대재해처벌법,<br /><em>무엇부터 준비해야 할지</em><br />막막하다면</h1>
             <p>
-              COREON은 현장 위험과 사건을 발견하는 데서 멈추지 않고, 담당자
-              조치, 증빙 확인, 잔여위험 재평가까지 연결하는 COREON AX Agent와
-              등록특허 기반 Safety IP를 개발합니다.
+              중대재해처벌법 대응을 위해 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙을 먼저 정리할 수 있도록 코레온이 무료 1차 안전진단을 지원합니다.
+              <br /><strong style="color:#fff">COREON Safety AX Agent는 진단 이후의 현장 제보·담당자 조치·사진증빙·재확인까지 연결합니다.</strong>
             </p>
             <div class="actions">
-              <a
-                class="btn btn-guest"
-                href="https://app.coreon-global.com/ax-agent-demo?source=coreon-focus-home"
-                target="_blank"
-                rel="noopener"
-                >30초 게스트 체험</a
-              >
-              <a
-                class="btn btn-primary"
-                href="https://app.coreon-global.com/ax-agent?source=coreon-focus-home"
-                target="_blank"
-                rel="noopener"
-                >COREON AX Agent</a
-              >
-              <a class="btn btn-light" href="#major-accident"
-                >중대재해 예방 지원</a
-              >
+              <a class="btn btn-guest" href="https://app.coreon-global.com/free-diagnosis?source=coreon-report-home" target="_blank" rel="noopener">무료 1차 안전진단 시작</a>
+              <a class="btn btn-primary" href="https://app.coreon-global.com/ax-agent-demo?source=coreon-report-home" target="_blank" rel="noopener">AX Agent 30초 체험</a>
+              <a class="btn btn-light" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a>
             </div>
-            <p class="hero-note">
-              회사명·연락처 입력 없이 30초 게스트 체험과 무료진단을 먼저 확인할
-              수 있습니다.
-            </p>
+            <p class="hero-note">v26.137 제한적 현장 파일럿 후보 · 안전관리자의 판단과 법률·전문가 검토를 대신하지 않습니다.</p>
           </div>
           <div class="hero-art">
-            <img
-              src="/assets/coreon-hero-ai-platform.png?v=20260715-focus"
-              alt="COREON 산업안전 AX 플랫폼"
-            />
+            <img src="/assets/coreon-hero-ai-platform.png?v=20260716-value" alt="현장 위험제보와 조치현황을 연결하는 COREON AX Agent" />
           </div>
         </div>
       </section>
 
-      <section id="ax-agent">
+      <div class="industry-strip" aria-label="적용 가능 업종">
+        <div class="container industry-row">
+          <strong>이런 검색과 고민으로 들어오신 분께 필요합니다</strong>
+          <span>5인 이상 사업장</span><span>중대재해처벌법 대응</span><span>안전보건관리체계</span><span>개선조치 기록</span><span>고용노동부 점검</span>
+        </div>
+      </div>
+
+      <section id="value">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">01 · COREON AX AGENT</span>
-            <h2>제보를 완료가 아닌<br />검증 가능한 종결로</h2>
-            <p>
-              COREON AX Agent는 현장 제보를 분류하고 담당 조치, 증빙 확인과
-              잔여위험 재평가까지 이어지는 폐쇄형 안전업무 흐름을 지향합니다.
-            </p>
+            <span class="kicker">코레온이 지원하는 범위</span>
+            <h2>진단으로 무엇을 확인할지 정하고,<br />AX Agent로 조치와 기록을 이어갑니다.</h2>
+            <p>보고서가 제안한 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙을 출발점으로 삼고, 발견된 위험이 담당자 조치와 현장 재확인까지 이어지도록 지원합니다.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card problem-card">
+              <strong>문제 01</strong><h3>전화·카톡·수첩에 제보가 흩어집니다</h3>
+              <p>현장 사진과 요청이 여러 채널에 섞여 담당자, 기한, 처리결과를 다시 찾기 어렵습니다.</p>
+              <div class="answer">COREON: 한 건의 위험업무로 모아 담당자와 상태를 연결합니다.</div>
+            </article>
+            <article class="card problem-card">
+              <strong>문제 02</strong><h3>“조치 완료” 말만 있고 확인이 어렵습니다</h3>
+              <p>완료 체크는 되었지만 전후 사진, 확인자, 남아 있는 위험이 빠지는 경우가 있습니다.</p>
+              <div class="answer">COREON: 조치 증빙과 확인을 거쳐 남은 위험을 다시 살핍니다.</div>
+            </article>
+            <article class="card problem-card">
+              <strong>문제 03</strong><h3>본사는 현장 상황을 뒤늦게 알게 됩니다</h3>
+              <p>미조치·기한초과·반복위험이 보고서 작성 시점까지 드러나지 않을 수 있습니다.</p>
+              <div class="answer">COREON: 진행상태와 이력을 같은 화면에서 확인하도록 돕습니다.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft" id="customers">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">사용자별로 얻는 가치</span>
+            <h2>현장 근로자부터 CSO까지<br />필요한 화면과 기록이 다릅니다.</h2>
+            <p>누구에게나 복잡한 관리자 화면을 주는 대신, 각 역할이 해야 할 일과 확인할 정보를 중심으로 연결합니다.</p>
+          </div>
+          <div class="audience-grid">
+            <article class="card audience"><small>현장 근로자·제보자</small><h3>카톡처럼 간단하게 위험 알림</h3><p>사진·글·음성으로 제보하고 어려운 안전서류를 처음부터 작성하지 않아도 됩니다.</p></article>
+            <article class="card audience"><small>현장소장·관리감독자</small><h3>담당자와 조치기한을 명확하게</h3><p>누가 처리할지 정하고 미조치·기한초과 항목을 놓치지 않도록 확인합니다.</p></article>
+            <article class="card audience"><small>안전관리자</small><h3>사진과 확인 이력을 한곳에서</h3><p>조치 전후 자료, 확인자, 재점검 결과를 건별로 연결해 관리 부담을 줄입니다.</p></article>
+            <article class="card audience"><small>대기업 CSO·경영책임자</small><h3>현장별 핵심 위험과 진행상태 파악</h3><p>현장 세부 대화보다 미조치, 지연, 반복위험과 주요 의사결정 근거를 확인합니다.</p></article>
+            <article class="card audience"><small>협력업체·도급관리자</small><h3>요청과 이행 증빙을 같은 기준으로</h3><p>도급·수급 관계에서 필요한 조치 요청과 결과 확인의 연결성을 높입니다.</p></article>
+            <article class="card audience"><small>대표·소규모 사업장</small><h3>무엇부터 확인할지 우선순위 제시</h3><p>안전 전담인력이 부족한 사업장도 무료진단과 단계별 흐름부터 시작할 수 있습니다.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="value-section">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">보고서의 핵심 메시지를 실제 서비스로</span>
+            <h2>사고 예방·법적 대응·기술 기반 안전관리를<br />현장 실행과 연결합니다.</h2>
+            <p>COREON Safety AX Agent의 상품가치는 위험요인을 실제 개선업무로 바꾸는 데 있습니다. 담당자·기한·조치결과·현장사진·재확인을 연결해 중대재해처벌법 대응에 필요한 안전관리 실행과 기록을 지원합니다.</p>
           </div>
           <div class="grid-4">
-            <article class="card">
-              <b>Guest Demo</b>
-              <h3>30초 게스트 체험</h3>
-              <p>
-                회사명과 연락처 없이 합성 시나리오로 핵심 흐름을 먼저
-                확인합니다.
-              </p>
-            </article>
-            <article class="card">
-              <b>Safety Room</b>
-              <h3>현장 안전방</h3>
-              <p>
-                모바일 위험제보와 사진을 PC 조치관리·회차별 기록으로 연결합니다.
-              </p>
-            </article>
-            <article class="card">
-              <b>Risk Score</b>
-              <h3>위험 우선순위</h3>
-              <p>
-                현장 입력을 바탕으로 먼저 확인할 위험과 개선 방향을
-                구조화합니다.
-              </p>
-            </article>
-            <article class="card">
-              <b>Evidence Loop</b>
-              <h3>조치·증빙·재평가</h3>
-              <p>
-                증빙과 책임자 확인을 거쳐 잔여위험을 다시 확인하는 구조입니다.
-              </p>
-            </article>
+            <article class="card value-card"><b>01</b><h3>누락 감소</h3><p>제보마다 담당자·기한·상태를 연결해 “말로 전달하고 끝난 위험”을 줄이도록 돕습니다.</p></article>
+            <article class="card value-card"><b>02</b><h3>조치속도 확인</h3><p>접수부터 조치와 재확인까지 걸린 시간을 확인해 지연 구간을 찾을 수 있습니다.</p></article>
+            <article class="card value-card"><b>03</b><h3>증빙 준비</h3><p>사진, 작성자, 시각, 검토와 변경 이력을 연결해 사후 설명에 필요한 자료를 정리합니다.</p></article>
+            <article class="card value-card"><b>04</b><h3>반복위험 관리</h3><p>조치 후에도 위험이 남거나 같은 문제가 반복되면 다시 확인할 수 있도록 지원합니다.</p></article>
           </div>
-          <div class="ax-flow">
-            <div class="ax-step">현장 제보</div>
-            <div class="ax-step">분류·사람 확인</div>
-            <div class="ax-step">담당·조치</div>
-            <div class="ax-step">증빙 검증</div>
-            <div class="ax-step">잔여위험 재평가</div>
+          <div class="value-note">파일럿에서는 사용률, 평균 조치시간, 기한초과율, 증빙 완결성, 재확인 및 재개방률 등을 고객 현장과 함께 측정합니다. 사고 0건이나 예방효과를 보장하는 방식으로 성과를 주장하지 않습니다.</div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">어떻게 작동하나요?</span>
+            <h2>현장에서 올리고,<br />담당자가 조치하고, 다시 확인합니다.</h2>
+            <p>전문용어 없이 실제 현장 업무 순서대로 설계했습니다.</p>
+          </div>
+          <div class="flow">
+            <article class="flow-step"><h3>위험 알림</h3><p>근로자가 사진·글·음성으로 위험상황을 알립니다.</p></article>
+            <article class="flow-step"><h3>내용 정리</h3><p>AI가 위험내용을 정리하고 사람이 중요도와 내용을 확인합니다.</p></article>
+            <article class="flow-step"><h3>담당자 배정</h3><p>조치 담당자, 기한과 필요한 안전조치를 정합니다.</p></article>
+            <article class="flow-step"><h3>조치·사진 등록</h3><p>담당자가 조치하고 전후 사진과 결과를 남깁니다.</p></article>
+            <article class="flow-step"><h3>현장 재확인</h3><p>위험이 충분히 줄었는지 확인하고 부족하면 다시 조치합니다.</p></article>
           </div>
           <div class="actions">
-            <a
-              class="btn btn-primary"
-              href="https://app.coreon-global.com/ax-agent?source=coreon-home-ax-section&amp;utm_medium=owned-web"
-              target="_blank"
-              rel="noopener"
-              >AX Agent 소개</a
-            ><a
-              class="btn btn-guest"
-              href="https://app.coreon-global.com/ax-agent-demo?source=coreon-home-ax-section&amp;utm_medium=owned-web"
-              target="_blank"
-              rel="noopener"
-              >합성 Demo 시작</a
-            ><a
-              class="btn btn-light"
-              href="https://app.coreon-global.com/safety-room/start?source=coreon-focus-convert"
-              target="_blank"
-              rel="noopener"
-              >내 현장 안전방 개설</a
-            >
-          </div>
-          <div class="scope-note">
-            <strong>운영·개선 방식:</strong> 공급 가능한 제품 안내와 개인정보 없는 무료진단,
-            안전방을 공개·운영하고 고객 반응을 다음 업데이트에 반영합니다. 관리자·실데이터 통합 Workbench·복원
-            및 보안 시험면은 공개하지 않습니다.
+            <a class="btn btn-primary" href="https://app.coreon-global.com/ax-agent-demo?source=coreon-how" target="_blank" rel="noopener">30초 흐름 체험</a>
+            <a class="btn btn-light" href="https://app.coreon-global.com/safety-room/start?source=coreon-how" target="_blank" rel="noopener">내 현장 안전방 시작</a>
           </div>
         </div>
       </section>
 
-      <section class="value-market" id="value-market">
+      <section class="soft" id="features">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">PROBLEM · VALUE · MARKET POSITION</span>
-            <h2>
-              안전서류를 더 만드는 도구가 아니라<br />미결정·미조치·미검증을
-              줄이는 통제 흐름
-            </h2>
-            <p>
-              COREON AX Agent가 해결하려는 핵심 문제는 서류 부족이 아니라,
-              경영의 결정과 현장의 실행, 효과성 확인과 사고·감독 대응 증빙이
-              서로 분절되는 것입니다.
-            </p>
+            <span class="kicker">COREON AX Agent 주요 기능</span>
+            <h2>현장 실행과 본사 확인을<br />하나의 업무 흐름으로</h2>
+            <p>무료 체험 기능과 제한적 파일럿 기능을 구분해 제공하며, 실제 고객 운영결과에 따라 단계적으로 확장합니다.</p>
           </div>
-
-          <div class="grid-3">
-            <article class="card value-card">
-              <b>01 · 경영-현장 단절</b>
-              <h3>결정에서 실행까지</h3>
-              <p>
-                미결정·미배정·기한초과 상태를 담당자, 자원, 실행기록과 연결해
-                경영책임 통제가 현장 행동으로 이어지도록 설계합니다.
-              </p>
-            </article>
-            <article class="card value-card">
-              <b>02 · 서류형 안전관리</b>
-              <h3>체크에서 효과성까지</h3>
-              <p>
-                사진이나 체크만으로 닫지 않고 조치 결과와 잔여위험을 다시
-                확인하며, 효과가 부족하면 업무를 재개방하는 흐름을 지향합니다.
-              </p>
-            </article>
-            <article class="card value-card">
-              <b>03 · 증빙 신뢰 부족</b>
-              <h3>원본과 검토 이력 연결</h3>
-              <p>
-                작성자·시각·원본 참조·역할분리·변경 탐지 정보를 연결해 사후
-                검토와 감사에 필요한 설명 가능성을 높입니다.
-              </p>
-            </article>
-          </div>
-
-          <div class="market-position" aria-label="COREON 시장 포지션">
-            <article class="position-item">
-              <b>시장의 기본 기대</b>
-              <p>
-                위험성평가·TBM·모바일 제보·문서와 현장 편의는 이미 경쟁이 치열한
-                기본영역입니다.
-              </p>
-            </article>
-            <article class="position-item">
-              <b>COREON의 집중 영역</b>
-              <p>
-                경영 의사결정-현장 실행-독립 검토-효과성 확인-신뢰 증빙의
-                폐쇄루프에 집중합니다.
-              </p>
-            </article>
-            <article class="position-item">
-              <b>실증으로 확인할 가치</b>
-              <p>
-                사용률·종결시간·증거 완결성·재개방률·반복위험 감소를 현장
-                Pilot의 KPI로 확인합니다.
-              </p>
-            </article>
-          </div>
-
-          <div class="evidence-note">
-            <strong>현재 판단:</strong> 통제·증빙 구조는 COREON의 잠재적
-            차별점입니다. 실제 시장우위는 고객 현장 운영, KPI, 실제
-            Staging 검증과 독립 보안시험을 통해 확인해야 합니다.
-          </div>
-
-          <div class="actions">
-            <a class="btn btn-guest" href="#contact">현장 도입 상담</a>
-            <a
-              class="btn btn-light"
-              href="https://app.coreon-global.com/ax-agent-demo?source=coreon-value-market"
-              target="_blank"
-              rel="noopener"
-              >핵심 흐름 먼저 체험</a
-            >
+          <div class="feature-grid">
+            <article class="card feature"><b>현장 안전방</b><h3>모바일 제보와 사진</h3><p><strong>현장:</strong> 별도 문서보다 익숙한 메시지 방식으로 위험을 빠르게 공유합니다.</p></article>
+            <article class="card feature"><b>AI 정리 + 사람 확인</b><h3>위험내용과 우선순위</h3><p><strong>관리자:</strong> AI 초안을 참고하되 최종 판단과 승인권은 사람이 유지합니다.</p></article>
+            <article class="card feature"><b>담당·기한 관리</b><h3>미조치와 지연 확인</h3><p><strong>조직:</strong> 처리 책임과 완료기한을 명확히 하고 진행상태를 추적합니다.</p></article>
+            <article class="card feature"><b>조치 전후 증빙</b><h3>사진·확인·재점검</h3><p><strong>안전관리:</strong> 완료 체크만이 아니라 조치결과와 남은 위험을 다시 확인합니다.</p></article>
+            <article class="card feature"><b>다국어·음성 지원</b><h3>외국인 근로자 소통</h3><p><strong>현장 소통:</strong> 지원 언어와 음성 기능을 단계적으로 적용해 의사소통 장벽을 낮춥니다.</p></article>
+            <article class="card feature"><b>보고·승인 이력</b><h3>현장과 본사의 연결</h3><p><strong>경영 확인:</strong> 작성·검토·승인과 변경 이력을 연결해 설명 가능한 기록을 준비합니다.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="soft" id="major-accident">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">02 · MAJOR ACCIDENT PREVENTION SUPPORT</span>
-            <h2>중대재해 예방을 위한<br />확인·조치·증빙 지원</h2>
-            <p>
-              막연한 불안을 과장된 보장이 아니라 확인 가능한 업무 항목으로
-              바꿉니다.
-            </p>
+      <section>
+        <div class="container executive-panel">
+          <div class="executive-copy">
+            <span class="kicker" style="color:#79e1d5">대기업·CSO·본사 안전조직</span>
+            <h2>현장별 세부자료보다 먼저 봐야 할 핵심</h2>
+            <p>경영책임자와 본사 안전조직은 모든 현장 대화를 읽기보다, 현재 중요한 위험이 무엇인지, 책임자가 정해졌는지, 조치가 지연되는지, 확인 가능한 결과가 남았는지를 빠르게 파악해야 합니다.</p>
+            <div class="actions"><a class="btn btn-gold" href="#contact">기업·기관 파일럿 상담</a></div>
           </div>
-          <div class="major-panel">
-            <article class="major-copy">
-              <h3>현장 책임자의 판단을 돕는 기술</h3>
-              <p>
-                업종·작업·위험요인과 관리체계 정보를 바탕으로 우선 확인할 항목을
-                정리하고, 위험제보가 실제 조치와 현장확인으로 이어지도록
-                지원합니다.
-              </p>
-              <p>
-                <strong
-                  >COREON의 결과는 법적 판정·공식 인증·사고 방지 보장이 아니며,
-                  현장 책임자와 자격 있는 전문가의 확인이 필요합니다.</strong
-                >
-              </p>
-              <div class="actions">
-                <a
-                  class="btn btn-light"
-                  href="https://app.coreon-global.com/inquiry.html?source=coreon-major&amp;offer=free-diagnosis"
-                  target="_blank"
-                  rel="noopener"
-                  >무료 안전진단</a
-                >
-              </div>
-            </article>
-            <div class="check-grid">
-              <article class="check">
-                <b>01 위험요인 확인</b
-                ><span>업종·공정·작업환경에 따른 우선 위험을 확인합니다.</span>
-              </article>
-              <article class="check">
-                <b>02 책임과 기한</b
-                ><span>담당자·완료기한·조치 상태를 명확하게 관리합니다.</span>
-              </article>
-              <article class="check">
-                <b>03 종사자 의견</b
-                ><span
-                  >현장 제보와 사진이 책임자 검토로 이어지도록 지원합니다.</span
-                >
-              </article>
-              <article class="check">
-                <b>04 비상 대응</b
-                ><span
-                  >작업중지·대피·신고 등 현장 절차의 확인을 지원합니다.</span
-                >
-              </article>
-              <article class="check">
-                <b>05 증빙 확인</b
-                ><span>조치 전후 사진과 현장확인 기록을 연결합니다.</span>
-              </article>
-              <article class="check">
-                <b>06 잔여위험 재평가</b
-                ><span>조치 후에도 남은 위험을 다시 확인합니다.</span>
-              </article>
-            </div>
+          <div class="check-grid">
+            <article class="check"><b>중요 위험</b><span>우선 확인이 필요한 위험과 현장별 상태</span></article>
+            <article class="check"><b>책임과 기한</b><span>담당자 미지정, 조치 지연과 기한초과</span></article>
+            <article class="check"><b>조치 증빙</b><span>전후 사진, 확인자와 재점검 결과</span></article>
+            <article class="check"><b>반복·재개방</b><span>같은 위험의 반복과 추가조치 필요 여부</span></article>
+            <article class="check"><b>현장 참여</b><span>근로자 제보와 처리과정 참여 기록</span></article>
+            <article class="check"><b>설명 가능한 이력</b><span>결정·검토·승인과 변경 흔적의 연결</span></article>
           </div>
         </div>
       </section>
 
-      <section id="patents">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">03 · PATENTS &amp; SAFETY IP</span>
-            <h2>등록특허에서 출발한<br />현장 안전기술</h2>
-            <p>
-              COREON은 산업현장의 물리적 위험을 예방 관점에서 바라보는
-              등록특허와 Safety IP를 기술 기반으로 보유하고 있습니다.
-            </p>
-          </div>
-          <div class="grid-3">
-            <article class="card patent-card">
-              <img
-                src="/assets/patent-cover-assembly.png"
-                alt="안전개봉 커버어셈블리"
-                onerror="this.src='/assets/coreon-supply-safety-ip.png?v=20260715-focus'"
-              />
-              <div class="body">
-                <b>Safety IP 01</b>
-                <h3>안전개봉 커버어셈블리</h3>
-                <p>
-                  무단 개방·오조작·임의 해제 위험을 줄이는 물리적 차단 관점의
-                  기술입니다.
-                </p>
-                <a class="btn btn-primary" href="/interlock-cover.html"
-                  >기술 보기</a
-                >
-              </div>
-            </article>
-            <article class="card patent-card">
-              <img
-                src="/assets/patent-pumpcar.png"
-                alt="콘크리트 펌프카 안전보조시스템"
-                onerror="this.src='/assets/coreon-supply-safety-ip.png?v=20260715-focus'"
-              />
-              <div class="body">
-                <b>Safety IP 02</b>
-                <h3>펌프카 안전보조시스템</h3>
-                <p>
-                  건설장비 운용 과정의 지지 불안정·전도·침하 위험을 예방
-                  관점에서 검토합니다.
-                </p>
-                <a class="btn btn-primary" href="/interlock-pumpcar.html"
-                  >기술 보기</a
-                >
-              </div>
-            </article>
-            <article class="card patent-card">
-              <img
-                src="/assets/patent-respirator.png"
-                alt="조끼일체형 호흡보호장비"
-                onerror="this.src='/assets/coreon-supply-safety-ip.png?v=20260715-focus'"
-              />
-              <div class="body">
-                <b>Safety IP 03</b>
-                <h3>조끼일체형 호흡보호장비</h3>
-                <p>
-                  작업자의 호흡보호와 착용 편의성을 함께 고려한 현장
-                  보호기술입니다.
-                </p>
-                <a class="btn btn-primary" href="/interlock-respirator.html"
-                  >기술 보기</a
-                >
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="proof-band" id="venture">
-        <div class="container proof-grid">
-          <div class="proof-copy">
-            <span class="tag" style="background: #dff8f2; color: #075e52"
-              >04 · VENTURE &amp; TRUST</span
-            >
-            <h2>주장이 아니라<br />공개 가능한 증빙으로</h2>
-            <p>
-              COREON은 벤처기업 확인과 등록특허 자료를 바탕으로 기술기업의
-              신뢰를 쌓고 있습니다. 공개 자료의 실제 범위와 기준을 과장하지 않고
-              안내합니다.
-            </p>
-            <div class="proof-cards">
-              <article class="proof">
-                <b>Venture</b>
-                <h3>벤처기업 확인</h3>
-                <p>혁신성장형 기술기업으로서의 확인 자료를 공개합니다.</p>
-              </article>
-              <article class="proof">
-                <b>Patent</b>
-                <h3>등록특허 기반</h3>
-                <p>
-                  산업안전 분야의 등록특허와 기술 자료를 확인할 수 있습니다.
-                </p>
-              </article>
-              <article class="proof">
-                <b>Field Focus</b>
-                <h3>현장 문제 중심</h3>
-                <p>기술 표현보다 실제 현장 문제와 조치 흐름에 집중합니다.</p>
-              </article>
-              <article class="proof">
-                <b>Controlled Pilot</b>
-                <h3>단계적 실증</h3>
-                <p>
-                  확인된 기능과 아직 실측이 필요한 기능을 구분해 공개합니다.
-                </p>
-              </article>
-            </div>
-          </div>
-          <div class="assets">
-            <div class="asset">
-              <img
-                src="/assets/venture-enterprise-coreon-2026-03-25.png?v=20260715-focus"
-                alt="COREON 벤처기업 확인 자료"
-              />
-            </div>
-            <div class="asset">
-              <img
-                src="/assets/patent_3set.png?v=20260715-focus"
-                alt="COREON 등록특허 자료"
-                onerror="this.src='/assets/patents/patent_3set.png?v=20260715-focus'"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mall-band" id="mall">
-        <div class="container mall-layout">
+      <section class="pilot" id="pilot">
+        <div class="container pilot-panel">
           <div>
-            <span class="kicker">COREON MALL</span>
-            <h2>제품 구매는 코레온몰에서</h2>
-            <p>
-              안전용품·현장 제품의 상세 정보, 가격과 구매는 공식 COREON Mall에서
-              간결하게 확인할 수 있습니다.
-            </p>
+            <span class="kicker">LIMITED FIELD PILOT</span>
+            <h2>전면 도입 전,<br />한 개 현장에서 먼저 확인하세요.</h2>
+            <p>현재 v26.137은 정식 상용출시가 아닌 제한적 현장 파일럿 후보입니다. 고객 현장의 실제 업무에 맞춰 적용 범위를 정하고, 사용성과 KPI, 지원 SLA, 보안·운영 조건을 함께 확인한 뒤 다음 단계를 결정합니다.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#contact">파일럿 도입 상담</a>
+              <a class="btn btn-light" href="https://app.coreon-global.com/free-diagnosis?source=coreon-pilot" target="_blank" rel="noopener">무료 안전진단</a>
+            </div>
           </div>
-          <a
-            class="btn btn-gold"
-            href="https://smartstore.naver.com/coreonmall"
-            target="_blank"
-            rel="noopener"
-            >COREON Mall 바로가기</a
-          >
+          <div class="pilot-list">
+            <div><b>1단계</b> 업종·현장·사용자와 해결할 문제 확인</div>
+            <div><b>2단계</b> 한정된 사용자와 현장으로 파일럿 범위 설정</div>
+            <div><b>3단계</b> 조치시간·기한초과·증빙 완결성 등 측정</div>
+            <div><b>4단계</b> 고객 확인 결과에 따라 확대·보완·중단 결정</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band">
+        <div class="container trust-grid">
+          <div class="trust-copy">
+            <span class="kicker" style="color:#79e1d5">보고서가 제시한 COREON의 성장 방향</span>
+            <h2>Safety IP를 넘어<br />산업안전 플랫폼 기업으로</h2>
+            <p>COREON은 등록특허 기반의 구조적 안전기술과 현장경험을 Safety AX Agent에 연결합니다. 사고 예방 중심의 안전관리, 중대재해처벌법 대응 지원, 기술 기반 안전관리라는 브랜드 가치를 하나의 산업안전 플랫폼으로 발전시킵니다.</p>
+          </div>
+          <div class="trust-cards">
+            <article class="trust-card"><b>AX Agent</b><h3>현장 실행관리</h3><p>제보부터 조치·증빙·재확인까지 연결합니다.</p></article>
+            <article class="trust-card"><b>Registered Patents</b><h3>등록특허 기반</h3><p>현장의 물리적 위험을 줄이기 위한 Safety IP를 보유합니다.</p></article>
+            <article class="trust-card"><b>Venture</b><h3>기술 벤처기업</h3><p>혁신성장형 기술기업 확인 자료를 공개합니다.</p></article>
+            <article class="trust-card"><b>Field Supply</b><h3>현장 제품·인프라</h3><p>안전용품과 현장 장비의 상담·공급도 연결합니다.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mall-band">
+        <div class="container mall-layout">
+          <div><h2>안전용품·현장 장비는 COREON Mall</h2><p>발전기, 양수기, 냉방·분진 장비, 안전용품과 산업용 제품을 공식 코레온몰에서 확인하세요. 기업·현장 단위 상담과 견적도 가능합니다.</p></div>
+          <a class="btn btn-gold" href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">코레온몰 바로가기</a>
         </div>
       </section>
 
       <section id="contact">
         <div class="container contact-grid">
-          <article class="contact-card">
-            <h2>기술·AX·현장 상담</h2>
-            <p>
-              AX Agent 현장 도입, 중대재해 예방 지원, 등록특허 기술과 기업·기관
-              협업을 상담합니다.
-            </p>
-            <div class="actions">
-              <a
-                class="btn btn-light"
-                href="http://pf.kakao.com/_DCnxfX/chat"
-                target="_blank"
-                rel="noopener"
-                >카카오톡 상담</a
-              ><a
-                class="btn btn-primary"
-                href="mailto:contact@coreon-global.com"
-                >이메일 문의</a
-              >
-            </div>
-          </article>
-          <div class="contact-links">
-            <a href="tel:0507-1358-1482">고객센터 0507-1358-1482</a
-            ><a href="mailto:contact@coreon-global.com"
-              >contact@coreon-global.com</a
-            ><a
-              href="https://www.youtube.com/@coreonsolution"
-              target="_blank"
-              rel="noopener"
-              >COREON 유튜브 채널</a
-            ><a
-              href="https://smartstore.naver.com/coreonmall"
-              target="_blank"
-              rel="noopener"
-              >COREON Mall</a
-            >
+          <div class="contact-card">
+            <h2>우리 현장에도 맞을까요?</h2>
+            <p>업종, 사업장 규모, 현장 수, 현재 사용 중인 안전관리 방식과 가장 불편한 문제를 알려주시면 무료 체험 또는 제한적 파일럿 범위를 함께 검토합니다.</p>
+            <div class="actions"><a class="btn btn-gold" href="http://pf.kakao.com/_DCnxfX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a class="btn btn-light" href="mailto:contact@coreon-global.com">이메일 문의</a></div>
           </div>
+          <div class="contact-links">
+            <a href="tel:050713581482">고객센터&nbsp;&nbsp;0507-1358-1482</a>
+            <a href="mailto:contact@coreon-global.com">contact@coreon-global.com</a>
+            <a href="https://app.coreon-global.com/ax-agent-demo?source=coreon-contact" target="_blank" rel="noopener">회사정보 없이 30초 게스트 체험</a>
+            <a href="https://www.youtube.com/@coreonsolution" target="_blank" rel="noopener">COREON 유튜브 채널</a>
+            <a href="https://smartstore.naver.com/coreonmall" target="_blank" rel="noopener">COREON Mall</a>
+          </div>
+        </div>
+        <div class="container legal-note">
+          <strong>안내:</strong> 중대재해처벌법은 상시근로자 5인 이상 사업장까지 적용 범위가 확대되어 있습니다. 다만 사업장별 적용 여부와 법적 의무는 구체적 사실관계에 따라 달라질 수 있습니다. COREON AX Agent는 안전업무의 확인·조치·기록을 지원하는 도구이며 법률자문, 공식 인증, 안전관리자의 전문적 판단 또는 사고 예방을 보장하지 않습니다.
         </div>
       </section>
 
@@ -1269,34 +486,12 @@
           <details>
             <summary>개인정보처리방침</summary>
             <div class="body">
-              <p>
-                COREON은 무료진단, 현장 도입·기술·기업 상담과 계약 전 요청 처리에
-                필요한 최소한의 개인정보를 수집합니다. 30초 합성 Demo는
-                회사명·연락처를 요구하지 않습니다.
-              </p>
-              <h3>수집 항목</h3>
-              <p>
-                상담 시 회사명 또는 사업장명, 담당자명, 연락처, 이메일, 문의
-                내용. 서비스 이용 과정에서 접속 로그 등 기술정보가 생성될 수
-                있습니다.
-              </p>
-              <h3>이용 목적</h3>
-              <p>
-                문의·상담·견적·계약 전 요청 처리, 무료진단 결과 안내, 서비스
-                품질 및 보안 개선.
-              </p>
-              <h3>보유 기간</h3>
-              <p>
-                관련 법령 또는 별도 동의에 따른 기간이 없다면 처리 목적 달성 후
-                내부 기준에 따라 안전하게 파기합니다.
-              </p>
-              <h3>제3자 제공</h3>
-              <p>
-                정보주체의 동의 또는 법령상 근거 없이 개인정보를 외부에 제공하지
-                않습니다.
-              </p>
-              <h3>개인정보 보호책임자</h3>
-              <p>이호원 · contact@coreon-global.com · 0507-1358-1482</p>
+              <p>COREON은 무료진단, 도입·기술·기업 상담과 계약 전 요청 처리에 필요한 최소한의 개인정보를 수집합니다. 30초 합성 Demo는 회사명·연락처를 요구하지 않습니다.</p>
+              <h3>수집 항목</h3><p>상담 시 회사명 또는 사업장명, 담당자명, 연락처, 이메일, 문의 내용. 서비스 이용 과정에서 접속 로그 등 기술정보가 생성될 수 있습니다.</p>
+              <h3>이용 목적</h3><p>문의·상담·견적·계약 전 요청 처리, 무료진단 결과 안내, 서비스 품질 및 보안 개선.</p>
+              <h3>보유 기간</h3><p>관련 법령 또는 별도 동의에 따른 기간이 없다면 처리 목적 달성 후 내부 기준에 따라 안전하게 파기합니다.</p>
+              <h3>제3자 제공</h3><p>정보주체의 동의 또는 법령상 근거 없이 개인정보를 외부에 제공하지 않습니다.</p>
+              <h3>개인정보 보호책임자</h3><p>이호원 · contact@coreon-global.com · 0507-1358-1482</p>
             </div>
           </details>
         </div>
@@ -1305,24 +500,8 @@
 
     <footer>
       <div class="container footer-grid">
-        <div>
-          <div class="footer-brand">COREON</div>
-          <p class="small">
-            AX Agent · 중대재해 예방 지원 · 등록특허 Safety IP · 기술
-            벤처기업<br />© COREON. All rights reserved.
-          </p>
-        </div>
-        <div class="footer-links">
-          <a href="#ax-agent">AX Agent</a
-          ><a href="#major-accident">중대재해 예방</a
-          ><a href="#patents">특허기술</a><a href="#venture">벤처·신뢰</a
-          ><a
-            href="https://smartstore.naver.com/coreonmall"
-            target="_blank"
-            rel="noopener"
-            >COREON Mall</a
-          ><a href="#privacy">개인정보처리방침</a>
-        </div>
+        <div><div class="footer-brand">COREON</div><p class="small">AX Agent · 산업안전 실행관리 · 등록특허 Safety IP · 기술 벤처기업<br />© COREON. All rights reserved.</p></div>
+        <div class="footer-links"><a href="#value">고객가치</a><a href="#customers">사용대상</a><a href="#how">작동방식</a><a href="#features">주요기능</a><a href="#pilot">파일럿</a><a href="#privacy">개인정보처리방침</a></div>
       </div>
     </footer>
   </body>
