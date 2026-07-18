@@ -1,0 +1,25 @@
+name: v26.168.2 Safety Start Free Homepage CTA
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'verify-v26167-global-entry.js'
+      - '.github/workflows/v26-168-2-safety-start-cta.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+      - name: Verify Korean-English homepage CTA and pricing
+        run: node verify-v26167-global-entry.js
