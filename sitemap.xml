@@ -7,6 +7,11 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://www.coreon-global.com/en/</loc>
+    <priority>1.0</priority>
+  </url>
+
   <!-- 기존 핵심 페이지 -->
   <url>
     <loc>https://www.coreon-global.com/patent-based-safety-structure.html</loc>
