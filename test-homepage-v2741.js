@@ -4,6 +4,8 @@ const fs=require('node:fs');
 const ko=fs.readFileSync('index.html','utf8');
 const en=fs.readFileSync('en/index.html','utf8');
 for(const phrase of ['5인 이상 사업장 중대재해처벌법','COREON Safety AX Agent','무료 1차 안전진단'])assert(ko.includes(phrase),phrase);
+assert(ko.includes('v27.41'));
+assert(!ko.includes('v26.159'));
 for(const phrase of ['2026.07 · AX AGENT CUSTOMER EXPERIENCE UPDATE','AI 보조 현장 안전관리','담당자의 검토와 개선조치','사진증빙','재확인'])assert(ko.includes(phrase),phrase);
 for(const phrase of ['AI-ASSISTED, HUMAN-REVIEWED WORKFLOW','AI-assisted risk candidate','Human review','Action and evidence','Reassessment and closure'])assert(en.includes(phrase),phrase);
 for(const forbidden of ['영국 HSE','미국 OSHA','Safe Work Australia','싱가포르 MOM','GitHub 코드·고객화면·배포 식별자','UK HSE','US OSHA','Singapore MOM','Eight stages'])assert(!ko.includes(forbidden)&&!en.includes(forbidden),forbidden);
