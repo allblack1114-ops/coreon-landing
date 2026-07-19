@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const ko=fs.readFileSync('index.html','utf8');
+const en=fs.readFileSync('en/index.html','utf8');
+for(const phrase of ['5인 이상 사업장 중대재해처벌법','COREON Safety AX Agent','무료 1차 안전진단'])assert(ko.includes(phrase),`preserved core message: ${phrase}`);
+for(const phrase of ['v27.41 · AI CLOSED LOOP + GLOBAL SAFETY BENCHMARK UPDATE','AI 위험요인 탐지·분류 및 위험후보 생성','AI 보조 잔여위험 분석','사람 최종 재평가·종결','실제 증빙 게이트'])assert(ko.includes(phrase),phrase);
+for(const phrase of ['Eight stages, one auditable operating record','AI hazard detection, classification and candidates','AI-assisted residual-risk analysis','Human final reassessment and closure','GLOBAL BENCHMARK CONTROLS, KOREAN EXECUTION'])assert(en.includes(phrase),phrase);
+assert(ko.includes('해외 법률을 한국의 법적 판정으로 대체하지 않습니다.'));
+assert(en.includes('not imported Korean legal effect'));
+console.log('PASS v27.41 homepage core-message preservation and major-event parity');
