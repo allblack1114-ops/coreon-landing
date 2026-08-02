@@ -1,0 +1,47 @@
+name: Mount Homepage Trust Link
+
+on:
+  push:
+    branches:
+      - agent/trust-assurance-link
+    paths:
+      - 'scripts_add_trust_link.js'
+      - 'trust/index.html'
+      - '.github/workflows/mount-trust-link.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mount-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/trust-assurance-link
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Mount additive trust link
+        run: node scripts_add_trust_link.js
+      - name: Verify trust page and preserved homepage structure
+        run: |
+          test -f trust/index.html
+          grep -F 'href="/trust/"' index.html
+          grep -F 'href="#pilot"' index.html
+          grep -F 'href="#contact"' index.html
+          grep -F 'COREON TRUST & EVIDENCE' trust/index.html
+      - name: Commit homepage link when changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'homepage trust link already mounted'
+            exit 0
+          fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Connect homepage to COREON trust page'
+          git push origin HEAD:agent/trust-assurance-link
