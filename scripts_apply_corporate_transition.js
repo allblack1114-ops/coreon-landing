@@ -1,5 +1,6 @@
 'use strict';
 
+// Triggered after the workflow was installed so GitHub Actions can apply and verify the additive patch.
 const fs = require('node:fs');
 
 function replaceOnce(text, before, after, label) {
