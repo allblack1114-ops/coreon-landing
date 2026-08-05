@@ -1,0 +1,55 @@
+name: COREON Holdings Corporate Transition
+
+on:
+  push:
+    branches:
+      - agent/coreon-holdings-corporate-transition
+    paths:
+      - 'scripts_apply_corporate_transition.js'
+      - '.github/workflows/coreon-holdings-corporate-transition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/coreon-holdings-corporate-transition
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Apply additive corporate transition
+        run: node scripts_apply_corporate_transition.js
+      - name: Verify existing homepage and AX Agent entry
+        run: |
+          node test-homepage-v2741.js
+          node verify-v26167-global-entry.js
+          grep -F '주식회사 코레온홀딩스' index.html
+          grep -F '734-88-04053' index.html
+          grep -F '120111-0154907' index.html
+          grep -F '0507-1358-1482' index.html
+          grep -F 'contact@coreon-global.com' index.html
+          grep -F 'COREON Safety AX Agent' index.html
+          grep -F 'Safety Start Free' index.html
+          grep -F 'href="/trust/"' index.html
+          grep -F 'COREON HOLDINGS Co.,Ltd' en/index.html
+          grep -F '주식회사 코레온홀딩스' privacy.html
+          ! grep -F '10-9039-1482' privacy.html
+          ! grep -E '통신판매업[[:space:]]*신고번호' index.html
+      - name: Commit generated homepage changes
+        run: |
+          if git diff --quiet -- index.html en/index.html privacy.html; then
+            echo 'corporate transition already applied'
+            exit 0
+          fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html en/index.html privacy.html
+          git commit -m 'Update homepage for COREON Holdings corporate transition'
+          git push origin HEAD:agent/coreon-holdings-corporate-transition
