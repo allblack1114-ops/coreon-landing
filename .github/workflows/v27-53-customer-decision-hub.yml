@@ -1,0 +1,38 @@
+name: v27.53 Customer Decision Hub - Homepage
+on:
+  push:
+    branches: [agent/v27-53-customer-decision-hub]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  homepage-use-cases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/v27-53-customer-decision-hub
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Apply homepage banner/navigation patch
+        run: node scripts_v27_53_customer_decision_hub.js
+      - name: Run v27.53 regression
+        run: node test-v2753-customer-decision-hub.js
+      - name: Run existing homepage regressions
+        run: |
+          if [ -f test-v2751-homepage.js ]; then node test-v2751-homepage.js; fi
+          if [ -f test-v2752-principal-public-homepage.js ]; then node test-v2752-principal-public-homepage.js; fi
+          if [ -f test-homepage-v2741.js ]; then node test-homepage-v2741.js; fi
+      - name: Commit homepage integration
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- index.html; then echo 'homepage already aligned'; exit 0; fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Apply v27.53 customer decision hub homepage banner'
+          git push origin HEAD:agent/v27-53-customer-decision-hub
