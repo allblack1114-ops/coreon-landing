@@ -1,0 +1,35 @@
+'use strict';
+const fs=require('fs');
+function replaceOnce(text,from,to,label){if(text.includes(to))return text;if(!text.includes(from))throw new Error(`V27_52_HOME_ANCHOR_MISSING:${label}`);return text.replace(from,to)}
+function insertBefore(text,anchor,addition,marker,label){if(text.includes(marker))return text;if(!text.includes(anchor))throw new Error(`V27_52_HOME_ANCHOR_MISSING:${label}`);return text.replace(anchor,addition+anchor)}
+
+{
+ const file='index.html';let s=fs.readFileSync(file,'utf8');
+ s=s.replace('<title>COREON Safety AX Agent | 5인 이상 사업장 중대재해처벌법 대응</title>','<title>COREON Safety AX Agent | 발주처·공공기관·도급 안전관리와 중대재해 조치증빙</title>');
+ s=s.replace('content="5인 이상 사업장 중대재해처벌법 대응이 막막하다면 COREON Safety AX Agent로 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙과 무료 1차 안전진단부터 시작하세요."','content="발주처·공공기관·건설사·협력업체가 기존 양식과 시스템을 유지하면서도 위험성평가 후속조치, 담당자·기한, 조치 전후 증빙, 잔여위험 재평가와 미조치·기한초과를 연결해 확인할 수 있는 COREON Safety AX Agent."');
+ s=s.replace('content="COREON, 코레온 AX Agent, 중대재해 예방, 산업안전 AI, 현장 안전관리, 안전방, 위험성평가, TBM, 건설현장 안전, 제조공장 안전, 물류창고 안전, 식품공장 안전"','content="COREON, 코레온 AX Agent, 중대재해 예방, 산업안전 AI, 중대재해 AX, 발주처 안전관리, 공공기관 중대재해 대응, 도급 안전관리, 수급인 안전보건, 협력업체 안전관리, 위험성평가 후속조치, 중대재해 조치 증빙, 기한초과 관리, 안전보건관리체계, 현장 안전관리, 안전방, 위험성평가, TBM, 건설현장 안전, 제조공장 안전, 물류창고 안전, 식품공장 안전"');
+ s=s.replace('<a href="#features">주요기능</a>\n          <a href="#pilot">파일럿</a>','<a href="#features">주요기능</a>\n          <a href="#principal-public">발주처·공공기관</a>\n          <a href="#pilot">파일럿</a>');
+ s=s.replace('<span>5인 이상 사업장</span><span>중대재해처벌법 대응</span><span>안전보건관리체계</span><span>개선조치 기록</span><span>고용노동부 점검</span>','<span>5인 이상 사업장</span><span>발주처 안전관리</span><span>공공기관 중대재해 대응</span><span>도급·수급 안전관리</span><span>위험성평가 후속조치</span><span>중대재해 조치 증빙</span><span>미조치·기한초과 관리</span>');
+ const section=`      <section id="principal-public" class="soft">\n        <div class="container">\n          <div class="section-head">\n            <span class="kicker">PRINCIPAL / PUBLIC ASSURANCE</span>\n            <h2>기존 시스템을 바꾸라는 솔루션이 아니라,<br />발주처가 놓치는 실행·증빙 공백을 연결합니다.</h2>\n            <p>대형 건설사·운영사는 이미 자체 양식과 프로그램이 있습니다. COREON은 이를 강제로 교체하지 않고, 권한 있는 현장 기록을 기준으로 발주처·공공기관·본사가 미종결 위험, 기한초과, 조치 전후 증빙, 잔여위험 재평가와 반복위험을 같은 관점에서 확인하도록 지원합니다.</p>\n          </div>\n          <div class="grid-4">\n            <article class="card"><b>01</b><h3>다현장·다협력사 상태 확인</h3><p>현장마다 다른 업무방식을 유지하면서도 위험의 접수·담당·기한·조치·검증 상태를 공통 실행지표로 봅니다.</p></article>\n            <article class="card"><b>02</b><h3>문서보다 조치 이행 증빙</h3><p>위험성평가 작성 여부만이 아니라 실제 개선조치, 전후 증빙, 잔여위험 재평가와 사람의 최종 확인까지 연결합니다.</p></article>\n            <article class="card"><b>03</b><h3>미조치·기한초과·반복위험</h3><p>발주처와 경영층이 모든 현장 대화를 읽지 않아도 우선 확인해야 할 예외와 반복 신호를 찾도록 돕습니다.</p></article>\n            <article class="card"><b>04</b><h3>도급·수급 증빙 경계</h3><p>각 고객과 현장의 권한을 분리한 상태에서 필요한 안전업무 기록만 연결하며 다른 고객 데이터는 노출하지 않습니다.</p></article>\n          </div>\n          <div class="value-note" style="margin-top:20px">COREON은 법적 책임이나 법령 준수 여부를 자동 판정하지 않습니다. 중대재해 예방을 보장하지 않으며, 최종 안전·법률 판단과 조치 승인 권한은 사업주·경영책임자·발주기관·현장 책임자 및 자격 있는 전문가에게 있습니다.</div>\n          <div class="actions"><a class="btn btn-primary" href="https://app.coreon-global.com/enterprise-public?source=coreon-principal-public" target="_blank" rel="noopener">Enterprise/Public 확인</a><a class="btn btn-light" href="#contact">발주처·공공기관 도입 상담</a></div>\n        </div>\n      </section>\n\n`;
+ s=insertBefore(s,'      <section class="soft" id="customers">',section,'id="principal-public"','principal-public-section');
+ s=s.replace('"description": "산업현장의 위험제보를 담당자 조치, 증빙 확인, 재확인까지 연결하는 안전업무 지원 프로그램"','"description": "산업현장의 위험제보를 담당자 조치, 증빙 확인, 잔여위험 재평가까지 연결하고 발주처·공공기관의 다현장·협력사 안전업무 이행 확인을 지원하는 웹 기반 안전관리 프로그램"');
+ fs.writeFileSync(file,s);
+}
+
+{
+ const file='en/index.html';let s=fs.readFileSync(file,'utf8');
+ s=s.replace('<title>COREON Safety AX Agent | Closed-loop field safety operations</title>','<title>COREON Safety AX Agent | Principal, public-sector and contractor safety assurance</title>');
+ s=s.replace('<meta name="description" content="COREON connects field reports, accountable actions, evidence review and residual-risk reassessment for small and midsize workplaces.">','<meta name="description" content="COREON connects field reports, accountable corrective action, evidence and residual-risk reassessment across authorized sites and contractors without forcing organizations to replace existing safety systems.">\n  <meta name="keywords" content="principal safety management, public sector safety assurance, contractor safety oversight, subcontractor safety, corrective action evidence, risk assessment follow-up, industrial safety AI, serious accident prevention workflow">');
+ s=s.replace('<a href="#workflow">Workflow</a><a href="#plans">Plans</a>','<a href="#workflow">Workflow</a><a href="#principal-public">Principals/Public</a><a href="#plans">Plans</a>');
+ const enSection=`    <section id="principal-public" class="soft"><div class="container"><div class="head"><small>PRINCIPAL / PUBLIC ASSURANCE</small><h2>Keep existing contractor systems.<br>Connect the execution and evidence gaps above them.</h2><p>COREON helps authorized principals, public institutions and multi-site owners review unresolved risk, overdue corrective actions, evidence completeness, residual-risk reassessment and recurring hazards across sites without requiring every contractor to adopt the same legacy replacement system.</p></div><div class="grid"><article class="card"><h3>Cross-site exception view</h3><p>See unresolved and overdue safety work without reading every field conversation.</p></article><article class="card"><h3>Evidence before closure</h3><p>Connect accountable owner, due date, corrective evidence, residual-risk review and human approval.</p></article><article class="card"><h3>Contractor-neutral oversight</h3><p>Use COREON as an assurance layer while existing forms and operating systems remain in place.</p></article></div><p class="notice"><strong>Boundary:</strong> COREON supports operational and evidence assurance. It does not automatically determine legal compliance or liability and does not guarantee accident prevention.</p><div class="actions"><a class="btn primary" href="https://app.coreon-global.com/en/enterprise-public?source=coreon-en-principal-public">Explore Enterprise/Public</a><a class="btn" href="#contact">Discuss a principal/public rollout</a></div></div></section>\n`;
+ s=insertBefore(s,'    <section id="plans">',enSection,'id="principal-public"','en-principal-public-section');
+ fs.writeFileSync(file,s);
+}
+
+for(const [file,tokens] of Object.entries({
+ 'index.html':['PRINCIPAL / PUBLIC ASSURANCE','발주처 안전관리','도급·수급 안전관리','기존 시스템을 바꾸라는 솔루션이 아니라','Enterprise/Public 확인'],
+ 'en/index.html':['PRINCIPAL / PUBLIC ASSURANCE','Contractor-neutral oversight','does not automatically determine legal compliance or liability']
+})){
+ const s=fs.readFileSync(file,'utf8');for(const token of tokens)if(!s.includes(token))throw new Error(`V27_52_HOME_VERIFY:${file}:${token}`);
+}
+console.log('PASS v27.52 principal/public homepage and SEO patch');
