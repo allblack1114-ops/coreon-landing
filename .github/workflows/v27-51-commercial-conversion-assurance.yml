@@ -7,6 +7,16 @@ on:
     paths:
       - 'scripts_v27_51_commercial_conversion_assurance.js'
       - '.github/workflows/v27-51-commercial-conversion-assurance.yml'
+      - 'test-v2751-homepage.js'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'trust/index.html'
+      - 'scripts_v27_51_commercial_conversion_assurance.js'
+      - '.github/workflows/v27-51-commercial-conversion-assurance.yml'
+      - 'test-v2751-homepage.js'
   workflow_dispatch:
 
 permissions:
@@ -35,7 +45,10 @@ jobs:
           grep -F 'Vision Edge는 별도 제한 파일럿으로 검증합니다.' index.html
           ! grep -F '20250707030027' index.html
           ! grep -F '20250707030027' trust/index.html
+      - name: Run v27.51 homepage regression gate
+        run: node test-v2751-homepage.js
       - name: Commit homepage changes when changed
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           if git diff --quiet -- index.html trust/index.html; then
             echo 'homepage already aligned'
