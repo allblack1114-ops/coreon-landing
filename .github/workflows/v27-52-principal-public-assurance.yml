@@ -1,0 +1,67 @@
+name: v27.52 Principal Public Assurance - Homepage
+
+on:
+  push:
+    branches:
+      - agent/v27-52-principal-public-assurance
+    paths:
+      - 'scripts_v27_52_principal_public_homepage.js'
+      - 'docs/v27.52-principal-public-homepage.md'
+      - 'test-v2752-principal-public-homepage.js'
+      - '.github/workflows/v27-52-principal-public-assurance.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'scripts_v27_52_principal_public_homepage.js'
+      - 'docs/v27.52-principal-public-homepage.md'
+      - 'test-v2752-principal-public-homepage.js'
+      - '.github/workflows/v27-52-principal-public-assurance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  homepage-principal-public-assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/v27-52-principal-public-assurance
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply v27.52 principal/public homepage and SEO patch
+        run: node scripts_v27_52_principal_public_homepage.js
+      - name: Verify positioning and public-claim boundary
+        run: |
+          grep -F 'PRINCIPAL / PUBLIC ASSURANCE' index.html
+          grep -F '발주처 안전관리' index.html
+          grep -F '공공기관 중대재해 대응' index.html
+          grep -F '도급·수급 안전관리' index.html
+          grep -F '기존 시스템을 바꾸라는 솔루션이 아니라' index.html
+          grep -F 'Contractor-neutral oversight' en/index.html
+          ! grep -F '20250707030027' index.html
+      - name: Run v27.52 homepage regression
+        run: node test-v2752-principal-public-homepage.js
+      - name: Run existing homepage regressions when available
+        run: |
+          if [ -f test-homepage-v2741.js ]; then node test-homepage-v2741.js; fi
+          if [ -f test-v2751-homepage.js ]; then node test-v2751-homepage.js; fi
+      - name: Commit coordinated homepage changes when changed
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- index.html en/index.html; then
+            echo 'homepage already aligned'
+            exit 0
+          fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html en/index.html
+          git commit -m 'Apply v27.52 principal/public homepage and SEO assurance'
+          git push origin HEAD:agent/v27-52-principal-public-assurance
