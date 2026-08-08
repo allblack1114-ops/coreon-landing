@@ -1,0 +1,48 @@
+name: v27.51 Commercial Conversion Assurance - Homepage
+
+on:
+  push:
+    branches:
+      - agent/v27-51-commercial-conversion-assurance
+    paths:
+      - 'scripts_v27_51_commercial_conversion_assurance.js'
+      - '.github/workflows/v27-51-commercial-conversion-assurance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify-homepage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/v27-51-commercial-conversion-assurance
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Apply unified homepage conversion and venture trust patch
+        run: node scripts_v27_51_commercial_conversion_assurance.js
+      - name: Verify public trust and conversion boundaries
+        run: |
+          grep -F '현장 위험제보부터' index.html
+          grep -F '발급번호 20260325030049' index.html
+          grep -F '발급번호 20260325030049' trust/index.html
+          grep -F 'Safety Start Free' index.html
+          grep -F 'Vision Edge는 별도 제한 파일럿으로 검증합니다.' index.html
+          ! grep -F '20250707030027' index.html
+          ! grep -F '20250707030027' trust/index.html
+      - name: Commit homepage changes when changed
+        run: |
+          if git diff --quiet -- index.html trust/index.html; then
+            echo 'homepage already aligned'
+            exit 0
+          fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html trust/index.html
+          git commit -m 'Apply v27.51 homepage conversion and venture trust alignment'
+          git push origin HEAD:agent/v27-51-commercial-conversion-assurance
