@@ -1,0 +1,14 @@
+'use strict';
+const fs = require('fs');
+const assert = require('assert');
+const home = fs.readFileSync('index.html','utf8');
+const trust = fs.readFileSync('trust/index.html','utf8');
+assert(home.includes('현장 위험제보부터'));
+assert(home.includes('무료 안전진단 또는 Safety Start Free'));
+assert(home.includes('발급번호 20260325030049'));
+assert(home.includes('Vision Edge는 별도 제한 파일럿으로 검증합니다.'));
+assert(!home.includes('20250707030027'));
+assert(trust.includes('주식회사 코레온홀딩스'));
+assert(trust.includes('발급번호 20260325030049'));
+assert(trust.includes('유효기간 2026.03.25~2029.03.24'));
+console.log('PASS v27.51 homepage conversion and venture trust');
