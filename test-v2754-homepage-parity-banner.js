@@ -12,5 +12,5 @@ assert.ok(en.includes('Use Guide'));
 assert.ok(en.includes('Safety Start Free'));
 assert.ok(en.includes('Pricing policy:'));
 assert.ok(!/KRW\s*[0-9]|297,000|490,000|990,000|250,000|18M|10M/.test(en),'English public homepage must not expose numeric paid pricing');
-for(const x of ['Principal / Public Assurance','Enterprise-grade CORE']) assert.ok(en.includes(x),x);
+for(const x of ['PRINCIPAL / PUBLIC ASSURANCE','Enterprise-grade CORE']) assert.ok(en.includes(x),x);
 console.log('PASS v27.54 homepage hero-banner and Korean/English public parity');
