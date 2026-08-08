@@ -27,8 +27,8 @@ function insertBefore(text,anchor,addition,marker,label){if(text.includes(marker
 }
 
 for(const [file,tokens] of Object.entries({
- 'index.html':['발주처·공공기관 통합','발주처 안전관리','도급·수급 안전관리','기존 시스템을 바꾸라는 솔루션이 아니라','Enterprise/Public 확인'],
- 'en/index.html':['Principal / Public Assurance','Contractor-neutral oversight','does not automatically determine legal compliance or liability']
+ 'index.html':['PRINCIPAL / PUBLIC ASSURANCE','발주처 안전관리','도급·수급 안전관리','기존 시스템을 바꾸라는 솔루션이 아니라','Enterprise/Public 확인'],
+ 'en/index.html':['PRINCIPAL / PUBLIC ASSURANCE','Contractor-neutral oversight','does not automatically determine legal compliance or liability']
 })){
  const s=fs.readFileSync(file,'utf8');for(const token of tokens)if(!s.includes(token))throw new Error(`V27_52_HOME_VERIFY:${file}:${token}`);
 }
