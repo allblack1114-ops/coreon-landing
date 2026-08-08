@@ -1,0 +1,38 @@
+name: v27.55 Production SEO Assurance - Homepage
+on:
+  push:
+    branches: [agent/v27-55-production-seo-assurance]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  seo-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/v27-55-production-seo-assurance
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Apply bilingual SEO parity patch
+        run: node scripts_v27_55_production_seo_assurance.js
+      - name: Run v27.55 regression
+        run: node test-v2755-production-seo-assurance.js
+      - name: Existing homepage regressions
+        run: |
+          if [ -f test-v2754-homepage-parity-banner.js ]; then node test-v2754-homepage-parity-banner.js; fi
+          if [ -f test-v2753-customer-decision-hub.js ]; then node test-v2753-customer-decision-hub.js; fi
+          if [ -f test-v2751-homepage.js ]; then node test-v2751-homepage.js; fi
+      - name: Commit SEO alignment
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- index.html en/index.html; then echo 'already aligned'; exit 0; fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html en/index.html
+          git commit -m 'Apply v27.55 bilingual structured SEO and use-case parity'
+          git push origin HEAD:agent/v27-55-production-seo-assurance

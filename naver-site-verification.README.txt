@@ -1,0 +1,5 @@
+COREON search-engine verification note
+
+Do not publish fabricated verification tokens. Google Search Console and Naver Search Advisor verification values must be obtained from the actual owner accounts and then added to the public site using the exact token issued by each platform.
+
+Current technical crawl readiness is provided by robots.txt, sitemap.xml, canonical URLs, hreflang pairs, structured data, internal links and index/follow metadata.
