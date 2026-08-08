@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('fs');
+const ko=fs.readFileSync('index.html','utf8');
+const en=fs.readFileSync('en/index.html','utf8');
+assert.ok(ko.includes('id="organization-banner"'));
+assert.ok(ko.indexOf('id="organization-banner"') < ko.indexOf('class="industry-strip"'));
+for(const x of ['/use-cases/public/','/use-cases/construction/','/use-cases/manufacturing/','/use-cases/consulting/']) assert.ok(ko.includes(x),x);
+assert.ok(en.includes('id="organization-banner"'));
+assert.ok(en.includes('How would COREON work in your organization?'));
+assert.ok(en.includes('Use Guide'));
+assert.ok(en.includes('Safety Start Free'));
+assert.ok(en.includes('Pricing policy:'));
+assert.ok(!/KRW\s*[0-9]|297,000|490,000|990,000|250,000|18M|10M/.test(en),'English public homepage must not expose numeric paid pricing');
+for(const x of ['PRINCIPAL / PUBLIC ASSURANCE','Enterprise-grade CORE']) assert.ok(en.includes(x),x);
+console.log('PASS v27.54 homepage hero-banner and Korean/English public parity');

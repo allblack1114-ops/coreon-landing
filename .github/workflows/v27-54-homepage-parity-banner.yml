@@ -1,0 +1,57 @@
+name: v27.54 Homepage Parity Banner
+
+on:
+  push:
+    branches:
+      - agent/v27-54-homepage-parity-banner
+    paths:
+      - 'scripts_v27_54_homepage_parity_banner.js'
+      - 'test-v2754-homepage-parity-banner.js'
+      - '.github/workflows/v27-54-homepage-parity-banner.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'scripts_v27_54_homepage_parity_banner.js'
+      - 'test-v2754-homepage-parity-banner.js'
+      - '.github/workflows/v27-54-homepage-parity-banner.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  homepage-parity-banner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/v27-54-homepage-parity-banner
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply v27.54 homepage parity patch
+        run: node scripts_v27_54_homepage_parity_banner.js
+      - name: Run v27.54 regression
+        run: node test-v2754-homepage-parity-banner.js
+      - name: Run existing homepage regressions
+        run: |
+          if [ -f test-homepage-v2741.js ]; then node test-homepage-v2741.js; fi
+          if [ -f test-v2751-homepage.js ]; then node test-v2751-homepage.js; fi
+          if [ -f test-v2753-customer-decision-hub.js ]; then node test-v2753-customer-decision-hub.js; fi
+      - name: Commit coordinated public homepage changes
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- index.html en/index.html; then
+            echo 'homepage already aligned'
+            exit 0
+          fi
+          git config user.name 'coreon-release-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html en/index.html
+          git commit -m 'Apply v27.54 hero organization banner and bilingual homepage parity'
+          git push origin HEAD:agent/v27-54-homepage-parity-banner
