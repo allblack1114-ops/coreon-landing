@@ -8,6 +8,8 @@ on:
       - 'en/safety-event-integration.html'
       - 'safety-ax-runtime.html'
       - 'en/safety-ax-runtime.html'
+      - 'enterprise-multisite.html'
+      - 'en/enterprise-multisite.html'
       - 'assets/safety-semantic.css'
       - 'sitemap.xml'
       - '.github/workflows/v27-61-vendor-neutral-integration-seo.yml'
@@ -29,6 +31,8 @@ jobs:
           sitemap=Path('sitemap.xml').read_text()
           runtime_ko=Path('safety-ax-runtime.html').read_text()
           runtime_en=Path('en/safety-ax-runtime.html').read_text()
+          multi_ko=Path('enterprise-multisite.html').read_text()
+          multi_en=Path('en/enterprise-multisite.html').read_text()
           checks=[
             ('ko title','<title>' in ko),('ko description','name="description"' in ko),('ko robots','index,follow' in ko),
             ('ko canonical','canonical" href="https://www.coreon-global.com/safety-event-integration.html' in ko),
@@ -40,7 +44,11 @@ jobs:
             ('sitemap en','https://www.coreon-global.com/en/safety-event-integration.html' in sitemap),
             ('runtime ko internal link','/safety-event-integration.html' in runtime_ko),
             ('runtime en internal link','/en/safety-event-integration.html' in runtime_en),
-            ('semantic colors',Path('assets/safety-semantic.css').exists())
+            ('multisite ko internal link','/safety-event-integration.html' in multi_ko),
+            ('multisite en internal link','/en/safety-event-integration.html' in multi_en),
+            ('semantic colors',Path('assets/safety-semantic.css').exists()),
+            ('semantic ko page','safety-status safety-info' in ko),
+            ('semantic en page','safety-status safety-info' in en)
           ]
           failed=[name for name,ok in checks if not ok]
           if failed: raise SystemExit('SEO gate failed: '+', '.join(failed))
