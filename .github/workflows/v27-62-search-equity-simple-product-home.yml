@@ -13,6 +13,7 @@ on:
       - 'en/pricing.html'
       - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
+      - 'assets/product-assistant-links.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
   pull_request:
@@ -25,6 +26,7 @@ on:
       - 'en/pricing.html'
       - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
+      - 'assets/product-assistant-links.js'
       - 'sitemap.xml'
 
 jobs:
@@ -68,11 +70,13 @@ jobs:
             echo 'Internal technical navigation must not re-enter the simple public product home.' >&2
             exit 1
           fi
-      - name: Verify value-earned bilingual plans against approved product names
+      - name: Verify value-earned bilingual plans and free participation policy
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'Safety Start Free' pricing.html
+          grep -Fq '현장 1개 · 관리자/운영자 3명 · 현장 참여자 제한 없음 · 저장공간 1GB' pricing.html
+          grep -Fq '현장 참여자·안전활동 건수 과금 없음' pricing.html
           grep -Fq '코레온 안전관리' pricing.html
           grep -Fq '코레온 현장안전' pricing.html
           grep -Fq '코레온 통합안전' pricing.html
@@ -81,7 +85,8 @@ jobs:
           grep -Fq '월 490,000원' pricing.html
           grep -Fq '월 990,000원' pricing.html
           grep -Fq '연 18,000,000원' pricing.html
-          grep -Fq 'We do not make the free product bad' en/pricing.html
+          grep -Fq '1 site · 3 admin/operator seats · unlimited field participants · 1GB storage' en/pricing.html
+          grep -Fq 'We do not charge by blocking the people who make safety work.' en/pricing.html
           grep -Fq 'pricing.html' sitemap.xml
       - name: Verify public AI product assistant and explicit consent handoff UI
         shell: bash
@@ -94,6 +99,8 @@ jobs:
           grep -Fq 'product-assistant.js?v=27.62.0' assets/safety-home-enhancer.js
           grep -Fq 'product-assistant.js?v=27.62.0' download.html
           grep -Fq 'product-assistant.js?v=27.62.0' pricing.html
+          grep -Fq 'product-assistant-links.js?v=27.62.0' pricing.html
+          grep -Fq 'product-assistant-links.js?v=27.62.0' en/pricing.html
       - name: Keep COREON Mall as a secondary ecosystem channel
         shell: bash
         run: |
