@@ -1,0 +1,69 @@
+name: v27.62 Search Equity + Simple Product Home
+
+on:
+  push:
+    branches:
+      - v27.62-product-excellence-download-center
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'download.html'
+      - 'en/download.html'
+      - 'assets/safety-home-enhancer.js'
+      - 'sitemap.xml'
+      - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'download.html'
+      - 'en/download.html'
+      - 'assets/safety-home-enhancer.js'
+      - 'sitemap.xml'
+
+jobs:
+  preserve-search-equity-and-product-home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve current Korean search identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'COREON Safety AX Agent | 발주처·공공기관·도급 안전관리와 중대재해 조치증빙' index.html
+          grep -Fq '발주처·공공기관·건설사·협력업체' index.html
+          grep -Fq '위험성평가 후속조치' index.html
+          grep -Fq '조치 전후 증빙' index.html
+          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
+          grep -Fq 'name="robots" content="index,follow,max-image-preview:large"' index.html
+      - name: Preserve bilingual structured search contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'hreflang="ko"' index.html
+          grep -Fq 'hreflang="en"' index.html
+          grep -Fq 'SoftwareApplication' index.html
+          grep -Fq 'Organization' index.html
+          grep -Fq 'COREON Safety AX Agent' en/index.html
+      - name: Verify simplified software-product experience
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq '제품</a>' assets/safety-home-enhancer.js
+          grep -Fq '산업별 활용' assets/safety-home-enhancer.js
+          grep -Fq '주요기능' assets/safety-home-enhancer.js
+          grep -Fq '다운로드' assets/safety-home-enhancer.js
+          grep -Fq '무료 시작' assets/safety-home-enhancer.js
+          grep -Fq 'COREON Safety AX Cloud' assets/safety-home-enhancer.js
+          grep -Fq '/download.html' assets/safety-home-enhancer.js
+          grep -Fq '/en/download.html' assets/safety-home-enhancer.js
+      - name: Verify download center claims only real distribution modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'PWA 기반 설치형 Web App' download.html
+          grep -Fq 'Windows .exe/.msi' download.html
+          grep -Fq '실제 패키지와 서명·배포체계가 완성된 뒤에만' download.html
+          grep -Fq 'PWA' en/download.html
+          grep -Fq 'download.html' sitemap.xml
