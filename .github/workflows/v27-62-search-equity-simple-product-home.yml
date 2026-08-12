@@ -1,0 +1,125 @@
+name: v27.62 Search Equity + Simple Product Home
+
+on:
+  push:
+    branches:
+      - v27.62-product-excellence-download-center
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'download.html'
+      - 'en/download.html'
+      - 'pricing.html'
+      - 'en/pricing.html'
+      - 'assets/safety-home-enhancer.js'
+      - 'assets/product-assistant.js'
+      - 'assets/product-assistant-links.js'
+      - 'sitemap.xml'
+      - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'download.html'
+      - 'en/download.html'
+      - 'pricing.html'
+      - 'en/pricing.html'
+      - 'assets/safety-home-enhancer.js'
+      - 'assets/product-assistant.js'
+      - 'assets/product-assistant-links.js'
+      - 'sitemap.xml'
+
+jobs:
+  preserve-search-equity-and-product-home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve current Korean search identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'COREON Safety AX Agent | 발주처·공공기관·도급 안전관리와 중대재해 조치증빙' index.html
+          grep -Fq '발주처·공공기관·건설사·협력업체' index.html
+          grep -Fq '위험성평가 후속조치' index.html
+          grep -Fq '조치 전후 증빙' index.html
+          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
+          grep -Fq 'name="robots" content="index,follow,max-image-preview:large"' index.html
+      - name: Preserve bilingual structured search contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'hreflang="ko"' index.html
+          grep -Fq 'hreflang="en"' index.html
+          grep -Fq 'SoftwareApplication' index.html
+          grep -Fq 'Organization' index.html
+          grep -Fq 'COREON Safety AX Agent' en/index.html
+      - name: Verify Kakao LINE AutoCAD-inspired product journey without copying visuals
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq '제품</a>' assets/safety-home-enhancer.js
+          grep -Fq '주요기능' assets/safety-home-enhancer.js
+          grep -Fq '산업별 활용' assets/safety-home-enhancer.js
+          grep -Fq '요금제' assets/safety-home-enhancer.js
+          grep -Fq '다운로드' assets/safety-home-enhancer.js
+          grep -Fq '무료 시작' assets/safety-home-enhancer.js
+          grep -Fq '무료로 시작하고, 실제 업무로 가치를 확인한 뒤' assets/safety-home-enhancer.js
+          grep -Fq '.coreon-product-home .safety-legend{display:none!important}' assets/safety-home-enhancer.js
+          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Eq 'Runtime|API Contract|Integration Hub'; then
+            echo 'Internal technical navigation must not re-enter the simple public product home.' >&2
+            exit 1
+          fi
+      - name: Verify value-earned bilingual plans and free participation policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'Safety Start Free' pricing.html
+          grep -Fq '현장 1개 · 관리자/운영자 3명 · 현장 참여자 제한 없음 · 저장공간 1GB' pricing.html
+          grep -Fq '현장 참여자·안전활동 건수 과금 없음' pricing.html
+          grep -Fq '코레온 안전관리' pricing.html
+          grep -Fq '코레온 현장안전' pricing.html
+          grep -Fq '코레온 통합안전' pricing.html
+          grep -Fq '코레온 안전관제' pricing.html
+          grep -Fq '월 297,000원' pricing.html
+          grep -Fq '월 490,000원' pricing.html
+          grep -Fq '월 990,000원' pricing.html
+          grep -Fq '연 18,000,000원' pricing.html
+          grep -Fq '1 site · 3 admin/operator seats · unlimited field participants · 1GB storage' en/pricing.html
+          grep -Fq 'We do not charge by blocking the people who make safety work.' en/pricing.html
+          grep -Fq 'pricing.html' sitemap.xml
+      - name: Verify public AI product assistant and explicit consent handoff UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'COREON AI 제품도우미' assets/product-assistant.js
+          grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant.js
+          grep -Fq "consent:true" assets/product-assistant.js
+          grep -Fq '개별 법률 적용·적합성 판단' assets/product-assistant.js
+          grep -Fq 'product-assistant.js?v=27.62.0' assets/safety-home-enhancer.js
+          grep -Fq 'product-assistant.js?v=27.62.0' download.html
+          grep -Fq 'product-assistant.js?v=27.62.0' pricing.html
+          grep -Fq 'product-assistant-links.js?v=27.62.0' pricing.html
+          grep -Fq 'product-assistant-links.js?v=27.62.0' en/pricing.html
+      - name: Keep COREON Mall as a secondary ecosystem channel
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
+          grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
+          grep -Fq 'COREON Mall' index.html
+          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
+            echo 'COREON Mall must remain secondary and must not enter the primary product navigation.' >&2
+            exit 1
+          fi
+      - name: Verify download center claims only real distribution modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'PWA 기반 설치형 Web App' download.html
+          grep -Fq '"operatingSystem":"Web"' download.html
+          grep -Fq 'Windows .exe/.msi' download.html
+          grep -Fq '실제 패키지와 서명·배포체계가 완성된 뒤에만' download.html
+          grep -Fq '"operatingSystem":"Web"' en/download.html
+          grep -Fq 'PWA' en/download.html
+          grep -Fq 'download.html' sitemap.xml

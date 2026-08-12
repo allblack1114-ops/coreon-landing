@@ -1,0 +1,35 @@
+name: v27.62 Download Center SEO
+
+on:
+  push:
+    branches:
+      - v27.62-product-excellence-download-center
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  download-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Korean download center
+        run: |
+          grep -q 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
+          grep -q 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
+          grep -q 'app.coreon-global.com/install.html' download.html
+          grep -q 'PWA 기반 설치형 Web App' download.html
+      - name: Verify English download center
+        run: |
+          grep -q 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
+          grep -q 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
+          grep -q 'app.coreon-global.com/install.html' en/download.html
+          grep -q 'PWA-based Web App' en/download.html
+      - name: Verify sitemap
+        run: |
+          grep -q 'https://www.coreon-global.com/download.html' sitemap.xml
+          grep -q 'https://www.coreon-global.com/en/download.html' sitemap.xml
+      - name: Prevent fake native package claims
+        run: |
+          ! grep -Eq 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html
