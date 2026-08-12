@@ -1,0 +1,38 @@
+name: v27.60 Bilingual Enterprise SEO
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'enterprise-multisite.html'
+      - 'en/enterprise-multisite.html'
+      - 'safety-ax-runtime.html'
+      - 'en/safety-ax-runtime.html'
+      - 'sitemap.xml'
+      - '.github/workflows/v27-60-bilingual-enterprise-seo.yml'
+  workflow_dispatch:
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public SEO surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in enterprise-multisite.html en/enterprise-multisite.html safety-ax-runtime.html en/safety-ax-runtime.html; do
+            test -s "$f"
+            grep -q '<meta name="description"' "$f"
+            grep -q '<meta name="robots" content="index,follow' "$f"
+            grep -q 'rel="canonical"' "$f"
+            grep -q 'hreflang="ko"' "$f"
+            grep -q 'hreflang="en"' "$f"
+            grep -q 'hreflang="x-default"' "$f"
+          done
+          grep -q 'https://www.coreon-global.com/enterprise-multisite.html' sitemap.xml
+          grep -q 'https://www.coreon-global.com/en/enterprise-multisite.html' sitemap.xml
+          grep -q 'https://www.coreon-global.com/safety-ax-runtime.html' sitemap.xml
+          grep -q 'https://www.coreon-global.com/en/safety-ax-runtime.html' sitemap.xml
+          grep -q '/enterprise-multisite.html' safety-ax-runtime.html
+          grep -q '/en/enterprise-multisite.html' en/safety-ax-runtime.html
