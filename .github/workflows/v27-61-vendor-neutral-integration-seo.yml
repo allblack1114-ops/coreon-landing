@@ -1,0 +1,48 @@
+name: v27.61 Vendor-neutral Integration SEO
+
+on:
+  push:
+    branches: [main, v27.61-vendor-neutral-safety-event-api]
+    paths:
+      - 'safety-event-integration.html'
+      - 'en/safety-event-integration.html'
+      - 'safety-ax-runtime.html'
+      - 'en/safety-ax-runtime.html'
+      - 'assets/safety-semantic.css'
+      - 'sitemap.xml'
+      - '.github/workflows/v27-61-vendor-neutral-integration-seo.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate bilingual public SEO contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          ko=Path('safety-event-integration.html').read_text()
+          en=Path('en/safety-event-integration.html').read_text()
+          sitemap=Path('sitemap.xml').read_text()
+          runtime_ko=Path('safety-ax-runtime.html').read_text()
+          runtime_en=Path('en/safety-ax-runtime.html').read_text()
+          checks=[
+            ('ko title','<title>' in ko),('ko description','name="description"' in ko),('ko robots','index,follow' in ko),
+            ('ko canonical','canonical" href="https://www.coreon-global.com/safety-event-integration.html' in ko),
+            ('ko hreflang en','hreflang="en"' in ko),('ko x-default','hreflang="x-default"' in ko),
+            ('en title','<title>' in en),('en description','name="description"' in en),('en robots','index,follow' in en),
+            ('en canonical','canonical" href="https://www.coreon-global.com/en/safety-event-integration.html' in en),
+            ('en hreflang ko','hreflang="ko"' in en),('en x-default','hreflang="x-default"' in en),
+            ('sitemap ko','https://www.coreon-global.com/safety-event-integration.html' in sitemap),
+            ('sitemap en','https://www.coreon-global.com/en/safety-event-integration.html' in sitemap),
+            ('runtime ko internal link','/safety-event-integration.html' in runtime_ko),
+            ('runtime en internal link','/en/safety-event-integration.html' in runtime_en),
+            ('semantic colors',Path('assets/safety-semantic.css').exists())
+          ]
+          failed=[name for name,ok in checks if not ok]
+          if failed: raise SystemExit('SEO gate failed: '+', '.join(failed))
+          print('v27.61 bilingual integration SEO gate passed')
+          PY
