@@ -19,8 +19,8 @@
   const nav=document.querySelector('.nav-links');
   if(nav){
     nav.innerHTML=en
-      ? `<a href="/en/">Product</a><a href="/en/use-cases/">Use cases</a><a href="/#pricing">Pricing</a><a href="/en/download.html">Download</a><a href="https://app.coreon-global.com/free-diagnosis?source=coreon-home-nav" target="_blank" rel="noopener">Free start</a><a class="contact-btn" href="#contact">Contact</a><a href="/" lang="ko">KO</a>`
-      : `<a href="#top">제품</a><a href="/use-cases/">산업별 활용</a><a href="#pricing">요금</a><a href="/download.html">다운로드</a><a href="https://app.coreon-global.com/free-diagnosis?source=coreon-home-nav" target="_blank" rel="noopener">무료 시작</a><a class="contact-btn" href="#contact">도입 문의</a><a href="/en/" lang="en">EN</a>`;
+      ? `<a href="/en/">Product</a><a href="/en/use-cases/">Use cases</a><a href="#features">Features</a><a href="/en/download.html">Download</a><a href="https://app.coreon-global.com/free-diagnosis?source=coreon-home-nav" target="_blank" rel="noopener">Free start</a><a class="contact-btn" href="#contact">Contact</a><a href="/" lang="ko">KO</a>`
+      : `<a href="#top">제품</a><a href="/use-cases/">산업별 활용</a><a href="#features">주요기능</a><a href="/download.html">다운로드</a><a href="https://app.coreon-global.com/free-diagnosis?source=coreon-home-nav" target="_blank" rel="noopener">무료 시작</a><a class="contact-btn" href="#contact">도입 문의</a><a href="/en/" lang="en">EN</a>`;
   }
 
   // Keep the homepage visually simple like a software product site while preserving crawlable source content.
