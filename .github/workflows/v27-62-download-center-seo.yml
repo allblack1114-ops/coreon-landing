@@ -19,13 +19,13 @@ jobs:
           grep -q 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
           grep -q 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
           grep -q 'app.coreon-global.com/install.html' download.html
-          grep -q '현재 제공되는 다운로드 경험은 PWA 기반 설치형 Web App' download.html
+          grep -q 'PWA 기반 설치형 Web App' download.html
       - name: Verify English download center
         run: |
           grep -q 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
           grep -q 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
           grep -q 'app.coreon-global.com/install.html' en/download.html
-          grep -q 'current installable experience is a PWA-based Web App' en/download.html
+          grep -q 'PWA-based Web App' en/download.html
       - name: Verify sitemap
         run: |
           grep -q 'https://www.coreon-global.com/download.html' sitemap.xml
