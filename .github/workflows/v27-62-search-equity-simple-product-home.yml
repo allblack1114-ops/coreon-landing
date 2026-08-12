@@ -58,6 +58,17 @@ jobs:
           grep -Fq 'COREON Safety AX Cloud' assets/safety-home-enhancer.js
           grep -Fq '/download.html' assets/safety-home-enhancer.js
           grep -Fq '/en/download.html' assets/safety-home-enhancer.js
+      - name: Keep COREON Mall as a secondary ecosystem channel
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
+          grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
+          grep -Fq 'COREON Mall' index.html
+          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
+            echo 'COREON Mall must remain secondary and must not enter the primary product navigation.' >&2
+            exit 1
+          fi
       - name: Verify download center claims only real distribution modes
         shell: bash
         run: |
