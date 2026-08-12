@@ -1,0 +1,53 @@
+name: v27.61.1 Semantic Safety Visual Convergence
+
+on:
+  push:
+    branches: [v27.61.1-semantic-safety-visual-convergence, main]
+    paths:
+      - 'scripts_apply_v27_61_1_home_visual.py'
+      - 'assets/safety-semantic.css'
+      - 'assets/safety-home-enhancer.js'
+      - '.github/workflows/v27-61-1-semantic-safety-visual-convergence.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - name: Apply deterministic visual convergence
+        run: python scripts_apply_v27_61_1_home_visual.py
+      - name: Verify KO/EN homepage and public product visual contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files=['index.html','en/index.html','safety-ax-runtime.html','en/safety-ax-runtime.html','enterprise-multisite.html','en/enterprise-multisite.html','safety-event-integration.html','en/safety-event-integration.html']
+          for f in files:
+            text=Path(f).read_text(encoding='utf-8')
+            assert '/assets/safety-semantic.css' in text, f
+            assert '/assets/safety-home-enhancer.js' in text, f
+          ko=Path('index.html').read_text(encoding='utf-8')
+          en=Path('en/index.html').read_text(encoding='utf-8')
+          assert 'rel="canonical"' in ko and 'hreflang="en"' in ko
+          assert 'rel="canonical"' in en and 'hreflang="ko"' in en
+          css=Path('assets/safety-semantic.css').read_text(encoding='utf-8')
+          for token in ['--safety-blue','--safety-green','--safety-amber','--safety-orange','--safety-red','.safety-journey','.safety-critical']:
+            assert token in css, token
+          print('v27.61.1 public visual convergence contract passed')
+          PY
+      - name: Commit transformed public pages on feature branch
+        if: github.event_name == 'push' && github.ref_name == 'v27.61.1-semantic-safety-visual-convergence'
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html en/index.html safety-ax-runtime.html en/safety-ax-runtime.html enterprise-multisite.html en/enterprise-multisite.html safety-event-integration.html en/safety-event-integration.html
+          git commit -m "feat(v27.61.1): apply semantic safety visuals to KO EN public surfaces"
+          git push
