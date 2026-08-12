@@ -1,0 +1,45 @@
+name: Apply v27.56 Safety AX Vision Landing
+
+on:
+  push:
+    branches:
+      - feat/v27-56-safety-ax-vision
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[v27.56-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply synchronized website patch
+        run: python3 scripts_apply_v27_56_safety_ax_vision.py
+      - name: Existing principal/public regression
+        run: |
+          node test-v2752-principal-public-homepage.js
+          node test-v2754-homepage-parity-banner.js
+          node test-v2755-production-seo-assurance.js
+      - name: Vision public-surface assertions
+        run: |
+          grep -q 'vision-edge-public' index.html
+          grep -q '감지 → 판정 → 식별 → 조치 → 증빙 → 재평가' vision-edge.html
+          grep -q '발주처가 모든 CCTV를 보는 대신' use-cases/public/vision-edge.html
+          grep -q '자동 처벌' trust/vision-edge.html
+      - name: Commit applied changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sitemap.xml vision-edge.html use-cases/public/vision-edge.html trust/vision-edge.html docs/v27.56-safety-ax-vision-expansion.md
+          git commit -m 'Apply v27.56 Safety AX Vision public surfaces [v27.56-applied]'
+          git push origin HEAD:feat/v27-56-safety-ax-vision
