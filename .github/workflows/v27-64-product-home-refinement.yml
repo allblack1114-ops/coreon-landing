@@ -1,0 +1,81 @@
+name: v27.64 Product Home Refinement
+
+on:
+  push:
+    branches:
+      - v27.64-product-home-refinement
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  customer-product-home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve search identity and structured SEO
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'COREON Safety AX Agent | 발주처·공공기관·도급 안전관리와 중대재해 조치증빙' index.html
+          grep -Fq '위험성평가 후속조치' index.html
+          grep -Fq '조치 전후 증빙' index.html
+          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq 'SoftwareApplication' index.html
+          grep -Fq 'hreflang="en"' index.html
+      - name: Enforce Kakao LINE AutoCAD-style simple public journey
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq '제품</a>' assets/safety-home-enhancer.js
+          grep -Fq '주요기능' assets/safety-home-enhancer.js
+          grep -Fq '산업별 활용' assets/safety-home-enhancer.js
+          grep -Fq '요금제' assets/safety-home-enhancer.js
+          grep -Fq '다운로드</a>' assets/safety-home-enhancer.js
+          grep -Fq '고객지원' assets/safety-home-enhancer.js
+          grep -Fq '다운로드 · 설치</a>' assets/safety-home-enhancer.js
+          grep -Fq '3분 무료 안전진단' assets/safety-home-enhancer.js
+          grep -Fq '도입 상담' assets/safety-home-enhancer.js
+      - name: Block internal strategy copy from customer-facing enhancer
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -Eq 'Cloud Core|Evidence Chain|Web/PWA|무료→유료|소개페이지가 아니라|불편함이 아니라 운영 규모|real artifacts|one account|one data' assets/safety-home-enhancer.js; then
+            echo 'Internal architecture/strategy language must not appear in public product-home copy.' >&2
+            exit 1
+          fi
+      - name: Make install primary and web-direct secondary-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq '내 기기에 설치하고' download.html
+          grep -Fq 'Install it on your device' en/download.html
+          if grep -Fq '>웹에서 바로 사용<' download.html; then
+            echo 'Direct web use must not be a co-equal public product option.' >&2
+            exit 1
+          fi
+          if grep -Fq '>Use it on the web<' en/download.html; then
+            echo 'Direct web use must not be a co-equal public product option.' >&2
+            exit 1
+          fi
+          grep -Fq 'QR 초대 등 일부 현장 참여 과정은 별도 설치 없이' download.html
+          grep -Fq 'QR invitations and some field participation flows may open directly without installation' en/download.html
+      - name: Preserve AI support and COREON Mall secondary channel
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'COREON AI 제품도우미' assets/product-assistant.js
+          grep -Fq 'product-assistant.js?v=27.62.0' download.html
+          grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
+          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
+            echo 'COREON Mall must remain secondary.' >&2
+            exit 1
+          fi
+      - name: Prevent fake native downloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -Eoi 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html; then
+            echo 'Native installer links require approved real artifacts.' >&2
+            exit 1
+          fi

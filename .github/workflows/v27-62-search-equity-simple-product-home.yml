@@ -1,9 +1,10 @@
-name: v27.62 Search Equity + Simple Product Home Regression
+name: v27.62+ Search Equity + Simple Product Home Regression
 
 on:
   push:
     branches:
       - v27.62-product-excellence-download-center
+      - v27.64-product-home-refinement
       - main
     paths:
       - 'index.html'
@@ -57,7 +58,7 @@ jobs:
           grep -Fq 'SoftwareApplication' index.html
           grep -Fq 'Organization' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify Kakao LINE AutoCAD-inspired product journey without copying visuals
+      - name: Verify simple customer product journey
         shell: bash
         run: |
           set -euo pipefail
@@ -66,14 +67,14 @@ jobs:
           grep -Fq '산업별 활용' assets/safety-home-enhancer.js
           grep -Fq '요금제' assets/safety-home-enhancer.js
           grep -Fq '다운로드' assets/safety-home-enhancer.js
-          grep -Fq '무료 시작' assets/safety-home-enhancer.js
-          grep -Fq '무료로 시작하고, 실제 업무로 가치를 확인한 뒤' assets/safety-home-enhancer.js
+          grep -Fq '고객지원' assets/safety-home-enhancer.js
+          grep -Fq '현장 위험을 더 쉽게 보고하고' assets/safety-home-enhancer.js
           grep -Fq '.coreon-product-home .safety-legend{display:none!important}' assets/safety-home-enhancer.js
           if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Eq 'Runtime|API Contract|Integration Hub'; then
             echo 'Internal technical navigation must not re-enter the simple public product home.' >&2
             exit 1
           fi
-      - name: Verify value-earned bilingual plans and free participation policy
+      - name: Verify bilingual plans and free participation policy
         shell: bash
         run: |
           set -euo pipefail
@@ -89,7 +90,7 @@ jobs:
           grep -Fq '월 990,000원' pricing.html
           grep -Fq '연 18,000,000원' pricing.html
           grep -Fq '1 site · 3 admin/operator seats · unlimited field participants · 1GB storage' en/pricing.html
-          grep -Fq 'We do not charge by blocking the people who make safety work.' en/pricing.html
+          grep -Fq 'Start free.' en/pricing.html
           grep -Fq 'pricing.html' sitemap.xml
       - name: Verify public AI product assistant and explicit consent handoff UI
         shell: bash
@@ -112,17 +113,20 @@ jobs:
           grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
           grep -Fq 'COREON Mall' index.html
           if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
-            echo 'COREON Mall must remain secondary and must not enter the primary product navigation.' >&2
+            echo 'COREON Mall must remain secondary and must not enter primary product navigation.' >&2
             exit 1
           fi
       - name: Verify download center claims only real distribution modes
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'PWA 기반 설치형 Web App' download.html
           grep -Fq '"operatingSystem":"Web"' download.html
-          grep -Fq 'Windows .exe/.msi' download.html
-          grep -Eq '실제 패키지(와 서명·배포체계가 완성된 뒤에만|·코드서명·자동업데이트·배포 검증이 끝난 뒤에만)' download.html
+          grep -Fq '내 기기에 설치하고' download.html
+          grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
           grep -Fq '"operatingSystem":"Web"' en/download.html
-          grep -Fq 'PWA' en/download.html
+          grep -Fq 'Install it on your device' en/download.html
           grep -Fq 'download.html' sitemap.xml
+          if grep -Eoi 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html; then
+            echo 'Native installers require approved real artifacts.' >&2
+            exit 1
+          fi

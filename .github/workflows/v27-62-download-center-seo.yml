@@ -1,9 +1,10 @@
-name: v27.62 Download Center SEO
+name: v27.62+ Download Center SEO
 
 on:
   push:
     branches:
       - v27.62-product-excellence-download-center
+      - v27.64-product-home-refinement
       - main
   pull_request:
     branches:
@@ -19,13 +20,13 @@ jobs:
           grep -q 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
           grep -q 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
           grep -q 'app.coreon-global.com/install.html' download.html
-          grep -q 'PWA 기반 설치형 Web App' download.html
+          grep -q '내 기기에 설치하고' download.html
       - name: Verify English download center
         run: |
           grep -q 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
           grep -q 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
           grep -q 'app.coreon-global.com/install.html' en/download.html
-          grep -q 'PWA-based Web App' en/download.html
+          grep -q 'Install it on your device' en/download.html
       - name: Verify sitemap
         run: |
           grep -q 'https://www.coreon-global.com/download.html' sitemap.xml
@@ -33,3 +34,5 @@ jobs:
       - name: Prevent fake native package claims
         run: |
           ! grep -Eq 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html
+          grep -q '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
+          grep -q 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
