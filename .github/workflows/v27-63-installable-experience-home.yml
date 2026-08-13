@@ -1,9 +1,10 @@
-name: v27.63 Installable Product Home
+name: v27.63+ Installable Product Home
 
 on:
   push:
     branches:
       - v27.63-installable-experience-home
+      - v27.64-product-home-refinement
       - main
   pull_request:
     branches:
@@ -25,30 +26,30 @@ jobs:
           grep -Fq 'SoftwareApplication' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify v27.63 device-aware install journey
+      - name: Verify device-aware install journey
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'data-device-guide' download.html
           grep -Fq 'data-device-guide' en/download.html
-          grep -Fq 'device-install-guide.js?v=27.63.0' download.html
-          grep -Fq 'device-install-guide.js?v=27.63.0' en/download.html
+          grep -Fq 'device-install-guide.js?v=27.64.0' download.html
+          grep -Fq 'device-install-guide.js?v=27.64.0' en/download.html
           grep -Fq 'iPhone / iPad' assets/device-install-guide.js
           grep -Fq 'Android' assets/device-install-guide.js
           grep -Fq 'Windows' assets/device-install-guide.js
           grep -Fq 'macOS' assets/device-install-guide.js
-          grep -Fq '현장 참여자 제한 없음' download.html
+          grep -Fq '현장 참여자 제한 없이' download.html
           grep -Fq 'unlimited field participants' en/download.html
       - name: Prevent fake native installer claims
         shell: bash
         run: |
           set -euo pipefail
           if grep -Eoi 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html; then
-            echo 'Native installer links are prohibited until signed artifacts exist.' >&2
+            echo 'Native installer links are prohibited until approved artifacts exist.' >&2
             exit 1
           fi
-          grep -Fq '실제 패키지·코드서명·자동업데이트·배포 검증이 끝난 뒤에만' download.html
-          grep -Fq 'code signing, update controls, and distribution validation' en/download.html
+          grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
+          grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
       - name: Preserve simple product-home and AI assistant
         shell: bash
         run: |
@@ -56,7 +57,7 @@ jobs:
           grep -Fq '제품</a>' assets/safety-home-enhancer.js
           grep -Fq '요금제' assets/safety-home-enhancer.js
           grep -Fq '다운로드' assets/safety-home-enhancer.js
-          grep -Fq '무료 시작' assets/safety-home-enhancer.js
+          grep -Fq '고객지원' assets/safety-home-enhancer.js
           grep -Fq 'COREON AI 제품도우미' assets/product-assistant.js
           grep -Fq 'product-assistant.js?v=27.62.0' download.html
       - name: Preserve COREON Mall as secondary channel
