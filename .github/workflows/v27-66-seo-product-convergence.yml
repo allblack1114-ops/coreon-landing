@@ -1,0 +1,55 @@
+name: v27.66 SEO and Public Product Convergence
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  seo-public-convergence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify robots and sitemap
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq "updated 2026-08-13" robots.txt
+          grep -Fq "Sitemap: https://www.coreon-global.com/sitemap.xml" robots.txt
+          grep -Fq "https://www.coreon-global.com/safety-ax-runtime.html" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/enterprise-multisite.html" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/safety-event-integration.html" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/trust/" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/patents.html" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/faq.html" sitemap.xml
+          grep -Fq "https://www.coreon-global.com/privacy.html" sitemap.xml
+      - name: Verify v27.66 public product axis
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq "v27.66" safety-ax-runtime.html
+          grep -Fq "v27.66" enterprise-multisite.html
+          grep -Fq "v27.66" safety-event-integration.html
+          grep -Fq "Evidence Graph 2.0" safety-ax-runtime.html
+          grep -Fq "Open Integration Hub" safety-event-integration.html
+          grep -Fq "v27-66-public-convergence.js" assets/safety-home-enhancer.js
+          grep -Fq "Grounded Safety AX Copilot" assets/v27-66-public-convergence.js
+          grep -Fq "SSO/SAML/OIDC" assets/v27-66-public-convergence.js
+      - name: Reject obsolete public release labels on primary product pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -Eq "v27\.(60|61)([^0-9]|$)" safety-ax-runtime.html
+          ! grep -Eq "v27\.(60|61)([^0-9]|$)" enterprise-multisite.html
+          ! grep -Eq "v27\.(60|61)([^0-9]|$)" safety-event-integration.html
+      - name: Verify canonical SEO metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/"' index.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/safety-ax-runtime.html"' safety-ax-runtime.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/enterprise-multisite.html"' enterprise-multisite.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/safety-event-integration.html"' safety-event-integration.html
+          grep -Fq 'hreflang="en"' index.html
+          grep -Fq 'application/ld+json' index.html
