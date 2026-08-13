@@ -17,22 +17,60 @@ jobs:
           set -euo pipefail
           grep -Fq "updated 2026-08-13" robots.txt
           grep -Fq "Sitemap: https://www.coreon-global.com/sitemap.xml" robots.txt
-          grep -Fq "https://www.coreon-global.com/safety-ax-runtime.html" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/enterprise-multisite.html" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/safety-event-integration.html" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/trust/" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/patents.html" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/faq.html" sitemap.xml
-          grep -Fq "https://www.coreon-global.com/privacy.html" sitemap.xml
-      - name: Verify v27.66 public product axis
+          for url in \
+            https://www.coreon-global.com/safety-ax-runtime.html \
+            https://www.coreon-global.com/en/safety-ax-runtime.html \
+            https://www.coreon-global.com/enterprise-multisite.html \
+            https://www.coreon-global.com/en/enterprise-multisite.html \
+            https://www.coreon-global.com/safety-event-integration.html \
+            https://www.coreon-global.com/en/safety-event-integration.html \
+            https://www.coreon-global.com/trust/ \
+            https://www.coreon-global.com/patents.html \
+            https://www.coreon-global.com/faq.html \
+            https://www.coreon-global.com/privacy.html; do
+            grep -Fq "$url" sitemap.xml
+          done
+      - name: Verify every local sitemap target exists
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq "v27.66" safety-ax-runtime.html
-          grep -Fq "v27.66" enterprise-multisite.html
-          grep -Fq "v27.66" safety-event-integration.html
+          python - <<'PY'
+          import os, xml.etree.ElementTree as ET
+          root=ET.parse('sitemap.xml').getroot()
+          ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          prefix='https://www.coreon-global.com/'
+          missing=[]
+          for loc in root.findall('s:url/s:loc',ns):
+              url=(loc.text or '').strip()
+              if not url.startswith(prefix):
+                  continue
+              rel=url[len(prefix):]
+              if not rel:
+                  candidates=['index.html']
+              elif rel.endswith('/'):
+                  candidates=[rel+'index.html']
+              else:
+                  candidates=[rel]
+              if not any(os.path.isfile(p) for p in candidates):
+                  missing.append((url,candidates))
+          if missing:
+              raise SystemExit('Missing sitemap targets: '+repr(missing))
+          print('PASS all sitemap targets map to repository files')
+          PY
+      - name: Verify v27.66 KO and EN public product axis
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in \
+            safety-ax-runtime.html en/safety-ax-runtime.html \
+            enterprise-multisite.html en/enterprise-multisite.html \
+            safety-event-integration.html en/safety-event-integration.html; do
+            grep -Fq "v27.66" "$f"
+          done
           grep -Fq "Evidence Graph 2.0" safety-ax-runtime.html
+          grep -Fq "Evidence Graph 2.0" en/safety-ax-runtime.html
           grep -Fq "Open Integration Hub" safety-event-integration.html
+          grep -Fq "OPEN INTEGRATION HUB" en/safety-event-integration.html
           grep -Fq "v27-66-public-convergence.js" assets/safety-home-enhancer.js
           grep -Fq "Grounded Safety AX Copilot" assets/v27-66-public-convergence.js
           grep -Fq "SSO/SAML/OIDC" assets/v27-66-public-convergence.js
@@ -40,16 +78,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ! grep -Eq "v27\.(60|61)([^0-9]|$)" safety-ax-runtime.html
-          ! grep -Eq "v27\.(60|61)([^0-9]|$)" enterprise-multisite.html
-          ! grep -Eq "v27\.(60|61)([^0-9]|$)" safety-event-integration.html
-      - name: Verify canonical SEO metadata
+          for f in \
+            safety-ax-runtime.html en/safety-ax-runtime.html \
+            enterprise-multisite.html en/enterprise-multisite.html \
+            safety-event-integration.html en/safety-event-integration.html; do
+            ! grep -Eq "v27\.(60|61)([^0-9]|$)" "$f"
+          done
+      - name: Verify canonical and hreflang SEO metadata
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/"' index.html
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/safety-ax-runtime.html"' safety-ax-runtime.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/safety-ax-runtime.html"' en/safety-ax-runtime.html
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/enterprise-multisite.html"' enterprise-multisite.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/enterprise-multisite.html"' en/enterprise-multisite.html
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/safety-event-integration.html"' safety-event-integration.html
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/safety-event-integration.html"' en/safety-event-integration.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'application/ld+json' index.html
