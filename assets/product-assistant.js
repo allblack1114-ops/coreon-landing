@@ -1,1 +1,1 @@
-(()=>{const load=(src)=>{const s=document.createElement('script');s.src=src;s.defer=true;document.head.appendChild(s)};load('/assets/product-assistant-core.js?v=27.72');load('/assets/v27-72-product-guide.js?v=27.72')})();
+(()=>{const load=(src)=>{const s=document.createElement('script');s.src=src;s.defer=true;document.head.appendChild(s)};load('/assets/product-assistant-core.js?v=27.72');load('/assets/v27-72-product-guide.js?v=27.72');load('/assets/v27-72-growth-banner.js?v=27.72')})();
