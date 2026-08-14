@@ -1,0 +1,44 @@
+name: v27.74.7 Force Home Loader Refresh
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v27-74-7-force-home-loader-refresh.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-loader-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump homepage loader version in KO and EN
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for p in [Path('index.html'), Path('en/index.html')]:
+              s=p.read_text(encoding='utf-8')
+              old='product-assistant.js?v=27.74.3'
+              new='product-assistant.js?v=27.74.7'
+              if old in s:
+                  s=s.replace(old,new)
+              elif new not in s:
+                  import re
+                  s=re.sub(r'product-assistant\.js\?v=[^\"\']+', 'product-assistant.js?v=27.74.7', s)
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit cache-busting loader change
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'Already current'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html en/index.html
+          git commit -m 'v27.74.7 Force KO EN homepage loader refresh'
+          git push
