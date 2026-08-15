@@ -1,0 +1,21 @@
+{
+  "schema": "coreon.unified-release-axis.v28.10",
+  "release": "v28.10",
+  "languages": ["ko", "en"],
+  "homepage": {
+    "pc": "required",
+    "mobile": "required"
+  },
+  "application": {
+    "customerPc": "required",
+    "customerMobile": "required",
+    "adminPc": "required",
+    "adminMobile": "required"
+  },
+  "delivery": {
+    "github": "required",
+    "renderProduction": "required"
+  },
+  "claimBoundary": "homepage must not claim a capability, certification, field outcome or procurement status beyond the application evidence state",
+  "releaseDecision": "BLOCK_UNLESS_KO_EN_AND_ALL_REQUIRED_SURFACES_MATCH"
+}
