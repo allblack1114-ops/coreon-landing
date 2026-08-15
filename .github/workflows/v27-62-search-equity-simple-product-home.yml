@@ -15,8 +15,10 @@ on:
       - 'en/pricing.html'
       - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
+      - 'assets/product-assistant-core.js'
       - 'assets/product-assistant-links.js'
       - 'assets/device-install-guide.js'
+      - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
   pull_request:
@@ -29,9 +31,12 @@ on:
       - 'en/pricing.html'
       - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
+      - 'assets/product-assistant-core.js'
       - 'assets/product-assistant-links.js'
       - 'assets/device-install-guide.js'
+      - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
+      - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
 
 jobs:
   preserve-search-equity-and-product-home:
@@ -49,14 +54,14 @@ jobs:
           grep -Fq '잔여위험 재평가' index.html
           grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
           grep -Fq 'name="robots" content="index,follow,max-image-preview:large"' index.html
-      - name: Preserve bilingual structured search contract
+      - name: Preserve bilingual search metadata contract
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'hreflang="ko"' index.html
           grep -Fq 'hreflang="en"' index.html
-          grep -Fq 'SoftwareApplication' index.html
-          grep -Fq 'Organization' index.html
+          grep -Fq 'property="og:type" content="website"' index.html
+          grep -Fq 'property="og:site_name" content="COREON"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
       - name: Verify simple customer product journey
         shell: bash
@@ -70,6 +75,11 @@ jobs:
           grep -Fq '고객지원' assets/safety-home-enhancer.js
           grep -Fq '현장 위험을 더 쉽게 보고하고' assets/safety-home-enhancer.js
           grep -Fq '.coreon-product-home .safety-legend{display:none!important}' assets/safety-home-enhancer.js
+          grep -Fq '산업별 적용 분야' assets/v27-80-industry-autodesk-ratio.js
+          grep -Fq '공공기관·발주처' assets/v27-80-industry-autodesk-ratio.js
+          grep -Fq '건설·플랜트' assets/v27-80-industry-autodesk-ratio.js
+          grep -Fq '제조·물류·식품' assets/v27-80-industry-autodesk-ratio.js
+          grep -Fq '중소사업장·대표' assets/v27-80-industry-autodesk-ratio.js
           if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Eq 'Runtime|API Contract|Integration Hub'; then
             echo 'Internal technical navigation must not re-enter the simple public product home.' >&2
             exit 1
@@ -96,10 +106,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'COREON AI 제품도우미' assets/product-assistant.js
-          grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant.js
-          grep -Fq "consent:true" assets/product-assistant.js
-          grep -Fq '개별 법률 적용·적합성 판단' assets/product-assistant.js
+          grep -Fq 'product-assistant-core.js' assets/product-assistant.js
+          grep -Fq 'v27-80-industry-autodesk-ratio.js' assets/product-assistant.js
+          grep -Fq 'COREON AI 제품도우미' assets/product-assistant-core.js
+          grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant-core.js
+          grep -Fq "consent:true" assets/product-assistant-core.js
+          grep -Fq '개별 법률 적용·적합성 판단' assets/product-assistant-core.js
           grep -Fq 'product-assistant.js?v=27.62.0' assets/safety-home-enhancer.js
           grep -Fq 'product-assistant.js?v=27.62.0' download.html
           grep -Fq 'product-assistant.js?v=27.62.0' pricing.html
