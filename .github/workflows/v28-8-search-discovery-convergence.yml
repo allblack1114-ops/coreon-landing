@@ -1,0 +1,25 @@
+name: v28.8 Search Discovery Convergence - Homepage
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify KO/EN institutional bridge pages
+        run: |
+          grep -q '공공기관·대기업 중대재해 AI 안전관리 검증' institutional-safety-ai.html
+          grep -q 'Public-Sector & Enterprise Safety AI Verification' en/institutional-safety-ai.html
+          grep -q 'https://app.coreon-global.com/institutional-safety-ai.html' institutional-safety-ai.html
+          grep -q 'https://app.coreon-global.com/en/institutional-safety-ai.html' en/institutional-safety-ai.html
+          grep -q 'application/ld+json' institutional-safety-ai.html
+          grep -q 'application/ld+json' en/institutional-safety-ai.html
+      - name: Verify sitemap discovery
+        run: |
+          grep -q 'https://www.coreon-global.com/institutional-safety-ai.html' sitemap.xml
+          grep -q 'https://www.coreon-global.com/en/institutional-safety-ai.html' sitemap.xml
