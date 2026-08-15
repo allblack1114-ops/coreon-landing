@@ -1,5 +1,5 @@
 {
-  "authority_id": "coreon-trust-2026-08-15.1",
+  "authority_id": "coreon-trust-2026-08-15.2",
   "effective_date": "2026-08-15",
   "company": {
     "legal_name_ko": "주식회사 코레온홀딩스",
@@ -10,6 +10,13 @@
     "ko": "위험 발견부터 사람 검토, 담당자·기한, 조치, 증빙, 잔여위험 재평가와 최종 확인까지 연결하는 Safety Execution Technology Company",
     "en": "A Safety Execution Technology Company connecting hazard discovery to human review, ownership, corrective action, evidence, residual-risk reassessment and final verification."
   },
+  "enterprise_supply_performance": [
+    {
+      "customer": "에이치엘디앤아이한라 주식회사 (HL D&I Halla)",
+      "status": "공급 수행 실적 보유",
+      "claim_guard": "COREON Safety AX Agent 도입 또는 사용 레퍼런스로 표현하지 않는다. 실제 거래·공급 수행 사실의 범위에서만 기업 수행역량 신뢰근거로 사용하고 세부 품목·수량·금액은 별도 공개 승인 없이는 전면 노출하지 않는다."
+    }
+  ],
   "public_market": {
     "program": "중소기업기술마켓 상생추천협의체 무실적 기술·제품 등록후보군",
     "status": "등록후보군",
