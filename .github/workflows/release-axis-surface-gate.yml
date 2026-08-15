@@ -38,10 +38,12 @@ jobs:
           const fs=require('fs');
           const x=JSON.parse(fs.readFileSync('release-axis.json','utf8'));
           if(x.schema!=='coreon.release-axis.v1') throw Error('release axis schema mismatch');
-          if(x.releaseAxis!=='v28.1-proof-grade') throw Error('release axis mismatch');
+          if(x.releaseAxis!=='v28.4-proof-grade') throw Error('release axis mismatch');
           const required=['app-ko-pc','app-ko-mobile','app-en-pc','app-en-mobile','landing-ko-pc','landing-ko-mobile','landing-en-pc','landing-en-mobile'];
           for(const s of required) if(!x.requiredSurfaces.includes(s)) throw Error('missing surface '+s);
-          if(!x.principles?.failClosedOnMismatch) throw Error('release mismatch must fail closed');
+          const layers=['performance-evidence','baseline-cohort-recurrence','public-saas-assurance','integration-evidence','vision-edge-field-proof','machine-readable-evidence-manifest'];
+          for(const layer of layers) if(!x.benchmarkLayers.includes(layer)) throw Error('missing benchmark layer '+layer);
+          if(!x.principles?.failClosedOnMismatch||!x.principles?.verifiedPassRequiresRealEvidence) throw Error('release mismatch/evidence policy incomplete');
           NODE
       - name: Verify Korean and English PC/mobile source parity
         run: |
@@ -80,10 +82,10 @@ jobs:
               const m=await get('/release-axis.json');
               if(m.r.ok){
                 const x=JSON.parse(m.t);
-                if(x.releaseAxis==='v28.1-proof-grade'){
+                if(x.releaseAxis==='v28.4-proof-grade'){
                   const ko=await get('/'); const en=await get('/en/');
                   if(ko.r.ok&&en.r.ok&&ko.t.includes('name="viewport"')&&en.t.includes('name="viewport"')&&ko.t.includes('@media(max-width:560px)')&&en.t.includes('@media(max-width:560px)')){
-                    console.log('PASS landing release-axis KO/EN PC/mobile convergence');
+                    console.log('PASS landing v28.4 release-axis KO/EN PC/mobile convergence');
                     process.exit(0);
                   }
                 }
@@ -92,5 +94,5 @@ jobs:
             }catch(e){last=e.message}
             await sleep(15000);
           }
-          throw Error('Landing did not converge to release axis v28.1-proof-grade: '+last);
+          throw Error('Landing did not converge to release axis v28.4-proof-grade: '+last);
           NODE
