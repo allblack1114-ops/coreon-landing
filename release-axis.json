@@ -1,6 +1,6 @@
 {
   "schema": "coreon.release-axis.v1",
-  "releaseAxis": "v28.5-proof-grade",
+  "releaseAxis": "v28.6-public-demand-engine",
   "product": "COREON Safety AX Agent",
   "requiredSurfaces": [
     "app-ko-pc",
@@ -23,7 +23,10 @@
     "public-dpia-readiness",
     "support-sla-console",
     "pilot-evidence-report",
-    "management-intelligence"
+    "management-intelligence",
+    "public-saas-certification-boundary",
+    "standard-8-12-week-pilot",
+    "public-proof-procurement-center"
   ],
   "principles": {
     "sameReleaseAxis": true,
@@ -33,6 +36,8 @@
     "failClosedOnMismatch": true,
     "verifiedPassRequiresRealEvidence": true,
     "customerDataNotTrainingDataByDefault": true,
-    "privacyAndSupportEvidenceRequired": true
+    "privacyAndSupportEvidenceRequired": true,
+    "csapClaimRequiresActualCertificate": true,
+    "publicPerformanceClaimRequiresRealFieldEvidence": true
   }
 }
