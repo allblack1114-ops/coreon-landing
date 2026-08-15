@@ -1,0 +1,45 @@
+{
+  "authority_id": "coreon-trust-2026-08-15.1",
+  "effective_date": "2026-08-15",
+  "company": {
+    "legal_name_ko": "주식회사 코레온홀딩스",
+    "legal_name_en": "COREON HOLDINGS Co., Ltd.",
+    "product": "COREON Safety AX Agent"
+  },
+  "positioning": {
+    "ko": "위험 발견부터 사람 검토, 담당자·기한, 조치, 증빙, 잔여위험 재평가와 최종 확인까지 연결하는 Safety Execution Technology Company",
+    "en": "A Safety Execution Technology Company connecting hazard discovery to human review, ownership, corrective action, evidence, residual-risk reassessment and final verification."
+  },
+  "public_market": {
+    "program": "중소기업기술마켓 상생추천협의체 무실적 기술·제품 등록후보군",
+    "status": "등록후보군",
+    "candidate_designated_date": "2026-08-13",
+    "claim_guard": "정식 기술마켓 등록·인증 완료로 표현하지 않는다. 공공기관 구매희망과 공동검증을 거쳐 정식 등록될 수 있는 후보 단계로만 표현한다."
+  },
+  "registered_patents": [
+    {"number":"10-2910824","title":"콘크리트 펌프카 안전보조시스템","layer":"Physical Safety / Interlock"},
+    {"number":"10-2912421","title":"조끼일체형 호흡보호장비","layer":"Physical Safety / Worker Protection"},
+    {"number":"10-2917068","title":"해제홈구조를 포함하는 안전개봉 커버어셈블리","layer":"Physical Safety / Access & Tamper Evidence"}
+  ],
+  "patent_applications": [
+    {"title":"현장 사건 기반 이종 업무처리 연계 및 폐쇄형 증빙·잔여위험 재평가 시스템 및 그 방법","layer":"Safety AX / Closed-loop Evidence"},
+    {"title":"AI 및 XR 기반 위험인지 산업설비 실행 차단 시스템 및 그 제어 방법","layer":"Perception & Physical Execution Control"},
+    {"title":"산업 전기설비 위험인지 분석 및 3차원 공간 오버레이 기반 작업 실행 통제 시스템 및 그 제어 방법","layer":"Electrical Safety / 3D Risk Overlay & Work Control"},
+    {"title":"스마트 사고예측 기반 산업 모빌리티 외부 완충 안전실행 시스템","layer":"Industrial Mobility / Predictive Safety Execution"},
+    {"title":"보이스피싱 범죄 사전차단을 위한 유도형 디지털 안전시스템","layer":"Adjacent Digital Safety IP"}
+  ],
+  "product_principles": [
+    "AI는 위험후보와 업무정리를 보조하고 최종 안전 판단과 종결 권한은 사람에게 둔다.",
+    "담당자·기한·필수 증빙·잔여위험·승인 조건이 충족되지 않으면 종결을 제한하는 Fail-closed 원칙을 유지한다.",
+    "고객·현장·역할별 데이터 범위를 분리하고 운영·관리자 영역을 고객 영역과 분리한다.",
+    "Production GO는 소스 수정과 구분하며 CI, 실제 배포 SHA, Production Smoke 등 검증증거에 근거한다."
+  ],
+  "sync_targets": [
+    "coreon-global.com desktop/mobile",
+    "coreon-global.com English",
+    "app.coreon-global.com customer surfaces",
+    "app.coreon-global.com admin surfaces",
+    "GitHub source and release documentation",
+    "Render production deployment evidence"
+  ]
+}
