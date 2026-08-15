@@ -16,6 +16,7 @@ on:
       - 'assets/product-assistant.js'
       - 'assets/product-assistant-core.js'
       - 'assets/v27-73-governance.js'
+      - 'assets/v27-73-2-company-trust-footer.js'
       - 'assets/v27-74-1-hero-product-visual.js'
       - 'assets/v27-79-home-ratio-about.js'
       - 'assets/v27-80-industry-autodesk-ratio.js'
@@ -32,6 +33,7 @@ on:
       - 'assets/product-assistant.js'
       - 'assets/product-assistant-core.js'
       - 'assets/v27-73-governance.js'
+      - 'assets/v27-73-2-company-trust-footer.js'
       - 'assets/v27-74-1-hero-product-visual.js'
       - 'assets/v27-79-home-ratio-about.js'
       - 'assets/v27-80-industry-autodesk-ratio.js'
@@ -100,6 +102,7 @@ jobs:
           set -euo pipefail
           grep -Fq 'product-assistant-core.js' assets/product-assistant.js
           grep -Fq 'v27-73-governance.js' assets/product-assistant.js
+          grep -Fq 'v27-73-2-company-trust-footer.js' assets/product-assistant.js
           grep -Fq 'v27-74-1-hero-product-visual.js' assets/product-assistant.js
           grep -Fq 'v27-79-home-ratio-about.js' assets/product-assistant.js
           grep -Fq 'v27-80-industry-autodesk-ratio.js' assets/product-assistant.js
@@ -111,9 +114,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
-          grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
-          grep -Fq 'COREON Mall' index.html
+          grep -Fq 'https://smartstore.naver.com/coreonmall' assets/v27-73-2-company-trust-footer.js
+          grep -Fq '산업안전용품·현장장비는 COREON Mall' assets/v27-73-2-company-trust-footer.js
+          grep -Fq 'COREON Mall' assets/v27-73-2-company-trust-footer.js
       - name: Verify download center claims only real distribution modes
         shell: bash
         run: |
