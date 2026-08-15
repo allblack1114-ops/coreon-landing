@@ -1,0 +1,1 @@
+(()=>{if(document.querySelector('script[src*="product-assistant.js"]'))return;const s=document.createElement('script');s.src='/assets/product-assistant.js?v=27.78';s.defer=true;document.body.appendChild(s)})();
