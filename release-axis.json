@@ -1,6 +1,6 @@
 {
   "schema": "coreon.release-axis.v1",
-  "releaseAxis": "v28.1-proof-grade",
+  "releaseAxis": "v28.4-proof-grade",
   "product": "COREON Safety AX Agent",
   "requiredSurfaces": [
     "app-ko-pc",
@@ -12,11 +12,20 @@
     "landing-en-pc",
     "landing-en-mobile"
   ],
+  "benchmarkLayers": [
+    "performance-evidence",
+    "baseline-cohort-recurrence",
+    "public-saas-assurance",
+    "integration-evidence",
+    "vision-edge-field-proof",
+    "machine-readable-evidence-manifest"
+  ],
   "principles": {
     "sameReleaseAxis": true,
     "renderExactCommitRequired": true,
     "bilingualParityRequired": true,
     "responsiveParityRequired": true,
-    "failClosedOnMismatch": true
+    "failClosedOnMismatch": true,
+    "verifiedPassRequiresRealEvidence": true
   }
 }
