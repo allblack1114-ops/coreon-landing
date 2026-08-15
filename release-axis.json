@@ -1,0 +1,22 @@
+{
+  "schema": "coreon.release-axis.v1",
+  "releaseAxis": "v28.1-proof-grade",
+  "product": "COREON Safety AX Agent",
+  "requiredSurfaces": [
+    "app-ko-pc",
+    "app-ko-mobile",
+    "app-en-pc",
+    "app-en-mobile",
+    "landing-ko-pc",
+    "landing-ko-mobile",
+    "landing-en-pc",
+    "landing-en-mobile"
+  ],
+  "principles": {
+    "sameReleaseAxis": true,
+    "renderExactCommitRequired": true,
+    "bilingualParityRequired": true,
+    "responsiveParityRequired": true,
+    "failClosedOnMismatch": true
+  }
+}
