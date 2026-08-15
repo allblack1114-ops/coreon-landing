@@ -1,0 +1,1 @@
+v27.78 guard: preserve the 333333 homepage information architecture and AI chatbot. Autodesk is a ratio/spacing/typography reference only. ABOUT COREON opens the existing trust page. No feature/content removals without explicit approval.
