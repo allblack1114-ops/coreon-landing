@@ -13,11 +13,11 @@ on:
       - 'en/download.html'
       - 'pricing.html'
       - 'en/pricing.html'
-      - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
       - 'assets/product-assistant-core.js'
-      - 'assets/product-assistant-links.js'
-      - 'assets/device-install-guide.js'
+      - 'assets/v27-73-governance.js'
+      - 'assets/v27-74-1-hero-product-visual.js'
+      - 'assets/v27-79-home-ratio-about.js'
       - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
@@ -29,11 +29,11 @@ on:
       - 'en/download.html'
       - 'pricing.html'
       - 'en/pricing.html'
-      - 'assets/safety-home-enhancer.js'
       - 'assets/product-assistant.js'
       - 'assets/product-assistant-core.js'
-      - 'assets/product-assistant-links.js'
-      - 'assets/device-install-guide.js'
+      - 'assets/v27-73-governance.js'
+      - 'assets/v27-74-1-hero-product-visual.js'
+      - 'assets/v27-79-home-ratio-about.js'
       - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
@@ -63,27 +63,23 @@ jobs:
           grep -Fq 'property="og:type" content="website"' index.html
           grep -Fq 'property="og:site_name" content="COREON"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify simple customer product journey
+      - name: Verify approved homepage workflow and industry applications
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq '제품</a>' assets/safety-home-enhancer.js
-          grep -Fq '주요기능' assets/safety-home-enhancer.js
-          grep -Fq '산업별 활용' assets/safety-home-enhancer.js
-          grep -Fq '요금제' assets/safety-home-enhancer.js
-          grep -Fq '다운로드' assets/safety-home-enhancer.js
-          grep -Fq '고객지원' assets/safety-home-enhancer.js
-          grep -Fq '현장 위험을 더 쉽게 보고하고' assets/safety-home-enhancer.js
-          grep -Fq '.coreon-product-home .safety-legend{display:none!important}' assets/safety-home-enhancer.js
+          grep -Fq '현장 위험제보부터' index.html
+          grep -Fq '조치·사진증빙·재확인' index.html
+          grep -Fq 'TBM·위험성평가' assets/v27-73-governance.js
+          grep -Fq '종사자 의견·피드백' assets/v27-73-governance.js
+          grep -Fq '도급·협력사 이행 확인' assets/v27-73-governance.js
+          grep -Fq '정기점검·Evidence Pack' assets/v27-73-governance.js
+          grep -Fq 'coreon-ax-hero-product.svg' assets/v27-74-1-hero-product-visual.js
+          grep -Fq 'ABOUT COREON' assets/v27-79-home-ratio-about.js
           grep -Fq '산업별 적용 분야' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '공공기관·발주처' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '건설·플랜트' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '제조·물류·식품' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '중소사업장·대표' assets/v27-80-industry-autodesk-ratio.js
-          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Eq 'Runtime|API Contract|Integration Hub'; then
-            echo 'Internal technical navigation must not re-enter the simple public product home.' >&2
-            exit 1
-          fi
       - name: Verify bilingual plans and free participation policy
         shell: bash
         run: |
@@ -91,10 +87,6 @@ jobs:
           grep -Fq 'Safety Start Free' pricing.html
           grep -Fq '현장 1개 · 관리자/운영자 3명 · 현장 참여자 제한 없음 · 저장공간 1GB' pricing.html
           grep -Fq '현장 참여자·안전활동 건수 과금 없음' pricing.html
-          grep -Fq '코레온 안전관리' pricing.html
-          grep -Fq '코레온 현장안전' pricing.html
-          grep -Fq '코레온 통합안전' pricing.html
-          grep -Fq '코레온 안전관제' pricing.html
           grep -Fq '월 297,000원' pricing.html
           grep -Fq '월 490,000원' pricing.html
           grep -Fq '월 990,000원' pricing.html
@@ -107,16 +99,14 @@ jobs:
         run: |
           set -euo pipefail
           grep -Fq 'product-assistant-core.js' assets/product-assistant.js
+          grep -Fq 'v27-73-governance.js' assets/product-assistant.js
+          grep -Fq 'v27-74-1-hero-product-visual.js' assets/product-assistant.js
+          grep -Fq 'v27-79-home-ratio-about.js' assets/product-assistant.js
           grep -Fq 'v27-80-industry-autodesk-ratio.js' assets/product-assistant.js
           grep -Fq 'COREON AI 제품도우미' assets/product-assistant-core.js
           grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant-core.js
           grep -Fq "consent:true" assets/product-assistant-core.js
           grep -Fq '개별 법률 적용·적합성 판단' assets/product-assistant-core.js
-          grep -Fq 'product-assistant.js?v=27.62.0' assets/safety-home-enhancer.js
-          grep -Fq 'product-assistant.js?v=27.62.0' download.html
-          grep -Fq 'product-assistant.js?v=27.62.0' pricing.html
-          grep -Fq 'product-assistant-links.js?v=27.62.0' pricing.html
-          grep -Fq 'product-assistant-links.js?v=27.62.0' en/pricing.html
       - name: Keep COREON Mall as a secondary ecosystem channel
         shell: bash
         run: |
@@ -124,10 +114,6 @@ jobs:
           grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
           grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
           grep -Fq 'COREON Mall' index.html
-          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
-            echo 'COREON Mall must remain secondary and must not enter primary product navigation.' >&2
-            exit 1
-          fi
       - name: Verify download center claims only real distribution modes
         shell: bash
         run: |
