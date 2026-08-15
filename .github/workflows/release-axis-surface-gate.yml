@@ -1,0 +1,96 @@
+name: COREON Release Axis Surface Gate
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'release-axis.json'
+      - '.github/workflows/release-axis-surface-gate.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'release-axis.json'
+      - '.github/workflows/release-axis-surface-gate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-axis-landing-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate release axis manifest
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const x=JSON.parse(fs.readFileSync('release-axis.json','utf8'));
+          if(x.schema!=='coreon.release-axis.v1') throw Error('release axis schema mismatch');
+          if(x.releaseAxis!=='v28.1-proof-grade') throw Error('release axis mismatch');
+          const required=['app-ko-pc','app-ko-mobile','app-en-pc','app-en-mobile','landing-ko-pc','landing-ko-mobile','landing-en-pc','landing-en-mobile'];
+          for(const s of required) if(!x.requiredSurfaces.includes(s)) throw Error('missing surface '+s);
+          if(!x.principles?.failClosedOnMismatch) throw Error('release mismatch must fail closed');
+          NODE
+      - name: Verify Korean and English PC/mobile source parity
+        run: |
+          set -euo pipefail
+          grep -Fq '<html lang="ko">' index.html
+          grep -Fq 'name="viewport"' index.html
+          grep -Fq '@media(max-width:900px)' index.html
+          grep -Fq '@media(max-width:560px)' index.html
+          grep -Fq '무료 안전진단' index.html
+          grep -Fq '무료 안전방 만들기' index.html
+          grep -Fq '기업·공공기관 도입 상담' index.html
+          grep -Fq '<html lang="en">' en/index.html
+          grep -Fq 'name="viewport"' en/index.html
+          grep -Fq '@media(max-width:900px)' en/index.html
+          grep -Fq '@media(max-width:560px)' en/index.html
+          grep -Fq 'Free safety check' en/index.html
+          grep -Fq 'Create free Safety Room' en/index.html
+          grep -Fq 'Public / Enterprise inquiry' en/index.html
+
+  live-pages-convergence:
+    if: github.event_name == 'push'
+    needs: source-parity
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for GitHub Pages and verify KO/EN release axis
+        run: |
+          node - <<'NODE'
+          const base='https://www.coreon-global.com';
+          const deadline=Date.now()+12*60*1000;
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function get(path){const r=await fetch(base+path+'?releaseAxis='+Date.now(),{cache:'no-store'});return {r,t:await r.text()}}
+          let last='';
+          while(Date.now()<deadline){
+            try{
+              const m=await get('/release-axis.json');
+              if(m.r.ok){
+                const x=JSON.parse(m.t);
+                if(x.releaseAxis==='v28.1-proof-grade'){
+                  const ko=await get('/'); const en=await get('/en/');
+                  if(ko.r.ok&&en.r.ok&&ko.t.includes('name="viewport"')&&en.t.includes('name="viewport"')&&ko.t.includes('@media(max-width:560px)')&&en.t.includes('@media(max-width:560px)')){
+                    console.log('PASS landing release-axis KO/EN PC/mobile convergence');
+                    process.exit(0);
+                  }
+                }
+              }
+              last=m.t.slice(0,200);
+            }catch(e){last=e.message}
+            await sleep(15000);
+          }
+          throw Error('Landing did not converge to release axis v28.1-proof-grade: '+last);
+          NODE
