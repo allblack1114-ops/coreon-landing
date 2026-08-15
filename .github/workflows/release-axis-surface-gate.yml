@@ -7,6 +7,8 @@ on:
       - 'index.html'
       - 'en/index.html'
       - 'release-axis.json'
+      - 'assets/product-assistant.js'
+      - 'assets/v28-4-proof-grade-benchmark.js'
       - '.github/workflows/release-axis-surface-gate.yml'
   push:
     branches: [ main ]
@@ -14,6 +16,8 @@ on:
       - 'index.html'
       - 'en/index.html'
       - 'release-axis.json'
+      - 'assets/product-assistant.js'
+      - 'assets/v28-4-proof-grade-benchmark.js'
       - '.github/workflows/release-axis-surface-gate.yml'
 
 permissions:
@@ -38,10 +42,12 @@ jobs:
           const fs=require('fs');
           const x=JSON.parse(fs.readFileSync('release-axis.json','utf8'));
           if(x.schema!=='coreon.release-axis.v1') throw Error('release axis schema mismatch');
-          if(x.releaseAxis!=='v28.1-proof-grade') throw Error('release axis mismatch');
+          if(x.releaseAxis!=='v28.4-proof-grade') throw Error('release axis mismatch');
           const required=['app-ko-pc','app-ko-mobile','app-en-pc','app-en-mobile','landing-ko-pc','landing-ko-mobile','landing-en-pc','landing-en-mobile'];
           for(const s of required) if(!x.requiredSurfaces.includes(s)) throw Error('missing surface '+s);
-          if(!x.principles?.failClosedOnMismatch) throw Error('release mismatch must fail closed');
+          const layers=['performance-evidence','baseline-cohort-recurrence','public-saas-assurance','integration-evidence','vision-edge-field-proof','machine-readable-evidence-manifest'];
+          for(const layer of layers) if(!x.benchmarkLayers.includes(layer)) throw Error('missing benchmark layer '+layer);
+          if(!x.principles?.failClosedOnMismatch||!x.principles?.verifiedPassRequiresRealEvidence) throw Error('release mismatch/evidence policy incomplete');
           NODE
       - name: Verify Korean and English PC/mobile source parity
         run: |
@@ -60,6 +66,15 @@ jobs:
           grep -Fq 'Free safety check' en/index.html
           grep -Fq 'Create free Safety Room' en/index.html
           grep -Fq 'Public / Enterprise inquiry' en/index.html
+      - name: Verify Proof-Grade public section contract
+        run: |
+          set -euo pipefail
+          grep -Fq 'v28-4-proof-grade-benchmark.js?v=28.4' assets/product-assistant.js
+          grep -Fq '실제 운영 증거로 검증합니다' assets/v28-4-proof-grade-benchmark.js
+          grep -Fq 'operational evidence' assets/v28-4-proof-grade-benchmark.js
+          grep -Fq '@media(max-width:900px)' assets/v28-4-proof-grade-benchmark.js
+          grep -Fq '@media(max-width:560px)' assets/v28-4-proof-grade-benchmark.js
+          grep -Fq '실제 표본이 없는 성과수치는 만들지 않습니다' assets/v28-4-proof-grade-benchmark.js
 
   live-pages-convergence:
     if: github.event_name == 'push'
@@ -80,10 +95,10 @@ jobs:
               const m=await get('/release-axis.json');
               if(m.r.ok){
                 const x=JSON.parse(m.t);
-                if(x.releaseAxis==='v28.1-proof-grade'){
-                  const ko=await get('/'); const en=await get('/en/');
-                  if(ko.r.ok&&en.r.ok&&ko.t.includes('name="viewport"')&&en.t.includes('name="viewport"')&&ko.t.includes('@media(max-width:560px)')&&en.t.includes('@media(max-width:560px)')){
-                    console.log('PASS landing release-axis KO/EN PC/mobile convergence');
+                if(x.releaseAxis==='v28.4-proof-grade'){
+                  const ko=await get('/'); const en=await get('/en/'); const asset=await get('/assets/v28-4-proof-grade-benchmark.js'); const loader=await get('/assets/product-assistant.js');
+                  if(ko.r.ok&&en.r.ok&&asset.r.ok&&loader.r.ok&&ko.t.includes('name="viewport"')&&en.t.includes('name="viewport"')&&ko.t.includes('@media(max-width:560px)')&&en.t.includes('@media(max-width:560px)')&&asset.t.includes('실제 운영 증거로 검증합니다')&&asset.t.includes('operational evidence')&&loader.t.includes('v28-4-proof-grade-benchmark.js?v=28.4')){
+                    console.log('PASS landing v28.4 release-axis KO/EN PC/mobile + Proof-Grade section convergence');
                     process.exit(0);
                   }
                 }
@@ -92,5 +107,5 @@ jobs:
             }catch(e){last=e.message}
             await sleep(15000);
           }
-          throw Error('Landing did not converge to release axis v28.1-proof-grade: '+last);
+          throw Error('Landing did not converge to release axis v28.4-proof-grade: '+last);
           NODE
