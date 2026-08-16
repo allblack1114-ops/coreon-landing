@@ -1,0 +1,44 @@
+name: COREON Landing Customer Surface Quality Gate
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'en/**'
+      - 'release-axis.json'
+      - '.github/workflows/customer-surface-quality-gate.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'en/**'
+      - 'release-axis.json'
+      - '.github/workflows/customer-surface-quality-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-live-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate source and live landing parity
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const assert=require('node:assert/strict');
+          const axis=JSON.parse(fs.readFileSync('release-axis.json','utf8')).releaseAxis;
+          const visible=s=>String(s).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<!--([\s\S]*?)-->/g,' ').replace(/<[^>]+>/g,' ').replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&').replace(/\s+/g,' ').trim();
+          const labels=s=>[...new Set(String(s).match(/\bv\d+\.\d+(?:\.\d+)?(?:-[A-Za-z0-9.-]+)?\b/g)||[])];
+          const inspect=(body,label)=>{const t=visible(body); for(const [re,n] of [[/\$\{[^}]+\}/,'template placeholder'],[/\bcustomer-hub-\$?\{?/i,'customer-hub development identifier'],[/\blocalhost(?::\d+)?\b/i,'localhost'],[/\b(?:TODO|FIXME)\b/,'TODO/FIXME'],[/\bundefined\b/i,'undefined']]) assert(!re.test(t),`${label} exposes ${n}`); const bad=labels(t).filter(v=>v!==axis); assert.equal(bad.length,0,`${label} exposes non-canonical release ${bad.join(', ')}`); return t;};
+          for(const f of ['index.html','en/index.html']){const b=fs.readFileSync(f,'utf8');assert(/<meta\s+name=["']viewport["']/i.test(b),`${f} missing viewport`);inspect(b,f)}
+          async function get(u){const r=await fetch(u+(u.includes('?')?'&':'?')+'qualityGate='+Date.now(),{cache:'no-store',redirect:'follow',signal:AbortSignal.timeout(20000),headers:{'user-agent':'COREON-landing-quality-gate/1.0'}});assert.equal(r.status,200,`${u} ${r.status}`);return r.text()}
+          (async()=>{const [ka,ea,la,aa]=await Promise.all([get('https://www.coreon-global.com/'),get('https://www.coreon-global.com/en/'),get('https://www.coreon-global.com/release-axis.json'),get('https://app.coreon-global.com/release-axis.json')]);inspect(ka,'live-ko');inspect(ea,'live-en');const l=JSON.parse(la),a=JSON.parse(aa);assert.equal(l.releaseAxis,axis,'landing release mismatch');assert.equal(a.releaseAxis,axis,'app release mismatch');assert.equal(a.releaseAxis,l.releaseAxis,'app/landing release mismatch');console.log(JSON.stringify({status:'PASS',release:axis,surfaces:4}))})().catch(e=>{console.error(e.stack||e);process.exit(1)});
+          NODE
