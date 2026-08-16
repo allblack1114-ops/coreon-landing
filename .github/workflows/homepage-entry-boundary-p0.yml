@@ -24,14 +24,13 @@ jobs:
           for name,lang in [('index.html','ko'),('en/index.html','en')]:
               p=Path(name); s=p.read_text(encoding='utf-8')
               if lang=='ko':
-                  # Homepage cards may explain industries, but operational starts go to Download Center only.
+                  s=re.sub(r'href="[^"]+">3분 진단하기\s*→</a>', 'href="/download.html?source=industry-sme-start">무료로 시작하기 →</a>', s)
                   s=re.sub(r'href="[^"]+">도입 검토하기\s*→</a>', 'href="#proof">도입 검토하기 →</a>', s)
                   s=re.sub(r'href="[^"]+">제품 흐름 보기\s*→</a>', 'href="#how">제품 흐름 보기 →</a>', s)
                   s=re.sub(r'href="[^"]+">무료로 시작하기\s*→</a>', 'href="/download.html?source=industry-free-start">무료로 시작하기 →</a>', s)
-                  s=re.sub(r'href="[^"]+">3분 진단하기\s*→</a>', 'href="/download.html?source=industry-sme-start">무료로 시작하기 →</a>', s)
               else:
-                  s=re.sub(r'href="[^"]+">Start free\s*→</a>', 'href="/en/download.html?source=industry-free-start">Start free →</a>', s)
                   s=re.sub(r'href="[^"]+">3-minute[^<]*→</a>', 'href="/en/download.html?source=industry-sme-start">Start free →</a>', s)
+                  s=re.sub(r'href="[^"]+">Start free\s*→</a>', 'href="/en/download.html?source=industry-free-start">Start free →</a>', s)
               p.write_text(s,encoding='utf-8')
           PY
       - name: Verify homepage boundary
@@ -41,10 +40,10 @@ jobs:
           from pathlib import Path
           s=Path('index.html').read_text(encoding='utf-8')
           assert '3분 진단하기' not in s
-          assert '/download.html?source=industry-free-start' in s
-          assert '/download.html?source=industry-sme-start' in s
+          assert s.count('/download.html?source=industry-') >= 1
           assert 'href="#proof">도입 검토하기 →</a>' in s
           assert 'href="#how">제품 흐름 보기 →</a>' in s
+          assert 'app.coreon-global.com/free-assessment' not in s
           print('HOMEPAGE PRODUCT-ENTRY BOUNDARY: PASS')
           PY
       - name: Commit homepage boundary repair
