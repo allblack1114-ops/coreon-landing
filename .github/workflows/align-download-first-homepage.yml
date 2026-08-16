@@ -1,0 +1,66 @@
+name: COREON Download First Homepage Alignment
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/align-download-first-homepage.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Convert homepage funnel to free-start and download first
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+
+          let home = fs.readFileSync('index.html','utf8');
+          const oldActions = '<div class="act"><a class="btn b" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-diagnosis">무료 안전진단</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-home-safety-room">무료 안전방 만들기</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div><a class="install-link" href="https://app.coreon-global.com/install.html?source=coreon-home-install">AX Agent 설치·다운로드 →</a>';
+          const newActions = '<div class="act"><a class="btn b" href="/download.html?source=coreon-home-free-start">무료로 시작하기</a><a class="btn a" href="/download.html?source=coreon-home-download">COREON AX Agent 다운로드</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div><a class="install-link" href="/download.html?source=coreon-home-install">설치 후 Free / Paid / Enterprise 기능이 계정 권한에 따라 열립니다 →</a>';
+          if (!home.includes(oldActions)) throw new Error('homepage CTA block changed; refusing blind rewrite');
+          home = home.replace(oldActions, newActions);
+          home = home.replace('href="https://app.coreon-global.com/install.html?source=coreon-home-nav">설치·다운로드</a>', 'href="/download.html?source=coreon-home-nav">설치·다운로드</a>');
+          home = home.replace('복잡한 설명보다 실제 사용으로 먼저 확인하세요.', '홈페이지에서는 핵심 가치를 확인하고, COREON AX Agent를 설치해 실제 업무로 시작하세요.');
+          fs.writeFileSync('index.html', home);
+
+          let download = fs.readFileSync('download.html','utf8');
+          download = download.replace('<div class="tag green">무료 시작</div><h2>먼저 무료로 확인하세요</h2><p>3분 무료 안전진단으로 현재 안전관리 흐름을 확인하고, Safety Start Free에서 현장 1개·관리자/운영자 3명·현장 참여자 제한 없이 시작할 수 있습니다.</p><a class="btn alt" href="https://app.coreon-global.com/free-diagnosis?source=download">무료 안전진단</a>', '<div class="tag green">무료 시작</div><h2>같은 COREON AX Agent로 무료부터 시작하세요</h2><p>별도 체험용 제품이 아니라 동일한 COREON AX Agent를 설치합니다. 로그인한 조직과 계약 권한에 따라 Free / Paid / Enterprise 기능이 열립니다.</p><a class="btn alt" href="https://app.coreon-global.com/install.html?source=download-free-start">무료로 설치·시작하기</a>');
+          download = download.replace('기기에 맞게 COREON Safety AX Agent를 설치하고 무료 안전진단부터 시작하세요.', '기기에 맞게 COREON Safety AX Agent를 설치하고 동일한 제품에서 무료부터 시작하세요.');
+          fs.writeFileSync('download.html', download);
+          NODE
+      - name: Verify public funnel contract
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const home=fs.readFileSync('index.html','utf8');
+          const download=fs.readFileSync('download.html','utf8');
+          if (!home.includes('무료로 시작하기')) throw new Error('missing free-start CTA');
+          if (!home.includes('COREON AX Agent 다운로드')) throw new Error('missing download CTA');
+          if (home.includes('coreon-home-diagnosis">무료 안전진단')) throw new Error('legacy diagnosis CTA still primary on homepage');
+          if (home.includes('coreon-home-safety-room">무료 안전방 만들기')) throw new Error('legacy safety-room CTA still primary on homepage');
+          if (!download.includes('동일한 COREON AX Agent')) throw new Error('download page does not explain single-product entitlement model');
+          console.log('COREON download-first public funnel PASS');
+          NODE
+      - name: Commit homepage alignment
+        run: |
+          if git diff --quiet -- index.html download.html; then
+            echo 'No homepage alignment required.'
+            exit 0
+          fi
+          git config user.name 'COREON Product Assurance'
+          git config user.email 'actions@users.noreply.github.com'
+          git add index.html download.html
+          git commit -m 'Make COREON AX Agent download-first product funnel canonical'
+          git push origin HEAD:main
