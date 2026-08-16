@@ -22,11 +22,19 @@ jobs:
           from pathlib import Path
           files=[Path('index.html'),Path('en/index.html')]
           changed=[]
+          marker_ko='<section data-release-axis="v28.12" style="padding:18px 0;background:#eef6fd;border-top:1px solid #dbe5ee"><div class="w"><strong>PROOF-GRADE SAFETY AX · v28.12</strong><span style="margin-left:8px;color:#63768a">Standard Field Pilot Evidence · KO/EN · PC/Mobile · GitHub/Production</span></div></section>'
+          marker_en='<section data-release-axis="v28.12" style="padding:18px 0;background:#eef6fd;border-top:1px solid #dbe5ee"><div class="w"><strong>PROOF-GRADE SAFETY AX · v28.12</strong><span style="margin-left:8px;color:#63768a">Standard Field Pilot Evidence · KO/EN · PC/Mobile · GitHub/Production</span></div></section>'
           for p in files:
             text=p.read_text(encoding='utf-8')
             original=text
             text=text.replace('v28.5-proof-grade','v28.12-standard-field-pilot-evidence')
             text=text.replace('v28.5','v28.12')
+            if 'data-release-axis="v28.12"' not in text:
+              marker=marker_ko if str(p)=='index.html' else marker_en
+              if '</main>' in text:
+                text=text.replace('</main>',marker+'</main>',1)
+              else:
+                text=text.replace('</body>',marker+'</body>',1)
             if text!=original:
               p.write_text(text,encoding='utf-8')
               changed.append(str(p))
@@ -39,7 +47,8 @@ jobs:
           ko=Path('index.html').read_text(encoding='utf-8')
           en=Path('en/index.html').read_text(encoding='utf-8')
           for label,text in [('KO',ko),('EN',en)]:
-            assert 'v28.12' in text, f'{label} homepage must expose v28.12 release marker'
+            assert 'data-release-axis="v28.12"' in text, f'{label} homepage must expose v28.12 release marker'
+            assert 'PROOF-GRADE SAFETY AX · v28.12' in text, f'{label} visible release label required'
             assert 'v28.5' not in text, f'{label} homepage must not expose stale v28.5 marker'
             assert 'viewport' in text, f'{label} homepage must remain mobile responsive'
           assert 'hreflang="en"' in ko
