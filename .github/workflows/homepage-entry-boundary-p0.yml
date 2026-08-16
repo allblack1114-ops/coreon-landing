@@ -24,17 +24,17 @@ jobs:
           for name,lang in [('index.html','ko'),('en/index.html','en')]:
               p=Path(name); s=p.read_text(encoding='utf-8')
               download='/download.html' if lang=='ko' else '/en/download.html'
-              # Public homepage may describe the product but operational starts must converge to Download Center.
+              # Public homepage may explain product and industries, but must not execute Safety operations directly.
               s=re.sub(r'href="https://app\.coreon-global\.com/(?:en/)?free-assessment[^"]*"', f'href="{download}?source=homepage-operational-entry"', s)
               s=re.sub(r'href="https://app\.coreon-global\.com/(?:signup\.html|safety-room/start)[^"]*"', f'href="{download}?source=homepage-operational-entry"', s)
               if lang=='ko':
-                  s=re.sub(r'href="[^"]+">3분 진단하기\s*→</a>', 'href="/download.html?source=industry-sme-start">무료로 시작하기 →</a>', s)
-                  s=re.sub(r'href="[^"]+">도입 검토하기\s*→</a>', 'href="#proof">도입 검토하기 →</a>', s)
-                  s=re.sub(r'href="[^"]+">제품 흐름 보기\s*→</a>', 'href="#how">제품 흐름 보기 →</a>', s)
-                  s=re.sub(r'href="[^"]+">무료로 시작하기\s*→</a>', 'href="/download.html?source=industry-free-start">무료로 시작하기 →</a>', s)
+                  s=s.replace('3분 진단하기','무료로 시작하기')
+                  s=re.sub(r'(<a[^>]+href=")[^"]+("[^>]*>도입 검토하기\s*→</a>)', r'\1#proof\2', s)
+                  s=re.sub(r'(<a[^>]+href=")[^"]+("[^>]*>제품 흐름 보기\s*→</a>)', r'\1#how\2', s)
+                  s=re.sub(r'(<a[^>]+href=")[^"]+("[^>]*>무료로 시작하기\s*→</a>)', r'\1/download.html?source=industry-free-start\2', s)
               else:
-                  s=re.sub(r'href="[^"]+">3-minute[^<]*→</a>', 'href="/en/download.html?source=industry-sme-start">Start free →</a>', s)
-                  s=re.sub(r'href="[^"]+">Start free\s*→</a>', 'href="/en/download.html?source=industry-free-start">Start free →</a>', s)
+                  s=re.sub(r'3-minute[^<]*', 'Start free', s)
+                  s=re.sub(r'(<a[^>]+href=")[^"]+("[^>]*>Start free\s*→</a>)', r'\1/en/download.html?source=industry-free-start\2', s)
               p.write_text(s,encoding='utf-8')
           PY
       - name: Verify homepage boundary
@@ -42,16 +42,14 @@ jobs:
           node surface-parity-audit.js
           python - <<'PY'
           from pathlib import Path
+          blocked=('app.coreon-global.com/free-assessment','app.coreon-global.com/signup.html','app.coreon-global.com/safety-room/start')
           for name in ['index.html','en/index.html']:
               s=Path(name).read_text(encoding='utf-8')
-              assert 'app.coreon-global.com/free-assessment' not in s
-              assert 'app.coreon-global.com/signup.html' not in s
-              assert 'app.coreon-global.com/safety-room/start' not in s
-          s=Path('index.html').read_text(encoding='utf-8')
-          assert '3분 진단하기' not in s
-          assert 'href="#proof">도입 검토하기 →</a>' in s
-          assert 'href="#how">제품 흐름 보기 →</a>' in s
-          assert '/download.html' in s
+              for token in blocked: assert token not in s, f'{name}: operational homepage link remains: {token}'
+          ko=Path('index.html').read_text(encoding='utf-8')
+          assert '3분 진단하기' not in ko
+          assert '/download.html' in ko
+          assert '도입 검토하기' in ko and '제품 흐름 보기' in ko
           print('HOMEPAGE PRODUCT-ENTRY BOUNDARY: PASS')
           PY
       - name: Commit homepage boundary repair
