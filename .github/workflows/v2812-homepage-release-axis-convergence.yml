@@ -21,18 +21,12 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           files=[Path('index.html'),Path('en/index.html')]
-          replacements={
-            'PROOF-GRADE SAFETY AX · v28.5':'PROOF-GRADE SAFETY AX · v28.12',
-            'Proof-Grade Safety AX · v28.5':'Proof-Grade Safety AX · v28.12',
-            'proof-grade safety ax · v28.5':'proof-grade safety ax · v28.12',
-            'v28.5-proof-grade':'v28.12-standard-field-pilot-evidence'
-          }
           changed=[]
           for p in files:
             text=p.read_text(encoding='utf-8')
             original=text
-            for old,new in replacements.items():
-              text=text.replace(old,new)
+            text=text.replace('v28.5-proof-grade','v28.12-standard-field-pilot-evidence')
+            text=text.replace('v28.5','v28.12')
             if text!=original:
               p.write_text(text,encoding='utf-8')
               changed.append(str(p))
