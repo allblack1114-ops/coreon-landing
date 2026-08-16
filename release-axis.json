@@ -1,6 +1,6 @@
 {
   "schema": "coreon.release-axis.v1",
-  "releaseAxis": "v28.6-public-demand-engine",
+  "releaseAxis": "v28.12",
   "product": "COREON Safety AX Agent",
   "requiredSurfaces": [
     "app-ko-pc",
