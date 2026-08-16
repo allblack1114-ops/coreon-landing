@@ -23,6 +23,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           REL='v28.12'
           def patch(path, lang):
               p=Path(path); s=p.read_text(encoding='utf-8')
@@ -41,16 +42,15 @@ jobs:
                   old='''<div class="act"><a class="btn b" href="https://app.coreon-global.com/free-assessment?source=coreon-home-diagnosis">무료 안전진단</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-home-safety-room">무료 안전방 만들기</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div>'''
                   new='''<div class="act"><a class="btn b" href="/download.html?source=coreon-home-free-start">무료로 시작하기</a><a class="btn a" href="/download.html?source=coreon-home-download">COREON AX Agent 다운로드</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div>'''
                   s=s.replace(old,new)
-                  s=s.replace('href="https://app.coreon-global.com/free-assessment?source=coreon-bottom-diagnosis">무료 안전진단</a>','href="/download.html?source=coreon-home-bottom-free">무료로 시작하기</a>')
-                  s=s.replace('href="https://app.coreon-global.com/signup.html?source=coreon-bottom-room">무료 안전방 만들기</a>','href="/download.html?source=coreon-home-bottom-download">COREON AX Agent 다운로드</a>')
+                  bottom='''<div class="act"><a class="btn b" href="/download.html?source=coreon-home-bottom-free">무료로 시작하기</a><a class="btn a" href="/download.html?source=coreon-home-bottom-download">COREON AX Agent 다운로드</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-bottom-public">기업·공공기관 도입 상담</a></div>'''
+                  s=re.sub(r'<div class="act"><a class="btn b" href="[^"]+">[^<]*(?:무료|시작)[^<]*</a><a class="btn a" href="[^"]+">[^<]*(?:안전방|다운로드)[^<]*</a><a class="btn c" href="[^"]+">기업·공공기관 도입 상담</a></div>(?=</div></div></section><section data-release-axis)',bottom,s,count=1)
               else:
                   s=s.replace('https://app.coreon-global.com/install.html?source=coreon-en-nav','/en/download.html?source=coreon-en-nav')
                   old='''<div class="act"><a class="btn b" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-diagnosis">Free safety check</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-en-safety-room">Create free Safety Room</a><a class="btn c" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-public">Public / Enterprise inquiry</a></div>'''
                   new='''<div class="act"><a class="btn b" href="/en/download.html?source=coreon-en-free-start">Start free</a><a class="btn a" href="/en/download.html?source=coreon-en-download">Download COREON AX Agent</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-en-public&lang=en">Enterprise / Public-sector inquiry</a></div>'''
                   s=s.replace(old,new)
-                  s=s.replace('href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-bottom-diagnosis">Free safety check</a>','href="/en/download.html?source=coreon-en-bottom-free">Start free</a>')
-                  s=s.replace('href="https://app.coreon-global.com/signup.html?source=coreon-en-bottom-room">Create free Safety Room</a>','href="/en/download.html?source=coreon-en-bottom-download">Download COREON AX Agent</a>')
-              # canonical visible release badge
+                  bottom='''<div class="act"><a class="btn b" href="/en/download.html?source=coreon-en-bottom-free">Start free</a><a class="btn a" href="/en/download.html?source=coreon-en-bottom-download">Download COREON AX Agent</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-en-bottom-public&lang=en">Enterprise / Public-sector inquiry</a></div>'''
+                  s=re.sub(r'<div class="act"><a class="btn b" href="[^"]+">[^<]*(?:Free|Start)[^<]*</a><a class="btn a" href="[^"]+">[^<]*(?:Safety Room|Download)[^<]*</a><a class="btn c" href="[^"]+">[^<]*(?:Enterprise|Public)[^<]*</a></div>(?=</div></div></section><section data-release-axis)',bottom,s,count=1)
               if 'data-release-axis=' not in s:
                   badge=(f'<section data-release-axis="{REL}" style="padding:18px 0;background:#eef6fd;border-top:1px solid #dbe5ee"><div class="w"><strong>PROOF-GRADE SAFETY AX · {REL}</strong><span style="margin-left:8px;color:#63768a">KO/EN · PC/Mobile · Download-First</span></div></section>')
                   s=s.replace('</main>',badge+'</main>',1)
