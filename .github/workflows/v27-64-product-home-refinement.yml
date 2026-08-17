@@ -6,16 +6,19 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   customer-product-home:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Preserve canonical search identity
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
@@ -25,20 +28,15 @@ jobs:
           grep -Fq 'COREON Safety AX Agent' en/index.html
           grep -Fq 'canonical" href="https://www.coreon-global.com/' index.html
           grep -Fq 'canonical" href="https://www.coreon-global.com/en/' en/index.html
-      - name: Enforce simple public journey and stable brand home
-        shell: bash
+      - name: Enforce simple public journey and installed-product boundary
         run: |
           set -euo pipefail
           grep -Fq 'class="brand" href="/"' index.html
           grep -Fq 'class="brand" href="/en/"' en/index.html
           grep -Fq '/download.html?source=coreon-home-download' index.html
           grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
-          grep -Fq '기업·공공기관 도입 상담' index.html
-          grep -Fq 'Enterprise / Public-sector inquiry' en/index.html
-      - name: Enforce homepage-to-installed-product boundary
-        run: node tests/homepage-installed-boundary-v2812.test.js
+          node tests/homepage-installed-boundary-v2812.test.js
       - name: Keep internal strategy language out of public primary copy
-        shell: bash
         run: |
           set -euo pipefail
           if grep -Eq 'COREON Internal Master Control|대표 관리자|CEO 제품관제|CRM|Growth Operations' index.html en/index.html; then
@@ -46,7 +44,6 @@ jobs:
             exit 1
           fi
       - name: Verify desktop downloads fail closed until official signed release
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
@@ -57,9 +54,12 @@ jobs:
           ! grep -Fq 'releases/latest/download/' download.html
           ! grep -Fq 'releases/latest/download/' en/download.html
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
-      - name: Reject legacy pricing residue
-        shell: bash
+      - name: Separate homepage simplicity from official pricing authority
         run: |
           set -euo pipefail
-          ! grep -R -F '149,000원' index.html pricing.html download.html en/index.html en/pricing.html en/download.html
-          ! grep -R -F '990,000원' index.html pricing.html download.html en/index.html en/pricing.html en/download.html
+          ! grep -Fq '149,000원' index.html
+          ! grep -Fq 'KRW 149,000' en/index.html
+          grep -Fq '월 149,000원' pricing.html
+          grep -Fq 'KRW 149,000/mo' en/pricing.html
+          if grep -Fq '297,000원' pricing.html; then exit 1; fi
+          if grep -Fq 'KRW 297,000' en/pricing.html; then exit 1; fi
