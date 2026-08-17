@@ -1,61 +1,49 @@
-name: COREON Homepage Safety Download-First Convergence
+name: COREON v28.12 Homepage KO EN Mobile Parity Guard
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'assets/**'
+      - 'surface-parity-audit.js'
+      - 'test-homepage-v2741.js'
       - '.github/workflows/safety-download-first-final-convergence.yml'
-  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'assets/**'
+      - 'surface-parity-audit.js'
+      - 'test-homepage-v2741.js'
+      - '.github/workflows/safety-download-first-final-convergence.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  converge:
+  parity:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Align KO EN homepage and mobile navigation
+      - name: Verify current v28.12 KO EN mobile and download-first surfaces
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          REL='v28.12'
-          def patch(path, lang):
-              p=Path(path); s=p.read_text(encoding='utf-8')
-              if 'class="menu-toggle"' not in s:
-                  s=s.replace('<nav class="links">', ('<button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">메뉴</button><nav class="links" id="site-nav">' if lang=='ko' else '<button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button><nav class="links" id="site-nav">'),1)
-              elif 'id="site-nav"' not in s:
-                  s=s.replace('<nav class="links">','<nav class="links" id="site-nav">',1)
-              css='.menu-toggle{display:none;border:1px solid var(--l);background:#fff;color:var(--n);border-radius:999px;padding:9px 13px;font-weight:900}@media(max-width:900px){.menu-toggle{display:inline-flex}.links{position:absolute;left:12px;right:12px;top:68px;display:none!important;flex-direction:column;align-items:stretch;gap:5px;padding:12px;background:#fff;border:1px solid var(--l);border-radius:16px;box-shadow:0 16px 36px #071a3322}.links.open{display:flex!important}.links.open a{display:block!important;padding:10px 12px}.links.open .lang,.links.open .login{text-align:center}}'
-              if '.menu-toggle{display:none' not in s: s=s.replace('</style>',css+'</style>',1)
-              script="<script>(()=>{const b=document.querySelector('.menu-toggle'),n=document.getElementById('site-nav');if(!b||!n)return;const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false')};b.addEventListener('click',()=>{const open=n.classList.toggle('open');b.setAttribute('aria-expanded',String(open))});n.addEventListener('click',e=>{if(e.target.closest('a'))close()});addEventListener('resize',()=>{if(innerWidth>900)close()})})();</script>"
-              if "classList.toggle('open')" not in s: s=s.replace('</body>',script+'</body>',1)
-              if lang=='ko':
-                  s=s.replace('https://app.coreon-global.com/install.html?source=coreon-home-nav','/download.html?source=coreon-home-nav')
-                  s=s.replace('<div class="act"><a class="btn b" href="https://app.coreon-global.com/free-assessment?source=coreon-home-diagnosis">무료 안전진단</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-home-safety-room">무료 안전방 만들기</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div>','<div class="act"><a class="btn b" href="/download.html?source=coreon-home-free-start">무료로 시작하기</a><a class="btn a" href="/download.html?source=coreon-home-download">COREON AX Agent 다운로드</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-public">기업·공공기관 도입 상담</a></div>')
-                  s=s.replace('<div class="act"><a class="btn b" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-bottom-diagnosis">무료 안전진단</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-home-bottom">무료 안전방 만들기</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-bottom-public">기업·공공기관 도입 상담</a><a class="install-link" href="https://app.coreon-global.com/install.html?source=coreon-home-bottom-install">AX Agent 설치·다운로드 →</a></div>','<div class="act"><a class="btn b" href="/download.html?source=coreon-home-bottom-free">무료로 시작하기</a><a class="btn a" href="/download.html?source=coreon-home-bottom-download">COREON AX Agent 다운로드</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-home-bottom-public">기업·공공기관 도입 상담</a></div>')
-                  s=s.replace('<p>무료 안전진단, 무료 안전방, 설치형 Web App 중 가장 편한 방식으로 시작하세요.</p><a href="https://app.coreon-global.com/signup.html?source=coreon-resource-free">무료로 시작하기 →</a>','<p>홈페이지에서 제품 가치를 확인한 뒤 동일한 COREON AX Agent를 설치해 무료로 시작하세요.</p><a href="/download.html?source=coreon-resource-free">무료로 시작하기 →</a>')
-              else:
-                  s=s.replace('https://app.coreon-global.com/install.html?source=coreon-en-nav','/en/download.html?source=coreon-en-nav')
-                  s=s.replace('<div class="act"><a class="btn b" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-diagnosis">Free safety check</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-en-safety-room">Create free Safety Room</a><a class="btn c" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-public">Public / Enterprise inquiry</a></div>','<div class="act"><a class="btn b" href="/en/download.html?source=coreon-en-free-start">Start free</a><a class="btn a" href="/en/download.html?source=coreon-en-download">Download COREON AX Agent</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-en-public&lang=en">Enterprise / Public-sector inquiry</a></div>')
-                  s=s.replace('<div class="act"><a class="btn b" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-bottom">Free safety check</a><a class="btn a" href="https://app.coreon-global.com/signup.html?source=coreon-en-bottom-room">Create free Safety Room</a><a class="btn c" href="https://app.coreon-global.com/en/free-assessment?source=coreon-en-bottom-public">Public / Enterprise inquiry</a><a class="install-link" href="https://app.coreon-global.com/install.html?source=coreon-en-bottom-install">Install / Download →</a></div>','<div class="act"><a class="btn b" href="/en/download.html?source=coreon-en-bottom-free">Start free</a><a class="btn a" href="/en/download.html?source=coreon-en-bottom-download">Download COREON AX Agent</a><a class="btn c" href="https://app.coreon-global.com/inquiry.html?source=coreon-en-bottom-public&lang=en">Enterprise / Public-sector inquiry</a></div>')
-                  s=s.replace('<p>Start with a free safety check, Safety Room or installable Web App.</p><a href="https://app.coreon-global.com/signup.html?source=coreon-en-resource-free">Start free →</a>','<p>Understand the value on the website, then install the same COREON AX Agent and start free.</p><a href="/en/download.html?source=coreon-en-resource-free">Start free →</a>')
-              if 'data-release-axis=' not in s:
-                  s=s.replace('</main>',f'<section data-release-axis="{REL}" style="padding:18px 0;background:#eef6fd;border-top:1px solid #dbe5ee"><div class="w"><strong>PROOF-GRADE SAFETY AX · {REL}</strong><span style="margin-left:8px;color:#63768a">KO/EN · PC/Mobile · Download-First</span></div></section></main>',1)
-              p.write_text(s,encoding='utf-8')
-          patch('index.html','ko'); patch('en/index.html','en')
-          PY
-      - name: Verify homepage parity
-        run: node surface-parity-audit.js
-      - name: Commit converged homepage
+          set -euo pipefail
+          grep -Fq 'name="viewport"' index.html
+          grep -Fq 'name="viewport"' en/index.html
+          grep -Fq '/download.html?source=home-free#install' index.html
+          grep -Fq '/download.html?source=home-download#install' index.html
+          grep -Fq '/en/download.html?source=en-home-free#install' en/index.html
+          grep -Fq '/en/download.html?source=en-home-download#install' en/index.html
+          if grep -Fq 'source=coreon-home-download' index.html; then echo 'legacy KO download source returned'; exit 1; fi
+          if grep -Fq 'source=coreon-en-download' en/index.html; then echo 'legacy EN download source returned'; exit 1; fi
+      - name: Run canonical parity regressions
         run: |
-          if git diff --quiet; then echo 'No homepage drift remains.'; exit 0; fi
-          git config user.name 'COREON Release Bot'
-          git config user.email 'release-bot@coreon-global.com'
-          git add index.html en/index.html
-          git commit -m 'Converge homepage download-first KO EN mobile parity'
-          git push
+          node surface-parity-audit.js
+          node test-homepage-v2741.js
+          node tests/public-link-integrity-v2812.test.js
