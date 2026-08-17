@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.coreon-global.com/</loc><lastmod>2026-08-16</lastmod><priority>1.0</priority></url>
-  <url><loc>https://www.coreon-global.com/en/</loc><lastmod>2026-08-16</lastmod><priority>0.95</priority></url>
+  <url><loc>https://www.coreon-global.com/</loc><lastmod>2026-08-17</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.coreon-global.com/en/</loc><lastmod>2026-08-17</lastmod><priority>0.95</priority></url>
   <url><loc>https://www.coreon-global.com/public-proof-procurement.html</loc><lastmod>2026-08-16</lastmod><priority>0.98</priority></url>
   <url><loc>https://www.coreon-global.com/en/public-proof-procurement.html</loc><lastmod>2026-08-16</lastmod><priority>0.93</priority></url>
-  <url><loc>https://www.coreon-global.com/institutional-safety-ai.html</loc><lastmod>2026-08-16</lastmod><priority>0.97</priority></url>
+  <url><loc>https://www.coreon-global.com/institutional-safety-ai.html</loc><lastmod>2026-08-17</lastmod><priority>0.97</priority></url>
   <url><loc>https://www.coreon-global.com/en/institutional-safety-ai.html</loc><lastmod>2026-08-16</lastmod><priority>0.92</priority></url>
   <url><loc>https://www.coreon-global.com/safety-ax-runtime.html</loc><lastmod>2026-08-13</lastmod><priority>0.95</priority></url>
   <url><loc>https://www.coreon-global.com/en/safety-ax-runtime.html</loc><lastmod>2026-08-13</lastmod><priority>0.90</priority></url>
@@ -17,8 +17,8 @@
   <url><loc>https://www.coreon-global.com/download.html</loc><lastmod>2026-08-13</lastmod><priority>0.90</priority></url>
   <url><loc>https://www.coreon-global.com/en/download.html</loc><lastmod>2026-08-13</lastmod><priority>0.85</priority></url>
   <url><loc>https://www.coreon-global.com/use-cases/</loc><lastmod>2026-08-13</lastmod><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/use-cases/public/</loc><lastmod>2026-08-16</lastmod><priority>0.92</priority></url>
-  <url><loc>https://www.coreon-global.com/use-cases/construction/</loc><lastmod>2026-08-13</lastmod><priority>0.90</priority></url>
+  <url><loc>https://www.coreon-global.com/use-cases/public/</loc><lastmod>2026-08-17</lastmod><priority>0.94</priority></url>
+  <url><loc>https://www.coreon-global.com/use-cases/construction/</loc><lastmod>2026-08-17</lastmod><priority>0.94</priority></url>
   <url><loc>https://www.coreon-global.com/use-cases/manufacturing/</loc><lastmod>2026-08-13</lastmod><priority>0.85</priority></url>
   <url><loc>https://www.coreon-global.com/use-cases/consulting/</loc><lastmod>2026-08-13</lastmod><priority>0.80</priority></url>
   <url><loc>https://www.coreon-global.com/en/use-cases/</loc><lastmod>2026-08-13</lastmod><priority>0.80</priority></url>
@@ -30,8 +30,7 @@
   <url><loc>https://www.coreon-global.com/patents.html</loc><lastmod>2026-08-13</lastmod><priority>0.75</priority></url>
   <url><loc>https://www.coreon-global.com/patent-based-safety-structure.html</loc><lastmod>2026-08-13</lastmod><priority>0.75</priority></url>
   <url><loc>https://www.coreon-global.com/physical-access-control.html</loc><lastmod>2026-08-13</lastmod><priority>0.70</priority></url>
-  <url><loc>https://www.coreon-global.com/industrial-safety-risk-management.html</loc><lastmod>2026-08-13</lastmod><priority>0.75</priority></url>
-  <url><loc>https://www.coreon-global.com/construction-safety-risk-management.html</loc><lastmod>2026-08-13</lastmod><priority>0.75</priority></url>
+  <url><loc>https://www.coreon-global.com/industrial-safety-risk-management.html</loc><lastmod>2026-08-13</lastmod><priority>0.70</priority></url>
   <url><loc>https://www.coreon-global.com/defense-industrial-safety-solution.html</loc><lastmod>2026-08-13</lastmod><priority>0.65</priority></url>
   <url><loc>https://www.coreon-global.com/faq.html</loc><lastmod>2026-08-13</lastmod><priority>0.65</priority></url>
   <url><loc>https://www.coreon-global.com/privacy.html</loc><lastmod>2026-08-13</lastmod><priority>0.50</priority></url>
