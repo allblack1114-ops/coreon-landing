@@ -6,13 +6,16 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   product-home:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - name: Preserve Korean and English search equity
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
@@ -22,7 +25,6 @@ jobs:
           grep -Fq 'COREON Safety AX Agent' en/index.html
           grep -Fq 'canonical" href="https://www.coreon-global.com/en/' en/index.html
       - name: Verify native desktop product and mobile fallback
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
@@ -31,8 +33,7 @@ jobs:
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
-      - name: Verify desktop source and build workflow exist
-        shell: bash
+      - name: Verify desktop source and secure entry contract exist
         run: |
           set -euo pipefail
           test -s desktop/package.json
@@ -40,30 +41,21 @@ jobs:
           test -s desktop/preload.cjs
           test -s .github/workflows/coreon-desktop-build.yml
           node - <<'NODE'
-          const fs=require('fs');
-          const s=fs.readFileSync('desktop/main.cjs','utf8');
-          const must=[
-            ['product origin','https://app.coreon-global.com'],
-            ['customer portal entry','/customer-portal'],
-            ['node isolation','nodeIntegration: false'],
-            ['context isolation','contextIsolation: true'],
-            ['sandbox','sandbox: true'],
-            ['web security','webSecurity: true'],
-            ['persistent session','persist:coreon-safety-ax']
-          ];
-          for(const [name,text] of must){if(!s.includes(text)){console.error('desktop contract missing:',name);process.exit(1)}}
-          if(!s.includes('ENTRY_URL')||!s.includes('loadURL(ENTRY_URL)')){console.error('desktop contract missing: canonical entry wiring');process.exit(1)}
+          const fs=require('fs');const s=fs.readFileSync('desktop/main.cjs','utf8');
+          const must=[['product origin','https://app.coreon-global.com'],['customer portal entry','/customer-portal'],['node isolation','nodeIntegration: false'],['context isolation','contextIsolation: true'],['sandbox','sandbox: true'],['web security','webSecurity: true'],['persistent session','persist:coreon-safety-ax']];
+          for(const [name,text] of must) if(!s.includes(text)) throw Error('desktop contract missing: '+name);
+          if(!s.includes('ENTRY_URL')||!s.includes('loadURL(ENTRY_URL)')) throw Error('desktop canonical entry wiring missing');
           console.log('PASS secure desktop customer-product entry contract');
           NODE
-      - name: Preserve download-first homepage journey
-        shell: bash
+      - name: Preserve current download-first homepage journey
         run: |
           set -euo pipefail
-          grep -Fq '/download.html?source=coreon-home-download' index.html
-          grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
+          grep -Fq '/download.html?source=home-download#install' index.html
+          grep -Fq '/en/download.html?source=en-home-download#install' en/index.html
+          if grep -Fq 'source=coreon-home-download' index.html; then exit 1; fi
+          if grep -Fq 'source=coreon-en-download' en/index.html; then exit 1; fi
           grep -Fq 'enforceDownloadBoundary' assets/product-assistant.js
       - name: Reject stale PWA-only desktop claims
-        shell: bash
         run: |
           set -euo pipefail
           ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
