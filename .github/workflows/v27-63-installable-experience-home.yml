@@ -42,16 +42,17 @@ jobs:
           node - <<'NODE'
           const fs=require('fs');
           const s=fs.readFileSync('desktop/main.cjs','utf8');
-          const checks=[
-            ['product origin',/PRODUCT_ORIGIN\s*=\s*['"]https:\/\/app\.coreon-global\.com['"]/],
-            ['customer portal entry',/ENTRY_URL[\s\S]{0,120}customer-portal/],
-            ['node isolation',/nodeIntegration\s*:\s*false/],
-            ['context isolation',/contextIsolation\s*:\s*true/],
-            ['sandbox',/sandbox\s*:\s*true/],
-            ['web security',/webSecurity\s*:\s*true/],
-            ['persistent session',/persist:coreon-safety-ax/]
+          const must=[
+            ['product origin','https://app.coreon-global.com'],
+            ['customer portal entry','/customer-portal'],
+            ['node isolation','nodeIntegration: false'],
+            ['context isolation','contextIsolation: true'],
+            ['sandbox','sandbox: true'],
+            ['web security','webSecurity: true'],
+            ['persistent session','persist:coreon-safety-ax']
           ];
-          for(const [name,re] of checks) if(!re.test(s)) throw Error('desktop contract missing: '+name);
+          for(const [name,text] of must){if(!s.includes(text)){console.error('desktop contract missing:',name);process.exit(1)}}
+          if(!s.includes('ENTRY_URL')||!s.includes('loadURL(ENTRY_URL)')){console.error('desktop contract missing: canonical entry wiring');process.exit(1)}
           console.log('PASS secure desktop customer-product entry contract');
           NODE
       - name: Preserve download-first homepage journey
