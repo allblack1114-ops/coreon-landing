@@ -35,16 +35,18 @@ jobs:
         run: |
           set -euo pipefail
           grep -Fq 'Safety Start Free' index.html
-          grep -Fq '현장 1곳 · 사용자 3명 · 1GB' index.html
+          grep -Fq '현장 1곳 · 관리자·운영자 3명 · 현장 참여자 무제한 · 1GB' index.html
           grep -Fq '월 안전사건 수 제한 없음' index.html
+          grep -Fq '현장 참여자 무제한 · 월 신규 안전사건 수 제한 없음' pricing.html
           grep -Fq '월 149,000원' pricing.html
           grep -Fq '월 490,000원' pricing.html
           grep -Fq '연 18,000,000원부터' pricing.html
           grep -Fq '기본 SaaS 도입비 없음' pricing.html
-          grep -Fq 'No monthly cap on new safety events' en/pricing.html
+          grep -Fq 'Unlimited field participants · no monthly cap on new safety events' en/pricing.html
           grep -Fq 'KRW 149,000/mo' en/pricing.html
           grep -Fq 'KRW 490,000/mo' en/pricing.html
           grep -Fq 'From KRW 18,000,000/yr' en/pricing.html
+          grep -Fq '3 admin/operator seats · unlimited field participants · 1GB' en/index.html
           grep -Fq 'no monthly safety-event cap' en/index.html
           grep -Fq 'viewport-fit=cover' index.html
           grep -Fq 'name="viewport"' en/index.html
