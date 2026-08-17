@@ -12,9 +12,11 @@ on:
       - 'en/download.html'
       - 'notices/**'
       - '**/*.html'
+      - 'sitemap.xml'
       - 'release-axis.json'
       - 'tests/commercial-authority-v2812.test.js'
       - 'tests/public-link-integrity-v2812.test.js'
+      - 'tests/public-surface-focus-v2812.test.js'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
       - '.github/workflows/v27-64-product-home-refinement.yml'
       - '.github/workflows/v27-66-seo-product-convergence.yml'
@@ -29,9 +31,11 @@ on:
       - 'en/download.html'
       - 'notices/**'
       - '**/*.html'
+      - 'sitemap.xml'
       - 'release-axis.json'
       - 'tests/commercial-authority-v2812.test.js'
       - 'tests/public-link-integrity-v2812.test.js'
+      - 'tests/public-surface-focus-v2812.test.js'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
       - '.github/workflows/v27-64-product-home-refinement.yml'
       - '.github/workflows/v27-66-seo-product-convergence.yml'
@@ -73,7 +77,8 @@ jobs:
           if grep -Fq '297,000원' pricing.html; then echo 'stale Korean Core price found'; exit 1; fi
           if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'stale English Core price found'; exit 1; fi
           if grep -Fq '최초 구축 1,500,000원' pricing.html; then echo 'stale mandatory Operations setup fee found'; exit 1; fi
-      - name: Run permanent v28.12 commercial and link integrity guards
+      - name: Run permanent v28.12 commercial, link, and public-surface guards
         run: |
           node tests/commercial-authority-v2812.test.js
           node tests/public-link-integrity-v2812.test.js
+          node tests/public-surface-focus-v2812.test.js
