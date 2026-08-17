@@ -1,4 +1,4 @@
-name: v28.6 Proof Procurement Center
+name: v28.12 Proof Procurement Center
 
 on:
   pull_request:
@@ -18,14 +18,23 @@ jobs:
           for f in public-proof-procurement.html en/public-proof-procurement.html; do
             test -s "$f"
             grep -Fq 'name="viewport"' "$f"
-            grep -Fq '@media(max-width:820px)' "$f"
+            grep -Fq '@media(max-width:' "$f"
             grep -Fq 'application/ld+json' "$f"
             grep -Fq 'SoftwareApplication' "$f"
             grep -Fq 'CSAP' "$f"
-            grep -Fq '8-12 week' "$f" || grep -Fq '8~12주' "$f"
           done
-          grep -Fq '실제 현장 표본이 없으면 성과수치를 만들지 않습니다' public-proof-procurement.html
-          grep -Fq 'No field sample means no performance claim' en/public-proof-procurement.html
-      - name: Validate release-axis
+          grep -Fq '8~12주' public-proof-procurement.html
+          grep -Eq '8–12 week|8-12 week' en/public-proof-procurement.html
+          grep -Fq '증거 없는 인증·성과·경쟁우위 주장은 공개하지 않습니다' public-proof-procurement.html
+          grep -Fq 'Unsupported certification, outcome or superiority claims are not published' en/public-proof-procurement.html
+          grep -Fq 'FAIL-CLOSED' public-proof-procurement.html
+          grep -Fq 'FAIL-CLOSED' en/public-proof-procurement.html
+      - name: Validate current release axis and evidence boundary
         run: |
-          node -e "const x=require('./release-axis.json'); if(x.releaseAxis!=='v28.6-public-demand-engine') process.exit(1); if(!x.benchmarkLayers.includes('public-proof-procurement-center')) process.exit(1);"
+          node - <<'NODE'
+          const x=require('./release-axis.json');
+          if(x.releaseAxis!=='v28.12') process.exit(1);
+          if(!x.benchmarkLayers.includes('public-proof-procurement-center')) process.exit(1);
+          if(!x.principles.publicPerformanceClaimRequiresRealFieldEvidence) process.exit(1);
+          if(!x.principles.csapClaimRequiresActualCertificate) process.exit(1);
+          NODE
