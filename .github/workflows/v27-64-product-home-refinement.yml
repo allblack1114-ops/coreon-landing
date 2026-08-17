@@ -23,7 +23,7 @@ jobs:
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
           grep -Fq '조치 전후 증빙' index.html
-          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq '잔여위험 재확인' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
           grep -Fq 'canonical" href="https://www.coreon-global.com/' index.html
@@ -33,8 +33,10 @@ jobs:
           set -euo pipefail
           grep -Fq 'class="brand" href="/"' index.html
           grep -Fq 'class="brand" href="/en/"' en/index.html
-          grep -Fq '/download.html?source=coreon-home-download' index.html
-          grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
+          grep -Fq '/download.html?source=home-download#install' index.html
+          grep -Fq '/en/download.html?source=en-home-download#install' en/index.html
+          if grep -Fq 'source=coreon-home-download' index.html; then exit 1; fi
+          if grep -Fq 'source=coreon-en-download' en/index.html; then exit 1; fi
           node tests/homepage-installed-boundary-v2812.test.js
       - name: Keep internal strategy language out of public primary copy
         run: |
