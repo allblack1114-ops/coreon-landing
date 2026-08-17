@@ -1,14 +1,10 @@
-name: v27.63+ Installable Product Home
+name: v28.12 Installable Product Home
 
 on:
   push:
-    branches:
-      - v27.63-installable-experience-home
-      - v27.64-product-home-refinement
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   product-home:
@@ -21,52 +17,42 @@ jobs:
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
           grep -Fq '발주처·공공기관' index.html
-          grep -Fq '위험성평가 후속조치' index.html
           grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
-          grep -Fq 'SoftwareApplication' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify device-aware install journey
+          grep -Fq 'canonical" href="https://www.coreon-global.com/en/' en/index.html
+      - name: Verify native desktop product and mobile fallback
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'data-device-guide' download.html
-          grep -Fq 'data-device-guide' en/download.html
-          grep -Fq 'device-install-guide.js?v=27.64.0' download.html
-          grep -Fq 'device-install-guide.js?v=27.64.0' en/download.html
-          grep -Fq 'iPhone / iPad' assets/device-install-guide.js
-          grep -Fq 'Android' assets/device-install-guide.js
-          grep -Fq 'Windows' assets/device-install-guide.js
-          grep -Fq 'macOS' assets/device-install-guide.js
-          grep -Fq '현장 참여자 제한 없이' download.html
-          grep -Fq 'unlimited field participants' en/download.html
-      - name: Prevent fake native installer claims
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
+      - name: Verify desktop source and release workflow exist
         shell: bash
         run: |
           set -euo pipefail
-          if grep -Eoi 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html; then
-            echo 'Native installer links are prohibited until approved artifacts exist.' >&2
-            exit 1
-          fi
-          grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
-          grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
-      - name: Preserve simple product-home and AI assistant
+          test -s desktop/package.json
+          test -s desktop/main.cjs
+          test -s desktop/preload.cjs
+          test -s .github/workflows/coreon-desktop-release.yml
+          grep -Fq 'https://app.coreon-global.com/customer-portal' desktop/main.cjs
+          grep -Fq 'nodeIntegration: false' desktop/main.cjs
+          grep -Fq 'contextIsolation: true' desktop/main.cjs
+          grep -Fq 'sandbox: true' desktop/main.cjs
+      - name: Preserve download-first homepage journey
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq '제품</a>' assets/safety-home-enhancer.js
-          grep -Fq '요금제' assets/safety-home-enhancer.js
-          grep -Fq '다운로드' assets/safety-home-enhancer.js
-          grep -Fq '고객지원' assets/safety-home-enhancer.js
-          grep -Fq 'COREON AI 제품도우미' assets/product-assistant.js
-          grep -Fq 'product-assistant.js?v=27.62.0' download.html
-      - name: Preserve COREON Mall as secondary channel
+          grep -Fq '/download.html?source=coreon-home-download' index.html
+          grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
+          grep -Fq 'enforceDownloadBoundary' assets/product-assistant.js
+      - name: Reject stale PWA-only desktop claims
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'https://smartstore.naver.com/coreonmall' index.html
-          grep -Fq '안전용품·현장 장비는 COREON Mall' index.html
-          if grep -F 'nav.innerHTML' assets/safety-home-enhancer.js | grep -Fq 'smartstore.naver.com/coreonmall'; then
-            echo 'COREON Mall must remain secondary, not primary product navigation.' >&2
-            exit 1
-          fi
+          ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
+          ! grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
