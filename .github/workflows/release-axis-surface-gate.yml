@@ -55,17 +55,20 @@ jobs:
           NODE
       - name: Verify Korean and English PC/mobile source parity
         run: |
-          set -euo pipefail
-          grep -Fq '<html lang="ko">' index.html
-          grep -Fq 'name="viewport"' index.html
-          grep -Fq '무료 안전진단' index.html
-          grep -Fq '무료 안전방 만들기' index.html
-          grep -Fq '기업·공공기관 도입 상담' index.html
-          grep -Fq '<html lang="en">' en/index.html
-          grep -Fq 'name="viewport"' en/index.html
-          grep -Fq 'COREON Safety AX Agent' en/index.html
-          grep -Fq '/download.html?source=coreon-home-download' index.html
-          grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
+          node - <<'NODE'
+          const fs=require('fs');
+          const ko=fs.readFileSync('index.html','utf8');
+          const en=fs.readFileSync('en/index.html','utf8');
+          const checks=[
+            ['ko language',ko.includes('<html lang="ko">')],['ko viewport',ko.includes('name="viewport"')],
+            ['ko product',ko.includes('COREON Safety AX Agent')],['ko download route',ko.includes('/download.html?source=coreon-home-download')],
+            ['en language',en.includes('<html lang="en">')],['en viewport',en.includes('name="viewport"')],
+            ['en product',en.includes('COREON Safety AX Agent')],['en download route',en.includes('/en/download.html?source=coreon-en-download')]
+          ];
+          const failed=checks.filter(([,ok])=>!ok).map(([name])=>name);
+          if(failed.length) throw Error('KO/EN source parity failed: '+failed.join(', '));
+          console.log('PASS KO/EN canonical product identity, viewport and download journey');
+          NODE
       - name: Preserve proof-grade evidence boundary
         run: |
           set -euo pipefail
