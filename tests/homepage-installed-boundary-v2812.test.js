@@ -38,6 +38,8 @@ for(const [name,src] of [['ko download',download],['en download',downloadEn]]){
   assert(!/institutional web fallback/i.test(src),`${name} must not describe a second web product`);
 }
 assert(releaseGate.includes("EXPECTED_TAG='coreon-ax-v28.12.0'"));
+assert(releaseGate.includes("REQUIRED_META='SHA256SUMS.txt'"));
 assert(releaseGate.includes('release.draft||release.prerelease'));
 assert(releaseGate.includes('OFFICIAL_RELEASE_ASSET_MISSING'));
-console.log('PASS v28.12 public homepage/install/download boundary: one installed product, optional public diagnosis, signed-release fail-closed');
+assert(releaseGate.includes('OFFICIAL_RELEASE_CHECKSUM_MISSING'));
+console.log('PASS v28.12 public homepage/install/download boundary: one installed product, optional public diagnosis, signed-release + checksum fail-closed');
