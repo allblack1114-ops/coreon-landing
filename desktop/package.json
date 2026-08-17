@@ -1,0 +1,40 @@
+{
+  "name": "coreon-safety-ax-desktop",
+  "version": "28.12.0",
+  "private": true,
+  "description": "Official downloadable desktop client for COREON Safety AX Agent",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:mac": "electron-builder --mac dmg zip"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.coreon.safetyax",
+    "productName": "COREON Safety AX Agent",
+    "asar": true,
+    "files": ["main.cjs", "preload.cjs", "package.json"],
+    "artifactName": "COREON-Safety-AX-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [{"target":"nsis","arch":["x64"]}]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "COREON Safety AX Agent"
+    },
+    "mac": {
+      "category": "public.app-category.business",
+      "target": [
+        {"target":"dmg","arch":["x64","arm64"]},
+        {"target":"zip","arch":["x64","arm64"]}
+      ]
+    }
+  }
+}
