@@ -1,8 +1,8 @@
-name: v27.61 Vendor-neutral Integration SEO
+name: v28.12 Vendor-neutral Integration SEO
 
 on:
   push:
-    branches: [main, v27.61-vendor-neutral-safety-event-api]
+    branches: [main]
     paths:
       - 'safety-event-integration.html'
       - 'en/safety-event-integration.html'
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate bilingual public SEO contract
+      - name: Validate bilingual public SEO and semantic contract
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -33,6 +33,7 @@ jobs:
           runtime_en=Path('en/safety-ax-runtime.html').read_text()
           multi_ko=Path('enterprise-multisite.html').read_text()
           multi_en=Path('en/enterprise-multisite.html').read_text()
+          semantic=Path('assets/safety-semantic.css').read_text()
           checks=[
             ('ko title','<title>' in ko),('ko description','name="description"' in ko),('ko robots','index,follow' in ko),
             ('ko canonical','canonical" href="https://www.coreon-global.com/safety-event-integration.html' in ko),
@@ -46,11 +47,11 @@ jobs:
             ('runtime en internal link','/en/safety-event-integration.html' in runtime_en),
             ('multisite ko internal link','/safety-event-integration.html' in multi_ko),
             ('multisite en internal link','/en/safety-event-integration.html' in multi_en),
-            ('semantic colors',Path('assets/safety-semantic.css').exists()),
-            ('semantic ko page','safety-status safety-info' in ko),
-            ('semantic en page','safety-status safety-info' in en)
+            ('semantic stylesheet substantive',len(semantic.strip())>200),
+            ('ko semantic stylesheet linked','safety-semantic.css' in ko),
+            ('en semantic stylesheet linked','safety-semantic.css' in en)
           ]
           failed=[name for name,ok in checks if not ok]
           if failed: raise SystemExit('SEO gate failed: '+', '.join(failed))
-          print('v27.61 bilingual integration SEO gate passed')
+          print('v28.12 bilingual integration SEO gate passed')
           PY
