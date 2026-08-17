@@ -36,7 +36,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git grep -n -I -E -- 'BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY|BEGIN PKCS12' -- ':!*.md' ':!*.txt'; then
+          if git grep -n -I -E -- 'BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY|BEGIN PKCS12' -- ':!*.md' ':!*.txt' ':!.github/**'; then
             echo 'Private key material detected in public homepage source.' >&2
             exit 1
           fi
