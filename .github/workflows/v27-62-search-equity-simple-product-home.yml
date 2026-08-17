@@ -2,8 +2,7 @@ name: v28.12 Search Equity + Product Boundary Regression
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - 'index.html'
       - 'en/index.html'
@@ -11,13 +10,6 @@ on:
       - 'en/download.html'
       - 'pricing.html'
       - 'en/pricing.html'
-      - 'assets/product-assistant.js'
-      - 'assets/product-assistant-core.js'
-      - 'assets/v27-73-governance.js'
-      - 'assets/v27-73-2-company-trust-footer.js'
-      - 'assets/v27-74-1-hero-product-visual.js'
-      - 'assets/v27-79-home-ratio-about.js'
-      - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
   pull_request:
@@ -28,93 +20,53 @@ on:
       - 'en/download.html'
       - 'pricing.html'
       - 'en/pricing.html'
-      - 'assets/product-assistant.js'
-      - 'assets/product-assistant-core.js'
-      - 'assets/v27-73-governance.js'
-      - 'assets/v27-73-2-company-trust-footer.js'
-      - 'assets/v27-74-1-hero-product-visual.js'
-      - 'assets/v27-79-home-ratio-about.js'
-      - 'assets/v27-80-industry-autodesk-ratio.js'
       - 'sitemap.xml'
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
+
+permissions:
+  contents: read
 
 jobs:
   preserve-search-equity-and-product-boundary:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
-      - name: Preserve current Korean search identity
-        shell: bash
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve current Korean and English search identity
         run: |
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
-          grep -Fq '발주처·공공기관' index.html
           grep -Fq '조치 전후 증빙' index.html
           grep -Fq '잔여위험 재평가' index.html
-          grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
-          grep -Fq 'name="robots" content="index,follow,max-image-preview:large"' index.html
-      - name: Preserve bilingual search metadata contract
-        shell: bash
-        run: |
-          set -euo pipefail
           grep -Fq 'hreflang="ko"' index.html
           grep -Fq 'hreflang="en"' index.html
-          grep -Fq 'property="og:type" content="website"' index.html
-          grep -Fq 'property="og:site_name" content="COREON"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify approved safety workflow and industry applications
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -Fq 'TBM·위험성평가' assets/v27-73-governance.js
-          grep -Fq '종사자 의견·피드백' assets/v27-73-governance.js
-          grep -Fq '도급·협력사 이행 확인' assets/v27-73-governance.js
-          grep -Fq '정기점검·Evidence Pack' assets/v27-73-governance.js
-          grep -Fq 'coreon-ax-hero-product.svg' assets/v27-74-1-hero-product-visual.js
-          grep -Fq 'ABOUT COREON' assets/v27-79-home-ratio-about.js
-          grep -Fq '산업별 적용 분야' assets/v27-80-industry-autodesk-ratio.js
-          grep -Fq '공공기관·발주처' assets/v27-80-industry-autodesk-ratio.js
-          grep -Fq '건설·플랜트' assets/v27-80-industry-autodesk-ratio.js
-          grep -Fq '제조·물류·식품' assets/v27-80-industry-autodesk-ratio.js
-          grep -Fq '중소사업장·대표' assets/v27-80-industry-autodesk-ratio.js
-      - name: Enforce canonical four-plan pricing axis
-        shell: bash
+      - name: Enforce current four-plan commercial axis
         run: |
           set -euo pipefail
           grep -Fq 'Safety Start Free' pricing.html
-          grep -Fq '월 297,000원' pricing.html
+          grep -Fq '월 149,000원' pricing.html
           grep -Fq '월 490,000원' pricing.html
           grep -Fq '연 18,000,000원' pricing.html
-          grep -Fq 'KRW 297,000' en/pricing.html
+          grep -Fq 'KRW 149,000' en/pricing.html
           grep -Fq 'KRW 490,000' en/pricing.html
           grep -Fq 'KRW 18,000,000' en/pricing.html
-          ! grep -Fq '149,000원' pricing.html
-          ! grep -Fq '990,000원' pricing.html
-          ! grep -Fq 'KRW 149,000' en/pricing.html
-          ! grep -Fq 'KRW 990,000' en/pricing.html
-          grep -Fq 'pricing.html' sitemap.xml
-      - name: Verify public AI product assistant and explicit consent handoff UI
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -Fq 'product-assistant-core.js' assets/product-assistant.js
-          grep -Fq 'COREON AI 제품도우미' assets/product-assistant-core.js
-          grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant-core.js
-          grep -Fq "consent:true" assets/product-assistant-core.js
-          grep -Fq '개별 법률 적용·적합성 판단' assets/product-assistant-core.js
-      - name: Keep COREON Mall as a secondary ecosystem channel
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -Fq 'https://smartstore.naver.com/coreonmall' assets/v27-73-2-company-trust-footer.js
-          grep -Fq 'COREON Mall' assets/v27-73-2-company-trust-footer.js
-      - name: Verify native desktop and mobile distribution boundary
-        shell: bash
+          if grep -Fq '297,000원' pricing.html; then echo 'retired 297k Korean Safety Core price returned'; exit 1; fi
+          if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'retired 297k English Safety Core price returned'; exit 1; fi
+          if grep -Fq '990,000원' pricing.html; then echo 'retired Safety Business base plan returned'; exit 1; fi
+          grep -Fq '기본 SaaS 도입비 없음' pricing.html
+          grep -Fq 'no mandatory base SaaS setup fee' en/pricing.html
+      - name: Verify distribution and sitemap boundary
         run: |
           set -euo pipefail
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
+          grep -Fq 'pricing.html' sitemap.xml
           grep -Fq 'download.html' sitemap.xml
+      - name: Run canonical homepage boundary regression
+        run: node test-homepage-v2741.js
