@@ -87,7 +87,7 @@ jobs:
           if [ "${{ github.ref }}" = "refs/heads/main" ] && [ "${{ vars.COREON_DESKTOP_RELEASE_APPROVED }}" = "true" ]; then
             npm run dist:mac:release
           else
-            CSC_IDENTITY_AUTO_DISCOVERY=false npm run dist:mac
+            env -u CSC_LINK -u CSC_KEY_PASSWORD -u APPLE_ID -u APPLE_APP_SPECIFIC_PASSWORD -u APPLE_TEAM_ID CSC_IDENTITY_AUTO_DISCOVERY=false npm run dist:mac
           fi
       - name: Verify signed macOS app bundles for approved production release
         if: github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
