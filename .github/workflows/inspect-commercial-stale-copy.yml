@@ -1,0 +1,31 @@
+name: Inspect Commercial Stale Copy
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/inspect-commercial-stale-copy.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan public HTML
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          terms=['297,000','297000','최초 구축','1,500,000','3 users','사용자 3명','월 10건','10 events','Safety Start Free','Safety Core','Safety Operations']
+          for p in sorted(Path('.').rglob('*.html')):
+              if any(x in p.parts for x in ['.git','node_modules']): continue
+              text=p.read_text(encoding='utf-8',errors='ignore')
+              hits=[]
+              for term in terms:
+                  if term.lower() in text.lower(): hits.append(term)
+              if hits:
+                  print(f'{p}: {", ".join(hits)}')
+          PY
