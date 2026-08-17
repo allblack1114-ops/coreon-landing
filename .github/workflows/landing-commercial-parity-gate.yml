@@ -10,6 +10,14 @@ on:
       - 'en/index.html'
       - 'en/pricing.html'
       - 'en/download.html'
+      - 'notices/**'
+      - '**/*.html'
+      - 'release-axis.json'
+      - 'tests/commercial-authority-v2812.test.js'
+      - 'tests/public-link-integrity-v2812.test.js'
+      - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
+      - '.github/workflows/v27-64-product-home-refinement.yml'
+      - '.github/workflows/v27-66-seo-product-convergence.yml'
       - '.github/workflows/landing-commercial-parity-gate.yml'
   pull_request:
     paths:
@@ -19,6 +27,14 @@ on:
       - 'en/index.html'
       - 'en/pricing.html'
       - 'en/download.html'
+      - 'notices/**'
+      - '**/*.html'
+      - 'release-axis.json'
+      - 'tests/commercial-authority-v2812.test.js'
+      - 'tests/public-link-integrity-v2812.test.js'
+      - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
+      - '.github/workflows/v27-64-product-home-refinement.yml'
+      - '.github/workflows/v27-66-seo-product-convergence.yml'
       - '.github/workflows/landing-commercial-parity-gate.yml'
 
 permissions:
@@ -27,11 +43,13 @@ permissions:
 jobs:
   parity:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Verify Korean and English commercial parity
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'Safety Start Free' index.html
@@ -55,3 +73,7 @@ jobs:
           if grep -Fq '297,000원' pricing.html; then echo 'stale Korean Core price found'; exit 1; fi
           if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'stale English Core price found'; exit 1; fi
           if grep -Fq '최초 구축 1,500,000원' pricing.html; then echo 'stale mandatory Operations setup fee found'; exit 1; fi
+      - name: Run permanent v28.12 commercial and link integrity guards
+        run: |
+          node tests/commercial-authority-v2812.test.js
+          node tests/public-link-integrity-v2812.test.js
