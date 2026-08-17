@@ -39,10 +39,12 @@ jobs:
           test -s desktop/main.cjs
           test -s desktop/preload.cjs
           test -s .github/workflows/coreon-desktop-release.yml
-          grep -Fq 'https://app.coreon-global.com/customer-portal' desktop/main.cjs
+          grep -Fq "const PRODUCT_ORIGIN = 'https://app.coreon-global.com'" desktop/main.cjs
+          grep -Fq 'const ENTRY_URL = `${PRODUCT_ORIGIN}/customer-portal`' desktop/main.cjs
           grep -Fq 'nodeIntegration: false' desktop/main.cjs
           grep -Fq 'contextIsolation: true' desktop/main.cjs
           grep -Fq 'sandbox: true' desktop/main.cjs
+          grep -Fq 'webSecurity: true' desktop/main.cjs
       - name: Preserve download-first homepage journey
         shell: bash
         run: |
