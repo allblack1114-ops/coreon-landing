@@ -1,0 +1,55 @@
+name: Landing Commercial Parity Gate
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'pricing.html'
+      - 'download.html'
+      - 'en/index.html'
+      - 'en/pricing.html'
+      - 'en/download.html'
+      - '.github/workflows/landing-commercial-parity-gate.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'pricing.html'
+      - 'download.html'
+      - 'en/index.html'
+      - 'en/pricing.html'
+      - 'en/download.html'
+      - '.github/workflows/landing-commercial-parity-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Korean and English commercial parity
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'Safety Start Free' index.html
+          grep -Fq '현장 1곳 · 사용자 3명 · 1GB' index.html
+          grep -Fq '월 안전사건 수 제한 없음' index.html
+          grep -Fq '월 149,000원' pricing.html
+          grep -Fq '월 490,000원' pricing.html
+          grep -Fq '연 18,000,000원부터' pricing.html
+          grep -Fq '기본 SaaS 도입비 없음' pricing.html
+          grep -Fq 'No monthly cap on new safety events' en/pricing.html
+          grep -Fq 'KRW 149,000/mo' en/pricing.html
+          grep -Fq 'KRW 490,000/mo' en/pricing.html
+          grep -Fq 'From KRW 18,000,000/yr' en/pricing.html
+          grep -Fq 'no monthly safety-event cap' en/index.html
+          grep -Fq 'viewport-fit=cover' index.html
+          grep -Fq 'name="viewport"' en/index.html
+          grep -Fq '/download.html?source=home-free#install' index.html
+          grep -Fq '/en/download.html?source=en-home-free#install' en/index.html
+          if grep -Fq '297,000원' pricing.html; then echo 'stale Korean Core price found'; exit 1; fi
+          if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'stale English Core price found'; exit 1; fi
+          if grep -Fq '최초 구축 1,500,000원' pricing.html; then echo 'stale mandatory Operations setup fee found'; exit 1; fi
