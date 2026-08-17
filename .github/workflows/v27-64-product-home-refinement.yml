@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Preserve canonical search identity
         shell: bash
         run: |
@@ -32,14 +35,8 @@ jobs:
           grep -Fq '/en/download.html?source=coreon-en-download' en/index.html
           grep -Fq '기업·공공기관 도입 상담' index.html
           grep -Fq 'Enterprise / Public-sector inquiry' en/index.html
-      - name: Enforce homepage-to-download boundary at runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -Fq 'enforceDownloadBoundary' assets/product-assistant.js
-          grep -Fq 'app.coreon-global.com/install.html' assets/product-assistant.js
-          grep -Fq '/download.html?source=home-install-boundary' assets/product-assistant.js
-          grep -Fq '/en/download.html?source=home-install-boundary' assets/product-assistant.js
+      - name: Enforce homepage-to-installed-product boundary
+        run: node tests/homepage-installed-boundary-v2812.test.js
       - name: Keep internal strategy language out of public primary copy
         shell: bash
         run: |
@@ -48,17 +45,18 @@ jobs:
             echo 'Internal administration language must not appear in public home.' >&2
             exit 1
           fi
-      - name: Verify real native installers and mobile fallback
+      - name: Verify desktop downloads fail closed until official signed release
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
+          grep -Fq 'release-download-gate.js?v=28.12.0' download.html
+          grep -Fq 'release-download-gate.js?v=28.12.0' en/download.html
+          ! grep -Fq 'releases/latest/download/' download.html
+          ! grep -Fq 'releases/latest/download/' en/download.html
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
-          ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
-          ! grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
       - name: Reject legacy pricing residue
         shell: bash
         run: |
