@@ -6,13 +6,16 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   seo-public-convergence:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - name: Verify robots and sitemap
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq "Sitemap: https://www.coreon-global.com/sitemap.xml" robots.txt
@@ -26,11 +29,11 @@ jobs:
             https://www.coreon-global.com/download.html \
             https://www.coreon-global.com/en/download.html \
             https://www.coreon-global.com/pricing.html \
-            https://www.coreon-global.com/en/pricing.html; do
+            https://www.coreon-global.com/en/pricing.html \
+            https://www.coreon-global.com/notices/; do
             grep -Fq "$url" sitemap.xml
           done
       - name: Verify every local sitemap target exists
-        shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -46,7 +49,6 @@ jobs:
           print('PASS all sitemap targets map to repository files')
           PY
       - name: Verify current KO and EN public product axis
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'v28.12' release-axis.json
@@ -56,16 +58,20 @@ jobs:
           grep -Fq 'Evidence Graph' en/safety-ax-runtime.html
           grep -Fq '/safety-event-integration.html' safety-ax-runtime.html enterprise-multisite.html
           grep -Fq '/en/safety-event-integration.html' en/safety-ax-runtime.html en/enterprise-multisite.html
-      - name: Reject obsolete pricing and PWA-only distribution residue
-        shell: bash
+      - name: Enforce current pricing and distribution authority
         run: |
           set -euo pipefail
-          ! grep -Fq '149,000원' pricing.html
-          ! grep -Fq '990,000원' pricing.html
+          grep -Fq '월 149,000원' pricing.html
+          grep -Fq 'KRW 149,000/mo' en/pricing.html
+          grep -Fq '월 490,000원' pricing.html
+          grep -Fq '연 18,000,000원부터' pricing.html
+          grep -Fq '기본 SaaS 도입비 없음' pricing.html
+          if grep -Fq '297,000원' pricing.html; then echo 'retired 297k price returned'; exit 1; fi
+          if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'retired 297k English price returned'; exit 1; fi
+          if grep -Fq '990,000원' pricing.html; then echo 'retired Safety Business base plan returned'; exit 1; fi
           ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
           ! grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
       - name: Verify canonical and hreflang SEO metadata
-        shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/"' index.html
