@@ -1,0 +1,80 @@
+name: COREON Desktop Installer Build
+
+on:
+  pull_request:
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/coreon-desktop-build.yml'
+  push:
+    branches:
+      - product/downloadable-agent-convergence-20260817
+      - main
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/coreon-desktop-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install build dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build Windows installer
+        run: npm run dist:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: COREON-Safety-AX-Windows
+          path: desktop/dist/*
+          if-no-files-found: error
+
+  build-macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install build dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build macOS installers
+        run: npm run dist:mac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: COREON-Safety-AX-macOS
+          path: desktop/dist/*
+          if-no-files-found: error
+
+  publish-release:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [build-windows, build-macos]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+      - name: Publish official desktop release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./desktop/package.json').version")
+          TAG="coreon-ax-v${VERSION}"
+          gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" release-assets/* \
+            --title "COREON Safety AX Agent v${VERSION}" \
+            --notes "Official COREON Safety AX Agent desktop installers. Windows x64 and macOS Intel/Apple Silicon. The installed client uses the same authenticated COREON Safety AX Cloud Core and plan/role entitlements as the web product."
