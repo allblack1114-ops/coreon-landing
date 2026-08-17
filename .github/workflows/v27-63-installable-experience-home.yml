@@ -31,14 +31,14 @@ jobs:
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
           grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
           grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
-      - name: Verify desktop source and release workflow exist
+      - name: Verify desktop source and build workflow exist
         shell: bash
         run: |
           set -euo pipefail
           test -s desktop/package.json
           test -s desktop/main.cjs
           test -s desktop/preload.cjs
-          test -s .github/workflows/coreon-desktop-release.yml
+          test -s .github/workflows/coreon-desktop-build.yml
           node - <<'NODE'
           const fs=require('fs');
           const s=fs.readFileSync('desktop/main.cjs','utf8');
