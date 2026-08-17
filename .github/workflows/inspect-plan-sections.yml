@@ -1,0 +1,30 @@
+name: Inspect Homepage Plan Sections
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/inspect-plan-sections.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print plan sections
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          for path in ['index.html','en/index.html']:
+              text=Path(path).read_text(encoding='utf-8')
+              m=re.search(r'<section[^>]*id="plans"[^>]*>.*?</section>',text,re.S)
+              if not m:
+                  raise SystemExit(f'plans section missing: {path}')
+              print(f'--- {path} ---')
+              print(m.group(0))
+          PY
