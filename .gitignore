@@ -1,0 +1,49 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+
+# Signing / certificate material
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.keystore
+*.jks
+
+# Production source maps and build output
+*.map
+build/
+dist/
+out/
+release/
+releases/
+artifacts/
+
+# Native distributables must not be committed to the public homepage repo
+*.exe
+*.msi
+*.msix
+*.dmg
+*.pkg
+*.apk
+*.aab
+*.ipa
+
+# Logs / local state
+*.log
+*.pid
+*.sqlite
+*.sqlite3
+*.db
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
