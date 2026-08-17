@@ -19,7 +19,7 @@
       <article><small>경영 확인</small><strong>정기점검·Evidence Pack</strong><p>고위험, 반복위험, 미조치와 주요 조치 이력을 검토·보고 가능한 기록으로 관리합니다.</p></article>
     </div>
     <div class="cgov-flow"><b>TBM·위험성평가</b><span>→</span><b>위험 제보</b><span>→</span><b>담당자·기한</b><span>→</span><b>개선·증빙</b><span>→</span><b>재확인·보고</b></div>
-    <div class="cgov-actions"><a class="cgov-btn" href="${app}/safety-governance.html?source=coreon-home-governance">업무 흐름 자세히 보기</a><a class="cgov-btn alt" href="${app}/signup.html?source=coreon-home-governance-free">무료 안전방으로 확인하기</a></div>
+    <div class="cgov-actions"><a class="cgov-btn" href="${app}/safety-governance.html?source=coreon-home-governance">업무 흐름 자세히 보기</a><a class="cgov-btn alt" href="/download.html?source=coreon-home-governance-free">COREON AX Agent에서 무료로 시작</a></div>
     <p class="cgov-legal">※ 실제 법적 의무의 적용 여부와 이행 적정성은 사업장별 상황에 따라 권한 있는 담당자와 전문 검토가 필요합니다.</p>
   </div>`;
 
@@ -36,7 +36,7 @@
       <article><small>Executive review</small><strong>Periodic evidence</strong><p>Organize high-risk, repeat-risk and corrective-action history for accountable review and reporting.</p></article>
     </div>
     <div class="cgov-flow"><b>TBM / assessment</b><span>→</span><b>Hazard report</b><span>→</span><b>Owner / due date</b><span>→</span><b>Action / evidence</b><span>→</span><b>Verify / report</b></div>
-    <div class="cgov-actions"><a class="cgov-btn" href="${app}/en/safety-governance.html?source=coreon-en-home-governance">See the workflow</a><a class="cgov-btn alt" href="${app}/signup.html?lang=en&source=coreon-en-home-governance-free">Try it in a free Safety Room</a></div>
+    <div class="cgov-actions"><a class="cgov-btn" href="${app}/en/safety-governance.html?source=coreon-en-home-governance">See the workflow</a><a class="cgov-btn alt" href="/en/download.html?source=coreon-en-home-governance-free">Start free in COREON AX Agent</a></div>
     <p class="cgov-legal">Applicability and adequacy of statutory duties depend on each workplace and require authorized human review.</p>
   </div>`;
 
