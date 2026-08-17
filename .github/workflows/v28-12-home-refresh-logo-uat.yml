@@ -1,0 +1,84 @@
+name: v28.12 Homepage Refresh and Logo UAT
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'assets/**'
+      - '.github/workflows/v28-12-home-refresh-logo-uat.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'en/index.html'
+      - 'assets/**'
+      - '.github/workflows/v28-12-home-refresh-logo-uat.yml'
+
+jobs:
+  homepage-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser UAT runtime
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start static site
+        run: |
+          python3 -m http.server 4173 >/tmp/coreon-home-http.log 2>&1 &
+          echo $! >/tmp/coreon-home-http.pid
+      - name: Verify first load, reload and logo return are identical
+        run: |
+          node - <<'NODE'
+          const { chromium }=require('playwright');
+          const assert=require('node:assert/strict');
+          const base='http://127.0.0.1:4173';
+          const cases=[
+            {path:'/',lang:'ko',brand:'a.brand[href="/"]',download:'/download.html'},
+            {path:'/en/',lang:'en',brand:'a.brand[href="/en/"]',download:'/en/download.html'}
+          ];
+          const viewports=[{name:'desktop',width:1440,height:1000},{name:'mobile',width:390,height:844}];
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            try{
+              for(const vp of viewports){
+                for(const c of cases){
+                  const page=await browser.newPage({viewport:{width:vp.width,height:vp.height}});
+                  const snapshot=async()=>page.evaluate(({lang,download})=>({
+                    lang:document.documentElement.lang,
+                    title:document.title,
+                    h1:(document.querySelector('h1')?.textContent||'').replace(/\s+/g,' ').trim(),
+                    brand:document.querySelector('a.brand')?.getAttribute('href')||'',
+                    downloadLinks:[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')||'').filter(h=>h.startsWith(download)),
+                    directInstall:[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')||'').filter(h=>h.includes('app.coreon-global.com/install.html')),
+                    width:document.documentElement.scrollWidth,
+                    viewport:document.documentElement.clientWidth
+                  }),{lang:c.lang,download:c.download});
+                  await page.goto(base+c.path,{waitUntil:'networkidle'});
+                  const first=await snapshot();
+                  assert.equal(first.lang,c.lang,`${vp.name} ${c.lang}: language`);
+                  assert(first.h1.length>10,`${vp.name} ${c.lang}: missing product H1`);
+                  assert(first.downloadLinks.length>0,`${vp.name} ${c.lang}: missing download CTA`);
+                  assert.equal(first.directInstall.length,0,`${vp.name} ${c.lang}: homepage bypasses download center`);
+                  assert(first.width<=first.viewport+2,`${vp.name} ${c.lang}: horizontal overflow`);
+                  await page.reload({waitUntil:'networkidle'});
+                  const reload=await snapshot();
+                  assert.deepEqual({lang:reload.lang,title:reload.title,h1:reload.h1,brand:reload.brand},{lang:first.lang,title:first.title,h1:first.h1,brand:first.brand},`${vp.name} ${c.lang}: refresh changed homepage identity`);
+                  await page.locator(c.brand).first().click();
+                  await page.waitForLoadState('networkidle');
+                  const logo=await snapshot();
+                  assert.deepEqual({lang:logo.lang,title:logo.title,h1:logo.h1,brand:logo.brand},{lang:first.lang,title:first.title,h1:first.h1,brand:first.brand},`${vp.name} ${c.lang}: logo click changed homepage identity`);
+                  assert.equal(logo.directInstall.length,0,`${vp.name} ${c.lang}: logo-return homepage bypasses download center`);
+                  await page.close();
+                }
+              }
+              console.log('PASS v28.12 homepage refresh/logo PC+mobile KO+EN identity and download boundary');
+            } finally { await browser.close(); }
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE

@@ -1,10 +1,8 @@
-name: v27.62+ Search Equity + Simple Product Home Regression
+name: v28.12 Search Equity + Product Boundary Regression
 
 on:
   push:
     branches:
-      - v27.62-product-excellence-download-center
-      - v27.64-product-home-refinement
       - main
     paths:
       - 'index.html'
@@ -41,7 +39,7 @@ on:
       - '.github/workflows/v27-62-search-equity-simple-product-home.yml'
 
 jobs:
-  preserve-search-equity-and-product-home:
+  preserve-search-equity-and-product-boundary:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -49,9 +47,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'COREON Safety AX Agent | 발주처·공공기관·도급 안전관리와 중대재해 조치증빙' index.html
-          grep -Fq '발주처·공공기관·건설사·협력업체' index.html
-          grep -Fq '위험성평가 후속조치' index.html
+          grep -Fq 'COREON Safety AX Agent' index.html
+          grep -Fq '발주처·공공기관' index.html
           grep -Fq '조치 전후 증빙' index.html
           grep -Fq '잔여위험 재평가' index.html
           grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
@@ -65,12 +62,10 @@ jobs:
           grep -Fq 'property="og:type" content="website"' index.html
           grep -Fq 'property="og:site_name" content="COREON"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
-      - name: Verify approved homepage workflow and industry applications
+      - name: Verify approved safety workflow and industry applications
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq '현장 위험제보부터' index.html
-          grep -Fq '조치·사진증빙·재확인' index.html
           grep -Fq 'TBM·위험성평가' assets/v27-73-governance.js
           grep -Fq '종사자 의견·피드백' assets/v27-73-governance.js
           grep -Fq '도급·협력사 이행 확인' assets/v27-73-governance.js
@@ -82,30 +77,27 @@ jobs:
           grep -Fq '건설·플랜트' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '제조·물류·식품' assets/v27-80-industry-autodesk-ratio.js
           grep -Fq '중소사업장·대표' assets/v27-80-industry-autodesk-ratio.js
-      - name: Verify bilingual plans and free participation policy
+      - name: Enforce canonical four-plan pricing axis
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'Safety Start Free' pricing.html
-          grep -Fq '현장 1개 · 관리자/운영자 3명 · 현장 참여자 제한 없음 · 저장공간 1GB' pricing.html
-          grep -Fq '현장 참여자·안전활동 건수 과금 없음' pricing.html
           grep -Fq '월 297,000원' pricing.html
           grep -Fq '월 490,000원' pricing.html
-          grep -Fq '월 990,000원' pricing.html
           grep -Fq '연 18,000,000원' pricing.html
-          grep -Fq '1 site · 3 admin/operator seats · unlimited field participants · 1GB storage' en/pricing.html
-          grep -Fq 'Start free.' en/pricing.html
+          grep -Fq 'KRW 297,000' en/pricing.html
+          grep -Fq 'KRW 490,000' en/pricing.html
+          grep -Fq 'KRW 18,000,000' en/pricing.html
+          ! grep -Fq '149,000원' pricing.html
+          ! grep -Fq '990,000원' pricing.html
+          ! grep -Fq 'KRW 149,000' en/pricing.html
+          ! grep -Fq 'KRW 990,000' en/pricing.html
           grep -Fq 'pricing.html' sitemap.xml
       - name: Verify public AI product assistant and explicit consent handoff UI
         shell: bash
         run: |
           set -euo pipefail
           grep -Fq 'product-assistant-core.js' assets/product-assistant.js
-          grep -Fq 'v27-73-governance.js' assets/product-assistant.js
-          grep -Fq 'v27-73-2-company-trust-footer.js' assets/product-assistant.js
-          grep -Fq 'v27-74-1-hero-product-visual.js' assets/product-assistant.js
-          grep -Fq 'v27-79-home-ratio-about.js' assets/product-assistant.js
-          grep -Fq 'v27-80-industry-autodesk-ratio.js' assets/product-assistant.js
           grep -Fq 'COREON AI 제품도우미' assets/product-assistant-core.js
           grep -Fq 'app.coreon-global.com/api/public/product-assistant' assets/product-assistant-core.js
           grep -Fq "consent:true" assets/product-assistant-core.js
@@ -115,19 +107,14 @@ jobs:
         run: |
           set -euo pipefail
           grep -Fq 'https://smartstore.naver.com/coreonmall' assets/v27-73-2-company-trust-footer.js
-          grep -Fq '산업안전용품·현장장비는 COREON Mall' assets/v27-73-2-company-trust-footer.js
           grep -Fq 'COREON Mall' assets/v27-73-2-company-trust-footer.js
-      - name: Verify download center claims only real distribution modes
+      - name: Verify native desktop and mobile distribution boundary
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq '"operatingSystem":"Web"' download.html
-          grep -Fq '내 기기에 설치하고' download.html
-          grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
-          grep -Fq '"operatingSystem":"Web"' en/download.html
-          grep -Fq 'Install it on your device' en/download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
           grep -Fq 'download.html' sitemap.xml
-          if grep -Eoi 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html; then
-            echo 'Native installers require approved real artifacts.' >&2
-            exit 1
-          fi

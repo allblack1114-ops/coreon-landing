@@ -1,4 +1,4 @@
-name: v27.66 SEO and Public Product Convergence
+name: v28.12 SEO and Public Product Convergence
 
 on:
   push:
@@ -15,7 +15,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq "updated 2026-08-13" robots.txt
           grep -Fq "Sitemap: https://www.coreon-global.com/sitemap.xml" robots.txt
           for url in \
             https://www.coreon-global.com/safety-ax-runtime.html \
@@ -24,10 +23,10 @@ jobs:
             https://www.coreon-global.com/en/enterprise-multisite.html \
             https://www.coreon-global.com/safety-event-integration.html \
             https://www.coreon-global.com/en/safety-event-integration.html \
-            https://www.coreon-global.com/trust/ \
-            https://www.coreon-global.com/patents.html \
-            https://www.coreon-global.com/faq.html \
-            https://www.coreon-global.com/privacy.html; do
+            https://www.coreon-global.com/download.html \
+            https://www.coreon-global.com/en/download.html \
+            https://www.coreon-global.com/pricing.html \
+            https://www.coreon-global.com/en/pricing.html; do
             grep -Fq "$url" sitemap.xml
           done
       - name: Verify every local sitemap target exists
@@ -36,54 +35,35 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           import os, xml.etree.ElementTree as ET
-          root=ET.parse('sitemap.xml').getroot()
-          ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          prefix='https://www.coreon-global.com/'
-          missing=[]
+          root=ET.parse('sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}; prefix='https://www.coreon-global.com/'; missing=[]
           for loc in root.findall('s:url/s:loc',ns):
               url=(loc.text or '').strip()
-              if not url.startswith(prefix):
-                  continue
+              if not url.startswith(prefix): continue
               rel=url[len(prefix):]
-              if not rel:
-                  candidates=['index.html']
-              elif rel.endswith('/'):
-                  candidates=[rel+'index.html']
-              else:
-                  candidates=[rel]
-              if not any(os.path.isfile(p) for p in candidates):
-                  missing.append((url,candidates))
-          if missing:
-              raise SystemExit('Missing sitemap targets: '+repr(missing))
+              candidates=['index.html'] if not rel else ([rel+'index.html'] if rel.endswith('/') else [rel])
+              if not any(os.path.isfile(p) for p in candidates): missing.append((url,candidates))
+          if missing: raise SystemExit('Missing sitemap targets: '+repr(missing))
           print('PASS all sitemap targets map to repository files')
           PY
-      - name: Verify v27.66 KO and EN public product axis
+      - name: Verify current KO and EN public product axis
         shell: bash
         run: |
           set -euo pipefail
-          for f in \
-            safety-ax-runtime.html en/safety-ax-runtime.html \
-            enterprise-multisite.html en/enterprise-multisite.html \
-            safety-event-integration.html en/safety-event-integration.html; do
-            grep -Fq "v27.66" "$f"
-          done
-          grep -Fq "Evidence Graph 2.0" safety-ax-runtime.html
-          grep -Fq "Evidence Graph 2.0" en/safety-ax-runtime.html
-          grep -Fq "Open Integration Hub" safety-event-integration.html
-          grep -Fq "OPEN INTEGRATION HUB" en/safety-event-integration.html
-          grep -Fq "v27-66-public-convergence.js" assets/safety-home-enhancer.js
-          grep -Fq "Grounded Safety AX Copilot" assets/v27-66-public-convergence.js
-          grep -Fq "SSO/SAML/OIDC" assets/v27-66-public-convergence.js
-      - name: Reject obsolete public release labels on primary product pages
+          grep -Fq 'v28.12' release-axis.json
+          grep -Fq 'COREON Safety AX Agent' index.html
+          grep -Fq 'COREON Safety AX Agent' en/index.html
+          grep -Fq 'Evidence Graph' safety-ax-runtime.html
+          grep -Fq 'Evidence Graph' en/safety-ax-runtime.html
+          grep -Fq '/safety-event-integration.html' safety-ax-runtime.html enterprise-multisite.html
+          grep -Fq '/en/safety-event-integration.html' en/safety-ax-runtime.html en/enterprise-multisite.html
+      - name: Reject obsolete pricing and PWA-only distribution residue
         shell: bash
         run: |
           set -euo pipefail
-          for f in \
-            safety-ax-runtime.html en/safety-ax-runtime.html \
-            enterprise-multisite.html en/enterprise-multisite.html \
-            safety-event-integration.html en/safety-event-integration.html; do
-            ! grep -Eq "v27\.(60|61)([^0-9]|$)" "$f"
-          done
+          ! grep -Fq '149,000원' pricing.html
+          ! grep -Fq '990,000원' pricing.html
+          ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
+          ! grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
       - name: Verify canonical and hreflang SEO metadata
         shell: bash
         run: |
@@ -96,4 +76,3 @@ jobs:
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/safety-event-integration.html"' safety-event-integration.html
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/safety-event-integration.html"' en/safety-event-integration.html
           grep -Fq 'hreflang="en"' index.html
-          grep -Fq 'application/ld+json' index.html

@@ -1,0 +1,128 @@
+name: COREON Desktop Installer Build
+
+on:
+  pull_request:
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/coreon-desktop-build.yml'
+  push:
+    branches:
+      - product/downloadable-agent-convergence-20260817
+      - main
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/coreon-desktop-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop
+    env:
+      CSC_LINK: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_WINDOWS_CSC_LINK || '' }}
+      CSC_KEY_PASSWORD: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_WINDOWS_CSC_KEY_PASSWORD || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install build dependencies
+        run: npm install --no-audit --no-fund
+      - name: Require Windows signing for approved production release
+        if: github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:CSC_LINK) -or [string]::IsNullOrWhiteSpace($env:CSC_KEY_PASSWORD)) {
+            throw 'Production release blocked: Windows code-signing secrets are missing.'
+          }
+      - name: Build Windows installer
+        run: npm run dist:win
+      - name: Verify Windows Authenticode signature for approved production release
+        if: github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem dist\COREON-Safety-AX-*-win-x64.exe | Select-Object -First 1
+          if (-not $installer) { throw 'Windows installer missing.' }
+          $signature = Get-AuthenticodeSignature $installer.FullName
+          if ($signature.Status -ne 'Valid') { throw "Windows installer signature invalid: $($signature.Status)" }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: COREON-Safety-AX-Windows
+          path: desktop/dist/*
+          if-no-files-found: error
+
+  build-macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: desktop
+    env:
+      CSC_LINK: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_MAC_CSC_LINK || '' }}
+      CSC_KEY_PASSWORD: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_MAC_CSC_KEY_PASSWORD || '' }}
+      APPLE_ID: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_APPLE_ID || '' }}
+      APPLE_APP_SPECIFIC_PASSWORD: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_APPLE_APP_SPECIFIC_PASSWORD || '' }}
+      APPLE_TEAM_ID: ${{ github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true' && secrets.COREON_APPLE_TEAM_ID || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install build dependencies
+        run: npm install --no-audit --no-fund
+      - name: Require signing and notarization credentials for approved production release
+        if: github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
+        run: |
+          test -n "$CSC_LINK" || { echo 'Production release blocked: macOS signing certificate is missing.'; exit 1; }
+          test -n "$CSC_KEY_PASSWORD" || { echo 'Production release blocked: macOS signing password is missing.'; exit 1; }
+          test -n "$APPLE_ID" || { echo 'Production release blocked: Apple ID is missing.'; exit 1; }
+          test -n "$APPLE_APP_SPECIFIC_PASSWORD" || { echo 'Production release blocked: Apple app-specific password is missing.'; exit 1; }
+          test -n "$APPLE_TEAM_ID" || { echo 'Production release blocked: Apple Team ID is missing.'; exit 1; }
+      - name: Build macOS installers
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ] && [ "${{ vars.COREON_DESKTOP_RELEASE_APPROVED }}" = "true" ]; then
+            npm run dist:mac:release
+          else
+            CSC_IDENTITY_AUTO_DISCOVERY=false npm run dist:mac
+          fi
+      - name: Verify signed macOS app bundles for approved production release
+        if: github.ref == 'refs/heads/main' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
+        run: |
+          for app in dist/mac*/COREON\ Safety\ AX\ Agent.app; do
+            [ -d "$app" ] || continue
+            codesign --verify --deep --strict --verbose=2 "$app"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: COREON-Safety-AX-macOS
+          path: desktop/dist/*
+          if-no-files-found: error
+
+  publish-release:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && vars.COREON_DESKTOP_RELEASE_APPROVED == 'true'
+    needs: [build-windows, build-macos]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+      - name: Generate SHA-256 checksums
+        run: |
+          cd release-assets
+          sha256sum COREON-Safety-AX-* > SHA256SUMS.txt
+      - name: Publish official desktop release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./desktop/package.json').version")
+          TAG="coreon-ax-v${VERSION}"
+          gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" release-assets/* \
+            --title "COREON Safety AX Agent v${VERSION}" \
+            --notes "Official signed COREON Safety AX Agent desktop installers. Windows x64 and notarized macOS Intel/Apple Silicon builds. SHA-256 checksums are included. The installed client uses the same authenticated COREON Safety AX Cloud Core and plan/role entitlements as the web product."

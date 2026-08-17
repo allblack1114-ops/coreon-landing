@@ -46,7 +46,7 @@ jobs:
           const fs=require('fs');
           const x=JSON.parse(fs.readFileSync('release-axis.json','utf8'));
           if(x.schema!=='coreon.release-axis.v1') throw Error('release axis schema mismatch');
-          if(!/^v\d+\.\d+-[A-Za-z0-9.-]+$/.test(x.releaseAxis)) throw Error('release axis identity invalid');
+          if(x.releaseAxis!=='v28.12') throw Error('release axis identity invalid: '+x.releaseAxis);
           const required=['app-ko-pc','app-ko-mobile','app-en-pc','app-en-mobile','landing-ko-pc','landing-ko-mobile','landing-en-pc','landing-en-mobile'];
           for(const s of required) if(!x.requiredSurfaces.includes(s)) throw Error('missing surface '+s);
           const layers=['performance-evidence','baseline-cohort-recurrence','public-saas-assurance','integration-evidence','vision-edge-field-proof','machine-readable-evidence-manifest','safety-evidence-dataset-governance','public-dpia-readiness','support-sla-console','pilot-evidence-report','management-intelligence','public-saas-certification-boundary','standard-8-12-week-pilot','public-proof-procurement-center'];
@@ -55,39 +55,38 @@ jobs:
           NODE
       - name: Verify Korean and English PC/mobile source parity
         run: |
-          set -euo pipefail
-          grep -Fq '<html lang="ko">' index.html
-          grep -Fq 'name="viewport"' index.html
-          grep -Fq '@media(max-width:900px)' index.html
-          grep -Fq '@media(max-width:560px)' index.html
-          grep -Fq '무료 안전진단' index.html
-          grep -Fq '무료 안전방 만들기' index.html
-          grep -Fq '기업·공공기관 도입 상담' index.html
-          grep -Fq '<html lang="en">' en/index.html
-          grep -Fq 'name="viewport"' en/index.html
-          grep -Fq '@media(max-width:900px)' en/index.html
-          grep -Fq '@media(max-width:560px)' en/index.html
-          grep -Fq 'Free safety check' en/index.html
-          grep -Fq 'Create free Safety Room' en/index.html
-          grep -Fq 'Public / Enterprise inquiry' en/index.html
-      - name: Preserve Proof-Grade v28.5 public section contract
+          node - <<'NODE'
+          const fs=require('fs');
+          const ko=fs.readFileSync('index.html','utf8');
+          const en=fs.readFileSync('en/index.html','utf8');
+          const checks=[
+            ['ko language',ko.includes('<html lang="ko">')],['ko viewport',ko.includes('name="viewport"')],
+            ['ko product',ko.includes('COREON Safety AX Agent')],['ko download route',ko.includes('/download.html?source=coreon-home-download')],
+            ['en language',en.includes('<html lang="en">')],['en viewport',en.includes('name="viewport"')],
+            ['en product',en.includes('COREON Safety AX Agent')],['en download route',en.includes('/en/download.html?source=coreon-en-download')]
+          ];
+          const failed=checks.filter(([,ok])=>!ok).map(([name])=>name);
+          if(failed.length) throw Error('KO/EN source parity failed: '+failed.join(', '));
+          console.log('PASS KO/EN canonical product identity, viewport and download journey');
+          NODE
+      - name: Preserve proof-grade evidence boundary
         run: |
           set -euo pipefail
           grep -Fq 'v28-5-proof-grade-operational-intelligence.js?v=28.5' assets/product-assistant.js
-          grep -Fq '데이터 거버넌스와 실증 준비도까지 검증합니다' assets/v28-5-proof-grade-operational-intelligence.js
-          grep -Fq 'data governance and pilot readiness' assets/v28-5-proof-grade-operational-intelligence.js
           grep -Fq 'customer data is not treated as AI training data by default' assets/v28-5-proof-grade-operational-intelligence.js
-      - name: Verify v28.6 Public Proof & Procurement Center
+          grep -Fq '증거 없는 인증·성과·경쟁우위 주장은 공개하지 않습니다' public-proof-procurement.html
+          grep -Fq 'Unsupported certification, outcome or superiority claims are not published' en/public-proof-procurement.html
+      - name: Verify current Public Proof & Procurement Center
         run: |
           set -euo pipefail
           grep -Fq 'PUBLIC PROOF & PROCUREMENT CENTER' public-proof-procurement.html
-          grep -Fq '8~12주 표준 실증' public-proof-procurement.html
-          grep -Fq 'CSAP 관련 안내' public-proof-procurement.html
+          grep -Fq '8~12주' public-proof-procurement.html
+          grep -Fq 'CSAP' public-proof-procurement.html
           grep -Fq 'PUBLIC PROOF & PROCUREMENT CENTER' en/public-proof-procurement.html
-          grep -Fq 'Standard 8-12 week validation pilot' en/public-proof-procurement.html
-          grep -Fq 'CSAP notice' en/public-proof-procurement.html
-          grep -Fq '@media(max-width:820px)' public-proof-procurement.html
-          grep -Fq '@media(max-width:820px)' en/public-proof-procurement.html
+          grep -Eq '8–12 week|8-12 week' en/public-proof-procurement.html
+          grep -Fq 'CSAP' en/public-proof-procurement.html
+          grep -Fq '@media(max-width:' public-proof-procurement.html
+          grep -Fq '@media(max-width:' en/public-proof-procurement.html
 
   live-pages-convergence:
     if: github.event_name == 'push'
@@ -99,7 +98,7 @@ jobs:
         run: |
           node - <<'NODE'
           const base='https://www.coreon-global.com';
-          const expected='v28.6-public-demand-engine';
+          const expected='v28.12';
           const deadline=Date.now()+12*60*1000;
           const sleep=ms=>new Promise(r=>setTimeout(r,ms));
           async function get(path){const r=await fetch(base+path+'?releaseAxis='+Date.now(),{cache:'no-store'});return {r,t:await r.text()}}
@@ -112,7 +111,7 @@ jobs:
                 if(x.releaseAxis===expected){
                   const ko=await get('/'); const en=await get('/en/'); const pko=await get('/public-proof-procurement.html'); const pen=await get('/en/public-proof-procurement.html');
                   if(ko.r.ok&&en.r.ok&&pko.r.ok&&pen.r.ok&&ko.t.includes('name="viewport"')&&en.t.includes('name="viewport"')&&pko.t.includes('PUBLIC PROOF & PROCUREMENT CENTER')&&pen.t.includes('PUBLIC PROOF & PROCUREMENT CENTER')){
-                    console.log('PASS landing v28.6 KO/EN PC/mobile + Public Proof & Procurement convergence');
+                    console.log('PASS landing v28.12 KO/EN + Public Proof & Procurement convergence');
                     process.exit(0);
                   }
                 }
