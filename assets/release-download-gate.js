@@ -6,35 +6,49 @@
   const links=[...document.querySelectorAll('[data-release-asset]')];
   const state=document.querySelector('[data-release-state]');
   if(!links.length)return;
+
+  const fallback='https://app.coreon-global.com/customer-portal?source=desktop-install-fallback';
   const labels=en?{
-    winPending:'Signed Windows installer pending',armPending:'Signed/notarized Apple Silicon build pending',intelPending:'Signed/notarized Intel Mac build pending',
-    pending:'The official signed/notarized desktop release is not active yet. Verification builds are never exposed as customer downloads.',
-    waiting:'Downloads activate automatically only after the approved signed/notarized GitHub Release and SHA-256 checksums are published.',
-    winReady:'Official Windows download',armReady:'Official Apple Silicon download',intelReady:'Official Intel Mac download',
-    ready:'COREON Safety AX Agent v28.12 signed production release and SHA-256 checksum manifest verified.'
+    winFallback:'Use COREON now on Windows',armFallback:'Use COREON now on Apple Silicon',intelFallback:'Use COREON now on Intel Mac',
+    fallback:'The native installer is being published. You can use the same COREON Safety AX Agent immediately through the authenticated product.',
+    winReady:'Download Windows installer',armReady:'Download Apple Silicon installer',intelReady:'Download Intel Mac installer',
+    ready:'COREON Safety AX Agent desktop installers are available now.'
   }:{
-    winPending:'공식 서명 Windows 설치파일 준비 중',armPending:'Apple Silicon 공식 서명·공증 준비 중',intelPending:'Intel Mac 공식 서명·공증 준비 중',
-    pending:'현재 고객용 공식 서명·공증 Desktop Release는 아직 활성화되지 않았습니다. 검증용 빌드를 고객 다운로드로 노출하지 않습니다.',
-    waiting:'공식 코드서명·공증 Release와 SHA-256 검증 파일이 함께 승인되면 다운로드가 자동으로 활성화됩니다.',
-    winReady:'Windows용 공식 다운로드',armReady:'Apple Silicon 공식 다운로드',intelReady:'Intel Mac 공식 다운로드',
-    ready:'COREON Safety AX Agent v28.12 공식 서명 배포와 SHA-256 검증 파일이 확인되었습니다.'
+    winFallback:'Windows에서 바로 사용',armFallback:'Apple Silicon에서 바로 사용',intelFallback:'Intel Mac에서 바로 사용',
+    fallback:'네이티브 설치파일 배포가 진행 중입니다. 지금도 동일한 COREON Safety AX Agent를 바로 사용할 수 있습니다.',
+    winReady:'Windows 설치파일 다운로드',armReady:'Apple Silicon 설치파일 다운로드',intelReady:'Intel Mac 설치파일 다운로드',
+    ready:'COREON Safety AX Agent 데스크톱 설치파일을 바로 내려받을 수 있습니다.'
   };
-  const textFor=(name,ready=false)=>name.includes('win-x64')?(ready?labels.winReady:labels.winPending):name.includes('arm64')?(ready?labels.armReady:labels.armPending):(ready?labels.intelReady:labels.intelPending);
-  const pending=(message)=>{
-    links.forEach(a=>{a.classList.add('pending');a.setAttribute('aria-disabled','true');a.href='#';a.textContent=textFor(a.dataset.releaseAsset||'',false)});
-    if(state){state.classList.remove('ready');state.textContent=message||labels.waiting}
+
+  const textFor=(name,ready=false)=>name.includes('win-x64')?(ready?labels.winReady:labels.winFallback):name.includes('arm64')?(ready?labels.armReady:labels.armFallback):(ready?labels.intelReady:labels.intelFallback);
+
+  const setFallback=(message)=>{
+    links.forEach(a=>{
+      a.classList.remove('pending');
+      a.removeAttribute('aria-disabled');
+      a.href=fallback;
+      a.textContent=textFor(a.dataset.releaseAsset||'',false);
+    });
+    if(state){state.classList.remove('ready');state.textContent=message||labels.fallback;}
   };
-  pending();
+
+  setFallback();
   fetch(API,{headers:{Accept:'application/vnd.github+json'}}).then(async r=>{
-    if(r.status===404)throw new Error('NO_OFFICIAL_RELEASE');
+    if(r.status===404)throw new Error('NO_RELEASE');
     if(!r.ok)throw new Error('RELEASE_LOOKUP_FAILED');
     return r.json();
   }).then(release=>{
-    if(release.draft||release.prerelease||release.tag_name!==EXPECTED_TAG)throw new Error('OFFICIAL_RELEASE_NOT_CANONICAL');
+    if(release.draft||release.prerelease||release.tag_name!==EXPECTED_TAG)throw new Error('RELEASE_NOT_CANONICAL');
     const assets=new Map((release.assets||[]).map(x=>[x.name,x.browser_download_url]));
-    if(!assets.has(REQUIRED_META))throw new Error('OFFICIAL_RELEASE_CHECKSUM_MISSING');
-    for(const a of links){const name=a.dataset.releaseAsset;if(!assets.has(name))throw new Error('OFFICIAL_RELEASE_ASSET_MISSING:'+name)}
-    links.forEach(a=>{const name=a.dataset.releaseAsset;a.href=assets.get(name);a.classList.remove('pending');a.removeAttribute('aria-disabled');a.textContent=textFor(name,true)});
-    if(state){state.classList.add('ready');state.textContent=labels.ready}
-  }).catch(()=>pending(labels.pending));
+    if(!assets.has(REQUIRED_META))throw new Error('CHECKSUM_MISSING');
+    for(const a of links){const name=a.dataset.releaseAsset;if(!assets.has(name))throw new Error('ASSET_MISSING:'+name)}
+    links.forEach(a=>{
+      const name=a.dataset.releaseAsset;
+      a.href=assets.get(name);
+      a.classList.remove('pending');
+      a.removeAttribute('aria-disabled');
+      a.textContent=textFor(name,true);
+    });
+    if(state){state.classList.add('ready');state.textContent=labels.ready;}
+  }).catch(()=>setFallback(labels.fallback));
 })();
