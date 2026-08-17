@@ -1,38 +1,44 @@
-name: v27.62+ Download Center SEO
+name: v28.12 Download Center Product Boundary
 
 on:
   push:
     branches:
-      - v27.62-product-excellence-download-center
-      - v27.64-product-home-refinement
       - main
   pull_request:
     branches:
       - main
 
 jobs:
-  download-seo:
+  download-product-boundary:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify Korean download center
+      - name: Verify Korean download center SEO and distribution
         run: |
-          grep -q 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
-          grep -q 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
-          grep -q 'app.coreon-global.com/install.html' download.html
-          grep -q '내 기기에 설치하고' download.html
-      - name: Verify English download center
+          set -euo pipefail
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
+          grep -Fq 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+      - name: Verify English download center SEO and distribution
         run: |
-          grep -q 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
-          grep -q 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
-          grep -q 'app.coreon-global.com/install.html' en/download.html
-          grep -q 'Install it on your device' en/download.html
+          set -euo pipefail
+          grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
+          grep -Fq 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' en/download.html
+          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
       - name: Verify sitemap
         run: |
-          grep -q 'https://www.coreon-global.com/download.html' sitemap.xml
-          grep -q 'https://www.coreon-global.com/en/download.html' sitemap.xml
-      - name: Prevent fake native package claims
+          grep -Fq 'https://www.coreon-global.com/download.html' sitemap.xml
+          grep -Fq 'https://www.coreon-global.com/en/download.html' sitemap.xml
+      - name: Reject obsolete PWA-only desktop claims
         run: |
-          ! grep -Eq 'href="[^"]+\.(exe|msi|dmg|apk)"' download.html en/download.html
-          grep -q '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
-          grep -q 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
+          set -euo pipefail
+          ! grep -Fq '별도 Windows·macOS 전용 설치파일은 준비가 완료되면' download.html
+          ! grep -Fq 'Dedicated Windows and macOS installers will be announced here only when they are ready' en/download.html
+          ! grep -Fq '내 기기에 설치하고' download.html
+          ! grep -Fq 'Install it on your device' en/download.html
