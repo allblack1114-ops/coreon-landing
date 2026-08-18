@@ -1,0 +1,54 @@
+name: Apply Customer Copy Focus v28.12
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-customer-copy-focus-v2812.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  focus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Remove internal report framing from customer homepage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html'); s=p.read_text(encoding='utf-8')
+          replacements={
+            '보고서가 제안한 위험요인 확인, 개선조치 기록, TBM, 현장사진 증빙을 출발점으로 삼고, 발견된 위험이 담당자 조치와 현장 재확인까지 이어지도록 지원합니다.':'위험성평가와 현장점검에서 확인된 위험요인, 개선조치, TBM, 현장사진 증빙을 출발점으로 삼고, 발견된 위험이 담당자 조치와 현장 재확인까지 이어지도록 지원합니다.',
+            '보고서의 핵심 메시지를 실제 서비스로':'중대재해 예방 업무를 실제 실행으로',
+            '보고서가 제시한 COREON의 성장 방향':'COREON의 산업안전 기술 기반'
+          }
+          for old,new in replacements.items():
+              if old in s: s=s.replace(old,new,1)
+              elif new not in s: raise SystemExit('HOMEPAGE_COPY_ANCHOR_MISSING:'+old[:30])
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Verify customer-first homepage copy
+        run: |
+          node tests/customer-copy-focus-v2812.test.js
+          node tests/commercial-authority-v2812.test.js
+          node tests/public-link-integrity-v2812.test.js
+          node tests/public-surface-focus-v2812.test.js
+      - name: Commit focused homepage copy
+        run: |
+          if git diff --quiet -- index.html; then echo 'Homepage copy already focused.'; exit 0; fi
+          git config user.name 'COREON Public Quality Assurance'
+          git config user.email 'public-qa@coreon-global.com'
+          git add index.html
+          git commit -m 'copy: remove internal report framing from public homepage'
+          git push origin HEAD:main
