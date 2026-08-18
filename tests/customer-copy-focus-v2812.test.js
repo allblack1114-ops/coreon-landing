@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('assert');
+const fs=require('fs');
+const ko=fs.readFileSync('index.html','utf8');
+assert(ko.includes('COREON Safety AX Agent'));
+assert(ko.includes('현장 위험제보'));
+assert(ko.includes('조치·사진증빙·재확인'));
+assert(!ko.includes('보고서의 핵심 메시지를 실제 서비스로'));
+assert(!ko.includes('보고서가 제시한 COREON의 성장 방향'));
+assert(!ko.includes('보고서가 제안한 위험요인 확인'));
+console.log('PASS customer-first homepage copy without internal report framing');
