@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+<title id="title">2026 기술평가 우수기업 T5</title>
+<desc id="desc">한국기술신용평가 기술평가등급 T5, SaaS 기반 산업안전 관리 플랫폼 기술</desc>
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#b98722"/><stop offset=".5" stop-color="#f3d56a"/><stop offset="1" stop-color="#b98722"/></linearGradient></defs>
+<rect width="720" height="420" rx="28" fill="#fff" stroke="#dce6ef" stroke-width="3"/>
+<circle cx="170" cy="180" r="104" fill="url(#g)"/><circle cx="170" cy="180" r="82" fill="none" stroke="#8b641e" stroke-width="3"/>
+<text x="170" y="142" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#735014">2026</text>
+<text x="170" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="70" font-weight="900" fill="#735014">T5</text>
+<text x="170" y="245" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#735014">TECH EVALUATION</text>
+<text x="320" y="105" font-family="Arial,sans-serif" font-size="24" font-weight="800" fill="#10223b">2026 기술평가 우수기업</text>
+<text x="320" y="150" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#10223b">기술평가등급 T5</text>
+<text x="320" y="200" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#395069">SaaS 기반 산업안전 관리 플랫폼 기술</text>
+<text x="320" y="240" font-family="Arial,sans-serif" font-size="16" fill="#62748a">한국기술신용평가(주)</text>
+<text x="320" y="272" font-family="Arial,sans-serif" font-size="16" fill="#62748a">2026.08.19 – 2027.08.18</text>
+<line x1="70" y1="330" x2="650" y2="330" stroke="#dce6ef"/>
+<text x="360" y="370" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#62748a">COREON HOLDINGS · Technology Evaluation Excellence Certification</text>
+</svg>
