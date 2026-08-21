@@ -38,6 +38,31 @@
     ['Open · Overdue · Recurring risks', 'Open · Overdue · Recurring · High-potential near misses']
   ]);
 
+  const addTechnologyEvaluationTrust = () => {
+    if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
+    const trust = document.querySelector('#trust .trust');
+    if (!trust || trust.querySelector('[data-coreon-t5]')) return;
+
+    const ko = document.documentElement.lang.toLowerCase().startsWith('ko');
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.dataset.coreonT5 = '2026';
+    card.style.gridColumn = '1 / -1';
+    card.style.display = 'grid';
+    card.style.gridTemplateColumns = 'minmax(220px, 320px) minmax(0, 1fr)';
+    card.style.gap = '24px';
+    card.style.alignItems = 'center';
+    card.style.minHeight = '0';
+    card.innerHTML = ko
+      ? '<img src="/assets/t5-technology-excellence-2026.svg" alt="2026 기술평가 우수기업 T5 인증" style="width:100%;height:auto;display:block"><div><span class="num">외부 기술평가</span><h3>2026 기술평가 우수기업 · T5</h3><p><strong style="color:#10223b">평가기술: SaaS 기반 산업안전 관리 플랫폼 기술</strong><br>한국기술신용평가(주)의 기술평가 결과에 따른 기술평가 우수기업 인증입니다.<br>기술평가등급 T5 · 유효기간 2026.08.19 ~ 2027.08.18</p></div>'
+      : '<img src="/assets/t5-technology-excellence-2026.svg" alt="2026 Technology Evaluation Excellence T5" style="width:100%;height:auto;display:block"><div><span class="num">INDEPENDENT TECHNOLOGY EVALUATION</span><h3>2026 Technology Evaluation Excellence · T5</h3><p><strong style="color:#10223b">Evaluated technology: SaaS-based industrial safety management platform technology</strong><br>Technology Evaluation Excellence certification based on the evaluation by Korea Technology Credit Bureau.<br>Technology rating T5 · Valid 2026.08.19 – 2027.08.18</p></div>';
+    trust.prepend(card);
+
+    const style = document.createElement('style');
+    style.textContent = '@media(max-width:700px){[data-coreon-t5]{grid-template-columns:1fr!important;gap:16px!important}[data-coreon-t5] img{max-width:360px;margin:auto}}';
+    document.head.appendChild(style);
+  };
+
   const syncTerminology = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -61,6 +86,8 @@
     if (og) og.setAttribute('content', description);
     const tw = document.querySelector('meta[name="twitter:description"]');
     if (tw) tw.setAttribute('content', description);
+
+    addTechnologyEvaluationTrust();
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncTerminology, { once: true });
