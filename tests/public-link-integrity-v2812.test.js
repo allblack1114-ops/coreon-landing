@@ -14,4 +14,5 @@ const missing=[];const htmlFiles=walk(ROOT);
 const attr=/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi;
 for(const file of htmlFiles){const html=fs.readFileSync(file,'utf8');let m;while((m=attr.exec(html))){const candidates=localCandidates(file,m[1]);if(!candidates.length)continue;if(!candidates.some(p=>fs.existsSync(p)))missing.push({file:path.relative(ROOT,file),target:m[1]});}}
 assert.equal(missing.length,0,'Broken local links:\n'+missing.map(x=>`${x.file} -> ${x.target}`).join('\n'));
-console.log(`PASS v28.12 public link integrity across ${htmlFiles.length} HTML files`);
+const releaseAxis=JSON.parse(fs.readFileSync(path.join(ROOT,'release-axis.json'),'utf8')).releaseAxis;
+console.log(`PASS ${releaseAxis} public link integrity across ${htmlFiles.length} HTML files`);

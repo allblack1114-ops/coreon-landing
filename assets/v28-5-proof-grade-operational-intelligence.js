@@ -2,7 +2,7 @@
  const lang=(document.documentElement.lang||'ko').toLowerCase().startsWith('en')?'en':'ko';
  if(document.getElementById('coreon-proof-grade-v285'))return;
  const copy=lang==='ko'?{
-  eye:'PROOF-GRADE SAFETY AX · v28.12',
+  eye:'PROOF-GRADE SAFETY AX · v28.33',
   title:'운영 증거를 넘어, 데이터 거버넌스와 실증 준비도까지 검증합니다.',
   body:'COREON은 기능 존재 여부가 아니라 실제 운영에서 증명 가능한지를 기준으로 평가합니다. 표본이 없으면 성과를 만들지 않고, 고객 데이터는 기본적으로 AI 학습데이터로 간주하지 않습니다.',
   cards:[
@@ -15,7 +15,7 @@
   note:'검증 경계 · AI는 안전판단을 대체하지 않으며, 실데이터·사람 검토·운영 증거가 없으면 VERIFIED PASS를 부여하지 않습니다.',
   cta:'공공기관·기업 실증 상담'
  }:{
-  eye:'PROOF-GRADE SAFETY AX · v28.12',
+  eye:'PROOF-GRADE SAFETY AX · v28.33',
   title:'Verify data governance and pilot readiness — not only operational features.',
   body:'COREON evaluates whether capabilities can be proven in real operations. It does not manufacture outcomes without samples, and customer data is not treated as AI training data by default.',
   cards:[

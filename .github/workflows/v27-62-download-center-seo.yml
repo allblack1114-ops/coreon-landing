@@ -18,19 +18,15 @@ jobs:
           set -euo pipefail
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/download.html"' download.html
           grep -Fq 'hreflang="en" href="https://www.coreon-global.com/en/download.html"' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile' download.html
       - name: Verify English download center SEO and distribution
         run: |
           set -euo pipefail
           grep -Fq 'rel="canonical" href="https://www.coreon-global.com/en/download.html"' en/download.html
           grep -Fq 'hreflang="ko" href="https://www.coreon-global.com/download.html"' en/download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' en/download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' en/download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop-en' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile-en' en/download.html
       - name: Verify sitemap
         run: |
           grep -Fq 'https://www.coreon-global.com/download.html' sitemap.xml

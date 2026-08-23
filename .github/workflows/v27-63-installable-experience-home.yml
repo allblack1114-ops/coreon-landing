@@ -24,15 +24,13 @@ jobs:
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
           grep -Fq 'canonical" href="https://www.coreon-global.com/en/' en/index.html
-      - name: Verify native desktop product and mobile fallback
+      - name: Verify canonical PC and mobile installation routes
         run: |
           set -euo pipefail
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' en/download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop-en' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile-en' en/download.html
       - name: Verify desktop source and secure entry contract exist
         run: |
           set -euo pipefail

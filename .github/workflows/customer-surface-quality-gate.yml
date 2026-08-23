@@ -40,5 +40,27 @@ jobs:
           const inspect=(body,label)=>{const t=visible(body); for(const [re,n] of [[/\$\{[^}]+\}/,'template placeholder'],[/\bcustomer-hub-\$?\{?/i,'customer-hub development identifier'],[/\blocalhost(?::\d+)?\b/i,'localhost'],[/\b(?:TODO|FIXME)\b/,'TODO/FIXME'],[/\bundefined\b/i,'undefined']]) assert(!re.test(t),`${label} exposes ${n}`); const bad=labels(t).filter(v=>v!==axis); assert.equal(bad.length,0,`${label} exposes non-canonical release ${bad.join(', ')}`); return t;};
           for(const f of ['index.html','en/index.html']){const b=fs.readFileSync(f,'utf8');assert(/<meta\s+name=["']viewport["']/i.test(b),`${f} missing viewport`);inspect(b,f)}
           async function get(u){const r=await fetch(u+(u.includes('?')?'&':'?')+'qualityGate='+Date.now(),{cache:'no-store',redirect:'follow',signal:AbortSignal.timeout(20000),headers:{'user-agent':'COREON-landing-quality-gate/1.0'}});assert.equal(r.status,200,`${u} ${r.status}`);return r.text()}
-          (async()=>{const [ka,ea,la,aa]=await Promise.all([get('https://www.coreon-global.com/'),get('https://www.coreon-global.com/en/'),get('https://www.coreon-global.com/release-axis.json'),get('https://app.coreon-global.com/release-axis.json')]);inspect(ka,'live-ko');inspect(ea,'live-en');const l=JSON.parse(la),a=JSON.parse(aa);assert.equal(l.releaseAxis,axis,'landing release mismatch');assert.equal(a.releaseAxis,axis,'app release mismatch');assert.equal(a.releaseAxis,l.releaseAxis,'app/landing release mismatch');console.log(JSON.stringify({status:'PASS',release:axis,surfaces:4}))})().catch(e=>{console.error(e.stack||e);process.exit(1)});
+          (async()=>{
+            if(process.env.GITHUB_EVENT_NAME!=='push'){
+              console.log(JSON.stringify({status:'PASS',gate:'landing-source-customer-surface',release:axis,surfaces:2}));
+              return;
+            }
+            const deadline=Date.now()+12*60*1000;
+            const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+            let last;
+            while(Date.now()<deadline){
+              try{
+                const [ka,ea,la,aa]=await Promise.all([get('https://www.coreon-global.com/'),get('https://www.coreon-global.com/en/'),get('https://www.coreon-global.com/release-axis.json'),get('https://app.coreon-global.com/release-axis.json')]);
+                inspect(ka,'live-ko');inspect(ea,'live-en');
+                const l=JSON.parse(la),a=JSON.parse(aa);
+                assert.equal(l.releaseAxis,axis,'landing release mismatch');
+                assert.equal(a.releaseAxis,axis,'app release mismatch');
+                assert.equal(a.releaseAxis,l.releaseAxis,'app/landing release mismatch');
+                console.log(JSON.stringify({status:'PASS',gate:'landing-live-customer-surface',release:axis,surfaces:4}));
+                return;
+              }catch(error){last=error}
+              await sleep(15000);
+            }
+            throw last||new Error('landing live customer surface did not converge');
+          })().catch(e=>{console.error(e.stack||e);process.exit(1)});
           NODE

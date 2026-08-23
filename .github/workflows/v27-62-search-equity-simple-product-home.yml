@@ -40,7 +40,7 @@ jobs:
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
           grep -Fq '조치 전후 증빙' index.html
-          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq '잔여위험 재확인' index.html
           grep -Fq 'hreflang="ko"' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
@@ -57,15 +57,15 @@ jobs:
           if grep -Fq '297,000원' pricing.html; then echo 'retired 297k Korean Safety Core price returned'; exit 1; fi
           if grep -Fq 'KRW 297,000' en/pricing.html; then echo 'retired 297k English Safety Core price returned'; exit 1; fi
           if grep -Fq '990,000원' pricing.html; then echo 'retired Safety Business base plan returned'; exit 1; fi
-          grep -Fq '기본 SaaS 도입비 없음' pricing.html
-          grep -Fq 'no mandatory base SaaS setup fee' en/pricing.html
+          grep -Fq '기본 SaaS 사용에는 별도 초기 구축비를 강제하지 않으며' pricing.html
+          grep -Fq 'Base SaaS use does not require a mandatory setup fee' en/pricing.html
       - name: Verify distribution and sitemap boundary
         run: |
           set -euo pipefail
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop-en' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile-en' en/download.html
           grep -Fq 'pricing.html' sitemap.xml
           grep -Fq 'download.html' sitemap.xml
       - name: Run canonical homepage boundary regression

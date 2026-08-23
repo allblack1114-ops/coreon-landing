@@ -1,6 +1,6 @@
 {
   "schema": "coreon.release-axis.v1",
-  "releaseAxis": "v28.12",
+  "releaseAxis": "v28.33",
   "product": "COREON Safety AX Agent",
   "requiredSurfaces": [
     "app-ko-pc",
@@ -38,6 +38,13 @@
     "customerDataNotTrainingDataByDefault": true,
     "privacyAndSupportEvidenceRequired": true,
     "csapClaimRequiresActualCertificate": true,
-    "publicPerformanceClaimRequiresRealFieldEvidence": true
-  }
+    "publicPerformanceClaimRequiresRealFieldEvidence": true,
+    "singleReleaseAuthority": true,
+    "packageVersionParityRequired": true,
+    "healthzReleaseParityRequired": true
+  },
+  "operationsRelease": "v28.33",
+  "packageVersion": "28.33.0",
+  "previousReleaseAxis": "v28.32",
+  "dataSchemaVersion": 80
 }
