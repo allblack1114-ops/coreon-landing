@@ -45,17 +45,15 @@ jobs:
             echo 'Internal administration language must not appear in public home.' >&2
             exit 1
           fi
-      - name: Verify desktop downloads fail closed until official signed release
+      - name: Verify the canonical installation center routes
         run: |
           set -euo pipefail
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
-          grep -Fq 'release-download-gate.js?v=28.12.0' download.html
-          grep -Fq 'release-download-gate.js?v=28.12.0' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop-en' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile-en' en/download.html
           ! grep -Fq 'releases/latest/download/' download.html
           ! grep -Fq 'releases/latest/download/' en/download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
       - name: Separate homepage simplicity from official pricing authority
         run: |
           set -euo pipefail

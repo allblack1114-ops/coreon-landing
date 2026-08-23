@@ -40,7 +40,7 @@ jobs:
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
           grep -Fq '조치 전후 증빙' index.html
-          grep -Fq '잔여위험 재평가' index.html
+          grep -Fq '잔여위험 재확인' index.html
           grep -Fq 'hreflang="ko"' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
@@ -62,10 +62,10 @@ jobs:
       - name: Verify distribution and sitemap boundary
         run: |
           set -euo pipefail
-          grep -Fq 'COREON-Safety-AX-28.12.0-win-x64.exe' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-arm64.dmg' download.html
-          grep -Fq 'COREON-Safety-AX-28.12.0-mac-x64.dmg' download.html
-          grep -Fq 'app.coreon-global.com/install.html?source=download-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile' download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-desktop-en' en/download.html
+          grep -Fq 'app.coreon-global.com/install.html?source=coreon-home-free-mobile-en' en/download.html
           grep -Fq 'pricing.html' sitemap.xml
           grep -Fq 'download.html' sitemap.xml
       - name: Run canonical homepage boundary regression

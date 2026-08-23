@@ -63,9 +63,9 @@ jobs:
           const en=fs.readFileSync('en/index.html','utf8');
           const checks=[
             ['ko language',ko.includes('<html lang="ko">')],['ko viewport',ko.includes('name="viewport"')],
-            ['ko product',ko.includes('COREON Safety AX Agent')],['ko download route',ko.includes('/download.html?source=coreon-home-download')],
+            ['ko product',ko.includes('COREON Safety AX Agent')],['ko download route',ko.includes('/download.html?source=home-download#install')],
             ['en language',en.includes('<html lang="en">')],['en viewport',en.includes('name="viewport"')],
-            ['en product',en.includes('COREON Safety AX Agent')],['en download route',en.includes('/en/download.html?source=coreon-en-download')]
+            ['en product',en.includes('COREON Safety AX Agent')],['en download route',en.includes('/en/download.html?source=en-home-download#install')]
           ];
           const failed=checks.filter(([,ok])=>!ok).map(([name])=>name);
           if(failed.length) throw Error('KO/EN source parity failed: '+failed.join(', '));

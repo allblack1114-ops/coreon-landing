@@ -53,5 +53,5 @@ jobs:
           ]
           failed=[name for name,ok in checks if not ok]
           if failed: raise SystemExit('SEO gate failed: '+', '.join(failed))
-          print('v28.12 bilingual integration SEO gate passed')
+          print('canonical bilingual integration SEO gate passed')
           PY
