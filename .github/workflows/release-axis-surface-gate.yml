@@ -46,7 +46,9 @@ jobs:
           const fs=require('fs');
           const x=JSON.parse(fs.readFileSync('release-axis.json','utf8'));
           if(x.schema!=='coreon.release-axis.v1') throw Error('release axis schema mismatch');
-          if(x.releaseAxis!=='v28.12') throw Error('release axis identity invalid: '+x.releaseAxis);
+          if(!/^v\d+\.\d+(?:\.\d+)?$/.test(x.releaseAxis||'')) throw Error('release axis identity invalid: '+x.releaseAxis);
+          if(x.operationsRelease!==x.releaseAxis) throw Error('operations release mismatch: '+x.operationsRelease);
+          if(x.packageVersion!=='28.33.0') throw Error('package version mismatch: '+x.packageVersion);
           const required=['app-ko-pc','app-ko-mobile','app-en-pc','app-en-mobile','landing-ko-pc','landing-ko-mobile','landing-en-pc','landing-en-mobile'];
           for(const s of required) if(!x.requiredSurfaces.includes(s)) throw Error('missing surface '+s);
           const layers=['performance-evidence','baseline-cohort-recurrence','public-saas-assurance','integration-evidence','vision-edge-field-proof','machine-readable-evidence-manifest','safety-evidence-dataset-governance','public-dpia-readiness','support-sla-console','pilot-evidence-report','management-intelligence','public-saas-certification-boundary','standard-8-12-week-pilot','public-proof-procurement-center'];
@@ -69,11 +71,11 @@ jobs:
           if(failed.length) throw Error('KO/EN source parity failed: '+failed.join(', '));
           console.log('PASS KO/EN canonical product identity, viewport and download journey');
           NODE
-      - name: Preserve proof-grade evidence boundary under v28.12 public identity
+      - name: Preserve proof-grade evidence boundary under canonical public identity
         run: |
           set -euo pipefail
-          grep -Fq 'v28-5-proof-grade-operational-intelligence.js?v=28.12' assets/product-assistant.js
-          grep -Fq 'PROOF-GRADE SAFETY AX · v28.12' assets/v28-5-proof-grade-operational-intelligence.js
+          ! grep -Fq "load('/assets/v28-5-proof-grade-operational-intelligence.js" assets/product-assistant.js
+          grep -Fq 'PROOF-GRADE SAFETY AX · v28.33' assets/v28-5-proof-grade-operational-intelligence.js
           ! grep -Fq "eye:'PROOF-GRADE SAFETY AX · v28.5'" assets/v28-5-proof-grade-operational-intelligence.js
           grep -Fq 'customer data is not treated as AI training data by default' assets/v28-5-proof-grade-operational-intelligence.js
           grep -Fq '증거 없는 인증·성과·경쟁우위 주장은 공개하지 않습니다' public-proof-procurement.html
@@ -96,11 +98,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - uses: actions/checkout@v4
       - name: Wait for GitHub Pages and verify KO/EN release axis
         run: |
           node - <<'NODE'
+          const fs=require('fs');
           const base='https://www.coreon-global.com';
-          const expected='v28.12';
+          const expected=JSON.parse(fs.readFileSync('release-axis.json','utf8')).releaseAxis;
           const deadline=Date.now()+12*60*1000;
           const sleep=ms=>new Promise(r=>setTimeout(r,ms));
           async function get(path){const sep=path.includes('?')?'&':'?';const r=await fetch(base+path+sep+'releaseAxis='+Date.now(),{cache:'no-store'});return {r,t:await r.text()}}
@@ -112,11 +116,11 @@ jobs:
                 const x=JSON.parse(m.t);
                 if(x.releaseAxis===expected){
                   const ko=await get('/'); const en=await get('/en/'); const pko=await get('/public-proof-procurement.html'); const pen=await get('/en/public-proof-procurement.html');
-                  const koBoundary=ko.t.includes('/download.html?source=coreon-home-free-start')&&ko.t.includes('product-assistant.js?v=28.12.1');
-                  const enBoundary=en.t.includes('/en/download.html?source=coreon-en-free-start')&&en.t.includes('product-assistant.js?v=28.12.1');
+                  const koBoundary=ko.t.includes('/download.html?source=coreon-home-free-start');
+                  const enBoundary=en.t.includes('/en/download.html?source=coreon-en-free-start');
                   const noOldKo=!ko.t.includes('무료 진단으로 시작하고, 무료 안전방에서 직접 써보고, 필요하면 설치형 경험이나 기업·공공기관 도입으로 확장하세요.');
                   if(ko.r.ok&&en.r.ok&&pko.r.ok&&pen.r.ok&&koBoundary&&enBoundary&&noOldKo&&pko.t.includes('PUBLIC PROOF & PROCUREMENT CENTER')&&pen.t.includes('PUBLIC PROOF & PROCUREMENT CENTER')){
-                    console.log('PASS landing v28.12 KO/EN live convergence and installed-product boundary');
+                    console.log('PASS landing '+expected+' KO/EN live convergence and installed-product boundary');
                     process.exit(0);
                   }
                 }

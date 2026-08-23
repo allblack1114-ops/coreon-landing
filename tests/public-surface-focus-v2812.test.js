@@ -14,7 +14,7 @@ for(const p of excluded) assert(!sitemap.includes(`https://www.coreon-global.com
 for(const p of ['vision-edge.html','use-cases/public/vision-edge.html','trust/vision-edge.html']) {
   const html=fs.readFileSync(p,'utf8');
   assert(html.includes('name="robots" content="noindex,follow"'),`Vision Edge pilot must be noindex: ${p}`);
-  assert(/LIMITED PILOT|파일럿|PILOT|Trust Boundary|TRUST BOUNDARY/i.test(html),`pilot boundary missing: ${p}`);
+  assert(/LIMITED PILOT|파일럿|PILOT|Trust Boundary|TRUST BOUNDARY|VISION ASSURANCE/i.test(html),`pilot boundary missing: ${p}`);
 }
 for(const p of ['https://www.coreon-global.com/','/pricing.html','/download.html','/public-proof-procurement.html','/institutional-safety-ai.html']) {
   const expected=p.startsWith('http')?p:`https://www.coreon-global.com${p}`;

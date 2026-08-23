@@ -63,7 +63,7 @@ jobs:
           grep -Fq '월 149,000원' pricing.html
           grep -Fq '월 490,000원' pricing.html
           grep -Fq '연 18,000,000원부터' pricing.html
-          grep -Fq '기본 SaaS 도입비 없음' pricing.html
+          grep -Fq '기본 SaaS 사용에는 별도 초기 구축비를 강제하지 않으며' pricing.html
           grep -Fq 'Unlimited field participants · no monthly cap on new safety events' en/pricing.html
           grep -Fq 'KRW 149,000/mo' en/pricing.html
           grep -Fq 'KRW 490,000/mo' en/pricing.html
