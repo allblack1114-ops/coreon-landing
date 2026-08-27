@@ -1,4 +1,4 @@
-name: COREON v28.12 Download-First Homepage Guard
+name: COREON Public Product Entry Guard
 
 on:
   push:
@@ -8,8 +8,9 @@ on:
       - 'en/index.html'
       - 'download.html'
       - 'en/download.html'
-      - 'assets/product-assistant.js'
+      - 'assets/client-hardening.js'
       - 'test-homepage-v2741.js'
+      - 'tests/public-link-integrity-v2812.test.js'
       - '.github/workflows/align-download-first-homepage.yml'
   pull_request:
     paths:
@@ -17,8 +18,9 @@ on:
       - 'en/index.html'
       - 'download.html'
       - 'en/download.html'
-      - 'assets/product-assistant.js'
+      - 'assets/client-hardening.js'
       - 'test-homepage-v2741.js'
+      - 'tests/public-link-integrity-v2812.test.js'
       - '.github/workflows/align-download-first-homepage.yml'
 
 permissions:
@@ -33,18 +35,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify current KO EN download-first CTA authority
+      - name: Verify separated signup login and install authority
         run: |
           set -euo pipefail
-          grep -Fq '/download.html?source=home-free#install' index.html
+          grep -Fq 'https://app.coreon-global.com/signup.html?source=coreon-home-free' assets/client-hardening.js
+          grep -Fq 'https://app.coreon-global.com/signup.html?source=coreon-home-top-free' assets/client-hardening.js
+          grep -Fq 'https://app.coreon-global.com/login.html?source=coreon-home-top-login' assets/client-hardening.js
           grep -Fq '/download.html?source=home-download#install' index.html
           grep -Fq '/download.html?source=home-install#install' index.html
-          grep -Fq '/en/download.html?source=en-home-free#install' en/index.html
+          grep -Fq 'https://app.coreon-global.com/en/signup.html?source=coreon-en-home-free' assets/client-hardening.js
           grep -Fq '/en/download.html?source=en-home-download#install' en/index.html
-          grep -Fq '/en/download.html?source=en-bottom-install#install' en/index.html
-          if grep -Fq 'source=coreon-home-download' index.html; then echo 'legacy KO CTA source returned'; exit 1; fi
-          if grep -Fq 'source=coreon-en-download' en/index.html; then echo 'legacy EN CTA source returned'; exit 1; fi
-          if grep -Fq 'app.coreon-global.com/signup.html?source=coreon-home-safety-room' index.html; then echo 'legacy direct signup primary CTA returned'; exit 1; fi
+          if grep -Fq 'COREON Safety AX Agent 설치' assets/client-hardening.js && grep -Fq 'signup.html?source=coreon-home-free' assets/client-hardening.js; then
+            echo 'signup and install entries are deliberately separated'
+          else
+            echo 'public entry separation is incomplete'; exit 1
+          fi
       - name: Verify canonical homepage and internal-link integrity
         run: |
           node test-homepage-v2741.js
