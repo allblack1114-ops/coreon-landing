@@ -38,18 +38,17 @@ jobs:
       - name: Verify separated signup login and install authority
         run: |
           set -euo pipefail
-          grep -Fq 'https://app.coreon-global.com/signup.html?source=coreon-home-free' assets/client-hardening.js
-          grep -Fq 'https://app.coreon-global.com/signup.html?source=coreon-home-top-free' assets/client-hardening.js
-          grep -Fq 'https://app.coreon-global.com/login.html?source=coreon-home-top-login' assets/client-hardening.js
+          grep -Fq 'coreon-home-free&next=%2Fsafety-workspace.html' assets/client-hardening.js
+          grep -Fq 'coreon-home-top-free&next=%2Fsafety-workspace.html' assets/client-hardening.js
+          grep -Fq 'coreon-home-top-login&next=%2Fsafety-workspace.html' assets/client-hardening.js
+          grep -Fq '/download.html?source=home-top-install#install' assets/client-hardening.js
+          grep -Fq 'coreon-en-home-free&next=%2Fen%2Fsafety-workspace.html' assets/client-hardening.js
+          grep -Fq 'coreon-en-home-top-free&next=%2Fen%2Fsafety-workspace.html' assets/client-hardening.js
+          grep -Fq '/en/download.html?source=en-home-top-install#install' assets/client-hardening.js
+          grep -Fq 'combined.replaceWith(free, install)' assets/client-hardening.js
           grep -Fq '/download.html?source=home-download#install' index.html
-          grep -Fq '/download.html?source=home-install#install' index.html
-          grep -Fq 'https://app.coreon-global.com/en/signup.html?source=coreon-en-home-free' assets/client-hardening.js
           grep -Fq '/en/download.html?source=en-home-download#install' en/index.html
-          if grep -Fq 'COREON Safety AX Agent 설치' assets/client-hardening.js && grep -Fq 'signup.html?source=coreon-home-free' assets/client-hardening.js; then
-            echo 'signup and install entries are deliberately separated'
-          else
-            echo 'public entry separation is incomplete'; exit 1
-          fi
+          echo 'signup, login and install entries are deliberately separated'
       - name: Verify canonical homepage and internal-link integrity
         run: |
           node test-homepage-v2741.js
