@@ -63,6 +63,53 @@
     document.head.appendChild(style);
   };
 
+  const syncEntryActions = () => {
+    if (!['/', '/index.html'].includes(location.pathname)) return;
+
+    const signupUrl = 'https://app.coreon-global.com/signup.html?source=coreon-home-free';
+    const loginUrl = 'https://app.coreon-global.com/login.html';
+    const installUrl = '/download.html?source=home-download#install';
+
+    const links = [...document.querySelectorAll('a[href]')];
+    for (const link of links) {
+      const label = String(link.textContent || '').trim();
+      if (label === '무료로 시작하기') {
+        link.href = signupUrl;
+        link.setAttribute('data-coreon-entry', 'signup');
+      } else if (label === 'COREON Safety AX Agent 설치') {
+        link.href = installUrl;
+        link.setAttribute('data-coreon-entry', 'install');
+      } else if (label === '로그인') {
+        link.href = loginUrl;
+        link.setAttribute('data-coreon-entry', 'login');
+      }
+    }
+
+    // The legacy top-right combined CTA is split at runtime so each label maps
+    // to exactly one customer intent: signup, install, or login.
+    const combined = [...document.querySelectorAll('header a, nav a, .actions a')]
+      .find(link => String(link.textContent || '').trim() === '설치·무료 시작');
+    if (combined) {
+      combined.textContent = '설치';
+      combined.href = installUrl;
+      combined.setAttribute('data-coreon-entry', 'install');
+
+      if (!document.querySelector('[data-coreon-entry="signup-top"]')) {
+        const signup = combined.cloneNode(true);
+        signup.textContent = '무료 시작';
+        signup.href = signupUrl;
+        signup.setAttribute('data-coreon-entry', 'signup-top');
+        combined.parentNode?.insertBefore(signup, combined);
+      }
+    }
+
+    // P0 guard: never allow the signup and install CTAs to collapse to the same destination.
+    const signupActions = [...document.querySelectorAll('[data-coreon-entry="signup"], [data-coreon-entry="signup-top"]')];
+    const installActions = [...document.querySelectorAll('[data-coreon-entry="install"]')];
+    for (const signup of signupActions) signup.href = signupUrl;
+    for (const install of installActions) install.href = installUrl;
+  };
+
   const syncTerminology = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -87,6 +134,7 @@
     const tw = document.querySelector('meta[name="twitter:description"]');
     if (tw) tw.setAttribute('content', description);
 
+    syncEntryActions();
     addTechnologyEvaluationTrust();
   };
 
