@@ -1,0 +1,34 @@
+name: Homepage Language Guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  language-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject prohibited customer-facing language
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          files = [Path('index.html'), Path('pricing.html')]
+          prohibited = ['당신', '여러분', '귀사', '100% 예방', '사고 제로 보장', '법적 준수 보장', '면책 보장']
+          failures=[]
+          for f in files:
+              text=f.read_text(encoding='utf-8')
+              for term in prohibited:
+                  if term in text:
+                      failures.append(f'{f}: prohibited phrase: {term}')
+          if failures:
+              raise SystemExit('\n'.join(failures))
+          print('PASS: customer-facing language guard')
+          PY
