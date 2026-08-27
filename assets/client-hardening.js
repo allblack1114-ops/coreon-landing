@@ -42,10 +42,10 @@
     document.querySelectorAll('a').forEach((a) => {
       const label = (a.textContent || '').trim();
       if (ko && label === '무료로 시작하기') {
-        a.href = `${app}/signup.html?source=coreon-home-free`;
+        a.href = `${app}/signup.html?source=coreon-home-free&next=%2Fsafety-workspace.html`;
       }
       if (!ko && /start free|free start|get started free/i.test(label)) {
-        a.href = `${app}/en/signup.html?source=coreon-en-home-free`;
+        a.href = `${app}/en/signup.html?source=coreon-en-home-free&next=%2Fen%2Fsafety-workspace.html`;
       }
     });
 
@@ -64,8 +64,8 @@
         free.className = 'pill dark';
         free.textContent = ko ? '무료로 시작하기' : 'Start Free';
         free.href = ko
-          ? `${app}/signup.html?source=coreon-home-top-free`
-          : `${app}/en/signup.html?source=coreon-en-home-top-free`;
+          ? `${app}/signup.html?source=coreon-home-top-free&next=%2Fsafety-workspace.html`
+          : `${app}/en/signup.html?source=coreon-en-home-top-free&next=%2Fen%2Fsafety-workspace.html`;
 
         const install = document.createElement('a');
         install.className = 'pill';
