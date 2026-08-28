@@ -7,7 +7,6 @@
     return false;
   };
 
-  // Deterrence only: browser-delivered code cannot be made fully inaccessible.
   document.addEventListener('contextmenu', block, { capture: true });
   document.addEventListener('dragstart', (event) => {
     if (event.target && event.target.tagName === 'IMG') block(event);
@@ -16,15 +15,12 @@
   document.addEventListener('keydown', (event) => {
     const key = String(event.key || '').toLowerCase();
     const ctrlOrMeta = event.ctrlKey || event.metaKey;
-    const devShortcut =
-      key === 'f12' ||
+    const devShortcut = key === 'f12' ||
       (ctrlOrMeta && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
       (ctrlOrMeta && ['u', 's'].includes(key));
-
     if (devShortcut) block(event);
   }, { capture: true });
 
-  // Keep homepage/product terminology aligned without duplicating PC/mobile markup.
   const replacements = new Map([
     ['위험제보와 TBM·위험성평가에서 확인된 위험', '위험 발견·아차사고 제보와 TBM·위험성평가에서 확인된 위험'],
     ['위험제보와 종사자 의견', '위험·아차사고 제보와 종사자 의견'],
@@ -37,6 +33,60 @@
     ['Hazard reporting · TBM · risk assessment', 'Hazard / Near-miss reporting · TBM · risk assessment'],
     ['Open · Overdue · Recurring risks', 'Open · Overdue · Recurring · High-potential near misses']
   ]);
+
+  const installResponsiveEntryStyle = () => {
+    if (document.getElementById('coreon-public-entry-responsive-style')) return;
+    const style = document.createElement('style');
+    style.id = 'coreon-public-entry-responsive-style';
+    style.textContent = '@media(max-width:700px){.header .nav{flex-wrap:wrap;gap:8px;padding:8px 0}.header .brand{flex:1;min-width:0}.header .actions{width:100%;margin-left:0;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.header .actions .pill{display:flex!important;justify-content:center;align-items:center;min-width:0;padding:9px 8px;font-size:12px;white-space:normal;text-align:center;line-height:1.2}.header .actions>a:first-child{display:none!important}}';
+    document.head.appendChild(style);
+  };
+
+  const normalizePublicEntryRoutes = () => {
+    if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
+    const ko = document.documentElement.lang.toLowerCase().startsWith('ko');
+    const app = 'https://app.coreon-global.com';
+
+    document.querySelectorAll('a').forEach((a) => {
+      const label = (a.textContent || '').trim();
+      if (ko && label === '무료로 시작하기') {
+        a.href = `${app}/signup.html?source=coreon-home-free&next=%2Fsafety-workspace.html`;
+      }
+      if (!ko && /start free|free start|get started free/i.test(label)) {
+        a.href = `${app}/en/signup.html?source=coreon-en-home-free&next=%2Fen%2Fsafety-workspace.html`;
+      }
+    });
+
+    const actions = document.querySelector('.header .actions');
+    if (actions) {
+      const existingLogin = Array.from(actions.querySelectorAll('a')).find(a => /^(로그인|sign in|login)$/i.test((a.textContent || '').trim()));
+      if (existingLogin) {
+        existingLogin.href = ko
+          ? `${app}/login.html?source=coreon-home-top-login&next=%2Fsafety-workspace.html`
+          : `${app}/en/login.html?source=coreon-en-home-top-login&next=%2Fen%2Fsafety-workspace.html`;
+      }
+
+      const combined = Array.from(actions.querySelectorAll('a')).find(a => /설치·무료 시작|install.*free|free.*install/i.test((a.textContent || '').trim()));
+      if (combined) {
+        const free = document.createElement('a');
+        free.className = 'pill dark';
+        free.textContent = ko ? '무료로 시작하기' : 'Start Free';
+        free.href = ko
+          ? `${app}/signup.html?source=coreon-home-top-free&next=%2Fsafety-workspace.html`
+          : `${app}/en/signup.html?source=coreon-en-home-top-free&next=%2Fen%2Fsafety-workspace.html`;
+
+        const install = document.createElement('a');
+        install.className = 'pill';
+        install.textContent = ko ? '설치' : 'Install';
+        install.href = ko
+          ? '/download.html?source=home-top-install#install'
+          : '/en/download.html?source=en-home-top-install#install';
+
+        combined.replaceWith(free, install);
+      }
+    }
+    installResponsiveEntryStyle();
+  };
 
   const addTechnologyEvaluationTrust = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
@@ -87,6 +137,7 @@
     const tw = document.querySelector('meta[name="twitter:description"]');
     if (tw) tw.setAttribute('content', description);
 
+    normalizePublicEntryRoutes();
     addTechnologyEvaluationTrust();
   };
 

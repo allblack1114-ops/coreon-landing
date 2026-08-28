@@ -3,21 +3,31 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const ko=fs.readFileSync('index.html','utf8');
 const en=fs.readFileSync('en/index.html','utf8');
-const boundary=fs.readFileSync('assets/product-assistant.js','utf8');
-for(const phrase of ['COREON Safety AX Agent','중대재해 예방의 핵심은','위험·아차사고 제보와 TBM·위험성평가','조치 전후 증빙','잔여위험 재확인','COREON Safety AX Agent 설치'])assert(ko.includes(phrase),phrase);
+const hardening=fs.readFileSync('assets/client-hardening.js','utf8');
+
+for(const phrase of ['COREON Safety AX Agent','현장 위험·아차사고','조치 전후 증빙','잔여위험 재확인','KOSHA 공식 재해사례','COREON Safety AX Agent 설치'])assert(ko.includes(phrase),phrase);
 for(const phrase of ['COREON Safety AX Agent','Start free','Install COREON Safety AX Agent','Human final judgment','Serious-accident prevention'])assert(en.includes(phrase),phrase);
 assert(ko.includes('href="/"'), 'Korean brand must return to canonical home');
 assert(en.includes('class="brand" href="/en/"'), 'English brand must return to canonical English home');
 assert(ko.includes('/download.html?source=home-download#install'));
 assert(en.includes('/en/download.html?source=en-home-download#install'));
-assert(boundary.includes("const koInstallBoundary='/download.html?source=home-install-boundary'"));
-assert(boundary.includes("const enInstallBoundary='/en/download.html?source=home-install-boundary'"));
-assert(boundary.includes("const koFreeBoundary='/download.html?source=home-installed-free-boundary'"));
-assert(boundary.includes("const enFreeBoundary='/en/download.html?source=home-installed-free-boundary'"));
+
+// Public entry contract: free signup, existing-user login and install are distinct.
+for(const phrase of [
+  'coreon-home-free&next=%2Fsafety-workspace.html',
+  'coreon-home-top-free&next=%2Fsafety-workspace.html',
+  'coreon-home-top-login&next=%2Fsafety-workspace.html',
+  '/download.html?source=home-top-install#install',
+  'coreon-en-home-free&next=%2Fen%2Fsafety-workspace.html',
+  'coreon-en-home-top-free&next=%2Fen%2Fsafety-workspace.html',
+  '/en/download.html?source=en-home-top-install#install',
+  'combined.replaceWith(free, install)'
+])assert(hardening.includes(phrase),phrase);
+
 assert(!ko.includes('safety-room/start?source='));
 assert(!en.includes('safety-room/start?source='));
 assert(!ko.includes('source=coreon-home-download'));
 assert(!en.includes('source=coreon-en-download'));
-for(const forbidden of ['149,000원','990,000원','v26.159','v27.41 Smartphone + NVIDIA Vision Edge'])assert(!ko.includes(forbidden),forbidden);
+for(const forbidden of ['990,000원','v26.159','v27.41 Smartphone + NVIDIA Vision Edge'])assert(!ko.includes(forbidden),forbidden);
 for(const forbidden of ['영국 HSE','미국 OSHA','Safe Work Australia','싱가포르 MOM','GitHub 코드·고객화면·배포 식별자','UK HSE','US OSHA','Singapore MOM','Eight stages'])assert(!ko.includes(forbidden)&&!en.includes(forbidden),forbidden);
-console.log('PASS canonical homepage identity and current download-first product boundary');
+console.log('PASS canonical homepage identity and separated public product entry contract');
