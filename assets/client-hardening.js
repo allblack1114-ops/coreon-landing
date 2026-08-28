@@ -34,6 +34,14 @@
     ['Open · Overdue · Recurring risks', 'Open · Overdue · Recurring · High-potential near misses']
   ]);
 
+  const installResponsiveEntryStyle = () => {
+    if (document.getElementById('coreon-public-entry-responsive-style')) return;
+    const style = document.createElement('style');
+    style.id = 'coreon-public-entry-responsive-style';
+    style.textContent = '@media(max-width:700px){.header .nav{flex-wrap:wrap;gap:8px;padding:8px 0}.header .brand{flex:1;min-width:0}.header .actions{width:100%;margin-left:0;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.header .actions .pill{display:flex!important;justify-content:center;align-items:center;min-width:0;padding:9px 8px;font-size:12px;white-space:normal;text-align:center;line-height:1.2}.header .actions>a:first-child{display:none!important}}';
+    document.head.appendChild(style);
+  };
+
   const normalizePublicEntryRoutes = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
     const ko = document.documentElement.lang.toLowerCase().startsWith('ko');
@@ -77,6 +85,7 @@
         combined.replaceWith(free, install);
       }
     }
+    installResponsiveEntryStyle();
   };
 
   const addTechnologyEvaluationTrust = () => {
