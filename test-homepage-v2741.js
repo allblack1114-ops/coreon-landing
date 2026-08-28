@@ -5,7 +5,7 @@ const ko=fs.readFileSync('index.html','utf8');
 const en=fs.readFileSync('en/index.html','utf8');
 const hardening=fs.readFileSync('assets/client-hardening.js','utf8');
 
-for(const phrase of ['COREON Safety AX Agent','현장에서 발견된 위험을 조치완료까지 연결합니다.','조치 전후 증빙','잔여위험 재확인','KOSHA','COREON Safety AX Agent 설치'])assert(ko.includes(phrase),phrase);
+for(const phrase of ['COREON Safety AX Agent','현장 위험·아차사고','조치 전후 증빙','잔여위험 재확인','KOSHA 공식 재해사례','COREON Safety AX Agent 설치'])assert(ko.includes(phrase),phrase);
 for(const phrase of ['COREON Safety AX Agent','Start free','Install COREON Safety AX Agent','Human final judgment','Serious-accident prevention'])assert(en.includes(phrase),phrase);
 assert(ko.includes('href="/"'), 'Korean brand must return to canonical home');
 assert(en.includes('class="brand" href="/en/"'), 'English brand must return to canonical English home');
