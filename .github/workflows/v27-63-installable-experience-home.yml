@@ -19,7 +19,7 @@ jobs:
         run: |
           set -euo pipefail
           grep -Fq 'COREON Safety AX Agent' index.html
-          grep -Fq '발주처·공공기관' index.html
+          grep -Fq '정부·공공기관·발주처' index.html
           grep -Fq '<link rel="canonical" href="https://www.coreon-global.com/"' index.html
           grep -Fq 'hreflang="en"' index.html
           grep -Fq 'COREON Safety AX Agent' en/index.html
@@ -45,7 +45,7 @@ jobs:
           if(!s.includes('ENTRY_URL')||!s.includes('loadURL(ENTRY_URL)')) throw Error('desktop canonical entry wiring missing');
           console.log('PASS secure desktop customer-product entry contract');
           NODE
-      - name: Preserve current download-first homepage journey
+      - name: Preserve dedicated install-center journey
         run: |
           set -euo pipefail
           grep -Fq '/download.html?source=home-download#install' index.html
