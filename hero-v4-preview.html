@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COREON Hero v4 Preview</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#07192d;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;color:#fff}.hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(560px,.97fr);align-items:center;gap:38px;padding:64px clamp(28px,5vw,78px);background:radial-gradient(circle at 79% 22%,rgba(52,196,255,.22),transparent 28%),radial-gradient(circle at 18% 86%,rgba(23,185,163,.14),transparent 31%),linear-gradient(132deg,#05162b 0%,#082b50 54%,#0e568b 100%);position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:54px 54px;pointer-events:none}.copy,.stage{position:relative;z-index:1}.badge{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(86,224,255,.28);background:rgba(7,42,67,.55);border-radius:999px;padding:10px 14px;font-size:13px;font-weight:850;letter-spacing:.07em}.dot{width:9px;height:9px;border-radius:50%;background:#1ed8c5;box-shadow:0 0 14px #1ed8c5}.copy h1{font-size:clamp(56px,6.3vw,92px);line-height:.98;letter-spacing:-.065em;margin:28px 0 24px;max-width:760px}.copy h1 em{font-style:normal;color:#73dcff}.lead{font-size:clamp(19px,1.55vw,24px);line-height:1.72;color:#d8ebfa;max-width:800px}.lead strong{color:#fff}.cta{display:flex;gap:12px;margin-top:30px}.btn{padding:17px 25px;border-radius:999px;font-weight:900}.btn.primary{background:#18c8b0}.btn.ghost{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.05)}.proof{margin-top:28px;font-size:13px;color:#b9d9e8;display:flex;gap:22px;flex-wrap:wrap}.stage{min-height:660px;display:flex;align-items:center;justify-content:center}.stage svg{width:100%;max-width:930px;overflow:visible;filter:drop-shadow(0 30px 64px rgba(0,18,41,.3))}.ambient ellipse{fill:none;stroke:#27baff;stroke-width:1;opacity:.1;stroke-dasharray:4 10}.ribbon-shadow{fill:none;stroke:#031b4c;stroke-width:118;stroke-linecap:round;stroke-linejoin:round;opacity:.95}.ribbon-main{fill:none;stroke:url(#ribbonGrad);stroke-width:96;stroke-linecap:round;stroke-linejoin:round;filter:url(#loopGlow)}.ribbon-core{fill:none;stroke:url(#coreGrad);stroke-width:62;stroke-linecap:round;stroke-linejoin:round;opacity:.88}.ribbon-edge{fill:none;stroke:url(#edgeGrad);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;filter:url(#dotGlow);opacity:.95}.ribbon-spark{fill:none;stroke:#d8feff;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:2 15;opacity:.56;animation:spark 7.5s linear infinite}.underpass{fill:none;stroke:#01152e;stroke-width:112;stroke-linecap:round;opacity:.76}.underpass2{fill:none;stroke:#0a3a6d;stroke-width:90;stroke-linecap:round;opacity:.72}.shine{fill:none;stroke:url(#shineGrad);stroke-width:18;stroke-linecap:round;opacity:.6;filter:url(#dotGlow)}.star{fill:#e8fdff;filter:url(#starGlow);animation:twinkle 4.8s ease-in-out infinite;transform-origin:center}.s2{animation-delay:-1.1s}.s3{animation-delay:-2.4s}.s4{animation-delay:-3.5s}.node-halo{fill:#092d50;stroke:#39cfff;stroke-width:1.2;opacity:.78;filter:url(#dotGlow)}.node-ring{fill:#071b32;stroke:#6be8ff;stroke-width:1.4}.node-icon{fill:none;stroke:#a6f4ff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.node-title{fill:#fff;font-size:14px;font-weight:850}.node-sub{fill:#a9cddd;font-size:10px}.engine{text-anchor:middle;fill:#fff;font-size:31px;font-weight:850}.engine .sub{font-size:11px;letter-spacing:.12em;fill:#b6dce9}.node{animation:pulse 5.6s ease-in-out infinite}@keyframes spark{to{stroke-dashoffset:-240}}@keyframes twinkle{0%,100%{opacity:.18;transform:scale(.72)}50%{opacity:1;transform:scale(1.45)}}@keyframes pulse{0%,100%{opacity:.84}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(67,221,255,.48))}}@media(max-width:1080px){.hero{grid-template-columns:1fr;padding-top:48px}.stage{min-height:540px}.copy h1{font-size:clamp(48px,10vw,76px)}}@media(max-width:650px){.hero{padding:36px 20px}.stage{min-height:440px}.proof{gap:10px}.copy h1{font-size:48px}.lead{font-size:17px}.stage svg{transform:scale(.9)}}@media(prefers-reduced-motion:reduce){.star,.node,.ribbon-spark{animation:none!important}.light-dot{display:none}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="copy">
+  <div class="badge"><span class="dot"></span>COREON SAFETY INTELLIGENCE · LIVE EXECUTION</div>
+  <h1>위험을 발견하고,<br><em>끝까지 줄입니다.</em></h1>
+  <div class="lead">COREON Safety AX Agent는 <strong>위험 발견 → 사람 검토 → 담당자·기한 → 개선조치 → 증빙 → 잔여위험 재평가</strong>를 하나의 실행 흐름으로 연결합니다.</div>
+  <div class="cta"><div class="btn primary">제품 살펴보기</div><div class="btn ghost">무료로 시작하기</div></div>
+  <div class="proof"><span>● KOSHA 공개 안전정보</span><span>● Human Review</span><span>● Evidence & Residual Risk</span></div>
+</div>
+<div class="stage">
+<svg viewBox="0 0 920 670" role="img" aria-label="COREON Safety AX asymmetric ribbon infinity">
+<defs>
+  <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#082e76"/><stop offset=".22" stop-color="#0b78df"/><stop offset=".46" stop-color="#26d6ff"/><stop offset=".66" stop-color="#83f0ff"/><stop offset=".84" stop-color="#1588df"/><stop offset="1" stop-color="#063c86"/></linearGradient>
+  <linearGradient id="coreGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d3a76"/><stop offset=".4" stop-color="#168fd8"/><stop offset=".72" stop-color="#45dff6"/><stop offset="1" stop-color="#0c4f9e"/></linearGradient>
+  <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#bafaff"/><stop offset=".42" stop-color="#5ee6ff"/><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#5fd9ff"/></linearGradient>
+  <linearGradient id="shineGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#eaffff" stop-opacity=".95"/><stop offset="1" stop-color="#60e6ff" stop-opacity="0"/></linearGradient>
+  <filter id="loopGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="dotGlow" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="starGlow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <path id="ribbonPath" d="M132 352 C163 196 274 118 370 180 C424 215 448 286 466 326 C490 275 534 196 602 170 C690 136 772 211 792 329 C811 443 742 548 642 536 C568 527 515 463 472 384 C432 449 382 512 315 531 C221 558 149 481 132 352"/>
+  <path id="underPath" d="M452 317 C494 271 548 196 602 170 C690 136 772 211 792 329"/>
+  <path id="shinePath" d="M175 332 C205 215 286 157 354 197 C392 220 420 276 445 323"/>
+</defs>
+<g class="ambient"><ellipse cx="466" cy="338" rx="394" ry="278"/><ellipse cx="466" cy="338" rx="334" ry="238"/></g>
+<g opacity=".38">
+<circle class="star" cx="118" cy="142" r="2.1"/><circle class="star s2" cx="186" cy="104" r="1.5"/><circle class="star s3" cx="254" cy="152" r="1.9"/><circle class="star s4" cx="329" cy="96" r="1.4"/><circle class="star s2" cx="407" cy="144" r="1.7"/><circle class="star s3" cx="518" cy="108" r="2.2"/><circle class="star s4" cx="616" cy="146" r="1.6"/><circle class="star" cx="700" cy="92" r="2"/><circle class="star s2" cx="812" cy="151" r="1.5"/>
+<circle class="star s3" cx="101" cy="518" r="1.8"/><circle class="star s4" cx="169" cy="584" r="2.2"/><circle class="star" cx="266" cy="538" r="1.4"/><circle class="star s2" cx="351" cy="593" r="1.8"/><circle class="star s3" cx="476" cy="548" r="1.6"/><circle class="star s4" cx="590" cy="581" r="2.1"/><circle class="star" cx="689" cy="538" r="1.4"/><circle class="star s2" cx="808" cy="576" r="1.9"/>
+<circle class="star s3" cx="83" cy="273" r="1.2"/><circle class="star s4" cx="850" cy="260" r="1.4"/><circle class="star" cx="861" cy="438" r="1.2"/><circle class="star s2" cx="72" cy="422" r="1.5"/>
+</g>
+<use href="#ribbonPath" class="ribbon-shadow"/>
+<use href="#ribbonPath" class="ribbon-main"/>
+<use href="#ribbonPath" class="ribbon-core"/>
+<use href="#underPath" class="underpass"/>
+<use href="#underPath" class="underpass2"/>
+<use href="#ribbonPath" class="ribbon-edge"/>
+<use href="#shinePath" class="shine"/>
+<use href="#ribbonPath" class="ribbon-spark"/>
+<g><circle r="7" fill="#fff" class="light-dot"><animateMotion dur="8.8s" repeatCount="indefinite"><mpath href="#ribbonPath"/></animateMotion></circle><circle r="4.5" fill="#4deaff" class="light-dot"><animateMotion dur="8.8s" begin="-2.9s" repeatCount="indefinite"><mpath href="#ribbonPath"/></animateMotion></circle><circle r="5.5" fill="#22d8bf" class="light-dot"><animateMotion dur="8.8s" begin="-5.8s" repeatCount="indefinite"><mpath href="#ribbonPath"/></animateMotion></circle></g>
+<g class="engine"><text x="650" y="314">COREON</text><text x="650" y="351">Safety AX</text><text class="sub" x="650" y="378">EXECUTION ENGINE</text></g>
+<g class="node" transform="translate(120 112)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><circle class="node-icon" cx="-3" cy="-4" r="12"/><path class="node-icon" d="M6 5l10 10"/><text class="node-title" x="48" y="-2">HAZARD</text><text class="node-sub" x="48" y="19">위험 발견</text></g>
+<g class="node" transform="translate(452 72)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><path class="node-icon" d="M0-18l14 5v11c0 11-7 18-14 22-7-4-14-11-14-22v-11zM-6 0l4 4 8-9"/><text class="node-title" x="48" y="-2">KOSHA</text><text class="node-sub" x="48" y="19">공식 참고근거</text></g>
+<g class="node" transform="translate(756 116)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><circle class="node-icon" cy="-8" r="8"/><path class="node-icon" d="M-15 17c2-10 8-15 15-15s13 5 15 15"/><text class="node-title" x="48" y="-2">HUMAN REVIEW</text><text class="node-sub" x="48" y="19">사람 검토</text></g>
+<g class="node" transform="translate(840 344)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><circle class="node-icon" r="15"/><path class="node-icon" d="M-8 0l6 6 11-13"/><text class="node-title" x="-48" y="-2" text-anchor="end">ACTION</text><text class="node-sub" x="-48" y="19" text-anchor="end">개선조치</text></g>
+<g class="node" transform="translate(712 594)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><path class="node-icon" d="M-11-17h15l9 9v25h-24zM4-17v9h9M-5 1h12M-5 8h12"/><text class="node-title" x="48" y="-2">EVIDENCE</text><text class="node-sub" x="48" y="19">증빙</text></g>
+<g class="node" transform="translate(402 614)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><path class="node-icon" d="M0-18l14 5v11c0 11-7 18-14 22-7-4-14-11-14-22v-11zM-7 1l5 5 9-10"/><text class="node-title" x="48" y="-2">RESIDUAL RISK</text><text class="node-sub" x="48" y="19">잔여위험 재평가</text></g>
+<g class="node" transform="translate(76 348)"><circle class="node-halo" r="39"/><circle class="node-ring" r="31"/><rect class="node-icon" x="-12" y="-4" width="24" height="20" rx="3"/><path class="node-icon" d="M-7-4v-7a7 7 0 0114 0v7M0 3v6"/><text class="node-title" x="48" y="-2">SAFE CLOSURE</text><text class="node-sub" x="48" y="19">안전한 종결</text></g>
+</svg>
+</div>
+</section>
+</body>
+</html>
