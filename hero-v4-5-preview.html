@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COREON Hero v4.5 Final Review Preview</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07192d}iframe{display:block;width:100%;height:100%;border:0;background:#07192d}
+</style>
+</head>
+<body>
+<iframe id="preview" src="/hero-v4-3-preview.html" title="COREON Hero v4.5 final review"></iframe>
+<script>
+(() => {
+  const frame=document.getElementById('preview');
+  frame.addEventListener('load',()=>{
+    try{
+      const doc=frame.contentDocument;
+      if(!doc) return;
+      doc.title='COREON Hero v4.5 Final Review';
+      const groups=[...doc.querySelectorAll('svg g.node')];
+      const byLabel=(label)=>groups.find(g=>g.textContent.includes(label));
+      const move=(label,x,y)=>{const g=byLabel(label);if(g)g.setAttribute('transform',`translate(${x} ${y})`)};
+
+      // Keep all v4.4 spacing, with one final ACTION refinement only.
+      move('HAZARD',126,116);
+      move('KOSHA',462,76);
+      move('HUMAN REVIEW',790,122);
+      move('SAFE CLOSURE',86,353);
+      move('ACTION',900,350);
+      move('RESIDUAL RISK',414,610);
+      move('EVIDENCE',742,600);
+
+      const action=byLabel('ACTION');
+      if(action){
+        const title=action.querySelector('.node-title');
+        const sub=action.querySelector('.node-sub');
+        if(title){
+          title.setAttribute('x','-55');
+          title.setAttribute('text-anchor','end');
+          title.setAttribute('font-size','14');
+          title.style.paintOrder='stroke';
+          title.style.stroke='#062544';
+          title.style.strokeWidth='3px';
+          title.style.strokeLinejoin='round';
+        }
+        if(sub){
+          sub.setAttribute('x','-55');
+          sub.setAttribute('text-anchor','end');
+          sub.setAttribute('font-size','10');
+          sub.style.paintOrder='stroke';
+          sub.style.stroke='#062544';
+          sub.style.strokeWidth='2.4px';
+          sub.style.strokeLinejoin='round';
+        }
+      }
+
+      const closure=byLabel('SAFE CLOSURE');
+      if(closure){
+        const title=closure.querySelector('.node-title');
+        const sub=closure.querySelector('.node-sub');
+        if(title){title.setAttribute('x','48');title.setAttribute('text-anchor','start')}
+        if(sub){sub.setAttribute('x','48');sub.setAttribute('text-anchor','start')}
+      }
+      doc.documentElement.dataset.coreonHeroPreview='v4.5-action-final-review';
+    }catch(e){console.error('v4.5 preview patch failed',e)}
+  });
+})();
+</script>
+</body>
+</html>
