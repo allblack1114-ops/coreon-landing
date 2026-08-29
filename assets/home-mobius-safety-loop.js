@@ -3,11 +3,15 @@
   const homePaths=['/','/index.html','/en/','/en/index.html'];
   if(!homePaths.includes(location.pathname)) return;
 
-  const node=(id,x,y,title,sub,icon,delay)=>`<g class="coreon-svg-node n${id}" transform="translate(${x} ${y})" style="--node-delay:${delay}s">
-    <circle class="node-halo" r="39"/><circle class="node-ring" r="31"/>
-    ${icon}
-    <text class="node-title" x="48" y="-2">${title}</text><text class="node-sub" x="48" y="19">${sub}</text>
-  </g>`;
+  const node=(id,x,y,title,sub,icon,delay,side='right')=>{
+    const tx=side==='left'?-48:48;
+    const anchor=side==='left'?'end':'start';
+    return `<g class="coreon-svg-node n${id}" transform="translate(${x} ${y})" style="--node-delay:${delay}s">
+      <circle class="node-halo" r="39"/><circle class="node-ring" r="31"/>${icon}
+      <text class="node-title" x="${tx}" y="-2" text-anchor="${anchor}">${title}</text>
+      <text class="node-sub" x="${tx}" y="19" text-anchor="${anchor}">${sub}</text>
+    </g>`;
+  };
 
   const icons={
     hazard:'<circle class="node-icon" cx="-3" cy="-4" r="12"/><path class="node-icon" d="M6 5l10 10"/>',
@@ -41,12 +45,7 @@
         <path id="safetyLoopPath" d="M138 338 C190 122 350 124 459 320 C566 512 726 519 792 338 C728 157 567 158 459 348 C350 544 188 548 138 338"/>
       </defs>
       <g class="ambient-orbits"><ellipse cx="465" cy="337" rx="380" ry="272"/><ellipse cx="465" cy="337" rx="328" ry="235"/></g>
-      <g class="loop-ribbon">
-        <use href="#safetyLoopPath" class="loop-shadow"/>
-        <use href="#safetyLoopPath" class="loop-main"/>
-        <use href="#safetyLoopPath" class="loop-inner"/>
-        <use href="#safetyLoopPath" class="loop-spark"/>
-      </g>
+      <g class="loop-ribbon"><use href="#safetyLoopPath" class="loop-shadow"/><use href="#safetyLoopPath" class="loop-main"/><use href="#safetyLoopPath" class="loop-inner"/><use href="#safetyLoopPath" class="loop-spark"/></g>
       <g class="loop-particles">
         <circle r="7" class="light-dot dot1"><animateMotion dur="8.6s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
         <circle r="4.5" class="light-dot dot2"><animateMotion dur="8.6s" begin="-2.85s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
@@ -56,16 +55,15 @@
       ${node(1,118,112,labels.hazard[0],labels.hazard[1],icons.hazard,0)}
       ${node(2,452,72,labels.kosha[0],labels.kosha[1],icons.kosha,.45)}
       ${node(3,752,114,labels.human[0],labels.human[1],icons.human,.9)}
-      ${node(4,838,338,labels.action[0],labels.action[1],icons.action,1.35)}
+      ${node(4,842,338,labels.action[0],labels.action[1],icons.action,1.35,'right')}
       ${node(5,706,592,labels.evidence[0],labels.evidence[1],icons.evidence,1.8)}
       ${node(6,405,616,labels.residual[0],labels.residual[1],icons.residual,2.25)}
-      ${node(7,68,342,labels.closure[0],labels.closure[1],icons.closure,2.7)}
+      ${node(7,76,342,labels.closure[0],labels.closure[1],icons.closure,2.7,'left')}
     </svg>`;
     requestAnimationFrame(()=>stage.classList.add('coreon-svg-ready'));
-    document.documentElement.dataset.coreonHero='single-svg-v1';
+    document.documentElement.dataset.coreonHero='single-svg-v2';
     return true;
   };
 
-  let tries=0;
-  const timer=setInterval(()=>{tries+=1;if(apply()||tries>70)clearInterval(timer);},30);
+  let tries=0; const timer=setInterval(()=>{tries+=1;if(apply()||tries>70)clearInterval(timer);},30);
 })();
