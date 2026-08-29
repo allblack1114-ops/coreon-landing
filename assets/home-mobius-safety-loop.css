@@ -1,13 +1,20 @@
-/* COREON single-SVG Hero scene: one coordinate system, no node overlap */
+/* COREON single-SVG Hero scene v3: smooth infinity geometry + restrained galaxy field */
 .bx2-stage{visibility:hidden;opacity:0;transition:opacity .32s ease}
 .bx2-stage.coreon-svg-ready{visibility:visible;opacity:1}
 .coreon-single-svg-stage{position:relative;isolation:isolate;overflow:visible}
 .coreon-safety-loop-svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 28px 60px rgba(0,18,41,.28))}
-.coreon-safety-loop-svg .ambient-orbits ellipse{fill:none;stroke:#1aa8ff;stroke-width:1;opacity:.14;stroke-dasharray:4 10}
+.coreon-safety-loop-svg .ambient-orbits ellipse{fill:none;stroke:#1aa8ff;stroke-width:1;opacity:.12;stroke-dasharray:4 10}
+.coreon-safety-loop-svg .galaxy-field{pointer-events:none}
+.coreon-safety-loop-svg .star{fill:#d9fbff;opacity:.2;filter:url(#starGlow);animation:coreonStarTwinkle 5.8s ease-in-out infinite}
+.coreon-safety-loop-svg .s2,.coreon-safety-loop-svg .s9,.coreon-safety-loop-svg .s14,.coreon-safety-loop-svg .s19,.coreon-safety-loop-svg .s24{animation-delay:-1.1s;fill:#78edff}
+.coreon-safety-loop-svg .s4,.coreon-safety-loop-svg .s7,.coreon-safety-loop-svg .s12,.coreon-safety-loop-svg .s17,.coreon-safety-loop-svg .s22,.coreon-safety-loop-svg .s26{animation-delay:-2.4s;fill:#fff}
+.coreon-safety-loop-svg .s6,.coreon-safety-loop-svg .s11,.coreon-safety-loop-svg .s16,.coreon-safety-loop-svg .s21{animation-delay:-3.7s;fill:#5fdcff}
+.coreon-safety-loop-svg .galaxy-dust{fill:none;stroke:#5bdbff;stroke-width:1.2;stroke-dasharray:1 12;stroke-linecap:round;opacity:.12;filter:url(#starGlow);animation:coreonGalaxyDrift 14s linear infinite}
+.coreon-safety-loop-svg .galaxy-dust-b{opacity:.08;animation-duration:18s;animation-direction:reverse}
 .coreon-safety-loop-svg .loop-shadow{fill:none;stroke:#031f57;stroke-width:96;stroke-linecap:round;stroke-linejoin:round;opacity:.98}
 .coreon-safety-loop-svg .loop-main{fill:none;stroke:url(#loopGradient);stroke-width:78;stroke-linecap:round;stroke-linejoin:round;filter:url(#loopGlow)}
-.coreon-safety-loop-svg .loop-inner{fill:none;stroke:url(#loopHighlight);stroke-width:4.5;stroke-linecap:round;opacity:.92;filter:url(#dotGlow)}
-.coreon-safety-loop-svg .loop-spark{fill:none;stroke:#bdf8ff;stroke-width:2;stroke-linecap:round;stroke-dasharray:2 15;opacity:.48;animation:coreonSparkFlow 7.5s linear infinite}
+.coreon-safety-loop-svg .loop-inner{fill:none;stroke:url(#loopHighlight);stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;opacity:.94;filter:url(#dotGlow)}
+.coreon-safety-loop-svg .loop-spark{fill:none;stroke:#bdf8ff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 15;opacity:.5;animation:coreonSparkFlow 7.5s linear infinite}
 .coreon-safety-loop-svg .light-dot{filter:url(#dotGlow);mix-blend-mode:screen}.coreon-safety-loop-svg .dot1{fill:#fff}.coreon-safety-loop-svg .dot2{fill:#4deaff}.coreon-safety-loop-svg .dot3{fill:#22d8bf}
 .coreon-safety-loop-svg .coreon-engine-label{text-anchor:middle;fill:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;font-size:31px;font-weight:850;letter-spacing:-.03em;text-shadow:0 0 25px rgba(75,220,255,.28)}
 .coreon-safety-loop-svg .coreon-engine-label .engine-sub{font-size:11px;font-weight:850;letter-spacing:.11em;fill:#b6dce9}
@@ -17,8 +24,10 @@
 .coreon-safety-loop-svg .node-icon{fill:none;stroke:#a6f4ff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .coreon-safety-loop-svg .node-title{fill:#fff;font-size:14px;font-weight:850}.coreon-safety-loop-svg .node-sub{fill:#a9cddd;font-size:10px;font-weight:650}
 @keyframes coreonSparkFlow{to{stroke-dashoffset:-240}}
+@keyframes coreonGalaxyDrift{to{stroke-dashoffset:-156}}
+@keyframes coreonStarTwinkle{0%,100%{opacity:.16;transform:scale(.88);transform-box:fill-box;transform-origin:center}48%{opacity:.72;transform:scale(1.18)}58%{opacity:.45;transform:scale(1.02)}}
 @keyframes coreonNodePulse{0%,100%{opacity:.82}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(67,221,255,.48))}}
 @media(max-width:1500px) and (min-width:1101px){.coreon-safety-loop-svg{transform:scale(.94);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:13px}.coreon-safety-loop-svg .node-sub{font-size:9px}}
-@media(max-width:1100px){.coreon-single-svg-stage{height:520px!important;min-height:520px!important}.coreon-safety-loop-svg{transform:scale(.92);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:12px}.coreon-safety-loop-svg .node-sub{font-size:8.5px}}
-@media(max-width:720px){.coreon-single-svg-stage{height:430px!important;min-height:430px!important}.coreon-safety-loop-svg{transform:scale(.9);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:10px}.coreon-safety-loop-svg .node-sub{font-size:7px}.coreon-safety-loop-svg .coreon-engine-label{font-size:24px}.coreon-safety-loop-svg .coreon-engine-label .engine-sub{font-size:8px}}
-@media(prefers-reduced-motion:reduce){.coreon-safety-loop-svg .coreon-svg-node,.coreon-safety-loop-svg .loop-spark{animation:none!important}.coreon-safety-loop-svg .light-dot{display:none}}
+@media(max-width:1100px){.coreon-single-svg-stage{height:520px!important;min-height:520px!important}.coreon-safety-loop-svg{transform:scale(.92);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:12px}.coreon-safety-loop-svg .node-sub{font-size:8.5px}.coreon-safety-loop-svg .galaxy-field{opacity:.82}}
+@media(max-width:720px){.coreon-single-svg-stage{height:430px!important;min-height:430px!important}.coreon-safety-loop-svg{transform:scale(.9);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:10px}.coreon-safety-loop-svg .node-sub{font-size:7px}.coreon-safety-loop-svg .coreon-engine-label{font-size:24px}.coreon-safety-loop-svg .coreon-engine-label .engine-sub{font-size:8px}.coreon-safety-loop-svg .galaxy-field{opacity:.65}.coreon-safety-loop-svg .galaxy-dust{display:none}}
+@media(prefers-reduced-motion:reduce){.coreon-safety-loop-svg .coreon-svg-node,.coreon-safety-loop-svg .loop-spark,.coreon-safety-loop-svg .star,.coreon-safety-loop-svg .galaxy-dust{animation:none!important}.coreon-safety-loop-svg .light-dot{display:none}.coreon-safety-loop-svg .star{opacity:.36}}
