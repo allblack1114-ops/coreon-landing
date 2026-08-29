@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 680" role="img" aria-labelledby="title desc">
+<title id="title">COREON Safety Execution closed loop</title>
+<desc id="desc">COREON Safety AX Agent workflow: Detect, Verify, Assign, Control, Prove, Reassess and Close.</desc>
+<defs>
+  <linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#052f72"/><stop offset=".5" stop-color="#0d88e6"/><stop offset="1" stop-color="#063c8f"/></linearGradient>
+  <linearGradient id="front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b5fc6"/><stop offset=".46" stop-color="#42d8ff"/><stop offset=".63" stop-color="#83f4ff"/><stop offset="1" stop-color="#0748a4"/></linearGradient>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <style>.t{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',Arial,sans-serif}.n{fill:#071b32;stroke:#77eaff;stroke-width:2}.h{fill:#fff;font-size:15px;font-weight:800}.s{fill:#b8d7e6;font-size:10px;font-weight:700}.c{fill:#fff;font-size:27px;font-weight:900}.cs{fill:#b6dce9;font-size:10px;font-weight:800;letter-spacing:1.5px}</style>
+</defs>
+<path d="M160 370 C171 248 246 177 325 194 C390 208 431 266 476 334 C522 403 567 472 628 500 C693 530 764 492 786 407 C808 321 780 237 713 205 C648 174 582 199 534 262 L486 327 C454 279 415 227 364 205 C281 170 190 238 160 370Z" fill="url(#back)" stroke="#052a60" stroke-width="12"/>
+<path d="M152 377 C160 499 246 558 338 523 C408 496 449 426 486 370 C526 308 560 246 617 209 C678 169 747 188 785 246 C824 306 826 393 790 459 C756 521 687 550 626 517 C566 485 527 419 487 360 C452 310 417 258 370 229 C306 190 235 205 190 264 C166 296 154 335 152 377Z" fill="url(#front)" stroke="#0b58b4" stroke-width="9"/>
+<path d="M223 373 C227 446 279 479 334 457 C377 440 411 394 446 345 C411 296 380 257 342 239 C289 214 234 252 223 326 C220 344 220 360 223 373Z" fill="#082a4f"/>
+<path d="M548 343 C581 295 618 256 662 242 C716 225 758 263 764 334 C772 414 725 462 665 459 C618 456 580 411 548 363 C544 356 544 350 548 343Z" fill="#082a4f"/>
+<path d="M446 296 C462 319 476 341 487 358 C501 339 515 319 531 297 C525 317 518 336 505 356 C493 374 485 386 474 390 C463 394 451 389 445 379 C439 368 441 356 447 345 C455 331 463 320 470 311 C460 305 452 300 446 296Z" fill="url(#front)" stroke="#8ff3ff" stroke-opacity=".25" stroke-width="2"/>
+<path d="M172 378 C178 473 248 523 328 493 C391 469 433 400 482 329 C527 264 567 221 625 195 C689 166 751 189 785 248" fill="none" stroke="#d8fdff" stroke-width="5" stroke-linecap="round" opacity=".82"/>
+<g class="t" text-anchor="middle"><text x="666" y="340" class="c">COREON</text><text x="666" y="376" class="c">Safety AX</text><text x="666" y="402" class="cs">EXECUTION &amp; ASSURANCE</text></g>
+<g class="t" filter="url(#glow)">
+  <g transform="translate(126 116)"><circle class="n" r="31"/><text class="h" x="48" y="-2">DETECT</text><text class="s" x="48" y="18">Risk discovery</text></g>
+  <g transform="translate(462 76)"><circle class="n" r="31"/><text class="h" x="48" y="-2">VERIFY</text><text class="s" x="48" y="18">Human review</text></g>
+  <g transform="translate(790 122)"><circle class="n" r="31"/><text class="h" x="-48" y="-2" text-anchor="end">ASSIGN</text><text class="s" x="-48" y="18" text-anchor="end">Owner &amp; due date</text></g>
+  <g transform="translate(895 350)"><circle class="n" r="31"/><text class="h" x="-48" y="-2" text-anchor="end">CONTROL</text><text class="s" x="-48" y="18" text-anchor="end">Corrective action</text></g>
+  <g transform="translate(742 600)"><circle class="n" r="31"/><text class="h" x="-48" y="-2" text-anchor="end">PROVE</text><text class="s" x="-48" y="18" text-anchor="end">Verified evidence</text></g>
+  <g transform="translate(414 610)"><circle class="n" r="31"/><text class="h" x="48" y="-2">REASSESS</text><text class="s" x="48" y="18">Residual risk</text></g>
+  <g transform="translate(86 353)"><circle class="n" r="31"/><text class="h" x="48" y="-2">CLOSE</text><text class="s" x="48" y="18">Accountable closure</text></g>
+</g>
+</svg>
