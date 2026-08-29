@@ -27,6 +27,22 @@
       document.body.appendChild(js);
     }
   };
+  const loadMobiusSafetyLoop=()=>{
+    if(!document.getElementById('coreon-home-mobius-css')){
+      const css=document.createElement('link');
+      css.id='coreon-home-mobius-css';
+      css.rel='stylesheet';
+      css.href='/assets/home-mobius-safety-loop.css?v=20260829';
+      document.head.appendChild(css);
+    }
+    if(!document.getElementById('coreon-home-mobius-js')){
+      const js=document.createElement('script');
+      js.id='coreon-home-mobius-js';
+      js.src='/assets/home-mobius-safety-loop.js?v=20260829';
+      js.defer=true;
+      document.body.appendChild(js);
+    }
+  };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
     const primary=document.querySelector('.bx2-btn.primary');
@@ -55,6 +71,7 @@
       if(ko&&/보험·리스크/.test(text)) a.href='/insurance-risk-engineering.html';
     });
     loadFinalPolish();
+    loadMobiusSafetyLoop();
   };
   let tries=0;
   const timer=setInterval(()=>{
