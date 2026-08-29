@@ -5,6 +5,18 @@
   const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
 
   const apply=()=>{
+    const hero=document.querySelector('.hero');
+    if(hero){
+      const badge=hero.querySelector('.badge');
+      const h1=hero.querySelector('h1');
+      const lead=hero.querySelector('.lead');
+      const proof=hero.querySelector('.proof');
+      if(badge) badge.textContent='COREON Safety AX Agent · Industrial Safety Execution & Assurance';
+      if(h1) h1.innerHTML=ko?'위험을 발견하는 것을 넘어,<br><em>안전하게 종결될 때까지.</em>':'Beyond detecting risk,<br><em>control it to accountable closure.</em>';
+      if(lead) lead.innerHTML=ko?'<strong>Detect → Verify → Assign → Control → Prove → Reassess → Close.</strong> 현장 위험을 사람의 확인과 책임 있는 조치, 검증된 증빙, 잔여위험 재평가로 연결해 안전한 종결까지 실행을 지원합니다.':'<strong>Detect → Verify → Assign → Control → Prove → Reassess → Close.</strong> Connect field hazards to human verification, accountable action, verified evidence and residual-risk reassessment before closure.';
+      if(proof) proof.innerHTML='<span>Human Review</span><span>Verified Evidence</span><span>Residual Risk</span><span>Reopen Control</span>';
+    }
+
     const arch=document.querySelector('.coreon-execution-architecture');
     if(arch && arch.dataset.publicPositioning!=='1'){
       const eyebrow=arch.querySelector('.coreon-exec-eyebrow');
