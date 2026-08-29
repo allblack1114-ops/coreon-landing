@@ -5,18 +5,17 @@
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const addAtlasCard=(grid,item)=>{
     if([...grid.querySelectorAll('a')].some(a=>a.getAttribute('href')===item.href)) return;
-    const a=document.createElement('a');
-    a.className='bx2-atlas-card'; a.href=item.href;
-    a.innerHTML=`<small>${esc(item.kicker)}</small><h3>${esc(item.title)}</h3><p>${esc(item.copy)}</p>`;
-    grid.appendChild(a);
+    const a=document.createElement('a'); a.className='bx2-atlas-card'; a.href=item.href;
+    a.innerHTML=`<small>${esc(item.kicker)}</small><h3>${esc(item.title)}</h3><p>${esc(item.copy)}</p>`; grid.appendChild(a);
   };
+  const prehide=document.createElement('style'); prehide.id='coreon-hero-prehide'; prehide.textContent='.bx2-stage{visibility:hidden;opacity:0}.bx2-stage.coreon-svg-ready{visibility:visible;opacity:1}'; document.head.appendChild(prehide);
   const loadFinalPolish=()=>{
-    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829h';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829h';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829i';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829i';js.defer=true;document.body.appendChild(js);}
   };
   const loadMobiusSafetyLoop=()=>{
-    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829h';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829h';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829i';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829i';js.defer=true;document.body.appendChild(js);}
   };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
@@ -32,12 +31,11 @@
         {kicker:'CONTRACTOR',title:'Contractor safety management',copy:'Connect principals, contractors, deadlines, evidence and review status.',href:'/guides/contractor-safety-management.html'},
         {kicker:'SAFETY OPERATIONS',title:'Contractor · multi-site · project operations',copy:'Extend safety work across operating sites using ownership, deadlines and evidence.',href:'/en/safety-operations.html'},
         {kicker:'SAFETY AVATAR',title:'Risk-awareness conversational training',copy:'Connect KOSHA-grounded scenarios and Human Review to the Safety AX workflow.',href:'/en/safety-avatar.html'}
-      ];
-      extra.forEach(x=>addAtlasCard(grid,x));
+      ]; extra.forEach(x=>addAtlasCard(grid,x));
     }
     const nav=[...document.querySelectorAll('.header .links a')];
     nav.forEach(a=>{const text=(a.textContent||'').trim();if(!ko&&text==='Product')a.href='/en/product.html';if(!ko&&/Risk Engineering/i.test(text))a.href='/en/insurance-risk-engineering.html';if(ko&&text==='제품')a.href='/product.html';if(ko&&/보험·리스크/.test(text))a.href='/insurance-risk-engineering.html';});
     loadFinalPolish(); loadMobiusSafetyLoop();
   };
-  let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},50);
+  let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},30);
 })();
