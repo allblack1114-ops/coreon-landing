@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.coreon-global.com/</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.coreon-global.com/en/</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://www.coreon-global.com/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.coreon-global.com/en/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
   <url><loc>https://www.coreon-global.com/product.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.99</priority></url>
   <url><loc>https://www.coreon-global.com/en/product.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.94</priority></url>
   <url><loc>https://www.coreon-global.com/insurance-risk-engineering.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.96</priority></url>
   <url><loc>https://www.coreon-global.com/en/insurance-risk-engineering.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.91</priority></url>
   <url><loc>https://www.coreon-global.com/safety-operations.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
   <url><loc>https://www.coreon-global.com/en/safety-operations.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/safety-avatar.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/en/safety-avatar.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.coreon-global.com/public-proof-procurement.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.98</priority></url>
   <url><loc>https://www.coreon-global.com/en/public-proof-procurement.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.93</priority></url>
-  <url><loc>https://www.coreon-global.com/institutional-safety-ai.html</loc><lastmod>2026-08-17</lastmod><changefreq>weekly</changefreq><priority>0.97</priority></url>
-  <url><loc>https://www.coreon-global.com/en/institutional-safety-ai.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
-  <url><loc>https://www.coreon-global.com/safety-ax-runtime.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://www.coreon-global.com/en/safety-ax-runtime.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/enterprise-multisite.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://www.coreon-global.com/en/enterprise-multisite.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://www.coreon-global.com/safety-event-integration.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
   <url><loc>https://www.coreon-global.com/en/safety-event-integration.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/pricing.html</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
-  <url><loc>https://www.coreon-global.com/en/pricing.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.coreon-global.com/download.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
   <url><loc>https://www.coreon-global.com/en/download.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://www.coreon-global.com/use-cases/</loc><lastmod>2026-08-17</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
@@ -43,7 +33,6 @@
   <url><loc>https://www.coreon-global.com/trust/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
   <url><loc>https://www.coreon-global.com/en/trust.html</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.88</priority></url>
   <url><loc>https://www.coreon-global.com/patents.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.coreon-global.com/physical-access-control.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
   <url><loc>https://www.coreon-global.com/faq.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.coreon-global.com/privacy.html</loc><lastmod>2026-08-13</lastmod><changefreq>yearly</changefreq><priority>0.50</priority></url>
 </urlset>
