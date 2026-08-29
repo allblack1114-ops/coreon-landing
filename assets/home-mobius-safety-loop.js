@@ -23,6 +23,70 @@
     </g>`;
   };
 
+  const executionArchitecture=(ko)=>ko?`
+    <section class="coreon-execution-architecture" aria-label="COREON Safety Execution Architecture">
+      <div class="coreon-exec-wrap">
+        <div class="coreon-exec-eyebrow">SAFETY EXECUTION ARCHITECTURE</div>
+        <h2>위험을 발견하는 데서 끝내지 않고,<br><strong>안전하게 종결될 때까지 통제합니다.</strong></h2>
+        <p class="coreon-exec-lead">COREON Safety AX Agent는 위험 발견부터 사람 검토, 책임·기한, 개선조치, 증빙, 잔여위험 재평가, 책임 있는 종결과 재개방까지 하나의 Safety Event로 연결하는 산업안전 실행통제 시스템입니다.</p>
+        <div class="coreon-exec-flow" role="list">
+          <div role="listitem"><b>01</b><strong>Detect</strong><span>위험 발견</span></div>
+          <div role="listitem"><b>02</b><strong>Verify</strong><span>사람 확인</span></div>
+          <div role="listitem"><b>03</b><strong>Assign</strong><span>책임·기한</span></div>
+          <div role="listitem"><b>04</b><strong>Control</strong><span>개선조치</span></div>
+          <div role="listitem"><b>05</b><strong>Prove</strong><span>증빙</span></div>
+          <div role="listitem"><b>06</b><strong>Reassess</strong><span>잔여위험</span></div>
+          <div role="listitem"><b>07</b><strong>Close</strong><span>안전 종결</span></div>
+        </div>
+        <div class="coreon-exec-layers">
+          <article><span>LAYER 1</span><h3>Safety Core</h3><p>현장 사용자는 위험 제보와 조치에 집중합니다. 복잡한 규칙은 뒤로 숨기고 실제 실행 흐름만 단순하게 제공합니다.</p></article>
+          <article><span>LAYER 2</span><h3>Safety Control Plane</h3><p>본사·CSO·공공기관은 Open Critical Risk, Overdue Action, Evidence Gap, Reopened Case와 실행책임 상태를 우선 확인합니다.</p></article>
+          <article><span>LAYER 3</span><h3>Safety Assurance Engine</h3><p>State Machine, Human Review, 권한, 증빙 무결성, 감사이력, 잔여위험, Reopen 규칙이 안전한 종결을 내부에서 통제합니다.</p></article>
+        </div>
+        <div class="coreon-exec-rule"><strong>CORE PRINCIPLE</strong><span>모든 위험은 책임자·개선조치·증빙·잔여위험 검증·책임 있는 종결까지 이어져야 합니다.</span></div>
+      </div>
+    </section>`:`
+    <section class="coreon-execution-architecture" aria-label="COREON Safety Execution Architecture">
+      <div class="coreon-exec-wrap">
+        <div class="coreon-exec-eyebrow">SAFETY EXECUTION ARCHITECTURE</div>
+        <h2>Do not stop at detecting risk.<br><strong>Control it until verified safe closure.</strong></h2>
+        <p class="coreon-exec-lead">COREON Safety AX Agent connects detection, human verification, ownership, corrective action, evidence, residual-risk reassessment, accountable closure and reopen control around one Safety Event.</p>
+        <div class="coreon-exec-flow" role="list">
+          <div role="listitem"><b>01</b><strong>Detect</strong><span>Risk discovery</span></div>
+          <div role="listitem"><b>02</b><strong>Verify</strong><span>Human review</span></div>
+          <div role="listitem"><b>03</b><strong>Assign</strong><span>Owner & due date</span></div>
+          <div role="listitem"><b>04</b><strong>Control</strong><span>Corrective action</span></div>
+          <div role="listitem"><b>05</b><strong>Prove</strong><span>Evidence</span></div>
+          <div role="listitem"><b>06</b><strong>Reassess</strong><span>Residual risk</span></div>
+          <div role="listitem"><b>07</b><strong>Close</strong><span>Verified closure</span></div>
+        </div>
+        <div class="coreon-exec-layers">
+          <article><span>LAYER 1</span><h3>Safety Core</h3><p>Field users stay focused on reporting and action while complex rules remain behind the workflow.</p></article>
+          <article><span>LAYER 2</span><h3>Safety Control Plane</h3><p>Head office and executives see critical open risks, overdue actions, evidence gaps, reopened cases and accountable ownership first.</p></article>
+          <article><span>LAYER 3</span><h3>Safety Assurance Engine</h3><p>State machine, human review, authorization, evidence integrity, audit lineage, residual risk and reopen rules govern safe closure.</p></article>
+        </div>
+        <div class="coreon-exec-rule"><strong>CORE PRINCIPLE</strong><span>Every risk must have an owner, an action, evidence, residual-risk verification and accountable closure.</span></div>
+      </div>
+    </section>`;
+
+  const applyExecutionCopy=()=>{
+    const hero=document.querySelector('.hero');
+    if(!hero || hero.dataset.executionArchitecture==='1') return false;
+    const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
+    const badge=hero.querySelector('.badge');
+    const h1=hero.querySelector('h1');
+    const lead=hero.querySelector('.lead');
+    const proof=hero.querySelector('.proof');
+    if(badge) badge.textContent=ko?'COREON Safety AX Agent · Safety Execution Control System':'COREON Safety AX Agent · Safety Execution Control System';
+    if(h1) h1.innerHTML=ko?'위험을 발견하는 AI를 넘어,<br><em>안전하게 종결될 때까지 통제합니다.</em>':'Beyond risk detection,<br><em>control every risk to verified closure.</em>';
+    if(lead) lead.innerHTML=ko?'<strong>Detect → Verify → Assign → Control → Prove → Reassess → Close.</strong> 현장 위험을 하나의 Safety Event로 연결하고, AI는 후보 정리와 업무 연결을 보조하며 사람의 검토·승인·안전 판단을 중심에 둡니다.':'<strong>Detect → Verify → Assign → Control → Prove → Reassess → Close.</strong> One Safety Event connects field risk to accountable action and evidence, while AI assists and human review remains in control.';
+    if(proof) proof.innerHTML=ko?'<span>Human Review</span><span>Evidence Integrity</span><span>Residual Risk</span><span>Reopen Control</span>':'<span>Human Review</span><span>Evidence Integrity</span><span>Residual Risk</span><span>Reopen Control</span>';
+    if(!document.querySelector('.coreon-execution-architecture')) hero.insertAdjacentHTML('afterend',executionArchitecture(ko));
+    document.documentElement.dataset.coreonProductArchitecture='safety-execution-v1';
+    hero.dataset.executionArchitecture='1';
+    return true;
+  };
+
   const apply=()=>{
     const stage=document.querySelector('.bx2-stage');
     if(!stage || stage.dataset.singleSvgHero==='1') return false;
@@ -76,5 +140,11 @@
   };
 
   let tries=0;
-  const timer=setInterval(()=>{tries+=1;if(apply()||tries>70)clearInterval(timer);},30);
+  const timer=setInterval(()=>{
+    tries+=1;
+    const heroReady=applyExecutionCopy();
+    const visualReady=apply();
+    if((heroReady||document.querySelector('.hero')?.dataset.executionArchitecture==='1')&&(visualReady||document.querySelector('.bx2-stage')?.dataset.singleSvgHero==='1')) clearInterval(timer);
+    if(tries>100) clearInterval(timer);
+  },30);
 })();
