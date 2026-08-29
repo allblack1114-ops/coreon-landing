@@ -1,25 +1,12 @@
-/* COREON approved-reference Mobius Safety Loop */
-.coreon-reference-mobius{position:relative;isolation:isolate;overflow:visible}
-.coreon-reference-mobius .mobius-reference-wrap{position:absolute;inset:2% -1% 0;z-index:1}
-.coreon-reference-mobius .mobius-reference-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1;filter:drop-shadow(0 26px 60px rgba(0,0,0,.18))}
-.coreon-reference-mobius .mobius-motion-overlay{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.coreon-reference-mobius .mobius-energy-line{fill:none;stroke:#48dfff;stroke-width:4;stroke-linecap:round;opacity:.22;filter:url(#motionGlow)}
-.coreon-reference-mobius .mobius-energy-dash{fill:none;stroke:#dfffff;stroke-width:1.8;stroke-dasharray:2 20;stroke-linecap:round;opacity:.66;animation:coreonMobiusReferenceDash 9s linear infinite;filter:url(#motionGlow)}
-.coreon-reference-mobius .mobius-energy-dot{fill:#dfffff;filter:url(#motionGlow)}
-.coreon-reference-mobius .mobius-energy-dot.d1{fill:#63e8ff}.coreon-reference-mobius .mobius-energy-dot.d2{fill:#2bd8c4}.coreon-reference-mobius .mobius-energy-dot.d3{fill:#fff}
-.coreon-reference-mobius .mobius-core-label{display:none!important}
-.coreon-reference-mobius .mobius-step{position:absolute;z-index:5;min-width:126px;padding:8px 10px 9px;border-radius:15px;background:rgba(3,24,45,.48);border:1px solid rgba(97,218,255,.10);box-shadow:0 8px 26px rgba(0,0,0,.12);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:coreonMobiusReferenceFloat 6.2s ease-in-out infinite}
-.coreon-reference-mobius .mobius-step:before{content:"";position:absolute;left:-4px;top:50%;width:7px;height:7px;border-radius:50%;background:#67eaff;box-shadow:0 0 18px #67eaff}
-.coreon-reference-mobius .mobius-step small{display:inline-block;margin-right:6px;color:#62e4ff;font-size:9px;font-weight:950;letter-spacing:.08em}.coreon-reference-mobius .mobius-step b{display:block;margin-top:1px;font-size:11.5px;color:#fff;line-height:1.2}.coreon-reference-mobius .mobius-step span{display:block;margin-top:4px;font-size:9px;color:#a8c8d8;line-height:1.35}
-.coreon-reference-mobius .mobius-step.s1{left:7%;top:16%}
-.coreon-reference-mobius .mobius-step.s2{left:43%;top:4%;animation-delay:-.8s}
-.coreon-reference-mobius .mobius-step.s3{right:1%;top:16%;animation-delay:-1.6s}
-.coreon-reference-mobius .mobius-step.s4{right:-3%;top:52%;animation-delay:-2.4s}
-.coreon-reference-mobius .mobius-step.s5{right:8%;bottom:3%;animation-delay:-3.2s}
-.coreon-reference-mobius .mobius-step.s6{left:29%;bottom:-1%;animation-delay:-4s}
-.coreon-reference-mobius .mobius-step.s7{left:-1%;top:54%;animation-delay:-4.8s}
-@keyframes coreonMobiusReferenceDash{to{stroke-dashoffset:-260}}@keyframes coreonMobiusReferenceFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@media(max-width:1500px) and (min-width:1101px){.coreon-reference-mobius .mobius-reference-wrap{inset:5% 1% 2%}.coreon-reference-mobius .mobius-step{min-width:112px;padding:7px 9px}.coreon-reference-mobius .mobius-step b{font-size:10.5px}.coreon-reference-mobius .mobius-step span{font-size:8.5px}.coreon-reference-mobius .mobius-step.s1{left:4%;top:15%}.coreon-reference-mobius .mobius-step.s2{left:42%;top:5%}.coreon-reference-mobius .mobius-step.s3{right:0;top:17%}.coreon-reference-mobius .mobius-step.s4{right:-1%;top:54%}.coreon-reference-mobius .mobius-step.s5{right:7%;bottom:2%}.coreon-reference-mobius .mobius-step.s6{left:26%;bottom:-1%}.coreon-reference-mobius .mobius-step.s7{left:-1%;top:56%}}
-@media(max-width:1100px){.coreon-reference-mobius .mobius-reference-wrap{inset:8% 2% 5%}.coreon-reference-mobius .mobius-step{min-width:105px}.coreon-reference-mobius .mobius-step.s2{left:40%}.coreon-reference-mobius .mobius-step.s4{right:-2%}}
-@media(max-width:720px){.coreon-reference-mobius{height:470px!important;min-height:470px!important}.coreon-reference-mobius .mobius-reference-wrap{inset:8% -5% 3%}.coreon-reference-mobius .mobius-step{min-width:92px;padding:6px 7px}.coreon-reference-mobius .mobius-step b{font-size:9.5px}.coreon-reference-mobius .mobius-step span{font-size:7.5px}.coreon-reference-mobius .mobius-step.s1{left:0;top:12%}.coreon-reference-mobius .mobius-step.s2{left:39%;top:3%}.coreon-reference-mobius .mobius-step.s3{right:-3%;top:14%}.coreon-reference-mobius .mobius-step.s4{right:-4%;top:55%}.coreon-reference-mobius .mobius-step.s5{right:1%;bottom:3%}.coreon-reference-mobius .mobius-step.s6{left:18%;bottom:-1%}.coreon-reference-mobius .mobius-step.s7{left:-3%;top:57%}}
-@media(prefers-reduced-motion:reduce){.coreon-reference-mobius .mobius-energy-dash,.coreon-reference-mobius .mobius-step{animation:none!important}.coreon-reference-mobius .mobius-energy-dot{display:none}}
+/* COREON CEO-approved Hero Image + light-point motion overlay */
+.coreon-approved-hero-stage{position:relative;isolation:isolate;overflow:visible}
+.coreon-approved-hero-stage .coreon-approved-hero-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.coreon-approved-hero-stage .coreon-approved-hero-art{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 24px 56px rgba(0,0,0,.18));user-select:none;-webkit-user-drag:none}
+.coreon-approved-hero-stage .coreon-approved-motion{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.coreon-approved-hero-stage .approved-energy-line{fill:none;stroke:#9ff5ff;stroke-width:1.8;stroke-linecap:round;opacity:.16;filter:url(#approvedMotionGlow)}
+.coreon-approved-hero-stage .approved-light-dot{filter:url(#approvedMotionGlow);mix-blend-mode:screen}
+.coreon-approved-hero-stage .approved-light-dot.d1{fill:#8cf3ff}.coreon-approved-hero-stage .approved-light-dot.d2{fill:#23d9c3}.coreon-approved-hero-stage .approved-light-dot.d3{fill:#fff}
+@media(max-width:1500px) and (min-width:1101px){.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:2% 0}}
+@media(max-width:1100px){.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:4% -1%}.coreon-approved-hero-stage .approved-energy-line{opacity:.11}}
+@media(max-width:720px){.coreon-approved-hero-stage{height:470px!important;min-height:470px!important}.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:2% -8%}.coreon-approved-hero-stage .approved-light-dot.d2,.coreon-approved-hero-stage .approved-light-dot.d3{display:none}}
+@media(prefers-reduced-motion:reduce){.coreon-approved-hero-stage .approved-light-dot{display:none!important}.coreon-approved-hero-stage .approved-energy-line{opacity:.08}}
