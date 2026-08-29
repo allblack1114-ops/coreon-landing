@@ -164,6 +164,11 @@
     script.src = '/assets/home-experience-v2.js?v=20260829b';
     script.defer = true;
     document.body.appendChild(script);
+    const linkFix = document.createElement('script');
+    linkFix.id = 'coreon-home-experience-v2-link-fix';
+    linkFix.src = '/assets/home-experience-v2-link-fix.js?v=20260829b';
+    linkFix.defer = true;
+    document.body.appendChild(linkFix);
   };
 
   const syncTerminology = () => {
