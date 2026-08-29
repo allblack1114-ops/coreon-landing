@@ -1,0 +1,46 @@
+/* COREON Brand Experience v2 — final visual polish */
+body.coreon-bx2 .bx2-wrap{grid-template-columns:minmax(0,1.08fr) minmax(500px,.92fr);gap:clamp(36px,5vw,82px)}
+body.coreon-bx2 .bx2-copy{max-width:880px}
+body.coreon-bx2 .bx2-title{font-size:clamp(56px,5.75vw,92px);line-height:1.01;letter-spacing:-.068em;max-width:none}
+body.coreon-bx2 .bx2-title .mainline,body.coreon-bx2 .bx2-title .accent{display:block;white-space:nowrap}
+body.coreon-bx2 .bx2-lead{max-width:800px}
+
+/* Product Theatre: annotation lines feel connected to the product rather than floating stickers */
+body.coreon-bx2 .bx2-product-frame{overflow:visible}
+body.coreon-bx2 .bx2-callout{border-radius:13px;background:rgba(5,31,52,.90);backdrop-filter:blur(10px);border:1px solid rgba(112,193,227,.16);box-shadow:0 14px 34px rgba(4,27,45,.16)}
+body.coreon-bx2 .bx2-callout:after{content:"";position:absolute;height:1px;background:linear-gradient(90deg,rgba(17,143,188,.86),rgba(17,143,188,.18));top:50%;width:54px}
+body.coreon-bx2 .bx2-callout.c1:after,body.coreon-bx2 .bx2-callout.c3:after{right:-54px}
+body.coreon-bx2 .bx2-callout.c2:after{left:-54px;transform:rotate(180deg)}
+body.coreon-bx2 .bx2-callout:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#54d9ff;top:calc(50% - 3px);box-shadow:0 0 16px rgba(84,217,255,.75)}
+body.coreon-bx2 .bx2-callout.c1:before,body.coreon-bx2 .bx2-callout.c3:before{right:-58px}
+body.coreon-bx2 .bx2-callout.c2:before{left:-58px}
+
+/* Product Atlas: same complete catalog, but organized like an enterprise portfolio */
+body.coreon-bx2 .bx2-atlas-grid[data-grouped="1"]{display:grid;grid-template-columns:1fr;gap:44px}
+body.coreon-bx2 .bx2-atlas-group{display:grid;grid-template-columns:minmax(190px,240px) minmax(0,1fr);gap:28px;align-items:start;padding-top:8px}
+body.coreon-bx2 .bx2-atlas-group>header{position:sticky;top:112px;padding:10px 0}
+body.coreon-bx2 .bx2-atlas-group>header small{font-size:10px;font-weight:950;letter-spacing:.12em;color:#0a9b89}
+body.coreon-bx2 .bx2-atlas-group>header h3{font-size:27px;line-height:1.15;letter-spacing:-.04em;margin:8px 0 0;color:#0c243d}
+body.coreon-bx2 .bx2-atlas-subgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+body.coreon-bx2 .bx2-atlas-subgrid .bx2-atlas-card{min-height:220px}
+
+/* Late-page rhythm: keep content, vary the scene so scrolling feels intentional */
+body.coreon-bx2 .bx2-late-scene{position:relative;border-top:1px solid rgba(12,39,62,.055)}
+body.coreon-bx2 .bx2-late-scene.scene-problem{background:linear-gradient(180deg,#fff 0%,#f7fafc 100%)}
+body.coreon-bx2 .bx2-late-scene.scene-industry{background:linear-gradient(135deg,#061d35 0%,#082d4e 100%)!important;color:#fff}
+body.coreon-bx2 .bx2-late-scene.scene-industry h2,body.coreon-bx2 .bx2-late-scene.scene-industry h3{color:#fff!important}
+body.coreon-bx2 .bx2-late-scene.scene-industry p{color:#c6d8e4!important}
+body.coreon-bx2 .bx2-late-scene.scene-industry .card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important;color:#fff}
+body.coreon-bx2 .bx2-late-scene.scene-risk{background:linear-gradient(180deg,#f2fbfa,#fff)}
+body.coreon-bx2 .bx2-late-scene.scene-enterprise{background:#fff}
+body.coreon-bx2 .bx2-late-scene.scene-pilot{background:linear-gradient(180deg,#f5f8fb,#eef4f8)}
+body.coreon-bx2 .bx2-late-scene.scene-plans{background:#fff}
+body.coreon-bx2 .bx2-late-scene.scene-start{background:linear-gradient(135deg,#e8fbf6 0%,#edf7ff 100%)}
+body.coreon-bx2 .bx2-late-scene.scene-trust{background:linear-gradient(180deg,#f1f5f8,#eaf0f5)}
+body.coreon-bx2 .bx2-late-scene.scene-pilot .grid5,body.coreon-bx2 .bx2-late-scene.scene-pilot .grid4{gap:12px}
+body.coreon-bx2 .bx2-late-scene.scene-pilot .card{border-radius:18px;box-shadow:0 12px 30px rgba(7,33,53,.06)}
+body.coreon-bx2 .bx2-late-scene.scene-start{margin:0!important}
+body.coreon-bx2 .bx2-late-scene.scene-start .wrap,body.coreon-bx2 .bx2-late-scene.scene-start .inner{padding-top:18px;padding-bottom:18px}
+
+@media(max-width:1180px){body.coreon-bx2 .bx2-wrap{grid-template-columns:1fr}body.coreon-bx2 .bx2-title .mainline,body.coreon-bx2 .bx2-title .accent{white-space:normal}body.coreon-bx2 .bx2-atlas-subgrid{grid-template-columns:repeat(2,minmax(0,1fr))}body.coreon-bx2 .bx2-atlas-group{grid-template-columns:1fr}body.coreon-bx2 .bx2-atlas-group>header{position:static;padding-bottom:0}}
+@media(max-width:720px){body.coreon-bx2 .bx2-title{font-size:clamp(46px,14vw,66px)}body.coreon-bx2 .bx2-atlas-subgrid{grid-template-columns:1fr}body.coreon-bx2 .bx2-callout:after,body.coreon-bx2 .bx2-callout:before{display:none}}

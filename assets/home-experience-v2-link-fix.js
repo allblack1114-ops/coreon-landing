@@ -11,6 +11,22 @@
     a.innerHTML=`<small>${esc(item.kicker)}</small><h3>${esc(item.title)}</h3><p>${esc(item.copy)}</p>`;
     grid.appendChild(a);
   };
+  const loadFinalPolish=()=>{
+    if(!document.getElementById('coreon-home-final-polish-css')){
+      const css=document.createElement('link');
+      css.id='coreon-home-final-polish-css';
+      css.rel='stylesheet';
+      css.href='/assets/home-final-polish.css?v=20260829';
+      document.head.appendChild(css);
+    }
+    if(!document.getElementById('coreon-home-final-polish-js')){
+      const js=document.createElement('script');
+      js.id='coreon-home-final-polish-js';
+      js.src='/assets/home-final-polish.js?v=20260829';
+      js.defer=true;
+      document.body.appendChild(js);
+    }
+  };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
     const primary=document.querySelector('.bx2-btn.primary');
@@ -38,6 +54,7 @@
       if(ko&&text==='제품') a.href='/product.html';
       if(ko&&/보험·리스크/.test(text)) a.href='/insurance-risk-engineering.html';
     });
+    loadFinalPolish();
   };
   let tries=0;
   const timer=setInterval(()=>{
