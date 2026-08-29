@@ -1,30 +1,19 @@
-/* COREON Mobius Safety Loop — animated 8/∞ brand philosophy + closed-loop safety execution */
-.coreon-mobius-stage{position:relative;isolation:isolate;overflow:visible}
-.coreon-mobius-stage .mobius-ambient{position:absolute;inset:5% 0 2%;border-radius:50%;background:radial-gradient(circle at 68% 48%,rgba(45,168,230,.16),transparent 30%),radial-gradient(circle at 34% 50%,rgba(25,196,171,.09),transparent 31%);filter:blur(5px);pointer-events:none}
-.coreon-mobius-stage .mobius-svg{position:absolute;inset:1% -2% 0;width:104%;height:98%;overflow:visible;filter:drop-shadow(0 25px 55px rgba(0,0,0,.18))}
-.coreon-mobius-stage .mobius-wide,.coreon-mobius-stage .mobius-mid,.coreon-mobius-stage .mobius-core-line,.coreon-mobius-stage .mobius-dash{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.coreon-mobius-stage .mobius-wide{stroke:url(#mobiusStroke);stroke-width:70;opacity:.12;filter:url(#mobiusGlow)}
-.coreon-mobius-stage .mobius-mid{stroke:url(#mobiusStroke);stroke-width:40;opacity:.34;filter:url(#mobiusGlow)}
-.coreon-mobius-stage .mobius-core-line{stroke:url(#mobiusStroke);stroke-width:5.5;opacity:.96;filter:url(#mobiusGlow)}
-.coreon-mobius-stage .mobius-dash{stroke:#b9f4ff;stroke-width:1.5;stroke-dasharray:4 18;opacity:.58;animation:coreonMobiusDash 10s linear infinite}
-.coreon-mobius-stage .flow-dot{fill:#b9fbff;filter:url(#mobiusGlow)}
-.coreon-mobius-stage .flow-dot.d1{fill:#74e8ff}.coreon-mobius-stage .flow-dot.d2{fill:#19c4ab}.coreon-mobius-stage .flow-dot.d3{fill:#fff}
-.coreon-mobius-stage .mobius-core-label{position:absolute;z-index:5;left:70%;top:49%;transform:translate(-50%,-50%);width:180px;text-align:center;color:#fff;text-shadow:0 0 22px rgba(81,222,255,.35);pointer-events:none}
-.coreon-mobius-stage .mobius-core-label b{display:block;font-size:clamp(22px,2vw,30px);line-height:1.13;letter-spacing:-.035em}
-.coreon-mobius-stage .mobius-core-label small{display:block;margin-top:10px;font-size:10px;font-weight:900;letter-spacing:.12em;color:#a9daeb}
-.coreon-mobius-stage .mobius-step{position:absolute;z-index:6;min-width:138px;padding:11px 13px 12px;border-radius:17px;border:1px solid rgba(115,223,255,.20);background:rgba(3,28,49,.76);box-shadow:0 14px 40px rgba(0,0,0,.22);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);animation:coreonMobiusFloat 5.5s ease-in-out infinite}
-.coreon-mobius-stage .mobius-step:before{content:"";position:absolute;left:-4px;top:50%;width:7px;height:7px;border-radius:50%;background:#64e5ff;box-shadow:0 0 18px #64e5ff}
-.coreon-mobius-stage .mobius-step small{display:inline-block;margin-right:6px;color:#59ddff;font-size:10px;font-weight:950;letter-spacing:.08em}
-.coreon-mobius-stage .mobius-step b{display:block;margin-top:2px;font-size:12px;line-height:1.2;color:#fff}
-.coreon-mobius-stage .mobius-step span{display:block;margin-top:5px;font-size:9.5px;line-height:1.35;color:#9ec5d8}
-.coreon-mobius-stage .mobius-step.s1{left:8%;top:16%}
-.coreon-mobius-stage .mobius-step.s2{right:5%;top:18%;animation-delay:-.9s}
-.coreon-mobius-stage .mobius-step.s3{right:0;top:49%;animation-delay:-1.8s}
-.coreon-mobius-stage .mobius-step.s4{right:11%;bottom:7%;animation-delay:-2.7s}
-.coreon-mobius-stage .mobius-step.s5{left:29%;bottom:1%;animation-delay:-3.6s}
-.coreon-mobius-stage .mobius-step.s6{left:2%;top:52%;animation-delay:-4.5s}
-@keyframes coreonMobiusDash{to{stroke-dashoffset:-220}}
-@keyframes coreonMobiusFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@media(max-width:1100px){.coreon-mobius-stage .mobius-step{min-width:126px}.coreon-mobius-stage .mobius-core-label{left:69%}}
-@media(max-width:720px){.coreon-mobius-stage{height:470px!important;min-height:470px!important}.coreon-mobius-stage .mobius-svg{inset:4% -8% 0;width:116%;height:90%}.coreon-mobius-stage .mobius-wide{stroke-width:56}.coreon-mobius-stage .mobius-mid{stroke-width:30}.coreon-mobius-stage .mobius-core-label{left:70%;top:48%;width:130px}.coreon-mobius-stage .mobius-core-label b{font-size:19px}.coreon-mobius-stage .mobius-step{min-width:105px;padding:9px 10px}.coreon-mobius-stage .mobius-step b{font-size:10.5px}.coreon-mobius-stage .mobius-step span{font-size:8.5px}.coreon-mobius-stage .mobius-step.s1{left:1%;top:14%}.coreon-mobius-stage .mobius-step.s2{right:0;top:16%}.coreon-mobius-stage .mobius-step.s3{right:-2%;top:50%}.coreon-mobius-stage .mobius-step.s4{right:6%;bottom:4%}.coreon-mobius-stage .mobius-step.s5{left:20%;bottom:0}.coreon-mobius-stage .mobius-step.s6{left:-2%;top:54%}}
-@media(prefers-reduced-motion:reduce){.coreon-mobius-stage .mobius-dash,.coreon-mobius-stage .mobius-step{animation:none!important}.coreon-mobius-stage .flow-dot{display:none}}
+/* COREON approved-reference Mobius Safety Loop */
+.coreon-reference-mobius{position:relative;isolation:isolate;overflow:visible}
+.coreon-reference-mobius .mobius-reference-wrap{position:absolute;inset:1% -4% 0;z-index:1}
+.coreon-reference-mobius .mobius-reference-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.98;filter:drop-shadow(0 26px 55px rgba(0,0,0,.16))}
+.coreon-reference-mobius .mobius-motion-overlay{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.coreon-reference-mobius .mobius-energy-line{fill:none;stroke:#59e7ff;stroke-width:5;stroke-linecap:round;opacity:.36;filter:url(#motionGlow)}
+.coreon-reference-mobius .mobius-energy-dash{fill:none;stroke:#d8fbff;stroke-width:2;stroke-dasharray:3 20;stroke-linecap:round;opacity:.78;animation:coreonMobiusReferenceDash 8s linear infinite;filter:url(#motionGlow)}
+.coreon-reference-mobius .mobius-energy-dot{fill:#dfffff;filter:url(#motionGlow)}
+.coreon-reference-mobius .mobius-energy-dot.d1{fill:#61e7ff}.coreon-reference-mobius .mobius-energy-dot.d2{fill:#19c4ab}.coreon-reference-mobius .mobius-energy-dot.d3{fill:#fff}
+.coreon-reference-mobius .mobius-core-label{position:absolute;z-index:4;left:70.5%;top:49.2%;transform:translate(-50%,-50%);width:200px;text-align:center;color:#fff;text-shadow:0 0 30px rgba(93,226,255,.42);pointer-events:none}
+.coreon-reference-mobius .mobius-core-label b{display:block;font-size:clamp(24px,2.2vw,33px);line-height:1.12;letter-spacing:-.04em}.coreon-reference-mobius .mobius-core-label small{display:block;margin-top:10px;font-size:10px;font-weight:900;letter-spacing:.13em;color:#b9e3ef}
+.coreon-reference-mobius .mobius-step{position:absolute;z-index:5;min-width:130px;padding:9px 12px 10px;border-radius:18px;background:rgba(3,28,49,.22);border:1px solid transparent;box-shadow:none;backdrop-filter:none;animation:coreonMobiusReferenceFloat 5.8s ease-in-out infinite}
+.coreon-reference-mobius .mobius-step:before{content:"";position:absolute;left:-5px;top:50%;width:7px;height:7px;border-radius:50%;background:#68ecff;box-shadow:0 0 20px #68ecff}
+.coreon-reference-mobius .mobius-step small{display:inline-block;margin-right:7px;color:#60e1ff;font-size:10px;font-weight:950;letter-spacing:.08em}.coreon-reference-mobius .mobius-step b{display:block;margin-top:1px;font-size:12px;color:#fff;line-height:1.2}.coreon-reference-mobius .mobius-step span{display:block;margin-top:4px;font-size:9.5px;color:#a8c8d8;line-height:1.35}
+.coreon-reference-mobius .mobius-step.s1{left:10%;top:18%}.coreon-reference-mobius .mobius-step.s2{left:46%;top:7%;animation-delay:-.7s}.coreon-reference-mobius .mobius-step.s3{right:3%;top:18%;animation-delay:-1.4s}.coreon-reference-mobius .mobius-step.s4{right:-1%;top:50%;animation-delay:-2.1s}.coreon-reference-mobius .mobius-step.s5{right:10%;bottom:5%;animation-delay:-2.8s}.coreon-reference-mobius .mobius-step.s6{left:30%;bottom:1%;animation-delay:-3.5s}.coreon-reference-mobius .mobius-step.s7{left:2%;top:54%;animation-delay:-4.2s}
+@keyframes coreonMobiusReferenceDash{to{stroke-dashoffset:-260}}@keyframes coreonMobiusReferenceFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:1100px){.coreon-reference-mobius .mobius-core-label{left:70%}.coreon-reference-mobius .mobius-step{min-width:118px}}
+@media(max-width:720px){.coreon-reference-mobius{height:470px!important;min-height:470px!important}.coreon-reference-mobius .mobius-reference-wrap{inset:4% -8% 0}.coreon-reference-mobius .mobius-core-label{left:70%;top:49%;width:130px}.coreon-reference-mobius .mobius-core-label b{font-size:19px}.coreon-reference-mobius .mobius-step{min-width:98px;padding:7px 8px}.coreon-reference-mobius .mobius-step b{font-size:10px}.coreon-reference-mobius .mobius-step span{font-size:8px}.coreon-reference-mobius .mobius-step.s2{left:43%;top:5%}.coreon-reference-mobius .mobius-step.s3{right:-3%;top:18%}.coreon-reference-mobius .mobius-step.s4{right:-4%;top:51%}.coreon-reference-mobius .mobius-step.s5{right:3%;bottom:5%}.coreon-reference-mobius .mobius-step.s6{left:22%;bottom:0}.coreon-reference-mobius .mobius-step.s7{left:-3%;top:55%}}
+@media(prefers-reduced-motion:reduce){.coreon-reference-mobius .mobius-energy-dash,.coreon-reference-mobius .mobius-step{animation:none!important}.coreon-reference-mobius .mobius-energy-dot{display:none}}
