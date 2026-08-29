@@ -2,7 +2,7 @@
   'use strict';
   const homePaths=['/','/index.html','/en/','/en/index.html'];
   if(!homePaths.includes(location.pathname)) return;
-  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const addAtlasCard=(grid,item)=>{
     if([...grid.querySelectorAll('a')].some(a=>a.getAttribute('href')===item.href)) return;
     const a=document.createElement('a');
@@ -11,12 +11,12 @@
     grid.appendChild(a);
   };
   const loadFinalPolish=()=>{
-    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829e';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829e';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829g';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829g';js.defer=true;document.body.appendChild(js);}
   };
   const loadMobiusSafetyLoop=()=>{
-    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829e';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829e';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829g';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829g';js.defer=true;document.body.appendChild(js);}
   };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
