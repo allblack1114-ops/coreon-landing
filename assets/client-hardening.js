@@ -151,6 +151,26 @@
     document.head.appendChild(style);
   };
 
+  const loadBrandExperienceV2 = () => {
+    if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
+    if (document.getElementById('coreon-home-experience-v2-css')) return;
+    const css = document.createElement('link');
+    css.id = 'coreon-home-experience-v2-css';
+    css.rel = 'stylesheet';
+    css.href = '/assets/home-experience-v2.css?v=20260829b';
+    document.head.appendChild(css);
+    const script = document.createElement('script');
+    script.id = 'coreon-home-experience-v2-js';
+    script.src = '/assets/home-experience-v2.js?v=20260829b';
+    script.defer = true;
+    document.body.appendChild(script);
+    const linkFix = document.createElement('script');
+    linkFix.id = 'coreon-home-experience-v2-link-fix';
+    linkFix.src = '/assets/home-experience-v2-link-fix.js?v=20260829b';
+    linkFix.defer = true;
+    document.body.appendChild(linkFix);
+  };
+
   const syncTerminology = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -178,6 +198,7 @@
     normalizePublicEntryRoutes();
     addTechnologyEvaluationTrust();
     installEnterpriseVisualPolish();
+    loadBrandExperienceV2();
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncTerminology, { once: true });
