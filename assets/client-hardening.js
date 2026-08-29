@@ -42,6 +42,44 @@
     document.head.appendChild(style);
   };
 
+  const installEnterpriseVisualPolish = () => {
+    if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
+    if (document.getElementById('coreon-enterprise-home-polish')) return;
+    const ko = document.documentElement.lang.toLowerCase().startsWith('ko');
+    const style = document.createElement('style');
+    style.id = 'coreon-enterprise-home-polish';
+    style.textContent = [
+      '.header .links{font-size:15px;gap:clamp(17px,1.55vw,25px)}',
+      '.header .nav{min-height:84px}',
+      '.hero h1{max-width:900px;letter-spacing:-.06em}',
+      '.hero .floating{right:26px;top:70px;gap:7px}',
+      '.hero .floating span{padding:8px 11px;border-radius:999px;font-size:10px;letter-spacing:.035em}',
+      '.hero .proof span{font-size:12.5px;min-height:38px;padding:0 13px}',
+      '@media(max-width:1180px){.header .links{font-size:14px}}',
+      '@media(max-width:920px){.hero h1{max-width:760px}.hero .floating{right:22px;top:68px}}',
+      '@media(max-width:700px){.hero h1{letter-spacing:-.05em}.hero .floating{right:16px;top:62px}.hero .floating span{font-size:9px;padding:7px 9px}.hero .proof span{font-size:11.5px}}'
+    ].join('');
+    document.head.appendChild(style);
+
+    if (ko) {
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle && heroTitle.textContent.includes('중대재해 예방')) {
+        heroTitle.innerHTML = '중대재해 예방을<br><em>‘보고’가 아닌</em><br><em>‘실행’으로.</em>';
+      }
+      const proof = Array.from(document.querySelectorAll('.hero .proof span'));
+      const labels = ['KOSHA 공개 안전정보', '사람 검토·승인', '조치부터 잔여위험까지', '리스크 개선 데이터 구조'];
+      proof.slice(0, labels.length).forEach((node, index) => { node.textContent = labels[index]; });
+    } else {
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle && /serious-accident prevention/i.test(heroTitle.textContent)) {
+        heroTitle.innerHTML = 'Turn serious-accident prevention<br><em>from reporting</em><br><em>into execution.</em>';
+      }
+      const proof = Array.from(document.querySelectorAll('.hero .proof span'));
+      const labels = ['KOSHA public safety intelligence', 'Human review & approval', 'Action through residual risk', 'Risk-improvement data structure'];
+      proof.slice(0, labels.length).forEach((node, index) => { node.textContent = labels[index]; });
+    }
+  };
+
   const normalizePublicEntryRoutes = () => {
     if (!['/', '/en/', '/index.html', '/en/index.html'].includes(location.pathname)) return;
     const ko = document.documentElement.lang.toLowerCase().startsWith('ko');
@@ -139,6 +177,7 @@
 
     normalizePublicEntryRoutes();
     addTechnologyEvaluationTrust();
+    installEnterpriseVisualPolish();
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncTerminology, { once: true });
