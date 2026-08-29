@@ -1,12 +1,24 @@
-/* COREON CEO-approved Hero Image + light-point motion overlay */
-.coreon-approved-hero-stage{position:relative;isolation:isolate;overflow:visible}
-.coreon-approved-hero-stage .coreon-approved-hero-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.coreon-approved-hero-stage .coreon-approved-hero-art{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 24px 56px rgba(0,0,0,.18));user-select:none;-webkit-user-drag:none}
-.coreon-approved-hero-stage .coreon-approved-motion{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.coreon-approved-hero-stage .approved-energy-line{fill:none;stroke:#9ff5ff;stroke-width:1.8;stroke-linecap:round;opacity:.16;filter:url(#approvedMotionGlow)}
-.coreon-approved-hero-stage .approved-light-dot{filter:url(#approvedMotionGlow);mix-blend-mode:screen}
-.coreon-approved-hero-stage .approved-light-dot.d1{fill:#8cf3ff}.coreon-approved-hero-stage .approved-light-dot.d2{fill:#23d9c3}.coreon-approved-hero-stage .approved-light-dot.d3{fill:#fff}
-@media(max-width:1500px) and (min-width:1101px){.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:2% 0}}
-@media(max-width:1100px){.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:4% -1%}.coreon-approved-hero-stage .approved-energy-line{opacity:.11}}
-@media(max-width:720px){.coreon-approved-hero-stage{height:470px!important;min-height:470px!important}.coreon-approved-hero-stage .coreon-approved-hero-wrap{inset:2% -8%}.coreon-approved-hero-stage .approved-light-dot.d2,.coreon-approved-hero-stage .approved-light-dot.d3{display:none}}
-@media(prefers-reduced-motion:reduce){.coreon-approved-hero-stage .approved-light-dot{display:none!important}.coreon-approved-hero-stage .approved-energy-line{opacity:.08}}
+/* COREON single-SVG Hero scene: one coordinate system, no node overlap */
+.bx2-stage{visibility:hidden;opacity:0;transition:opacity .32s ease}
+.bx2-stage.coreon-svg-ready{visibility:visible;opacity:1}
+.coreon-single-svg-stage{position:relative;isolation:isolate;overflow:visible}
+.coreon-safety-loop-svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 28px 60px rgba(0,18,41,.28))}
+.coreon-safety-loop-svg .ambient-orbits ellipse{fill:none;stroke:#1aa8ff;stroke-width:1;opacity:.14;stroke-dasharray:4 10}
+.coreon-safety-loop-svg .loop-shadow{fill:none;stroke:#031f57;stroke-width:96;stroke-linecap:round;stroke-linejoin:round;opacity:.98}
+.coreon-safety-loop-svg .loop-main{fill:none;stroke:url(#loopGradient);stroke-width:78;stroke-linecap:round;stroke-linejoin:round;filter:url(#loopGlow)}
+.coreon-safety-loop-svg .loop-inner{fill:none;stroke:url(#loopHighlight);stroke-width:4.5;stroke-linecap:round;opacity:.92;filter:url(#dotGlow)}
+.coreon-safety-loop-svg .loop-spark{fill:none;stroke:#bdf8ff;stroke-width:2;stroke-linecap:round;stroke-dasharray:2 15;opacity:.48;animation:coreonSparkFlow 7.5s linear infinite}
+.coreon-safety-loop-svg .light-dot{filter:url(#dotGlow);mix-blend-mode:screen}.coreon-safety-loop-svg .dot1{fill:#fff}.coreon-safety-loop-svg .dot2{fill:#4deaff}.coreon-safety-loop-svg .dot3{fill:#22d8bf}
+.coreon-safety-loop-svg .coreon-engine-label{text-anchor:middle;fill:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;font-size:31px;font-weight:850;letter-spacing:-.03em;text-shadow:0 0 25px rgba(75,220,255,.28)}
+.coreon-safety-loop-svg .coreon-engine-label .engine-sub{font-size:11px;font-weight:850;letter-spacing:.11em;fill:#b6dce9}
+.coreon-safety-loop-svg .coreon-svg-node{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;animation:coreonNodePulse 5.6s ease-in-out infinite;animation-delay:var(--node-delay)}
+.coreon-safety-loop-svg .node-halo{fill:#092d50;stroke:#39cfff;stroke-width:1.2;opacity:.78;filter:url(#dotGlow)}
+.coreon-safety-loop-svg .node-ring{fill:#071b32;stroke:#6be8ff;stroke-width:1.4;opacity:.98}
+.coreon-safety-loop-svg .node-icon{fill:none;stroke:#a6f4ff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.coreon-safety-loop-svg .node-title{fill:#fff;font-size:14px;font-weight:850}.coreon-safety-loop-svg .node-sub{fill:#a9cddd;font-size:10px;font-weight:650}
+@keyframes coreonSparkFlow{to{stroke-dashoffset:-240}}
+@keyframes coreonNodePulse{0%,100%{opacity:.82}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(67,221,255,.48))}}
+@media(max-width:1500px) and (min-width:1101px){.coreon-safety-loop-svg{transform:scale(.94);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:13px}.coreon-safety-loop-svg .node-sub{font-size:9px}}
+@media(max-width:1100px){.coreon-single-svg-stage{height:520px!important;min-height:520px!important}.coreon-safety-loop-svg{transform:scale(.92);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:12px}.coreon-safety-loop-svg .node-sub{font-size:8.5px}}
+@media(max-width:720px){.coreon-single-svg-stage{height:430px!important;min-height:430px!important}.coreon-safety-loop-svg{transform:scale(.9);transform-origin:center}.coreon-safety-loop-svg .node-title{font-size:10px}.coreon-safety-loop-svg .node-sub{font-size:7px}.coreon-safety-loop-svg .coreon-engine-label{font-size:24px}.coreon-safety-loop-svg .coreon-engine-label .engine-sub{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.coreon-safety-loop-svg .coreon-svg-node,.coreon-safety-loop-svg .loop-spark{animation:none!important}.coreon-safety-loop-svg .light-dot{display:none}}
