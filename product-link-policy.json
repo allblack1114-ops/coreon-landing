@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "purpose": "Prevent the public website from directly exposing hidden, merged or retired Safety AX product surfaces.",
+  "forbiddenDirectProductPaths": [
+    "/safety-ax-platform.html",
+    "/institutional-safety-ai.html",
+    "/integration-hub.html",
+    "/proof-grade-command-center.html",
+    "/safety-governance.html",
+    "/enterprise-multisite.html",
+    "/runtime-evidence-portal",
+    "/ax-agent-demo.html"
+  ],
+  "preferredCustomerDestinations": [
+    "/safety-workspace.html",
+    "/safety-executive-dashboard.html",
+    "/customer-decision-hub.html",
+    "/inquiry.html"
+  ],
+  "rule": "Homepage CTAs must use customer-language canonical entry points. Technical/internal product surfaces may exist but must not be promoted as primary public destinations."
+}
