@@ -8,65 +8,54 @@
     if(!stage || stage.dataset.mobiusLoop==='1') return false;
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
     stage.dataset.mobiusLoop='1';
-    stage.classList.add('coreon-mobius-stage');
+    stage.classList.add('coreon-mobius-stage','coreon-reference-mobius');
 
     const labels=ko?[
       ['01','HAZARD','위험 발견'],
-      ['02','HUMAN REVIEW','사람 검토'],
-      ['03','ACTION','개선조치'],
-      ['04','EVIDENCE','증빙'],
-      ['05','RESIDUAL RISK','잔여위험 재평가'],
-      ['06','SAFE CLOSURE','안전한 종결']
+      ['02','KOSHA','공식 참고근거'],
+      ['03','HUMAN REVIEW','사람 검토'],
+      ['04','ACTION','개선조치'],
+      ['05','EVIDENCE','증빙'],
+      ['06','RESIDUAL RISK','잔여위험 재평가'],
+      ['07','SAFE CLOSURE','안전한 종결']
     ]:[
       ['01','HAZARD','Discovery'],
-      ['02','HUMAN REVIEW','Human control'],
-      ['03','ACTION','Corrective action'],
-      ['04','EVIDENCE','Verified evidence'],
-      ['05','RESIDUAL RISK','Reassessment'],
-      ['06','SAFE CLOSURE','Verified closure']
+      ['02','KOSHA','Public reference'],
+      ['03','HUMAN REVIEW','Human control'],
+      ['04','ACTION','Corrective action'],
+      ['05','EVIDENCE','Verified evidence'],
+      ['06','RESIDUAL RISK','Reassessment'],
+      ['07','SAFE CLOSURE','Verified closure']
     ];
 
     const nodeMarkup=labels.map((x,i)=>`<div class="mobius-step s${i+1}"><small>${x[0]}</small><b>${x[1]}</b><span>${x[2]}</span></div>`).join('');
 
     stage.innerHTML=`
-      <div class="mobius-ambient" aria-hidden="true"></div>
-      <svg class="mobius-svg" viewBox="0 0 900 620" role="img" aria-label="COREON Safety AX continuous safety execution loop">
-        <defs>
-          <linearGradient id="mobiusStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#2f9fd9"/>
-            <stop offset="46%" stop-color="#72e8ff"/>
-            <stop offset="72%" stop-color="#19c4ab"/>
-            <stop offset="100%" stop-color="#2a8ed2"/>
-          </linearGradient>
-          <filter id="mobiusGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="9" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <path id="mobiusPath" d="M112 312 C170 95 360 110 449 304 C540 500 730 519 793 312 C728 102 541 118 449 314 C355 507 168 522 112 312 Z"/>
-        </defs>
-        <g class="mobius-halo">
-          <use href="#mobiusPath" class="mobius-wide"/>
-          <use href="#mobiusPath" class="mobius-mid"/>
-          <use href="#mobiusPath" class="mobius-core-line"/>
-          <use href="#mobiusPath" class="mobius-dash"/>
-        </g>
-        <g class="mobius-flow-dots">
-          <circle r="7" class="flow-dot d1"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#mobiusPath"/></animateMotion></circle>
-          <circle r="4" class="flow-dot d2"><animateMotion dur="8s" begin="-2.7s" repeatCount="indefinite"><mpath href="#mobiusPath"/></animateMotion></circle>
-          <circle r="5" class="flow-dot d3"><animateMotion dur="8s" begin="-5.3s" repeatCount="indefinite"><mpath href="#mobiusPath"/></animateMotion></circle>
-        </g>
-      </svg>
+      <div class="mobius-reference-wrap" aria-hidden="true">
+        <img class="mobius-reference-art" src="/assets/coreon-mobius-hero-reference.svg?v=20260829c" alt="">
+        <svg class="mobius-motion-overlay" viewBox="0 0 920 670">
+          <defs>
+            <filter id="motionGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <path id="motionPath" d="M80 335 C145 90 350 105 455 315 C560 525 765 540 840 335 C765 120 565 125 455 340 C345 545 145 545 80 335"/>
+          </defs>
+          <use href="#motionPath" class="mobius-energy-line"/>
+          <use href="#motionPath" class="mobius-energy-dash"/>
+          <circle r="8" class="mobius-energy-dot d1"><animateMotion dur="7.6s" repeatCount="indefinite"><mpath href="#motionPath"/></animateMotion></circle>
+          <circle r="5" class="mobius-energy-dot d2"><animateMotion dur="7.6s" begin="-2.5s" repeatCount="indefinite"><mpath href="#motionPath"/></animateMotion></circle>
+          <circle r="6" class="mobius-energy-dot d3"><animateMotion dur="7.6s" begin="-5s" repeatCount="indefinite"><mpath href="#motionPath"/></animateMotion></circle>
+        </svg>
+      </div>
       <div class="mobius-core-label"><b>COREON<br>Safety AX</b><small>EXECUTION ENGINE</small></div>
       ${nodeMarkup}
     `;
 
-    document.documentElement.dataset.coreonMobiusSafetyLoop='1';
+    document.documentElement.dataset.coreonMobiusSafetyLoop='reference-v2';
     return true;
   };
 
   let tries=0;
   const timer=setInterval(()=>{
     tries+=1;
-    if(apply()||tries>60) clearInterval(timer);
+    if(apply()||tries>80) clearInterval(timer);
   },60);
 })();
