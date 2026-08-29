@@ -10,7 +10,7 @@
     stage.classList.add('coreon-approved-hero-stage');
     stage.innerHTML=`
       <div class="coreon-approved-hero-wrap" aria-hidden="true">
-        <img class="coreon-approved-hero-art" src="/assets/coreon-approved-loop-final.jpg?v=20260829g" alt="">
+        <img class="coreon-approved-hero-art" src="/assets/coreon-approved-loop-final.jpg?v=20260829h" alt="">
         <svg class="coreon-approved-motion" viewBox="0 0 850 707" preserveAspectRatio="xMidYMid meet">
           <defs>
             <filter id="approvedMotionGlow" x="-80%" y="-80%" width="260%" height="260%">
@@ -25,7 +25,7 @@
           <circle r="5.5" class="approved-light-dot d3"><animateMotion dur="8.8s" begin="-5.8s" repeatCount="indefinite"><mpath href="#approvedMotionPath"/></animateMotion></circle>
         </svg>
       </div>`;
-    document.documentElement.dataset.coreonApprovedHero='image-motion-v1';
+    document.documentElement.dataset.coreonApprovedHero='image-motion-v2';
     return true;
   };
 

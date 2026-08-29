@@ -11,12 +11,12 @@
     grid.appendChild(a);
   };
   const loadFinalPolish=()=>{
-    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829g';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829g';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829h';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829h';js.defer=true;document.body.appendChild(js);}
   };
   const loadMobiusSafetyLoop=()=>{
-    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829g';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829g';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829h';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829h';js.defer=true;document.body.appendChild(js);}
   };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
