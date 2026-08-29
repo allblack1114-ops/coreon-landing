@@ -23,6 +23,25 @@
     closure:'<rect class="node-icon" x="-12" y="-4" width="24" height="20" rx="3"/><path class="node-icon" d="M-7-4v-7a7 7 0 0114 0v7M0 3v6"/>'
   };
 
+  const galaxy=`
+    <g class="galaxy-field" aria-hidden="true">
+      <circle class="star s1" cx="170" cy="214" r="1.7"/><circle class="star s2" cx="216" cy="181" r="2.4"/>
+      <circle class="star s3" cx="267" cy="226" r="1.2"/><circle class="star s4" cx="321" cy="177" r="1.8"/>
+      <circle class="star s5" cx="374" cy="236" r="1.1"/><circle class="star s6" cx="417" cy="187" r="1.5"/>
+      <circle class="star s7" cx="509" cy="190" r="1.2"/><circle class="star s8" cx="555" cy="229" r="1.9"/>
+      <circle class="star s9" cx="612" cy="177" r="1.4"/><circle class="star s10" cx="670" cy="223" r="2.2"/>
+      <circle class="star s11" cx="720" cy="185" r="1.1"/><circle class="star s12" cx="758" cy="242" r="1.6"/>
+      <circle class="star s13" cx="186" cy="453" r="1.4"/><circle class="star s14" cx="235" cy="492" r="2.1"/>
+      <circle class="star s15" cx="292" cy="449" r="1.1"/><circle class="star s16" cx="345" cy="503" r="1.7"/>
+      <circle class="star s17" cx="397" cy="454" r="1.3"/><circle class="star s18" cx="521" cy="461" r="1.5"/>
+      <circle class="star s19" cx="575" cy="502" r="2.2"/><circle class="star s20" cx="629" cy="452" r="1.2"/>
+      <circle class="star s21" cx="686" cy="493" r="1.8"/><circle class="star s22" cx="744" cy="448" r="1.1"/>
+      <circle class="star s23" cx="455" cy="126" r="1.3"/><circle class="star s24" cx="455" cy="548" r="1.6"/>
+      <circle class="star s25" cx="105" cy="274" r="1.2"/><circle class="star s26" cx="820" cy="286" r="1.5"/>
+      <path class="galaxy-dust" d="M134 410 C260 300 333 248 453 334 C576 422 668 375 796 256"/>
+      <path class="galaxy-dust galaxy-dust-b" d="M158 252 C286 354 358 406 459 336 C574 257 658 291 774 421"/>
+    </g>`;
+
   const apply=()=>{
     const stage=document.querySelector('.bx2-stage');
     if(!stage || stage.dataset.singleSvgHero==='1') return false;
@@ -42,14 +61,16 @@
         <linearGradient id="loopHighlight" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d9fbff"/><stop offset=".45" stop-color="#61e9ff"/><stop offset=".72" stop-color="#fff"/><stop offset="1" stop-color="#44d8ff"/></linearGradient>
         <filter id="loopGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         <filter id="dotGlow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        <path id="safetyLoopPath" d="M138 338 C190 122 350 124 459 320 C566 512 726 519 792 338 C728 157 567 158 459 348 C350 544 188 548 138 338"/>
+        <filter id="starGlow" x="-250%" y="-250%" width="600%" height="600%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <path id="safetyLoopPath" d="M128 337 C160 165 315 115 458 337 C600 559 760 509 792 337 C760 165 600 115 458 337 C315 559 96 509 128 337 Z"/>
       </defs>
+      ${galaxy}
       <g class="ambient-orbits"><ellipse cx="465" cy="337" rx="380" ry="272"/><ellipse cx="465" cy="337" rx="328" ry="235"/></g>
       <g class="loop-ribbon"><use href="#safetyLoopPath" class="loop-shadow"/><use href="#safetyLoopPath" class="loop-main"/><use href="#safetyLoopPath" class="loop-inner"/><use href="#safetyLoopPath" class="loop-spark"/></g>
       <g class="loop-particles">
-        <circle r="7" class="light-dot dot1"><animateMotion dur="8.6s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
-        <circle r="4.5" class="light-dot dot2"><animateMotion dur="8.6s" begin="-2.85s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
-        <circle r="5.5" class="light-dot dot3"><animateMotion dur="8.6s" begin="-5.7s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
+        <circle r="7" class="light-dot dot1"><animateMotion dur="9.2s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
+        <circle r="4.5" class="light-dot dot2"><animateMotion dur="9.2s" begin="-3.05s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
+        <circle r="5.5" class="light-dot dot3"><animateMotion dur="9.2s" begin="-6.1s" repeatCount="indefinite"><mpath href="#safetyLoopPath"/></animateMotion></circle>
       </g>
       <g class="coreon-engine-label"><text x="666" y="318">COREON</text><text x="666" y="355">Safety AX</text><text class="engine-sub" x="666" y="382">EXECUTION ENGINE</text></g>
       ${node(1,118,112,labels.hazard[0],labels.hazard[1],icons.hazard,0)}
@@ -61,7 +82,7 @@
       ${node(7,76,342,labels.closure[0],labels.closure[1],icons.closure,2.7,'left')}
     </svg>`;
     requestAnimationFrame(()=>stage.classList.add('coreon-svg-ready'));
-    document.documentElement.dataset.coreonHero='single-svg-v2';
+    document.documentElement.dataset.coreonHero='single-svg-v3';
     return true;
   };
 
