@@ -6,33 +6,22 @@
   const addAtlasCard=(grid,item)=>{
     if([...grid.querySelectorAll('a')].some(a=>a.getAttribute('href')===item.href)) return;
     const a=document.createElement('a');
-    a.className='bx2-atlas-card';
-    a.href=item.href;
+    a.className='bx2-atlas-card'; a.href=item.href;
     a.innerHTML=`<small>${esc(item.kicker)}</small><h3>${esc(item.title)}</h3><p>${esc(item.copy)}</p>`;
     grid.appendChild(a);
   };
   const loadFinalPolish=()=>{
-    if(!document.getElementById('coreon-home-final-polish-css')){
-      const css=document.createElement('link'); css.id='coreon-home-final-polish-css'; css.rel='stylesheet'; css.href='/assets/home-final-polish.css?v=20260829c'; document.head.appendChild(css);
-    }
-    if(!document.getElementById('coreon-home-final-polish-js')){
-      const js=document.createElement('script'); js.id='coreon-home-final-polish-js'; js.src='/assets/home-final-polish.js?v=20260829c'; js.defer=true; document.body.appendChild(js);
-    }
+    if(!document.getElementById('coreon-home-final-polish-css')){const css=document.createElement('link');css.id='coreon-home-final-polish-css';css.rel='stylesheet';css.href='/assets/home-final-polish.css?v=20260829e';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-final-polish-js')){const js=document.createElement('script');js.id='coreon-home-final-polish-js';js.src='/assets/home-final-polish.js?v=20260829e';js.defer=true;document.body.appendChild(js);}
   };
   const loadMobiusSafetyLoop=()=>{
-    if(!document.getElementById('coreon-home-mobius-css')){
-      const css=document.createElement('link'); css.id='coreon-home-mobius-css'; css.rel='stylesheet'; css.href='/assets/home-mobius-safety-loop.css?v=20260829c'; document.head.appendChild(css);
-    }
-    if(!document.getElementById('coreon-home-mobius-js')){
-      const js=document.createElement('script'); js.id='coreon-home-mobius-js'; js.src='/assets/home-mobius-safety-loop.js?v=20260829c'; js.defer=true; document.body.appendChild(js);
-    }
+    if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829e';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829e';js.defer=true;document.body.appendChild(js);}
   };
   const apply=()=>{
     const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
-    const primary=document.querySelector('.bx2-btn.primary');
-    if(primary) primary.href=ko?'/product.html':'/en/product.html';
-    const riskCard=[...document.querySelectorAll('.bx2-atlas-card')].find(a=>/RISK ENGINEERING/i.test(a.textContent||''));
-    if(riskCard) riskCard.href=ko?'/insurance-risk-engineering.html':'/en/insurance-risk-engineering.html';
+    const primary=document.querySelector('.bx2-btn.primary'); if(primary) primary.href=ko?'/product.html':'/en/product.html';
+    const riskCard=[...document.querySelectorAll('.bx2-atlas-card')].find(a=>/RISK ENGINEERING/i.test(a.textContent||'')); if(riskCard) riskCard.href=ko?'/insurance-risk-engineering.html':'/en/insurance-risk-engineering.html';
     const grid=document.querySelector('.bx2-atlas-grid');
     if(grid){
       const extra=ko?[
@@ -47,19 +36,8 @@
       extra.forEach(x=>addAtlasCard(grid,x));
     }
     const nav=[...document.querySelectorAll('.header .links a')];
-    nav.forEach(a=>{
-      const text=(a.textContent||'').trim();
-      if(!ko&&text==='Product') a.href='/en/product.html';
-      if(!ko&&/Risk Engineering/i.test(text)) a.href='/en/insurance-risk-engineering.html';
-      if(ko&&text==='제품') a.href='/product.html';
-      if(ko&&/보험·리스크/.test(text)) a.href='/insurance-risk-engineering.html';
-    });
-    loadFinalPolish();
-    loadMobiusSafetyLoop();
+    nav.forEach(a=>{const text=(a.textContent||'').trim();if(!ko&&text==='Product')a.href='/en/product.html';if(!ko&&/Risk Engineering/i.test(text))a.href='/en/insurance-risk-engineering.html';if(ko&&text==='제품')a.href='/product.html';if(ko&&/보험·리스크/.test(text))a.href='/insurance-risk-engineering.html';});
+    loadFinalPolish(); loadMobiusSafetyLoop();
   };
-  let tries=0;
-  const timer=setInterval(()=>{
-    tries+=1;
-    if(document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}
-  },50);
+  let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},50);
 })();
