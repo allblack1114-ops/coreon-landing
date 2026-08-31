@@ -86,4 +86,11 @@
     if(why) why.innerHTML='The real safety gap begins<br>after a hazard is reported.';
     if(appHead) appHead.innerHTML='From public institutions to field operations,<br>the execution questions are the same.';
   }
+
+  const pricingBand=document.querySelector('.cta-band');
+  if(pricingBand){
+    const pricingSection=pricingBand.closest('section');
+    if(pricingSection) pricingSection.remove();
+    else pricingBand.remove();
+  }
 })();
