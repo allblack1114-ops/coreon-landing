@@ -2,11 +2,58 @@
   'use strict';
   const homePaths=['/','/index.html','/en/','/en/index.html'];
   if(!homePaths.includes(location.pathname)) return;
+  const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
+  const download=ko?'/download.html?source=homepage-free-start':'/en/download.html?source=en-homepage-free-start';
+  const login=ko?'https://app.coreon-global.com/login.html?source=coreon-home-login&next=%2Fsafety-workspace.html':'https://app.coreon-global.com/en/login.html?source=coreon-en-home-login&next=%2Fen%2Fsafety-workspace.html';
+  const freeLabel=ko?'무료로 시작하기':'Start Free';
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const addAtlasCard=(grid,item)=>{
     if([...grid.querySelectorAll('a')].some(a=>a.getAttribute('href')===item.href)) return;
     const a=document.createElement('a'); a.className='bx2-atlas-card'; a.href=item.href;
     a.innerHTML=`<small>${esc(item.kicker)}</small><h3>${esc(item.title)}</h3><p>${esc(item.copy)}</p>`; grid.appendChild(a);
+  };
+  const normalizeEntry=(root=document)=>{
+    root.querySelectorAll('a').forEach(a=>{
+      const label=(a.textContent||'').trim();
+      if((ko&&label==='무료로 시작하기')||(!ko&&/^(start free|free start|get started free)$/i.test(label))){
+        a.href=download;
+        a.dataset.coreonEntry='install-center';
+      }
+      if(/고객(?: workspace)? 로그인|기존 고객 로그인|^(sign in|login|customer login|customer workspace(?: login)?)$/i.test(label)){
+        a.href=login;
+        a.dataset.coreonEntry='authenticated-login';
+      }
+    });
+  };
+  const mountCommercialEntry=()=>{
+    const hero=document.querySelector('.hero .ctas');
+    if(hero&&!hero.querySelector('[data-coreon-commercial-free]')){
+      const currentPrimary=hero.querySelector('.btn.primary');
+      if(currentPrimary){currentPrimary.classList.remove('primary');currentPrimary.classList.add('light');}
+      const free=document.createElement('a');
+      free.className='btn primary'; free.href=download; free.textContent=freeLabel;
+      free.dataset.coreonCommercialFree='hero'; free.dataset.coreonEntry='install-center';
+      hero.prepend(free);
+    }
+    const band=document.querySelector('.cta-band .ctas');
+    if(band&&!band.querySelector('[data-coreon-commercial-free]')){
+      const currentPrimary=band.querySelector('.btn.primary');
+      if(currentPrimary){currentPrimary.classList.remove('primary');currentPrimary.classList.add('light');}
+      const free=document.createElement('a');
+      free.className='btn primary'; free.href=download; free.textContent=freeLabel;
+      free.dataset.coreonCommercialFree='decision'; free.dataset.coreonEntry='install-center';
+      band.prepend(free);
+    }
+    const actions=document.querySelector('.header .actions');
+    if(actions&&!actions.querySelector('[data-coreon-commercial-free]')){
+      const free=document.createElement('a');
+      free.className='pill dark'; free.href=download; free.textContent=freeLabel;
+      free.dataset.coreonCommercialFree='header'; free.dataset.coreonEntry='install-center';
+      const consultation=[...actions.querySelectorAll('a')].find(a=>/도입 상담|contact|consult/i.test(a.textContent||''));
+      if(consultation){consultation.classList.remove('dark');}
+      actions.appendChild(free);
+    }
+    normalizeEntry();
   };
   const prehide=document.createElement('style'); prehide.id='coreon-hero-prehide'; prehide.textContent='.bx2-stage{visibility:hidden;opacity:0}.bx2-stage.coreon-svg-ready{visibility:visible;opacity:1}'; document.head.appendChild(prehide);
   const loadFinalPolish=()=>{
@@ -17,9 +64,13 @@
     if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829i';document.head.appendChild(css);}
     if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829i';js.defer=true;document.body.appendChild(js);}
   };
+  const loadCommercialExperience=()=>{
+    if(!document.getElementById('coreon-commercial-experience-css')){const css=document.createElement('link');css.id='coreon-commercial-experience-css';css.rel='stylesheet';css.href='/assets/commercial-experience-20260901.css?v=20260901a';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-commercial-experience-js')){const js=document.createElement('script');js.id='coreon-commercial-experience-js';js.src='/assets/commercial-experience-20260901.js?v=20260901a';js.defer=true;document.body.appendChild(js);}
+  };
   const apply=()=>{
-    const ko=document.documentElement.lang.toLowerCase().startsWith('ko');
-    const primary=document.querySelector('.bx2-btn.primary'); if(primary) primary.href=ko?'/product.html':'/en/product.html';
+    mountCommercialEntry();
+    const primary=document.querySelector('.bx2-btn.primary'); if(primary) primary.href=download;
     const riskCard=[...document.querySelectorAll('.bx2-atlas-card')].find(a=>/RISK ENGINEERING/i.test(a.textContent||'')); if(riskCard) riskCard.href=ko?'/insurance-risk-engineering.html':'/en/insurance-risk-engineering.html';
     const grid=document.querySelector('.bx2-atlas-grid');
     if(grid){
@@ -35,7 +86,9 @@
     }
     const nav=[...document.querySelectorAll('.header .links a')];
     nav.forEach(a=>{const text=(a.textContent||'').trim();if(!ko&&text==='Product')a.href='/en/product.html';if(!ko&&/Risk Engineering/i.test(text))a.href='/en/insurance-risk-engineering.html';if(ko&&text==='제품')a.href='/product.html';if(ko&&/보험·리스크/.test(text))a.href='/insurance-risk-engineering.html';});
-    loadFinalPolish(); loadMobiusSafetyLoop();
+    loadFinalPolish(); loadMobiusSafetyLoop(); loadCommercialExperience();
   };
-  let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},30);
+  let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.hero')||document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},30);
+  const observer=new MutationObserver(()=>normalizeEntry());
+  observer.observe(document.documentElement,{subtree:true,childList:true});
 })();
