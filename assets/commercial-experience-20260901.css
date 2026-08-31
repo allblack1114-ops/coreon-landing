@@ -1,4 +1,4 @@
-:root{--coreon-ivory:#F7F4EC;--coreon-ivory-2:#FCFAF5;--coreon-navy:#10233F;--coreon-navy-2:#173858;--coreon-teal:#0F6B63;--coreon-teal-soft:#E6F2EF;--coreon-red:#C52A24;--coreon-graphite:#20262E;--coreon-line:#DED8CC;--coreon-muted:#66717B;--coreon-gold:#A87C3D}
+:root{--coreon-ivory:#F7F4EC;--coreon-ivory-2:#FCFAF5;--coreon-navy:#10233F;--coreon-navy-2:#173858;--coreon-teal:#0F6B63;--coreon-teal-soft:#E6F2EF;--coreon-red:#C52A24;--coreon-graphite:#20262E;--coreon-line:#DED8CC;--coreon-muted:#66717B;--coreon-gold:#A87C3D;--coreon-dark-title:#F8F5ED;--coreon-dark-body:#D8E3EC;--coreon-dark-muted:#B8C8D5}
 body{background:var(--coreon-ivory);color:var(--coreon-graphite)}
 .header{background:rgba(247,244,236,.96);border-bottom-color:rgba(16,35,63,.11);box-shadow:0 10px 34px rgba(16,35,63,.045)}
 .brand,.head h2,.card h3,.panel h3,.source h3,.company strong{color:var(--coreon-navy)}
@@ -54,6 +54,21 @@ body{background:var(--coreon-ivory);color:var(--coreon-graphite)}
 [data-coreon-commercial-free]{background:var(--coreon-navy)!important;color:#fff!important;border-color:var(--coreon-navy)!important}
 [data-coreon-risk-accent]{color:var(--coreon-red)!important}
 
+/* Dark-section contrast contract: readable hierarchy on Deep Navy */
+.dark .head h2,.dark .head h3{color:var(--coreon-dark-title)!important;text-shadow:0 1px 0 rgba(0,0,0,.08)}
+.dark .head p{color:var(--coreon-dark-body)!important}
+.dark .k{color:#7FE0D3!important}
+.dark .card h3,.dark .panel h3,.dark .source h3{color:var(--coreon-navy)!important}
+.dark .card p,.dark .card li,.dark .panel p,.dark .panel li,.dark .source p{color:#66717B!important}
+.dark .metric{background:var(--coreon-ivory-2)!important;border-color:rgba(247,244,236,.26)!important}
+.dark .metric b{color:var(--coreon-navy)!important}
+.dark .metric span{color:#607081!important}
+.dark .industry h3{color:var(--coreon-navy)!important}
+.dark .industry p,.dark .industry span{color:#66717B!important}
+.dark .industry .num{color:var(--coreon-teal)!important}
+.dark>.w>.head{position:relative}
+.dark>.w>.head:after{content:"";display:block;width:56px;height:3px;border-radius:999px;margin-top:24px;background:linear-gradient(90deg,var(--coreon-red),var(--coreon-teal))}
+
 @media(max-width:1100px){.coreon-hero-shell{grid-template-columns:1fr;min-height:auto}.coreon-hero-copy{max-width:920px}.coreon-control-board{max-width:820px}.coreon-commercial-hero{background:var(--coreon-ivory)}}
-@media(max-width:720px){.header{background:rgba(247,244,236,.985)}.coreon-hero-shell{padding:56px 0 52px}.coreon-commercial-hero h1{font-size:clamp(42px,11.2vw,60px);line-height:1.02}.coreon-lead{font-size:17px}.coreon-hero-actions{display:grid}.coreon-action{width:100%}.coreon-action.text{justify-content:flex-start;width:auto}.coreon-login-line{align-items:flex-start;flex-direction:column}.coreon-stage-grid{grid-template-columns:1fr 1fr}.coreon-gate-panel{grid-template-columns:1fr}.coreon-gate-status{justify-content:flex-start}.coreon-control-board{padding:18px;border-radius:25px}.coreon-board-head{flex-direction:column}.coreon-industry-strip .w{padding:13px 0}.coreon-proof-row{gap:6px}.coreon-proof-row span{font-size:10px}}
+@media(max-width:720px){.header{background:rgba(247,244,236,.985)}.coreon-hero-shell{padding:56px 0 52px}.coreon-commercial-hero h1{font-size:clamp(42px,11.2vw,60px);line-height:1.02}.coreon-lead{font-size:17px}.coreon-hero-actions{display:grid}.coreon-action{width:100%}.coreon-action.text{justify-content:flex-start;width:auto}.coreon-login-line{align-items:flex-start;flex-direction:column}.coreon-stage-grid{grid-template-columns:1fr 1fr}.coreon-gate-panel{grid-template-columns:1fr}.coreon-gate-status{justify-content:flex-start}.coreon-control-board{padding:18px;border-radius:25px}.coreon-board-head{flex-direction:column}.coreon-industry-strip .w{padding:13px 0}.coreon-proof-row{gap:6px}.coreon-proof-row span{font-size:10px}.dark .head h2{font-size:clamp(34px,9vw,48px)}}
 @media(max-width:460px){.coreon-stage-grid{grid-template-columns:1fr}.coreon-commercial-hero h1{font-size:41px}.coreon-board-head strong{font-size:18px}}
