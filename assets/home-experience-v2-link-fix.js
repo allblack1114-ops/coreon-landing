@@ -64,6 +64,10 @@
     if(!document.getElementById('coreon-home-mobius-css')){const css=document.createElement('link');css.id='coreon-home-mobius-css';css.rel='stylesheet';css.href='/assets/home-mobius-safety-loop.css?v=20260829i';document.head.appendChild(css);}
     if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829i';js.defer=true;document.body.appendChild(js);}
   };
+  const loadCommercialExperience=()=>{
+    if(!document.getElementById('coreon-commercial-experience-css')){const css=document.createElement('link');css.id='coreon-commercial-experience-css';css.rel='stylesheet';css.href='/assets/commercial-experience-20260901.css?v=20260901a';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-commercial-experience-js')){const js=document.createElement('script');js.id='coreon-commercial-experience-js';js.src='/assets/commercial-experience-20260901.js?v=20260901a';js.defer=true;document.body.appendChild(js);}
+  };
   const apply=()=>{
     mountCommercialEntry();
     const primary=document.querySelector('.bx2-btn.primary'); if(primary) primary.href=download;
@@ -82,7 +86,7 @@
     }
     const nav=[...document.querySelectorAll('.header .links a')];
     nav.forEach(a=>{const text=(a.textContent||'').trim();if(!ko&&text==='Product')a.href='/en/product.html';if(!ko&&/Risk Engineering/i.test(text))a.href='/en/insurance-risk-engineering.html';if(ko&&text==='제품')a.href='/product.html';if(ko&&/보험·리스크/.test(text))a.href='/insurance-risk-engineering.html';});
-    loadFinalPolish(); loadMobiusSafetyLoop();
+    loadFinalPolish(); loadMobiusSafetyLoop(); loadCommercialExperience();
   };
   let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.hero')||document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},30);
   const observer=new MutationObserver(()=>normalizeEntry());
