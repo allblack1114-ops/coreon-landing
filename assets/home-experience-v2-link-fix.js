@@ -19,7 +19,7 @@
         a.href=download;
         a.dataset.coreonEntry='install-center';
       }
-      if(/고객(?: workspace)? 로그인|기존 고객 로그인|^(sign in|login|customer workspace login)$/i.test(label)){
+      if(/고객(?: workspace)? 로그인|기존 고객 로그인|^(sign in|login|customer login|customer workspace(?: login)?)$/i.test(label)){
         a.href=login;
         a.dataset.coreonEntry='authenticated-login';
       }
