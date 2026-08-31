@@ -15,22 +15,22 @@
   if(ko){
     document.title='COREON Safety AX Agent | 중대재해 예방·위험성평가·TBM 안전관리 시스템';
     setMeta('meta[name="description"]','중대재해 예방을 위해 위험 발견부터 담당자·기한, 개선조치, 사진·문서 증빙, 잔여위험 재확인과 사람 승인 종결까지 하나의 흐름으로 관리하는 COREON Safety AX Agent. 공공기관·대기업·건설·제조·물류·식품·에너지·자동차·플랜트·5인 이상 사업장을 위한 산업안전 실행 시스템입니다.');
-    setMeta('meta[property="og:title"]','중대재해 예방, 발견보다 중요한 것은 끝까지 조치하는 것입니다 | COREON');
+    setMeta('meta[property="og:title"]','중대재해, 사고가 난 뒤가 아니라 실행 전에 막아야 합니다 | COREON');
     setMeta('meta[property="og:description"]','위험 발견 → 담당자·기한 → 개선조치 → 증빙 → 잔여위험 재확인 → 사람 승인 종결. COREON Safety AX Agent가 안전업무의 누락을 하나의 흐름으로 관리합니다.');
   }else{
     document.title='COREON Safety AX Agent | Serious-Accident Prevention & Safety Execution';
     setMeta('meta[name="description"]','COREON Safety AX Agent connects hazard discovery, ownership, deadlines, corrective action, evidence, residual-risk reassessment and human-approved closure for public institutions, enterprises and field operations.');
-    setMeta('meta[property="og:title"]','Serious-accident prevention requires action to a verified close | COREON');
+    setMeta('meta[property="og:title"]','Prevent serious accidents before they happen | COREON');
     setMeta('meta[property="og:description"]','Find → assign → correct → prove → reassess → human-approved close. COREON connects the execution steps that are often lost after a hazard is reported.');
   }
 
   const copy=ko?{
     eyebrow:'중대재해 예방 · 산업안전 실행 시스템',
-    line1:'중대재해 예방,',
-    line2:'발견보다 중요한 것은',
-    line3:'끝까지 조치하는 것입니다.',
-    lead:'위험 발견부터 담당자·기한, 개선조치, 증빙, 잔여위험 재확인과 사람 승인 종결까지. <strong>COREON Safety AX Agent가 안전업무의 누락을 하나의 실행 흐름으로 연결합니다.</strong>',
-    free:'무료로 시작하기', product:'제품 보기', consult:'도입 상담', login:'기존 고객 로그인',
+    line1:'중대재해,',
+    line2:'사고가 난 뒤가 아니라',
+    line3:'실행 전에 막아야 합니다.',
+    lead:'위험 발견부터 담당자·기한, 개선조치, 사진·문서 증빙, 잔여위험 재확인과 사람 승인 종결까지. <strong>COREON Safety AX Agent가 안전업무의 누락을 하나의 실행 흐름으로 관리합니다.</strong>',
+    free:'무료로 시작하기', product:'제품 체험', consult:'도입 상담', login:'기존 고객 로그인',
     strip:['공공기관','대기업','건설·플랜트','제조','물류','식품','에너지','자동차','5인 이상 사업장'],
     control:'SAFETY EXECUTION CONTROL', assurance:'Human Review · Fail-Closed',
     stages:[['01','위험 발견','사진·글·음성'],['02','책임·기한','담당자 지정'],['03','개선조치','통제 실행'],['04','증빙','전·후 기록'],['05','잔여위험','사람 재평가'],['06','종결','권한 승인']],
@@ -39,9 +39,9 @@
     proof:['KOSHA 기반 참고근거','사람 검토·승인','조치·증빙 추적','잔여위험 재평가','Fail-Closed 종결']
   }:{
     eyebrow:'SERIOUS-ACCIDENT PREVENTION · SAFETY EXECUTION',
-    line1:'Serious-accident prevention',
-    line2:'does not stop at finding risk.',
-    line3:'It must reach a verified close.',
+    line1:'Serious accidents,',
+    line2:'not after they happen.',
+    line3:'Prevent them before execution begins.',
     lead:'From hazard discovery and accountable ownership to corrective action, evidence, residual-risk reassessment and human-approved closure. <strong>COREON connects the execution steps that are often lost after a hazard is reported.</strong>',
     free:'Start Free', product:'Explore Product', consult:'Contact Sales', login:'Customer Login',
     strip:['Public Sector','Enterprise','Construction & Plant','Manufacturing','Logistics','Food','Energy','Automotive','5+ Employee Sites'],
