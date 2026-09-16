@@ -7,15 +7,6 @@
   const login=ko?'https://app.coreon-global.com/login.html?source=coreon-home-login&next=%2Fsafety-workspace.html':'https://app.coreon-global.com/en/login.html?source=coreon-en-home-login&next=%2Fen%2Fsafety-workspace.html';
   const freeLabel=ko?'무료로 시작하기':'Start Free';
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
-  const polishKoshaReferenceBar=()=>{
-    const note=document.querySelector('#kosha .human');
-    if(!note) return;
-    note.textContent=ko
-      ? '공개 안전정보는 참고근거로 활용하며, 최종 판단은 권한 있는 사람이 검토합니다. 고객의 위험점수나 안전상태를 자동으로 변경하지 않습니다.'
-      : 'Public safety information is used as reference evidence. Authorized people retain final review, and customer risk scores or safety states are not changed automatically.';
-    note.style.whiteSpace='normal';
-    note.style.lineHeight='1.55';
-  };
   const addAtlasCard=(grid,item)=>{
     if([...grid.querySelectorAll('a')].some(a=>a.getAttribute('href')===item.href)) return;
     const a=document.createElement('a'); a.className='bx2-atlas-card'; a.href=item.href;
@@ -79,7 +70,6 @@
   };
   const apply=()=>{
     mountCommercialEntry();
-    polishKoshaReferenceBar();
     const primary=document.querySelector('.bx2-btn.primary'); if(primary) primary.href=download;
     const riskCard=[...document.querySelectorAll('.bx2-atlas-card')].find(a=>/RISK ENGINEERING/i.test(a.textContent||'')); if(riskCard) riskCard.href=ko?'/insurance-risk-engineering.html':'/en/insurance-risk-engineering.html';
     const grid=document.querySelector('.bx2-atlas-grid');
@@ -99,6 +89,6 @@
     loadFinalPolish(); loadMobiusSafetyLoop(); loadCommercialExperience();
   };
   let tries=0; const timer=setInterval(()=>{tries+=1;if(document.querySelector('.hero')||document.querySelector('.bx2-hero')||tries>30){clearInterval(timer);apply();}},30);
-  const observer=new MutationObserver(()=>{normalizeEntry();polishKoshaReferenceBar();});
+  const observer=new MutationObserver(()=>normalizeEntry());
   observer.observe(document.documentElement,{subtree:true,childList:true});
 })();
