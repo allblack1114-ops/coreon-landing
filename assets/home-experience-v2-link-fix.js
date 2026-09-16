@@ -65,8 +65,8 @@
     if(!document.getElementById('coreon-home-mobius-js')){const js=document.createElement('script');js.id='coreon-home-mobius-js';js.src='/assets/home-mobius-safety-loop.js?v=20260829i';js.defer=true;document.body.appendChild(js);}
   };
   const loadCommercialExperience=()=>{
-    if(!document.getElementById('coreon-commercial-experience-css')){const css=document.createElement('link');css.id='coreon-commercial-experience-css';css.rel='stylesheet';css.href='/assets/commercial-experience-20260901.css?v=20260901a';document.head.appendChild(css);}
-    if(!document.getElementById('coreon-commercial-experience-js')){const js=document.createElement('script');js.id='coreon-commercial-experience-js';js.src='/assets/commercial-experience-20260901.js?v=20260901a';js.defer=true;document.body.appendChild(js);}
+    if(!document.getElementById('coreon-commercial-experience-css')){const css=document.createElement('link');css.id='coreon-commercial-experience-css';css.rel='stylesheet';css.href='/assets/commercial-experience-20260901.css?v=20260915r1';document.head.appendChild(css);}
+    if(!document.getElementById('coreon-commercial-experience-js')){const js=document.createElement('script');js.id='coreon-commercial-experience-js';js.src='/assets/commercial-experience-20260901.js?v=20260915r1';js.defer=true;document.body.appendChild(js);}
   };
   const apply=()=>{
     mountCommercialEntry();
