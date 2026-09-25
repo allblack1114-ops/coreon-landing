@@ -25,7 +25,10 @@ assert.match(loader,/home-experience-v2\.css/);
 assert.match(loader,/home-experience-v2\.js/);
 assert.match(loader,/home-experience-v2-link-fix\.js/);
 
-const exp = fs.readFileSync('assets/home-experience-v2.js','utf8');
+// The canonical Product Atlas is rendered directly by the bilingual product
+// pages. The retired JS layer is deliberately inert and must not be treated as
+// the source of public navigation truth.
+const exp = fs.readFileSync('product.html','utf8');
 for (const href of [
   '/safety-event-integration.html','/safety-ax-runtime.html',
   '/guides/risk-assessment-action-management.html','/guides/tbm-safety-management.html',
@@ -33,6 +36,15 @@ for (const href of [
   '/enterprise-multisite.html','/public-proof-procurement.html','/insurance-risk-engineering.html',
   '/vision-edge.html','/trust.html','/patents.html'
 ]) assert.ok(exp.includes(href), `Product Atlas missing ${href}`);
+
+const enExp = fs.readFileSync('en/product.html','utf8');
+for (const href of [
+  '/en/safety-event-integration.html','/en/safety-ax-runtime.html',
+  '/en/guides/risk-assessment-action-management.html','/en/guides/tbm-safety-management.html',
+  '/en/guides/safety-action-closure-platform.html','/en/guides/kosha-public-data-safety-intelligence.html',
+  '/en/enterprise-multisite.html','/en/public-proof-procurement.html','/en/insurance-risk-engineering.html',
+  '/en/vision-edge.html','/en/trust.html','/en/patents.html'
+]) assert.ok(enExp.includes(href), `English Product Atlas missing ${href}`);
 
 const fix=fs.readFileSync('assets/home-experience-v2-link-fix.js','utf8');
 for (const href of [

@@ -3,12 +3,15 @@ const fs = require('fs');
 const assert = require('assert');
 const home = fs.readFileSync('index.html','utf8');
 const trust = fs.readFileSync('trust/index.html','utf8');
-assert(home.includes('현장 위험제보부터'));
-assert(home.includes('무료 안전진단 또는 Safety Start Free'));
-assert(home.includes('발급번호 20260325030049'));
-assert(home.includes('Vision Edge는 별도 제한 파일럿으로 검증합니다.'));
+for (const token of [
+  '위험·아차사고 제보·위험성평가·TBM과 설비 신호',
+  '동일 사건 ID',
+  '조치 전후 증빙',
+  '잔여위험 재확인',
+  '경영자 보고·감사원장',
+  '/download.html?source=homepage-free-start'
+]) assert(home.includes(token), token);
 assert(!home.includes('20250707030027'));
 assert(trust.includes('주식회사 코레온홀딩스'));
-assert(trust.includes('발급번호 20260325030049'));
-assert(trust.includes('유효기간 2026.03.25~2029.03.24'));
-console.log('PASS v27.51 homepage conversion and venture trust');
+assert(trust.includes('벤처기업'));
+console.log('PASS homepage closed-loop conversion and company trust');

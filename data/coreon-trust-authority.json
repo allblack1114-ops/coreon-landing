@@ -12,9 +12,17 @@
   },
   "enterprise_supply_performance": [
     {
-      "customer": "에이치엘디앤아이한라 주식회사 (HL D&I Halla)",
+      "customer_category": "국내 대형 건설기업",
       "status": "공급 수행 실적 보유",
       "claim_guard": "COREON Safety AX Agent 도입 또는 사용 레퍼런스로 표현하지 않는다. 실제 거래·공급 수행 사실의 범위에서만 기업 수행역량 신뢰근거로 사용하고 세부 품목·수량·금액은 별도 공개 승인 없이는 전면 노출하지 않는다."
+    }
+  ],
+  "global_delivery_experience": [
+    {
+      "location_scope": "United States industrial field",
+      "scope": "Paid technical consulting in the electrical-construction field",
+      "status": "수행 실적 보유",
+      "claim_guard": "COREON Safety AX Agent 설치 또는 고객 도입 레퍼런스로 표현하지 않는다. 실제 유료 기술 컨설팅 수행경험의 범위에서만 글로벌 수행역량 근거로 사용한다."
     }
   ],
   "public_market": {

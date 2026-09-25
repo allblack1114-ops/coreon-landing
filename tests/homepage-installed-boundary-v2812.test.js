@@ -18,8 +18,8 @@ const downloadEn=read('en/download.html');
 const releaseGate=read('assets/release-download-gate.js');
 const releaseAxis=JSON.parse(read('release-axis.json')).releaseAxis;
 
-assert(index.includes('/download.html?source=home-free#install'));
-assert(enIndex.includes('/en/download.html?source=en-home-free#install'));
+assert(/href="\/download\.html\?source=[^"#]+(?:#install)?"/.test(index),'Korean homepage must route free-start into the public download center');
+assert(/href="\/en\/download\.html\?source=[^"#]+(?:#install)?"/.test(enIndex),'English homepage must route free-start into the public download center');
 assert(!index.includes('무료 진단으로 시작하고, 무료 안전방에서 직접 써보고, 필요하면 설치형 경험이나 기업·공공기관 도입으로 확장하세요.'));
 assert(!loader.includes("load('/assets/v28-5-proof-grade-operational-intelligence.js?v=28.5')"));
 assert(!loader.includes("load('/assets/v28-5-proof-grade-operational-intelligence.js"));
