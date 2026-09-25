@@ -10,3 +10,24 @@ body{background:var(--warm2)}
 @media(max-width:1180px){.hg{grid-template-columns:1fr;min-height:auto}.hero .visual{margin-right:-4vw}.signal-stage{grid-template-columns:repeat(2,minmax(0,1fr))}.verified-loop{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:940px){.role-layout{grid-template-columns:1fr}.hero .visual{margin:0;border-radius:22px}.sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){grid-column:span 6}}
 @media(max-width:700px){.hg{padding:54px 0}.hero h1{font-size:clamp(40px,12vw,55px)}.signal-stage{grid-template-columns:1fr}.signal-source{min-height:230px}.verified-loop{grid-template-columns:repeat(2,1fr);row-gap:18px}.role-layout{gap:24px}.sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){grid-column:1/-1;min-height:290px}.role-chain{border-radius:18px;line-height:1.7}.hero .ghost{background:#fff}.signal-story .head h2{font-size:36px}}
+
+/* 2026-09-25 premium visual-system alignment */
+.signal-stage{align-items:stretch}
+.signal-source,.event-receipt{min-height:292px;border-radius:22px;border:1px solid rgba(134,201,201,.28);box-shadow:0 18px 44px rgba(0,10,24,.18)}
+.signal-source{background:#0b2b3f}
+.signal-source img{object-fit:cover;filter:saturate(.96) contrast(1.02)}
+.signal-source:after{background:linear-gradient(180deg,rgba(3,20,33,.04) 30%,rgba(3,20,33,.9) 100%)}
+.signal-source div{left:22px;right:22px;bottom:21px}
+.signal-source h3{font-size:20px;line-height:1.25}
+.event-receipt{position:relative;overflow:hidden;padding:24px 24px 22px;background:linear-gradient(145deg,#fbf8f1,#eef7f6);justify-content:flex-start}
+.event-receipt:before{content:"SAFETY EVENT";display:inline-flex;width:max-content;padding:6px 9px;border-radius:999px;background:#e0f4f1;color:#08766c;font-size:9px;font-weight:950;letter-spacing:.11em}
+.event-receipt small{margin-top:16px;letter-spacing:.045em}
+.event-receipt h3{margin:10px 0 12px;font-size:24px;letter-spacing:-.025em}
+.receipt-meta{margin-top:auto;padding-top:18px;border-top:1px solid #d8e6e3}
+.receipt-state{margin-top:8px;border-radius:12px;min-height:40px;display:grid;place-items:center}
+.story-card,.role-item,.source,.assurance-board,.boundary,.delivery-card{border-radius:20px}
+.story-card:before{width:58px;height:58px;right:20px;top:20px;box-shadow:0 0 0 10px rgba(20,147,130,.045)}
+.story-card{padding:clamp(24px,2.5vw,32px)}
+.role-item{padding:17px 18px}
+.source{box-shadow:none}
+@media(max-width:700px){.signal-source,.event-receipt{min-height:245px}}
