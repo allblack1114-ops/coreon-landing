@@ -4,24 +4,18 @@ const fs=require('node:fs');
 const read=p=>fs.readFileSync(p,'utf8');
 const ko=read('pricing.html');
 const en=read('en/pricing.html');
+const sitemap=read('sitemap.xml');
 const axis=JSON.parse(read('release-axis.json'));
 assert.match(axis.releaseAxis,/^v\d+\.\d+(?:\.\d+)?$/);
 assert.equal(axis.operationsRelease,axis.releaseAxis);
 assert.equal(axis.packageVersion,'28.33.0');
-assert(ko.includes('월 149,000원'),'Korean Safety Core price must be 149k');
-assert(ko.includes('월 490,000원'),'Korean Safety Operations price must be 490k');
-assert(ko.includes('연 18,000,000원부터'),'Korean Enterprise/Public annual floor missing');
-assert(ko.includes('기본 SaaS 사용에는 별도 초기 구축비를 강제하지 않으며'),'base SaaS setup-fee policy missing');
-assert(!ko.includes('297,000원'),'retired Korean Safety Core price returned');
-assert(!ko.includes('990,000원'),'retired Safety Business base plan returned');
-assert(en.includes('KRW 149,000/mo'),'English Safety Core price must be 149k');
-assert(en.includes('KRW 490,000/mo'),'English Safety Operations price must be 490k');
-assert(en.includes('KRW 18,000,000/yr'),'English Enterprise/Public annual floor missing');
-assert(!en.includes('KRW 297,000'),'retired English Safety Core price returned');
-for(const workflow of ['.github/workflows/v27-62-search-equity-simple-product-home.yml','.github/workflows/v27-64-product-home-refinement.yml','.github/workflows/v27-66-seo-product-convergence.yml']){
-  const text=read(workflow);
-  assert(text.includes('149,000'),`${workflow} must recognize current 149k authority`);
-  assert(!/^\s*grep -Fq ['"](?:월 )?297,000원['"] pricing\.html/m.test(text),`${workflow} must not require legacy 297k as current price`);
-  assert(!/! grep -Fq ['"]149,000원['"] pricing\.html/.test(text),`${workflow} must not reject current 149k price`);
+for(const [name,html,canonical] of [
+  ['Korean',ko,'https://www.coreon-global.com/'],
+  ['English',en,'https://www.coreon-global.com/en/']
+]){
+  assert(html.includes('name="robots" content="noindex,follow"'),`${name} retired price page must remain out of search results`);
+  assert(html.includes(`<link rel="canonical" href="${canonical}">`),`${name} retired price page must canonicalize to the language homepage`);
+  assert(!/(?:KRW|USD|EUR|원|달러)\s*[0-9]|[0-9][0-9,]*(?:원|\/mo|\/yr)/i.test(html),`${name} retired price page must not expose numeric pricing`);
 }
-console.log(`PASS ${axis.releaseAxis} landing commercial authority and legacy-workflow anti-regression`);
+assert(!sitemap.includes('/pricing.html'),'retired pricing pages must not return to the sitemap');
+console.log(`PASS ${axis.releaseAxis} commercial authority: public numeric pricing retired and pricing pages excluded from search`);

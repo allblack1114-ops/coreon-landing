@@ -16,8 +16,9 @@ for(const p of ['vision-edge.html','use-cases/public/vision-edge.html','trust/vi
   assert(html.includes('name="robots" content="noindex,follow"'),`Vision Edge pilot must be noindex: ${p}`);
   assert(/LIMITED PILOT|파일럿|PILOT|Trust Boundary|TRUST BOUNDARY|VISION ASSURANCE/i.test(html),`pilot boundary missing: ${p}`);
 }
-for(const p of ['https://www.coreon-global.com/','/pricing.html','/download.html','/public-proof-procurement.html','/institutional-safety-ai.html']) {
+for(const p of ['https://www.coreon-global.com/','/download.html','/public-proof-procurement.html','/institutional-safety-ai.html']) {
   const expected=p.startsWith('http')?p:`https://www.coreon-global.com${p}`;
   assert(sitemap.includes(expected),`core commercial page missing from sitemap: ${expected}`);
 }
+assert(!sitemap.includes('/pricing.html'),'retired pricing pages must remain outside the sitemap');
 console.log('PASS public surface focus: core Safety AX pages indexed, pilot/adjacent pages deprioritized');
