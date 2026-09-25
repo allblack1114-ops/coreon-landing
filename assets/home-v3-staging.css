@@ -67,3 +67,67 @@ body{background:#fff}
 .v3-event{min-height:315px!important;border-radius:14px!important}
 @media(max-width:1180px){.v3-photo-stage{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:760px){.v3-photo-stage{grid-template-columns:1fr!important}.v3-photo,.v3-event{min-height:280px!important}}
+
+/* V3 parity pass — approved reference */
+.signal-story{padding-top:86px!important;padding-bottom:72px!important;background:#072b42!important;color:#fff!important}
+.signal-story .w{width:min(1480px,calc(100% - 64px))!important}
+.signal-story .head{max-width:930px!important;margin-bottom:42px!important}
+.signal-story .head h2{color:#fff!important;font-size:clamp(48px,5vw,72px)!important;line-height:1.02!important;letter-spacing:-.055em!important}
+.signal-story .head p{color:#c7d9e6!important;font-size:18px!important;line-height:1.8!important}
+.v3-photo-stage{grid-template-columns:repeat(3,minmax(0,1fr)) minmax(300px,.86fr)!important;gap:16px!important}
+.v3-photo,.v3-event{height:350px!important;min-height:350px!important}
+.v3-photo{border:1px solid rgba(157,200,216,.34)!important}
+.v3-photo>div{padding:22px!important}
+.v3-photo small{font-size:10px!important;color:#55dfd0!important}
+.v3-photo h3{font-size:25px!important;letter-spacing:-.035em!important}
+.v3-photo p{font-size:13px!important;line-height:1.65!important}
+.v3-event{padding:28px!important;background:#fbfaf4!important;border-radius:18px!important;box-shadow:none!important}
+.v3-event small{margin-top:14px!important;color:#0da79a!important;font-weight:950!important}
+.v3-event h3{font-size:31px!important;line-height:1.2!important}
+.v3-event .receipt-tags span{padding:7px 10px!important}
+.v3-event .receipt-meta{font-size:13px!important}
+.v3-event .receipt-state{margin-top:18px!important;min-height:44px!important;border-radius:10px!important}
+.tech-line{margin-top:18px!important;color:#8fb0c3!important}
+.verified-loop{grid-template-columns:repeat(8,1fr)!important;gap:16px!important;margin-top:28px!important}
+.loop-step{font-size:12px!important;color:#dce9f0!important;padding-top:38px!important}
+.loop-step:before{width:28px!important;height:28px!important}
+
+/* industry block to match the approved six-card horizontal composition */
+.sector-showcase{padding-top:80px!important;padding-bottom:76px!important}
+.sector-showcase .w{width:min(1480px,calc(100% - 64px))!important}
+.sector-showcase .head{max-width:980px!important;margin-bottom:40px!important}
+.sector-showcase .head h2{font-size:clamp(48px,5vw,72px)!important;line-height:1.03!important;letter-spacing:-.055em!important}
+.sector-showcase .head p{font-size:18px!important;line-height:1.8!important}
+.sector-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:12px!important}
+.sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){
+  grid-column:auto!important;min-height:410px!important;border-radius:14px!important;
+  border:1px solid rgba(205,222,232,.55)!important
+}
+.sector-content{padding:20px!important}
+.sector-content small{font-size:9px!important;color:#56dfd1!important}
+.sector-content h3{font-size:24px!important;line-height:1.15!important;margin:10px 0 9px!important}
+.sector-content p{font-size:13px!important;line-height:1.68!important;color:#d5e2ea!important}
+.sector-loop{margin-top:18px!important;padding:17px 20px!important}
+
+/* ensure role block does not visually overpower the two showcase sections */
+.role-story{padding-top:78px!important;padding-bottom:78px!important}
+.role-story .w{width:min(1380px,calc(100% - 64px))!important}
+
+@media(max-width:1180px){
+  .signal-story .w,.sector-showcase .w,.role-story .w{width:min(100% - 40px,1380px)!important}
+  .v3-photo-stage{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .sector-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+  .signal-story .w,.sector-showcase .w,.role-story .w{width:calc(100% - 24px)!important}
+  .signal-story .head h2,.sector-showcase .head h2{font-size:clamp(38px,10vw,50px)!important}
+  .v3-photo-stage{grid-template-columns:1fr!important}
+  .v3-photo,.v3-event{height:300px!important;min-height:300px!important}
+  .verified-loop{grid-template-columns:repeat(4,1fr)!important}
+  .sector-grid{grid-template-columns:1fr 1fr!important}
+  .sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){min-height:320px!important}
+}
+@media(max-width:460px){
+  .verified-loop{grid-template-columns:repeat(2,1fr)!important}
+  .sector-grid{grid-template-columns:1fr!important}
+}
