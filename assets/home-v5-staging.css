@@ -1,0 +1,89 @@
+/* COREON clean staging V5 — #78 structure preserved, duplicate signal images removed */
+:root{
+  --c-navy:#06263b;--c-navy2:#0b3958;--c-blue:#187fd1;--c-cyan:#30b9e7;
+  --c-teal:#16a99b;--c-mint:#eaf7f4;--c-ice:#eef6fb;--c-ivory:#fbf7ef;
+  --c-sand:#f3eadc;--c-red:#d94a42;--c-amber:#d79b2c;--c-line:#d9e5ec
+}
+.header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e2e9ee!important}
+.pill.dark{background:var(--c-navy)!important}
+
+/* Hero: keep proven #78 content and product UI, only strengthen brand contrast */
+.hero{background:linear-gradient(135deg,#061d35,#0a3658)!important;color:#fff!important}
+.hero:before{opacity:.45!important}
+.hero h1{color:#fff!important}
+.hero h1 em{color:var(--c-cyan)!important}
+.hero .lead{color:#dce8f0!important}.hero .lead strong{color:#fff!important}
+.hero .primary{background:var(--c-blue)!important}
+.hero .light{background:#fff!important;color:#08233d!important}
+.hero .ghost{color:#fff!important;border-color:rgba(255,255,255,.55)!important}
+.hero .proof span{color:#e4eef4!important;background:rgba(255,255,255,.06)!important}
+
+/* Signal input: bright explanatory zone */
+.signal-story{background:linear-gradient(180deg,#fff,#f3f8fc)!important;color:#102b47!important}
+.signal-story .head p{color:#62788b!important}
+.signal-story .k{color:#0e69ac!important}
+.signal-source,.event-receipt{border-radius:18px!important;box-shadow:0 10px 28px rgba(6,38,59,.06)!important}
+.signal-source{border:1px solid #d6e3eb!important}
+.signal-source:after{background:linear-gradient(180deg,rgba(4,19,33,.02) 28%,rgba(4,19,33,.84) 100%)!important}
+.signal-source small{color:#7ce8dc!important}
+.event-receipt{background:#fffdf8!important;border:1px solid #e6ddd1!important}
+.receipt-state{background:var(--c-navy)!important}
+.tech-line{color:#4d6d84!important}
+.verified-loop .loop-step{color:#36536c!important}
+.verified-loop .loop-step:before{background:var(--c-teal)!important}
+.verified-loop .loop-step:last-child:before{background:var(--c-red)!important}
+
+/* Role operations */
+.role-story{background:linear-gradient(180deg,#eaf7f4,#f7fbfa)!important}
+.role-item{border-color:#d3e6e1!important}
+.role-item i{background:var(--c-teal)!important}
+.role-item:last-child i{background:var(--c-red)!important}
+.role-chain{background:var(--c-navy)!important}
+
+/* Closure / human authority */
+#closure{background:var(--c-ivory)!important}
+.closure{background:var(--c-navy)!important}
+.policy{background:#fff!important}
+.human{background:var(--c-mint)!important;color:#08655e!important}
+
+/* Safety Room vs AX */
+#workspace-story{background:linear-gradient(180deg,#fffaf2,#f0f9f6)!important}
+#workspace-story .story-card:first-child{border-top:3px solid var(--c-teal)!important}
+#workspace-story .story-card:nth-child(2){border-top:3px solid var(--c-blue)!important}
+.assurance-note{background:#edf8f5!important;border-left-color:var(--c-teal)!important}
+
+/* Executive */
+#executive{background:linear-gradient(135deg,#05223c,#0a3558)!important}
+#executive .metric{border-color:rgba(255,255,255,.16)!important}
+
+/* KOSHA / knowledge */
+#kosha{background:linear-gradient(180deg,#fffaf2,#fff)!important}
+#kosha .source:nth-child(1){border-top:3px solid var(--c-teal)!important}
+#kosha .source:nth-child(2){border-top:3px solid var(--c-blue)!important}
+#kosha .source:nth-child(3){border-top:3px solid var(--c-amber)!important}
+
+/* Industry applications: keep rich photography */
+.sector-showcase{background:linear-gradient(145deg,#06263b,#0b3a5c 58%,#0d4c52)!important}
+.sector-card{border-color:rgba(255,255,255,.18)!important}
+.sector-content small{color:#8cf0e1!important}
+
+/* Equipment / assurance */
+#inputs{background:linear-gradient(180deg,#fff,#f4f9fc)!important}
+.integration-tech span{background:#edf6ff!important;border-color:#d2e6f5!important;color:#155b8c!important}
+.assurance{background:linear-gradient(180deg,#edf5fa,#f8fbfc)!important}
+.assurance-board{border-top:3px solid var(--c-blue)!important}
+.boundary{background:#06263b!important}
+
+/* CTA and company */
+.cta-band{background:linear-gradient(135deg,#fff8ed,#edf8f5)!important;border-color:#e4d9c7!important}
+.cta-band .primary{background:var(--c-red)!important}
+#trust{background:linear-gradient(180deg,#f8fbfd,#fff)!important}
+.delivery-card:first-child{border-top:3px solid var(--c-blue)!important}
+.delivery-card:nth-child(2){border-top:3px solid var(--c-amber)!important}
+footer{background:#061b30!important}
+
+/* Responsive refinement only; no structure changes */
+@media(max-width:700px){
+  .signal-source{min-height:240px!important}
+  .sector-showcase{background:linear-gradient(160deg,#06263b,#0b3a5c)!important}
+}
