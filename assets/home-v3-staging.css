@@ -224,3 +224,49 @@ body{background:#fff}
   .sector-grid{grid-template-columns:1fr!important}
   .sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){min-height:290px!important}
 }
+
+/* Final staging color system — section meaning, not decoration */
+:root{
+  --coreon-navy:#06233d;--coreon-navy-2:#0a3558;--coreon-blue:#168fe4;
+  --coreon-cyan:#27b8e8;--coreon-teal:#16a99b;--coreon-mint:#e9f7f4;
+  --coreon-ice:#edf5fa;--coreon-ivory:#fbf7ef;--coreon-sand:#f4ecdf;
+  --coreon-red:#d94a42;--coreon-amber:#d89922
+}
+.hero{background:linear-gradient(135deg,var(--coreon-navy),var(--coreon-navy-2))!important}
+.hero .primary{background:var(--coreon-blue)!important}
+.hero h1 em{color:var(--coreon-cyan)!important}
+.signal-preview{background:linear-gradient(180deg,#fff,#f7fbff)!important}
+.signal-mini-head>b{background:#e8f3ff!important;color:#0c6eb8!important}
+.signal-tags span{background:#edf6ff!important;color:#0d68b0!important}
+.signal-openbar{background:#eef7fb!important;border-color:#d7e8f2!important}
+.role-story{background:linear-gradient(180deg,#edf8f5,#f7fbfa)!important}
+.role-item{background:#fff!important;border-color:#d6e8e4!important}
+.role-item i{background:var(--coreon-teal)!important}
+#closure{background:var(--coreon-ivory)!important}
+#closure .closure{background:var(--coreon-navy)!important}
+#closure .policy{background:#fffdf8!important}
+#workspace-story{background:linear-gradient(180deg,#eef7fb,#f7fbfd)!important}
+#workspace-story .story-card:first-child{border-top:3px solid var(--coreon-teal)!important}
+#workspace-story .story-card:nth-child(2){border-top:3px solid var(--coreon-blue)!important}
+#executive{background:linear-gradient(135deg,#05213a,#0a3152)!important}
+#executive .metric.industry{background:rgba(255,255,255,.055)!important}
+#kosha{background:linear-gradient(180deg,#fffaf2,#fff)!important}
+#kosha .source:nth-child(1){border-top:3px solid var(--coreon-teal)!important}
+#kosha .source:nth-child(2){border-top:3px solid var(--coreon-blue)!important}
+#kosha .source:nth-child(3){border-top:3px solid var(--coreon-amber)!important}
+.sector-showcase{background:linear-gradient(145deg,#06233d,#0b3a5c 58%,#0b4450)!important}
+.sector-card:nth-child(3){border-color:rgba(39,184,232,.4)!important}
+.sector-card:nth-child(4){border-color:rgba(216,153,34,.4)!important}
+.sector-card:nth-child(6){border-color:rgba(22,169,155,.45)!important}
+#inputs{background:linear-gradient(180deg,#fff,#f5f9fc)!important}
+#inputs .story-card.plan{background:#0b3152!important}
+#inputs .story-card:not(.plan){background:#fdfefe!important}
+.assurance{background:linear-gradient(180deg,#edf5fa,#f5fafb)!important}
+.assurance-board{border-top:3px solid var(--coreon-blue)!important}
+.boundary{background:#07233d!important}
+.cta-band{background:linear-gradient(135deg,#fff8ee,#eef8f6)!important;border-color:#e3d8c5!important}
+.cta-band .primary{background:var(--coreon-red)!important}
+#trust{background:linear-gradient(180deg,#f8fbfd,#fff)!important}
+.delivery-card:first-child{border-top:3px solid var(--coreon-blue)!important}
+.delivery-card:nth-child(2){border-top:3px solid var(--coreon-amber)!important}
+footer{background:#061b30!important;color:#dbe7ef!important}
