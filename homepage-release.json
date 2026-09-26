@@ -1,9 +1,15 @@
 {
-  "homepageRelease": "2026-08-30-verified-convergence",
-  "homepageSourceCommit": "1e2af01b5dd49b46bb041d43da384353322e7064",
-  "productProductionCommit": "144c0b554df1fe5d7c872c6afc97bd5ae887b67c",
-  "productProductionUrl": "https://coreon-ai-safety-app.onrender.com",
+  "homepageRelease": "2026-09-26-production-truth-sync",
+  "homepageSourceCommit": "c1b44d350098fe32e3a78ed060caedcad075b242",
+  "productProductionCommit": "855caf856c6b90239d53850d8e517c037743fbfe",
+  "productProductionUrl": "https://app.coreon-global.com",
   "productDefinition": "Industrial Safety Execution & Assurance Platform",
-  "releasePrinciple": "Homepage claims must not exceed verified production capabilities.",
-  "publishedAt": "2026-08-30T23:50:00+09:00"
+  "productReleaseDecision": "PRODUCTION_RELEASED",
+  "productCoreLoopStatus": "VERIFIED",
+  "customerJourney": "coreon-global.com -> install/login -> app.coreon-global.com -> Safety AX Workspace -> governed closed loop",
+  "externalSignalPolicy": "FIELD_VALIDATION_REQUIRED",
+  "externalSignalBoundary": "Generic equipment, mobility, sensor, Vision, IoT, PLC, SCADA and MES signals may enter as review candidates. Specific vendor, protocol, device and customer-network compatibility is confirmed only through field interface validation.",
+  "publicCustomerPartnerNames": false,
+  "releasePrinciple": "Homepage claims must not exceed verified production capabilities, and unverified external integration must remain explicitly bounded.",
+  "publishedAt": "2026-09-26T15:05:00+09:00"
 }
