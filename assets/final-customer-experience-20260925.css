@@ -10,3 +10,9 @@ body{background:var(--warm2)}
 @media(max-width:1180px){.hg{grid-template-columns:1fr;min-height:auto}.hero .visual{margin-right:-4vw}.signal-stage{grid-template-columns:repeat(2,minmax(0,1fr))}.verified-loop{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:940px){.role-layout{grid-template-columns:1fr}.hero .visual{margin:0;border-radius:22px}.sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){grid-column:span 6}}
 @media(max-width:700px){.hg{padding:54px 0}.hero h1{font-size:clamp(40px,12vw,55px)}.signal-stage{grid-template-columns:1fr}.signal-source{min-height:230px}.verified-loop{grid-template-columns:repeat(2,1fr);row-gap:18px}.role-layout{gap:24px}.sector-card,.sector-card:nth-child(1),.sector-card:nth-child(6){grid-column:1/-1;min-height:290px}.role-chain{border-radius:18px;line-height:1.7}.hero .ghost{background:#fff}.signal-story .head h2{font-size:36px}}
+
+/* 2026-09-28 readability hotfix: keep text legible over industry photography */
+.sector-card:after{background:linear-gradient(180deg,rgba(3,15,29,.10) 10%,rgba(3,15,29,.56) 48%,rgba(3,15,29,.94) 100%)}
+.sector-content h3{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.sector-content p{color:#f2f7fa;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.sector-content small{background:rgba(4,37,54,.82);color:#9bf5e8;border-color:rgba(155,245,232,.45)}
