@@ -1,39 +1,44 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>COREON FAQ</title>
-  <meta name="description" content="COREON FAQ">
-  <style>
-    body{margin:0;font-family:system-ui,Arial,"Noto Sans KR",sans-serif;color:#102a43;background:#f7f9fc}
-    .wrap{max-width:900px;margin:24px auto;padding:0 16px}
-    h1{margin:8px 0 14px;font-size:24px;color:#0D2E67}
-    .info{font-size:13px;color:#6b7c93;margin-bottom:8px}
-    iframe{width:100%;border:0;min-height:70vh;box-shadow:0 8px 30px rgba(13,46,103,.06);border-radius:12px;background:#fff}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COREON Safety AX Agent FAQ | 가격·사용자·현장·API·PoC·지원</title>
+<meta name="description" content="COREON Safety AX Agent의 가격, 사용자 수, 현장 수, 설치, API/EHS 연동, PoC, KPI, 고객사례, 장애지원과 AI 안전판단 원칙을 확인합니다.">
+<link rel="canonical" href="https://www.coreon-global.com/faq.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"COREON Safety AX Agent는 정확히 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"Safety Start Free는 무료, Safety Core는 월 149,000원(VAT 별도), Safety Operations는 월 490,000원(VAT 별도), Enterprise/Public은 연 18,000,000원부터(VAT 별도)입니다. 추가 연동·맞춤개발은 별도 범위입니다."}},
+{"@type":"Question","name":"몇 명까지 사용할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"현장 참여자는 무제한이며 관리자/운영자는 Start Free 3명, Core 10명, Operations 50명, Enterprise/Public 최대 300명 기준입니다."}},
+{"@type":"Question","name":"우리 회사 EHS와 연결할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"API 또는 이벤트 연동을 검토할 수 있습니다. 특정 EHS나 장비 호환성은 실제 인터페이스 검증 후 확정합니다."}},
+{"@type":"Question","name":"PoC는 몇 주인가요?","acceptedAnswer":{"@type":"Answer","text":"기업 PoC는 범위에 따라 설계하며 공공기관 외부검증형 파일럿은 8~12주 표준 검증 구조를 공개하고 있습니다."}}
+]}</script>
+<style>
+:root{--navy:#082844;--mint:#19a995;--ink:#102a43;--muted:#617489;--line:#dbe6ee;--soft:#f4f8fb}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.72}.w{width:min(1080px,calc(100% - 32px));margin:auto}.top{border-bottom:1px solid var(--line);background:#fff}.nav{min-height:72px;display:flex;align-items:center;gap:16px}.nav a{text-decoration:none;color:var(--ink);font-weight:850}.brand{font-size:20px;margin-right:auto}.hero{padding:62px 0 34px;background:linear-gradient(135deg,#f3f9fc,#effaf7)}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:#daf6ef;color:#08685e;font-size:12px;font-weight:900}.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:13px 0}.hero p{color:var(--muted);font-size:18px;max-width:850px}.search{margin-top:22px;display:flex;gap:9px}.search input{flex:1;border:1px solid #c8d9e5;border-radius:14px;padding:14px;font:inherit}.search a{display:inline-flex;align-items:center;background:var(--navy);color:white;border-radius:14px;padding:0 17px;text-decoration:none;font-weight:900}.sec{padding:36px 0 70px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{border:1px solid var(--line);border-radius:18px;padding:21px;background:#fff;box-shadow:0 8px 26px rgba(4,29,51,.04)}.card h2{font-size:19px;line-height:1.4;margin:0 0 9px}.card p{margin:0;color:var(--muted);font-size:14px}.card a{display:inline-block;margin-top:11px;color:#087a69;font-weight:900;text-decoration:none}.badge{font-size:10px;font-weight:950;color:var(--mint);letter-spacing:.07em}.truth{margin-top:20px;padding:20px;border-radius:18px;background:#071d35;color:#d7e6f1}.truth strong{color:#fff}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;padding:10px 14px;border-radius:999px;background:var(--mint);color:#fff;text-decoration:none;font-weight:900}.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}footer{padding:30px 0;background:#f7f9fb;color:#6b7c8f;font-size:12px}@media(max-width:720px){.grid{grid-template-columns:1fr}.search{display:grid}.search a{justify-content:center;padding:12px}.nav{padding:12px 0;flex-wrap:wrap}.brand{width:100%}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>COREON FAQ</h1>
-    <div class="info">검색/카테고리/아코디언 인터페이스는 Apps Script가 렌더링합니다.</div>
-    <iframe id="faqFrame" title="COREON FAQ"></iframe>
-  </div>
-
-  <script>
-    // 네 Apps Script 웹앱 /exec 주소
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxsWmVshN6eTrBBlQbfAdnEtlE0lHWjnXmBlaQgkXNPfem-HWykgCiPhgK2AGx_8JnL/exec";
-
-    const fr = document.getElementById('faqFrame');
-    fr.src = WEB_APP_URL + "?ui=1";
-
-    // 모바일에서 보기 좋은 높이로 자동 조정
-    function resize(){
-      const vh = Math.max(520, Math.round(window.innerHeight * 0.82));
-      fr.style.minHeight = vh + "px";
-    }
-    resize();
-    window.addEventListener('resize', resize);
-  </script>
-</body>
-</html>
+<header class="top"><div class="w nav"><a class="brand" href="/">COREON</a><a href="/product.html">제품</a><a href="/pricing.html">요금</a><a href="/trust.html">신뢰·보안</a><a href="/en/faq.html">EN</a></div></header>
+<main>
+<section class="hero"><div class="w"><span class="tag">SALES & SUPPORT FAQ</span><h1>대표가 없어도<br>바로 설명할 수 있는 제품 FAQ</h1><p>가격부터 현장·사용자, 설치, API/EHS 연동, PoC, KPI, 고객사례와 지원까지. 실제 구매·도입 판단에 필요한 질문부터 답합니다.</p><div class="search"><input id="faqSearch" placeholder="질문 검색: 가격, EHS, PoC, 장애, KPI ..."><a href="mailto:contact@coreon-global.com?subject=COREON%20Safety%20AX%20Agent%20도입%20문의">답이 없으면 문의</a></div></div></section>
+<section class="sec"><div class="w"><div class="grid" id="faqGrid">
+<article class="card"><span class="badge">PRICE</span><h2>정확히 얼마예요?</h2><p>Safety Start Free는 무료입니다. Safety Core 월 149,000원(VAT 별도), Safety Operations 월 490,000원(VAT 별도), Enterprise/Public 연 18,000,000원부터(VAT 별도)입니다. 기본 SaaS에 강제 초기구축비는 없고 API·SSO·데이터 이전·맞춤개발·출장은 별도 범위입니다.</p><a href="/pricing.html">전체 요금제 보기 →</a></article>
+<article class="card"><span class="badge">USERS</span><h2>몇 명까지 써요?</h2><p>현장 참여자는 무제한입니다. 관리자/운영자는 Start Free 3명, Core 10명, Operations 50명, Enterprise/Public 최대 300명 기준입니다.</p><a href="/pricing.html">플랜별 규모 보기 →</a></article>
+<article class="card"><span class="badge">SITES</span><h2>몇 개 현장까지 돼요?</h2><p>Start Free·Core·Operations는 기본 현장 1개 기준입니다. Enterprise/Public은 다사업장 계약을 전제로 조직·현장·역할 범위를 구성합니다.</p><a href="/enterprise-multisite.html">다사업장 운영 보기 →</a></article>
+<article class="card"><span class="badge">INSTALL</span><h2>설치가 필요한가요?</h2><p>기본 Safety AX는 웹 기반 SaaS라 별도 현장 장비 설치 없이 시작할 수 있습니다. 장비·센서·Vision Edge·현장 네트워크 연계가 필요한 경우만 별도 설치·검증 범위를 정합니다.</p><a href="/download.html?source=faq">무료 시작 →</a></article>
+<article class="card"><span class="badge">API</span><h2>API 연동하려면 얼마나 걸려요?</h2><p>일괄 기간을 보장하지 않습니다. 이벤트 종류, 인증, payload, Ack/Clear, 네트워크·보안 조건을 먼저 확인합니다. REST/Webhook 읽기 연동과 SCADA·전용 프로토콜 연동은 난도가 다르므로 인터페이스 확인 후 일정·비용을 확정합니다.</p><a href="/safety-event-integration.html">연동 검토 범위 →</a></article>
+<article class="card"><span class="badge">EHS / OT</span><h2>우리 회사 EHS랑 연결되나요?</h2><p>연결 가능성을 검토할 수 있습니다. COREON은 기존 EHS·SCADA·MES·WMS·CCTV·AIoT를 교체하기보다 그 신호 이후의 사람 검토, 책임, 조치, 증빙, 잔여위험, 승인종결을 연결합니다. 특정 제품 호환은 실제 인터페이스 검증 후 확정합니다.</p><a href="/safety-event-integration.html">Integration 원칙 →</a></article>
+<article class="card"><span class="badge">PoC / PILOT</span><h2>PoC는 얼마고 몇 주예요?</h2><p>기업 PoC는 현장·데이터·연동·지원 범위에 따라 별도 설계합니다. 공공기관 외부검증형 파일럿은 8–12주 표준 검증 구조를 공개하고 있습니다. 단순 제품 검토는 Safety Start Free로 즉시 시작할 수 있습니다.</p><a href="/public-proof-procurement.html">공공 검증 구조 →</a></article>
+<article class="card"><span class="badge">KPI</span><h2>도입하면 어떤 KPI가 좋아지나요?</h2><p>효과를 미리 보장하지 않습니다. 대신 사건→담당자 지정시간, 기한초과율, 조치 종결시간, 증빙 완결률, 잔여위험 재평가 완료율, 재개방·반복위험 등을 같은 기준으로 측정해 실제 개선 여부를 검증할 수 있게 설계합니다.</p><a href="/product.html">작동방식 보기 →</a></article>
+<article class="card"><span class="badge">REFERENCE</span><h2>실제 고객 사례가 있나요?</h2><p>국내 대형 건설기업 공급 수행과 미국 산업현장 유료 기술컨설팅 경험이 있습니다. 다만 이를 Safety AX 도입사례로 과장하지 않습니다. Safety AX 실증·도입 성과는 고객 동의와 검증 가능한 근거가 있는 범위에서만 공개합니다.</p><a href="/trust.html">검증 가능한 근거 →</a></article>
+<article class="card"><span class="badge">SUPPORT</span><h2>장애 나면 누가 지원하나요?</h2><p>COREON이 제품 운영과 고객지원의 책임 창구입니다. 일반 문의는 contact@coreon-global.com으로 접수하며, Enterprise/Public의 지원시간·SLA·현장지원·연동지원은 계약에서 정합니다. 공개되지 않은 SLA는 선제 약속하지 않습니다.</p><a href="mailto:contact@coreon-global.com?subject=COREON%20Safety%20AX%20지원%20문의">지원 문의 →</a></article>
+<article class="card"><span class="badge">AI / HUMAN AUTHORITY</span><h2>AI가 최종 안전판단을 하나요?</h2><p>아닙니다. AI는 분류·요약·추천을 보조할 수 있지만 최종 안전판단, 위험수용과 종결은 권한 있는 사람이 수행합니다. 필수 증거·잔여위험 검토·승인 조건이 빠지면 종결을 차단하는 Fail-Closed 원칙을 적용합니다.</p><a href="/trust.html">안전·거버넌스 원칙 →</a></article>
+<article class="card"><span class="badge">START</span><h2>지금 바로 써볼 수 있나요?</h2><p>네. Safety Start Free로 현장 1개, 관리자/운영자 3명, 현장 참여자 무제한 범위에서 핵심 제품기능을 무료로 시작할 수 있습니다. 기업·공공기관은 데모와 도입범위를 별도로 상담할 수 있습니다.</p><a href="/download.html?source=faq-start">무료 시작 →</a></article>
+</div>
+<div class="truth"><strong>COREON Truth Boundary</strong><br>장비·프로토콜 호환, 구축기간, 효과수치, SLA, Safety AX 고객성과는 확인되지 않은 상태에서 보장하지 않습니다. AI는 최종 안전판단이나 법률책임을 대신하지 않습니다.</div>
+<div class="actions"><a class="btn" href="/download.html?source=faq-bottom">Safety Start Free</a><a class="btn alt" href="/pricing.html">요금제</a><a class="btn alt" href="mailto:contact@coreon-global.com?subject=COREON%20Safety%20AX%20도입%20상담">기업 도입 상담</a></div>
+</div></section></main>
+<footer><div class="w">© COREON HOLDINGS Co., Ltd. · COREON Safety AX Agent · <a href="/">홈으로</a></div></footer>
+<script>
+const s=document.getElementById('faqSearch'), cards=[...document.querySelectorAll('#faqGrid .card')];s.addEventListener('input',()=>{const q=s.value.trim().toLowerCase();cards.forEach(c=>c.style.display=!q||c.innerText.toLowerCase().includes(q)?'block':'none')});
+</script>
+<script src="/assets/coreon-sales-assistant.js?v=20260928"></script>
+</body></html>
