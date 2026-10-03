@@ -1,0 +1,5 @@
+.demo-film .player{margin-top:28px;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(7,19,31,.22);border:1px solid rgba(7,19,31,.08);background:#000}
+.demo-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.demo-film .steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.demo-film .steps li{font-size:14px;font-weight:700;color:#0f5f59;background:#e7f7f4;border:1px solid #b7e6de;border-radius:999px;padding:6px 14px}
+.demo-film .note{margin-top:14px;font-size:13px;color:#5b6b7a;line-height:1.6}
