@@ -205,3 +205,14 @@ html.ent .links a,html.ent .brand small,html.ent .pill{white-space:nowrap}
 }
 html.ent .header .w{width:min(1360px,calc(100% - clamp(32px,4vw,64px)))}
 html.ent .links{gap:18px;margin-left:8px}
+
+/* SEO FAQ (2026-10-03) — visible content matching FAQPage structured data */
+html.ent main>section.faq-home{background:var(--e-bg)}
+html.ent .faq-list{display:grid;gap:10px;max-width:900px}
+html.ent .faq-item{background:#fff;border:1px solid var(--e-line);border-radius:12px;padding:0 20px}
+html.ent .faq-item summary{cursor:pointer;list-style:none;padding:18px 28px 18px 0;font-weight:700;color:var(--e-ink);position:relative}
+html.ent .faq-item summary::-webkit-details-marker{display:none}
+html.ent .faq-item summary:after{content:"+";position:absolute;right:0;top:16px;font-size:20px;color:var(--e-teal);font-weight:600}
+html.ent .faq-item[open] summary:after{content:"−"}
+html.ent .faq-item p{margin:0 0 18px;color:var(--e-muted);line-height:1.75}
+html.ent .faq-home .head a{color:var(--e-teal);text-decoration:underline}
