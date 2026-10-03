@@ -1,0 +1,9 @@
+.demo-film{background:#07131f;color:#e8f1f7;padding:72px 0}
+.demo-film .head .k{color:#2dd4bf}
+.demo-film .head h2{color:#fff}
+.demo-film .head p{color:#a9c2d4}
+.demo-film .player{margin-top:28px;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.08);background:#000}
+.demo-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.demo-film .steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.demo-film .steps li{font-size:14px;font-weight:600;color:#9fe9dc;border:1px solid rgba(45,212,191,.4);border-radius:999px;padding:6px 14px}
+.demo-film .note{margin-top:14px;font-size:13px;color:#7f98ab;line-height:1.6}
