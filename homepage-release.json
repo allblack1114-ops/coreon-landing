@@ -1,7 +1,7 @@
 {
-  "homepageRelease": "2026-09-26-production-truth-sync",
+  "homepageRelease": "2026-10-03-bounce-truth-sync",
   "homepageSourceCommit": "c1b44d350098fe32e3a78ed060caedcad075b242",
-  "productProductionCommit": "855caf856c6b90239d53850d8e517c037743fbfe",
+  "productProductionCommit": "c0359697431272ec18cbecc576d00b7690d15c2d",
   "productProductionUrl": "https://app.coreon-global.com",
   "productDefinition": "Industrial Safety Execution & Assurance Platform",
   "productReleaseDecision": "PRODUCTION_RELEASED",
