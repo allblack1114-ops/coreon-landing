@@ -3,3 +3,7 @@
 .demo-film .steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
 .demo-film .steps li{font-size:14px;font-weight:700;color:#0f5f59;background:#e7f7f4;border:1px solid #b7e6de;border-radius:999px;padding:6px 14px}
 .demo-film .note{margin-top:14px;font-size:13px;color:#5b6b7a;line-height:1.6}
+.demo-film .lang-tabs{display:inline-flex;gap:6px;margin-top:22px;padding:4px;border-radius:999px;background:#eef2f6;border:1px solid #dbe3ea}
+.demo-film .lang-tabs button{border:0;background:transparent;font:inherit;font-size:14px;font-weight:700;color:#3b4b5a;padding:8px 16px;border-radius:999px;cursor:pointer}
+.demo-film .lang-tabs button[aria-pressed="true"]{background:#0b2a6f;color:#fff}
+.demo-film .lang-tabs button:focus-visible{outline:2px solid #0b2a6f;outline-offset:2px}
