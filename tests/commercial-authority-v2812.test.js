@@ -10,7 +10,7 @@ const axis=JSON.parse(read('release-axis.json'));
 assert.match(axis.releaseAxis,/^v\d+\.\d+(?:\.\d+)?$/);
 assert.equal(axis.operationsRelease,axis.releaseAxis);
 assert.equal(axis.packageVersion,'28.33.0');
-const allowed={ko:['0원','월 149,000원','월 390,000원','월 79,000원','1,490,000원'],en:['KRW 0','KRW 149,000','KRW 390,000','KRW 79,000','KRW 1,490,000']};
+const allowed={ko:['0원','월 199,000원','월 490,000원','월 89,000원','1,990,000원'],en:['KRW 0','KRW 199,000','KRW 490,000','KRW 89,000','KRW 1,990,000']};
 for(const [name,html,canon,lang] of [['Korean',ko,'https://www.coreon-global.com/pricing.html','ko'],['English',en,'https://www.coreon-global.com/en/pricing.html','en']]){
   assert(!html.includes('noindex'),`${name} launch price page must be indexable`);
   assert(html.includes(`<link rel="canonical" href="${canon}">`),`${name} canonical`);
