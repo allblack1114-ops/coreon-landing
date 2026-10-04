@@ -27,7 +27,7 @@
   };
 
   const KB_KO = [
-    {keys:['가격','얼마','요금','비용','견적'],a:'COREON Safety AX Agent는 공개 정액 가격표를 사용하지 않습니다. 현장 수, 조직·사용자 구조, 공사·사업 규모와 산업안전보건관리비 등 예산 기준, 필요한 기능, API/SSO/데이터 연동, PoC 및 지원 범위를 확인한 뒤 고객별 견적서를 제안합니다.',link:'/pricing.html',label:'별도 견적 기준 보기'},
+    {keys:['가격','얼마','요금','비용','견적'],a:'기본 출시 가격을 공개합니다. Safety Start 0원, Safety Core 월 199,000원, Safety Operations 월 490,000원(현장 5곳 포함), 추가 현장 월 89,000원이며 VAT 별도입니다. Enterprise·공공·PoC·진단은 현장 수, 조직 구조, 연동, 지원 범위를 확인한 뒤 별도 견적으로 제안합니다.',link:'/pricing.html',label:'출시 가격 보기'},
     {keys:['몇 명','사용자','인원','계정'],a:'공개 페이지에서 일률적인 사용자 상한을 약속하지 않습니다. 관리자·운영자·현장 참여자 수와 역할구조를 확인해 고객 환경에 맞는 권한·용량·운영범위를 견적에 반영합니다.',link:'/pricing.html',label:'도입 범위 상담'},
     {keys:['몇 개 현장','현장 수','다사업장','현장까지'],a:'단일 현장부터 다사업장까지 설계할 수 있습니다. 현장 수, 본사·현장 조직구조, 협력사 운영, 데이터 분리와 보고체계를 확인한 뒤 적용범위와 견적을 확정합니다.',link:'/enterprise-multisite.html',label:'다사업장 보기'},
     {keys:['설치','깔아','하드웨어'],a:'기본 Safety AX는 웹 기반 SaaS라 별도 현장 장비 설치 없이 시작할 수 있습니다. 장비·센서·Vision Edge·현장 네트워크 연계가 필요한 경우에만 현장 인터페이스와 설치 범위를 별도로 확인합니다.',link:'/download.html?source=assistant-install',label:'무료 시작'},
@@ -42,7 +42,7 @@
   ];
 
   const KB_EN = [
-    {keys:['price','pricing','cost','how much','fee','quote','quotation'],a:'COREON does not publish a fixed public price card. Deployment is quoted after reviewing site count, organization and user structure, project/business scale and safety-budget context, required functions, API/SSO/data integration, PoC scope and support requirements.',link:'/en/pricing.html',label:'View quotation approach'},
+    {keys:['price','pricing','cost','how much','fee','quote','quotation'],a:'COREON publishes its launch prices: Safety Start free, Safety Core KRW 199,000/month, Safety Operations KRW 490,000/month (5 sites included), additional site KRW 89,000/month, VAT excluded. Enterprise, public sector, pilots and diagnostics are quoted after reviewing site count, organization structure, integrations and support scope.',link:'/en/pricing.html',label:'View quotation approach'},
     {keys:['how many users','users','people','accounts'],a:'COREON does not promise one universal public user cap. Admin, operator and field-participant roles are scoped to the customer environment and reflected in deployment terms and quotation.',link:'/en/pricing.html',label:'Discuss deployment scope'},
     {keys:['how many sites','sites','multi-site','multiple sites'],a:'COREON can be scoped from a single site to multi-site operations. Site count, organization, contractor operations, data isolation and reporting requirements are reviewed before scope and quotation are finalized.',link:'/en/enterprise-multisite.html',label:'View multi-site model'},
     {keys:['install','installation','hardware'],a:'The core Safety AX product is web-based SaaS and can start without installing dedicated site hardware. Device, sensor, Vision Edge or site-network integration may require separate field-interface and installation review.',link:'/en/download.html?source=assistant-install',label:'Start free'},
