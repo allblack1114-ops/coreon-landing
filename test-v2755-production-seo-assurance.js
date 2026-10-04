@@ -5,7 +5,7 @@ for(const s of [ko,en]){assert.ok(s.includes('application/ld+json'));assert.ok(s
 assert.ok(!/KRW\s*[0-9]|297,000|490,000|990,000|250,000|18M|10M/.test(en));
 for(const p of ['en/use-cases/index.html','en/use-cases/public/index.html','en/use-cases/construction/index.html','en/use-cases/manufacturing/index.html','en/use-cases/consulting/index.html']) assert.ok(fs.existsSync(p),p);
 for(const u of ['/use-cases/public/','/use-cases/construction/','/use-cases/manufacturing/','/use-cases/consulting/','/en/use-cases/public/','/en/use-cases/construction/','/en/use-cases/manufacturing/','/en/use-cases/consulting/']) assert.ok(map.includes(u),u);
-assert.ok(!map.includes('/pricing.html'));
+assert.ok(map.includes('https://www.coreon-global.com/pricing.html')); // 2026-10-04 launch prices public
 assert.ok(robots.includes('Allow: /'));
 assert.ok(robots.includes('Sitemap: https://www.coreon-global.com/sitemap.xml'));
 console.log('PASS bilingual SEO, sitemap, robots and commercial parity');

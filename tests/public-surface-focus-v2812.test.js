@@ -20,5 +20,5 @@ for(const p of ['https://www.coreon-global.com/','/download.html','/public-proof
   const expected=p.startsWith('http')?p:`https://www.coreon-global.com${p}`;
   assert(sitemap.includes(expected),`core commercial page missing from sitemap: ${expected}`);
 }
-assert(!sitemap.includes('/pricing.html'),'retired pricing pages must remain outside the sitemap');
+assert(sitemap.includes('https://www.coreon-global.com/pricing.html'),'launch pricing page must be indexed');
 console.log('PASS public surface focus: core Safety AX pages indexed, pilot/adjacent pages deprioritized');
