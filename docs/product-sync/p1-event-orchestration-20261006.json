@@ -1,0 +1,21 @@
+{
+  "sync": "P1 event-based work orchestration",
+  "date": "2026-10-06",
+  "product": {
+    "repo": "allblack1114-ops/coreon-ai-safety-app",
+    "feature_pr": 309,
+    "feature_commit": "d389e853df7e19481161f306e65e1f5813150823",
+    "live_pr": 310,
+    "live_commit": "9718d03c999ef620bbdf90409681566e353afe8f",
+    "render_service": "srv-d93556ernols738biq2g",
+    "render_deploy": "dep-db275frbc2fs73fgq3u0",
+    "render_status": "live",
+    "render_finished_at": "2026-10-06T04:03:10Z"
+  },
+  "homepage": {
+    "base_commit": "ed57976c620a6afe0e96105869326c033eb99cdb",
+    "pages": ["event-orchestration.html", "en/event-orchestration.html"],
+    "pending": ["link from index.html, product.html, patents.html, en/", "homepage-release.json product commit", "sitemap.xml"]
+  },
+  "patent_application": {"number": "10-2026-0129563", "claim": 1, "status": "pending"}
+}
