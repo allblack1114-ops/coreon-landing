@@ -4,16 +4,16 @@ import json, re, html, os
 B = 'https://www.coreon-global.com'
 UP = '2026-10-08T20:00:00+09:00'
 V = {
- 'amr_ko': dict(f='coreon-amr-safety-demo-ko-20261008', d='PT3M2S', lang='ko',
+ 'amr_ko': dict(yt='dCiBjJ_LoIw', f='coreon-amr-safety-demo-ko-20261008', d='PT3M2S', lang='ko',
    n='AMR·AGV 보호정지 이후 안전조치 종결 시연 | COREON Safety AX',
    desc='물류·제조 현장에서 AMR·AGV 반복 보호정지 이벤트가 후보 사건으로 접수된 뒤 사람 검토, 담당자·기한, 현장 조치, SHA-256 증빙, 잔여위험 재평가, 직무분리 승인, 종결증명까지 이어지는 흐름을 실제 COREON 제품 화면(가상 데이터)으로 보여드립니다. 브랜드 중립 시나리오이며 현장 장면은 AI 생성 연출입니다.'),
- 'amr_en': dict(f='coreon-amr-safety-demo-en-20261008', d='PT3M34S', lang='en',
+ 'amr_en': dict(yt='lfZWO2NwmLk', f='coreon-amr-safety-demo-en-20261008', d='PT3M34S', lang='en',
    n='After an AMR/AGV protective stop: verified safety closure | COREON Safety AX',
    desc='How a repeated AMR/AGV protective stop becomes a candidate event and moves through human review, owner and deadline, field action, SHA-256 evidence, residual risk reassessment, segregated approval and closure proof, shown on actual COREON product screens with virtual data. Brand-neutral scenario; site scenes are AI-generated.'),
- 'con_ko': dict(f='coreon-safety-ax-construction-demo-ko-20261008', d='PT2M24S', lang='ko',
+ 'con_ko': dict(yt='FvJ5cnG2JZA', f='coreon-safety-ax-construction-demo-ko-20261008', d='PT2M24S', lang='ko',
    n='건설 현장 중대재해 예방: 위험 발견부터 종결까지 | COREON Safety AX 시연',
    desc='주택·건축·토목·플랜트·전력인프라 현장의 협력사 제보, CCTV AI, 가스 센서, 작업허가 점검 신호가 하나의 안전 사건으로 등록되고 사람 확정, 담당·기한, 조치·증빙, 잔여위험 재평가, 권한자 승인, 종결증명으로 이어지는 과정을 실제 제품 화면(가상 데이터)으로 보여드립니다.'),
- 'ene_ko': dict(f='coreon-safety-ax-energy-demo-ko-20261008', d='PT2M34S', lang='ko',
+ 'ene_ko': dict(yt='h7opN7xkWdI', f='coreon-safety-ax-energy-demo-ko-20261008', d='PT2M34S', lang='ko',
    n='정유·석유화학 정기보수(TA) 화기작업 안전관리 | COREON Safety AX 시연',
    desc='정기보수 기간 가스감지 경보와 협력사 화기감시자 제보로 시작된 위험이 AI 분류·안내(참고), 사람의 사건 확정, 조치·증빙, 잔여위험 재평가, 직무분리 승인을 거쳐 종결되는 과정을 실제 제품 화면(가상 데이터)으로 보여드립니다. COREON은 공정제어·비상대응을 대신하지 않습니다.'),
 }
@@ -23,6 +23,7 @@ def vobj(k, page):
     v = V[k]
     return {"@type": "VideoObject", "@id": f"{page}#video-{k}", "name": v['n'], "description": v['desc'], "thumbnailUrl": [turl(k)],
             "uploadDate": UP, "duration": v['d'], "contentUrl": vurl(k), "inLanguage": v['lang'],
+            "embedUrl": f"https://www.youtube.com/embed/{v['yt']}", "sameAs": [f"https://www.youtube.com/watch?v={v['yt']}"],
             "publisher": {"@type": "Organization", "name": "주식회사 코레온홀딩스", "url": B + "/"}}
 
 KO_BOUND = '이 페이지와 영상은 제품의 실행·증빙 범위를 설명하며 법령 준수나 인증을 보장하지 않습니다. 법적 의무의 이행 판단과 전문인력 선임·신고는 사업장 책임입니다. 영상의 현장 장면은 AI 생성 연출이고 제품 화면은 시연 환경의 가상 데이터이며, 특정 고객사·제조사와의 연동·제휴를 의미하지 않습니다.'
@@ -137,6 +138,7 @@ def page(g, lang):
     vnote = ('현장 장면은 AI 생성 연출, 제품 화면은 실제 COREON Safety AX를 시연 환경의 가상 데이터로 녹화했습니다.' if ko else
              'Site scenes are AI-generated; product screens are the actual COREON Safety AX recorded with virtual data in a demo environment.')
     if not ko and v['lang'] == 'ko': vnote += ' Korean narration.'
+    vnote += f' <a href="https://www.youtube.com/watch?v={v["yt"]}" target="_blank" rel="noopener" style="color:#0F5FD7;font-weight:700">' + ('YouTube에서 보기 →' if ko else 'Watch on YouTube →') + '</a>'
     cards = ''.join(f'<div class="card"><small>0{i+1}</small><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(c['cards']))
     flow = ''.join(f'<div class="step">{s}</div>' for s in c['flow'])
     faq = ''.join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q, a in c['faq'])
