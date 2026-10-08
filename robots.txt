@@ -1,5 +1,6 @@
-# COREON robots.txt (updated 2026-08-17)
+# COREON robots.txt (updated 2026-10-08)
 User-agent: *
 Allow: /
 
 Sitemap: https://www.coreon-global.com/sitemap.xml
+Sitemap: https://www.coreon-global.com/sitemap-video.xml
