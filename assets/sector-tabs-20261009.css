@@ -1,0 +1,13 @@
+/* v20261009 현장 시나리오 탭: 업종별 색 테두리·재생 표시로 다른 영상 존재 인지 강화 */
+.amr-demo .amr-sector button{--c:#0B7F7A;--t:#E7F7F4;position:relative;display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--c);color:#16273A;background:#fff;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.amr-demo .amr-sector button[data-sector="semiconductor"]{--c:#7C4DDB;--t:#F1EBFD}
+.amr-demo .amr-sector button[data-sector="amr"]{--c:#2F6FDB;--t:#E9F1FD}
+.amr-demo .amr-sector button[data-sector="construction"]{--c:#D9820B;--t:#FDF3E3}
+.amr-demo .amr-sector button[data-sector="energy"]{--c:#0E9F7E;--t:#E5F6F1}
+.amr-demo .amr-sector button::before{content:"";flex:none;width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--c)}
+.amr-demo .amr-sector button:hover{background:var(--t);transform:translateY(-1px)}
+.amr-demo .amr-sector button[aria-selected="true"]{background:var(--t);border-color:var(--c);color:#0A1A2F;box-shadow:inset 0 0 0 1px var(--c),0 4px 14px -6px var(--c)}
+.amr-demo .amr-sector button[aria-selected="true"]::after{content:"";position:absolute;left:18%;right:18%;bottom:-2px;height:3px;border-radius:3px 3px 0 0;background:var(--c)}
+.amr-demo .amr-sector button:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+@media(max-width:700px){.amr-demo .amr-sector button{gap:6px}.amr-demo .amr-sector button::before{border-width:4px 0 4px 6px}}
+@media(prefers-reduced-motion:reduce){.amr-demo .amr-sector button{transition:none}.amr-demo .amr-sector button:hover{transform:none}}
