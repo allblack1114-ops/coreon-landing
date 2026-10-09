@@ -5,8 +5,15 @@
     <link>https://www.coreon-global.com/</link>
     <description>현장형 가이드·체크리스트를 정기 발행합니다.</description>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 08 Oct 2026 20:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 12:00:00 +0900</lastBuildDate>
 
+    <item>
+      <title>반도체 FAB 가스 경보 안전관리 | 경보 이후 조치·증빙·종결까지 하나의 사건으로</title>
+      <link>https://www.coreon-global.com/guides/semiconductor-fab-gas-safety.html</link>
+      <guid isPermaLink="false">guide-semiconductor-fab-gas-safety-20261009</guid>
+      <pubDate>Fri, 09 Oct 2026 12:00:00 +0900</pubDate>
+      <description>&lt;p&gt;반도체 팹에서 가장 비싼 시간은 멈춘 시간이고, 가장 위험한 순간은 정비 중의 몇 분입니다. 가스룸 특수가스 캐비닛에서 독성가스 1차 경보가 울렸다면 질문은 하나입니다. 누가, 언제까지, 어떤 근거로 처리했는지 지금 바로 답할 수 있는가입니다.&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;https://www.coreon-global.com/assets/video/coreon-safety-ax-semiconductor-demo-ko-poster-20261009.jpg&quot; alt=&quot;반도체 FAB 가스 경보 이후 안전조치 종결 시연 | COREON Safety AX&quot;&gt;&lt;/p&gt;&lt;p&gt;반도체 팹 가스룸 특수가스 캐비닛의 독성가스 경보를 하나의 안전 사건으로 접수하고 작업중지·작업허가·특별교육 확인·협력사 정비 증빙·잔여위험 재평가·직무분리 승인 종결까지 관리하는 반도체 제조 안전관리 가이드. 가스감지·인터록·비상대응을 대체하지 않습니다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AMR·AGV·지게차 이동장비 안전관리 | 사람-로봇 혼재 구역 중대재해 예방</title>
       <link>https://www.coreon-global.com/guides/amr-agv-mobile-equipment-safety.html</link>
