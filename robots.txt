@@ -1,4 +1,4 @@
-# COREON robots.txt (updated 2026-10-08)
+# COREON robots.txt (updated 2026-10-09)
 User-agent: *
 Allow: /
 
