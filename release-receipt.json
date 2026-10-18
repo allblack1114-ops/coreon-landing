@@ -1,0 +1,22 @@
+{
+  "schema": "coreon.homepage-release-receipt.v1",
+  "releaseAxis": "v28.33",
+  "packageVersion": "28.33.0",
+  "product": "COREON Safety AX Agent",
+  "productRepository": "allblack1114-ops/coreon-ai-safety-app",
+  "productionProductCommit": "a9cccbf274e3458b68d0943f5fba9e4071098de0",
+  "productionBranch": "main",
+  "productionService": "coreon-ai-safety-app",
+  "productionServiceId": "srv-d93556ernols738biq2g",
+  "productionUrl": "https://app.coreon-global.com",
+  "homepageRepository": "allblack1114-ops/coreon-landing",
+  "homepageBranch": "main",
+  "homepageUrl": "https://www.coreon-global.com",
+  "deploymentState": "PENDING_PRODUCTION_VERIFICATION",
+  "verification": {
+    "fullgate": "PENDING",
+    "productionDeploy": "PENDING",
+    "homepageEntryContract": "SOURCE_VERIFIED"
+  },
+  "recordedAt": "2026-09-27"
+}
