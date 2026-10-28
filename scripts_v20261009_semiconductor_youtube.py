@@ -1,7 +1,7 @@
 """v20261009 반도체 제조 시연영상 YouTube 주소 연결: VideoObject embedUrl·sameAs, 패널 'YouTube에서 보기' 링크(새 창)."""
 import json, html, re, pathlib
 root = pathlib.Path(__file__).resolve().parent
-YID = 'kBk3lVWsX7s'; WATCH = f'https://www.youtube.com/watch?v={YID}'
+YID = 'iYbnERp-Q9E'; WATCH = f'https://www.youtube.com/watch?v={YID}'
 TXT = {'ko': 'YouTube에서 보기 →', 'en': 'Watch on YouTube →'}
 for lang, rel in (('ko', 'index.html'), ('en', 'en/index.html')):
     f = root / rel; s = f.read_text(encoding='utf-8')

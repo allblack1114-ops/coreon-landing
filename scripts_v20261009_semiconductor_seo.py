@@ -7,7 +7,7 @@ from scripts_v20261008_seo_video_guides import B, V, G, turl, vurl
 SLUG = 'semiconductor-fab-gas-safety'
 UP9 = '2026-10-09T12:00:00+09:00'
 TODAY = '2026-10-09'
-V['semi_ko'] = dict(yt='kBk3lVWsX7s', f='coreon-safety-ax-semiconductor-demo-ko-20261009', d='PT3M3S', lang='ko',
+V['semi_ko'] = dict(yt='iYbnERp-Q9E', f='coreon-safety-ax-semiconductor-demo-ko-20261009', d='PT3M3S', lang='ko',
   n='반도체 FAB 가스 경보 이후 안전조치 종결 시연 | COREON Safety AX',
   desc='반도체 FAB 가스룸의 독성가스 1차 경보가 읽기 전용 신호로 접수된 뒤 사람 검토, 작업중지·연계 업무, 교육 확인·작업허가, 협력사 모바일 증빙 SHA-256, 잔여위험 재평가, 직무분리 승인, 종결증명까지 이어지는 흐름을 실제 COREON 제품 화면(가상 데이터)으로 보여드립니다. 특정 고객사와 무관한 업종 시나리오이며 현장 장면은 AI 생성 연출입니다.')
 
