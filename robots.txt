@@ -1,6 +1,11 @@
 # COREON robots.txt (updated 2026-10-09)
 User-agent: *
 Allow: /
+# EXEC-06 §12.5: 내부 문서·시험 코드·배포 도구는 검색 수집 대상에서 제외 (접근 차단 수단은 아님)
+Disallow: /docs/
+Disallow: /tests/
+Disallow: /desktop/
+Disallow: /data/
 
 Sitemap: https://www.coreon-global.com/sitemap.xml
 Sitemap: https://www.coreon-global.com/sitemap-video.xml
