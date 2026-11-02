@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>COREON ESTIMA AX | 전기·통신·소방 공내역 견적 솔루션</title>
-<meta name="description" content="COREON ESTIMA AX는 전기·통신·소방 공내역서를 분석해 동일 자재를 합산하고, 단가·품셈·공량 입력을 거쳐 재료비·노무비·경비와 원가계산서 Excel 결과를 만드는 견적 솔루션입니다. 현재 베타 운영 중이며 지원 양식과 제한 사항을 공개합니다." />
+<title>COREON ESTIMA AX | 공사 견적·실행원가·경영관제 통합 플랫폼</title>
+<meta name="description" content="COREON ESTIMA AX는 전기·통신·소방 공내역 견적(베타 운영 중)에서 출발해 인테리어 견적, 실행원가 관리, 검토·승인, 경영관제 대시보드로 확장하는 공사 관리 플랫폼입니다. 기능별로 현재 제공·베타 검증 중·개발 중 상태를 구분해 공개합니다." />
 <meta name="robots" content="index,follow" />
 <meta name="theme-color" content="#FFFFFF" />
 <link rel="canonical" href="https://www.coreon-global.com/estima-ax.html" />
@@ -25,60 +25,127 @@ h1{font-size:32px;margin:0 0 8px;color:var(--navy);line-height:1.3}h2{font-size:
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:11px 18px;border-radius:12px;font-weight:700;text-decoration:none}.btn.p{background:var(--blue);color:#fff}.btn.p:hover{background:var(--blue-d)}.btn.g{border:1px solid #BFD3FB;background:#fff;color:var(--blue-d)}.card .btn{margin:10px 8px 0 0}.btn[aria-disabled=true]{opacity:.5;pointer-events:none}
 footer{margin-top:40px;color:var(--muted);font-size:13px}
 .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}.flow span{background:#F2F5FA;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:14px;color:var(--navy)}.flow i{color:var(--muted);font-style:normal}
+
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0}.nav a{font-size:13px;padding:6px 11px;border:1px solid var(--line);border-radius:20px;background:#fff;text-decoration:none;color:var(--navy)}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}@media(max-width:980px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.pillars{grid-template-columns:1fr}}
+.pl{border:1px solid var(--line);border-radius:14px;padding:14px;background:#FBFCFE}.pl h3{margin:6px 0 6px;font-size:16px;color:var(--navy)}.pl p{margin:0;color:var(--muted);font-size:14px}
+.shot{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}.cap{color:var(--muted);font-size:13px;margin:8px 0 0}
+.lab{display:inline-block;font-size:12px;font-weight:700;color:#5C4300;background:#FFF8E8;border:1px solid #F2D59B;border-radius:8px;padding:2px 8px;margin-bottom:8px}
+.q{font-size:18px;font-weight:700;color:var(--navy);margin:0 0 6px}.two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:start}@media(max-width:760px){.two{grid-template-columns:1fr}}
+.mob{max-width:300px;margin:0 auto}.st h3 .tag{margin-left:6px}.sec{scroll-margin-top:12px}
+.flow span.d{border-style:dashed;background:#fff}.legend{font-size:13px;color:var(--muted);margin-top:6px}
 </style>
 </head>
-<body><header class="top"><div class="in"><img src="/logo.png" alt="COREON 공식 로고" /><div><b style="font-size:18px">COREON ESTIMA AX</b><br><span style="color:var(--muted);font-size:13px">주식회사 코레온홀딩스</span></div><span class="tag t-dev" style="margin-left:auto">베타 운영 중 · v0.3.10-beta-r6 (2026-11-02)</span></div></header>
+<body><header class="top"><div class="in"><img src="/logo.png" alt="COREON 공식 로고" /><div><b style="font-size:18px">COREON ESTIMA AX</b><br><span style="color:var(--muted);font-size:13px">주식회사 코레온홀딩스</span></div><span class="tag t-dev" style="margin-left:auto">견적 기능 베타 운영 중 · v0.3.10-beta-r6 · 통합 기능 개발 중</span></div></header>
 <div class="wrap">
 <section class="hero">
-<h1>전기·통신·소방 공내역 견적·적산 솔루션</h1>
-<p class="lead">공내역서 Excel(XLSX)을 올리면 양식을 판별하고 원본 결함을 진단합니다. 같은 자재를 합산해 회사 단가를 한 번에 반영하고, 지원 양식에서는 노임·원가계산서까지 원본 수식 그대로 연결해 Excel 결과를 만듭니다. 단가·노임·제비율·제출금액은 견적 담당자가 결정합니다. 프로그램은 가격이나 이윤을 정하지 않습니다.</p>
-<div class="cta"><a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage" rel="noopener" data-path="trial-hero">무료 체험 시작</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service-hero">고객 로그인</a></div>
-
-<div class="flow" aria-label="핵심 업무 흐름"><span>공내역서 업로드·양식 판별</span><i>→</i><span>원본 결함 진단</span><i>→</i><span>동일 자재 합산·단가 일괄 반영</span><i>→</i><span>노임·요율 확인(지원 양식)</span><i>→</i><span>Excel 결과·변경 이력</span></div>
+<h1>공사 견적 · 실행원가 · 경영관제 통합 플랫폼</h1>
+<p class="lead">공내역서 견적에서 시작해 계약 이후의 실행예산·발생원가·예상 준공손익까지 같은 자료로 이어서 관리하는 것을 목표로 합니다. 같은 실행원가 데이터를 대표이사·공무·현장관리자가 각자의 업무 화면으로 봅니다. 단가·노임·제비율·제출금액과 원가의 확정은 사람이 결정하며, 프로그램은 가격이나 이윤을 정하지 않습니다.</p>
+<div class="pillars" aria-label="통합 플랫폼 4대 영역">
+<div class="pl"><span class="tag t-ok">일부 제공</span><h3>공종별 견적 엔진</h3><p>전기·통신·소방 공내역 견적은 베타 운영 중입니다. 인테리어 견적과 2026 표준품셈 근거 확인은 개발 중입니다.</p></div>
+<div class="pl"><span class="tag t-dev">개발 중</span><h3>실행원가 관리</h3><p>계약금액·변경계약, 실행예산, 확정 발생원가, 잔여 예상원가, 예상 준공원가(EAC).</p></div>
+<div class="pl"><span class="tag t-dev">개발 중</span><h3>실무 검토·승인</h3><p>현장 입력 → 공무 검토 → 권한자 확정 → 경영자 조회. 역할별 권한과 기록.</p></div>
+<div class="pl"><span class="tag t-dev">개발 중</span><h3>경영관제 대시보드</h3><p>현장별 예상 준공손익·이익률, 예산 초과 위험, 현장 비교, PDF·Excel 보고서.</p></div>
+</div>
+<div class="notice" style="margin-top:14px"><b>읽기 전에</b> — 위 네 영역은 제품의 목표 구조입니다. 모든 기능이 운영에 출시됐다는 의미는 아닙니다. 현재 고객이 운영 서비스에서 쓸 수 있는 것은 전기·통신·소방 공내역 견적(베타)이며, 나머지는 개발환경에서 가공 자료로 시험 중입니다. 기능별 상태는 <a href="#status">개발·제공 상태표</a>에서 확인하십시오.</div>
+<div class="cta"><a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage" rel="noopener" data-path="trial-hero">무료 체험 시작(견적)</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service-hero">고객 로그인</a></div>
+<div class="flow" aria-label="통합 업무 흐름"><span>공내역서 견적</span><i>→</i><span class="d">계약·변경계약</span><i>→</i><span class="d">실행예산</span><i>→</i><span class="d">원가 입력·검토·확정</span><i>→</i><span class="d">예상 준공손익</span><i>→</i><span class="d">경영 보고</span></div>
+<p class="legend">실선: 베타 운영 중 · 점선: 개발 중(운영 미제공)</p>
+<nav class="nav" aria-label="페이지 안내"><a href="#trades">공종별 견적</a><a href="#cost">실행원가 관리</a><a href="#control">경영관제</a><a href="#roles">사용자별 업무</a><a href="#use">시연 및 이용</a><a href="#status">개발·제공 상태</a></nav>
 </section>
 
-<div class="notice" style="margin-top:14px"><b>베타 안내</b> — 검증을 마친 기능부터 순서대로 공개합니다. 지원하지 않는 양식이나 확인이 필요한 항목은 결과를 임의로 채우지 않고 HOLD·검토 필요로 표시하며 사유를 함께 보여 드립니다. 미확정 항목이 남은 결과는 최종 확정 견적이 아닙니다.</div>
+<h2 id="trades" class="sec">공종별 견적</h2>
+<div class="grid">
+<div class="card"><h3>전기·통신·소방 <span class="tag t-ok">현재 제공 · 베타</span></h3><ul>
+<li>공내역서 XLSX 업로드, 양식 판별, 원본 결함 진단</li>
+<li>동일 자재 합산과 회사 단가 일괄 반영, 회사 단가 장부</li>
+<li>지원 양식(조달청 소방형 계열)에서 노임·원가계산서 연결 — 베타 검증 중</li>
+<li>원본 Excel은 바꾸지 않고 별도 결과 파일과 변경 이력을 만듭니다.</li></ul></div>
+<div class="card"><h3>인테리어 <span class="tag t-dev">개발 중 · 운영 미제공</span></h3><ul>
+<li>인테리어 공내역서 품목을 2026년 건설공사 표준품셈 수록 항목과 대조해 부문·항목·개정·쪽수와 단위당 노무량을 근거로 표시합니다.</li>
+<li>품셈 항목과 명확히 매칭되지 않거나 바탕면·간격·단위 등이 불명확하면 노무량을 만들지 않고 HOLD로 둡니다.</li>
+<li>원본 공내역서의 수량·수식은 바꾸지 않습니다.</li>
+<li>개발환경 시험 현황: 아직 품목 대부분이 HOLD이며, 지원 양식과 판정 범위를 넓히는 중입니다.</li></ul></div>
+</div>
+<div class="card" style="margin-top:14px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-interior-pumsem.webp" alt="인테리어 품셈 근거 확인 화면 — 품목별 MATCHED·HOLD 판정과 품셈 출처(개발환경, 가공 자료)" width="1226" height="483" loading="lazy"><p class="cap">견적 작업 화면의 "인테리어 품셈 근거 확인" 패널(2026-11-02, 개발환경). 가공 인테리어 공내역서 12개 품목 중 MATCHED 6·HOLD 6. 노무량은 참고 산출근거이며 노무비 금액은 계산하지 않습니다. 운영 서비스에는 아직 없습니다.</p></div>
 
-<h2>바로 이용하기</h2>
+<h2 id="cost" class="sec">실행원가 관리 <span class="tag t-dev">개발 중</span></h2>
+<div class="card"><h3>관리하는 값</h3><ul>
+<li><b>계약금액·변경계약</b> — 승인된 변경계약만 확정 계약금액에 넣습니다. 미승인 변경은 따로 표시합니다.</li>
+<li><b>실행예산</b> — 자재·노무·외주·장비·경비·예비비 버전 관리. 공무가 편성하고 경영자가 승인합니다.</li>
+<li><b>발생원가</b> — 확정된 원가만 누적합니다. 검토·확정 대기 원가는 따로 보여 주고 합계에 넣지 않습니다.</li>
+<li><b>잔여 예상원가</b> — 공종별 잔여 작업과 산정 근거를 함께 기록합니다.</li>
+<li><b>예상 준공원가(EAC)</b> = 누적 확정원가 + 확정 미지급 + 잔여 예상원가.</li></ul></div>
+<div class="card" style="margin-top:14px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-contract-budget.webp" alt="공사 기본정보·계약·변경계약·실행예산 화면(개발환경, 가공 자료)" width="1440" height="950" loading="lazy"><p class="cap">공무 담당자의 계약·예산 화면(가공 공사, 개발환경).</p></div>
+
+<h2 id="control" class="sec">경영관제 <span class="tag t-dev">개발 중</span></h2>
+<div class="grid">
+<div class="card"><p class="q">대표이사 화면이 답하는 질문</p><ul><li>어느 공사가 이익을 내고, 어느 공사가 손실 위험이 있는가</li><li>계약금액 대비 예상 준공원가와 예상 이익률은 얼마인가</li><li>예산을 넘었거나 확정이 밀린 원가는 어디에 있는가</li></ul></div>
+<div class="card"><p class="q">실무자 화면이 답하는 질문</p><ul><li>어떤 원가가 발생했고 증빙은 무엇인가</li><li>무엇을 검토·반려·확정해야 하는가</li><li>예산 초과의 원인과 조치는 기록됐는가</li></ul></div>
+</div>
+<div class="card" style="margin-top:14px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-ceo-dashboard.webp" alt="경영자 전사 현황 — 확정 계약금액·예상 준공원가·예상 이익·현장별 위험 비교(개발환경, 가공 자료)" width="1440" height="760" loading="lazy"><p class="cap">전사 현황: 관리 공사 수, 확정 계약금액 합계, 예상 준공원가 합계, 예상 준공이익, 현장별 예산 대비·이익률·위험 표시(가공 현장 4건). 근거가 부족한 공사는 HOLD로 두고 이익을 표시하지 않습니다.</p></div>
+<div class="card" style="margin-top:14px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-project-pl.webp" alt="공사 손익 화면 — 원가 구분, 최초 견적·계약·실행예산·현재 EAC 비교(개발환경, 가공 자료)" width="1440" height="740" loading="lazy"><p class="cap">공사 손익: 원가 구분(확정·미지급·잔여·대기), 최초 견적·계약·승인 예산·현재 EAC 비교, 예산 초과 경고. 공정회의용 Excel·PDF에는 집계 기준일과 미확정 항목을 함께 표시합니다.</p></div>
+
+<h2 id="roles" class="sec">사용자별 업무 <span class="tag t-dev">개발 중</span></h2>
+<div class="flow" aria-label="검토·승인 흐름"><span class="d">현장관리자 입력</span><i>→</i><span class="d">공무 담당자 검토</span><i>→</i><span class="d">권한 있는 관리자 확정</span><i>→</i><span class="d">경영자 조회</span></div>
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>대표이사·경영자</h3><ul><li>전사 현황·공사 손익·승인 대기·계약·예산 승인</li><li>변경계약과 실행예산의 승인 권한</li></ul></div>
+<div class="card"><h3>공무·견적 담당</h3><ul><li>계약·실행예산 편성, 원가 검토 대기 목록</li><li>본인이 입력한 원가는 본인이 검토하지 않습니다(직무 분리).</li></ul></div>
+<div class="card"><h3>현장관리자</h3><ul><li>배정된 현장만 보고 원가·증빙·잔여 예상원가를 입력</li><li>스마트폰 화면에서 입력·제출</li></ul></div>
+<div class="card"><h3>1~2인 회사</h3><ul><li>회사 소유자가 켜는 "단독 승인" 옵션(기본 꺼짐)</li><li>단독 처리한 원가는 화면·보고서에 "단독 확정"으로 따로 표시하고 기록을 남깁니다.</li></ul></div>
+</div>
+<div class="card" style="margin-top:14px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-review-queue.webp" alt="공무 담당자 검토 대기 화면(개발환경, 가공 자료)" width="1440" height="570" loading="lazy"><p class="cap">공무 담당자 검토 대기: 검토 완료·반려. 확정된 원가만 누적 원가와 EAC에 들어갑니다.</p></div>
+<div class="card" style="margin-top:14px;max-width:420px"><span class="lab">개발환경 · 가공 자료 · 개발 중 화면</span><div class="mob"><img class="shot" src="/assets/estima/estima-ax-dev-site-input-390.webp" alt="현장관리자 원가 입력 모바일 화면(개발환경, 가공 자료)" width="390" height="1000" loading="lazy"></div><p class="cap">현장관리자 원가 입력(모바일 390px).</p></div>
+
+<h2 id="use" class="sec">시연 및 이용</h2>
 <div class="grid" id="paths">
 <div class="card"><h3>1. 무료 체험 <span class="tag t-ok">가입 없음 · 가공 자료</span></h3><ul>
 <li>가공 공내역서로 원본 결함 진단, 동일 자재 합산, 회사 단가 반영, 금액 확인, Excel 내려받기를 직접 해 봅니다.</li>
-<li>파일을 올리지 않습니다. 체험 자료는 2시간 뒤 자동 삭제됩니다. 실제 견적 결과가 아닙니다.</li></ul>
+<li>파일을 올리지 않습니다. 체험 자료는 2시간 뒤 자동 삭제됩니다. 실제 견적 결과가 아닙니다.</li>
+<li>무료 체험은 견적 기능만 포함합니다. 실행원가·경영관제는 체험에 없습니다.</li></ul>
 <a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage" rel="noopener" data-path="trial">무료 체험 시작</a></div>
 <div class="card"><h3>2. 실제 공내역서 견적 <span class="tag t-hold">승인된 회사 계정</span></h3><ul>
 <li>승인된 이메일로 가입한 회사는 실제 공내역서를 올려 양식 판정·결함 진단·회사 단가 장부·노임 입력·Excel 결과·견적 저장과 재조회를 이용합니다.</li>
 <li>30일 무료 체험(작업 5건)이며 자동 결제는 없습니다. 회사별로 작업이 분리됩니다.</li></ul>
 <a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage#apply" rel="noopener" data-path="apply">사용 신청</a>
 <a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service">고객 로그인</a></div>
+<div class="card"><h3>3. 실행원가·경영관제 시연 <span class="tag t-dev">개발 중</span></h3><ul>
+<li>개발 중인 화면은 가공 자료로 화면 공유 시연만 합니다. 운영 서비스에서 직접 쓸 수는 없습니다.</li></ul>
+<a class="btn g" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%8B%A4%ED%96%89%EC%9B%90%EA%B0%80%20%EC%8B%9C%EC%97%B0%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-ledger-demo">시연 신청(이메일)</a></div>
 </div>
+<div class="card" style="margin-top:14px"><span class="lab">운영 서비스 · 가공 자료</span><img class="shot" src="/assets/estima/estima-ax-sample-diag-r6.webp" alt="ESTIMA AX 무료 체험 화면 — 원본 결함 진단 단계(가공 자료)" width="1356" height="580" loading="lazy"><p class="cap">운영 중인 무료 체험의 원본 결함 진단 화면(2026-11-02, 가공 자료)입니다. 실제 고객 자료가 아닙니다.</p></div>
 
-<h2>지원 범위와 상태</h2>
-<div class="tblw"><table aria-label="기능별 지원 범위"><thead><tr><th>기능</th><th>상태</th><th>범위·제한</th></tr></thead><tbody>
-<tr><td>공내역서 업로드·양식 판별·원본 결함 진단</td><td><span class="tag t-ok">제공</span></td><td>XLSX만 지원(xls·xlsm 미지원). 지원하지 않는 양식은 업로드 단계에서 사유를 안내합니다.</td></tr>
-<tr><td>동일 자재 합산·단가 일괄 반영</td><td><span class="tag t-ok">제공</span></td><td>이름·규격이 비슷하다는 이유만으로 같은 자재로 확정하지 않습니다. 애매한 품목은 HOLD로 남깁니다.</td></tr>
-<tr><td>회사 단가 장부</td><td><span class="tag t-ok">제공</span></td><td>장부를 고쳐도 이미 만든 견적의 금액은 바뀌지 않습니다.</td></tr>
-<tr><td>일위대가 재료비 원천 셀 반영</td><td><span class="tag t-hold">일부 양식</span></td><td>단가대비표·일위대가가 있는 조달청 소방형 계열에서 확인했습니다.</td></tr>
-<tr><td>노임·원가계산서 연결</td><td><span class="tag t-hold">일부 양식 · 베타</span></td><td>조달청 소방형 계열만 지원합니다. 노임은 고객이 출처·기준일과 함께 입력하며, 빈 칸은 0원이 아니라 미입력으로 표시합니다. 일반관리비·이윤·부가세는 원본 양식의 비율만 쓰고 고객이 확인한 항목만 반영합니다.</td></tr>
-<tr><td>원본 Excel 보호·결과 내려받기·변경 이력</td><td><span class="tag t-ok">제공</span></td><td>원본 파일과 이전 차수 결과는 바꾸지 않습니다. 정해진 셀 외에는 기록하지 않습니다.</td></tr>
-<tr><td>도면(PDF·DXF) 견적</td><td><span class="tag t-hold">개발 중 · 미제공</span></td><td>베타에서 제공하지 않습니다.</td></tr>
+<h2 id="status" class="sec">개발·제공 상태</h2>
+<p style="color:var(--muted);font-size:14px;margin-top:-4px">기준일 2026-11-02. <span class="tag t-ok">현재 제공</span> 운영 서비스에서 이용 가능 · <span class="tag t-hold">베타 검증 중</span> 일부 양식에서만 운영 제공, 검증 계속 · <span class="tag t-dev">개발 중</span> 개발환경에서 가공 자료로만 시험, 운영 미제공, 공개 일정 미정</p>
+<div class="tblw"><table aria-label="기능별 개발·제공 상태"><thead><tr><th>영역</th><th>기능</th><th>상태</th><th>범위·제한</th></tr></thead><tbody>
+<tr><td rowspan="7">공종별 견적</td><td>공내역서 업로드·양식 판별·원본 결함 진단</td><td><span class="tag t-ok">현재 제공</span></td><td>XLSX만 지원(xls·xlsm 미지원). 지원하지 않는 양식은 업로드 단계에서 사유를 안내합니다.</td></tr>
+<tr><td>동일 자재 합산·단가 일괄 반영</td><td><span class="tag t-ok">현재 제공</span></td><td>이름·규격이 비슷하다는 이유만으로 같은 자재로 확정하지 않습니다. 애매한 품목은 HOLD로 남깁니다.</td></tr>
+<tr><td>회사 단가 장부</td><td><span class="tag t-ok">현재 제공</span></td><td>장부를 고쳐도 이미 만든 견적의 금액은 바뀌지 않습니다.</td></tr>
+<tr><td>원본 Excel 보호·결과 내려받기·변경 이력</td><td><span class="tag t-ok">현재 제공</span></td><td>원본 파일과 이전 차수 결과는 바꾸지 않습니다. 정해진 셀 외에는 기록하지 않습니다.</td></tr>
+<tr><td>일위대가 재료비 원천 셀 반영</td><td><span class="tag t-hold">베타 검증 중</span></td><td>단가대비표·일위대가가 있는 조달청 소방형 계열에서 확인했습니다.</td></tr>
+<tr><td>노임·원가계산서 연결</td><td><span class="tag t-hold">베타 검증 중</span></td><td>조달청 소방형 계열만 지원합니다. 노임은 고객이 출처·기준일과 함께 입력하며, 빈 칸은 0원이 아니라 미입력으로 표시합니다.</td></tr>
+<tr><td>인테리어 공내역 견적·2026 표준품셈 근거 확인</td><td><span class="tag t-dev">개발 중</span></td><td>품목 대부분이 아직 HOLD입니다. 매칭이 불명확하면 노무량을 만들지 않습니다.</td></tr>
+<tr><td rowspan="2">실행원가 관리</td><td>계약·변경계약·실행예산</td><td><span class="tag t-dev">개발 중</span></td><td>미승인 변경계약은 확정 계약금액에서 제외합니다.</td></tr>
+<tr><td>발생원가·잔여 예상원가·EAC</td><td><span class="tag t-dev">개발 중</span></td><td>확정된 원가만 누적합니다.</td></tr>
+<tr><td>검토·승인</td><td>역할별 권한·직무 분리·단독 승인 옵션·기록</td><td><span class="tag t-dev">개발 중</span></td><td>현장 입력 → 공무 검토 → 권한자 확정 → 경영자 조회.</td></tr>
+<tr><td rowspan="2">경영관제</td><td>전사 현황·공사 손익·현장 비교·위험 표시</td><td><span class="tag t-dev">개발 중</span></td><td>근거가 부족한 공사는 HOLD로 두고 이익을 표시하지 않습니다.</td></tr>
+<tr><td>공정회의 Excel·PDF 보고서</td><td><span class="tag t-dev">개발 중</span></td><td>집계 기준일과 미확정 항목을 함께 표시합니다.</td></tr>
+<tr><td>도면</td><td>도면(PDF·DXF) 견적</td><td><span class="tag t-dev">개발 중</span></td><td>제공하지 않습니다.</td></tr>
 </tbody></table></div>
-<p style="color:var(--muted);font-size:14px">확인한 양식 계열: 일반 단가형, 이지테크형, 조달청 소방형(개발환경과 운영 시험, 공개·가공 자료 기준). 모든 공내역서 양식을 지원하지는 않으며, 한 양식에서 확인한 결과를 다른 양식에 그대로 적용하지 않습니다. Microsoft Excel에서의 재계산 확인은 진행 중입니다.</p>
+<p style="color:var(--muted);font-size:14px">확인한 견적 양식 계열: 일반 단가형, 이지테크형, 조달청 소방형(개발환경과 운영 시험, 공개·가공 자료 기준). 모든 공내역서 양식을 지원하지는 않으며, 한 양식에서 확인한 결과를 다른 양식에 그대로 적용하지 않습니다. Microsoft Excel에서의 재계산 확인은 진행 중입니다.</p>
 
 <h2>사용 전에 확인할 점</h2>
 <div class="card"><ul>
 <li>단가·노임·일반관리비율·이윤율은 제공하지 않습니다. 고객이 입력하고 근거를 기록합니다.</li>
 <li>원본에 없는 노무량을 프로그램이 임의로 정하지 않습니다. 특정 기관의 제비율을 모든 공사에 일괄 적용하지 않습니다.</li>
 <li>원본 파일의 결함(연결되지 않은 노무비 행 등)은 경고로 알려 드리고, 고객이 확인한 경우에만 보정합니다.</li>
-<li>결과는 견적 담당자가 검토한 뒤 제출 여부를 판단합니다.</li></ul></div>
-
-<h2>화면 예시(가공 자료)</h2>
-<div class="card"><img src="/assets/estima/estima-ax-sample-diag-r6.webp" alt="ESTIMA AX 무료 체험 화면 — 원본 결함 진단 단계(가공 자료)" style="width:100%;height:auto;border-radius:10px;border:1px solid var(--line)" width="1356" height="580"><p style="color:var(--muted);font-size:13px;margin:8px 0 0">운영 중인 무료 체험의 원본 결함 진단 화면(2026-11-02, 가공 자료)입니다. 실제 고객 자료가 아닙니다.</p></div>
+<li>결과는 견적 담당자가 검토한 뒤 제출 여부를 판단합니다. 원가와 손익의 확정은 권한 있는 담당자가 합니다.</li></ul></div>
 
 <h2>자료 보호</h2>
 <div class="card"><ul>
 <li>원본 파일은 변경하지 않고 별도 결과 파일을 만듭니다.</li>
 <li>고객 단가와 공사자료는 학습·통계·영업자료에 사용하지 않으며 외부 AI로 보내지 않습니다.</li>
-<li>회사(조직)별로 작업을 분리하고, 보관기간(7일)이 지난 작업은 삭제합니다.</li></ul></div>
+<li>회사(조직)별로 작업을 분리하고, 보관기간(7일)이 지난 견적 작업은 삭제합니다.</li></ul></div>
 
 <h2>문의·상담</h2>
 <div class="card"><ul>
@@ -86,5 +153,5 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <li>화면의 "오류·개선 보고"로 접수된 의견을 검토해 단계별로 개선하고 버전을 갱신합니다.</li></ul>
 <a class="btn p" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-consult">상담·시연 신청(이메일)</a></div>
 
-<footer>COREON ESTIMA AX 베타 · 주식회사 코레온홀딩스 · <a href="/">COREON 홈페이지</a> · contact@coreon-global.com</footer>
+<footer>COREON ESTIMA AX · 견적 기능 베타 운영 중, 실행원가·경영관제 개발 중 · 주식회사 코레온홀딩스 · <a href="/">COREON 홈페이지</a> · contact@coreon-global.com</footer>
 </div></body></html>
