@@ -41,6 +41,7 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 .ph{position:absolute;right:-6px;bottom:0;width:30%;max-width:170px;background:#0F1E33;border-radius:22px;padding:7px;box-shadow:0 10px 26px rgba(16,36,64,.22)}.ph img{width:100%;height:auto;display:block;border-radius:16px}
 @media(max-width:900px){.ph{right:4px;width:32%}}.hcap{color:var(--muted);font-size:12.5px;margin:10px 0 0}.legend{font-size:13px;color:var(--muted);margin-top:6px}
 </style>
+<style id="estima-shorts-css">.vwrap{max-width:300px;margin:6px auto 0}.vplay{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0B1F3A;cursor:pointer;aspect-ratio:9/16}.vplay img{width:100%;height:100%;object-fit:cover;display:block}.vbtn{position:absolute;left:50%;top:84%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(220,38,38,.92);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;padding-left:4px}.vplay:focus-visible{outline:3px solid #93B4F8;outline-offset:2px}.vwrap iframe{width:100%;aspect-ratio:9/16;border:0;border-radius:14px;display:block}.vcard .cap,.vcard .btn{text-align:left}</style>
 </head>
 <body><header class="top"><div class="in"><img src="/logo.png" alt="COREON 공식 로고" /><div><b style="font-size:18px">COREON ESTIMA AX</b><br><span style="color:var(--muted);font-size:13px">주식회사 코레온홀딩스</span></div><span class="tag t-dev" style="margin-left:auto">견적 기능 베타 운영 중 · v0.3.10-beta-r6 · 통합 기능 개발 중</span></div></header>
 <div class="wrap">
@@ -131,6 +132,10 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <li>개발 중인 화면은 가공 자료로 화면 공유 시연만 합니다. 운영 서비스에서 직접 쓸 수는 없습니다.</li></ul>
 <a class="btn g" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%8B%A4%ED%96%89%EC%9B%90%EA%B0%80%20%EC%8B%9C%EC%97%B0%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-ledger-demo">시연 신청(이메일)</a></div>
 </div>
+<div class="card vcard" id="video" style="margin-top:14px"><h3>소개 영상 <span class="tag t-ok">58초 · Shorts</span></h3>
+<div class="vwrap"><button type="button" class="vplay" data-yt="xt0-p4-Od2k" aria-label="COREON ESTIMA AX 소개 영상 재생"><img src="/assets/estima/estima-ax-beta-shorts-poster-20261103.webp" alt="COREON ESTIMA AX 소개 영상 첫 화면 — 전기·통신·소방·인테리어" width="540" height="960" loading="lazy"><span class="vbtn" aria-hidden="true">&#9654;</span></button></div>
+<p class="cap">실제 프로그램 화면과 가공 자료로 만든 영상입니다. 전기·통신·소방 견적은 베타 운영 중이고, 인테리어·실행원가·경영관제는 개발환경에서 시험 중이며 운영 서비스에서는 아직 제공하지 않습니다.</p>
+<a class="btn g" href="https://youtube.com/shorts/xt0-p4-Od2k" target="_blank" rel="noopener" data-path="shorts">YouTube에서 보기</a></div>
 <div class="card" style="margin-top:14px"><span class="lab">운영 서비스 · 가공 자료</span><img class="shot" src="/assets/estima/estima-ax-sample-diag-r6.webp" alt="ESTIMA AX 무료 체험 화면 — 원본 결함 진단 단계(가공 자료)" width="1356" height="580" loading="lazy"><p class="cap">운영 중인 무료 체험의 원본 결함 진단 화면(2026-11-02, 가공 자료)입니다. 실제 고객 자료가 아닙니다.</p></div>
 
 <h2 id="status" class="sec">개발·제공 상태</h2>
@@ -174,4 +179,5 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <a class="btn p" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-consult">상담·시연 신청(이메일)</a></div>
 
 <footer>COREON ESTIMA AX · 견적 기능 베타 운영 중, 실행원가·경영관제 개발 중 · 주식회사 코레온홀딩스 · <a href="/">COREON 홈페이지</a> · contact@coreon-global.com</footer>
-</div></body></html>
+</div><script id="estima-shorts-js">document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".vplay");if(!b)return;var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+b.getAttribute("data-yt")+"?autoplay=1&rel=0&playsinline=1";f.title="COREON ESTIMA AX 소개 영상";f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";f.setAttribute("allowfullscreen","");b.replaceWith(f);});</script>
+</body></html>
