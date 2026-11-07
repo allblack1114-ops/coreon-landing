@@ -1,16 +1,17 @@
 'use strict';
+// R-2 (2026-11-07): 기대 문구만 현재 게시된 Safety 문구에 맞춤. 홈페이지 본문·Safety 문구는 변경하지 않음.
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const ko=fs.readFileSync('index.html','utf8');
 const en=fs.readFileSync('en/index.html','utf8');
 const hardening=fs.readFileSync('assets/client-hardening.js','utf8');
 
-for(const phrase of ['COREON Safety AX Agent','현장 위험·아차사고','조치 전후 증빙','잔여위험 재확인','KOSHA 공식 재해사례','COREON Safety AX Agent 설치'])assert(ko.includes(phrase),phrase);
-for(const phrase of ['COREON Safety AX Agent','Start free','Install COREON Safety AX Agent','Human final judgment','Serious-accident prevention'])assert(en.includes(phrase),phrase);
+for(const phrase of ['COREON Safety AX Agent','위험·아차사고 제보','조치 전후 증빙','잔여위험 재확인','KOSHA 공식 재해사례','Safety AX 무료 설치'])assert(ko.includes(phrase),phrase);
+for(const phrase of ['COREON Safety AX Agent','Start free','Install · start free','Final safety judgment','Serious accident prevention'])assert(en.includes(phrase),phrase);
 assert(ko.includes('href="/"'), 'Korean brand must return to canonical home');
 assert(en.includes('class="brand" href="/en/"'), 'English brand must return to canonical English home');
-assert(ko.includes('/download.html?source=home-download#install'));
-assert(en.includes('/en/download.html?source=en-home-download#install'));
+assert(ko.includes('/download.html?source=homepage-hero-safety-ax'));
+assert(en.includes('/en/download.html?source=homepage-free-start'));
 
 // Public entry contract: free signup, existing-user login and install are distinct.
 for(const phrase of [
