@@ -6,73 +6,150 @@
 <title>COREON ESTIMA AX | 공사 견적·실행원가·경영관제 통합 플랫폼</title>
 <meta name="description" content="COREON ESTIMA AX는 전기·통신·소방·인테리어 공내역 견적과 실행원가 관리, 검토·승인, 경영관제 대시보드를 회사 계정에 제공하는 공사 관리 플랫폼입니다. 유료 이용권은 계좌이체로 신청할 수 있으며, 기능별로 현재 제공·일부 양식 지원·개발 중 상태를 구분해 공개합니다." />
 <meta name="robots" content="index,follow" />
-<meta name="theme-color" content="#FFFFFF" />
+<meta name="theme-color" content="#081629" />
 <link rel="canonical" href="https://www.coreon-global.com/estima-ax.html" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <style>
-:root{--bg:#F7F9FC;--panel:#FFFFFF;--line:#DCE3EE;--text:#16243A;--navy:#16345C;--muted:#4A5B73;--blue:#2563EB;--blue-d:#1D4ED8;--ok:#168568;--warn:#8A5A00;--hold:#B4470C}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;word-break:keep-all;overflow-wrap:break-word}
-a{color:var(--blue-d)}a:focus-visible,.btn:focus-visible{outline:3px solid #93B4F8;outline-offset:2px}
-.top{background:#fff;border-bottom:1px solid var(--line)}.top .in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.top img{width:44px;height:44px;object-fit:contain}.top b{color:var(--navy)}.wrap{max-width:1080px;margin:0 auto;padding:8px 20px 80px}
-.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.t-dev{background:#EAF1FF;color:var(--blue-d);border:1px solid #BFD3FB}.t-ok{background:#E7F5F0;color:var(--ok);border:1px solid #B5E0D1}.t-hold{background:#FFF1E8;color:var(--hold);border:1px solid #F5C9AE}
-.hero{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;margin-top:22px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-h1{font-size:32px;margin:0 0 8px;color:var(--navy);line-height:1.3}h2{font-size:21px;margin:36px 0 12px;color:var(--navy)}p.lead{color:var(--muted);font-size:17px;max-width:820px;margin:0}
-.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:760px){.grid{grid-template-columns:1fr}h1{font-size:25px}.hero{padding:20px 16px}.tblw{overflow-x:auto}.top .tag{margin-left:0!important}}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 1px 2px rgba(16,24,40,.04)}.card h3{margin:0 0 8px;font-size:17px;color:var(--navy)}.card ul{margin:0;padding-left:18px;color:var(--muted)}.card li{margin:4px 0}
-.tblw{background:#fff;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}tr:last-child td{border-bottom:0}th{color:var(--muted);font-weight:700;background:#F2F5FA}
-.notice{border:1px solid #F2D59B;background:#FFF8E8;border-radius:14px;padding:14px 16px;color:#5C4300}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:11px 18px;border-radius:12px;font-weight:700;text-decoration:none}.btn.p{background:var(--blue);color:#fff}.btn.p:hover{background:var(--blue-d)}.btn.g{border:1px solid #BFD3FB;background:#fff;color:var(--blue-d)}.card .btn{margin:10px 8px 0 0}.btn[aria-disabled=true]{opacity:.5;pointer-events:none}
-footer{margin-top:40px;color:var(--muted);font-size:13px}
-.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}.flow span{background:#F2F5FA;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:14px;color:var(--navy)}.flow i{color:var(--muted);font-style:normal}
-
-.nav{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0}.nav a{font-size:13px;padding:6px 11px;border:1px solid var(--line);border-radius:20px;background:#fff;text-decoration:none;color:var(--navy)}
-.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}@media(max-width:980px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.pillars{grid-template-columns:1fr}}
-.pl{border:1px solid var(--line);border-radius:14px;padding:14px;background:#FBFCFE}.pl h3{margin:6px 0 6px;font-size:16px;color:var(--navy)}.pl p{margin:0;color:var(--muted);font-size:14px}
-.shot{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}.cap{color:var(--muted);font-size:13px;margin:8px 0 0}
-.lab{display:inline-block;font-size:12px;font-weight:700;color:#5C4300;background:#FFF8E8;border:1px solid #F2D59B;border-radius:8px;padding:2px 8px;margin-bottom:8px}
-.q{font-size:18px;font-weight:700;color:var(--navy);margin:0 0 6px}.two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:start}@media(max-width:760px){.two{grid-template-columns:1fr}}
-.mob{max-width:300px;margin:0 auto}.st h3 .tag{margin-left:6px}.sec{scroll-margin-top:12px}
-.flow span.d{border-style:dashed;background:#fff}
-.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:28px;align-items:center}@media(max-width:900px){.hgrid{grid-template-columns:1fr;gap:18px}}
-.eyebrow{font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--blue-d);margin:0 0 6px}
-.dev{position:relative;padding:0 0 46px 0}.pc{background:#0F1E33;border-radius:14px;padding:8px 8px 10px;box-shadow:0 10px 30px rgba(16,36,64,.16)}.pc img{width:100%;height:auto;display:block;border-radius:7px}
-.pc:after{content:"";display:block;width:34%;height:8px;margin:8px auto 0;border-radius:0 0 8px 8px;background:#C9D3E1}
-.ph{position:absolute;right:-6px;bottom:0;width:30%;max-width:170px;background:#0F1E33;border-radius:22px;padding:7px;box-shadow:0 10px 26px rgba(16,36,64,.22)}.ph img{width:100%;height:auto;display:block;border-radius:16px}
-@media(max-width:900px){.ph{right:4px;width:32%}}.hcap{color:var(--muted);font-size:12.5px;margin:10px 0 0}.legend{font-size:13px;color:var(--muted);margin-top:6px}
+:root{--ink:#0A1A2F;--navy:#0C2440;--navy2:#0F3354;--mint:#5ED0C4;--teal:#0B7F7A;--teal-d:#086661;--bg:#F4F7FA;--panel:#FFFFFF;--line:#DBE6EE;--muted:#4F6378;--ok:#168568;--hold:#B4470C;--dev:#1D4ED8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--teal-d)}a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.w{width:min(1180px,calc(100% - 40px));margin:0 auto}
+/* header — 메인 홈페이지와 같은 체계 */
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid #E4EBF2}
+.header .nav{display:flex;align-items:center;gap:22px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:19px;letter-spacing:-.02em}.brand img{width:38px;height:38px;object-fit:contain}.brand small{display:block;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:0}
+.links{display:flex;gap:20px;font-size:15px;font-weight:600}.links a{color:#24384F;text-decoration:none}.links a[aria-current]{color:var(--teal-d)}
+.actions{margin-left:auto;display:flex;gap:8px}.pill{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid #D5DFE8;border-radius:10px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap}.pill.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+@media(max-width:1020px){.links{display:none}}
+@media(max-width:560px){.header .nav{min-height:62px;gap:10px}.brand{font-size:16px}.brand img{width:32px;height:32px}.actions .pill{padding:7px 10px;font-size:13px}.actions .hide-s{display:none}}
+/* hero — 남색 배경·민트 강조 */
+.hero{background:linear-gradient(160deg,#081629 0%,#0C2440 55%,#0F3354 100%);color:#fff;padding:72px 0 84px;overflow:hidden}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:48px;align-items:center}
+.badge{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--mint);background:rgba(94,208,196,.12);border:1px solid rgba(94,208,196,.35);border-radius:8px;padding:6px 12px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.16;letter-spacing:-.035em;font-weight:800;margin:20px 0 18px}.hero h1 em{display:block;font-style:normal;color:var(--mint)}
+.hero .lead{font-size:18px;line-height:1.75;color:#C9D6E4;max-width:560px;margin:0}.hero .lead b{color:#fff}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border-radius:10px;font-weight:800;font-size:15.5px;text-decoration:none;border:1px solid transparent}
+.btn.primary{background:var(--teal);color:#fff}.btn.primary:hover{background:var(--teal-d)}.btn.light{background:#fff;color:var(--ink)}.btn.ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn.p{background:var(--teal);color:#fff}.btn.p:hover{background:var(--teal-d)}.btn.g{background:#fff;color:var(--ink);border-color:#CFDAE4}
+.limits-link{display:inline-block;margin-top:14px;color:var(--mint);font-size:14px;font-weight:700}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}.proof span{font-size:12.5px;font-weight:700;color:#DDE8F2;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 12px}
+.dev{position:relative;padding:0 0 44px}.pc{background:#06111F;border-radius:14px;padding:8px 8px 10px;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08)}.pc img{width:100%;height:auto;display:block;border-radius:7px}
+.ph{position:absolute;right:-8px;bottom:0;width:29%;max-width:170px;background:#06111F;border-radius:22px;padding:7px;box-shadow:0 18px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}.ph img{width:100%;height:auto;display:block;border-radius:16px}
+.hcap{color:#9FB3C8;font-size:12.5px;margin:12px 0 0}
+.lab{display:inline-block;font-size:12px;font-weight:700;color:#5C4300;background:#FFF8E8;border:1px solid #F2D59B;border-radius:8px;padding:2px 8px;margin-bottom:8px}.hero .lab{margin:0 6px 0 0}
+@media(max-width:940px){.hg{grid-template-columns:1fr;gap:34px}.hero{padding:48px 0 56px}.hero .lead{font-size:16.5px}}
+/* sections */
+section.s{padding:84px 0}section.s.alt{background:#fff}
+.k{font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--teal)}
+.s h2{font-size:clamp(26px,3.2vw,40px);line-height:1.25;letter-spacing:-.03em;margin:10px 0 14px;font-weight:800}
+.s .intro{font-size:17px;color:var(--muted);max-width:780px;margin:0 0 30px}
+h3{font-size:18px;margin:0 0 8px;letter-spacing:-.01em}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;vertical-align:middle}.t-dev{background:#EAF1FF;color:var(--dev);border:1px solid #BFD3FB}.t-ok{background:#E7F5F0;color:var(--ok);border:1px solid #B5E0D1}.t-hold{background:#FFF1E8;color:var(--hold);border:1px solid #F5C9AE}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pl{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.pl h3{margin:10px 0 6px;font-size:17px}.pl p{margin:0;color:var(--muted);font-size:14.5px}
+@media(max-width:980px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.pillars{grid-template-columns:1fr}}
+/* 업무 흐름 */
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;counter-reset:st;margin:6px 0 10px;padding:0;list-style:none}
+.steps li{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 14px 14px;font-weight:700;font-size:15px;color:var(--navy)}
+.steps li:before{counter-increment:st;content:counter(st);display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--mint);font-size:13px;font-weight:800;margin-bottom:10px}
+.steps li span{display:block;font-weight:500;font-size:13px;color:var(--muted);margin-top:4px}
+@media(max-width:980px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.legend{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+/* 기능 행 */
+.row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:44px;align-items:center;margin-top:64px}.row.rev{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr)}.row.rev .txt{order:2}
+.row .txt ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}.row .txt li{margin:6px 0}
+.row h3{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.025em;line-height:1.3;margin:6px 0 10px}
+@media(max-width:940px){.row,.row.rev{grid-template-columns:1fr;gap:20px;margin-top:48px}.row.rev .txt{order:0}}
+.frame{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 18px 40px rgba(12,36,64,.08)}
+.shot{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}.cap{color:var(--muted);font-size:13px;margin:10px 2px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:980px){.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.g3{grid-template-columns:1fr}}@media(max-width:760px){.grid,.grid.g4{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}.card ul{margin:0;padding-left:18px;color:var(--muted)}.card li{margin:5px 0}.card .btn{margin:14px 8px 0 0}
+.q{font-size:17px;font-weight:800;color:var(--navy);margin:0 0 8px}
+.rflow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}.rflow span{background:#fff;border:1px dashed #B9C8D6;border-radius:10px;padding:8px 13px;font-size:14px;font-weight:700;color:var(--navy)}.rflow i{color:var(--muted);font-style:normal}
+.mob{max-width:280px;margin:0 auto}
+/* 요금 */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}.plan.hl{border:2px solid var(--teal)}
+.plan .nm{font-size:19px;font-weight:800}.plan .pr{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:12px 0 0}.plan .pr small{font-size:14px;color:var(--muted);font-weight:700}.plan .vat{color:var(--muted);font-size:13.5px;margin:2px 0 12px}
+.plan .sc{font-size:14.5px;color:#24384F;margin:0 0 6px}.plan .use{font-size:13.5px;color:var(--muted);margin:auto 0 0;padding-top:12px;border-top:1px solid #EEF2F6}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+.note{color:var(--muted);font-size:14px;margin:0 0 18px}
+/* 범위·제한 */
+.notice{border:1px solid #F2D59B;background:#FFF8E8;border-radius:14px;padding:16px 18px;color:#5C4300;margin:0 0 18px}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:12px 0}details>summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800;color:var(--navy);display:flex;justify-content:space-between;gap:10px}details>summary::-webkit-details-marker{display:none}details>summary:after{content:"+";font-size:20px;line-height:1;color:var(--teal)}details[open]>summary:after{content:"−"}
+details .body{padding:0 18px 18px}
+.tblw{background:#fff;border:1px solid var(--line);border-radius:14px;overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}tr:last-child td{border-bottom:0}th{color:var(--muted);font-weight:700;background:#F2F5FA}
+.vwrap{max-width:280px;margin:6px auto 0}.vplay{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0B1F3A;cursor:pointer;aspect-ratio:9/16}.vplay img{width:100%;height:100%;object-fit:cover;display:block}.vbtn{position:absolute;left:50%;top:84%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(220,38,38,.92);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;padding-left:4px}.vplay:focus-visible{outline:3px solid var(--mint);outline-offset:2px}.vwrap iframe{width:100%;aspect-ratio:9/16;border:0;border-radius:14px;display:block}
+.family{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:center}.family p{margin:4px 0 0;color:var(--muted)}@media(max-width:760px){.family{grid-template-columns:1fr}}
+footer{background:#081629;color:#9FB3C8;font-size:13px;padding:34px 0 44px;margin-top:0}footer a{color:#DDE8F2}
+.sec{scroll-margin-top:84px}
 </style>
-<style id="estima-shorts-css">.vwrap{max-width:300px;margin:6px auto 0}.vplay{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0B1F3A;cursor:pointer;aspect-ratio:9/16}.vplay img{width:100%;height:100%;object-fit:cover;display:block}.vbtn{position:absolute;left:50%;top:84%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(220,38,38,.92);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;padding-left:4px}.vplay:focus-visible{outline:3px solid #93B4F8;outline-offset:2px}.vwrap iframe{width:100%;aspect-ratio:9/16;border:0;border-radius:14px;display:block}.vcard .cap,.vcard .btn{text-align:left}</style>
 </head>
-<body><header class="top"><div class="in"><img src="/logo.png" alt="COREON 공식 로고" /><div><b style="font-size:18px">COREON ESTIMA AX</b><br><span style="color:var(--muted);font-size:13px">주식회사 코레온홀딩스</span></div><span class="tag t-ok" style="margin-left:auto">정식 출시 · v1.0.0</span></div></header>
-<div class="wrap">
-<section class="hero">
-<div class="hgrid">
+<body>
+<header class="header"><div class="w nav"><a class="brand" href="/"><img src="/assets/coreon-logo.png" alt="COREON 로고"><span>COREON<small>주식회사 코레온홀딩스</small></span></a>
+<nav class="links" aria-label="COREON 제품군"><a href="/">Safety AX Agent</a><a href="/estima-ax.html" aria-current="page">ESTIMA AX</a><a href="/coreon-integrated.html">통합 구매</a><a href="#plans">요금제</a><a href="#status">개발·제공 상태</a></nav>
+<div class="actions"><a class="pill" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service-top">고객 로그인</a><a class="pill dark hide-s" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-consult-top">상담·시연</a></div></div></header>
+<main>
+<section class="hero" id="top"><div class="w hg">
 <div>
-<p class="eyebrow">COREON ESTIMA AX</p>
-<h1>공사 견적 · 실행원가 ·<br>경영관제를 하나로</h1>
-<p class="lead">공내역서 견적에서 시작해 계약 이후의 실행예산·발생원가·예상 준공손익까지 같은 자료로 이어서 관리하는 것을 목표로 합니다. 같은 실행원가 데이터를 대표이사·공무·현장관리자가 각자의 업무 화면으로 봅니다. 단가·노임·제비율·제출금액과 원가의 확정은 사람이 결정하며, 프로그램은 가격이나 이윤을 정하지 않습니다.</p>
-<div class="cta"><a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage" rel="noopener" data-path="trial-hero">무료 체험 시작(견적)</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service-hero">고객 로그인</a></div><p style="margin:8px 0 0;color:var(--muted);font-size:13px">비밀번호를 잊으셨다면 고객 로그인 화면의 [비밀번호 재설정]에서 등록한 메일로 재설정 링크를 받을 수 있습니다.</p>
-<p class="legend" style="margin-top:10px">회사 계정은 4개 공종 견적과 실행원가·경영관제를 직접 사용할 수 있습니다. 유료 이용권은 계좌이체로 신청합니다. 가입 없는 무료 체험은 견적 기능만 포함합니다.</p>
+<span class="badge">COREON ESTIMA AX · 정식 출시 · v1.0.0</span>
+<h1>견적에서 끝나면,<em>이 공사가 남는지 모릅니다.</em></h1>
+<p class="lead">전기·통신·소방·인테리어 공내역 견적부터 <b>실행예산·확정 원가·예상 준공손익</b>까지 같은 자료로 이어서 봅니다. 가격과 이윤은 사람이 정하고, 근거가 없는 값은 HOLD로 남깁니다.</p>
+<div class="ctas"><a class="btn primary" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage" rel="noopener" data-path="trial-hero">무료 체험 시작(견적)</a><a class="btn light" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service-hero">고객 로그인</a></div>
+<a class="limits-link" href="#limits">지원 범위·제한 먼저 보기 →</a>
+<div class="proof"><span>4개 공종 견적</span><span>실행원가 · EAC</span><span>근거 없으면 HOLD</span><span>원본 Excel 보호</span></div>
 </div>
 <figure style="margin:0" aria-label="화면 예시(PC·모바일)">
 <div class="dev"><div class="pc"><img src="/assets/estima/estima-ax-dev-ceo-dashboard-r8.webp" alt="경영자 전사 현황 PC 화면 — 공사별 확정 계약·승인 예산·EAC·예상 이익과 HOLD 표시(가공 자료)" width="1440" height="760" fetchpriority="high"></div>
 <div class="ph"><img src="/assets/estima/estima-ax-dev-site-input-390-r8.webp" alt="현장관리자 원가 입력 모바일 화면(가공 자료)" width="390" height="844"></div></div>
-<figcaption class="hcap"><span class="lab" style="margin:0">가공 자료 · 기능 화면</span> PC: 경영자 전사 현황 · 모바일: 현장 원가 입력 (2026-11-02 촬영)</figcaption>
+<figcaption class="hcap"><span class="lab">가공 자료 · 기능 화면</span> PC: 경영자 전사 현황 · 모바일: 현장 원가 입력 (2026-11-02 촬영)</figcaption>
 </figure>
-</div>
+</div></section>
+
+<section class="s" id="platform"><div class="w">
+<span class="k">ONE LEDGER · FOUR AREAS</span>
+<h2>공사 견적 · 실행원가 · 경영관제를 하나로</h2>
+<p class="intro">공내역서 견적에서 시작해 계약 이후의 실행예산·발생원가·예상 준공손익까지 같은 자료로 이어서 관리하는 것을 목표로 합니다. 같은 실행원가 데이터를 대표이사·공무·현장관리자가 각자의 업무 화면으로 봅니다. 단가·노임·제비율·제출금액과 원가의 확정은 사람이 결정하며, 프로그램은 가격이나 이윤을 정하지 않습니다.</p>
 <div class="pillars" aria-label="통합 플랫폼 4대 영역">
 <div class="pl"><span class="tag t-ok">제공</span><h3>공종별 견적 엔진</h3><p>전기·통신·소방 공내역 견적과 인테리어 견적·2026 표준품셈 근거 확인. 근거가 없는 항목은 HOLD로 남습니다.</p></div>
 <div class="pl"><span class="tag t-ok">현재 제공</span><h3>실행원가 관리</h3><p>계약금액·변경계약, 실행예산, 확정 발생원가, 잔여 예상원가, 예상 준공원가(EAC).</p></div>
 <div class="pl"><span class="tag t-hold">제공 · 검증 계속</span><h3>실무 검토·승인</h3><p>현장 입력 → 공무 검토 → 권한자 확정 → 경영자 조회. 역할별 권한과 기록.</p></div>
 <div class="pl"><span class="tag t-hold">제공 · 검증 계속</span><h3>경영관제 대시보드</h3><p>현장별 예상 준공손익·이익률, 예산 초과 위험, 현장 비교, PDF·Excel 보고서.</p></div>
 </div>
-<div class="notice" style="margin-top:14px"><b>읽기 전에</b> — 네 영역 모두 회사 계정에서 사용할 수 있습니다. 지원 양식이 제한되고 HOLD 항목이 남을 수 있으며, 결과는 담당자가 검토한 뒤 사용해야 합니다. 유료 이용권은 계좌이체로 판매하며, 회사가 입금을 확인한 뒤에 시작합니다. 카드·간편결제는 준비 중입니다. 무료 체험(30일·작업 5건)은 끝나도 동의 없이 유료로 바뀌지 않습니다. 도면 견적은 제공하지 않습니다. 기능별 상태는 <a href="#status">개발·제공 상태표</a>에서 확인하십시오.</div>
-<div class="flow" aria-label="통합 업무 흐름"><span>공내역서 견적</span><i>→</i><span>계약·변경계약</span><i>→</i><span>실행예산</span><i>→</i><span>원가 입력·검토·확정</span><i>→</i><span>예상 준공손익</span><i>→</i><span>경영 보고</span></div>
+<h3 style="margin-top:44px">견적에서 경영 보고까지 여섯 단계</h3>
+<ol class="steps" aria-label="통합 업무 흐름"><li>공내역서 견적<span>4개 공종</span></li><li>계약·변경계약<span>승인분만 확정</span></li><li>실행예산<span>공무 편성·경영자 승인</span></li><li>원가 입력·검토·확정<span>확정분만 누적</span></li><li>예상 준공손익<span>EAC</span></li><li>경영 보고<span>Excel·PDF</span></li></ol>
 <p class="legend">모든 단계: 운영 서비스에서 제공 중(고객 사용 결과로 검증 계속)</p>
-<nav class="nav" aria-label="페이지 안내"><a href="#trades">공종별 견적</a><a href="#cost">실행원가 관리</a><a href="#control">경영관제</a><a href="#roles">사용자별 업무</a><a href="#use">시연 및 이용</a><a href="#profit">실익 분석</a><a href="#plans">요금제</a><a href="#status">개발·제공 상태</a></nav>
-</section>
+</div></section>
+<section class="s alt sec" id="plans"><div class="w">
+<span class="k">PRICING</span>
+<h2>요금제 <span class="tag t-ok">계좌이체 판매 중</span></h2>
+<p class="note">구매 전에 <a href="#limits">지원 범위·제한</a>과 <a href="#status">기능별 개발·제공 상태</a>를 확인해 주십시오. 공종별 기능 설명은 이 요금제 아래에 이어집니다.</p>
+<p class="note">월 기준 공급가액이며 부가세 10%는 별도입니다. 괄호 안은 부가세 포함 금액입니다. 1·3·6·12개월 단위로 신청하며 금액은 월 요금 × 개월 수입니다.</p>
+<div class="plans" role="list" aria-label="요금제">
+<div class="plan" role="listitem"><span class="nm">기본형</span><p class="pr">49,000원 <small>/월</small></p><p class="vat">(53,900원)</p><p class="sc">1인 · 견적 월 20건</p><p class="use">자기 회사 업무용</p></div>
+<div class="plan hl" role="listitem"><span class="nm">회사형</span><p class="pr">149,000원 <small>/월</small></p><p class="vat">(163,900원)</p><p class="sc">3인 · 4개 공종 · 확정 견적 보관 · 실익 분석 · 실행원가 원장</p><p class="use">자기 회사 업무용</p></div>
+<div class="plan" role="listitem"><span class="nm">전문 견적</span><p class="pr">290,000원 <small>/월</small></p><p class="vat">(319,000원)</p><p class="sc">회사형 기능 · 3인 · 월 30개 프로젝트(초과 1건당 9,900원, 부가세 별도)</p><p class="use">견적 대행 허용: 다른 회사(발주처·고객사)를 위해 견적을 만들어 유상 제공할 수 있습니다.</p></div>
+</div>
+<div class="ctas" style="margin-top:20px"><a class="btn p" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="paid-apply">유료 이용권 신청(로그인)</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/plans" rel="noopener" data-path="plans">요금제 안내</a><a class="btn g" href="/coreon-integrated.html" data-path="integrated">Safety AX와 함께 구매</a></div>
+<details><summary>이용 조건·환불·약관</summary><div class="body"><ul>
+<li>무료 체험(30일·작업 5건)은 결제수단 없이 시작합니다. 체험이 끝나도 동의 없이 유료로 바뀌지 않습니다.</li>
+<li>고객이 ESTIMA AX로 만든 견적서·내역서 등 산출물은 고객의 사업에 자유롭게 사용할 수 있습니다(발주처 제출·재사용 포함). 계정 공유와 이용권 재판매는 허용하지 않습니다.</li>
+<li>이용 형태가 요금제와 다르다고 보이면 먼저 안내하고 소명 기회를 드립니다. 자동 차단이나 자동 추가 요금은 없습니다.</li>
+<li>계좌이체 이용권은 자동 갱신·자동 결제가 없으며 기간이 끝나면 종료됩니다. 입금 확인일부터 7일 이내이고 새 견적 작업이 없으면 전액 환불하고, 그 뒤 중도 해지는 이용약관 제12조 기준으로 환불합니다. 환불·초과 입금 반환은 3영업일 안에 고객 계좌로 보냅니다.</li>
+<li>이용약관 1.0과 ESTIMA AX 개인정보처리방침 1.0을 2026년 11월 7일부터 시행합니다.</li></ul>
+<p style="margin:12px 0 0"><a href="https://coreon-estima-ax.onrender.com/terms" rel="noopener" data-path="terms">이용약관</a> · <a href="https://coreon-estima-ax.onrender.com/privacy" rel="noopener" data-path="privacy">개인정보처리방침</a></p></div></details>
+<details open><summary>결제 방법</summary><div class="body"><div class="tblw"><table aria-label="결제 방법"><thead><tr><th>방법</th><th>상태</th><th>안내</th></tr></thead><tbody>
+<tr><td>계좌이체(회사 명의 법인계좌)</td><td><span class="tag t-ok">이용 가능</span></td><td>로그인 → 계정 → 이용권·결제에서 요금제·기간을 고르면 입금 계좌와 정확한 금액(부가세 포함), 입금 기한(7일)이 표시됩니다. 회사가 입금을 확인한 뒤 이용권이 시작되고, 전자세금계산서를 발행합니다.</td></tr>
+<tr><td>카드·간편결제(카카오페이·네이버페이 등)</td><td><span class="tag t-dev">준비 중</span></td><td>결제대행사 계약 후 엽니다. 지금은 청구되지 않습니다.</td></tr>
+</tbody></table></div></div></details>
+</div></section>
 
-<h2 id="trades" class="sec">공종별 견적</h2>
+<section class="s sec" id="trades"><div class="w">
+<span class="k">STEP 1 · ESTIMATE</span>
+<h2>공종별 견적</h2>
+<p class="intro">공내역서를 올리면 양식을 판별하고 원본 결함을 먼저 알려 드립니다. 원본 Excel은 바꾸지 않습니다.</p>
 <div class="grid">
 <div class="card"><h3>전기·통신·소방 <span class="tag t-ok">현재 제공</span></h3><ul>
 <li>공내역서 XLSX 업로드, 양식 판별, 원본 결함 진단</li>
@@ -83,56 +160,82 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <li>인테리어 공내역서 품목을 2026년 건설공사 표준품셈 수록 항목과 대조해 부문·항목·개정·쪽수와 단위당 노무량을 근거로 표시합니다.</li>
 <li>품셈 항목과 명확히 매칭되지 않거나 바탕면·간격·단위 등이 불명확하면 노무량을 만들지 않고 HOLD로 둡니다.</li>
 <li>원본 공내역서의 수량·수식은 바꾸지 않습니다.</li>
-<li>노무·원가 계산: 직종별 노무비 = 단위당 직종별 공량 × 해당 직종 노임단가 × 시공 수량. 노임은 사용자가 출처·기준일과 함께 입력하며, 노임 미입력·공량 미확인은 0원으로 계산하지 않고 HOLD로 둡니다.</li>
-<li>제한: 확인한 인테리어 양식 계열에서만 검증했습니다. 양식에 따라 HOLD 품목이 많을 수 있으며, HOLD가 남은 견적은 확정 견적으로 내보내지 않습니다.</li></ul></div>
+<li>제한: 확인한 인테리어 양식 계열에서만 검증했습니다. 양식에 따라 HOLD 품목이 많을 수 있으며, HOLD가 남은 견적은 확정 견적으로 내보내지 않습니다.</li></ul>
+<details style="margin:12px 0 0"><summary>인테리어 노무·원가 계산식 보기</summary><div class="body"><ul><li>노무·원가 계산: 직종별 노무비 = 단위당 직종별 공량 × 해당 직종 노임단가 × 시공 수량. 노임은 사용자가 출처·기준일과 함께 입력하며, 노임 미입력·공량 미확인은 0원으로 계산하지 않고 HOLD로 둡니다.</li></ul></div></details></div>
 </div>
-<div class="card" style="margin-top:14px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-interior-items-r8.webp" alt="인테리어 견적 작업 화면 — 품목 검토·HOLD 사유·공량 근거, 노임단가·재료비·원가계산서 단계(가공 자료)" width="1440" height="900" loading="lazy"><p class="cap">인테리어 견적 작업 화면(2026-11-02 촬영, 가공 자료). 가공 인테리어 공내역서 12개 품목. 근거 없는 공량·노임은 금액으로 만들지 않고 HOLD로 남깁니다.</p></div>
+<div class="frame" style="margin-top:22px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-interior-items-r8.webp" alt="인테리어 견적 작업 화면 — 품목 검토·HOLD 사유·공량 근거, 노임단가·재료비·원가계산서 단계(가공 자료)" width="1440" height="900" loading="lazy"><p class="cap">인테리어 견적 작업 화면(2026-11-02 촬영, 가공 자료). 가공 인테리어 공내역서 12개 품목. 근거 없는 공량·노임은 금액으로 만들지 않고 HOLD로 남깁니다.</p></div>
+</div></section>
 
-<h2 id="cost" class="sec">실행원가 관리 <span class="tag t-hold">제공 · 검증 계속</span></h2>
-<div class="card"><h3>관리하는 값</h3><ul>
+<section class="s alt sec" id="cost"><div class="w">
+<span class="k">STEP 2–5 · EXECUTION COST</span>
+<h2>실행원가 관리 <span class="tag t-hold">제공 · 검증 계속</span></h2>
+<div class="row" style="margin-top:22px">
+<div class="txt"><span class="k">관리하는 값</span><h3>계약부터 예상 준공원가까지, 확정된 값만 쌓습니다</h3><ul>
 <li><b>계약금액·변경계약</b> — 승인된 변경계약만 확정 계약금액에 넣습니다. 미승인 변경은 따로 표시합니다.</li>
 <li><b>실행예산</b> — 자재·노무·외주·장비·경비·예비비 버전 관리. 공무가 편성하고 경영자가 승인합니다.</li>
 <li><b>발생원가</b> — 확정된 원가만 누적합니다. 검토·확정 대기 원가는 따로 보여 주고 합계에 넣지 않습니다.</li>
 <li><b>잔여 예상원가</b> — 공종별 잔여 작업과 산정 근거를 함께 기록합니다.</li>
 <li><b>예상 준공원가(EAC)</b> = 누적 확정원가 + 확정 미지급 + 잔여 예상원가.</li></ul></div>
-<div class="card" style="margin-top:14px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-contract-budget-r8.webp" alt="공사 기본정보·계약·변경계약·실행예산 화면(가공 자료)" width="1440" height="950" loading="lazy"><p class="cap">공무 담당자의 계약·예산 화면(가공 공사).</p></div>
+<div class="frame"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-contract-budget-r8.webp" alt="공사 기본정보·계약·변경계약·실행예산 화면(가공 자료)" width="1440" height="950" loading="lazy"><p class="cap">공무 담당자의 계약·예산 화면(가공 공사).</p></div>
+</div>
+</div></section>
 
-<h2 id="control" class="sec">경영관제 <span class="tag t-hold">제공 · 검증 계속</span></h2>
-<div class="grid">
+<section class="s sec" id="control"><div class="w">
+<span class="k">STEP 6 · MANAGEMENT CONTROL</span>
+<h2>경영관제 <span class="tag t-hold">제공 · 검증 계속</span></h2>
+<div class="grid" style="margin-top:22px">
 <div class="card"><p class="q">대표이사 화면이 답하는 질문</p><ul><li>어느 공사가 이익을 내고, 어느 공사가 손실 위험이 있는가</li><li>계약금액 대비 예상 준공원가와 예상 이익률은 얼마인가</li><li>예산을 넘었거나 확정이 밀린 원가는 어디에 있는가</li></ul></div>
 <div class="card"><p class="q">실무자 화면이 답하는 질문</p><ul><li>어떤 원가가 발생했고 증빙은 무엇인가</li><li>무엇을 검토·반려·확정해야 하는가</li><li>예산 초과의 원인과 조치는 기록됐는가</li></ul></div>
 </div>
-<div class="card" style="margin-top:14px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-ceo-dashboard-r8.webp" alt="경영자 전사 현황 — 확정 계약금액·예상 준공원가·예상 이익·현장별 위험 비교(가공 자료)" width="1440" height="760" loading="lazy"><p class="cap">전사 현황: 관리 공사 수, 확정 계약금액 합계, 예상 준공원가 합계, 예상 준공이익, 현장별 예산 대비·이익률·위험 표시(가공 현장 4건). 근거가 부족한 공사는 HOLD로 두고 이익을 표시하지 않습니다.</p></div>
-<div class="card" style="margin-top:14px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-project-pl-r8.webp" alt="공사 손익 화면 — 원가 구분, 최초 견적·계약·실행예산·현재 EAC 비교, 견적 확정본 연결(가공 자료)" width="1440" height="900" loading="lazy"><p class="cap">공사 손익: 원가 구분(확정·미지급·잔여·대기), 최초 견적·계약·승인 예산·현재 EAC 비교, 예산 초과 경고. 공정회의용 Excel·PDF에는 집계 기준일과 미확정 항목을 함께 표시합니다.</p></div>
-
-<h2 id="profit" class="sec">수주 전 실익 분석 <span class="tag t-ok">현재 제공</span></h2>
-<div class="grid">
-<div class="card"><p class="q">입찰·수주 전에 대표이사가 보는 값</p><ul>
-<li>견적 원가에 일반관리비·이윤·본사 고정비 배부액(선택)을 넣어 손익분기 금액과 목표 견적금액을 계산합니다.</li>
-<li>손익분기·목표 견적금액 = (공사원가 + 고정비 배부액) ÷ (1 − 율 합계). 배부율과 고정비를 함께 넣으면 중복 확인 경고를 냅니다.</li>
-<li>입력값과 계산식, 기준일을 함께 남기며 결과는 Excel로 내려받습니다.</li></ul></div>
-<div class="card"><p class="q">이번 버전(v1.0.0)에서 더해진 기능</p><ul>
-<li>정식 출시: 이용약관 1.0·개인정보처리방침 1.0 시행(2026-11-07), 계좌이체 유료 이용권(1·3·6·12개월, 입금 확인 후 시작, 자동 갱신 없음).</li>
-<li>이전 버전(v0.5.0-com1)에서 더해진 기능:</li>
-<li>2026 전기·소방·정보통신 표준품셈 추가 대조 규칙: 표가 그대로 맞는 품목만 노무량을 넣고, 준용 후보는 자동 확정하지 않으며, 표가 없는 품목은 사유와 함께 HOLD로 남깁니다.</li>
-<li>견적 확정본의 품목(이름·규격·단위·수량)을 실행원가 원장으로 연결합니다.</li>
-<li>견적 Excel 맨 끝에 생성 정보 시트(버전·생성 시각·입력 기준)를 붙입니다. 기존 시트와 수식은 바꾸지 않습니다.</li>
-<li>회사 소유자가 회사 자료를 내려받거나 삭제할 수 있습니다.</li></ul></div>
+<div class="row rev">
+<div class="txt"><h3>전사 현황</h3><p class="cap" style="font-size:15px;margin:0">전사 현황: 관리 공사 수, 확정 계약금액 합계, 예상 준공원가 합계, 예상 준공이익, 현장별 예산 대비·이익률·위험 표시(가공 현장 4건). 근거가 부족한 공사는 HOLD로 두고 이익을 표시하지 않습니다.</p></div>
+<div class="frame"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-ceo-dashboard-r8.webp" alt="경영자 전사 현황 — 확정 계약금액·예상 준공원가·예상 이익·현장별 위험 비교(가공 자료)" width="1440" height="760" loading="lazy"></div>
 </div>
+<div class="row">
+<div class="txt"><h3>공사 손익</h3><p class="cap" style="font-size:15px;margin:0">공사 손익: 원가 구분(확정·미지급·잔여·대기), 최초 견적·계약·승인 예산·현재 EAC 비교, 예산 초과 경고. 공정회의용 Excel·PDF에는 집계 기준일과 미확정 항목을 함께 표시합니다.</p></div>
+<div class="frame"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-project-pl-r8.webp" alt="공사 손익 화면 — 원가 구분, 최초 견적·계약·실행예산·현재 EAC 비교, 견적 확정본 연결(가공 자료)" width="1440" height="900" loading="lazy"></div>
+</div>
+</div></section>
 
-<h2 id="roles" class="sec">사용자별 업무 <span class="tag t-hold">제공 · 검증 계속</span></h2>
-<div class="flow" aria-label="검토·승인 흐름"><span class="d">현장관리자 입력</span><i>→</i><span class="d">공무 담당자 검토</span><i>→</i><span class="d">권한 있는 관리자 확정</span><i>→</i><span class="d">경영자 조회</span></div>
-<div class="grid" style="margin-top:12px">
+<section class="s alt sec" id="roles"><div class="w">
+<span class="k">ROLES</span>
+<h2>사용자별 업무 <span class="tag t-hold">제공 · 검증 계속</span></h2>
+<div class="rflow" aria-label="검토·승인 흐름"><span>현장관리자 입력</span><i>→</i><span>공무 담당자 검토</span><i>→</i><span>권한 있는 관리자 확정</span><i>→</i><span>경영자 조회</span></div>
+<div class="grid g4">
 <div class="card"><h3>대표이사·경영자</h3><ul><li>전사 현황·공사 손익·승인 대기·계약·예산 승인</li><li>변경계약과 실행예산의 승인 권한</li></ul></div>
 <div class="card"><h3>공무·견적 담당</h3><ul><li>계약·실행예산 편성, 원가 검토 대기 목록</li><li>본인이 입력한 원가는 본인이 검토하지 않습니다(직무 분리).</li></ul></div>
 <div class="card"><h3>현장관리자</h3><ul><li>배정된 현장만 보고 원가·증빙·잔여 예상원가를 입력</li><li>스마트폰 화면에서 입력·제출</li></ul></div>
 <div class="card"><h3>1~2인 회사</h3><ul><li>회사 소유자가 켜는 "단독 승인" 옵션(기본 꺼짐)</li><li>단독 처리한 원가는 화면·보고서에 "단독 확정"으로 따로 표시하고 기록을 남깁니다.</li></ul></div>
 </div>
-<div class="card" style="margin-top:14px"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-review-queue-r8.webp" alt="공무 담당자 검토 대기 화면(가공 자료)" width="1440" height="570" loading="lazy"><p class="cap">공무 담당자 검토 대기: 검토 완료·반려. 확정된 원가만 누적 원가와 EAC에 들어갑니다.</p></div>
-<div class="card" style="margin-top:14px;max-width:420px"><span class="lab">가공 자료 · 기능 화면</span><div class="mob"><img class="shot" src="/assets/estima/estima-ax-dev-site-input-390-r8.webp" alt="현장관리자 원가 입력 모바일 화면(가공 자료)" width="390" height="844" loading="lazy"></div><p class="cap">현장관리자 원가 입력(모바일 390px).</p></div>
+<div class="row" style="grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr);margin-top:28px">
+<div class="frame"><span class="lab">가공 자료 · 기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-review-queue-r8.webp" alt="공무 담당자 검토 대기 화면(가공 자료)" width="1440" height="570" loading="lazy"><p class="cap">공무 담당자 검토 대기: 검토 완료·반려. 확정된 원가만 누적 원가와 EAC에 들어갑니다.</p></div>
+<div class="frame"><span class="lab">가공 자료 · 기능 화면</span><div class="mob"><img class="shot" src="/assets/estima/estima-ax-dev-site-input-390-r8.webp" alt="현장관리자 원가 입력 모바일 화면(가공 자료)" width="390" height="844" loading="lazy"></div><p class="cap">현장관리자 원가 입력(모바일 390px).</p></div>
+</div>
+</div></section>
 
-<h2 id="use" class="sec">시연 및 이용</h2>
-<div class="grid" id="paths">
+<section class="s sec" id="profit"><div class="w">
+<span class="k">BEFORE YOU BID</span>
+<h2>수주 전 실익 분석 <span class="tag t-ok">현재 제공</span></h2>
+<div class="grid" style="margin-top:22px">
+<div class="card"><p class="q">입찰·수주 전에 대표이사가 보는 값</p><ul>
+<li>견적 원가에 일반관리비·이윤·본사 고정비 배부액(선택)을 넣어 손익분기 금액과 목표 견적금액을 계산합니다.</li>
+<li>손익분기·목표 견적금액 = (공사원가 + 고정비 배부액) ÷ (1 − 율 합계). 배부율과 고정비를 함께 넣으면 중복 확인 경고를 냅니다.</li>
+<li>입력값과 계산식, 기준일을 함께 남기며 결과는 Excel로 내려받습니다.</li></ul></div>
+<div class="card"><p class="q">이번 버전(v1.0.0)에서 더해진 기능</p><ul>
+<li>정식 출시: 이용약관 1.0·개인정보처리방침 1.0 시행(2026-11-07), 계좌이체 유료 이용권(1·3·6·12개월, 입금 확인 후 시작, 자동 갱신 없음).</li></ul>
+<details style="margin:12px 0 0"><summary>이전 버전(v0.5.0-com1)에서 더해진 기능</summary><div class="body"><ul>
+<li>이전 버전(v0.5.0-com1)에서 더해진 기능:</li>
+<li>2026 전기·소방·정보통신 표준품셈 추가 대조 규칙: 표가 그대로 맞는 품목만 노무량을 넣고, 준용 후보는 자동 확정하지 않으며, 표가 없는 품목은 사유와 함께 HOLD로 남깁니다.</li>
+<li>견적 확정본의 품목(이름·규격·단위·수량)을 실행원가 원장으로 연결합니다.</li>
+<li>견적 Excel 맨 끝에 생성 정보 시트(버전·생성 시각·입력 기준)를 붙입니다. 기존 시트와 수식은 바꾸지 않습니다.</li>
+<li>회사 소유자가 회사 자료를 내려받거나 삭제할 수 있습니다.</li></ul></div></details></div>
+</div>
+</div></section>
+
+<section class="s alt sec" id="use"><div class="w">
+<span class="k">TRY · USE</span>
+<h2>시연 및 이용</h2>
+<div class="grid g3" id="paths" style="margin-top:22px">
 <div class="card"><h3>1. 무료 체험 <span class="tag t-ok">가입 없음 · 가공 자료</span></h3><ul>
 <li>가공 공내역서로 원본 결함 진단, 동일 자재 합산, 회사 단가 반영, 금액 확인, Excel 내려받기를 직접 해 봅니다.</li>
 <li>파일을 올리지 않습니다. 체험 자료는 2시간 뒤 자동 삭제됩니다. 실제 견적 결과가 아닙니다.</li>
@@ -143,41 +246,43 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <li>사용 중 불편·오류는 화면 머리글의 [오류·의견]으로 보내 주십시오. 처리 상태를 같은 화면에서 확인할 수 있습니다.</li>
 <li>30일 무료 체험(작업 5건)이며 자동 결제는 없습니다. 유료 전환은 고객이 이용권을 직접 신청하고 입금한 경우에만 이뤄집니다. 회사별로 작업이 분리됩니다.</li></ul>
 <a class="btn p" href="https://coreon-estima-ax.onrender.com/sample?utm_source=homepage#apply" rel="noopener" data-path="apply">사용 신청</a>
-<a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service">고객 로그인</a></div>
+<a class="btn g" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="service">고객 로그인</a>
+<p class="cap">비밀번호를 잊으셨다면 고객 로그인 화면의 [비밀번호 재설정]에서 등록한 메일로 재설정 링크를 받을 수 있습니다.</p></div>
 <div class="card"><h3>3. 실행원가·경영관제 <span class="tag t-hold">제공 · 검증 계속</span></h3><ul>
 <li>승인된 회사 계정은 로그인 후 [실행원가] 메뉴에서 견적 확정본 연결·계약·실행예산·원가·EAC·경영관제를 직접 사용합니다.</li>
 <li>화면 공유 시연(가공 자료)도 신청할 수 있습니다.</li></ul>
 <a class="btn g" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%8B%A4%ED%96%89%EC%9B%90%EA%B0%80%20%EC%8B%9C%EC%97%B0%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-ledger-demo">시연 신청(이메일)</a></div>
 </div>
-<div class="card vcard" id="video" style="margin-top:14px"><h3>소개 영상 <span class="tag t-ok">58초 · Shorts</span></h3>
+<p class="cap" style="font-size:14px">회사 계정은 4개 공종 견적과 실행원가·경영관제를 직접 사용할 수 있습니다. 유료 이용권은 계좌이체로 신청합니다. 가입 없는 무료 체험은 견적 기능만 포함합니다.</p>
+<div class="row" style="grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);margin-top:28px">
+<div class="card vcard" id="video"><h3>소개 영상 <span class="tag t-ok">58초 · Shorts</span></h3>
 <div class="vwrap"><button type="button" class="vplay" data-yt="xt0-p4-Od2k" aria-label="COREON ESTIMA AX 소개 영상 재생"><img src="/assets/estima/estima-ax-beta-shorts-poster-20261103.webp" alt="COREON ESTIMA AX 소개 영상 첫 화면 — 전기·통신·소방·인테리어" width="540" height="960" loading="lazy"><span class="vbtn" aria-hidden="true">&#9654;</span></button></div>
 <p class="cap">실제 프로그램 화면과 가공 자료로 만든 영상입니다. 전기·통신·소방·인테리어 견적과 실행원가·경영관제는 회사 계정에서 제공합니다.</p>
 <a class="btn g" href="https://youtube.com/shorts/xt0-p4-Od2k" target="_blank" rel="noopener" data-path="shorts">YouTube에서 보기</a></div>
-<div class="card" style="margin-top:14px"><span class="lab">운영 서비스 · 가공 자료</span><img class="shot" src="/assets/estima/estima-ax-sample-diag-r6.webp" alt="ESTIMA AX 무료 체험 화면 — 원본 결함 진단 단계(가공 자료)" width="1356" height="580" loading="lazy"><p class="cap">운영 중인 무료 체험의 원본 결함 진단 화면(2026-11-02, 가공 자료)입니다. 실제 고객 자료가 아닙니다.</p></div>
+<div class="frame"><span class="lab">운영 서비스 · 가공 자료</span><img class="shot" src="/assets/estima/estima-ax-sample-diag-r6.webp" alt="ESTIMA AX 무료 체험 화면 — 원본 결함 진단 단계(가공 자료)" width="1356" height="580" loading="lazy"><p class="cap">운영 중인 무료 체험의 원본 결함 진단 화면(2026-11-02, 가공 자료)입니다. 실제 고객 자료가 아닙니다.</p></div>
+</div>
+</div></section>
 
-<h2 id="plans" class="sec">요금제 <span class="tag t-ok">계좌이체 판매 중</span></h2>
-<p style="color:var(--muted);font-size:14px;margin-top:-4px">월 기준 공급가액이며 부가세 10%는 별도입니다. 괄호 안은 부가세 포함 금액입니다. 1·3·6·12개월 단위로 신청하며 금액은 월 요금 × 개월 수입니다.</p>
-<div class="tblw"><table aria-label="요금제"><thead><tr><th>요금제</th><th>월 요금</th><th>사용자·범위</th><th>이용 형태</th></tr></thead><tbody>
-<tr><td>기본형</td><td>49,000원<br><span style="color:var(--muted)">(53,900원)</span></td><td>1인 · 견적 월 20건</td><td>자기 회사 업무용</td></tr>
-<tr><td>회사형</td><td>149,000원<br><span style="color:var(--muted)">(163,900원)</span></td><td>3인 · 4개 공종 · 확정 견적 보관 · 실익 분석 · 실행원가 원장</td><td>자기 회사 업무용</td></tr>
-<tr><td style="white-space:nowrap">전문 견적</td><td>290,000원<br><span style="color:var(--muted)">(319,000원)</span></td><td>회사형 기능 · 3인 · 월 30개 프로젝트(초과 1건당 9,900원, 부가세 별도)</td><td>견적 대행 허용: 다른 회사(발주처·고객사)를 위해 견적을 만들어 유상 제공할 수 있습니다.</td></tr>
-</tbody></table></div>
-<div class="card" style="margin-top:14px"><ul>
-<li>무료 체험(30일·작업 5건)은 결제수단 없이 시작합니다. 체험이 끝나도 동의 없이 유료로 바뀌지 않습니다.</li>
-<li>고객이 ESTIMA AX로 만든 견적서·내역서 등 산출물은 고객의 사업에 자유롭게 사용할 수 있습니다(발주처 제출·재사용 포함). 계정 공유와 이용권 재판매는 허용하지 않습니다.</li>
-<li>이용 형태가 요금제와 다르다고 보이면 먼저 안내하고 소명 기회를 드립니다. 자동 차단이나 자동 추가 요금은 없습니다.</li>
-<li>계좌이체 이용권은 자동 갱신·자동 결제가 없으며 기간이 끝나면 종료됩니다. 입금 확인일부터 7일 이내이고 새 견적 작업이 없으면 전액 환불하고, 그 뒤 중도 해지는 이용약관 제12조 기준으로 환불합니다. 환불·초과 입금 반환은 3영업일 안에 고객 계좌로 보냅니다.</li>
-<li>이용약관 1.0과 ESTIMA AX 개인정보처리방침 1.0을 2026년 11월 7일부터 시행합니다.</li></ul>
-<h3 style="margin-top:14px">결제 방법</h3>
-<div class="tblw"><table aria-label="결제 방법"><thead><tr><th>방법</th><th>상태</th><th>안내</th></tr></thead><tbody>
-<tr><td>계좌이체(회사 명의 법인계좌)</td><td><span class="tag t-ok">이용 가능</span></td><td>로그인 → 계정 → 이용권·결제에서 요금제·기간을 고르면 입금 계좌와 정확한 금액(부가세 포함), 입금 기한(7일)이 표시됩니다. 회사가 입금을 확인한 뒤 이용권이 시작되고, 전자세금계산서를 발행합니다.</td></tr>
-<tr><td>카드·간편결제(카카오페이·네이버페이 등)</td><td><span class="tag t-dev">준비 중</span></td><td>결제대행사 계약 후 엽니다. 지금은 청구되지 않습니다.</td></tr>
-</tbody></table></div>
-<a class="btn p" href="https://coreon-estima-ax.onrender.com/account" rel="noopener" data-path="paid-apply">유료 이용권 신청(로그인)</a>
-<a class="btn g" href="https://coreon-estima-ax.onrender.com/plans" rel="noopener" data-path="plans">요금제 안내</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/terms" rel="noopener" data-path="terms">이용약관</a><a class="btn g" href="https://coreon-estima-ax.onrender.com/privacy" rel="noopener" data-path="privacy">개인정보처리방침</a></div>
 
-<h2 id="status" class="sec">개발·제공 상태</h2>
-<p style="color:var(--muted);font-size:14px;margin-top:-4px">기준일 2026-11-07(운영 버전 v1.0.0). 실행원가·경영관제와 인테리어의 "현재 제공" 항목은 운영 서비스에서 전기·통신·소방·인테리어 가공 자료로 업무 흐름 시험을 통과한 기능입니다. 고객 자료에서 확인되는 문제는 계속 수정합니다. <span class="tag t-ok">현재 제공</span> 운영 서비스에서 이용 가능 · <span class="tag t-hold">일부 양식 지원</span> 일부 양식에서만 운영 제공, 검증 계속 · <span class="tag t-hold">제공 · 검증 계속</span> 승인된 회사 계정에서 운영 제공, 고객 사용 결과로 검증 계속 · <span class="tag t-dev">개발 중</span> 개발환경에서 가공 자료로만 시험, 운영 미제공, 공개 일정 미정</p>
+
+<section class="s sec" id="limits"><div class="w">
+<span class="k">SCOPE · LIMITS</span>
+<h2>지원 범위와 제한</h2>
+<div class="notice"><b>읽기 전에</b> — 네 영역 모두 회사 계정에서 사용할 수 있습니다. 지원 양식이 제한되고 HOLD 항목이 남을 수 있으며, 결과는 담당자가 검토한 뒤 사용해야 합니다. 유료 이용권은 계좌이체로 판매하며, 회사가 입금을 확인한 뒤에 시작합니다. 카드·간편결제는 준비 중입니다. 무료 체험(30일·작업 5건)은 끝나도 동의 없이 유료로 바뀌지 않습니다. 도면 견적은 제공하지 않습니다. 기능별 상태는 <a href="#status">개발·제공 상태표</a>에서 확인하십시오.</div>
+<div class="grid">
+<div class="card"><h3>사용 전에 확인할 점</h3><ul>
+<li>단가·노임·일반관리비율·이윤율은 제공하지 않습니다. 고객이 입력하고 근거를 기록합니다.</li>
+<li>원본에 없는 노무량을 프로그램이 임의로 정하지 않습니다. 특정 기관의 제비율을 모든 공사에 일괄 적용하지 않습니다.</li>
+<li>원본 파일의 결함(연결되지 않은 노무비 행 등)은 경고로 알려 드리고, 고객이 확인한 경우에만 보정합니다.</li>
+<li>결과는 견적 담당자가 검토한 뒤 제출 여부를 판단합니다. 원가와 손익의 확정은 권한 있는 담당자가 합니다.</li></ul></div>
+<div class="card"><h3>자료 보호</h3><ul>
+<li>원본 파일은 변경하지 않고 별도 결과 파일을 만듭니다.</li>
+<li>고객 단가와 공사자료는 학습·통계·영업자료에 사용하지 않으며 외부 AI로 보내지 않습니다.</li>
+<li>회사(조직)별로 작업을 분리하고, 보관기간(7일)이 지난 견적 작업은 삭제합니다.</li></ul></div>
+</div>
+
+<h3 id="status" class="sec" style="margin-top:44px;font-size:24px">개발·제공 상태</h3>
+<p style="color:var(--muted);font-size:14px;margin-top:-2px">기준일 2026-11-07(운영 버전 v1.0.0). 실행원가·경영관제와 인테리어의 "현재 제공" 항목은 운영 서비스에서 전기·통신·소방·인테리어 가공 자료로 업무 흐름 시험을 통과한 기능입니다. 고객 자료에서 확인되는 문제는 계속 수정합니다. <span class="tag t-ok">현재 제공</span> 운영 서비스에서 이용 가능 · <span class="tag t-hold">일부 양식 지원</span> 일부 양식에서만 운영 제공, 검증 계속 · <span class="tag t-hold">제공 · 검증 계속</span> 승인된 회사 계정에서 운영 제공, 고객 사용 결과로 검증 계속 · <span class="tag t-dev">개발 중</span> 개발환경에서 가공 자료로만 시험, 운영 미제공, 공개 일정 미정</p>
 <div class="tblw"><table aria-label="기능별 개발·제공 상태"><thead><tr><th>영역</th><th>기능</th><th>상태</th><th>범위·제한</th></tr></thead><tbody>
 <tr><td rowspan="10">공종별 견적</td><td>공내역서 업로드·양식 판별·원본 결함 진단</td><td><span class="tag t-ok">현재 제공</span></td><td>XLSX만 지원(xls·xlsm 미지원). 지원하지 않는 양식은 업로드 단계에서 사유를 안내합니다.</td></tr>
 <tr><td>동일 자재 합산·단가 일괄 반영</td><td><span class="tag t-ok">현재 제공</span></td><td>이름·규격이 비슷하다는 이유만으로 같은 자재로 확정하지 않습니다. 애매한 품목은 HOLD로 남깁니다.</td></tr>
@@ -204,26 +309,21 @@ footer{margin-top:40px;color:var(--muted);font-size:13px}
 <tr><td>도면</td><td>도면(PDF·DXF) 견적</td><td><span class="tag t-dev">개발 중</span></td><td>제공하지 않습니다.</td></tr>
 </tbody></table></div>
 <p style="color:var(--muted);font-size:14px">확인한 견적 양식 계열: 일반 단가형, 이지테크형, 조달청 소방형(개발환경과 운영 시험, 공개·가공 자료 기준). 모든 공내역서 양식을 지원하지는 않으며, 한 양식에서 확인한 결과를 다른 양식에 그대로 적용하지 않습니다. Microsoft Excel에서의 재계산 확인은 진행 중입니다.</p>
+</div></section>
 
-<h2>사용 전에 확인할 점</h2>
-<div class="card"><ul>
-<li>단가·노임·일반관리비율·이윤율은 제공하지 않습니다. 고객이 입력하고 근거를 기록합니다.</li>
-<li>원본에 없는 노무량을 프로그램이 임의로 정하지 않습니다. 특정 기관의 제비율을 모든 공사에 일괄 적용하지 않습니다.</li>
-<li>원본 파일의 결함(연결되지 않은 노무비 행 등)은 경고로 알려 드리고, 고객이 확인한 경우에만 보정합니다.</li>
-<li>결과는 견적 담당자가 검토한 뒤 제출 여부를 판단합니다. 원가와 손익의 확정은 권한 있는 담당자가 합니다.</li></ul></div>
-
-<h2>자료 보호</h2>
-<div class="card"><ul>
-<li>원본 파일은 변경하지 않고 별도 결과 파일을 만듭니다.</li>
-<li>고객 단가와 공사자료는 학습·통계·영업자료에 사용하지 않으며 외부 AI로 보내지 않습니다.</li>
-<li>회사(조직)별로 작업을 분리하고, 보관기간(7일)이 지난 견적 작업은 삭제합니다.</li></ul></div>
-
+<section class="s alt sec" id="contact"><div class="w">
+<span class="k">CONTACT</span>
 <h2>문의·상담</h2>
+<div class="grid" style="margin-top:20px">
 <div class="card"><ul>
 <li>사용 중인 공내역서 양식 유형과 공종을 알려 주시면 지원 여부를 먼저 확인하고 화면 공유 시연을 안내합니다. 문의 단계에서는 공사자료를 받지 않습니다.</li>
 <li>화면의 "오류·개선 보고"로 접수된 의견을 검토해 단계별로 개선하고 버전을 갱신합니다.</li></ul>
 <a class="btn p" href="mailto:contact@coreon-global.com?subject=COREON%20ESTIMA%20AX%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=source%3Destima-consult">상담·시연 신청(이메일)</a></div>
-
-<footer>COREON ESTIMA AX v1.0.0 · 정식 출시 · 주식회사 코레온홀딩스(대표 이호원, 사업자등록번호 734-88-04053, 통신판매업 신고 제2026-영종구-0119호) · 인천광역시 영종구 영종대로 881, 205호 · 0507-1358-1482 · <a href="https://coreon-estima-ax.onrender.com/terms" rel="noopener">ESTIMA AX 이용약관</a> · <a href="https://coreon-estima-ax.onrender.com/privacy" rel="noopener">ESTIMA AX 개인정보처리방침</a> · <a href="/privacy.html">홈페이지 개인정보처리방침</a> · <a href="/">COREON 홈페이지</a> · contact@coreon-global.com</footer>
-</div><script id="estima-shorts-js">document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".vplay");if(!b)return;var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+b.getAttribute("data-yt")+"?autoplay=1&rel=0&playsinline=1";f.title="COREON ESTIMA AX 소개 영상";f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";f.setAttribute("allowfullscreen","");b.replaceWith(f);});</script>
-</body></html>
+<div class="family"><div><span class="k">COREON 제품군</span><h3 style="margin:6px 0 0">안전관리와 함께 쓰시나요?</h3><p>COREON Safety AX Agent와 ESTIMA AX를 한 번의 상담·계약으로 함께 도입할 수 있습니다. 두 제품의 데이터 연결은 개발 중입니다.</p></div><div><a class="btn p" href="/coreon-integrated.html" data-path="integrated-bottom">통합 구매 안내</a></div></div>
+</div>
+</div></section>
+</main>
+<footer><div class="w">COREON ESTIMA AX v1.0.0 · 정식 출시 · 주식회사 코레온홀딩스(대표 이호원, 사업자등록번호 734-88-04053, 통신판매업 신고 제2026-영종구-0119호) · 인천광역시 영종구 영종대로 881, 205호 · 0507-1358-1482 · <a href="https://coreon-estima-ax.onrender.com/terms" rel="noopener">ESTIMA AX 이용약관</a> · <a href="https://coreon-estima-ax.onrender.com/privacy" rel="noopener">ESTIMA AX 개인정보처리방침</a> · <a href="/privacy.html">홈페이지 개인정보처리방침</a> · <a href="/">COREON 홈페이지</a> · contact@coreon-global.com</div></footer>
+<script id="estima-shorts-js">document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".vplay");if(!b)return;var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+b.getAttribute("data-yt")+"?autoplay=1&rel=0&playsinline=1";f.title="COREON ESTIMA AX 소개 영상";f.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";f.setAttribute("allowfullscreen","");b.replaceWith(f);});</script>
+</body>
+</html>
