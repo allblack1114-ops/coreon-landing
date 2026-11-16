@@ -27,4 +27,4 @@
 <div class="foot">© 주식회사 코레온홀딩스 · COREON Safety AX Agent</div>
 </main>
 <script>/* ADD01 후속: 홈페이지 제품 선택 띠에서 들어온 경우, Safety 앱 설치·로그인 링크에 유입 출처를 이어 붙여 Safety 서버의 기존 공개 경로 집계(/install.html)에서 구분합니다. 개인정보 없음. */(function(){try{var e=new URLSearchParams(location.search).get("source")||"";if(!/^homepage-select-[a-z0-9-]{1,40}$/.test(e))return;document.querySelectorAll('a[href^="https://app.coreon-global.com/"]').forEach(function(a){var u=new URL(a.href),o=u.searchParams.get("source");u.searchParams.set("source",e);if(o)u.searchParams.set("utm_medium",o);a.href=u.toString()})}catch(x){}})();</script>
-</body></html>
+<script src="/assets/site-visit.js" defer></script></body></html>
