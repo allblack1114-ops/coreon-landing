@@ -9,3 +9,4 @@ Disallow: /data/
 
 Sitemap: https://www.coreon-global.com/sitemap.xml
 Sitemap: https://www.coreon-global.com/sitemap-video.xml
+# AI 판독용 제품 요약: https://www.coreon-global.com/llms.txt
