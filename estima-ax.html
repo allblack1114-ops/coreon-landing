@@ -150,12 +150,13 @@ footer{background:#081629;color:#9FB3C8;font-size:13px;padding:34px 0 44px;margi
 <div class="card" data-feature="boq"><h3>공내역서 견적 <span class="tag t-ok">현재 제공</span></h3><ul>
 <li>전기·통신·소방·인테리어 공내역서(Excel .xlsx·.xls, 표가 있는 텍스트 PDF)를 올리면 양식을 판별하고 원본 결함을 진단합니다.</li>
 <li>회사 단가 장부의 승인 단가를 반영하고, 근거가 없는 항목은 HOLD로 남겨 담당자가 확인합니다.</li>
-<li>원본 서식을 보존한 Excel 견적 결과를 내려받습니다.</li></ul>
+<li>원본 서식을 보존한 Excel 견적 결과를 내려받습니다. 원가계산서는 수식으로 계산되어 MS Excel과 한셀에서 열면 같은 금액으로 다시 계산됩니다.</li></ul>
 <a class="btn primary" href="https://estima.coreon-global.com/preview?utm_source=estima_takeoff_boq" rel="noopener" data-path="preview-takeoff">공내역서로 무료 견적 미리보기</a></div>
 <div class="card" data-feature="takeoff"><h3>PDF 도면 물량산출 <span class="tag t-ok">현재 제공</span></h3><ul>
 <li>PDF 도면을 올리고 쪽을 고른 뒤, 가로·세로 기준 치수로 축척을 확인합니다. 축척이 확인된 뒤에만 길이·면적을 확정합니다.</li>
 <li>평면도와 상세도처럼 한 장에 축척이 여러 개인 도면도 영역을 나눠 영역마다 축척을 확인한 뒤 물량을 산출합니다.</li>
 <li>글자가 도형으로 저장된 PDF 도면도 가로·세로 기준 치수를 입력해 축척을 확정하고 측정할 수 있습니다.</li>
+<li>측정점은 가까운 도면 선의 끝점·교차점에 맞춰 찍혀 화면 해상도에 따른 오차를 줄입니다. 짧은 치수는 화면을 확대해 지정하면 더 정확하며, 맞춤 기능은 끌 수 있습니다.</li>
 <li>길이(m)·개수(EA)·바닥/천장 면적(㎡)·벽면적(둘레×높이−개구부)을 도면 위에서 측정하고, 같은 위치 중복 측정은 한 번만 셉니다.</li>
 <li>측정 항목을 고치고 검토한 뒤 승인하면 승인본 Excel 물량산출서를 받습니다. 승인 전에도 검토본 Excel을 받을 수 있습니다.</li>
 <li>PC·노트북·태블릿·휴대폰에서 이용하며, 작은 화면에서는 두 손가락으로 확대해 측정점을 정확히 찍습니다. 밝은 화면·어두운 화면과 도면 배경(흰색·연회색·검은색)을 고를 수 있고, 바꿔도 원본 도면과 물량은 그대로입니다.</li></ul>
@@ -256,7 +257,7 @@ footer{background:#081629;color:#9FB3C8;font-size:13px;padding:34px 0 44px;margi
 <div class="txt"><span class="k">관리하는 값</span><h3>계약부터 예상 준공원가까지, 확정된 값만 쌓습니다</h3><ul>
 <li><b>계약금액·변경계약</b> — 승인된 변경계약만 확정 계약금액에 넣습니다. 미승인 변경은 따로 표시합니다.</li>
 <li><b>실행예산</b> — 자재·노무·외주·장비·경비·예비비 버전 관리. 공무가 편성하고 경영자가 승인합니다.</li>
-<li><b>발생원가</b> — 확정된 원가만 누적합니다. 검토·확정 대기 원가는 따로 보여 주고 합계에 넣지 않습니다.</li>
+<li><b>발생원가</b> — 확정된 원가만 누적합니다. 검토·확정 대기 원가는 따로 보여 주고 합계에 넣지 않습니다. 반품·단가 협상 같은 감액은 사유와 함께 감액 원가로 기록해 예상 준공원가에 반영합니다.</li>
 <li><b>잔여 예상원가</b> — 공종별 잔여 작업과 산정 근거를 함께 기록합니다.</li>
 <li><b>예상 준공원가(EAC)</b> = 누적 확정원가 + 확정 미지급 + 잔여 예상원가.</li></ul></div>
 <div class="frame"><span class="lab">기능 화면</span><img class="shot" src="/assets/estima/estima-ax-dev-contract-budget-r8.webp" alt="공사 기본정보·계약·변경계약·실행예산 화면" width="1440" height="950" loading="lazy"><p class="cap">공무 담당자의 계약·예산 화면.</p></div>
