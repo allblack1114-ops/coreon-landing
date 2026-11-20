@@ -1,22 +1,7 @@
 name: v28.12 Homepage Final Convergence
 
+# 2026-11-20: 회사 허브 개편(PR #151) 이후 push 자동 재작성 중지, 수동 실행만 허용
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'index.html'
-      - 'en/index.html'
-      - 'download.html'
-      - 'en/download.html'
-      - 'assets/product-assistant.js'
-      - 'assets/release-download-gate.js'
-      - 'assets/v27-72-product-guide.js'
-      - 'assets/v27-72-growth-banner.js'
-      - 'assets/v27-73-governance.js'
-      - 'assets/v27-80-industry-autodesk-ratio.js'
-      - 'assets/v28-5-proof-grade-operational-intelligence.js'
-      - 'tests/homepage-installed-boundary-v2812.test.js'
-      - '.github/workflows/v2812-homepage-final-convergence.yml'
   workflow_dispatch:
 
 permissions:
