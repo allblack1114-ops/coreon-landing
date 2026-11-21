@@ -13,7 +13,7 @@ for(const id of ['data-location','ai-notice','retention','not-yet']){assert.ok(t
 assert.ok(tk.includes('HL D&amp;I Halla')&&te.includes('HL D&I Halla'),'trust KO/EN public record parity');
 assert.ok(tk.includes('제31조'),'AI Basic Act notice');
 assert.ok(fs.readFileSync('index.html','utf8').includes('안전장비 등록특허 4건'),'hero patent badge scope');
-assert.ok(fs.readFileSync('en/index.html','utf8').includes('4 Safety-Hardware Patents'),'en hero patent badge scope');
+assert.ok(fs.readFileSync('en/safety-ax/index.html','utf8').includes('4 Safety-Hardware Patents'),'en hero patent badge scope');
 for(const f of ['serious-accident-compliance.html','en/serious-accident-compliance.html']) assert.ok(fs.readFileSync(f,'utf8').includes('id="criteria"'),`${f} criteria`);
 assert.ok(fs.readFileSync('sitemap.xml','utf8').includes('https://www.coreon-global.com/trust.html</loc>'),'sitemap trust.html');
 console.log('PASS P0 privacy/trust contract 20261003');
