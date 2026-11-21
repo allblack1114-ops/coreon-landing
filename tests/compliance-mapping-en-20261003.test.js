@@ -3,7 +3,7 @@ const assert=require('assert');
 const fs=require('fs');
 const ko=fs.readFileSync('serious-accident-compliance.html','utf8');
 const en=fs.readFileSync('en/serious-accident-compliance.html','utf8');
-const home=fs.readFileSync('en/index.html','utf8');
+const home=fs.readFileSync('en/safety-ax/index.html','utf8');
 const sitemap=fs.readFileSync('sitemap.xml','utf8');
 const cnt=(h,s)=>(h.match(new RegExp(`data-status="${s}"`,'g'))||[]).length;
 for(const s of ['op','pa','cu']) assert.strictEqual(cnt(en,s),cnt(ko,s),`KO/EN status parity: ${s}`);
