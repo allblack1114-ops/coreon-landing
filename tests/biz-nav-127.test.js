@@ -112,4 +112,17 @@ t('inquiry fallback for customers without an email app; customer-facing wording'
   assert(rd('index.html').includes('코레온이 하는 일') && rd('index.html').includes('찾으시는 제품이나 서비스가 있으신가요?'));
 });
 
+t('official Kakao and YouTube channels: verified addresses only, open in new tab', () => {
+  const K = 'https://pf.kakao.com/_DCnxfX', Y = 'https://www.youtube.com/channel/UC14cNLdM5qc009Hj7Zd4kbw';
+  for (const f of ['index.html', 'company.html', 'business-inquiry.html', 'en/index.html', 'en/business-inquiry.html']) {
+    const s = rd(f);
+    assert(s.includes(Y), f + ' youtube');
+    for (const m of s.matchAll(/<a [^>]*href="(https?:\/\/[^"]*(kakao|youtube)[^"]*)"[^>]*>/g)) {
+      assert(m[1].startsWith(K) || m[1] === Y, f + ' unknown channel url ' + m[1]);
+      assert(m[0].includes('target="_blank"') && m[0].includes('rel="noopener"'), f + ' new tab ' + m[1]);
+    }
+  }
+  for (const f of ['index.html', 'company.html', 'business-inquiry.html']) assert(rd(f).includes(K + '/chat'), f + ' kakao');
+});
+
 console.log(pass + ' checks passed');
