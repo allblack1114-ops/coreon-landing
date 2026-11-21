@@ -18,7 +18,7 @@ t('hub pages carry the shared nav with published areas only', () => {
   for (const f of HUB_KO) {
     const n = nav(rd(f));
     assert(n, f + ' nav missing');
-    for (const k of ['>제품<', '>서비스<', '>회사<', 'COREON Safety AX', 'COREON ESTIMA AX', '견적·적산 실무 지원', '회사소개', '기술·특허', '사업·제휴 문의'])
+    for (const k of ['>제품<', '>서비스<', '>회사<', 'COREON Safety AX', 'COREON ESTIMA AX', '견적·적산 실무 지원', '회사소개', '기술·특허', '문의·제안하기'])
       assert(n.includes(k), f + ' nav lacks ' + k);
     for (const k of ['>공급<', '>파트너<', 'E&amp;I 기술용역', 'supply.html', 'partners.html', 'engineering-services.html'])
       assert(!n.includes(k), f + ' exposes unpublished ' + k);
@@ -98,6 +98,18 @@ t('internal absolute links on hub and changed pages resolve to files', () => {
     }
   }
   assert.deepStrictEqual(bad, []);
+});
+
+t('inquiry fallback for customers without an email app; customer-facing wording', () => {
+  for (const f of ['business-inquiry.html', 'en/business-inquiry.html']) {
+    const s = rd(f);
+    assert(s.includes('id="fb" hidden') && s.includes('id="fbText"') && s.includes('data-copy-addr') && /href="tel:/.test(s), f + ' fallback');
+  }
+  for (const f of [...HUB_KO, ...HUB_EN, 'en/safety-ax/index.html']) {
+    const s = rd(f);
+    for (const k of ['사업·제휴', 'Business inquiry', '>사업영역<']) assert(!s.includes(k), f + ' still shows ' + k);
+  }
+  assert(rd('index.html').includes('코레온이 하는 일') && rd('index.html').includes('찾으시는 제품이나 서비스가 있으신가요?'));
 });
 
 console.log(pass + ' checks passed');
